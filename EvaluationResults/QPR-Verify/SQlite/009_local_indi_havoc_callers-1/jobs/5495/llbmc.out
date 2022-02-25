@@ -1,0 +1,95 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 5495 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 2
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/5495
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : renameUnmapSelectCb
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "renameUnmapSelectCb" for 1 iterations succeeded.
+      Unrolling loop in function "renameUnmapSelectCb" for 1 iterations succeeded.
+      Transformed "renameUnmapSelectCb" from 23 to 25 basic blocks and from 120 to 128 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...
+        Unrolling loop in function "sqlite3RenameTokenRemap" for 1 iterations succeeded.
+        Transformed "sqlite3RenameTokenRemap" from 7 to 9 basic blocks and from 28 to 33 instructionsCurrent: sqlite3WalkExpr Havoced: walkExpr
+
+        Unrolling loop in function "unmapColumnIdlistNames" for 1 iterations succeeded.
+        Transformed "unmapColumnIdlistNames" from 7 to 8 basic blocks and from 29 to 33 instructionsCurrent: unmapColumnIdlistNames Havoced: sqlite3RenameTokenRemap
+
+        Unrolling loop in function "renameWalkWith" for 1 iterations succeeded.
+        Transformed "renameWalkWith" from 14 to 15 basic blocks and from 93 to 97 instructionsCurrent: renameWalkWith Havoced: sqlite3WithDup
+Current: renameWalkWith Havoced: sqlite3WithPush
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %30, i8 0, i64 56, i32 8, i1 false), !dbg !5778
+Current: renameWalkWith Havoced: sqlite3SelectPrep
+Current: renameWalkWith Havoced: sqlite3WalkSelect
+Current: renameWalkWith Havoced: sqlite3RenameExprlistUnmap
+
+                                                           0 sec [DONE]
+        Number of expressions:                        155670
+        after encoding
+
+      7 assertions before transformations (6 no_back_edge, 1 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            3751
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72628
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               1
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                              16
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             199
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      7 assertions remain after transformations (6 no_back_edge, 1 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...

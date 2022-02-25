@@ -1,0 +1,45 @@
+<VerificationJob>
+  <Configuration>
+    <AnalyzeChecksIndividually value="true" />
+    <BitcodeTraces value="false" />
+    <CheckOnlyPrecondition value="true" />
+    <DumpVerifierBitcodeFiles value="false" />
+    <EnableSlicing value="true" />
+    <EntryPoint value="multiSelectOrderBy" />
+    <FixPoint value="true" />
+    <ForkJobs value="true" />
+    <Hosted value="true" />
+    <IgnoreMissingFunctions value="false" />
+    <InitializedGlobals value="false" />
+    <LoopUnrollBound value="1" />
+    <PreconditionLocation value="jobs/2032" />
+    <PreconditionNumber value="5" />
+    <SourceDirectory value="/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld" />
+    <StopEncodingAfterCheck value="true" />
+    <StopEncodingAfterCheckLoop value="1" />
+    <TimeOut value="600" />
+    <XMLTraces value="false" />
+  </Configuration>
+  <CheckList>
+    <Check id="6748" location="7284" category="implicit.conversion.overflow" status="internalerror" scope="sqlite3LogEstAdd">
+      <Annotations>
+        <Annotation>An implicit conversion operation can overflow.</Annotation>
+        <Annotation>llvm::Value used which was not previously encoded!
+  %191 = call i32 @whereLoopInsert(%struct.WhereLoopBuilder.317* %arg0, %struct.WhereLoop.306* %4), !dbg !5901 (job:2032)</Annotation>
+        <Annotation>Unable to open precondition file!
+ (job:2032)</Annotation>
+      </Annotations>
+      <EntryStatus>
+        <SingleEntryStatus>multiSelect, unknown</SingleEntryStatus>
+        <SingleEntryStatus>multiSelectOrderBy, internalerror</SingleEntryStatus>
+        <SingleEntryStatus>whereLoopAddBtree, unknown</SingleEntryStatus>
+        <SingleEntryStatus>whereLoopAddBtreeIndex, unknown</SingleEntryStatus>
+        <SingleEntryStatus>whereLoopAddOr, unknown</SingleEntryStatus>
+        <SingleEntryStatus>wherePathSolver, unsafe</SingleEntryStatus>
+      </EntryStatus>
+    </Check>
+  </CheckList>
+  <Annotation>Unable to open precondition file!
+</Annotation>
+  <Status>internalerror</Status>
+</VerificationJob>

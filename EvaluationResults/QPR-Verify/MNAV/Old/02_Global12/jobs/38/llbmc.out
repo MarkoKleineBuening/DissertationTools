@@ -1,0 +1,174 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+handleJobInSeparateProcess0
+
+Checking job 38 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 12
+    HavocLimit : 0
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/38
+    TimeOut : 300
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : main
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "main" for 12 iterations succeeded.
+      Unrolling loop in function "main" for 12 iterations succeeded.
+      Unrolling loop in function "main" for 12 iterations succeeded.getMatchingFunctions
+res.push_back: sched_get_priority_max
+res.push_back: close
+res.push_back: abs
+getMatchingFunctions
+getMatchingFunctions
+getMatchingFunctions
+getMatchingFunctions
+getMatchingFunctions
+getMatchingFunctions
+getMatchingFunctions
+getMatchingFunctions
+getMatchingFunctions
+getMatchingFunctions
+getMatchingFunctions
+getMatchingFunctions
+getMatchingFunctions
+
+      Transformed "main" from 49 to 510 basic blocks and from 322 to 2306 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...
+        Unrolling loop in function "llbmc.strcmp" for 0 iterations succeeded.
+        Transformed "llbmc.strcmp" from 4 to 3 basic blocks and from 14 to 16 instructionsisMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %1022, i8* %1023, i64 16, i32 8, i1 false), !dbg !1705
+getMatchingFunctions
+res.push_back: printf
+
+        Transformed "open_client" from 4 to 8 basic blocks and from 31 to 38 instructionsisMemset:   call void @llvm.memset.p0i8.i64(i8* bitcast (%struct.sockaddr_in* @serv_addr to i8*), i8 0, i64 16, i32 4, i1 false), !dbg !1375
+isMemset:   call void @llvm.memset.p0i8.i64(i8* bitcast (%struct.sockaddr_in* @serv_addr to i8*), i8 0, i64 16, i32 4, i1 false), !dbg !1375
+
+        Unrolling loop in function "send_client" for 12 iterations succeeded.
+        Transformed "send_client" from 8 to 29 basic blocks and from 85 to 319 instructionsisMemset:   call void @llvm.memset.p0i8.i64(i8* %1, i8 0, i64 200, i32 16, i1 false), !dbg !1381
+isMemset:   call void @llvm.memset.p0i8.i64(i8* bitcast (%struct.sockaddr_in* @serv_addr to i8*), i8 0, i64 16, i32 4, i1 false), !dbg !1375
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %1, i8 0, i64 200, i32 16, i1 false), !dbg !1381
+isMemset:   call void @llvm.memset.p0i8.i64(i8* bitcast (%struct.sockaddr_in* @serv_addr to i8*), i8 0, i64 16, i32 4, i1 false), !dbg !1375
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %1, i8 0, i64 200, i32 16, i1 false), !dbg !1381
+isMemset:   call void @llvm.memset.p0i8.i64(i8* bitcast (%struct.sockaddr_in* @serv_addr to i8*), i8 0, i64 16, i32 4, i1 false), !dbg !1375
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %1, i8 0, i64 200, i32 16, i1 false), !dbg !1381
+isMemset:   call void @llvm.memset.p0i8.i64(i8* bitcast (%struct.sockaddr_in* @serv_addr to i8*), i8 0, i64 16, i32 4, i1 false), !dbg !1375
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %1, i8 0, i64 200, i32 16, i1 false), !dbg !1381
+isMemset:   call void @llvm.memset.p0i8.i64(i8* bitcast (%struct.sockaddr_in* @serv_addr to i8*), i8 0, i64 16, i32 4, i1 false), !dbg !1375
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %1, i8 0, i64 200, i32 16, i1 false), !dbg !1381
+isMemset:   call void @llvm.memset.p0i8.i64(i8* bitcast (%struct.sockaddr_in* @serv_addr to i8*), i8 0, i64 16, i32 4, i1 false), !dbg !1375
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %1, i8 0, i64 200, i32 16, i1 false), !dbg !1381
+isMemset:   call void @llvm.memset.p0i8.i64(i8* bitcast (%struct.sockaddr_in* @serv_addr to i8*), i8 0, i64 16, i32 4, i1 false), !dbg !1375
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %1, i8 0, i64 200, i32 16, i1 false), !dbg !1381
+isMemset:   call void @llvm.memset.p0i8.i64(i8* bitcast (%struct.sockaddr_in* @serv_addr to i8*), i8 0, i64 16, i32 4, i1 false), !dbg !1375
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %1, i8 0, i64 200, i32 16, i1 false), !dbg !1381
+isMemset:   call void @llvm.memset.p0i8.i64(i8* bitcast (%struct.sockaddr_in* @serv_addr to i8*), i8 0, i64 16, i32 4, i1 false), !dbg !1375
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %1, i8 0, i64 200, i32 16, i1 false), !dbg !1381
+isMemset:   call void @llvm.memset.p0i8.i64(i8* bitcast (%struct.sockaddr_in* @serv_addr to i8*), i8 0, i64 16, i32 4, i1 false), !dbg !1375
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %1, i8 0, i64 200, i32 16, i1 false), !dbg !1381
+isMemset:   call void @llvm.memset.p0i8.i64(i8* bitcast (%struct.sockaddr_in* @serv_addr to i8*), i8 0, i64 16, i32 4, i1 false), !dbg !1375
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %1, i8 0, i64 200, i32 16, i1 false), !dbg !1381
+isMemset:   call void @llvm.memset.p0i8.i64(i8* bitcast (%struct.sockaddr_in* @serv_addr to i8*), i8 0, i64 16, i32 4, i1 false), !dbg !1375
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %1, i8 0, i64 200, i32 16, i1 false), !dbg !1381
+
+                                                           0 sec [DONE]
+        Number of expressions:                         24188
+        after encoding
+
+      571 assertions before transformations (410 no_function_call, 148 no_back_edge, 13 no_unreachable_executed).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                           13861
+        Fixed Memory Address Assigner
+          Number of moved ops                             28
+          Number of rewrites                             364
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                            8473
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                              23
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                          515343
+        Simplifier
+          Number of moved ops                              1
+          Number of rewrites                         1424878
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                             118
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           1 sec [DONE]
+        
+      571 assertions remain after transformations (410 no_function_call, 148 no_back_edge, 13 no_unreachable_executed).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...            0 sec [DONE]
+        
+                                                           1 sec [DONE]
+      after performing Check
+evaluateCheckerResultsViaRefinementLoop
+checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      getCheckerResultAfterUpdatingMarker
+Result is NoTrace
+
+                                                           1 sec [DONE]
+    allsafe
+    
+                                                           1 sec [DONE]
+  

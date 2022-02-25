@@ -1,0 +1,698 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 4592 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 2
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/4592
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : display_stats
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "display_stats" for 1 iterations succeeded.
+      Transformed "display_stats" from 24 to 25 basic blocks and from 257 to 260 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...Current: sqlite3_snprintf Havoced: sqlite3_vsnprintf
+Current: sqlite3_column_name Havoced: columnName
+Current: sqlite3_snprintf Havoced: sqlite3_vsnprintf
+Current: sqlite3_column_decltype Havoced: columnName
+
+        Unrolling loop in function "displayStatLine" for 1 iterations succeeded.
+        Transformed "displayStatLine" from 10 to 11 basic blocks and from 73 to 80 instructionsCurrent: displayStatLine Havoced: sqlite3_status64
+Current: displayStatLine Havoced: sqlite3_snprintf
+Current: displayStatLine Havoced: sqlite3_snprintf
+Current: displayStatLine Havoced: sqlite3_status64
+Current: displayStatLine Havoced: sqlite3_snprintf
+Current: displayStatLine Havoced: sqlite3_snprintf
+Current: displayStatLine Havoced: sqlite3_status64
+Current: displayStatLine Havoced: sqlite3_snprintf
+Current: displayStatLine Havoced: sqlite3_snprintf
+Current: displayStatLine Havoced: sqlite3_status64
+Current: displayStatLine Havoced: sqlite3_snprintf
+Current: displayStatLine Havoced: sqlite3_snprintf
+Current: displayStatLine Havoced: sqlite3_status64
+Current: displayStatLine Havoced: sqlite3_snprintf
+Current: displayStatLine Havoced: sqlite3_snprintf
+Current: displayStatLine Havoced: sqlite3_status64
+Current: displayStatLine Havoced: sqlite3_snprintf
+Current: displayStatLine Havoced: sqlite3_snprintf
+
+        Unrolling loop in function "sqlite3_db_status" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3_db_status" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3_db_status" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3_db_status" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3_db_status" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3_db_status" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3_db_status" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3_db_status" for 1 iterations succeeded.getMatchingFunctions
+res.push_back: isatty
+res.push_back: raise
+res.push_back: memtraceRoundup
+res.push_back: re_word_char
+res.push_back: re_digit_char
+res.push_back: re_space_char
+res.push_back: llbmc.tolower
+res.push_back: sqlite3MisuseError
+res.push_back: sqlite3_release_memory
+res.push_back: close
+res.push_back: sqlite3CantopenError
+res.push_back: fsync
+res.push_back: sleep
+res.push_back: sqlite3MemRoundup
+res.push_back: sqlite3_enable_shared_cache
+res.push_back: sqlite3_sleep
+res.push_back: sqlite3CorruptError
+res.push_back: walFramePage
+res.push_back: sqlite3FaultSim
+res.push_back: walHash
+res.push_back: walNextHash
+res.push_back: isFatalError
+res.push_back: sqlite3AbsInt32
+res.push_back: allowedOp
+res.push_back: sqlite3VdbeSerialTypeLen
+res.push_back: sqlite3ParserFallback
+res.push_back: vdbeSorterTreeDepth
+
+        Transformed "sqlite3_db_status" from 59 to 134 basic blocks and from 418 to 588 instructionsCurrent: sqlite3_db_status Havoced: sqlite3_mutex_enter
+Current: sqlite3_db_status Havoced: sqlite3BtreePager
+Current: sqlite3_db_status Havoced: sqlite3PagerCacheStat
+Current: sqlite3_db_status Havoced: sqlite3VdbeClearObject
+Current: sqlite3_db_status Havoced: sqlite3DbFree
+Current: sqlite3_db_status Havoced: sqlite3BtreeEnterAll
+Current: sqlite3_db_status Havoced: vdbeSorterTreeDepth
+Current: sqlite3_db_status Havoced: sqlite3ParserFallback
+Current: sqlite3_db_status Havoced: sqlite3VdbeSerialTypeLen
+Current: sqlite3_db_status Havoced: allowedOp
+Current: sqlite3_db_status Havoced: sqlite3AbsInt32
+Current: sqlite3_db_status Havoced: isFatalError
+Current: sqlite3_db_status Havoced: walNextHash
+Current: sqlite3_db_status Havoced: walHash
+Current: sqlite3_db_status Havoced: sqlite3FaultSim
+Current: sqlite3_db_status Havoced: walFramePage
+Current: sqlite3_db_status Havoced: sqlite3CorruptError
+Current: sqlite3_db_status Havoced: sqlite3_sleep
+Current: sqlite3_db_status Havoced: sqlite3_enable_shared_cache
+Current: sqlite3_db_status Havoced: sqlite3MemRoundup
+Current: sqlite3_db_status Havoced: sqlite3CantopenError
+Current: sqlite3_db_status Havoced: sqlite3_release_memory
+Current: sqlite3_db_status Havoced: sqlite3MisuseError
+Current: sqlite3_db_status Havoced: re_space_char
+Current: sqlite3_db_status Havoced: re_digit_char
+Current: sqlite3_db_status Havoced: re_word_char
+Current: sqlite3_db_status Havoced: memtraceRoundup
+Current: sqlite3_db_status Havoced: sqlite3_msize
+Current: sqlite3_db_status Havoced: sqlite3_msize
+Current: sqlite3_db_status Havoced: sqlite3_msize
+Current: sqlite3_db_status Havoced: sqlite3_msize
+Current: sqlite3_db_status Havoced: sqlite3DeleteTrigger
+Current: sqlite3_db_status Havoced: sqlite3DeleteTable
+Current: sqlite3_db_status Havoced: sqlite3BtreeLeaveAll
+Current: sqlite3_db_status Havoced: sqlite3BtreeEnterAll
+Current: sqlite3_db_status Havoced: sqlite3BtreePager
+Current: sqlite3_db_status Havoced: sqlite3PagerMemUsed
+Current: sqlite3_db_status Havoced: sqlite3BtreeConnectionCount
+Current: sqlite3_db_status Havoced: sqlite3BtreeLeaveAll
+Current: sqlite3_db_status Havoced: sqlite3LookasideUsed
+Current: sqlite3_db_status Havoced: sqlite3_mutex_leave
+Current: sqlite3_db_status Havoced: sqlite3_mutex_enter
+Current: sqlite3_db_status Havoced: sqlite3BtreePager
+Current: sqlite3_db_status Havoced: sqlite3PagerCacheStat
+Current: sqlite3_db_status Havoced: sqlite3VdbeClearObject
+Current: sqlite3_db_status Havoced: sqlite3DbFree
+Current: sqlite3_db_status Havoced: sqlite3BtreeEnterAll
+Current: sqlite3_db_status Havoced: vdbeSorterTreeDepth
+Current: sqlite3_db_status Havoced: sqlite3ParserFallback
+Current: sqlite3_db_status Havoced: sqlite3VdbeSerialTypeLen
+Current: sqlite3_db_status Havoced: allowedOp
+Current: sqlite3_db_status Havoced: sqlite3AbsInt32
+Current: sqlite3_db_status Havoced: isFatalError
+Current: sqlite3_db_status Havoced: walNextHash
+Current: sqlite3_db_status Havoced: walHash
+Current: sqlite3_db_status Havoced: sqlite3FaultSim
+Current: sqlite3_db_status Havoced: walFramePage
+Current: sqlite3_db_status Havoced: sqlite3CorruptError
+Current: sqlite3_db_status Havoced: sqlite3_sleep
+Current: sqlite3_db_status Havoced: sqlite3_enable_shared_cache
+Current: sqlite3_db_status Havoced: sqlite3MemRoundup
+Current: sqlite3_db_status Havoced: sqlite3CantopenError
+Current: sqlite3_db_status Havoced: sqlite3_release_memory
+Current: sqlite3_db_status Havoced: sqlite3MisuseError
+Current: sqlite3_db_status Havoced: re_space_char
+Current: sqlite3_db_status Havoced: re_digit_char
+Current: sqlite3_db_status Havoced: re_word_char
+Current: sqlite3_db_status Havoced: memtraceRoundup
+Current: sqlite3_db_status Havoced: sqlite3_msize
+Current: sqlite3_db_status Havoced: sqlite3_msize
+Current: sqlite3_db_status Havoced: sqlite3_msize
+Current: sqlite3_db_status Havoced: sqlite3_msize
+Current: sqlite3_db_status Havoced: sqlite3DeleteTrigger
+Current: sqlite3_db_status Havoced: sqlite3DeleteTable
+Current: sqlite3_db_status Havoced: sqlite3BtreeLeaveAll
+Current: sqlite3_db_status Havoced: sqlite3BtreeEnterAll
+Current: sqlite3_db_status Havoced: sqlite3BtreePager
+Current: sqlite3_db_status Havoced: sqlite3PagerMemUsed
+Current: sqlite3_db_status Havoced: sqlite3BtreeConnectionCount
+Current: sqlite3_db_status Havoced: sqlite3BtreeLeaveAll
+Current: sqlite3_db_status Havoced: sqlite3LookasideUsed
+Current: sqlite3_db_status Havoced: sqlite3_mutex_leave
+Current: sqlite3_db_status Havoced: sqlite3_mutex_enter
+Current: sqlite3_db_status Havoced: sqlite3BtreePager
+Current: sqlite3_db_status Havoced: sqlite3PagerCacheStat
+Current: sqlite3_db_status Havoced: sqlite3VdbeClearObject
+Current: sqlite3_db_status Havoced: sqlite3DbFree
+Current: sqlite3_db_status Havoced: sqlite3BtreeEnterAll
+Current: sqlite3_db_status Havoced: vdbeSorterTreeDepth
+Current: sqlite3_db_status Havoced: sqlite3ParserFallback
+Current: sqlite3_db_status Havoced: sqlite3VdbeSerialTypeLen
+Current: sqlite3_db_status Havoced: allowedOp
+Current: sqlite3_db_status Havoced: sqlite3AbsInt32
+Current: sqlite3_db_status Havoced: isFatalError
+Current: sqlite3_db_status Havoced: walNextHash
+Current: sqlite3_db_status Havoced: walHash
+Current: sqlite3_db_status Havoced: sqlite3FaultSim
+Current: sqlite3_db_status Havoced: walFramePage
+Current: sqlite3_db_status Havoced: sqlite3CorruptError
+Current: sqlite3_db_status Havoced: sqlite3_sleep
+Current: sqlite3_db_status Havoced: sqlite3_enable_shared_cache
+Current: sqlite3_db_status Havoced: sqlite3MemRoundup
+Current: sqlite3_db_status Havoced: sqlite3CantopenError
+Current: sqlite3_db_status Havoced: sqlite3_release_memory
+Current: sqlite3_db_status Havoced: sqlite3MisuseError
+Current: sqlite3_db_status Havoced: re_space_char
+Current: sqlite3_db_status Havoced: re_digit_char
+Current: sqlite3_db_status Havoced: re_word_char
+Current: sqlite3_db_status Havoced: memtraceRoundup
+Current: sqlite3_db_status Havoced: sqlite3_msize
+Current: sqlite3_db_status Havoced: sqlite3_msize
+Current: sqlite3_db_status Havoced: sqlite3_msize
+Current: sqlite3_db_status Havoced: sqlite3_msize
+Current: sqlite3_db_status Havoced: sqlite3DeleteTrigger
+Current: sqlite3_db_status Havoced: sqlite3DeleteTable
+Current: sqlite3_db_status Havoced: sqlite3BtreeLeaveAll
+Current: sqlite3_db_status Havoced: sqlite3BtreeEnterAll
+Current: sqlite3_db_status Havoced: sqlite3BtreePager
+Current: sqlite3_db_status Havoced: sqlite3PagerMemUsed
+Current: sqlite3_db_status Havoced: sqlite3BtreeConnectionCount
+Current: sqlite3_db_status Havoced: sqlite3BtreeLeaveAll
+Current: sqlite3_db_status Havoced: sqlite3LookasideUsed
+Current: sqlite3_db_status Havoced: sqlite3_mutex_leave
+Current: sqlite3_db_status Havoced: sqlite3_mutex_enter
+Current: sqlite3_db_status Havoced: sqlite3BtreePager
+Current: sqlite3_db_status Havoced: sqlite3PagerCacheStat
+Current: sqlite3_db_status Havoced: sqlite3VdbeClearObject
+Current: sqlite3_db_status Havoced: sqlite3DbFree
+Current: sqlite3_db_status Havoced: sqlite3BtreeEnterAll
+Current: sqlite3_db_status Havoced: vdbeSorterTreeDepth
+Current: sqlite3_db_status Havoced: sqlite3ParserFallback
+Current: sqlite3_db_status Havoced: sqlite3VdbeSerialTypeLen
+Current: sqlite3_db_status Havoced: allowedOp
+Current: sqlite3_db_status Havoced: sqlite3AbsInt32
+Current: sqlite3_db_status Havoced: isFatalError
+Current: sqlite3_db_status Havoced: walNextHash
+Current: sqlite3_db_status Havoced: walHash
+Current: sqlite3_db_status Havoced: sqlite3FaultSim
+Current: sqlite3_db_status Havoced: walFramePage
+Current: sqlite3_db_status Havoced: sqlite3CorruptError
+Current: sqlite3_db_status Havoced: sqlite3_sleep
+Current: sqlite3_db_status Havoced: sqlite3_enable_shared_cache
+Current: sqlite3_db_status Havoced: sqlite3MemRoundup
+Current: sqlite3_db_status Havoced: sqlite3CantopenError
+Current: sqlite3_db_status Havoced: sqlite3_release_memory
+Current: sqlite3_db_status Havoced: sqlite3MisuseError
+Current: sqlite3_db_status Havoced: re_space_char
+Current: sqlite3_db_status Havoced: re_digit_char
+Current: sqlite3_db_status Havoced: re_word_char
+Current: sqlite3_db_status Havoced: memtraceRoundup
+Current: sqlite3_db_status Havoced: sqlite3_msize
+Current: sqlite3_db_status Havoced: sqlite3_msize
+Current: sqlite3_db_status Havoced: sqlite3_msize
+Current: sqlite3_db_status Havoced: sqlite3_msize
+Current: sqlite3_db_status Havoced: sqlite3DeleteTrigger
+Current: sqlite3_db_status Havoced: sqlite3DeleteTable
+Current: sqlite3_db_status Havoced: sqlite3BtreeLeaveAll
+Current: sqlite3_db_status Havoced: sqlite3BtreeEnterAll
+Current: sqlite3_db_status Havoced: sqlite3BtreePager
+Current: sqlite3_db_status Havoced: sqlite3PagerMemUsed
+Current: sqlite3_db_status Havoced: sqlite3BtreeConnectionCount
+Current: sqlite3_db_status Havoced: sqlite3BtreeLeaveAll
+Current: sqlite3_db_status Havoced: sqlite3LookasideUsed
+Current: sqlite3_db_status Havoced: sqlite3_mutex_leave
+Current: sqlite3_db_status Havoced: sqlite3_mutex_enter
+Current: sqlite3_db_status Havoced: sqlite3BtreePager
+Current: sqlite3_db_status Havoced: sqlite3PagerCacheStat
+Current: sqlite3_db_status Havoced: sqlite3VdbeClearObject
+Current: sqlite3_db_status Havoced: sqlite3DbFree
+Current: sqlite3_db_status Havoced: sqlite3BtreeEnterAll
+Current: sqlite3_db_status Havoced: vdbeSorterTreeDepth
+Current: sqlite3_db_status Havoced: sqlite3ParserFallback
+Current: sqlite3_db_status Havoced: sqlite3VdbeSerialTypeLen
+Current: sqlite3_db_status Havoced: allowedOp
+Current: sqlite3_db_status Havoced: sqlite3AbsInt32
+Current: sqlite3_db_status Havoced: isFatalError
+Current: sqlite3_db_status Havoced: walNextHash
+Current: sqlite3_db_status Havoced: walHash
+Current: sqlite3_db_status Havoced: sqlite3FaultSim
+Current: sqlite3_db_status Havoced: walFramePage
+Current: sqlite3_db_status Havoced: sqlite3CorruptError
+Current: sqlite3_db_status Havoced: sqlite3_sleep
+Current: sqlite3_db_status Havoced: sqlite3_enable_shared_cache
+Current: sqlite3_db_status Havoced: sqlite3MemRoundup
+Current: sqlite3_db_status Havoced: sqlite3CantopenError
+Current: sqlite3_db_status Havoced: sqlite3_release_memory
+Current: sqlite3_db_status Havoced: sqlite3MisuseError
+Current: sqlite3_db_status Havoced: re_space_char
+Current: sqlite3_db_status Havoced: re_digit_char
+Current: sqlite3_db_status Havoced: re_word_char
+Current: sqlite3_db_status Havoced: memtraceRoundup
+Current: sqlite3_db_status Havoced: sqlite3_msize
+Current: sqlite3_db_status Havoced: sqlite3_msize
+Current: sqlite3_db_status Havoced: sqlite3_msize
+Current: sqlite3_db_status Havoced: sqlite3_msize
+Current: sqlite3_db_status Havoced: sqlite3DeleteTrigger
+Current: sqlite3_db_status Havoced: sqlite3DeleteTable
+Current: sqlite3_db_status Havoced: sqlite3BtreeLeaveAll
+Current: sqlite3_db_status Havoced: sqlite3BtreeEnterAll
+Current: sqlite3_db_status Havoced: sqlite3BtreePager
+Current: sqlite3_db_status Havoced: sqlite3PagerMemUsed
+Current: sqlite3_db_status Havoced: sqlite3BtreeConnectionCount
+Current: sqlite3_db_status Havoced: sqlite3BtreeLeaveAll
+Current: sqlite3_db_status Havoced: sqlite3LookasideUsed
+Current: sqlite3_db_status Havoced: sqlite3_mutex_leave
+Current: sqlite3_db_status Havoced: sqlite3_mutex_enter
+Current: sqlite3_db_status Havoced: sqlite3BtreePager
+Current: sqlite3_db_status Havoced: sqlite3PagerCacheStat
+Current: sqlite3_db_status Havoced: sqlite3VdbeClearObject
+Current: sqlite3_db_status Havoced: sqlite3DbFree
+Current: sqlite3_db_status Havoced: sqlite3BtreeEnterAll
+Current: sqlite3_db_status Havoced: vdbeSorterTreeDepth
+Current: sqlite3_db_status Havoced: sqlite3ParserFallback
+Current: sqlite3_db_status Havoced: sqlite3VdbeSerialTypeLen
+Current: sqlite3_db_status Havoced: allowedOp
+Current: sqlite3_db_status Havoced: sqlite3AbsInt32
+Current: sqlite3_db_status Havoced: isFatalError
+Current: sqlite3_db_status Havoced: walNextHash
+Current: sqlite3_db_status Havoced: walHash
+Current: sqlite3_db_status Havoced: sqlite3FaultSim
+Current: sqlite3_db_status Havoced: walFramePage
+Current: sqlite3_db_status Havoced: sqlite3CorruptError
+Current: sqlite3_db_status Havoced: sqlite3_sleep
+Current: sqlite3_db_status Havoced: sqlite3_enable_shared_cache
+Current: sqlite3_db_status Havoced: sqlite3MemRoundup
+Current: sqlite3_db_status Havoced: sqlite3CantopenError
+Current: sqlite3_db_status Havoced: sqlite3_release_memory
+Current: sqlite3_db_status Havoced: sqlite3MisuseError
+Current: sqlite3_db_status Havoced: re_space_char
+Current: sqlite3_db_status Havoced: re_digit_char
+Current: sqlite3_db_status Havoced: re_word_char
+Current: sqlite3_db_status Havoced: memtraceRoundup
+Current: sqlite3_db_status Havoced: sqlite3_msize
+Current: sqlite3_db_status Havoced: sqlite3_msize
+Current: sqlite3_db_status Havoced: sqlite3_msize
+Current: sqlite3_db_status Havoced: sqlite3_msize
+Current: sqlite3_db_status Havoced: sqlite3DeleteTrigger
+Current: sqlite3_db_status Havoced: sqlite3DeleteTable
+Current: sqlite3_db_status Havoced: sqlite3BtreeLeaveAll
+Current: sqlite3_db_status Havoced: sqlite3BtreeEnterAll
+Current: sqlite3_db_status Havoced: sqlite3BtreePager
+Current: sqlite3_db_status Havoced: sqlite3PagerMemUsed
+Current: sqlite3_db_status Havoced: sqlite3BtreeConnectionCount
+Current: sqlite3_db_status Havoced: sqlite3BtreeLeaveAll
+Current: sqlite3_db_status Havoced: sqlite3LookasideUsed
+Current: sqlite3_db_status Havoced: sqlite3_mutex_leave
+Current: sqlite3_db_status Havoced: sqlite3_mutex_enter
+Current: sqlite3_db_status Havoced: sqlite3BtreePager
+Current: sqlite3_db_status Havoced: sqlite3PagerCacheStat
+Current: sqlite3_db_status Havoced: sqlite3VdbeClearObject
+Current: sqlite3_db_status Havoced: sqlite3DbFree
+Current: sqlite3_db_status Havoced: sqlite3BtreeEnterAll
+Current: sqlite3_db_status Havoced: vdbeSorterTreeDepth
+Current: sqlite3_db_status Havoced: sqlite3ParserFallback
+Current: sqlite3_db_status Havoced: sqlite3VdbeSerialTypeLen
+Current: sqlite3_db_status Havoced: allowedOp
+Current: sqlite3_db_status Havoced: sqlite3AbsInt32
+Current: sqlite3_db_status Havoced: isFatalError
+Current: sqlite3_db_status Havoced: walNextHash
+Current: sqlite3_db_status Havoced: walHash
+Current: sqlite3_db_status Havoced: sqlite3FaultSim
+Current: sqlite3_db_status Havoced: walFramePage
+Current: sqlite3_db_status Havoced: sqlite3CorruptError
+Current: sqlite3_db_status Havoced: sqlite3_sleep
+Current: sqlite3_db_status Havoced: sqlite3_enable_shared_cache
+Current: sqlite3_db_status Havoced: sqlite3MemRoundup
+Current: sqlite3_db_status Havoced: sqlite3CantopenError
+Current: sqlite3_db_status Havoced: sqlite3_release_memory
+Current: sqlite3_db_status Havoced: sqlite3MisuseError
+Current: sqlite3_db_status Havoced: re_space_char
+Current: sqlite3_db_status Havoced: re_digit_char
+Current: sqlite3_db_status Havoced: re_word_char
+Current: sqlite3_db_status Havoced: memtraceRoundup
+Current: sqlite3_db_status Havoced: sqlite3_msize
+Current: sqlite3_db_status Havoced: sqlite3_msize
+Current: sqlite3_db_status Havoced: sqlite3_msize
+Current: sqlite3_db_status Havoced: sqlite3_msize
+Current: sqlite3_db_status Havoced: sqlite3DeleteTrigger
+Current: sqlite3_db_status Havoced: sqlite3DeleteTable
+Current: sqlite3_db_status Havoced: sqlite3BtreeLeaveAll
+Current: sqlite3_db_status Havoced: sqlite3BtreeEnterAll
+Current: sqlite3_db_status Havoced: sqlite3BtreePager
+Current: sqlite3_db_status Havoced: sqlite3PagerMemUsed
+Current: sqlite3_db_status Havoced: sqlite3BtreeConnectionCount
+Current: sqlite3_db_status Havoced: sqlite3BtreeLeaveAll
+Current: sqlite3_db_status Havoced: sqlite3LookasideUsed
+Current: sqlite3_db_status Havoced: sqlite3_mutex_leave
+Current: sqlite3_db_status Havoced: sqlite3_mutex_enter
+Current: sqlite3_db_status Havoced: sqlite3BtreePager
+Current: sqlite3_db_status Havoced: sqlite3PagerCacheStat
+Current: sqlite3_db_status Havoced: sqlite3VdbeClearObject
+Current: sqlite3_db_status Havoced: sqlite3DbFree
+Current: sqlite3_db_status Havoced: sqlite3BtreeEnterAll
+Current: sqlite3_db_status Havoced: vdbeSorterTreeDepth
+Current: sqlite3_db_status Havoced: sqlite3ParserFallback
+Current: sqlite3_db_status Havoced: sqlite3VdbeSerialTypeLen
+Current: sqlite3_db_status Havoced: allowedOp
+Current: sqlite3_db_status Havoced: sqlite3AbsInt32
+Current: sqlite3_db_status Havoced: isFatalError
+Current: sqlite3_db_status Havoced: walNextHash
+Current: sqlite3_db_status Havoced: walHash
+Current: sqlite3_db_status Havoced: sqlite3FaultSim
+Current: sqlite3_db_status Havoced: walFramePage
+Current: sqlite3_db_status Havoced: sqlite3CorruptError
+Current: sqlite3_db_status Havoced: sqlite3_sleep
+Current: sqlite3_db_status Havoced: sqlite3_enable_shared_cache
+Current: sqlite3_db_status Havoced: sqlite3MemRoundup
+Current: sqlite3_db_status Havoced: sqlite3CantopenError
+Current: sqlite3_db_status Havoced: sqlite3_release_memory
+Current: sqlite3_db_status Havoced: sqlite3MisuseError
+Current: sqlite3_db_status Havoced: re_space_char
+Current: sqlite3_db_status Havoced: re_digit_char
+Current: sqlite3_db_status Havoced: re_word_char
+Current: sqlite3_db_status Havoced: memtraceRoundup
+Current: sqlite3_db_status Havoced: sqlite3_msize
+Current: sqlite3_db_status Havoced: sqlite3_msize
+Current: sqlite3_db_status Havoced: sqlite3_msize
+Current: sqlite3_db_status Havoced: sqlite3_msize
+Current: sqlite3_db_status Havoced: sqlite3DeleteTrigger
+Current: sqlite3_db_status Havoced: sqlite3DeleteTable
+Current: sqlite3_db_status Havoced: sqlite3BtreeLeaveAll
+Current: sqlite3_db_status Havoced: sqlite3BtreeEnterAll
+Current: sqlite3_db_status Havoced: sqlite3BtreePager
+Current: sqlite3_db_status Havoced: sqlite3PagerMemUsed
+Current: sqlite3_db_status Havoced: sqlite3BtreeConnectionCount
+Current: sqlite3_db_status Havoced: sqlite3BtreeLeaveAll
+Current: sqlite3_db_status Havoced: sqlite3LookasideUsed
+Current: sqlite3_db_status Havoced: sqlite3_mutex_leave
+Current: sqlite3_db_status Havoced: sqlite3_mutex_enter
+Current: sqlite3_db_status Havoced: sqlite3BtreePager
+Current: sqlite3_db_status Havoced: sqlite3PagerCacheStat
+Current: sqlite3_db_status Havoced: sqlite3VdbeClearObject
+Current: sqlite3_db_status Havoced: sqlite3DbFree
+Current: sqlite3_db_status Havoced: sqlite3BtreeEnterAll
+Current: sqlite3_db_status Havoced: vdbeSorterTreeDepth
+Current: sqlite3_db_status Havoced: sqlite3ParserFallback
+Current: sqlite3_db_status Havoced: sqlite3VdbeSerialTypeLen
+Current: sqlite3_db_status Havoced: allowedOp
+Current: sqlite3_db_status Havoced: sqlite3AbsInt32
+Current: sqlite3_db_status Havoced: isFatalError
+Current: sqlite3_db_status Havoced: walNextHash
+Current: sqlite3_db_status Havoced: walHash
+Current: sqlite3_db_status Havoced: sqlite3FaultSim
+Current: sqlite3_db_status Havoced: walFramePage
+Current: sqlite3_db_status Havoced: sqlite3CorruptError
+Current: sqlite3_db_status Havoced: sqlite3_sleep
+Current: sqlite3_db_status Havoced: sqlite3_enable_shared_cache
+Current: sqlite3_db_status Havoced: sqlite3MemRoundup
+Current: sqlite3_db_status Havoced: sqlite3CantopenError
+Current: sqlite3_db_status Havoced: sqlite3_release_memory
+Current: sqlite3_db_status Havoced: sqlite3MisuseError
+Current: sqlite3_db_status Havoced: re_space_char
+Current: sqlite3_db_status Havoced: re_digit_char
+Current: sqlite3_db_status Havoced: re_word_char
+Current: sqlite3_db_status Havoced: memtraceRoundup
+Current: sqlite3_db_status Havoced: sqlite3_msize
+Current: sqlite3_db_status Havoced: sqlite3_msize
+Current: sqlite3_db_status Havoced: sqlite3_msize
+Current: sqlite3_db_status Havoced: sqlite3_msize
+Current: sqlite3_db_status Havoced: sqlite3DeleteTrigger
+Current: sqlite3_db_status Havoced: sqlite3DeleteTable
+Current: sqlite3_db_status Havoced: sqlite3BtreeLeaveAll
+Current: sqlite3_db_status Havoced: sqlite3BtreeEnterAll
+Current: sqlite3_db_status Havoced: sqlite3BtreePager
+Current: sqlite3_db_status Havoced: sqlite3PagerMemUsed
+Current: sqlite3_db_status Havoced: sqlite3BtreeConnectionCount
+Current: sqlite3_db_status Havoced: sqlite3BtreeLeaveAll
+Current: sqlite3_db_status Havoced: sqlite3LookasideUsed
+Current: sqlite3_db_status Havoced: sqlite3_mutex_leave
+Current: sqlite3_db_status Havoced: sqlite3_mutex_enter
+Current: sqlite3_db_status Havoced: sqlite3BtreePager
+Current: sqlite3_db_status Havoced: sqlite3PagerCacheStat
+Current: sqlite3_db_status Havoced: sqlite3VdbeClearObject
+Current: sqlite3_db_status Havoced: sqlite3DbFree
+Current: sqlite3_db_status Havoced: sqlite3BtreeEnterAll
+Current: sqlite3_db_status Havoced: vdbeSorterTreeDepth
+Current: sqlite3_db_status Havoced: sqlite3ParserFallback
+Current: sqlite3_db_status Havoced: sqlite3VdbeSerialTypeLen
+Current: sqlite3_db_status Havoced: allowedOp
+Current: sqlite3_db_status Havoced: sqlite3AbsInt32
+Current: sqlite3_db_status Havoced: isFatalError
+Current: sqlite3_db_status Havoced: walNextHash
+Current: sqlite3_db_status Havoced: walHash
+Current: sqlite3_db_status Havoced: sqlite3FaultSim
+Current: sqlite3_db_status Havoced: walFramePage
+Current: sqlite3_db_status Havoced: sqlite3CorruptError
+Current: sqlite3_db_status Havoced: sqlite3_sleep
+Current: sqlite3_db_status Havoced: sqlite3_enable_shared_cache
+Current: sqlite3_db_status Havoced: sqlite3MemRoundup
+Current: sqlite3_db_status Havoced: sqlite3CantopenError
+Current: sqlite3_db_status Havoced: sqlite3_release_memory
+Current: sqlite3_db_status Havoced: sqlite3MisuseError
+Current: sqlite3_db_status Havoced: re_space_char
+Current: sqlite3_db_status Havoced: re_digit_char
+Current: sqlite3_db_status Havoced: re_word_char
+Current: sqlite3_db_status Havoced: memtraceRoundup
+Current: sqlite3_db_status Havoced: sqlite3_msize
+Current: sqlite3_db_status Havoced: sqlite3_msize
+Current: sqlite3_db_status Havoced: sqlite3_msize
+Current: sqlite3_db_status Havoced: sqlite3_msize
+Current: sqlite3_db_status Havoced: sqlite3DeleteTrigger
+Current: sqlite3_db_status Havoced: sqlite3DeleteTable
+Current: sqlite3_db_status Havoced: sqlite3BtreeLeaveAll
+Current: sqlite3_db_status Havoced: sqlite3BtreeEnterAll
+Current: sqlite3_db_status Havoced: sqlite3BtreePager
+Current: sqlite3_db_status Havoced: sqlite3PagerMemUsed
+Current: sqlite3_db_status Havoced: sqlite3BtreeConnectionCount
+Current: sqlite3_db_status Havoced: sqlite3BtreeLeaveAll
+Current: sqlite3_db_status Havoced: sqlite3LookasideUsed
+Current: sqlite3_db_status Havoced: sqlite3_mutex_leave
+Current: sqlite3_db_status Havoced: sqlite3_mutex_enter
+Current: sqlite3_db_status Havoced: sqlite3BtreePager
+Current: sqlite3_db_status Havoced: sqlite3PagerCacheStat
+Current: sqlite3_db_status Havoced: sqlite3VdbeClearObject
+Current: sqlite3_db_status Havoced: sqlite3DbFree
+Current: sqlite3_db_status Havoced: sqlite3BtreeEnterAll
+Current: sqlite3_db_status Havoced: vdbeSorterTreeDepth
+Current: sqlite3_db_status Havoced: sqlite3ParserFallback
+Current: sqlite3_db_status Havoced: sqlite3VdbeSerialTypeLen
+Current: sqlite3_db_status Havoced: allowedOp
+Current: sqlite3_db_status Havoced: sqlite3AbsInt32
+Current: sqlite3_db_status Havoced: isFatalError
+Current: sqlite3_db_status Havoced: walNextHash
+Current: sqlite3_db_status Havoced: walHash
+Current: sqlite3_db_status Havoced: sqlite3FaultSim
+Current: sqlite3_db_status Havoced: walFramePage
+Current: sqlite3_db_status Havoced: sqlite3CorruptError
+Current: sqlite3_db_status Havoced: sqlite3_sleep
+Current: sqlite3_db_status Havoced: sqlite3_enable_shared_cache
+Current: sqlite3_db_status Havoced: sqlite3MemRoundup
+Current: sqlite3_db_status Havoced: sqlite3CantopenError
+Current: sqlite3_db_status Havoced: sqlite3_release_memory
+Current: sqlite3_db_status Havoced: sqlite3MisuseError
+Current: sqlite3_db_status Havoced: re_space_char
+Current: sqlite3_db_status Havoced: re_digit_char
+Current: sqlite3_db_status Havoced: re_word_char
+Current: sqlite3_db_status Havoced: memtraceRoundup
+Current: sqlite3_db_status Havoced: sqlite3_msize
+Current: sqlite3_db_status Havoced: sqlite3_msize
+Current: sqlite3_db_status Havoced: sqlite3_msize
+Current: sqlite3_db_status Havoced: sqlite3_msize
+Current: sqlite3_db_status Havoced: sqlite3DeleteTrigger
+Current: sqlite3_db_status Havoced: sqlite3DeleteTable
+Current: sqlite3_db_status Havoced: sqlite3BtreeLeaveAll
+Current: sqlite3_db_status Havoced: sqlite3BtreeEnterAll
+Current: sqlite3_db_status Havoced: sqlite3BtreePager
+Current: sqlite3_db_status Havoced: sqlite3PagerMemUsed
+Current: sqlite3_db_status Havoced: sqlite3BtreeConnectionCount
+Current: sqlite3_db_status Havoced: sqlite3BtreeLeaveAll
+Current: sqlite3_db_status Havoced: sqlite3LookasideUsed
+Current: sqlite3_db_status Havoced: sqlite3_mutex_leave
+Current: sqlite3_stmt_status Havoced: sqlite3_mutex_enter
+Current: sqlite3_stmt_status Havoced: sqlite3VdbeClearObject
+Current: sqlite3_stmt_status Havoced: sqlite3DbFree
+Current: sqlite3_stmt_status Havoced: sqlite3_mutex_leave
+Current: sqlite3_stmt_status Havoced: sqlite3_mutex_enter
+Current: sqlite3_stmt_status Havoced: sqlite3VdbeClearObject
+Current: sqlite3_stmt_status Havoced: sqlite3DbFree
+Current: sqlite3_stmt_status Havoced: sqlite3_mutex_leave
+Current: sqlite3_stmt_status Havoced: sqlite3_mutex_enter
+Current: sqlite3_stmt_status Havoced: sqlite3VdbeClearObject
+Current: sqlite3_stmt_status Havoced: sqlite3DbFree
+Current: sqlite3_stmt_status Havoced: sqlite3_mutex_leave
+Current: sqlite3_stmt_status Havoced: sqlite3_mutex_enter
+Current: sqlite3_stmt_status Havoced: sqlite3VdbeClearObject
+Current: sqlite3_stmt_status Havoced: sqlite3DbFree
+Current: sqlite3_stmt_status Havoced: sqlite3_mutex_leave
+Current: sqlite3_stmt_status Havoced: sqlite3_mutex_enter
+Current: sqlite3_stmt_status Havoced: sqlite3VdbeClearObject
+Current: sqlite3_stmt_status Havoced: sqlite3DbFree
+Current: sqlite3_stmt_status Havoced: sqlite3_mutex_leave
+Current: sqlite3_stmt_status Havoced: sqlite3_mutex_enter
+Current: sqlite3_stmt_status Havoced: sqlite3VdbeClearObject
+Current: sqlite3_stmt_status Havoced: sqlite3DbFree
+Current: sqlite3_stmt_status Havoced: sqlite3_mutex_leave
+Current: sqlite3_stmt_status Havoced: sqlite3_mutex_enter
+Current: sqlite3_stmt_status Havoced: sqlite3VdbeClearObject
+Current: sqlite3_stmt_status Havoced: sqlite3DbFree
+Current: sqlite3_stmt_status Havoced: sqlite3_mutex_leave
+
+        Unrolling loop in function "displayLinuxIoStats" for 1 iterations succeeded.
+        Unrolling loop in function "displayLinuxIoStats" for 1 iterations succeeded.
+        Transformed "displayLinuxIoStats" from 13 to 14 basic blocks and from 68 to 77 instructionsCurrent: displayLinuxIoStats Havoced: sqlite3_snprintf
+Current: displayLinuxIoStats Havoced: strlen30
+
+        Unrolling loop in function "llbmc.strncmp" for 0 iterations succeeded.
+        Transformed "llbmc.strncmp" from 5 to 6 basic blocks and from 19 to 22 instructionsCurrent: sqlite3_stmt_status Havoced: sqlite3_mutex_enter
+Current: sqlite3_stmt_status Havoced: sqlite3VdbeClearObject
+Current: sqlite3_stmt_status Havoced: sqlite3DbFree
+Current: sqlite3_stmt_status Havoced: sqlite3_mutex_leave
+
+                                                           0 sec [DONE]
+        Number of expressions:                        172275
+        after encoding
+
+      206 assertions before transformations (100 no_function_call, 98 no_back_edge, 8 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                           15897
+        Fixed Memory Address Assigner
+          Number of moved ops                              2
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72612
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                              68
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                              56
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             142
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      206 assertions remain after transformations (100 no_function_call, 98 no_back_edge, 8 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...

@@ -1,0 +1,37 @@
+<VerificationJob>
+  <Configuration>
+    <AnalyzeChecksIndividually value="true" />
+    <BitcodeTraces value="false" />
+    <CheckCallers value="true" />
+    <DumpVerifierBitcodeFiles value="false" />
+    <EnableSlicing value="false" />
+    <EntryPoint value="decimalCollFunc" />
+    <FixPoint value="true" />
+    <ForkJobs value="true" />
+    <HavocLimit value="2" />
+    <Hosted value="true" />
+    <IgnoreMissingFunctions value="false" />
+    <InitializedGlobals value="false" />
+    <LoopUnrollBound value="1" />
+    <PreconditionLocation value="jobs/261" />
+    <SourceDirectory value="/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld" />
+    <TimeOut value="600" />
+    <XMLTraces value="false" />
+  </Configuration>
+  <CheckList>
+    <Check id="1560" location="1901" category="arithmetic.overflow" status="unsafe|loopboundreached|functionbodymissing" scope="decimal_cmp">
+      <Annotations>
+        <Annotation>The function body for __ctype_b_loc is missing (/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld//home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld/shell.c:4630:12)</Annotation>
+        <Annotation>A signed arithmetic operation can overflow.</Annotation>
+        <Annotation>A loop bound was reached</Annotation>
+        <Annotation>The function body for __ctype_b_loc is missing (/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld//home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld/shell.c:4630:12)</Annotation>
+      </Annotations>
+      <EntryStatus>
+        <SingleEntryStatus>decimalCmpFunc, unknown</SingleEntryStatus>
+        <SingleEntryStatus>decimalCollFunc, unsafe|loopboundreached|functionbodymissing</SingleEntryStatus>
+      </EntryStatus>
+    </Check>
+  </CheckList>
+  <Annotation>allsafe</Annotation>
+  <Status>allunsafe</Status>
+</VerificationJob>

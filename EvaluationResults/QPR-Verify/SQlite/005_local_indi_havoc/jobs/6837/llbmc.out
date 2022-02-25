@@ -1,0 +1,119 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 6837 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 1
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/6837
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : sqlite3ColumnsFromExprList
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "sqlite3ColumnsFromExprList" for 1 iterations succeeded.
+      Unrolling loop in function "sqlite3ColumnsFromExprList" for 1 iterations succeeded.
+      Unrolling loop in function "sqlite3ColumnsFromExprList" for 1 iterations succeeded.
+      Unrolling loop in function "sqlite3ColumnsFromExprList" for 1 iterations succeeded.
+      Unrolling loop in function "sqlite3ColumnsFromExprList" for 1 iterations succeeded.
+      Transformed "sqlite3ColumnsFromExprList" from 64 to 175 basic blocks and from 327 to 845 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...Current: sqlite3ColumnsFromExprList Havoced: sqlite3HashInit
+Current: sqlite3ColumnsFromExprList Havoced: sqlite3DbMallocZero
+Current: sqlite3ColumnsFromExprList Havoced: sqlite3ExprSkipCollateAndLikely
+Current: sqlite3ColumnsFromExprList Havoced: sqlite3IsTrueOrFalse
+Current: sqlite3ColumnsFromExprList Havoced: sqlite3DbStrDup
+Current: sqlite3ColumnsFromExprList Havoced: sqlite3MPrintf
+Current: sqlite3ColumnsFromExprList Havoced: sqlite3HashFind
+Current: sqlite3ColumnsFromExprList Havoced: sqlite3Strlen30
+Current: sqlite3ColumnsFromExprList Havoced: sqlite3MPrintf
+Current: sqlite3ColumnsFromExprList Havoced: sqlite3_randomness
+Current: sqlite3ColumnsFromExprList Havoced: sqlite3HashFind
+Current: sqlite3ColumnsFromExprList Havoced: sqlite3StrIHash
+Current: sqlite3ColumnsFromExprList Havoced: sqlite3HashInsert
+Current: sqlite3ColumnsFromExprList Havoced: sqlite3OomFault
+Current: sqlite3ColumnsFromExprList Havoced: sqlite3HashClear
+Current: sqlite3ColumnsFromExprList Havoced: sqlite3DbFree
+Current: sqlite3ColumnsFromExprList Havoced: sqlite3DbFree
+Current: sqlite3ColumnsFromExprList Havoced: sqlite3ExprSkipCollateAndLikely
+Current: sqlite3ColumnsFromExprList Havoced: sqlite3IsTrueOrFalse
+Current: sqlite3ColumnsFromExprList Havoced: sqlite3DbStrDup
+Current: sqlite3ColumnsFromExprList Havoced: sqlite3MPrintf
+Current: sqlite3ColumnsFromExprList Havoced: sqlite3HashFind
+Current: sqlite3ColumnsFromExprList Havoced: sqlite3Strlen30
+Current: sqlite3ColumnsFromExprList Havoced: sqlite3MPrintf
+Current: sqlite3ColumnsFromExprList Havoced: sqlite3_randomness
+Current: sqlite3ColumnsFromExprList Havoced: sqlite3HashFind
+Current: sqlite3ColumnsFromExprList Havoced: sqlite3StrIHash
+Current: sqlite3ColumnsFromExprList Havoced: sqlite3HashInsert
+Current: sqlite3ColumnsFromExprList Havoced: sqlite3OomFault
+Current: sqlite3ColumnsFromExprList Havoced: sqlite3Strlen30
+Current: sqlite3ColumnsFromExprList Havoced: sqlite3MPrintf
+Current: sqlite3ColumnsFromExprList Havoced: sqlite3_randomness
+Current: sqlite3ColumnsFromExprList Havoced: sqlite3Strlen30
+Current: sqlite3ColumnsFromExprList Havoced: sqlite3MPrintf
+Current: sqlite3ColumnsFromExprList Havoced: sqlite3_randomness
+                      0 sec [DONE]
+        Number of expressions:                        156705
+        after encoding
+
+      11 assertions before transformations (10 no_back_edge, 1 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            4337
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72689
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               2
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               5
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             142
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      11 assertions remain after transformations (10 no_back_edge, 1 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...

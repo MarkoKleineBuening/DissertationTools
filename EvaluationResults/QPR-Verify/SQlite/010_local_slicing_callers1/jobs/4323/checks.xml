@@ -1,0 +1,40 @@
+<VerificationJob>
+  <Configuration>
+    <AnalyzeChecksIndividually value="true" />
+    <BitcodeTraces value="false" />
+    <CheckCallers value="true" />
+    <DumpVerifierBitcodeFiles value="false" />
+    <EnableSlicing value="true" />
+    <EntryPoint value="sqlite3Pragma" />
+    <FixPoint value="true" />
+    <ForkJobs value="true" />
+    <Hosted value="true" />
+    <IgnoreMissingFunctions value="false" />
+    <InitializedGlobals value="false" />
+    <LoopUnrollBound value="1" />
+    <PreconditionLocation value="jobs/4323" />
+    <SourceDirectory value="/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld" />
+    <TimeOut value="600" />
+    <XMLTraces value="false" />
+  </Configuration>
+  <CheckList>
+    <Check id="13136" location="14256" category="shift.by.amount" status="unsafe" scope="sqlite3VdbeUsesBtree">
+      <Annotations>
+        <Annotation>Shift operation can be by more than bitwidth.</Annotation>
+      </Annotations>
+      <EntryStatus>
+        <SingleEntryStatus>sqlite3AlterFinishAddColumn, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3BeginTransaction, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3FinishCoding, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3ForceNotReadOnly, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3Pragma, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3StartTable, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3Vacuum, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3VdbeAddParseSchemaOp, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3_blob_open, unsafe</SingleEntryStatus>
+      </EntryStatus>
+    </Check>
+  </CheckList>
+  <Annotation>allunsafe</Annotation>
+  <Status>allunsafe</Status>
+</VerificationJob>

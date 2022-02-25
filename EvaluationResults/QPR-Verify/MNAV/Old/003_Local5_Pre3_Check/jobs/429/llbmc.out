@@ -1,0 +1,153 @@
+runJobCommand
+precondition analysis with entry:mat_lsolve_durbin
+arguents: child
+arguents: job
+arguents: mode
+arguents: precondition
+handleJobInSeparateProcess0
+
+Checking job 429 ...about to run job:
+preconNumber: 3, 1
+
+  Running Model Checker with 1 checks ...entry: mat_lsolve_durbin, functionName: mat_durbin
+  <badref> = call double** @qpr.precondition.mat_durbin(double** %9, double** %2)
+entry: mat_lsolve_durbin, functionName: mat_durbin
+entry: mat_lsolve_durbin, functionName: mat_lsolve_durbin
+try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 4
+    HavocLimit : 0
+    PreconditionNumber : 3
+    PreconditionLocation : jobs/429
+    TimeOut : 300
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : mat_lsolve_durbin
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "mat_lsolve_durbin" for 4 iterations succeeded.
+      Transformed "mat_lsolve_durbin" from 8 to 15 basic blocks and from 60 to 117 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...size Alloca: 1
+size Alloca: 1
+size Alloca: 1
+
+        Unrolling loop in function "_mat_creat" for 4 iterations succeeded.
+        Transformed "_mat_creat" from 10 to 20 basic blocks and from 54 to 117 instructions
+        Transformed "mat_error" from 5 to 10 basic blocks and from 10 to 19 instructions
+        Unrolling loop in function "mat_fill" for 4 iterations succeeded.
+        Unrolling loop in function "mat_fill" for 4 iterations succeeded.
+        Transformed "mat_fill" from 18 to 159 basic blocks and from 67 to 679 instructionsTODO MKB implement precondition handling: IE
+Reading in precondition at: jobs/429/precondition_mat_durbin.txt
+preconFile: jobs/429/precondition_mat_durbin.txt
+ref: [underoverapprox]name of function arguments, argValue:  
+ref: [underoverapprox]name of function arguments, argValue:  
+name of function arguments line
+ERROR boolCond is nullptr
+ERROR boolCond is nullptr
+ERROR boolCond is nullptr
+Writing precondition type at: jobs/429/precondition_type_mat_lsolve_durbin.txt
+
+Type of Precondition:
+[underoverapprox]
+precondition found, end encoding
+
+                                                           0 sec [DONE]
+        Number of expressions:                          8213
+        after encoding
+
+      13 assertions before transformations (6 no_function_call, 7 no_back_edge).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            1820
+        Fixed Memory Address Assigner
+          Number of moved ops                              3
+          Number of rewrites                             377
+        Simplifier
+          Number of moved ops                              3
+          Number of rewrites                            5338
+        Memory Model Encoder
+          Number of moved ops                              0
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                               2
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              55
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      13 assertions remain after transformations (6 no_function_call, 7 no_back_edge).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...            0 sec [DONE]
+        
+                                                           0 sec [DONE]
+      after performing Check
+evaluateCheckerResultsViaRefinementLoop
+checker.getResult() is Trace
+checkOnlyPrecon: 1, size:1
+setCheckToUnsafe for precondition Instruction
+checkID: 1494
+setCheckToUnsafe
+set check to unsafe
+getCheckerResultAfterUpdatingMarker
+failingInst:   br i1 %54, label %bb3.0.3, label %bb2.bb7_crit_edge, !dbg !1397, !llvm.loop !1415
+Preconditions internal: 
+
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   br i1 %54, label %bb3.0.3, label %bb2.bb7_crit_edge, !dbg !1397, !llvm.loop !1415
+Preconditions internal: 
+
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   br i1 %54, label %bb3.0.3, label %bb2.bb7_crit_edge, !dbg !1397, !llvm.loop !1415
+Preconditions internal: 
+
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      name of function arguments: Writing precondition at: jobs/429/precondition_mat_lsolve_durbin.txt
+
+Generated Preconditions:
+[underoverapprox]name of function arguments: 
+
+
+
+
+                                                           0 sec [DONE]
+    allsafe
+    
+                                                           0 sec [DONE]
+  

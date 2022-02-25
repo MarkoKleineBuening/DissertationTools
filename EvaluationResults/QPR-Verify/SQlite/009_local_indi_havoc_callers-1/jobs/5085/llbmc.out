@@ -1,0 +1,178 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 5085 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 2
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/5085
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : sqlite3VdbeSorterRewind
+m_checker->run()
+
+    Performing bounded model checking ...
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...
+        Unrolling loop in function "vdbeSorterFlushPMA" for 1 iterations succeeded.
+        Transformed "vdbeSorterFlushPMA" from 23 to 25 basic blocks and from 152 to 167 instructionsCurrent: vdbeSorterFlushPMA Havoced: vdbeSorterJoinThread
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %53, i8* %54, i64 24, i32 8, i1 false), !dbg !5698
+Current: vdbeSorterFlushPMA Havoced: sqlite3Malloc
+Current: vdbeSorterFlushPMA Havoced: sqlite3MallocSize
+Current: vdbeSorterFlushPMA Havoced: vdbeSorterCreateThread
+Current: vdbeSorterFlushPMA Havoced: vdbeSorterListToPMA
+
+        Unrolling loop in function "vdbeSorterJoinAll" for 1 iterations succeeded.
+        Transformed "vdbeSorterJoinAll" from 7 to 8 basic blocks and from 42 to 48 instructionsCurrent: vdbeSorterJoinAll Havoced: vdbeSorterJoinThread
+
+        Unrolling loop in function "vdbeSorterSetupMerge" for 1 iterations succeeded.
+        Unrolling loop in function "vdbeSorterSetupMerge" for 1 iterations succeeded.
+        Unrolling loop in function "vdbeSorterSetupMerge" for 1 iterations succeeded.
+        Transformed "vdbeSorterSetupMerge" from 34 to 41 basic blocks and from 191 to 233 instructionsCurrent: vdbeSorterSetupMerge Havoced: vdbeSorterGetCompare
+Current: vdbeSorterSetupMerge Havoced: vdbeSorterMergeTreeBuild
+Current: vdbeSorterSetupMerge Havoced: vdbeMergeEngineInit
+Current: vdbeSorterSetupMerge Havoced: vdbeSortAllocUnpacked
+Current: vdbeSorterSetupMerge Havoced: sqlite3DbMallocZero
+Current: vdbeSorterSetupMerge Havoced: vdbeIncrMergerNew
+Current: vdbeSorterSetupMerge Havoced: vdbeIncrMergerSetThreads
+Current: vdbeSorterSetupMerge Havoced: vdbeIncrMergerSetThreads
+Current: vdbeSorterSetupMerge Havoced: vdbePmaReaderIncrInit
+Current: vdbeSorterSetupMerge Havoced: vdbePmaReaderIncrMergeInit
+Current: vdbeSorterSetupMerge Havoced: vdbeMergeEngineFree
+Current: vdbeSorterSetupMerge Havoced: vdbePmaReaderIncrInit
+
+        Unrolling loop in function "vdbeSorterSort" for 64 iterations succeeded.
+        Unrolling loop in function "vdbeSorterSort" for 1 iterations succeeded.
+        Unrolling loop in function "vdbeSorterSort" for 1 iterations succeeded.
+        Transformed "vdbeSorterSort" from 26 to 468 basic blocks and from 149 to 2435 instructionsCurrent: vdbeSorterSort Havoced: vdbeSortAllocUnpacked
+Current: vdbeSorterSort Havoced: vdbeSorterGetCompare
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %12, i8 0, i64 512, i32 16, i1 false), !dbg !5640
+Current: vdbeSorterSort Havoced: vdbeSorterMerge
+Current: vdbeSorterSort Havoced: vdbeSorterMerge
+Current: vdbeSorterSort Havoced: vdbeSorterMerge
+Current: vdbeSorterSort Havoced: vdbeSorterMerge
+Current: vdbeSorterSort Havoced: vdbeSorterMerge
+Current: vdbeSorterSort Havoced: vdbeSorterMerge
+Current: vdbeSorterSort Havoced: vdbeSorterMerge
+Current: vdbeSorterSort Havoced: vdbeSorterMerge
+Current: vdbeSorterSort Havoced: vdbeSorterMerge
+Current: vdbeSorterSort Havoced: vdbeSorterMerge
+Current: vdbeSorterSort Havoced: vdbeSorterMerge
+Current: vdbeSorterSort Havoced: vdbeSorterMerge
+Current: vdbeSorterSort Havoced: vdbeSorterMerge
+Current: vdbeSorterSort Havoced: vdbeSorterMerge
+Current: vdbeSorterSort Havoced: vdbeSorterMerge
+Current: vdbeSorterSort Havoced: vdbeSorterMerge
+Current: vdbeSorterSort Havoced: vdbeSorterMerge
+Current: vdbeSorterSort Havoced: vdbeSorterMerge
+Current: vdbeSorterSort Havoced: vdbeSorterMerge
+Current: vdbeSorterSort Havoced: vdbeSorterMerge
+Current: vdbeSorterSort Havoced: vdbeSorterMerge
+Current: vdbeSorterSort Havoced: vdbeSorterMerge
+Current: vdbeSorterSort Havoced: vdbeSorterMerge
+Current: vdbeSorterSort Havoced: vdbeSorterMerge
+Current: vdbeSorterSort Havoced: vdbeSorterMerge
+Current: vdbeSorterSort Havoced: vdbeSorterMerge
+Current: vdbeSorterSort Havoced: vdbeSorterMerge
+Current: vdbeSorterSort Havoced: vdbeSorterMerge
+Current: vdbeSorterSort Havoced: vdbeSorterMerge
+Current: vdbeSorterSort Havoced: vdbeSorterMerge
+Current: vdbeSorterSort Havoced: vdbeSorterMerge
+Current: vdbeSorterSort Havoced: vdbeSorterMerge
+Current: vdbeSorterSort Havoced: vdbeSorterMerge
+Current: vdbeSorterSort Havoced: vdbeSorterMerge
+Current: vdbeSorterSort Havoced: vdbeSorterMerge
+Current: vdbeSorterSort Havoced: vdbeSorterMerge
+Current: vdbeSorterSort Havoced: vdbeSorterMerge
+Current: vdbeSorterSort Havoced: vdbeSorterMerge
+Current: vdbeSorterSort Havoced: vdbeSorterMerge
+Current: vdbeSorterSort Havoced: vdbeSorterMerge
+Current: vdbeSorterSort Havoced: vdbeSorterMerge
+Current: vdbeSorterSort Havoced: vdbeSorterMerge
+Current: vdbeSorterSort Havoced: vdbeSorterMerge
+Current: vdbeSorterSort Havoced: vdbeSorterMerge
+Current: vdbeSorterSort Havoced: vdbeSorterMerge
+Current: vdbeSorterSort Havoced: vdbeSorterMerge
+Current: vdbeSorterSort Havoced: vdbeSorterMerge
+Current: vdbeSorterSort Havoced: vdbeSorterMerge
+Current: vdbeSorterSort Havoced: vdbeSorterMerge
+Current: vdbeSorterSort Havoced: vdbeSorterMerge
+Current: vdbeSorterSort Havoced: vdbeSorterMerge
+Current: vdbeSorterSort Havoced: vdbeSorterMerge
+Current: vdbeSorterSort Havoced: vdbeSorterMerge
+Current: vdbeSorterSort Havoced: vdbeSorterMerge
+Current: vdbeSorterSort Havoced: vdbeSorterMerge
+Current: vdbeSorterSort Havoced: vdbeSorterMerge
+Current: vdbeSorterSort Havoced: vdbeSorterMerge
+Current: vdbeSorterSort Havoced: vdbeSorterMerge
+Current: vdbeSorterSort Havoced: vdbeSorterMerge
+Current: vdbeSorterSort Havoced: vdbeSorterMerge
+Current: vdbeSorterSort Havoced: vdbeSorterMerge
+Current: vdbeSorterSort Havoced: vdbeSorterMerge
+Current: vdbeSorterSort Havoced: vdbeSorterMerge
+Current: vdbeSorterSort Havoced: vdbeSorterMerge
+Current: vdbeSorterSort Havoced: vdbeSorterMerge
+
+                                                           0 sec [DONE]
+        Number of expressions:                        160219
+        after encoding
+
+      9 assertions before transformations (8 no_back_edge, 1 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            6948
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72914
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               2
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             199
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             658
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      9 assertions remain after transformations (8 no_back_edge, 1 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...

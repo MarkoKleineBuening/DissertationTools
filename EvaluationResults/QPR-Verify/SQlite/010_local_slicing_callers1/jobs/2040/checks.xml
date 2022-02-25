@@ -1,0 +1,46 @@
+<VerificationJob>
+  <Configuration>
+    <AnalyzeChecksIndividually value="true" />
+    <BitcodeTraces value="false" />
+    <CheckCallers value="true" />
+    <DumpVerifierBitcodeFiles value="false" />
+    <EnableSlicing value="true" />
+    <EntryPoint value="estimateTableWidth" />
+    <FixPoint value="true" />
+    <ForkJobs value="true" />
+    <Hosted value="true" />
+    <IgnoreMissingFunctions value="false" />
+    <InitializedGlobals value="false" />
+    <LoopUnrollBound value="1" />
+    <PreconditionLocation value="jobs/2040" />
+    <SourceDirectory value="/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld" />
+    <TimeOut value="600" />
+    <XMLTraces value="false" />
+  </Configuration>
+  <CheckList>
+    <Check id="6794" location="7327" category="implicit.conversion.overflow" status="unsafe|loopboundreached" scope="sqlite3LogEst">
+      <Annotations>
+        <Annotation>An implicit conversion operation can overflow.</Annotation>
+        <Annotation>A loop bound was reached (/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld//home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld/sqlite3.c:33272:5)</Annotation>
+        <Annotation>A loop bound was reached (/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld//home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld/sqlite3.c:33279:5)</Annotation>
+        <Annotation>A loop bound was reached (/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld//home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld/sqlite3.c:33280:5)</Annotation>
+      </Annotations>
+      <EntryStatus>
+        <SingleEntryStatus>computeLimitRegisters, unknown</SingleEntryStatus>
+        <SingleEntryStatus>decodeIntArray, unknown</SingleEntryStatus>
+        <SingleEntryStatus>estLog, unknown</SingleEntryStatus>
+        <SingleEntryStatus>estimateIndexWidth, unknown</SingleEntryStatus>
+        <SingleEntryStatus>estimateTableWidth, unsafe|loopboundreached</SingleEntryStatus>
+        <SingleEntryStatus>multiSelect, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3LogEstFromDouble, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3VdbeExec, unknown</SingleEntryStatus>
+        <SingleEntryStatus>whereClauseInsert, unknown</SingleEntryStatus>
+        <SingleEntryStatus>whereLoopAddBtreeIndex, unknown</SingleEntryStatus>
+        <SingleEntryStatus>whereLoopAddVirtualOne, unknown</SingleEntryStatus>
+        <SingleEntryStatus>whereSortingCost, unknown</SingleEntryStatus>
+      </EntryStatus>
+    </Check>
+  </CheckList>
+  <Annotation>allunsafe</Annotation>
+  <Status>allunsafe</Status>
+</VerificationJob>

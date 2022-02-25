@@ -1,0 +1,192 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 4953 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 2
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/4953
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : vdbePmaReaderSeek
+m_checker->run()
+
+    Performing bounded model checking ...
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...getMatchingFunctions
+res.push_back: isatty
+res.push_back: raise
+res.push_back: memtraceRoundup
+res.push_back: re_word_char
+res.push_back: re_digit_char
+res.push_back: re_space_char
+res.push_back: llbmc.tolower
+res.push_back: sqlite3MisuseError
+res.push_back: sqlite3_release_memory
+res.push_back: close
+res.push_back: sqlite3CantopenError
+res.push_back: fsync
+res.push_back: sleep
+res.push_back: sqlite3MemRoundup
+res.push_back: sqlite3_enable_shared_cache
+res.push_back: sqlite3_sleep
+res.push_back: sqlite3CorruptError
+res.push_back: walFramePage
+res.push_back: sqlite3FaultSim
+res.push_back: walHash
+res.push_back: walNextHash
+res.push_back: isFatalError
+res.push_back: sqlite3AbsInt32
+res.push_back: allowedOp
+res.push_back: sqlite3VdbeSerialTypeLen
+res.push_back: sqlite3ParserFallback
+res.push_back: vdbeSorterTreeDepth
+
+        Transformed "sqlite3FaultSim" from 4 to 60 basic blocks and from 12 to 123 instructionsCurrent: sqlite3FaultSim Havoced: vdbeSorterTreeDepth
+Current: sqlite3FaultSim Havoced: sqlite3ParserFallback
+Current: sqlite3FaultSim Havoced: sqlite3VdbeSerialTypeLen
+Current: sqlite3FaultSim Havoced: allowedOp
+Current: sqlite3FaultSim Havoced: sqlite3AbsInt32
+Current: sqlite3FaultSim Havoced: isFatalError
+Current: sqlite3FaultSim Havoced: walNextHash
+Current: sqlite3FaultSim Havoced: walHash
+Current: sqlite3FaultSim Havoced: walFramePage
+Current: sqlite3FaultSim Havoced: sqlite3CorruptError
+Current: sqlite3FaultSim Havoced: sqlite3_sleep
+Current: sqlite3FaultSim Havoced: sqlite3_enable_shared_cache
+Current: sqlite3FaultSim Havoced: sqlite3MemRoundup
+Current: sqlite3FaultSim Havoced: sqlite3CantopenError
+Current: sqlite3FaultSim Havoced: sqlite3_release_memory
+Current: sqlite3FaultSim Havoced: sqlite3MisuseError
+Current: sqlite3FaultSim Havoced: re_space_char
+Current: sqlite3FaultSim Havoced: re_digit_char
+Current: sqlite3FaultSim Havoced: re_word_char
+Current: sqlite3FaultSim Havoced: memtraceRoundup
+getMatchingFunctions
+res.push_back: apndUnfetch
+res.push_back: memdbUnfetch
+res.push_back: unixUnfetch
+res.push_back: sqlite3OsUnfetch
+
+        Transformed "sqlite3OsUnfetch" from 1 to 17 basic blocks and from 12 to 51 instructionsCurrent: sqlite3OsUnfetch Havoced: vdbeSorterOpenTempFile
+Current: sqlite3OsUnfetch Havoced: blobSeekToRow
+Current: sqlite3OsUnfetch Havoced: read32bits
+Current: sqlite3OsUnfetch Havoced: unixUnfetch
+Current: sqlite3OsUnfetch Havoced: memdbUnfetch
+Current: sqlite3OsUnfetch Havoced: apndUnfetch
+Current: vdbeSorterMapFile Havoced: sqlite3OsFetch
+getMatchingFunctions
+res.push_back: find_home_dir
+res.push_back: memtraceMalloc
+res.push_back: sqlite3_malloc
+res.push_back: sqlite3MemMalloc
+res.push_back: pcache1Alloc
+res.push_back: sqlite3ErrStr
+res.push_back: sqlite3_compileoption_get
+res.push_back: sqlite3_errstr
+res.push_back: sqlite3PageMalloc
+res.push_back: sqlite3SelectOpName
+res.push_back: sqlite3JournalModename
+res.push_back: sqlite3OpcodeName
+
+        Transformed "sqlite3Malloc" from 8 to 34 basic blocks and from 32 to 83 instructionsCurrent: sqlite3Malloc Havoced: sqlite3OpcodeName
+Current: sqlite3Malloc Havoced: sqlite3JournalModename
+Current: sqlite3Malloc Havoced: sqlite3SelectOpName
+Current: sqlite3Malloc Havoced: sqlite3PageMalloc
+Current: sqlite3Malloc Havoced: sqlite3_errstr
+Current: sqlite3Malloc Havoced: sqlite3_compileoption_get
+Current: sqlite3Malloc Havoced: sqlite3ErrStr
+Current: sqlite3Malloc Havoced: pcache1Alloc
+Current: sqlite3Malloc Havoced: sqlite3MemMalloc
+Current: sqlite3Malloc Havoced: sqlite3_malloc
+Current: sqlite3Malloc Havoced: memtraceMalloc
+Current: sqlite3Malloc Havoced: find_home_dir
+Current: sqlite3Malloc Havoced: sqlite3_mutex_enter
+Current: sqlite3Malloc Havoced: mallocWithAlarm
+Current: sqlite3Malloc Havoced: sqlite3_mutex_leave
+getMatchingFunctions
+res.push_back: apndRead
+res.push_back: apndWrite
+res.push_back: memdbRead
+res.push_back: memdbWrite
+res.push_back: unixRead
+res.push_back: unixWrite
+res.push_back: sqlite3OsWrite
+res.push_back: memjrnlRead
+res.push_back: memjrnlWrite
+res.push_back: sqlite3OsRead
+
+        Transformed "sqlite3OsRead" from 1 to 29 basic blocks and from 14 to 76 instructionsCurrent: sqlite3OsRead Havoced: walWriteToLog
+Current: sqlite3OsRead Havoced: walWriteOneFrame
+Current: sqlite3OsRead Havoced: memjrnlWrite
+Current: sqlite3OsRead Havoced: memjrnlRead
+Current: sqlite3OsRead Havoced: sqlite3OsWrite
+Current: sqlite3OsRead Havoced: unixWrite
+Current: sqlite3OsRead Havoced: unixRead
+Current: sqlite3OsRead Havoced: memdbWrite
+Current: sqlite3OsRead Havoced: memdbRead
+Current: sqlite3OsRead Havoced: apndWrite
+Current: sqlite3OsRead Havoced: apndRead
+
+                                                           0 sec [DONE]
+        Number of expressions:                        156559
+        after encoding
+
+      14 assertions before transformations (13 no_function_call, 1 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            4292
+        Fixed Memory Address Assigner
+          Number of moved ops                              5
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           73335
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               1
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                              32
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           69268
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           1 sec [DONE]
+        
+      14 assertions remain after transformations (13 no_function_call, 1 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...

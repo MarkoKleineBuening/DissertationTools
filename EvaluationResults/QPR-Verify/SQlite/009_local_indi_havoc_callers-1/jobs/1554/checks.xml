@@ -1,0 +1,72 @@
+<VerificationJob>
+  <Configuration>
+    <AnalyzeChecksIndividually value="true" />
+    <BitcodeTraces value="false" />
+    <CheckCallers value="true" />
+    <DumpVerifierBitcodeFiles value="false" />
+    <EnableSlicing value="false" />
+    <EntryPoint value="sqlite3_exec" />
+    <FixPoint value="true" />
+    <ForkJobs value="true" />
+    <HavocLimit value="2" />
+    <Hosted value="true" />
+    <IgnoreMissingFunctions value="false" />
+    <InitializedGlobals value="false" />
+    <LoopUnrollBound value="1" />
+    <PreconditionLocation value="jobs/1554" />
+    <SourceDirectory value="/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld" />
+    <TimeOut value="600" />
+    <XMLTraces value="false" />
+  </Configuration>
+  <CheckList>
+    <Check id="5158" location="5590" category="arithmetic.overflow.warning" status="safe|loopboundreached|callstackboundreached|functionbodymissing" scope="sqlite3DbStrDup">
+      <Annotations>
+        <Annotation>A loop bound was reached (/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld//home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld/sqlite3.c:102777:3)</Annotation>
+        <Annotation>A loop bound was reached</Annotation>
+        <Annotation>A function body is missing (/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld//home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld/sqlite3.c:26500:5)</Annotation>
+        <Annotation>The function body for rewind is missing (/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld//home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld/sqlite3.c:26500:5)</Annotation>
+        <Annotation>A loop bound was reached</Annotation>
+        <Annotation>A call stack bound was reached calling sqlite3_mutex_leave (/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld//home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld/sqlite3.c:26500:5)</Annotation>
+        <Annotation>A loop bound was reached (/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld//home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld/sqlite3.c:84964:3)</Annotation>
+        <Annotation>A call stack bound was reached calling sqlite3_mutex_enter (/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld//home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld/sqlite3.c:26474:5)</Annotation>
+        <Annotation>A function body is missing (/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld//home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld/sqlite3.c:26474:5)</Annotation>
+        <Annotation>The function body for rewind is missing (/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld//home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld/sqlite3.c:26474:5)</Annotation>
+      </Annotations>
+      <EntryStatus>
+        <SingleEntryStatus>attachFunc, unknown</SingleEntryStatus>
+        <SingleEntryStatus>callCollNeeded, unknown</SingleEntryStatus>
+        <SingleEntryStatus>codeAllEqualityTerms, unknown</SingleEntryStatus>
+        <SingleEntryStatus>resolveAlias, unknown</SingleEntryStatus>
+        <SingleEntryStatus>resolveFromTermToCte, todo</SingleEntryStatus>
+        <SingleEntryStatus>selectExpander, todo</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3AlterBeginAddColumn, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3BeginTrigger, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3ColumnsFromExprList, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3ExpandReturning, todo</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3ExpandSubquery, todo</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3ExprListDup, todo</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3GenerateColumnNames, todo</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3IdListDup, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3MaterializeView, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3PagerOpen, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3SelectAddColumnTypeAndCollation, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3SetString, todo</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3SrcListDup, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3StartTable, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3TriggerStepSrc, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3VdbeExec, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3VtabBeginParse, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3VtabEponymousTableInit, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3VtabImportErrmsg, todo</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3WhereCodeOneLoopStart, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3WindowDup, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3WithDup, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3_exec, safe|loopboundreached|callstackboundreached|functionbodymissing</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3_step, unknown</SingleEntryStatus>
+        <SingleEntryStatus>vtabCallConstructor, unknown</SingleEntryStatus>
+      </EntryStatus>
+    </Check>
+  </CheckList>
+  <Annotation>allsafe</Annotation>
+  <Status>allsafe</Status>
+</VerificationJob>

@@ -1,0 +1,144 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 7264 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 2
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/7264
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : sqlite3VtabEponymousTableInit
+m_checker->run()
+
+    Performing bounded model checking ...
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...Current: sqlite3DbMallocZero Havoced: sqlite3DbMallocRaw
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %2, i8 0, i64 %1, i32 1, i1 false), !dbg !5621
+
+        Unrolling loop in function "llbmc.strlen" for 0 iterations succeeded.
+        Transformed "llbmc.strlen" from 8 to 9 instructionsCurrent: sqlite3DbStrDup Havoced: sqlite3DbMallocRaw
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %5, i8* %1, i64 %4, i32 1, i1 false), !dbg !5631
+Current: sqlite3DbStrDup Havoced: sqlite3DbMallocRaw
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %5, i8* %1, i64 %4, i32 1, i1 false), !dbg !5631
+Current: addModuleArgument Havoced: sqlite3ErrorMsg
+Current: addModuleArgument Havoced: sqlite3DbRealloc
+Current: addModuleArgument Havoced: sqlite3DbFree
+Current: addModuleArgument Havoced: sqlite3ErrorMsg
+Current: addModuleArgument Havoced: sqlite3DbRealloc
+Current: addModuleArgument Havoced: sqlite3DbFree
+Current: sqlite3DbStrDup Havoced: sqlite3DbMallocRaw
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %5, i8* %1, i64 %4, i32 1, i1 false), !dbg !5631
+Current: addModuleArgument Havoced: sqlite3ErrorMsg
+Current: addModuleArgument Havoced: sqlite3DbRealloc
+Current: addModuleArgument Havoced: sqlite3DbFree
+
+        Unrolling loop in function "vtabCallConstructor" for 1 iterations succeeded.
+        Unrolling loop in function "vtabCallConstructor" for 1 iterations succeeded.
+        Unrolling loop in function "vtabCallConstructor" for 1 iterations succeeded.
+        Unrolling loop in function "vtabCallConstructor" for 1 iterations succeeded.getMatchingFunctions
+res.push_back: fsdirConnect
+res.push_back: completionConnect
+res.push_back: seriesConnect
+res.push_back: expertConnect
+res.push_back: pragmaVtabConnect
+
+        Transformed "vtabCallConstructor" from 49 to 72 basic blocks and from 342 to 417 instructionsCurrent: vtabCallConstructor Havoced: sqlite3DbStrDup
+Current: vtabCallConstructor Havoced: sqlite3MallocZero
+Current: vtabCallConstructor Havoced: sqlite3OomFault
+Current: vtabCallConstructor Havoced: sqlite3DbFree
+Current: vtabCallConstructor Havoced: sqlite3SchemaToIndex
+Current: vtabCallConstructor Havoced: sqlite3VdbeNextOpcode
+Current: vtabCallConstructor Havoced: sqlite3FindInIndex
+Current: vtabCallConstructor Havoced: pragmaVtabConnect
+Current: vtabCallConstructor Havoced: sqlite3_create_collation_v2
+Current: vtabCallConstructor Havoced: expertConnect
+Current: vtabCallConstructor Havoced: seriesConnect
+Current: vtabCallConstructor Havoced: completionConnect
+Current: vtabCallConstructor Havoced: fsdirConnect
+Current: vtabCallConstructor Havoced: sqlite3OomFault
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %107, i8 0, i64 24, i32 8, i1 false), !dbg !5770
+Current: vtabCallConstructor Havoced: sqlite3ColumnType
+Current: vtabCallConstructor Havoced: sqlite3Strlen30
+Current: vtabCallConstructor Havoced: sqlite3_strnicmp
+Current: vtabCallConstructor Havoced: sqlite3MPrintf
+Current: vtabCallConstructor Havoced: sqlite3VtabUnlock
+Current: vtabCallConstructor Havoced: sqlite3MPrintf
+Current: vtabCallConstructor Havoced: sqlite3_free
+Current: vtabCallConstructor Havoced: sqlite3MPrintf
+Current: vtabCallConstructor Havoced: sqlite3DbFree
+Current: vtabCallConstructor Havoced: sqlite3DbFree
+Current: vtabCallConstructor Havoced: sqlite3MPrintf
+Current: sqlite3ErrorMsg Havoced: sqlite3VMPrintf
+Current: sqlite3ErrorMsg Havoced: sqlite3DbFree
+Current: sqlite3ErrorMsg Havoced: sqlite3DbFree
+Current: sqlite3DbFree Havoced: sqlite3DbFreeNN
+Current: sqlite3VtabEponymousTableClear Havoced: sqlite3DeleteTable
+Current: sqlite3DbFree Havoced: sqlite3DbFreeNN
+
+                                                           0 sec [DONE]
+        Number of expressions:                        156613
+        after encoding
+
+      11 assertions before transformations (1 no_function_call, 7 no_back_edge, 3 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            4220
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72648
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               5
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                              24
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             155
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      11 assertions remain after transformations (1 no_function_call, 7 no_back_edge, 3 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...

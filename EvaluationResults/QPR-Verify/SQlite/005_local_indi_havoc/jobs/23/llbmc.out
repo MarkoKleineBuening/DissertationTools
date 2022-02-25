@@ -1,0 +1,106 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 23 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 1
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/23
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [1] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : local_getline
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "local_getline" for 1 iterations succeeded.
+      Unrolling loop in function "local_getline" for 1 iterations succeeded.
+      Transformed "local_getline" from 21 to 34 basic blocks and from 107 to 187 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...isMemmove:   call void @memmove(i8* %r, i8* %ptr, i64 %cpysize)
+Current: local_getline Havoced: shell_out_of_memory
+isMemmove:   call void @memmove(i8* %r, i8* %ptr, i64 %cpysize)
+Current: local_getline Havoced: shell_out_of_memory
+                      0 sec [DONE]
+        Number of expressions:                        155520
+        after encoding
+
+      7 assertions before transformations (2 no_function_call, 3 no_back_edge, 2 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            3767
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5212
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72678
+        Memory Model Encoder
+          Number of moved ops                              0
+          Number of rewrites                               6
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               2
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             142
+        ToASC Analyser
+          Memcpy/memset found                            yes
+        Byte-Based Memory Creator
+          Number of rewrites                            8907
+        Instantiation-Based ToASC Simplifier
+          Number of rewrites                               3
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           23044
+        FP Abstraction
+          Number of rewrites                              22
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      7 assertions remain after transformations (2 no_function_call, 3 no_back_edge, 2 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...            0 sec [DONE]
+        
+                                                           1 sec [DONE]
+      after performing Check
+evaluateCheckerResultsViaRefinementLoop
+checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      getCheckerResultAfterUpdatingMarker
+Result is NoTrace
+
+                                                           1 sec [DONE]
+    allsafe
+    
+                                                           1 sec [DONE]
+  

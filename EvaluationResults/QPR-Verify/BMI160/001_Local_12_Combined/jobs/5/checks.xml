@@ -1,0 +1,33 @@
+<VerificationJob>
+  <Configuration>
+    <AnalyzeChecksIndividually value="false" />
+    <BitcodeTraces value="false" />
+    <EnableSlicing value="false" />
+    <EntryPoint value="bmi160_aux_write" />
+    <FixPoint value="true" />
+    <IgnoreMissingFunctions value="false" />
+    <InitializedGlobals value="false" />
+    <LoopUnrollBound value="12" />
+    <OverApproxVaArgs value="false" />
+    <PreconditionLocation value="jobs/5" />
+    <SourceDirectory value="/home/i12/mbuening/100_Dissertation/BMI160/BMI160_driver" />
+    <StopEncodingAfterCheck value="false" />
+    <StopEncodingAfterCheckLoop value="0" />
+    <TimeOut value="300" />
+  </Configuration>
+  <CheckList>
+    <Check id="151" location="173" category="arithmetic.overflow.warning" status="safe|loopboundreached" scope="bmi160_aux_write">
+      <Annotations>
+        <Annotation>A loop bound was reached (/home/i12/mbuening/100_Dissertation/BMI160/BMI160_driver//home/i12/mbuening/100_Dissertation/BMI160/BMI160_driver/bmi160.c:1764:3)</Annotation>
+      </Annotations>
+    </Check>
+    <Check id="161" location="187" category="arithmetic.overflow.warning" status="unsafe|loopboundreached" scope="bmi160_aux_write">
+      <Annotations>
+        <Annotation>An unsigned arithmetic operation can overflow (wraparound).</Annotation>
+        <Annotation>A loop bound was reached (/home/i12/mbuening/100_Dissertation/BMI160/BMI160_driver//home/i12/mbuening/100_Dissertation/BMI160/BMI160_driver/bmi160.c:1764:3)</Annotation>
+      </Annotations>
+    </Check>
+  </CheckList>
+  <Annotation>someunsafe</Annotation>
+  <Status>someunsafe</Status>
+</VerificationJob>

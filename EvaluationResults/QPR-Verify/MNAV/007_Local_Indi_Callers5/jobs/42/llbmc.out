@@ -1,0 +1,142 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+handleJobInSeparateProcess0
+
+Checking job 42 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 3
+    HavocLimit : 0
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/42
+    TimeOut : 300
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : imugps_acq
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "imugps_acq" for 3 iterations succeeded.
+      Unrolling loop in function "imugps_acq" for 3 iterations succeeded.
+      Unrolling loop in function "imugps_acq" for 3 iterations succeeded.
+      Unrolling loop in function "imugps_acq" for 3 iterations succeeded.
+      Unrolling loop in function "imugps_acq" for 3 iterations succeeded.
+      Unrolling loop in function "imugps_acq" for 3 iterations succeeded.
+      Unrolling loop in function "imugps_acq" for 3 iterations succeeded.
+      Unrolling loop in function "imugps_acq" for 3 iterations succeeded.
+      Unrolling loop in function "imugps_acq" for 3 iterations succeeded.
+      Unrolling loop in function "imugps_acq" for 3 iterations succeeded.
+      Transformed "imugps_acq" from 58 to 268 basic blocks and from 284 to 1607 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...isMemset:   call void @llvm.memset.p0i8.i64(i8* %8, i8 0, i64 86, i32 16, i1 false), !dbg !1416
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %9, i8* getelementptr inbounds ([11 x i8], [11 x i8]* @imugps_acq.SCALED_MODE, i32 0, i32 0), i64 11, i32 1, i1 false), !dbg !1421
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %10, i8* getelementptr inbounds ([11 x i8], [11 x i8]* @imugps_acq.CH_BAUD, i32 0, i32 0), i64 11, i32 1, i1 false), !dbg !1423
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %11, i8* getelementptr inbounds ([11 x i8], [11 x i8]* @imugps_acq.CH_SAMP, i32 0, i32 0), i64 11, i32 1, i1 false), !dbg !1425
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %12, i8* getelementptr inbounds ([7 x i8], [7 x i8]* @imugps_acq.CH_SERVO, i32 0, i32 0), i64 7, i32 1, i1 false), !dbg !1428
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %10, i8 0, i64 60, i32 4, i1 false), !dbg !1404
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %10, i8 0, i64 60, i32 4, i1 false), !dbg !1404
+
+        Unrolling loop in function "checksum" for 3 iterations succeeded.
+        Transformed "checksum" from 8 to 13 basic blocks and from 79 to 137 instructions
+        Transformed "decode_imupacket" from 5 to 9 basic blocks and from 633 to 640 instructions
+                                                           0 sec [DONE]
+        Number of expressions:                         15447
+        after encoding
+
+      251 assertions before transformations (202 no_function_call, 41 no_back_edge, 4 custom, 4 no_unreachable_executed).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            5026
+        Fixed Memory Address Assigner
+          Number of moved ops                             13
+          Number of rewrites                             364
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                            3638
+        Memory Model Encoder
+          Number of moved ops                              1rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                              19
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           33402
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           82515
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                             182
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      251 assertions remain after transformations (202 no_function_call, 41 no_back_edge, 4 custom, 4 no_unreachable_executed).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...            0 sec [DONE]
+        
+                                                           0 sec [DONE]
+      after performing Check
+evaluateCheckerResultsViaRefinementLoop
+checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      getCheckerResultAfterUpdatingMarker
+Result is NoTrace
+
+                                                           0 sec [DONE]
+    allunsafe
+    
+                                                           0 sec [DONE]
+  

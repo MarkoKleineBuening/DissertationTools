@@ -1,0 +1,28 @@
+<VerificationJob>
+  <Configuration>
+    <AnalyzeChecksIndividually value="true" />
+    <BitcodeTraces value="false" />
+    <DumpVerifierBitcodeFiles value="false" />
+    <EnableSlicing value="true" />
+    <EntryPoint value="sqlite3BtreeGetPageSize" />
+    <FixPoint value="true" />
+    <ForkJobs value="true" />
+    <Hosted value="true" />
+    <IgnoreMissingFunctions value="false" />
+    <InitializedGlobals value="false" />
+    <LoopUnrollBound value="1" />
+    <PreconditionLocation value="jobs/3341" />
+    <SourceDirectory value="/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld" />
+    <TimeOut value="600" />
+    <XMLTraces value="false" />
+  </Configuration>
+  <CheckList>
+    <Check id="10669" location="11608" category="implicit.conversion.overflow" status="unsafe" scope="sqlite3BtreeGetPageSize">
+      <Annotations>
+        <Annotation>An implicit conversion operation can overflow.</Annotation>
+      </Annotations>
+    </Check>
+  </CheckList>
+  <Annotation>allunsafe</Annotation>
+  <Status>allunsafe</Status>
+</VerificationJob>

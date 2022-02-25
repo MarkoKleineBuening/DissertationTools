@@ -1,0 +1,32 @@
+<VerificationJob>
+  <Configuration>
+    <AnalyzeChecksIndividually value="true" />
+    <BitcodeTraces value="false" />
+    <DumpVerifierBitcodeFiles value="false" />
+    <EnableSlicing value="false" />
+    <EntryPoint value="get_time_interval" />
+    <FixPoint value="true" />
+    <ForkJobs value="true" />
+    <Hosted value="true" />
+    <IgnoreMissingFunctions value="false" />
+    <InitializedGlobals value="false" />
+    <LoopUnrollBound value="12" />
+    <PreconditionLocation value="jobs/225" />
+    <PreconditionNumber value="5" />
+    <SourceDirectory value="/home/marko/Examples/23_MNAV/MNAV1.5" />
+    <TimeOut value="300" />
+    <XMLTraces value="false" />
+  </Configuration>
+  <CheckList>
+    <Check id="1824" location="1910" category="arithmetic.overflow" status="safe|functionbodymissing" scope="get_time_interval">
+      <Annotations>
+        <Annotation>The function body for clock_gettime is missing (/home/marko/Examples/23_MNAV/MNAV1.5//home/marko/Examples/23_MNAV/MNAV1.5/misc.c:68:9)</Annotation>
+      </Annotations>
+      <EntryStatus>
+        <SingleEntryStatus>get_time_interval, todo</SingleEntryStatus>
+      </EntryStatus>
+    </Check>
+  </CheckList>
+  <Annotation>allsafe</Annotation>
+  <Status>allsafe</Status>
+</VerificationJob>

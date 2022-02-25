@@ -1,0 +1,233 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 3483 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 1
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/3483
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : sqlite3BtreeMovetoUnpacked
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "sqlite3BtreeMovetoUnpacked" for 1 iterations succeeded.
+      Unrolling loop in function "sqlite3BtreeMovetoUnpacked" for 1 iterations succeeded.
+      Unrolling loop in function "sqlite3BtreeMovetoUnpacked" for 1 iterations succeeded.
+      Unrolling loop in function "sqlite3BtreeMovetoUnpacked" for 1 iterations succeeded.getMatchingFunctions
+res.push_back: sqlite3VdbeRecordCompare
+res.push_back: vdbeRecordCompareInt
+res.push_back: vdbeRecordCompareString
+getMatchingFunctions
+res.push_back: sqlite3VdbeRecordCompare
+res.push_back: vdbeRecordCompareInt
+res.push_back: vdbeRecordCompareString
+getMatchingFunctions
+res.push_back: btreeParseCellPtr
+res.push_back: btreeParseCellPtrNoPayload
+res.push_back: btreeParseCellPtrIndex
+res.push_back: btreeParseCellAdjustSizeForOverflow
+getMatchingFunctions
+res.push_back: sqlite3VdbeRecordCompare
+res.push_back: vdbeRecordCompareInt
+res.push_back: vdbeRecordCompareString
+getMatchingFunctions
+res.push_back: sqlite3VdbeRecordCompare
+res.push_back: vdbeRecordCompareInt
+res.push_back: vdbeRecordCompareString
+getMatchingFunctions
+res.push_back: btreeParseCellPtr
+res.push_back: btreeParseCellPtrNoPayload
+res.push_back: btreeParseCellPtrIndex
+res.push_back: btreeParseCellAdjustSizeForOverflow
+
+      Transformed "sqlite3BtreeMovetoUnpacked" from 90 to 339 basic blocks and from 580 to 1635 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...Current: sqlite3BtreeMovetoUnpacked Havoced: sqlite3BtreeNext
+Current: sqlite3BtreeMovetoUnpacked Havoced: getCellInfo
+Current: sqlite3BtreeMovetoUnpacked Havoced: sqlite3VdbeFindCompare
+Current: sqlite3BtreeMovetoUnpacked Havoced: moveToRoot
+Current: sqlite3BtreeMovetoUnpacked Havoced: vdbeRecordCompareString
+Current: sqlite3BtreeMovetoUnpacked Havoced: vdbeRecordCompareInt
+Current: sqlite3BtreeMovetoUnpacked Havoced: sqlite3VdbeRecordCompare
+Current: sqlite3BtreeMovetoUnpacked Havoced: sqlite3_keyword_name
+Current: sqlite3BtreeMovetoUnpacked Havoced: copyNodeContent
+Current: sqlite3BtreeMovetoUnpacked Havoced: rowSetTreeToList
+Current: sqlite3BtreeMovetoUnpacked Havoced: identPut
+Current: sqlite3BtreeMovetoUnpacked Havoced: sqlite3FkDropTable
+Current: sqlite3BtreeMovetoUnpacked Havoced: generateWithRecursiveQuery
+Current: sqlite3BtreeMovetoUnpacked Havoced: innerLoopLoadRow
+Current: sqlite3BtreeMovetoUnpacked Havoced: explainSimpleCount
+Current: sqlite3BtreeMovetoUnpacked Havoced: sqlite3AuthContextPush
+Current: sqlite3BtreeMovetoUnpacked Havoced: generateColumnTypes
+Current: sqlite3BtreeMovetoUnpacked Havoced: whereLikeOptimizationStringFixup
+Current: sqlite3BtreeMovetoUnpacked Havoced: sqlite3WhereTabFuncArgs
+Current: sqlite3BtreeMovetoUnpacked Havoced: reindexTable
+Current: sqlite3BtreeMovetoUnpacked Havoced: analyzeTable
+Current: sqlite3BtreeMovetoUnpacked Havoced: sqlite3PagerSetBusyHandler
+Current: sqlite3BtreeMovetoUnpacked Havoced: corruptSchema
+Current: sqlite3BtreeMovetoUnpacked Havoced: sqlite3SetString
+Current: sqlite3BtreeMovetoUnpacked Havoced: addModuleArgument
+Current: sqlite3BtreeMovetoUnpacked Havoced: sqlite3ExprFunctionUsable
+Current: sqlite3BtreeMovetoUnpacked Havoced: sqlite3ResolveSelectNames
+Current: sqlite3BtreeMovetoUnpacked Havoced: sqlite3SelectPrep
+Current: sqlite3BtreeMovetoUnpacked Havoced: sqlite3RenameTokenRemap
+Current: sqlite3BtreeMovetoUnpacked Havoced: sqlite3WindowChain
+Current: sqlite3BtreeMovetoUnpacked Havoced: sqlite3AlterDropColumn
+Current: sqlite3BtreeMovetoUnpacked Havoced: sqlite3AlterRenameTable
+Current: sqlite3BtreeMovetoUnpacked Havoced: sqlite3Analyze
+Current: sqlite3BtreeMovetoUnpacked Havoced: sqlite3Reindex
+Current: sqlite3BtreeMovetoUnpacked Havoced: sqlite3FinishTrigger
+Current: sqlite3BtreeMovetoUnpacked Havoced: sqlite3Vacuum
+Current: sqlite3BtreeMovetoUnpacked Havoced: sqlite3PExprAddSelect
+Current: sqlite3BtreeMovetoUnpacked Havoced: sqlite3WindowAttach
+Current: sqlite3BtreeMovetoUnpacked Havoced: sqlite3ExprListCheckLength
+Current: sqlite3BtreeMovetoUnpacked Havoced: sqlite3SrcListFuncArgs
+Current: sqlite3BtreeMovetoUnpacked Havoced: sqlite3SrcListIndexedBy
+Current: sqlite3BtreeMovetoUnpacked Havoced: sqlite3AddGenerated
+Current: sqlite3BtreeMovetoUnpacked Havoced: sqlite3AddColumn
+Current: sqlite3BtreeMovetoUnpacked Havoced: btreeParseCellAdjustSizeForOverflow
+Current: sqlite3BtreeMovetoUnpacked Havoced: btreeParseCellPtrIndex
+Current: sqlite3BtreeMovetoUnpacked Havoced: btreeParseCellPtrNoPayload
+Current: sqlite3BtreeMovetoUnpacked Havoced: btreeParseCellPtr
+Current: sqlite3BtreeMovetoUnpacked Havoced: insertElement
+Current: sqlite3BtreeMovetoUnpacked Havoced: sqlite3_str_vappendf
+Current: sqlite3BtreeMovetoUnpacked Havoced: printSchemaLine
+Current: sqlite3BtreeMovetoUnpacked Havoced: tryToCloneData
+Current: sqlite3BtreeMovetoUnpacked Havoced: sqlite3Malloc
+Current: sqlite3BtreeMovetoUnpacked Havoced: accessPayload
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %498, i8 0, i64 18, i32 1, i1 false), !dbg !5947
+Current: sqlite3BtreeMovetoUnpacked Havoced: sqlite3VdbeRecordCompare
+Current: sqlite3BtreeMovetoUnpacked Havoced: sqlite3_free
+Current: sqlite3BtreeMovetoUnpacked Havoced: vdbeRecordCompareString
+Current: sqlite3BtreeMovetoUnpacked Havoced: vdbeRecordCompareInt
+Current: sqlite3BtreeMovetoUnpacked Havoced: sqlite3VdbeRecordCompare
+Current: sqlite3BtreeMovetoUnpacked Havoced: sqlite3_keyword_name
+Current: sqlite3BtreeMovetoUnpacked Havoced: vdbeRecordCompareString
+Current: sqlite3BtreeMovetoUnpacked Havoced: vdbeRecordCompareInt
+Current: sqlite3BtreeMovetoUnpacked Havoced: sqlite3VdbeRecordCompare
+Current: sqlite3BtreeMovetoUnpacked Havoced: sqlite3_keyword_name
+Current: sqlite3BtreeMovetoUnpacked Havoced: copyNodeContent
+Current: sqlite3BtreeMovetoUnpacked Havoced: rowSetTreeToList
+Current: sqlite3BtreeMovetoUnpacked Havoced: identPut
+Current: sqlite3BtreeMovetoUnpacked Havoced: sqlite3FkDropTable
+Current: sqlite3BtreeMovetoUnpacked Havoced: generateWithRecursiveQuery
+Current: sqlite3BtreeMovetoUnpacked Havoced: innerLoopLoadRow
+Current: sqlite3BtreeMovetoUnpacked Havoced: explainSimpleCount
+Current: sqlite3BtreeMovetoUnpacked Havoced: sqlite3AuthContextPush
+Current: sqlite3BtreeMovetoUnpacked Havoced: generateColumnTypes
+Current: sqlite3BtreeMovetoUnpacked Havoced: whereLikeOptimizationStringFixup
+Current: sqlite3BtreeMovetoUnpacked Havoced: sqlite3WhereTabFuncArgs
+Current: sqlite3BtreeMovetoUnpacked Havoced: reindexTable
+Current: sqlite3BtreeMovetoUnpacked Havoced: analyzeTable
+Current: sqlite3BtreeMovetoUnpacked Havoced: sqlite3PagerSetBusyHandler
+Current: sqlite3BtreeMovetoUnpacked Havoced: corruptSchema
+Current: sqlite3BtreeMovetoUnpacked Havoced: sqlite3SetString
+Current: sqlite3BtreeMovetoUnpacked Havoced: addModuleArgument
+Current: sqlite3BtreeMovetoUnpacked Havoced: sqlite3ExprFunctionUsable
+Current: sqlite3BtreeMovetoUnpacked Havoced: sqlite3ResolveSelectNames
+Current: sqlite3BtreeMovetoUnpacked Havoced: sqlite3SelectPrep
+Current: sqlite3BtreeMovetoUnpacked Havoced: sqlite3RenameTokenRemap
+Current: sqlite3BtreeMovetoUnpacked Havoced: sqlite3WindowChain
+Current: sqlite3BtreeMovetoUnpacked Havoced: sqlite3AlterDropColumn
+Current: sqlite3BtreeMovetoUnpacked Havoced: sqlite3AlterRenameTable
+Current: sqlite3BtreeMovetoUnpacked Havoced: sqlite3Analyze
+Current: sqlite3BtreeMovetoUnpacked Havoced: sqlite3Reindex
+Current: sqlite3BtreeMovetoUnpacked Havoced: sqlite3FinishTrigger
+Current: sqlite3BtreeMovetoUnpacked Havoced: sqlite3Vacuum
+Current: sqlite3BtreeMovetoUnpacked Havoced: sqlite3PExprAddSelect
+Current: sqlite3BtreeMovetoUnpacked Havoced: sqlite3WindowAttach
+Current: sqlite3BtreeMovetoUnpacked Havoced: sqlite3ExprListCheckLength
+Current: sqlite3BtreeMovetoUnpacked Havoced: sqlite3SrcListFuncArgs
+Current: sqlite3BtreeMovetoUnpacked Havoced: sqlite3SrcListIndexedBy
+Current: sqlite3BtreeMovetoUnpacked Havoced: sqlite3AddGenerated
+Current: sqlite3BtreeMovetoUnpacked Havoced: sqlite3AddColumn
+Current: sqlite3BtreeMovetoUnpacked Havoced: btreeParseCellAdjustSizeForOverflow
+Current: sqlite3BtreeMovetoUnpacked Havoced: btreeParseCellPtrIndex
+Current: sqlite3BtreeMovetoUnpacked Havoced: btreeParseCellPtrNoPayload
+Current: sqlite3BtreeMovetoUnpacked Havoced: btreeParseCellPtr
+Current: sqlite3BtreeMovetoUnpacked Havoced: insertElement
+Current: sqlite3BtreeMovetoUnpacked Havoced: sqlite3_str_vappendf
+Current: sqlite3BtreeMovetoUnpacked Havoced: printSchemaLine
+Current: sqlite3BtreeMovetoUnpacked Havoced: tryToCloneData
+Current: sqlite3BtreeMovetoUnpacked Havoced: sqlite3Malloc
+Current: sqlite3BtreeMovetoUnpacked Havoced: accessPayload
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %830, i8 0, i64 18, i32 1, i1 false), !dbg !5947
+Current: sqlite3BtreeMovetoUnpacked Havoced: sqlite3VdbeRecordCompare
+Current: sqlite3BtreeMovetoUnpacked Havoced: sqlite3_free
+Current: sqlite3BtreeMovetoUnpacked Havoced: sqlite3_free
+Current: sqlite3BtreeMovetoUnpacked Havoced: sqlite3CorruptError
+Current: sqlite3BtreeMovetoUnpacked Havoced: vdbeRecordCompareString
+Current: sqlite3BtreeMovetoUnpacked Havoced: vdbeRecordCompareInt
+Current: sqlite3BtreeMovetoUnpacked Havoced: sqlite3VdbeRecordCompare
+Current: sqlite3BtreeMovetoUnpacked Havoced: sqlite3_keyword_name
+Current: sqlite3BtreeMovetoUnpacked Havoced: sqlite3CorruptError
+Current: sqlite3BtreeMovetoUnpacked Havoced: sqlite3GetVarint
+Current: sqlite3BtreeMovetoUnpacked Havoced: sqlite3GetVarint
+Current: sqlite3BtreeMovetoUnpacked Havoced: sqlite3Get4byte
+Current: sqlite3BtreeMovetoUnpacked Havoced: sqlite3Get4byte
+Current: sqlite3BtreeMovetoUnpacked Havoced: moveToChild
+Current: sqlite3BtreeMovetoUnpacked Havoced: sqlite3CorruptError
+                      0 sec [DONE]
+        Number of expressions:                        158622
+        after encoding
+
+      15 assertions before transformations (6 no_function_call, 5 no_back_edge, 4 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            5313
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72695
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               1
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                              14
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             146
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      15 assertions remain after transformations (6 no_function_call, 5 no_back_edge, 4 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...

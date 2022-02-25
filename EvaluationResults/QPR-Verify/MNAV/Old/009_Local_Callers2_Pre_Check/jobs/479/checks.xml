@@ -1,0 +1,37 @@
+<VerificationJob>
+  <Configuration>
+    <AnalyzeChecksIndividually value="true" />
+    <BitcodeTraces value="false" />
+    <CheckCallers value="true" />
+    <CheckOnlyPrecondition value="true" />
+    <DumpVerifierBitcodeFiles value="false" />
+    <EnableSlicing value="false" />
+    <EntryPoint value="navigation_algorithm" />
+    <FixPoint value="true" />
+    <ForkJobs value="true" />
+    <Hosted value="true" />
+    <IgnoreMissingFunctions value="false" />
+    <InitializedGlobals value="false" />
+    <LoopUnrollBound value="4" />
+    <PreconditionLocation value="jobs/479" />
+    <PreconditionNumber value="3" />
+    <SourceDirectory value="/home/marko/Examples/23_MNAV/MNAV1.5" />
+    <TimeOut value="300" />
+    <XMLTraces value="false" />
+  </Configuration>
+  <CheckList>
+    <Check id="1632" location="1719" category="arithmetic.overflow" status="unsafe" scope="mat_lu">
+      <Annotations>
+        <Annotation>The function body for fabs is missing (/home/marko/Examples/23_MNAV/MNAV1.5//home/marko/Examples/23_MNAV/MNAV1.5/matrix.c:845:14)</Annotation>
+      </Annotations>
+      <EntryStatus>
+        <SingleEntryStatus>AHRS_Algorithm, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>mat_lsolve, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>mat_minor, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>navigation_algorithm, unsafe</SingleEntryStatus>
+      </EntryStatus>
+    </Check>
+  </CheckList>
+  <Annotation>allsafe</Annotation>
+  <Status>allunsafe</Status>
+</VerificationJob>

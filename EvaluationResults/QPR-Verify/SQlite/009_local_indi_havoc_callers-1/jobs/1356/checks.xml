@@ -1,0 +1,35 @@
+<VerificationJob>
+  <Configuration>
+    <AnalyzeChecksIndividually value="true" />
+    <BitcodeTraces value="false" />
+    <CheckCallers value="true" />
+    <DumpVerifierBitcodeFiles value="false" />
+    <EnableSlicing value="false" />
+    <EntryPoint value="setupLookaside" />
+    <FixPoint value="true" />
+    <ForkJobs value="true" />
+    <HavocLimit value="2" />
+    <Hosted value="true" />
+    <IgnoreMissingFunctions value="false" />
+    <InitializedGlobals value="false" />
+    <LoopUnrollBound value="1" />
+    <PreconditionLocation value="jobs/1356" />
+    <SourceDirectory value="/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld" />
+    <TimeOut value="600" />
+    <XMLTraces value="false" />
+  </Configuration>
+  <CheckList>
+    <Check id="4509" location="4905" category="implicit.conversion.overflow" status="internalerror" scope="sqlite3LookasideUsed">
+      <Annotations>
+        <Annotation>An implicit conversion operation can overflow.</Annotation>
+        <Annotation>The model checker terminated with an exception (job:1356)</Annotation>
+      </Annotations>
+      <EntryStatus>
+        <SingleEntryStatus>setupLookaside, internalerror</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3_db_status, todo</SingleEntryStatus>
+      </EntryStatus>
+    </Check>
+  </CheckList>
+  <Annotation>The model checker terminated with an exception</Annotation>
+  <Status>internalerror</Status>
+</VerificationJob>

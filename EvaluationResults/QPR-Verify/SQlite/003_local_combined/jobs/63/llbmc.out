@@ -1,0 +1,92 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+handleJobInSeparateProcess0
+
+Checking job 63 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 5 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 0
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/63
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : binaryCompareP5
+m_checker->run()
+
+    Performing bounded model checking ...
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...
+        Unrolling loop in function "sqlite3ExprAffinity" for 1 iterations succeeded.
+        Transformed "sqlite3ExprAffinity" from 19 to 20 basic blocks and from 107 to 117 instructions
+        Unrolling loop in function "sqlite3AffinityType" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3AffinityType" for 1 iterations succeeded.
+        Transformed "sqlite3AffinityType" from 48 to 52 basic blocks and from 305 to 328 instructions
+        Unrolling loop in function "sqlite3GetInt32" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3GetInt32" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3GetInt32" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3GetInt32" for 1 iterations succeeded.
+        Transformed "sqlite3GetInt32" from 43 to 52 basic blocks and from 241 to 320 instructionsisMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %97, i8* %98, i64 4, i32 4, i1 false), !dbg !5698
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %97, i8* %98, i64 4, i32 4, i1 false), !dbg !5698
+
+                                                           0 sec [DONE]
+        Number of expressions:                        157759
+        after encoding
+
+      25 assertions before transformations (6 no_function_call, 14 no_back_edge, 5 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            5334
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72643
+        Memory Model Encoder
+          Number of moved ops                              1rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               4
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               8
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             160
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      25 assertions remain after transformations (6 no_function_call, 14 no_back_edge, 5 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...

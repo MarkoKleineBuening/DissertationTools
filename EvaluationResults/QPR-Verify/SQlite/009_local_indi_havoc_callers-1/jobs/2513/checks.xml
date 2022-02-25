@@ -1,0 +1,36 @@
+<VerificationJob>
+  <Configuration>
+    <AnalyzeChecksIndividually value="true" />
+    <BitcodeTraces value="false" />
+    <CheckCallers value="true" />
+    <DumpVerifierBitcodeFiles value="false" />
+    <EnableSlicing value="false" />
+    <EntryPoint value="sqlite3PagerSetJournalMode" />
+    <FixPoint value="true" />
+    <ForkJobs value="true" />
+    <HavocLimit value="2" />
+    <Hosted value="true" />
+    <IgnoreMissingFunctions value="false" />
+    <InitializedGlobals value="false" />
+    <LoopUnrollBound value="1" />
+    <PreconditionLocation value="jobs/2513" />
+    <SourceDirectory value="/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld" />
+    <TimeOut value="600" />
+    <XMLTraces value="false" />
+  </Configuration>
+  <CheckList>
+    <Check id="8282" location="8988" category="explicit.conversion.overflow" status="safe" scope="pagerLockDb">
+      <EntryStatus>
+        <SingleEntryStatus>hasHotJournal, todo</SingleEntryStatus>
+        <SingleEntryStatus>pagerExclusiveLock, safe</SingleEntryStatus>
+        <SingleEntryStatus>pager_wait_on_lock, todo</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3PagerBegin, todo</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3PagerCloseWal, safe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3PagerSetJournalMode, safe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3PagerSharedLock, safe</SingleEntryStatus>
+      </EntryStatus>
+    </Check>
+  </CheckList>
+  <Annotation>allsafe</Annotation>
+  <Status>allsafe</Status>
+</VerificationJob>

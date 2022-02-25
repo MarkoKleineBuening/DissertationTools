@@ -1,0 +1,26 @@
+<VerificationJob>
+  <Configuration>
+    <AnalyzeChecksIndividually value="true" />
+    <BitcodeTraces value="false" />
+    <EnableSlicing value="false" />
+    <EntryPoint value="bmi160_get_fifo_data" />
+    <FixPoint value="true" />
+    <HavocLimit value="2" />
+    <IgnoreMissingFunctions value="false" />
+    <InitializedGlobals value="false" />
+    <LoopUnrollBound value="12" />
+    <PreconditionLocation value="jobs/22" />
+    <SourceDirectory value="/home/i12/mbuening/100_Dissertation/BMI160/BMI160_driver" />
+    <TimeOut value="300" />
+  </Configuration>
+  <CheckList>
+    <Check id="241" location="290" category="implicit.conversion.overflow" status="safe|loopboundreached|functionbodymissing" scope="bmi160_get_fifo_data">
+      <Annotations>
+        <Annotation>A function body is missing (/home/i12/mbuening/100_Dissertation/BMI160/BMI160_driver//home/i12/mbuening/100_Dissertation/BMI160/BMI160_driver/bmi160.c:1994:11)</Annotation>
+        <Annotation>A loop bound was reached (/home/i12/mbuening/100_Dissertation/BMI160/BMI160_driver//home/i12/mbuening/100_Dissertation/BMI160/BMI160_driver/BMI160Stubs.c:25:3)</Annotation>
+      </Annotations>
+    </Check>
+  </CheckList>
+  <Annotation>allsafe</Annotation>
+  <Status>allsafe</Status>
+</VerificationJob>

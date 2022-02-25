@@ -1,0 +1,108 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 7828 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 1
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/7828
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : wherePathSolver
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "wherePathSolver" for 1 iterations succeeded.
+      Unrolling loop in function "wherePathSolver" for 1 iterations succeeded.
+      Unrolling loop in function "wherePathSolver" for 1 iterations succeeded.
+      Unrolling loop in function "wherePathSolver" for 1 iterations succeeded.
+      Unrolling loop in function "wherePathSolver" for 1 iterations succeeded.
+      Unrolling loop in function "wherePathSolver" for 1 iterations succeeded.
+      Unrolling loop in function "wherePathSolver" for 1 iterations succeeded.
+      Unrolling loop in function "wherePathSolver" for 1 iterations succeeded.
+      Transformed "wherePathSolver" from 133 to 142 basic blocks and from 981 to 1067 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...Current: wherePathSolver Havoced: sqlite3DbMallocRawNN
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %44, i8 0, i64 32, i32 8, i1 false), !dbg !5760
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %61, i8 0, i64 %63, i32 2, i1 false), !dbg !5790
+Current: wherePathSolver Havoced: sqlite3LogEstAdd
+Current: wherePathSolver Havoced: sqlite3LogEstAdd
+Current: wherePathSolver Havoced: wherePathSatisfiesOrderBy
+Current: wherePathSolver Havoced: whereSortingCost
+Current: wherePathSolver Havoced: sqlite3LogEstAdd
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %266, i8* %269, i64 %271, i32 8, i1 false), !dbg !6046
+Current: wherePathSolver Havoced: wherePathSatisfiesOrderBy
+Current: wherePathSolver Havoced: wherePathSatisfiesOrderBy
+Current: wherePathSolver Havoced: wherePathSatisfiesOrderBy
+Current: wherePathSolver Havoced: sqlite3DbFreeNN
+Current: wherePathSolver Havoced: sqlite3ErrorMsg
+Current: wherePathSolver Havoced: sqlite3DbFreeNN
+                      0 sec [DONE]
+        Number of expressions:                        156662
+        after encoding
+
+      9 assertions before transformations (8 no_back_edge, 1 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            4299
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72687
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               4
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               6
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             144
+        ToASC Analyser
+          Memcpy/memset found                            yes
+        Byte-Based Memory Creator
+          Number of rewrites                            9044
+        Instantiation-Based ToASC Simplifier
+          Number of rewrites                               1
+        Simplifier
+          Number of moved ops                           1510
+          Number of rewrites                           23549
+        FP Abstraction
+          Number of rewrites                              22
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      9 assertions remain after transformations (8 no_back_edge, 1 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...

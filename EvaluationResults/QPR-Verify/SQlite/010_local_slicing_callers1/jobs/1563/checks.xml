@@ -1,0 +1,71 @@
+<VerificationJob>
+  <Configuration>
+    <AnalyzeChecksIndividually value="true" />
+    <BitcodeTraces value="false" />
+    <CheckCallers value="true" />
+    <DumpVerifierBitcodeFiles value="false" />
+    <EnableSlicing value="true" />
+    <EntryPoint value="sqlite3AddReturning" />
+    <FixPoint value="true" />
+    <ForkJobs value="true" />
+    <Hosted value="true" />
+    <IgnoreMissingFunctions value="false" />
+    <InitializedGlobals value="false" />
+    <LoopUnrollBound value="1" />
+    <PreconditionLocation value="jobs/1563" />
+    <SourceDirectory value="/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld" />
+    <TimeOut value="600" />
+    <XMLTraces value="false" />
+  </Configuration>
+  <CheckList>
+    <Check id="5179" location="5616" category="arithmetic.overflow.warning" status="unsafe" scope="sqlite3OomFault">
+      <Annotations>
+        <Annotation>An unsigned arithmetic operation can overflow (wraparound).</Annotation>
+      </Annotations>
+      <EntryStatus>
+        <SingleEntryStatus>attachFunc, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>createFunctionApi, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>createTableStmt, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>dbMallocRawFinish, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>dbReallocFinish, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>findCollSeqEntry, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>growOpArray, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>lockTable, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>openDatabase, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>schemaIsValid, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3AddReturning, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3AnalysisLoad, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3ColumnsFromExprList, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3CreateForeignKey, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3CreateIndex, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3EndTable, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3FindFunction, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3FinishTrigger, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3IndexAffinityStr, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3InitCallback, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3InitOne, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3KeyInfoAlloc, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3OpenTempDatabase, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3Pragma, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3RegisterPerConnectionBuiltinFunctions, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3Reprepare, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3SchemaGet, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3TableAffinity, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3VMPrintf, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3VdbeDisplayP4, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3VdbeExec, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3VdbeList, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3VtabCreateModule, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3VtabFinishParse, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3VtabMakeWritable, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3_exec, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3_result_error_nomem, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>valueFromExpr, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>vtabBestIndex, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>vtabCallConstructor, unsafe</SingleEntryStatus>
+      </EntryStatus>
+    </Check>
+  </CheckList>
+  <Annotation>allunsafe</Annotation>
+  <Status>allunsafe</Status>
+</VerificationJob>

@@ -1,0 +1,78 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+handleJobInSeparateProcess0
+
+Checking job 453 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 0
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/453
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : re_esc_char
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "re_esc_char" for 1 iterations succeeded.
+      Transformed "re_esc_char" from 29 to 34 basic blocks and from 203 to 231 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...                      0 sec [DONE]
+        Number of expressions:                        156089
+        after encoding
+
+      3 assertions before transformations (1 no_back_edge, 2 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            4122
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72743
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               1
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                              10
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             142
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      3 assertions remain after transformations (1 no_back_edge, 2 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...

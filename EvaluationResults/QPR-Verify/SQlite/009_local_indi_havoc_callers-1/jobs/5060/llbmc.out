@@ -1,0 +1,99 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 5060 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 2
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/5060
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : vdbeMergeEngineInit
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "vdbeMergeEngineInit" for 1 iterations succeeded.
+      Unrolling loop in function "vdbeMergeEngineInit" for 1 iterations succeeded.
+      Transformed "vdbeMergeEngineInit" from 15 to 17 basic blocks and from 76 to 83 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...Current: vdbePmaReaderIncrInit Havoced: vdbePmaReaderIncrMergeInit
+Current: vdbePmaReaderIncrInit Havoced: vdbeSorterCreateThread
+Current: vdbePmaReaderNext Havoced: vdbeIncrSwap
+Current: vdbePmaReaderNext Havoced: vdbePmaReaderSeek
+Current: vdbePmaReaderNext Havoced: vdbePmaReadVarint
+Current: vdbePmaReaderNext Havoced: vdbePmaReadBlob
+Current: vdbePmaReaderNext Havoced: vdbePmaReaderClear
+getMatchingFunctions
+res.push_back: vdbeSorterCompareInt
+res.push_back: vdbeSorterCompareText
+res.push_back: vdbeSorterCompare
+res.push_back: vdbeSorterCompareTail
+
+        Transformed "vdbeMergeEngineCompare" from 13 to 23 basic blocks and from 115 to 134 instructionsCurrent: vdbeMergeEngineCompare Havoced: vdbeSorterCompareTail
+Current: vdbeMergeEngineCompare Havoced: vdbeSorterCompare
+Current: vdbeMergeEngineCompare Havoced: vdbeSorterCompareText
+Current: vdbeMergeEngineCompare Havoced: vdbeSorterCompareInt
+
+                                                           0 sec [DONE]
+        Number of expressions:                        155599
+        after encoding
+
+      4 assertions before transformations (1 no_function_call, 2 no_back_edge, 1 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            3676
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72639
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               2
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                              12
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             142
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      4 assertions remain after transformations (1 no_function_call, 2 no_back_edge, 1 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...

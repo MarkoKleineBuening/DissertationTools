@@ -1,0 +1,208 @@
+runJobCommand
+precondition analysis with entry:pageFreeArray
+arguents: child
+arguents: job
+arguents: mode
+arguents: precondition
+handleJobInSeparateProcess0
+
+Checking job 3260 ...about to run job:
+preconNumber: 5, 1
+
+  Running Model Checker with 1 checks ...entry: pageFreeArray, functionName: freeSpace
+  <badref> = call i32 @qpr.precondition.freeSpace(%struct.MemPage.144* %0, i16 %59, i16 %60)
+entry: pageFreeArray, functionName: dropCell
+entry: pageFreeArray, functionName: freeSpace
+entry: pageFreeArray, functionName: pageFreeArray
+try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 1
+    LoopUnrollBound : 1
+    HavocLimit : 0
+    PreconditionNumber : 5
+    PreconditionLocation : jobs/3260
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : true
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : pageFreeArray
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "pageFreeArray" for 1 iterations succeeded.
+      Transformed "pageFreeArray" from 18 to 19 basic blocks and from 143 to 155 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...size Alloca: 1
+size Alloca: 1
+TODO MKB implement precondition handling: IE
+Reading in precondition at: jobs/3260/precondition_freeSpace.txt
+preconFile: jobs/3260/precondition_freeSpace.txt
+ref: [underoverapprox]name of function arguments, argValue:  
+ref: [underoverapprox]name of function arguments, argValue:  
+name of function arguments line
+param: i16 %arg1:256
+---name: i16 %arg1, value: 256.
+integer, char or other simple types
+name: i16 %arg1
+assuming that there are not more then 10 arguments
+nameIndex: 1
+nameID: 1
+argument name: 
+value: 256
+###new bool cond: bool % = compare(%, %i16__256)
+param:  i16 %arg2:0
+---name:  i16 %arg2, value: 0.
+integer, char or other simple types
+name:  i16 %arg2
+assuming that there are not more then 10 arguments
+nameIndex: 2
+nameID: 2
+argument name: 
+value: 0
+###added bool cond: bool % = or(%, %)
+pruneOrAssert -- adding line boolCond: bool % = or(%, %)
+param: i16 %arg1:257
+---name: i16 %arg1, value: 257.
+integer, char or other simple types
+name: i16 %arg1
+assuming that there are not more then 10 arguments
+nameIndex: 1
+nameID: 1
+argument name: 
+value: 257
+###new bool cond: bool % = compare(%, %i16__257)
+param:  i16 %arg2:0
+---name:  i16 %arg2, value: 0.
+integer, char or other simple types
+name:  i16 %arg2
+assuming that there are not more then 10 arguments
+nameIndex: 2
+nameID: 2
+argument name: 
+value: 0
+###added bool cond: bool % = or(%, %)
+pruneOrAssert -- adding line boolCond: bool % = or(%, %)
+param: i16 %arg1:258
+---name: i16 %arg1, value: 258.
+integer, char or other simple types
+name: i16 %arg1
+assuming that there are not more then 10 arguments
+nameIndex: 1
+nameID: 1
+argument name: 
+value: 258
+###new bool cond: bool % = compare(%, %i16__258)
+param:  i16 %arg2:0
+---name:  i16 %arg2, value: 0.
+integer, char or other simple types
+name:  i16 %arg2
+assuming that there are not more then 10 arguments
+nameIndex: 2
+nameID: 2
+argument name: 
+value: 0
+###added bool cond: bool % = or(%, %)
+pruneOrAssert -- adding line boolCond: bool % = or(%, %)
+param: i16 %arg1:259
+---name: i16 %arg1, value: 259.
+integer, char or other simple types
+name: i16 %arg1
+assuming that there are not more then 10 arguments
+nameIndex: 1
+nameID: 1
+argument name: 
+value: 259
+###new bool cond: bool % = compare(%, %i16__259)
+param:  i16 %arg2:0
+---name:  i16 %arg2, value: 0.
+integer, char or other simple types
+name:  i16 %arg2
+assuming that there are not more then 10 arguments
+nameIndex: 2
+nameID: 2
+argument name: 
+value: 0
+###added bool cond: bool % = or(%, %)
+pruneOrAssert -- adding line boolCond: bool % = or(%, %)
+param: i16 %arg1:267
+---name: i16 %arg1, value: 267.
+integer, char or other simple types
+name: i16 %arg1
+assuming that there are not more then 10 arguments
+nameIndex: 1
+nameID: 1
+argument name: 
+value: 267
+###new bool cond: bool % = compare(%, %i16__267)
+param:  i16 %arg2:0
+---name:  i16 %arg2, value: 0.
+integer, char or other simple types
+name:  i16 %arg2
+assuming that there are not more then 10 arguments
+nameIndex: 2
+nameID: 2
+argument name: 
+value: 0
+###added bool cond: bool % = or(%, %)
+pruneOrAssert -- adding line boolCond: bool % = or(%, %)
+Writing precondition type at: jobs/3260/precondition_type_pageFreeArray.txt
+
+Type of Precondition:
+[underoverapprox]
+precondition found, end encoding
+                      0 sec [DONE]
+        Number of expressions:                        155130
+        after encoding
+
+      5 assertions before transformations (5 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            3407
+        Fixed Memory Address Assigner
+          Number of moved ops                              2
+          Number of rewrites                            5210
+        Simplifier
+          Number of moved ops                              2
+          Number of rewrites                          213371
+        Memory Model Encoder
+          Number of moved ops                              0
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                          138394
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      5 assertions remain after transformations (5 custom).
+after rewriteFormula
+
+                                                           1 sec [DONE]
+      E [2] lib/Core/CheckStatusMarker.cpp:61 | A job finished with an internal error
+E [2] lib/Core/CheckStatusMarker.cpp:63 | Found 5 errors in the formula. Cannot start bug checking. (job:3260)
+
+                                                           1 sec [DONE]
+    Found 5 errors in the formula. Cannot start bug checking.
+    
+                                                           1 sec [DONE]
+                    1 sec [DONE]
+  

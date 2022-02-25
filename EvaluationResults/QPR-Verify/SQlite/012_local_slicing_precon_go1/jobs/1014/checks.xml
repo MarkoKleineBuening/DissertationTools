@@ -1,0 +1,40 @@
+<VerificationJob>
+  <Configuration>
+    <AnalyzeChecksIndividually value="true" />
+    <BitcodeTraces value="false" />
+    <CheckOnlyPrecondition value="true" />
+    <DumpVerifierBitcodeFiles value="false" />
+    <EnableSlicing value="true" />
+    <EntryPoint value="do_meta_command" />
+    <FixPoint value="true" />
+    <ForkJobs value="true" />
+    <Hosted value="true" />
+    <IgnoreMissingFunctions value="false" />
+    <InitializedGlobals value="false" />
+    <LoopUnrollBound value="1" />
+    <PreconditionLocation value="jobs/1014" />
+    <PreconditionNumber value="5" />
+    <SourceDirectory value="/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld" />
+    <StopEncodingAfterCheck value="true" />
+    <StopEncodingAfterCheckLoop value="1" />
+    <TimeOut value="600" />
+    <XMLTraces value="false" />
+  </Configuration>
+  <CheckList>
+    <Check id="3333" location="3656" category="arithmetic.overflow" status="unsafe" scope="import_append_char">
+      <Annotations>
+        <Annotation>A signed arithmetic operation can overflow.</Annotation>
+        <Annotation>llvm::Value used which was not previously encoded!
+  %19 = call i32 @fgetc(%struct._IO_FILE.177* %18), !dbg !5669 (job:1014)</Annotation>
+      </Annotations>
+      <EntryStatus>
+        <SingleEntryStatus>ascii_read_one_field, unknown</SingleEntryStatus>
+        <SingleEntryStatus>csv_read_one_field, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>do_meta_command, unsafe</SingleEntryStatus>
+      </EntryStatus>
+    </Check>
+  </CheckList>
+  <Annotation>llvm::Value used which was not previously encoded!
+  %19 = call i32 @fgetc(%struct._IO_FILE.177* %18), !dbg !5669</Annotation>
+  <Status>allunsafe</Status>
+</VerificationJob>

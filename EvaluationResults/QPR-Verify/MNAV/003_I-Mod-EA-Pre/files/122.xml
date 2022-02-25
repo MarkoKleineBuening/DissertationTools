@@ -1,0 +1,65 @@
+<SourceFile>
+  <Line number="1">/* Copyright (C) 1997-2020 Free Software Foundation, Inc.</Line>
+  <Line number="2">   This file is part of the GNU C Library.</Line>
+  <Line number="3"></Line>
+  <Line number="4">   The GNU C Library is free software; you can redistribute it and/or</Line>
+  <Line number="5">   modify it under the terms of the GNU Lesser General Public</Line>
+  <Line number="6">   License as published by the Free Software Foundation; either</Line>
+  <Line number="7">   version 2.1 of the License, or (at your option) any later version.</Line>
+  <Line number="8"></Line>
+  <Line number="9">   The GNU C Library is distributed in the hope that it will be useful,</Line>
+  <Line number="10">   but WITHOUT ANY WARRANTY; without even the implied warranty of</Line>
+  <Line number="11">   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU</Line>
+  <Line number="12">   Lesser General Public License for more details.</Line>
+  <Line number="13"></Line>
+  <Line number="14">   You should have received a copy of the GNU Lesser General Public</Line>
+  <Line number="15">   License along with the GNU C Library; if not, see</Line>
+  <Line number="16">   &lt;https://www.gnu.org/licenses/&gt;.  */</Line>
+  <Line number="17"></Line>
+  <Line number="18">#ifndef _SYS_SELECT_H</Line>
+  <Line number="19"># error &quot;Never use &lt;bits/select.h&gt; directly; include &lt;sys/select.h&gt; instead.&quot;</Line>
+  <Line number="20">#endif</Line>
+  <Line number="21"></Line>
+  <Line number="22">#include &lt;bits/wordsize.h&gt;</Line>
+  <Line number="23"></Line>
+  <Line number="24"></Line>
+  <Line number="25">#if defined __GNUC__ &amp;&amp; __GNUC__ &gt;= 2</Line>
+  <Line number="26"></Line>
+  <Line number="27"># if __WORDSIZE == 64</Line>
+  <Line number="28">#  define __FD_ZERO_STOS &quot;stosq&quot;</Line>
+  <Line number="29"># else</Line>
+  <Line number="30">#  define __FD_ZERO_STOS &quot;stosl&quot;</Line>
+  <Line number="31"># endif</Line>
+  <Line number="32"></Line>
+  <Line number="33"># define __FD_ZERO(fdsp) \</Line>
+  <Line number="34">  do {									      \</Line>
+  <Line number="35">    int __d0, __d1;							      \</Line>
+  <Line number="36">    __asm__ __volatile__ (&quot;cld; rep; &quot; __FD_ZERO_STOS			      \</Line>
+  <Line number="37">			  : &quot;=c&quot; (__d0), &quot;=D&quot; (__d1)			      \</Line>
+  <Line number="38">			  : &quot;a&quot; (0), &quot;0&quot; (sizeof (fd_set)		      \</Line>
+  <Line number="39">					  / sizeof (__fd_mask)),	      \</Line>
+  <Line number="40">			    &quot;1&quot; (&amp;__FDS_BITS (fdsp)[0])			      \</Line>
+  <Line number="41">			  : &quot;memory&quot;);					      \</Line>
+  <Line number="42">  } while (0)</Line>
+  <Line number="43"></Line>
+  <Line number="44">#else	/* ! GNU CC */</Line>
+  <Line number="45"></Line>
+  <Line number="46">/* We don&apos;t use `memset&apos; because this would require a prototype and</Line>
+  <Line number="47">   the array isn&apos;t too big.  */</Line>
+  <Line number="48"># define __FD_ZERO(set)  \</Line>
+  <Line number="49">  do {									      \</Line>
+  <Line number="50">    unsigned int __i;							      \</Line>
+  <Line number="51">    fd_set *__arr = (set);						      \</Line>
+  <Line number="52">    for (__i = 0; __i &lt; sizeof (fd_set) / sizeof (__fd_mask); ++__i)	      \</Line>
+  <Line number="53">      __FDS_BITS (__arr)[__i] = 0;					      \</Line>
+  <Line number="54">  } while (0)</Line>
+  <Line number="55"></Line>
+  <Line number="56">#endif	/* GNU CC */</Line>
+  <Line number="57"></Line>
+  <Line number="58">#define __FD_SET(d, set) \</Line>
+  <Line number="59">  ((void) (__FDS_BITS (set)[__FD_ELT (d)] |= __FD_MASK (d)))</Line>
+  <Line number="60">#define __FD_CLR(d, set) \</Line>
+  <Line number="61">  ((void) (__FDS_BITS (set)[__FD_ELT (d)] &amp;= ~__FD_MASK (d)))</Line>
+  <Line number="62">#define __FD_ISSET(d, set) \</Line>
+  <Line number="63">  ((__FDS_BITS (set)[__FD_ELT (d)] &amp; __FD_MASK (d)) != 0)</Line>
+</SourceFile>

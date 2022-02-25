@@ -1,0 +1,124 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 633 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 1
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/633
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : idxPopulateOneStat1
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "idxPopulateOneStat1" for 1 iterations succeeded.
+      Unrolling loop in function "idxPopulateOneStat1" for 1 iterations succeeded.
+      Unrolling loop in function "idxPopulateOneStat1" for 1 iterations succeeded.
+      Unrolling loop in function "idxPopulateOneStat1" for 1 iterations succeeded.
+      Unrolling loop in function "idxPopulateOneStat1" for 1 iterations succeeded.
+      Unrolling loop in function "idxPopulateOneStat1" for 1 iterations succeeded.
+      Transformed "idxPopulateOneStat1" from 61 to 91 basic blocks and from 297 to 438 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...Current: idxPopulateOneStat1 Havoced: sqlite3_bind_text
+Current: idxPopulateOneStat1 Havoced: sqlite3_step
+Current: idxPopulateOneStat1 Havoced: sqlite3_column_text
+Current: idxPopulateOneStat1 Havoced: sqlite3_column_text
+Current: idxPopulateOneStat1 Havoced: idxAppendText
+Current: idxPopulateOneStat1 Havoced: idxAppendText
+Current: idxPopulateOneStat1 Havoced: sqlite3_step
+Current: idxPopulateOneStat1 Havoced: sqlite3_reset
+Current: idxPopulateOneStat1 Havoced: sqlite3_mprintf
+Current: idxPopulateOneStat1 Havoced: sqlite3_mprintf
+Current: idxPopulateOneStat1 Havoced: sqlite3_free
+Current: idxPopulateOneStat1 Havoced: sqlite3_free
+Current: idxPopulateOneStat1 Havoced: idxPrepareStmt
+Current: idxPopulateOneStat1 Havoced: sqlite3_free
+Current: idxPopulateOneStat1 Havoced: idxMalloc
+Current: idxPopulateOneStat1 Havoced: sqlite3_step
+Current: idxPopulateOneStat1 Havoced: sqlite3_step
+Current: idxPopulateOneStat1 Havoced: sqlite3_column_int
+Current: idxPopulateOneStat1 Havoced: sqlite3_step
+Current: idxPopulateOneStat1 Havoced: sqlite3_mprintf
+Current: idxPopulateOneStat1 Havoced: idxAppendText
+Current: idxPopulateOneStat1 Havoced: sqlite3_bind_text
+Current: idxPopulateOneStat1 Havoced: sqlite3_bind_text
+Current: idxPopulateOneStat1 Havoced: sqlite3_bind_text
+Current: idxPopulateOneStat1 Havoced: sqlite3_step
+Current: idxPopulateOneStat1 Havoced: sqlite3_reset
+
+        Unrolling loop in function "llbmc.strlen" for 0 iterations succeeded.
+        Transformed "llbmc.strlen" from 8 to 9 instructionsCurrent: idxPopulateOneStat1 Havoced: idxHashFind
+Current: idxPopulateOneStat1 Havoced: sqlite3_free
+Current: idxPopulateOneStat1 Havoced: sqlite3_free
+Current: idxPopulateOneStat1 Havoced: idxFinalize
+Current: idxPopulateOneStat1 Havoced: idxAppendText
+Current: idxPopulateOneStat1 Havoced: sqlite3_column_int
+Current: idxPopulateOneStat1 Havoced: sqlite3_column_text
+Current: idxPopulateOneStat1 Havoced: sqlite3_column_text
+Current: idxPopulateOneStat1 Havoced: idxAppendText
+Current: idxPopulateOneStat1 Havoced: idxAppendText
+
+                                                           0 sec [DONE]
+        Number of expressions:                        155930
+        after encoding
+
+      14 assertions before transformations (9 no_back_edge, 3 custom, 2 no_unreachable_executed).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            3974
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72698
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               2
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               2
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             142
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      14 assertions remain after transformations (9 no_back_edge, 3 custom, 2 no_unreachable_executed).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...

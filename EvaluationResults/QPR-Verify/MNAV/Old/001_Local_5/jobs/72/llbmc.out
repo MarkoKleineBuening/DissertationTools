@@ -1,0 +1,2839 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+handleJobInSeparateProcess0
+
+Checking job 72 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 4
+    HavocLimit : 0
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/72
+    TimeOut : 300
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : control_uav
+m_checker->run()
+
+    Performing bounded model checking ...
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...isMemset:   call void @llvm.memset.p0i8.i64(i8* %1, i8 0, i64 6, i32 2, i1 false), !dbg !1408
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* bitcast (%struct.servo* @servopos to i8*), i8* bitcast (%struct.servo* @servopacket to i8*), i64 18, i32 2, i1 false), !dbg !1413
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* bitcast (%struct.imu* @imuval to i8*), i8* bitcast (%struct.imu* @imupacket to i8*), i64 128, i32 8, i1 false), !dbg !1415
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* bitcast (%struct.gps* @gpsval to i8*), i8* bitcast (%struct.gps* @gpspacket to i8*), i64 64, i32 8, i1 false), !dbg !1416
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* bitcast (%struct.nav* @navval to i8*), i8* bitcast (%struct.nav* @navpacket to i8*), i64 64, i32 8, i1 false), !dbg !1417
+
+        Unrolling loop in function "send_servo_cmd" for 4 iterations succeeded.
+        Unrolling loop in function "send_servo_cmd" for 18 iterations succeeded.getMatchingFunctions
+getMatchingFunctions
+getMatchingFunctions
+getMatchingFunctions
+
+        Transformed "send_servo_cmd" from 8 to 43 basic blocks and from 146 to 573 instructionsisMemset:   call void @llvm.memset.p0i8.i64(i8* %2, i8 0, i64 24, i32 16, i1 false), !dbg !1386
+
+                                                           0 sec [DONE]
+        Number of expressions:                          7349
+        after encoding
+
+      16 assertions before transformations (13 no_function_call, 2 no_back_edge, 1 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                             821
+        Fixed Memory Address Assigner
+          Number of moved ops                             51
+          Number of rewrites                             364
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                            2871
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               2
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             384
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                          725468
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                             119
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                              18
+                                                           0 sec [DONE]
+        
+      16 assertions remain after transformations (13 no_function_call, 2 no_back_edge, 1 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...            0 sec [DONE]
+        
+                                                           0 sec [DONE]
+      after performing Check
+evaluateCheckerResultsViaRefinementLoop
+checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...

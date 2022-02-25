@@ -1,0 +1,155 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+handleJobInSeparateProcess0
+
+Checking job 92 ...about to run job:
+preconNumber: 5, 1
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 12
+    HavocLimit : 0
+    PreconditionNumber : 5
+    PreconditionLocation : jobs/92
+    TimeOut : 300
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : _mat_creat
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "_mat_creat" for 12 iterations succeeded.
+      Transformed "_mat_creat" from 10 to 44 basic blocks and from 54 to 277 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...
+        Transformed "mat_error" from 5 to 10 basic blocks and from 10 to 19 instructions
+                                                           0 sec [DONE]
+        Number of expressions:                          6762
+        after encoding
+
+      8 assertions before transformations (6 no_function_call, 1 no_back_edge, 1 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                             539
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                             390
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                            2809
+        Memory Model Encoder
+          Number of moved ops                              0
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                               0
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      8 assertions remain after transformations (6 no_function_call, 1 no_back_edge, 1 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...            0 sec [DONE]
+        
+                                                           0 sec [DONE]
+      after performing Check
+evaluateCheckerResultsViaRefinementLoop
+checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+BranchInst - LoopBound
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+getCheckerResultAfterUpdatingMarker
+failingInst:   %1 = call i32 (i8*, ...) @printf(i8* getelementptr inbounds ([19 x i8], [19 x i8]* @.str.4.43, i32 0, i32 0)), !dbg !1375
+Preconditions internal: 
+i32 %arg0:1005977213; (i32 %arg0:1005977213)i32 %arg1:-536870911; (i32 %arg1:3758096385)
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: i32 %arg0 = nondef() : 1005977213
+assumePair: i32 %arg1 = nondef() : -536870911
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   call void @llbmc.assert(i1 %5, i32 %0)
+Preconditions internal: 
+i32 %arg0:-1; (i32 %arg0:4294967295)i32 %arg1:201413274; (i32 %arg1:201413274)
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: i32 %arg0 = nondef() : -1
+assumePair: i32 %arg1 = nondef() : 201413274
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   %1 = call i32 (i8*, ...) @printf(i8* getelementptr inbounds ([19 x i8], [19 x i8]* @.str.4.43, i32 0, i32 0)), !dbg !1375
+Preconditions internal: 
+i32 %arg0:2079719037; (i32 %arg0:2079719037)i32 %arg1:-1073741823; (i32 %arg1:3221225473)
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: i32 %arg0 = nondef() : 2079719037
+assumePair: i32 %arg1 = nondef() : -1073741823
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   %1 = call i32 (i8*, ...) @printf(i8* getelementptr inbounds ([19 x i8], [19 x i8]* @.str.4.43, i32 0, i32 0)), !dbg !1375
+Preconditions internal: 
+i32 %arg0:1542848125; (i32 %arg0:1542848125)i32 %arg1:-805306367; (i32 %arg1:3489660929)
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: i32 %arg0 = nondef() : 1542848125
+assumePair: i32 %arg1 = nondef() : -805306367
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   call void @llbmc.assert(i1 %5, i32 %0)
+Preconditions internal: 
+i32 %arg0:-1; (i32 %arg0:4294967295)i32 %arg1:1830190951; (i32 %arg1:1830190951)
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: i32 %arg0 = nondef() : -1
+assumePair: i32 %arg1 = nondef() : 1830190951
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      name of function arguments: Writing precondition at: jobs/92/precondition__mat_creat.txt
+
+Generated Preconditions:
+[underoverapprox]name of function arguments: 
+i32 %arg0:1005977213; i32 %arg1:-536870911; 
+i32 %arg0:-1; i32 %arg1:201413274; 
+i32 %arg0:2079719037; i32 %arg1:-1073741823; 
+i32 %arg0:1542848125; i32 %arg1:-805306367; 
+i32 %arg0:-1; i32 %arg1:1830190951; 
+
+                                                           0 sec [DONE]
+    allsafe
+    
+                                                           0 sec [DONE]
+  

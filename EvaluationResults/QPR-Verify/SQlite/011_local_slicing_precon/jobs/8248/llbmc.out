@@ -1,0 +1,167 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+handleJobInSeparateProcess0
+
+Checking job 8248 ...about to run job:
+preconNumber: 5, 1
+
+  Running Model Checker with 1 checks ...W [0] lib/Slicer/LocalSlicer.cpp:357 | argument %struct.LookasideSlot* null of call instruction has pointer type
+W [0] lib/Slicer/LocalSlicer.cpp:357 | argument %struct.LookasideSlot* null of call instruction has pointer type
+W [0] lib/Slicer/LocalSlicer.cpp:357 | argument %struct.LookasideSlot* null of call instruction has pointer type
+W [0] lib/Slicer/LocalSlicer.cpp:357 | argument %struct.LookasideSlot* null of call instruction has pointer type
+W [0] lib/Slicer/LocalSlicer.cpp:368 | argument 0 (i32* undef) has pointer type
+W [0] lib/Slicer/LocalSlicer.cpp:368 | argument 0 (%struct.LookasideSlot* undef) has pointer type
+W [0] lib/Slicer/LocalSlicer.cpp:357 | argument %struct.sqlite3* null of call instruction has pointer type
+W [0] lib/Slicer/LocalSlicer.cpp:368 | argument 0 (i8* %1) has pointer type
+W [0] lib/Slicer/LocalSlicer.cpp:368 | argument 0 (i8* undef) has pointer type
+W [0] lib/Slicer/LocalSlicer.cpp:357 | argument i8* null of call instruction has pointer type
+W [0] lib/Slicer/LocalSlicer.cpp:368 | argument 0 (i8* undef) has pointer type
+W [0] lib/Slicer/LocalSlicer.cpp:495 | unused argument: , qpr.slicing.unused.arg.sqlite3LookasideUsed.0
+W [0] lib/Slicer/LocalSlicer.cpp:495 | unused argument: , qpr.slicing.unused.arg.sqlite3LookasideUsed.1
+W [0] lib/Slicer/LocalSlicer.cpp:495 | unused argument: , qpr.slicing.unused.arg.countLookasideSlots.0
+W [0] lib/Slicer/LocalSlicer.cpp:495 | unused argument: , qpr.slicing.unused.arg.sqlite3MallocSize.0
+W [0] lib/Slicer/LocalSlicer.cpp:495 | unused argument: , qpr.slicing.unused.arg.setupLookaside.0
+W [0] lib/Slicer/LocalSlicer.cpp:495 | unused argument: , qpr.slicing.unused.arg.setupLookaside.1
+I [0] lib/Slicer/LocalSlicer.cpp:104 | slicing finished
+try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 1
+    LoopUnrollBound : 1
+    HavocLimit : 0
+    PreconditionNumber : 5
+    PreconditionLocation : jobs/8248
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : true
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : setupLookaside
+m_checker->run()
+
+    Performing bounded model checking ...
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...size Alloca: 1
+size Alloca: 1
+-----found check = true
+                      0 sec [DONE]
+        Number of expressions:                        131087
+        after encoding
+
+      1 assertion before transformations (1 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            2677
+        Fixed Memory Address Assigner
+          Number of moved ops                              2
+          Number of rewrites                            4898
+        Simplifier
+          Number of moved ops                              2
+          Number of rewrites                           61888
+        Memory Model Encoder
+          Number of moved ops                              0
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                              88
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                               0
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      1 assertion remains after transformations (1 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...            0 sec [DONE]
+        
+                                                           1 sec [DONE]
+      after performing Check
+evaluateCheckerResultsViaRefinementLoop
+checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setCheckToUnsafe
+setCheckToUnsafe
+Check for floating point traces / abstractions currently deactivated
+getCheckerResultAfterUpdatingMarker
+failingInst:   call void @llbmc.assert(i1 %5, i32 %0)
+Preconditions internal: 
+i32 %arg2:423211735; (i32 %arg2:423211735)i32 %arg3:1681001259; (i32 %arg3:1681001259)
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: i32 %arg2 = nondef() : 423211735
+assumePair: i32 %arg3 = nondef() : 1681001259
+
+    Rerunning SMT solver (STP with MiniSat) ...            1 sec [DONE]
+      failingInst:   call void @llbmc.assert(i1 %5, i32 %0)
+Preconditions internal: 
+i32 %arg2:2144072775; (i32 %arg2:2144072775)i32 %arg3:2033073719; (i32 %arg3:2033073719)
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: i32 %arg2 = nondef() : 2144072775
+assumePair: i32 %arg3 = nondef() : 2033073719
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   call void @llbmc.assert(i1 %5, i32 %0)
+Preconditions internal: 
+i32 %arg2:861688377; (i32 %arg2:861688377)i32 %arg3:747006482; (i32 %arg3:747006482)
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: i32 %arg2 = nondef() : 861688377
+assumePair: i32 %arg3 = nondef() : 747006482
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   call void @llbmc.assert(i1 %5, i32 %0)
+Preconditions internal: 
+i32 %arg2:1413304426; (i32 %arg2:1413304426)i32 %arg3:1788324077; (i32 %arg3:1788324077)
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: i32 %arg2 = nondef() : 1413304426
+assumePair: i32 %arg3 = nondef() : 1788324077
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   call void @llbmc.assert(i1 %5, i32 %0)
+Preconditions internal: 
+i32 %arg2:800576478; (i32 %arg2:800576478)i32 %arg3:2077295769; (i32 %arg3:2077295769)
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: i32 %arg2 = nondef() : 800576478
+assumePair: i32 %arg3 = nondef() : 2077295769
+
+    Rerunning SMT solver (STP with MiniSat) ...            1 sec [DONE]
+      name of function arguments: Writing precondition at: jobs/8248/precondition_setupLookaside.txt
+
+Generated Preconditions:
+[underoverapprox]name of function arguments: 
+i32 %arg2:423211735; i32 %arg3:1681001259; 
+i32 %arg2:2144072775; i32 %arg3:2033073719; 
+i32 %arg2:861688377; i32 %arg3:747006482; 
+i32 %arg2:1413304426; i32 %arg3:1788324077; 
+i32 %arg2:800576478; i32 %arg3:2077295769; 
+
+                                                           5 sec [DONE]
+    allunsafe
+    
+                                                           5 sec [DONE]
+  

@@ -1,0 +1,35 @@
+<VerificationJob>
+  <Configuration>
+    <AnalyzeChecksIndividually value="true" />
+    <BitcodeTraces value="false" />
+    <DumpVerifierBitcodeFiles value="false" />
+    <EnableSlicing value="true" />
+    <EntryPoint value="walIndexAppend" />
+    <FixPoint value="true" />
+    <ForkJobs value="true" />
+    <Hosted value="true" />
+    <IgnoreMissingFunctions value="false" />
+    <InitializedGlobals value="false" />
+    <LoopUnrollBound value="1" />
+    <PreconditionLocation value="jobs/2830" />
+    <PreconditionNumber value="5" />
+    <SourceDirectory value="/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld" />
+    <StopEncodingAfterCheck value="true" />
+    <StopEncodingAfterCheckLoop value="1" />
+    <TimeOut value="600" />
+    <XMLTraces value="false" />
+  </Configuration>
+  <CheckList>
+    <Check id="9230" location="10056" category="explicit.conversion.overflow" status="unsafe|loopboundreached" scope="walIndexAppend">
+      <Annotations>
+        <Annotation>An explicit conversion operation can overflow.</Annotation>
+        <Annotation>A loop bound was reached (/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld//home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld/sqlite3.c:61498:5)</Annotation>
+      </Annotations>
+      <EntryStatus>
+        <SingleEntryStatus>walIndexAppend, todo</SingleEntryStatus>
+      </EntryStatus>
+    </Check>
+  </CheckList>
+  <Annotation>allunsafe</Annotation>
+  <Status>allunsafe</Status>
+</VerificationJob>

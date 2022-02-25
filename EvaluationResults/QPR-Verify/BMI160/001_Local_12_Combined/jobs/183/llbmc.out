@@ -1,0 +1,92 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+handleJobInSeparateProcess0
+
+Checking job 183 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 7 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 12
+    HavocLimit : 0
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/183
+    TimeOut : 300
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : unpack_aux_frame
+m_checker->run()
+
+    Performing bounded model checking ...
+      Transformed "unpack_aux_frame" from 18 to 46 basic blocks and from 196 to 251 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...                      0 sec [DONE]
+        Number of expressions:                          1183
+        after encoding
+
+      7 assertions before transformations (7 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                             431
+        Fixed Memory Address Assigner
+          Number of moved ops                              5
+          Number of rewrites                               8
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             221
+        Memory Model Encoder
+          Number of moved ops                              0
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                              11
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      7 assertions remain after transformations (7 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...            0 sec [DONE]
+        
+                                                           0 sec [DONE]
+      after performing Check
+evaluateCheckerResultsViaRefinementLoop
+checker.getResult() is Trace
+checkOnlyPrecon: 0, size:7
+getFailingCheckFor
+setCheckToUnsafe
+setCheckToUnsafe
+Check for floating point traces / abstractions currently deactivated
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      getCheckerResultAfterUpdatingMarker
+Result is NoTrace
+
+                                                           0 sec [DONE]
+    someunsafe
+    
+                                                           0 sec [DONE]
+  

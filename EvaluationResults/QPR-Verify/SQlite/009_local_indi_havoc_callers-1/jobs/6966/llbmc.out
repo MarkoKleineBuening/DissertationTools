@@ -1,0 +1,97 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 6966 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 2
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/6966
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : convertCompoundSelectToSubquery
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "convertCompoundSelectToSubquery" for 1 iterations succeeded.
+      Unrolling loop in function "convertCompoundSelectToSubquery" for 1 iterations succeeded.
+      Transformed "convertCompoundSelectToSubquery" from 30 to 39 basic blocks and from 164 to 198 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...Current: sqlite3DbMallocZero Havoced: sqlite3DbMallocRaw
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %2, i8 0, i64 %1, i32 1, i1 false), !dbg !5621
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %72, i8 0, i64 16, i32 8, i1 false), !dbg !5849
+Current: sqlite3SrcListAppendFromTerm Havoced: sqlite3ErrorMsg
+Current: sqlite3SrcListAppendFromTerm Havoced: sqlite3SrcListAppend
+Current: sqlite3SrcListAppendFromTerm Havoced: sqlite3RenameTokenMap
+Current: sqlite3SrcListAppendFromTerm Havoced: sqlite3NameFromToken
+Current: sqlite3SrcListAppendFromTerm Havoced: sqlite3ExprDelete
+Current: sqlite3SrcListAppendFromTerm Havoced: sqlite3IdListDelete
+Current: sqlite3SrcListAppendFromTerm Havoced: sqlite3SelectDelete
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %75, i8* %76, i64 128, i32 8, i1 false), !dbg !5857
+Current: sqlite3Expr Havoced: sqlite3Strlen30
+Current: sqlite3Expr Havoced: sqlite3ExprAlloc
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %23, i8* bitcast (%struct.ExprList_item* @zeroItem to i8*), i64 24, i32 8, i1 false), !dbg !5641
+Current: sqlite3ExprListAppend Havoced: sqlite3ExprListAppendGrow
+Current: sqlite3ExprListAppend Havoced: sqlite3ExprListAppendNew
+                      0 sec [DONE]
+        Number of expressions:                        155703
+        after encoding
+
+      3 assertions before transformations (2 no_back_edge, 1 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            3774
+        Fixed Memory Address Assigner
+          Number of moved ops                              2
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72626
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               2
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               8
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             214
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      3 assertions remain after transformations (2 no_back_edge, 1 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...

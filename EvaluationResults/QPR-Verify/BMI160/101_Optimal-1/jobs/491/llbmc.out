@@ -1,0 +1,206 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 491 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 12
+    HavocLimit : 1
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/491
+    TimeOut : 300
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : bmi160_extract_accel
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "bmi160_extract_accel" for 12 iterations succeeded.
+      Transformed "bmi160_extract_accel" from 12 to 24 basic blocks and from 82 to 255 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...Current: bmi160_extract_accel Havoced: initStubs
+Current: bmi160_extract_accel Havoced: extract_accel_header_mode
+Current: bmi160_extract_accel Havoced: get_accel_len_to_parse
+Current: bmi160_extract_accel Havoced: check_frame_validity
+Current: bmi160_extract_accel Havoced: unpack_accel_frame
+Current: bmi160_extract_accel Havoced: check_frame_validity
+Current: bmi160_extract_accel Havoced: unpack_accel_frame
+Current: bmi160_extract_accel Havoced: check_frame_validity
+Current: bmi160_extract_accel Havoced: unpack_accel_frame
+Current: bmi160_extract_accel Havoced: check_frame_validity
+Current: bmi160_extract_accel Havoced: unpack_accel_frame
+Current: bmi160_extract_accel Havoced: check_frame_validity
+Current: bmi160_extract_accel Havoced: unpack_accel_frame
+Current: bmi160_extract_accel Havoced: check_frame_validity
+Current: bmi160_extract_accel Havoced: unpack_accel_frame
+Current: bmi160_extract_accel Havoced: check_frame_validity
+Current: bmi160_extract_accel Havoced: unpack_accel_frame
+Current: bmi160_extract_accel Havoced: check_frame_validity
+Current: bmi160_extract_accel Havoced: unpack_accel_frame
+Current: bmi160_extract_accel Havoced: check_frame_validity
+Current: bmi160_extract_accel Havoced: unpack_accel_frame
+Current: bmi160_extract_accel Havoced: check_frame_validity
+Current: bmi160_extract_accel Havoced: unpack_accel_frame
+Current: bmi160_extract_accel Havoced: check_frame_validity
+Current: bmi160_extract_accel Havoced: unpack_accel_frame
+Current: bmi160_extract_accel Havoced: check_frame_validity
+Current: bmi160_extract_accel Havoced: unpack_accel_frame
+                      0 sec [DONE]
+        Number of expressions:                           490
+        after encoding
+
+      1 assertion before transformations (1 no_back_edge).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                             148
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                               8
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                              45
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               3
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               9
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      1 assertion remains after transformations (1 no_back_edge).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...            0 sec [DONE]
+        
+                                                           0 sec [DONE]
+      after performing Check
+evaluateCheckerResultsViaRefinementLoop
+checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+BranchInst - LoopBound
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      getCheckerResultAfterUpdatingMarker
+Result is NoTrace
+
+                                                           0 sec [DONE]
+    allunsafe
+    
+                                                           0 sec [DONE]
+  ent: extract_accel_header_mode Havoced: move_next_frame
+Current: extract_accel_header_mode Havoced: move_next_frame
+Current: extract_accel_header_mode Havoced: move_next_frame
+Current: extract_accel_header_mode Havoced: unpack_accel_frame
+Current: extract_accel_header_mode Havoced: move_next_frame
+Current: extract_accel_header_mode Havoced: unpack_sensortime_frame
+Current: extract_accel_header_mode Havoced: unpack_skipped_frame
+Current: extract_accel_header_mode Havoced: move_next_frame
+Current: extract_accel_header_mode Havoced: move_next_frame
+Current: extract_accel_header_mode Havoced: move_next_frame
+Current: extract_accel_header_mode Havoced: unpack_accel_frame
+Current: extract_accel_header_mode Havoced: move_next_frame
+Current: extract_accel_header_mode Havoced: unpack_sensortime_frame
+Current: extract_accel_header_mode Havoced: unpack_skipped_frame
+Current: extract_accel_header_mode Havoced: move_next_frame
+Current: extract_accel_header_mode Havoced: move_next_frame
+Current: extract_accel_header_mode Havoced: move_next_frame
+Current: extract_accel_header_mode Havoced: unpack_accel_frame
+Current: extract_accel_header_mode Havoced: move_next_frame
+Current: extract_accel_header_mode Havoced: unpack_sensortime_frame
+Current: extract_accel_header_mode Havoced: unpack_skipped_frame
+                      0 sec [DONE]
+        Number of expressions:                          4259
+        after encoding
+
+      1 assertion before transformations (1 no_back_edge).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            2503
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                               8
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                              61
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               2
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                              18
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      1 assertion remains after transformations (1 no_back_edge).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...           37 sec [DONE]
+        
+                                                          37 sec [DONE]
+      after performing Check
+evaluateCheckerResultsViaRefinementLoop
+checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+BranchInst - LoopBound
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      getCheckerResultAfterUpdatingMarker
+Result is NoTrace
+
+                                                          37 sec [DONE]
+    allunsafe
+    
+                                                          37 sec [DONE]
+  

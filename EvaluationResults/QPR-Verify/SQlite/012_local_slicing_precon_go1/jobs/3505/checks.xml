@@ -1,0 +1,37 @@
+<VerificationJob>
+  <Configuration>
+    <AnalyzeChecksIndividually value="true" />
+    <BitcodeTraces value="false" />
+    <CheckOnlyPrecondition value="true" />
+    <DumpVerifierBitcodeFiles value="false" />
+    <EnableSlicing value="true" />
+    <EntryPoint value="sqlite3VdbeExec" />
+    <FixPoint value="true" />
+    <ForkJobs value="true" />
+    <Hosted value="true" />
+    <IgnoreMissingFunctions value="false" />
+    <InitializedGlobals value="false" />
+    <LoopUnrollBound value="1" />
+    <PreconditionLocation value="jobs/3505" />
+    <PreconditionNumber value="5" />
+    <SourceDirectory value="/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld" />
+    <StopEncodingAfterCheck value="true" />
+    <StopEncodingAfterCheckLoop value="1" />
+    <TimeOut value="600" />
+    <XMLTraces value="false" />
+  </Configuration>
+  <CheckList>
+    <Check id="11185" location="12146" category="arithmetic.overflow.warning" status="safe" scope="sqlite3BtreeNext">
+      <Annotations>
+        <Annotation>An unsigned arithmetic operation can overflow (wraparound).</Annotation>
+      </Annotations>
+      <EntryStatus>
+        <SingleEntryStatus>btreeNext, safe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3BtreeMovetoUnpacked, safe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3VdbeExec, safe</SingleEntryStatus>
+      </EntryStatus>
+    </Check>
+  </CheckList>
+  <Annotation>allunsafe</Annotation>
+  <Status>allsafe</Status>
+</VerificationJob>

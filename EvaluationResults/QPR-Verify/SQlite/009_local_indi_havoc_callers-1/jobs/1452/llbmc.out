@@ -1,0 +1,187 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 1452 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 2
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/1452
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : isDate
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "isDate" for 1 iterations succeeded.
+      Transformed "isDate" from 23 to 24 basic blocks and from 89 to 92 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...isMemset:   call void @llvm.memset.p0i8.i64(i8* %0, i8 0, i64 48, i32 8, i1 false), !dbg !5645
+Current: sqlite3_value_text Havoced: sqlite3ValueText
+Current: parseDateOrTime Havoced: parseYyyyMmDd
+Current: parseDateOrTime Havoced: parseHhMmSs
+Current: parseDateOrTime Havoced: sqlite3StrICmp
+Current: parseDateOrTime Havoced: sqlite3NotPureFunc
+Current: parseDateOrTime Havoced: sqlite3Strlen30
+Current: parseDateOrTime Havoced: sqlite3AtoF
+Current: parseDateOrTime Havoced: setRawDateNumber
+Current: parseDateOrTime Havoced: setDateTimeToCurrent
+Current: sqlite3_value_double Havoced: sqlite3VdbeRealValue
+Current: sqlite3_value_text Havoced: sqlite3ValueText
+Current: sqlite3_value_bytes Havoced: sqlite3ValueBytes
+
+        Unrolling loop in function "parseModifier" for 1 iterations succeeded.
+        Unrolling loop in function "parseModifier" for 1 iterations succeeded.
+        Unrolling loop in function "parseModifier" for 1 iterations succeeded.
+        Transformed "parseModifier" from 88 to 111 basic blocks and from 592 to 669 instructionsCurrent: parseModifier Havoced: sqlite3_strnicmp
+Current: parseModifier Havoced: sqlite3Strlen30
+Current: parseModifier Havoced: sqlite3AtoF
+Current: parseModifier Havoced: computeYMD_HMS
+Current: parseModifier Havoced: computeJD
+Current: parseModifier Havoced: clearYMD_HMS_TZ
+Current: parseModifier Havoced: sqlite3_stricmp
+Current: parseModifier Havoced: sqlite3_stricmp
+Current: parseModifier Havoced: sqlite3NotPureFunc
+Current: parseModifier Havoced: computeJD
+Current: parseModifier Havoced: localtimeOffset
+Current: parseModifier Havoced: clearYMD_HMS_TZ
+Current: parseModifier Havoced: localtimeOffset
+Current: parseModifier Havoced: clearYMD_HMS_TZ
+Current: parseModifier Havoced: sqlite3_strnicmp
+Current: parseModifier Havoced: computeYMD
+Current: parseModifier Havoced: sqlite3_stricmp
+Current: parseModifier Havoced: sqlite3_stricmp
+Current: parseModifier Havoced: sqlite3_stricmp
+Current: parseModifier Havoced: sqlite3_stricmp
+Current: parseModifier Havoced: sqlite3NotPureFunc
+Current: parseModifier Havoced: computeJD
+Current: parseModifier Havoced: localtimeOffset
+Current: parseModifier Havoced: clearYMD_HMS_TZ
+Current: parseModifier Havoced: sqlite3AtoF
+Current: parseModifier Havoced: sqlite3Strlen30
+Current: parseModifier Havoced: computeJD
+Current: parseModifier Havoced: sqlite3_strnicmp
+Current: parseModifier Havoced: computeYMD_HMS
+Current: parseModifier Havoced: computeYMD_HMS
+Current: parseModifier Havoced: computeJD
+Current: parseModifier Havoced: clearYMD_HMS_TZ
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %187, i8 0, i64 48, i32 8, i1 false), !dbg !5930
+Current: parseModifier Havoced: parseHhMmSs
+Current: parseModifier Havoced: computeJD
+Current: parseModifier Havoced: computeJD
+Current: parseModifier Havoced: clearYMD_HMS_TZ
+Current: computeJD Havoced: datetimeError
+Current: sqlite3NotPureFunc Havoced: sqlite3_mprintf
+Current: sqlite3NotPureFunc Havoced: sqlite3_result_error
+Current: sqlite3NotPureFunc Havoced: sqlite3_free
+Current: setDateTimeToCurrent Havoced: sqlite3StmtCurrentTime
+
+                                                           0 sec [DONE]
+        Number of expressions:                        157094
+        after encoding
+
+      5 assertions before transformations (4 no_back_edge, 1 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            4482
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72683
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               4
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                              49
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             193
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              93
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                              16
+                                                           0 sec [DONE]
+        
+      5 assertions remain after transformations (4 no_back_edge, 1 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...                      0rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                              18
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                          267837
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             512
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                             207
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               8
+                                                           0 sec [DONE]
+        
+      28 assertions remain after transformations (27 no_back_edge, 1 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...

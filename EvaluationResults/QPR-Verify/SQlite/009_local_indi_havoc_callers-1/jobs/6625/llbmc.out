@@ -1,0 +1,147 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 6625 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 2
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/6625
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [1] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : pragmaVtabConnect
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "pragmaVtabConnect" for 1 iterations succeeded.
+      Transformed "pragmaVtabConnect" from 17 to 18 basic blocks and from 151 to 161 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...Current: sqlite3_str_appendall Havoced: sqlite3Strlen30
+Current: sqlite3_str_appendall Havoced: sqlite3_str_append
+Current: sqlite3_str_appendf Havoced: sqlite3_str_vappendf
+Current: sqlite3_str_appendf Havoced: sqlite3_str_vappendf
+Current: sqlite3_str_appendall Havoced: sqlite3Strlen30
+Current: sqlite3_str_appendall Havoced: sqlite3_str_append
+Current: sqlite3_str_appendall Havoced: sqlite3Strlen30
+Current: sqlite3_str_appendall Havoced: sqlite3_str_append
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %20, i8* %1, i64 %21, i32 1, i1 false), !dbg !5636
+Current: sqlite3_str_append Havoced: enlargeAndAppend
+Current: sqlite3StrAccumFinish Havoced: strAccumFinishRealloc
+Current: sqlite3_declare_vtab Havoced: sqlite3_mutex_enter
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %17, i8 0, i64 408, i32 8, i1 false), !dbg !5650
+Current: sqlite3_declare_vtab Havoced: sqlite3RunParser
+Current: sqlite3_declare_vtab Havoced: sqlite3PrimaryKeyIndex
+Current: sqlite3_declare_vtab Havoced: sqlite3ErrorWithMsg
+Current: sqlite3_declare_vtab Havoced: sqlite3DbFree
+Current: sqlite3_declare_vtab Havoced: sqlite3VdbeFinalize
+Current: sqlite3_declare_vtab Havoced: sqlite3DeleteTable
+Current: sqlite3_declare_vtab Havoced: sqlite3ParserReset
+Current: sqlite3_declare_vtab Havoced: sqlite3ApiExit
+Current: sqlite3_declare_vtab Havoced: sqlite3_mutex_leave
+Current: sqlite3_declare_vtab Havoced: sqlite3Error
+Current: sqlite3_declare_vtab Havoced: sqlite3_mutex_leave
+Current: sqlite3_declare_vtab Havoced: sqlite3MisuseError
+Current: sqlite3_errmsg Havoced: sqlite3ErrStr
+Current: sqlite3_errmsg Havoced: sqlite3SafetyCheckSickOrOk
+Current: sqlite3_errmsg Havoced: sqlite3MisuseError
+Current: sqlite3_errmsg Havoced: sqlite3ErrStr
+Current: sqlite3_errmsg Havoced: sqlite3_mutex_enter
+Current: sqlite3_errmsg Havoced: sqlite3_value_text
+Current: sqlite3_errmsg Havoced: sqlite3ErrStr
+Current: sqlite3_errmsg Havoced: sqlite3ErrStr
+Current: sqlite3_errmsg Havoced: sqlite3_mutex_leave
+Current: sqlite3_mprintf Havoced: sqlite3_initialize
+Current: sqlite3_mprintf Havoced: sqlite3_vmprintf
+Current: sqlite3_malloc Havoced: sqlite3_initialize
+Current: sqlite3_malloc Havoced: sqlite3Malloc
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %49, i8 0, i64 48, i32 8, i1 false), !dbg !5712
+                      0 sec [DONE]
+        Number of expressions:                        156000
+        after encoding
+
+      2 assertions before transformations (1 no_back_edge, 1 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            3866
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72664
+        Memory Model Encoder
+          Number of moved ops                              1rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                              10
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             100
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             557
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      2 assertions remain after transformations (1 no_back_edge, 1 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...            0 sec [DONE]
+        
+                                                           1 sec [DONE]
+      after performing Check
+evaluateCheckerResultsViaRefinementLoop
+checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+BranchInst - LoopBound
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      getCheckerResultAfterUpdatingMarker
+Result is NoTrace
+
+                                                           1 sec [DONE]
+    allsafe
+    
+                                                           1 sec [DONE]
+  

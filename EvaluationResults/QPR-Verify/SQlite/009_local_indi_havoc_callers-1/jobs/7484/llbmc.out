@@ -1,0 +1,380 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 7484 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 2
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/7484
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : exprAnalyze
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "exprAnalyze" for 1 iterations succeeded.
+      Unrolling loop in function "exprAnalyze" for 1 iterations succeeded.
+      Unrolling loop in function "exprAnalyze" for 1 iterations succeeded.
+      Unrolling loop in function "exprAnalyze" for 2 iterations succeeded.
+      Unrolling loop in function "exprAnalyze" for 1 iterations succeeded.
+      Transformed "exprAnalyze" from 123 to 128 basic blocks and from 1083 to 1148 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...Current: sqlite3WhereExprUsage Havoced: sqlite3WhereExprUsageNN
+Current: sqlite3WhereExprUsage Havoced: sqlite3WhereExprUsageNN
+Current: sqlite3ExprCheckIN Havoced: sqlite3ExprVectorSize
+Current: sqlite3ExprCheckIN Havoced: sqlite3SubselectError
+Current: sqlite3ExprCheckIN Havoced: sqlite3VectorErrorMsg
+
+        Unrolling loop in function "sqlite3WhereExprListUsage" for 1 iterations succeeded.
+        Transformed "sqlite3WhereExprListUsage" from 7 to 8 basic blocks and from 38 to 45 instructionsCurrent: sqlite3WhereExprListUsage Havoced: sqlite3WhereExprUsage
+
+        Unrolling loop in function "exprSelectUsage" for 1 iterations succeeded.
+        Unrolling loop in function "exprSelectUsage" for 1 iterations succeeded.
+        Transformed "exprSelectUsage" from 12 to 14 basic blocks and from 112 to 125 instructionsCurrent: exprSelectUsage Havoced: sqlite3WhereExprListUsage
+Current: exprSelectUsage Havoced: sqlite3WhereExprListUsage
+Current: exprSelectUsage Havoced: sqlite3WhereExprListUsage
+Current: exprSelectUsage Havoced: sqlite3WhereExprUsage
+Current: exprSelectUsage Havoced: sqlite3WhereExprUsage
+Current: exprSelectUsage Havoced: sqlite3WhereExprUsage
+Current: exprSelectUsage Havoced: sqlite3WhereExprListUsage
+Current: sqlite3WhereExprUsageNN Havoced: sqlite3WhereGetMask
+Current: sqlite3WhereExprUsageNN Havoced: sqlite3WhereGetMask
+Current: sqlite3WhereExprUsageNN Havoced: sqlite3WhereExprListUsage
+Current: sqlite3WhereExprUsageNN Havoced: exprSelectUsage
+Current: sqlite3WhereExprUsageNN Havoced: sqlite3WhereExprListUsage
+Current: sqlite3WhereExprUsageNN Havoced: sqlite3WhereExprListUsage
+Current: sqlite3WhereExprUsageNN Havoced: sqlite3WhereExprUsage
+
+        Unrolling loop in function "sqlite3WhereGetMask" for 1 iterations succeeded.
+        Transformed "sqlite3WhereGetMask" from 8 to 9 basic blocks and from 35 to 40 instructions
+        Unrolling loop in function "isLikeOrGlob" for 1 iterations succeeded.
+        Unrolling loop in function "isLikeOrGlob" for 1 iterations succeeded.
+        Transformed "isLikeOrGlob" from 58 to 68 basic blocks and from 399 to 472 instructionsCurrent: isLikeOrGlob Havoced: sqlite3IsLikeFunction
+Current: isLikeOrGlob Havoced: sqlite3ExprSkipCollate
+Current: isLikeOrGlob Havoced: sqlite3VdbeGetBoundValue
+Current: isLikeOrGlob Havoced: sqlite3_value_type
+Current: isLikeOrGlob Havoced: sqlite3_value_text
+Current: isLikeOrGlob Havoced: sqlite3VdbeSetVarmask
+Current: isLikeOrGlob Havoced: sqlite3Expr
+Current: isLikeOrGlob Havoced: sqlite3ExprAffinity
+Current: isLikeOrGlob Havoced: sqlite3AtoF
+Current: isLikeOrGlob Havoced: sqlite3AtoF
+Current: isLikeOrGlob Havoced: sqlite3VdbeSetVarmask
+Current: isLikeOrGlob Havoced: sqlite3GetTempReg
+Current: isLikeOrGlob Havoced: sqlite3ExprCodeTarget
+Current: isLikeOrGlob Havoced: sqlite3VdbeCurrentAddr
+Current: isLikeOrGlob Havoced: sqlite3VdbeChangeP3
+Current: isLikeOrGlob Havoced: sqlite3ReleaseTempReg
+Current: isLikeOrGlob Havoced: sqlite3ValueFree
+Current: isLikeOrGlob Havoced: sqlite3ExprDelete
+Current: isLikeOrGlob Havoced: sqlite3ValueFree
+Current: sqlite3ExprDup Havoced: exprDup
+
+        Unrolling loop in function "llbmc.strlen" for 0 iterations succeeded.
+        Transformed "llbmc.strlen" from 8 to 9 instructionsCurrent: sqlite3ExprDup Havoced: exprDup
+Current: sqlite3ExprAddCollateString Havoced: sqlite3TokenInit
+Current: sqlite3ExprAddCollateString Havoced: sqlite3ExprAddCollateToken
+Current: sqlite3PExpr Havoced: sqlite3DbMallocRawNN
+Current: sqlite3PExpr Havoced: sqlite3ExprDelete
+Current: sqlite3PExpr Havoced: sqlite3ExprDelete
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %9, i8 0, i64 72, i32 8, i1 false), !dbg !5626
+Current: sqlite3PExpr Havoced: sqlite3ExprAttachSubtrees
+Current: sqlite3PExpr Havoced: sqlite3ExprCheckHeight
+Current: whereClauseInsert Havoced: sqlite3DbMallocRawNN
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %33, i8* %34, i64 %38, i32 8, i1 false), !dbg !5657
+Current: whereClauseInsert Havoced: sqlite3DbFree
+Current: whereClauseInsert Havoced: sqlite3DbMallocSize
+Current: whereClauseInsert Havoced: sqlite3LogEst
+Current: whereClauseInsert Havoced: sqlite3ExprSkipCollateAndLikely
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %79, i8 0, i64 36, i32 4, i1 false), !dbg !5711
+Current: whereClauseInsert Havoced: sqlite3ExprDelete
+Current: sqlite3ExprDup Havoced: exprDup
+Current: sqlite3ExprAddCollateString Havoced: sqlite3TokenInit
+Current: sqlite3ExprAddCollateString Havoced: sqlite3ExprAddCollateToken
+Current: sqlite3PExpr Havoced: sqlite3DbMallocRawNN
+Current: sqlite3PExpr Havoced: sqlite3ExprDelete
+Current: sqlite3PExpr Havoced: sqlite3ExprDelete
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %9, i8 0, i64 72, i32 8, i1 false), !dbg !5626
+Current: sqlite3PExpr Havoced: sqlite3ExprAttachSubtrees
+Current: sqlite3PExpr Havoced: sqlite3ExprCheckHeight
+Current: whereClauseInsert Havoced: sqlite3DbMallocRawNN
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %33, i8* %34, i64 %38, i32 8, i1 false), !dbg !5657
+Current: whereClauseInsert Havoced: sqlite3DbFree
+Current: whereClauseInsert Havoced: sqlite3DbMallocSize
+Current: whereClauseInsert Havoced: sqlite3LogEst
+Current: whereClauseInsert Havoced: sqlite3ExprSkipCollateAndLikely
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %79, i8 0, i64 36, i32 4, i1 false), !dbg !5711
+Current: whereClauseInsert Havoced: sqlite3ExprDelete
+Current: sqlite3ExprDup Havoced: exprDup
+Current: sqlite3ExprAlloc Havoced: sqlite3GetInt32
+Current: sqlite3ExprAlloc Havoced: sqlite3DbMallocRawNN
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %24, i8 0, i64 72, i32 8, i1 false), !dbg !5655
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %49, i8* %51, i64 %54, i32 1, i1 false), !dbg !5695
+Current: sqlite3ExprAlloc Havoced: sqlite3DequoteExpr
+Current: sqlite3PExpr Havoced: sqlite3DbMallocRawNN
+Current: sqlite3PExpr Havoced: sqlite3ExprDelete
+Current: sqlite3PExpr Havoced: sqlite3ExprDelete
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %9, i8 0, i64 72, i32 8, i1 false), !dbg !5626
+Current: sqlite3PExpr Havoced: sqlite3ExprAttachSubtrees
+Current: sqlite3PExpr Havoced: sqlite3ExprCheckHeight
+Current: whereClauseInsert Havoced: sqlite3DbMallocRawNN
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %33, i8* %34, i64 %38, i32 8, i1 false), !dbg !5657
+Current: whereClauseInsert Havoced: sqlite3DbFree
+Current: whereClauseInsert Havoced: sqlite3DbMallocSize
+Current: whereClauseInsert Havoced: sqlite3LogEst
+Current: whereClauseInsert Havoced: sqlite3ExprSkipCollateAndLikely
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %79, i8 0, i64 36, i32 4, i1 false), !dbg !5711
+Current: whereClauseInsert Havoced: sqlite3ExprDelete
+
+        Unrolling loop in function "exprAnalyzeOrTerm" for 1 iterations succeeded.
+        Unrolling loop in function "exprAnalyzeOrTerm" for 1 iterations succeeded.
+        Unrolling loop in function "exprAnalyzeOrTerm" for 1 iterations succeeded.
+        Unrolling loop in function "exprAnalyzeOrTerm" for 1 iterations succeeded.
+        Unrolling loop in function "exprAnalyzeOrTerm" for 1 iterations succeeded.
+        Unrolling loop in function "exprAnalyzeOrTerm" for 1 iterations succeeded.
+        Unrolling loop in function "exprAnalyzeOrTerm" for 1 iterations succeeded.
+        Unrolling loop in function "exprAnalyzeOrTerm" for 1 iterations succeeded.
+        Transformed "exprAnalyzeOrTerm" from 92 to 195 basic blocks and from 602 to 1213 instructionsCurrent: exprAnalyzeOrTerm Havoced: sqlite3DbMallocZero
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %28, i8 0, i64 448, i32 8, i1 false), !dbg !5732
+Current: exprAnalyzeOrTerm Havoced: sqlite3WhereClauseInit
+Current: exprAnalyzeOrTerm Havoced: sqlite3WhereSplit
+Current: exprAnalyzeOrTerm Havoced: sqlite3WhereExprAnalyze
+Current: exprAnalyzeOrTerm Havoced: sqlite3WhereGetMask
+Current: exprAnalyzeOrTerm Havoced: sqlite3WhereGetMask
+Current: exprAnalyzeOrTerm Havoced: sqlite3DbMallocRawNN
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %63, i8 0, i64 448, i32 8, i1 false), !dbg !5777
+Current: exprAnalyzeOrTerm Havoced: sqlite3WhereClauseInit
+Current: exprAnalyzeOrTerm Havoced: sqlite3WhereSplit
+Current: exprAnalyzeOrTerm Havoced: sqlite3WhereExprAnalyze
+Current: exprAnalyzeOrTerm Havoced: allowedOp
+Current: exprAnalyzeOrTerm Havoced: sqlite3WhereGetMask
+Current: exprAnalyzeOrTerm Havoced: whereNthSubterm
+Current: exprAnalyzeOrTerm Havoced: whereNthSubterm
+Current: exprAnalyzeOrTerm Havoced: whereCombineDisjuncts
+Current: exprAnalyzeOrTerm Havoced: whereNthSubterm
+Current: exprAnalyzeOrTerm Havoced: whereNthSubterm
+Current: exprAnalyzeOrTerm Havoced: sqlite3WhereGetMask
+Current: exprAnalyzeOrTerm Havoced: sqlite3ExprCompare
+Current: exprAnalyzeOrTerm Havoced: sqlite3ExprAffinity
+Current: exprAnalyzeOrTerm Havoced: sqlite3ExprAffinity
+Current: exprAnalyzeOrTerm Havoced: sqlite3WhereGetMask
+Current: exprAnalyzeOrTerm Havoced: sqlite3ExprCompare
+Current: exprAnalyzeOrTerm Havoced: sqlite3ExprAffinity
+Current: exprAnalyzeOrTerm Havoced: sqlite3ExprAffinity
+Current: exprAnalyzeOrTerm Havoced: sqlite3ExprCompare
+Current: exprAnalyzeOrTerm Havoced: sqlite3ExprAffinity
+Current: exprAnalyzeOrTerm Havoced: sqlite3ExprAffinity
+Current: exprAnalyzeOrTerm Havoced: sqlite3ExprCompare
+Current: exprAnalyzeOrTerm Havoced: sqlite3ExprAffinity
+Current: exprAnalyzeOrTerm Havoced: sqlite3ExprAffinity
+Current: exprAnalyzeOrTerm Havoced: sqlite3ExprDup
+Current: exprAnalyzeOrTerm Havoced: sqlite3ExprListAppend
+Current: exprAnalyzeOrTerm Havoced: sqlite3ExprDup
+Current: exprAnalyzeOrTerm Havoced: sqlite3PExpr
+Current: exprAnalyzeOrTerm Havoced: sqlite3ExprListDelete
+Current: exprAnalyzeOrTerm Havoced: transferJoinMarkings
+Current: exprAnalyzeOrTerm Havoced: whereClauseInsert
+Current: exprAnalyzeOrTerm Havoced: markTermAsChild
+Current: exprAnalyzeOrTerm Havoced: sqlite3WhereGetMask
+Current: exprAnalyzeOrTerm Havoced: sqlite3WhereGetMask
+Current: exprAnalyzeOrTerm Havoced: sqlite3DbMallocRawNN
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %170, i8 0, i64 448, i32 8, i1 false), !dbg !5777
+Current: exprAnalyzeOrTerm Havoced: sqlite3WhereClauseInit
+Current: exprAnalyzeOrTerm Havoced: sqlite3WhereSplit
+Current: exprAnalyzeOrTerm Havoced: sqlite3WhereExprAnalyze
+Current: exprAnalyzeOrTerm Havoced: allowedOp
+Current: exprAnalyzeOrTerm Havoced: sqlite3WhereGetMask
+Current: sqlite3ExprDup Havoced: exprDup
+Current: sqlite3ExprDup Havoced: exprDup
+Current: sqlite3PExpr Havoced: sqlite3DbMallocRawNN
+Current: sqlite3PExpr Havoced: sqlite3ExprDelete
+Current: sqlite3PExpr Havoced: sqlite3ExprDelete
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %9, i8 0, i64 72, i32 8, i1 false), !dbg !5626
+Current: sqlite3PExpr Havoced: sqlite3ExprAttachSubtrees
+Current: sqlite3PExpr Havoced: sqlite3ExprCheckHeight
+Current: whereClauseInsert Havoced: sqlite3DbMallocRawNN
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %33, i8* %34, i64 %38, i32 8, i1 false), !dbg !5657
+Current: whereClauseInsert Havoced: sqlite3DbFree
+Current: whereClauseInsert Havoced: sqlite3DbMallocSize
+Current: whereClauseInsert Havoced: sqlite3LogEst
+Current: whereClauseInsert Havoced: sqlite3ExprSkipCollateAndLikely
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %79, i8 0, i64 36, i32 4, i1 false), !dbg !5711
+Current: whereClauseInsert Havoced: sqlite3ExprDelete
+Current: sqlite3ExprDup Havoced: exprDup
+Current: sqlite3ExprDup Havoced: exprDup
+Current: sqlite3PExpr Havoced: sqlite3DbMallocRawNN
+Current: sqlite3PExpr Havoced: sqlite3ExprDelete
+Current: sqlite3PExpr Havoced: sqlite3ExprDelete
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %9, i8 0, i64 72, i32 8, i1 false), !dbg !5626
+Current: sqlite3PExpr Havoced: sqlite3ExprAttachSubtrees
+Current: sqlite3PExpr Havoced: sqlite3ExprCheckHeight
+Current: whereClauseInsert Havoced: sqlite3DbMallocRawNN
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %33, i8* %34, i64 %38, i32 8, i1 false), !dbg !5657
+Current: whereClauseInsert Havoced: sqlite3DbFree
+Current: whereClauseInsert Havoced: sqlite3DbMallocSize
+Current: whereClauseInsert Havoced: sqlite3LogEst
+Current: whereClauseInsert Havoced: sqlite3ExprSkipCollateAndLikely
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %79, i8 0, i64 36, i32 4, i1 false), !dbg !5711
+Current: whereClauseInsert Havoced: sqlite3ExprDelete
+
+        Unrolling loop in function "sqlite3ExprSkipCollate" for 1 iterations succeeded.
+        Transformed "sqlite3ExprSkipCollate" from 6 to 10 basic blocks and from 21 to 39 instructionsCurrent: exprMightBeIndexed Havoced: exprMightBeIndexed2
+Current: exprMightBeIndexed Havoced: exprMightBeIndexed2
+Current: sqlite3ExprDup Havoced: exprDup
+Current: whereClauseInsert Havoced: sqlite3DbMallocRawNN
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %33, i8* %34, i64 %38, i32 8, i1 false), !dbg !5657
+Current: whereClauseInsert Havoced: sqlite3DbFree
+Current: whereClauseInsert Havoced: sqlite3DbMallocSize
+Current: whereClauseInsert Havoced: sqlite3LogEst
+Current: whereClauseInsert Havoced: sqlite3ExprSkipCollateAndLikely
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %79, i8 0, i64 36, i32 4, i1 false), !dbg !5711
+Current: whereClauseInsert Havoced: sqlite3ExprDelete
+Current: termIsEquivalence Havoced: sqlite3ExprAffinity
+Current: termIsEquivalence Havoced: sqlite3ExprAffinity
+Current: termIsEquivalence Havoced: sqlite3ExprCompareCollSeq
+Current: termIsEquivalence Havoced: sqlite3IsBinary
+Current: termIsEquivalence Havoced: sqlite3ExprCollSeqMatch
+Current: exprCommute Havoced: sqlite3BinaryCompareCollSeq
+Current: exprCommute Havoced: sqlite3BinaryCompareCollSeq
+Current: sqlite3ExprDelete Havoced: sqlite3ExprDeleteNN
+
+        Unrolling loop in function "sqlite3ExprCanBeNull" for 1 iterations succeeded.
+        Transformed "sqlite3ExprCanBeNull" from 18 to 28 basic blocks and from 89 to 122 instructions
+        Unrolling loop in function "isAuxiliaryVtabOperator" for 1 iterations succeeded.getMatchingFunctions
+
+        Transformed "isAuxiliaryVtabOperator" from 45 to 54 basic blocks and from 280 to 320 instructionsCurrent: isAuxiliaryVtabOperator Havoced: sqlite3StrICmp
+Current: isAuxiliaryVtabOperator Havoced: sqlite3GetVTable
+Current: isAuxiliaryVtabOperator Havoced: sqlite3AuthCheck
+Current: isAuxiliaryVtabOperator Havoced: sqlite3_bind_pointer
+Current: isAuxiliaryVtabOperator Havoced: findCreateFileMode
+Current: isAuxiliaryVtabOperator Havoced: shell_callback
+Current: sqlite3WhereExprUsage Havoced: sqlite3WhereExprUsageNN
+Current: sqlite3WhereExprUsage Havoced: sqlite3WhereExprUsageNN
+Current: sqlite3ExprDup Havoced: exprDup
+Current: sqlite3PExpr Havoced: sqlite3DbMallocRawNN
+Current: sqlite3PExpr Havoced: sqlite3ExprDelete
+Current: sqlite3PExpr Havoced: sqlite3ExprDelete
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %9, i8 0, i64 72, i32 8, i1 false), !dbg !5626
+Current: sqlite3PExpr Havoced: sqlite3ExprAttachSubtrees
+Current: sqlite3PExpr Havoced: sqlite3ExprCheckHeight
+Current: whereClauseInsert Havoced: sqlite3DbMallocRawNN
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %33, i8* %34, i64 %38, i32 8, i1 false), !dbg !5657
+Current: whereClauseInsert Havoced: sqlite3DbFree
+Current: whereClauseInsert Havoced: sqlite3DbMallocSize
+Current: whereClauseInsert Havoced: sqlite3LogEst
+Current: whereClauseInsert Havoced: sqlite3ExprSkipCollateAndLikely
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %79, i8 0, i64 36, i32 4, i1 false), !dbg !5711
+Current: whereClauseInsert Havoced: sqlite3ExprDelete
+Current: whereClauseInsert Havoced: sqlite3DbMallocRawNN
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %33, i8* %34, i64 %38, i32 8, i1 false), !dbg !5657
+Current: whereClauseInsert Havoced: sqlite3DbFree
+Current: whereClauseInsert Havoced: sqlite3DbMallocSize
+Current: whereClauseInsert Havoced: sqlite3LogEst
+Current: whereClauseInsert Havoced: sqlite3ExprSkipCollateAndLikely
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %79, i8 0, i64 36, i32 4, i1 false), !dbg !5711
+Current: whereClauseInsert Havoced: sqlite3ExprDelete
+Current: sqlite3ExprForVectorField Havoced: sqlite3ExprDup
+Current: sqlite3ExprForVectorField Havoced: sqlite3RenameTokenRemap
+Current: sqlite3ExprForVectorField Havoced: sqlite3PExpr
+Current: sqlite3ExprForVectorField Havoced: sqlite3ExprDup
+Current: sqlite3ExprForVectorField Havoced: sqlite3RenameTokenRemap
+Current: sqlite3ExprForVectorField Havoced: sqlite3PExpr
+Current: sqlite3PExpr Havoced: sqlite3DbMallocRawNN
+Current: sqlite3PExpr Havoced: sqlite3ExprDelete
+Current: sqlite3PExpr Havoced: sqlite3ExprDelete
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %9, i8 0, i64 72, i32 8, i1 false), !dbg !5626
+Current: sqlite3PExpr Havoced: sqlite3ExprAttachSubtrees
+Current: sqlite3PExpr Havoced: sqlite3ExprCheckHeight
+Current: whereClauseInsert Havoced: sqlite3DbMallocRawNN
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %33, i8* %34, i64 %38, i32 8, i1 false), !dbg !5657
+Current: whereClauseInsert Havoced: sqlite3DbFree
+Current: whereClauseInsert Havoced: sqlite3DbMallocSize
+Current: whereClauseInsert Havoced: sqlite3LogEst
+Current: whereClauseInsert Havoced: sqlite3ExprSkipCollateAndLikely
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %79, i8 0, i64 36, i32 4, i1 false), !dbg !5711
+Current: whereClauseInsert Havoced: sqlite3ExprDelete
+Current: sqlite3ErrorMsg Havoced: sqlite3VMPrintf
+Current: sqlite3ErrorMsg Havoced: sqlite3DbFree
+Current: sqlite3ErrorMsg Havoced: sqlite3DbFree
+
+                                                           0 sec [DONE]
+        Number of expressions:                        165876
+        after encoding
+
+      40 assertions before transformations (11 no_function_call, 27 no_back_edge, 2 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            9323
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           73123
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                              16
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             118
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             182
+        ToASC Analyser
+          Memcpy/memset found                            yes
+        Byte-Based Memory Creator
+          Number of rewrites                           10176
+        Instantiation-Based ToASC Simplifier
+          Number of rewrites                              10
+        Simplifier
+          Number of moved ops                            146
+          Number of rewrites                           25586
+        FP Abstraction
+          Number of rewrites                              22
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              7
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      40 assertions remain after transformations (11 no_function_call, 27 no_back_edge, 2 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...

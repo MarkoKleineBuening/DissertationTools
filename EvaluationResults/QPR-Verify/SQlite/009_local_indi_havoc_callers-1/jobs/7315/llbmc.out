@@ -1,0 +1,115 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 7315 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...Check contains Safe and does not have to refined by preconditions
+try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 2
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/7315
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : explainIndexRange
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "explainIndexRange" for 1 iterations succeeded.
+      Transformed "explainIndexRange" from 15 to 16 basic blocks and from 95 to 101 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %20, i8* %1, i64 %21, i32 1, i1 false), !dbg !5636
+Current: sqlite3_str_append Havoced: enlargeAndAppend
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %20, i8* %1, i64 %21, i32 1, i1 false), !dbg !5636
+Current: sqlite3_str_append Havoced: enlargeAndAppend
+Current: sqlite3_str_appendf Havoced: sqlite3_str_vappendf
+
+        Unrolling loop in function "explainAppendTerm" for 1 iterations succeeded.
+        Unrolling loop in function "explainAppendTerm" for 1 iterations succeeded.
+        Transformed "explainAppendTerm" from 23 to 25 basic blocks and from 70 to 76 instructionsCurrent: explainAppendTerm Havoced: sqlite3_str_append
+Current: explainAppendTerm Havoced: sqlite3_str_append
+Current: explainAppendTerm Havoced: sqlite3_str_append
+Current: explainAppendTerm Havoced: explainIndexColumnName
+Current: explainAppendTerm Havoced: sqlite3_str_appendall
+Current: explainAppendTerm Havoced: sqlite3_str_append
+Current: explainAppendTerm Havoced: sqlite3_str_append
+Current: explainAppendTerm Havoced: sqlite3_str_append
+Current: explainAppendTerm Havoced: sqlite3_str_append
+Current: explainAppendTerm Havoced: sqlite3_str_append
+Current: explainAppendTerm Havoced: sqlite3_str_append
+Current: explainAppendTerm Havoced: sqlite3_str_append
+Current: explainAppendTerm Havoced: sqlite3_str_append
+Current: explainAppendTerm Havoced: sqlite3_str_append
+Current: explainAppendTerm Havoced: explainIndexColumnName
+Current: explainAppendTerm Havoced: sqlite3_str_appendall
+Current: explainAppendTerm Havoced: sqlite3_str_append
+Current: explainAppendTerm Havoced: sqlite3_str_append
+Current: explainAppendTerm Havoced: sqlite3_str_append
+Current: explainAppendTerm Havoced: sqlite3_str_append
+Current: explainAppendTerm Havoced: sqlite3_str_append
+Current: explainAppendTerm Havoced: sqlite3_str_append
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %20, i8* %1, i64 %21, i32 1, i1 false), !dbg !5636
+Current: sqlite3_str_append Havoced: enlargeAndAppend
+
+                                                           0 sec [DONE]
+        Number of expressions:                        155875
+        after encoding
+
+      7 assertions before transformations (5 no_back_edge, 2 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            3925
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72642
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               2
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                              13
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             156
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      7 assertions remain after transformations (5 no_back_edge, 2 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...          1 sec [DONE]
+  

@@ -1,0 +1,128 @@
+runJobCommand
+precondition analysis with entry:mat_fdump
+arguents: child
+arguents: job
+arguents: mode
+arguents: precondition
+handleJobInSeparateProcess0
+
+Checking job 424 ...about to run job:
+preconNumber: 3, 1
+
+  Running Model Checker with 1 checks ...entry: mat_fdump, functionName: mat_fdumpf
+  <badref> = call double** @qpr.precondition.mat_fdumpf(double** %0, i8* getelementptr inbounds ([4 x i8], [4 x i8]* @.str.1.54, i32 0, i32 0), %struct._IO_FILE.138* %1)
+entry: mat_fdump, functionName: mat_fdump
+entry: mat_fdump, functionName: mat_fdumpf
+try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 4
+    HavocLimit : 0
+    PreconditionNumber : 3
+    PreconditionLocation : jobs/424
+    TimeOut : 300
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : mat_fdump
+m_checker->run()
+
+    Performing bounded model checking ...
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...size Alloca: 1
+size Alloca: 1
+TODO MKB implement precondition handling: IE
+Reading in precondition at: jobs/424/precondition_mat_fdumpf.txt
+preconFile: jobs/424/precondition_mat_fdumpf.txt
+ref: [underoverapprox]name of function arguments, argValue:  
+ref: [underoverapprox]name of function arguments, argValue:  
+name of function arguments line
+ERROR boolCond is nullptr
+ERROR boolCond is nullptr
+ERROR boolCond is nullptr
+Writing precondition type at: jobs/424/precondition_type_mat_fdump.txt
+
+Type of Precondition:
+[underoverapprox]
+precondition found, end encoding
+                      0 sec [DONE]
+        Number of expressions:                          6041
+        after encoding
+
+      0 assertions before transformations.
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                              82
+        Fixed Memory Address Assigner
+          Number of moved ops                              2
+          Number of rewrites                             366
+        Simplifier
+          Number of moved ops                              2
+          Number of rewrites                            2731
+        Memory Model Encoder
+          Number of moved ops                              0
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                               0
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      0 assertions remain after transformations.
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...            0 sec [DONE]
+        
+                                                           0 sec [DONE]
+      after performing Check
+evaluateCheckerResultsViaRefinementLoop
+getCheckerResultAfterUpdatingMarker
+Result is NoTrace
+
+                                                           0 sec [DONE]
+    allsafe
+    
+                                                           0 sec [DONE]
+  unction does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   %55 = call i32 (%struct._IO_FILE.138*, i8*, ...) @fprintf(%struct._IO_FILE.138* %arg2, i8* getelementptr inbounds ([2 x i8], [2 x i8]* @.str.2.55, i32 0, i32 0)), !dbg !1409
+Preconditions internal: 
+
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      name of function arguments: Writing precondition at: jobs/424/precondition_mat_fdumpf.txt
+
+Generated Preconditions:
+[underoverapprox]name of function arguments: 
+
+
+
+
+                                                           0 sec [DONE]
+    allsafe
+    
+                                                           0 sec [DONE]
+  

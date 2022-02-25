@@ -1,0 +1,368 @@
+runJobCommand
+precondition analysis with entry:navigation
+arguents: child
+arguents: job
+arguents: mode
+arguents: precondition
+handleJobInSeparateProcess0
+
+Checking job 315 ...about to run job:
+preconNumber: 5, 1
+
+  Running Model Checker with 1 checks ...entry: navigation, functionName: snap_time_interval
+  call void @qpr.precondition.snap_time_interval(i8* getelementptr inbounds ([4 x i8], [4 x i8]* @.str.4.117, i32 0, i32 0), i32 20, i16 1)
+entry: navigation, functionName: ahrs_main
+entry: navigation, functionName: navigation
+entry: navigation, functionName: snap_time_interval
+try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 0
+    PreconditionNumber : 5
+    PreconditionLocation : jobs/315
+    TimeOut : 300
+    InitializedGlobals : false
+    IgnoreMissingFunctions : true
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : navigation
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "navigation" for 1 iterations succeeded.
+      Unrolling loop in function "navigation" for 1 iterations succeeded.
+      Transformed "navigation" from 19 to 30 basic blocks and from 342 to 431 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...size Alloca: 1
+
+        Unrolling loop in function "_mat_creat" for 1 iterations succeeded.
+        Transformed "_mat_creat" from 10 to 11 basic blocks and from 54 to 57 instructions
+        Transformed "mat_error" from 5 to 10 basic blocks and from 10 to 19 instructions
+        Unrolling loop in function "mat_fill" for 1 iterations succeeded.
+        Unrolling loop in function "mat_fill" for 1 iterations succeeded.
+        Transformed "mat_fill" from 18 to 24 basic blocks and from 67 to 82 instructionsisMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %186, i8* %187, i64 16, i32 8, i1 false), !dbg !1672
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %199, i8* bitcast (%struct.gps.133* @gpspacket to i8*), i64 64, i32 8, i1 false), !dbg !1691
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %202, i8* bitcast (%struct.imu.132* @imupacket to i8*), i64 128, i32 8, i1 false), !dbg !1694
+
+        Unrolling loop in function "navigation_algorithm" for 9 iterations succeeded.
+        Unrolling loop in function "navigation_algorithm" for 8 iterations succeeded.
+        Unrolling loop in function "navigation_algorithm" for 6 iterations succeeded.
+        Unrolling loop in function "navigation_algorithm" for 9 iterations succeeded.
+        Unrolling loop in function "navigation_algorithm" for 9 iterations succeeded.
+        Unrolling loop in function "navigation_algorithm" for 9 iterations succeeded.
+        Unrolling loop in function "navigation_algorithm" for 9 iterations succeeded.
+        Transformed "navigation_algorithm" from 33 to 130 basic blocks and from 695 to 2332 instructions
+        Unrolling loop in function "mat_mul" for 1 iterations succeeded.
+        Unrolling loop in function "mat_mul" for 1 iterations succeeded.
+        Unrolling loop in function "mat_mul" for 1 iterations succeeded.
+        Transformed "mat_mul" from 13 to 16 basic blocks and from 82 to 94 instructions
+        Unrolling loop in function "mat_free" for 1 iterations succeeded.
+        Transformed "mat_free" from 8 to 9 basic blocks and from 33 to 37 instructions
+        Unrolling loop in function "mat_scalMul" for 1 iterations succeeded.
+        Unrolling loop in function "mat_scalMul" for 1 iterations succeeded.
+        Transformed "mat_scalMul" from 9 to 11 basic blocks and from 52 to 60 instructions
+        Unrolling loop in function "mat_add" for 1 iterations succeeded.
+        Unrolling loop in function "mat_add" for 1 iterations succeeded.
+        Transformed "mat_add" from 9 to 11 basic blocks and from 58 to 66 instructions
+        Unrolling loop in function "mat_tran" for 1 iterations succeeded.
+        Unrolling loop in function "mat_tran" for 1 iterations succeeded.
+        Transformed "mat_tran" from 9 to 11 basic blocks and from 49 to 57 instructions
+        Unrolling loop in function "mat_subcopy" for 1 iterations succeeded.
+        Unrolling loop in function "mat_subcopy" for 1 iterations succeeded.
+        Transformed "mat_subcopy" from 9 to 11 basic blocks and from 45 to 51 instructions
+        Unrolling loop in function "mat_inv" for 1 iterations succeeded.
+        Transformed "mat_inv" from 20 to 21 basic blocks and from 96 to 99 instructions
+        Unrolling loop in function "mat_copy" for 1 iterations succeeded.
+        Unrolling loop in function "mat_copy" for 1 iterations succeeded.
+        Transformed "mat_copy" from 9 to 11 basic blocks and from 49 to 57 instructions
+        Unrolling loop in function "mat_lu" for 1 iterations succeeded.
+        Unrolling loop in function "mat_lu" for 1 iterations succeeded.
+        Unrolling loop in function "mat_lu" for 1 iterations succeeded.
+        Unrolling loop in function "mat_lu" for 1 iterations succeeded.
+        Unrolling loop in function "mat_lu" for 1 iterations succeeded.
+        Transformed "mat_lu" from 28 to 33 basic blocks and from 239 to 261 instructions
+        Unrolling loop in function "mat_backsubs1" for 1 iterations succeeded.
+        Unrolling loop in function "mat_backsubs1" for 1 iterations succeeded.
+        Unrolling loop in function "mat_backsubs1" for 1 iterations succeeded.
+        Unrolling loop in function "mat_backsubs1" for 1 iterations succeeded.
+        Transformed "mat_backsubs1" from 17 to 21 basic blocks and from 201 to 216 instructions
+        Unrolling loop in function "mat_sub" for 1 iterations succeeded.
+        Unrolling loop in function "mat_sub" for 1 iterations succeeded.
+        Transformed "mat_sub" from 9 to 11 basic blocks and from 58 to 66 instructionsTODO MKB implement precondition handling: IE
+Reading in precondition at: jobs/315/precondition_snap_time_interval.txt
+preconFile: jobs/315/precondition_snap_time_interval.txt
+ref: [underoverapprox]name of function arguments, argValue:  
+ref: [underoverapprox]name of function arguments, argValue:  
+name of function arguments line
+param: i32 %arg1:0
+---name: i32 %arg1, value: 0.
+integer, char or other simple types
+name: i32 %arg1
+assuming that there are not more then 10 arguments
+nameIndex: 1
+nameID: 1
+argument name: 
+value: 0
+###new bool cond: bool % = compare(%i32__20, %i32__0)
+param:  i16 %arg2:-1
+---name:  i16 %arg2, value: -1.
+integer, char or other simple types
+name:  i16 %arg2
+assuming that there are not more then 10 arguments
+nameIndex: 2
+nameID: 2
+argument name: 
+value: -1
+###added bool cond: bool % = or(%, %)
+pruneOrAssert -- adding line boolCond: bool % = or(%, %)
+param: i32 %arg1:1
+---name: i32 %arg1, value: 1.
+integer, char or other simple types
+name: i32 %arg1
+assuming that there are not more then 10 arguments
+nameIndex: 1
+nameID: 1
+argument name: 
+value: 1
+###new bool cond: bool % = compare(%i32__20, %i32__1)
+param:  i16 %arg2:-32755
+---name:  i16 %arg2, value: -32755.
+integer, char or other simple types
+name:  i16 %arg2
+assuming that there are not more then 10 arguments
+nameIndex: 2
+nameID: 2
+argument name: 
+value: -32755
+###added bool cond: bool % = or(%, %)
+pruneOrAssert -- adding line boolCond: bool % = or(%, %)
+param: i32 %arg1:16777217
+---name: i32 %arg1, value: 16777217.
+integer, char or other simple types
+name: i32 %arg1
+assuming that there are not more then 10 arguments
+nameIndex: 1
+nameID: 1
+argument name: 
+value: 16777217
+###new bool cond: bool % = compare(%i32__20, %i32__16777217)
+param:  i16 %arg2:-32755
+---name:  i16 %arg2, value: -32755.
+integer, char or other simple types
+name:  i16 %arg2
+assuming that there are not more then 10 arguments
+nameIndex: 2
+nameID: 2
+argument name: 
+value: -32755
+###added bool cond: bool % = or(%, %)
+pruneOrAssert -- adding line boolCond: bool % = or(%, %)
+param: i32 %arg1:33554433
+---name: i32 %arg1, value: 33554433.
+integer, char or other simple types
+name: i32 %arg1
+assuming that there are not more then 10 arguments
+nameIndex: 1
+nameID: 1
+argument name: 
+value: 33554433
+###new bool cond: bool % = compare(%i32__20, %i32__33554433)
+param:  i16 %arg2:-32755
+---name:  i16 %arg2, value: -32755.
+integer, char or other simple types
+name:  i16 %arg2
+assuming that there are not more then 10 arguments
+nameIndex: 2
+nameID: 2
+argument name: 
+value: -32755
+###added bool cond: bool % = or(%, %)
+pruneOrAssert -- adding line boolCond: bool % = or(%, %)
+param: i32 %arg1:50331649
+---name: i32 %arg1, value: 50331649.
+integer, char or other simple types
+name: i32 %arg1
+assuming that there are not more then 10 arguments
+nameIndex: 1
+nameID: 1
+argument name: 
+value: 50331649
+###new bool cond: bool % = compare(%i32__20, %i32__50331649)
+param:  i16 %arg2:-32755
+---name:  i16 %arg2, value: -32755.
+integer, char or other simple types
+name:  i16 %arg2
+assuming that there are not more then 10 arguments
+nameIndex: 2
+nameID: 2
+argument name: 
+value: -32755
+###added bool cond: bool % = or(%, %)
+pruneOrAssert -- adding line boolCond: bool % = or(%, %)
+Writing precondition type at: jobs/315/precondition_type_navigation.txt
+
+Type of Precondition:
+[underoverapprox]
+precondition found, end encoding
+
+                                                           0 sec [DONE]
+        Number of expressions:                         26563
+        after encoding
+
+      154 assertions before transformations (148 no_back_edge, 5 custom, 1 no_unreachable_executed).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                           16412
+        Fixed Memory Address Assigner
+          Number of moved ops                             22
+          Number of rewrites                             465
+        Simplifier
+          Number of moved ops                              1
+          Number of rewrites                           86247
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               8
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             242
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           12459
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                             529
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               6
+                                                           0 sec [DONE]
+        
+      154 assertions remain after transformations (148 no_back_edge, 5 custom, 1 no_unreachable_executed).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...            0 sec [DONE]
+        
+                                                           0 sec [DONE]
+      after performing Check
+evaluateCheckerResultsViaRefinementLoop
+checker.getResult() is Trace
+checkOnlyPrecon: 1, size:1
+setCheckToUnsafe for precondition Instruction
+checkID: 2304
+setCheckToUnsafe
+set check to unsafe
+getCheckerResultAfterUpdatingMarker
+failingInst:   br i1 %21, label %bb3, label %bb2.bb7_crit_edge, !dbg !1389, !llvm.loop !1407
+Preconditions internal: 
+
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   br i1 %21, label %bb3, label %bb2.bb7_crit_edge, !dbg !1389, !llvm.loop !1407
+Preconditions internal: 
+
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   br i1 %21, label %bb3, label %bb2.bb7_crit_edge, !dbg !1389, !llvm.loop !1407
+Preconditions internal: 
+
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   br i1 %21, label %bb3, label %bb2.bb7_crit_edge, !dbg !1389, !llvm.loop !1407
+Preconditions internal: 
+
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   br i1 %21, label %bb3, label %bb2.bb7_crit_edge, !dbg !1389, !llvm.loop !1407
+Preconditions internal: 
+
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      name of function arguments: Writing precondition at: jobs/315/precondition_navigation.txt
+
+Generated Preconditions:
+[underoverapprox]name of function arguments: 
+
+
+
+
+
+
+                                                           0 sec [DONE]
+    allunsafe
+    
+                                                           0 sec [DONE]
+   internal: 
+
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   br i1 %21, label %bb3, label %bb2.bb7_crit_edge, !dbg !1389, !llvm.loop !1407
+Preconditions internal: 
+
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   br i1 %21, label %bb3, label %bb2.bb7_crit_edge, !dbg !1389, !llvm.loop !1407
+Preconditions internal: 
+
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      name of function arguments: Writing precondition at: jobs/315/precondition_ahrs_main.txt
+
+Generated Preconditions:
+[underoverapprox]name of function arguments: 
+
+
+
+
+
+
+                                                           0 sec [DONE]
+    allunsafe
+    
+                                                           0 sec [DONE]
+  

@@ -1,0 +1,162 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 7546 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 1
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/7546
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : exprAnalyze
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "exprAnalyze" for 1 iterations succeeded.
+      Unrolling loop in function "exprAnalyze" for 1 iterations succeeded.
+      Unrolling loop in function "exprAnalyze" for 1 iterations succeeded.
+      Unrolling loop in function "exprAnalyze" for 2 iterations succeeded.
+      Unrolling loop in function "exprAnalyze" for 1 iterations succeeded.
+      Transformed "exprAnalyze" from 123 to 128 basic blocks and from 1083 to 1148 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...Current: exprAnalyze Havoced: sqlite3WhereExprUsage
+Current: exprAnalyze Havoced: sqlite3WhereExprUsage
+Current: exprAnalyze Havoced: sqlite3ExprCheckIN
+Current: exprAnalyze Havoced: sqlite3WhereExprListUsage
+Current: exprAnalyze Havoced: exprSelectUsage
+Current: exprAnalyze Havoced: sqlite3WhereExprUsageNN
+Current: exprAnalyze Havoced: sqlite3WhereGetMask
+Current: exprAnalyze Havoced: allowedOp
+Current: exprAnalyze Havoced: isLikeOrGlob
+Current: exprAnalyze Havoced: sqlite3ExprDup
+Current: exprAnalyze Havoced: sqlite3Strlen30
+Current: exprAnalyze Havoced: sqlite3ExprDup
+Current: exprAnalyze Havoced: sqlite3ExprAddCollateString
+Current: exprAnalyze Havoced: sqlite3PExpr
+Current: exprAnalyze Havoced: transferJoinMarkings
+Current: exprAnalyze Havoced: whereClauseInsert
+Current: exprAnalyze Havoced: sqlite3ExprDup
+Current: exprAnalyze Havoced: sqlite3ExprAddCollateString
+Current: exprAnalyze Havoced: sqlite3PExpr
+Current: exprAnalyze Havoced: transferJoinMarkings
+Current: exprAnalyze Havoced: whereClauseInsert
+Current: exprAnalyze Havoced: markTermAsChild
+Current: exprAnalyze Havoced: markTermAsChild
+Current: exprAnalyze Havoced: sqlite3ExprDup
+Current: exprAnalyze Havoced: sqlite3ExprAlloc
+Current: exprAnalyze Havoced: sqlite3PExpr
+Current: exprAnalyze Havoced: whereClauseInsert
+Current: exprAnalyze Havoced: markTermAsChild
+Current: exprAnalyze Havoced: exprAnalyzeOrTerm
+Current: exprAnalyze Havoced: sqlite3ExprDup
+Current: exprAnalyze Havoced: sqlite3ExprDup
+Current: exprAnalyze Havoced: sqlite3PExpr
+Current: exprAnalyze Havoced: transferJoinMarkings
+Current: exprAnalyze Havoced: whereClauseInsert
+Current: exprAnalyze Havoced: markTermAsChild
+Current: exprAnalyze Havoced: sqlite3ExprDup
+Current: exprAnalyze Havoced: sqlite3ExprDup
+Current: exprAnalyze Havoced: sqlite3PExpr
+Current: exprAnalyze Havoced: transferJoinMarkings
+Current: exprAnalyze Havoced: whereClauseInsert
+Current: exprAnalyze Havoced: markTermAsChild
+Current: exprAnalyze Havoced: sqlite3ExprSkipCollate
+Current: exprAnalyze Havoced: sqlite3ExprSkipCollate
+Current: exprAnalyze Havoced: exprMightBeIndexed
+Current: exprAnalyze Havoced: operatorMask
+Current: exprAnalyze Havoced: exprMightBeIndexed
+Current: exprAnalyze Havoced: sqlite3ExprDup
+Current: exprAnalyze Havoced: whereClauseInsert
+Current: exprAnalyze Havoced: markTermAsChild
+Current: exprAnalyze Havoced: termIsEquivalence
+Current: exprAnalyze Havoced: exprCommute
+Current: exprAnalyze Havoced: operatorMask
+Current: exprAnalyze Havoced: sqlite3ExprDelete
+Current: exprAnalyze Havoced: sqlite3ExprCanBeNull
+Current: exprAnalyze Havoced: sqlite3ExprVectorSize
+Current: exprAnalyze Havoced: sqlite3ExprVectorSize
+Current: exprAnalyze Havoced: isAuxiliaryVtabOperator
+Current: exprAnalyze Havoced: sqlite3WhereExprUsage
+Current: exprAnalyze Havoced: sqlite3WhereExprUsage
+Current: exprAnalyze Havoced: sqlite3ExprDup
+Current: exprAnalyze Havoced: sqlite3PExpr
+Current: exprAnalyze Havoced: whereClauseInsert
+Current: exprAnalyze Havoced: markTermAsChild
+Current: exprAnalyze Havoced: sqlite3ExprVectorSize
+Current: exprAnalyze Havoced: whereClauseInsert
+Current: exprAnalyze Havoced: markTermAsChild
+Current: exprAnalyze Havoced: sqlite3ExprVectorSize
+Current: exprAnalyze Havoced: sqlite3ExprForVectorField
+Current: exprAnalyze Havoced: sqlite3ExprForVectorField
+Current: exprAnalyze Havoced: sqlite3PExpr
+Current: exprAnalyze Havoced: transferJoinMarkings
+Current: exprAnalyze Havoced: whereClauseInsert
+Current: exprAnalyze Havoced: sqlite3ErrorMsg
+                      0 sec [DONE]
+        Number of expressions:                        156778
+        after encoding
+
+      12 assertions before transformations (6 no_function_call, 5 no_back_edge, 1 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            4167
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72655
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               7
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               5
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             142
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      12 assertions remain after transformations (6 no_function_call, 5 no_back_edge, 1 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...

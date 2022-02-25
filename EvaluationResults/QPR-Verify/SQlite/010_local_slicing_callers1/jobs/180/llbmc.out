@@ -1,0 +1,90 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+handleJobInSeparateProcess0
+
+Checking job 180 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...W [0] lib/Slicer/LocalDependencyCollector.cpp:328 | function without implementation called: 'memcmp'
+W [0] lib/Slicer/LocalSlicer.cpp:357 | argument i8* undef of call instruction has pointer type
+W [0] lib/Slicer/LocalSlicer.cpp:368 | argument 0 (i8* undef) has pointer type
+W [0] lib/Slicer/LocalSlicer.cpp:495 | unused argument: , qpr.slicing.unused.arg.apndReadMark.1
+I [0] lib/Slicer/LocalSlicer.cpp:104 | slicing finished
+try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 0
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/180
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : apndReadMark
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "apndReadMark" for 7 iterations succeeded.
+      Transformed "apndReadMark" from 8 to 20 basic blocks and from 33 to 125 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...                      0 sec [DONE]
+        Number of expressions:                        131138
+        after encoding
+
+      8 assertions before transformations (1 no_back_edge, 7 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            2769
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            4896
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           61880
+        Memory Model Encoder
+          Number of moved ops                              0
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                               1
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                              88
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                               0
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      8 assertions remain after transformations (1 no_back_edge, 7 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...            0 sec [DONE]
+        
+                                                           0 sec [DONE]
+      after performing Check
+evaluateCheckerResultsViaRefinementLoop
+getCheckerResultAfterUpdatingMarker
+Result is NoTrace
+
+                                                           1 sec [DONE]
+    allsafe
+    
+                                                           1 sec [DONE]
+  

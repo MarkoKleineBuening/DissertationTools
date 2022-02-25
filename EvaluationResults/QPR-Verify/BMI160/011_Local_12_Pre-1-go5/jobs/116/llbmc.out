@@ -1,0 +1,249 @@
+runJobCommand
+precondition analysis with entry:perform_accel_self_test
+arguents: child
+arguents: job
+arguents: mode
+arguents: precondition
+handleJobInSeparateProcess0
+
+Checking job 116 ...about to run job:
+preconNumber: 5, 1
+
+  Running Model Checker with 1 checks ...entry: perform_accel_self_test, functionName: get_accel_data
+entry: perform_accel_self_test, functionName: accel_self_test_positive_excitation
+  <badref> = call i8 @qpr.precondition.accel_self_test_positive_excitation(%struct.bmi160_sensor_data.8* %2, %struct.bmi160_dev.7* @configStub)
+entry: perform_accel_self_test, functionName: perform_accel_self_test
+try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 12
+    HavocLimit : 0
+    PreconditionNumber : 5
+    PreconditionLocation : jobs/116
+    TimeOut : 300
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : perform_accel_self_test
+m_checker->run()
+
+    Performing bounded model checking ...
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...size Alloca: 1
+getMatchingFunctions
+res.push_back: stubDelay
+
+        Transformed "set_accel_conf" from 7 to 11 basic blocks and from 65 to 71 instructionsisMemset:   call void @llvm.memset.p0i8.i64(i8* %2, i8 0, i64 2, i32 1, i1 false), !dbg !189
+getMatchingFunctions
+res.push_back: stubRead
+res.push_back: stubWrite
+getMatchingFunctions
+res.push_back: stubDelay
+
+        Transformed "bmi160_get_regs" from 9 to 19 basic blocks and from 62 to 79 instructions
+        Unrolling loop in function "stubRead" for 12 iterations succeeded.
+        Transformed "stubRead" from 7 to 30 basic blocks and from 43 to 190 instructions
+        Unrolling loop in function "bmi160_set_regs" for 12 iterations succeeded.getMatchingFunctions
+res.push_back: stubRead
+res.push_back: stubWrite
+getMatchingFunctions
+res.push_back: stubRead
+res.push_back: stubWrite
+getMatchingFunctions
+res.push_back: stubRead
+res.push_back: stubWrite
+getMatchingFunctions
+res.push_back: stubRead
+res.push_back: stubWrite
+getMatchingFunctions
+res.push_back: stubRead
+res.push_back: stubWrite
+getMatchingFunctions
+res.push_back: stubRead
+res.push_back: stubWrite
+getMatchingFunctions
+res.push_back: stubRead
+res.push_back: stubWrite
+getMatchingFunctions
+res.push_back: stubRead
+res.push_back: stubWrite
+getMatchingFunctions
+res.push_back: stubRead
+res.push_back: stubWrite
+getMatchingFunctions
+res.push_back: stubRead
+res.push_back: stubWrite
+getMatchingFunctions
+res.push_back: stubRead
+res.push_back: stubWrite
+getMatchingFunctions
+res.push_back: stubRead
+res.push_back: stubWrite
+
+        Transformed "bmi160_set_regs" from 5 to 100 basic blocks and from 47 to 473 instructionsgetMatchingFunctions
+res.push_back: stubDelay
+
+        Transformed "set_gyro_conf" from 7 to 11 basic blocks and from 65 to 71 instructionsisMemset:   call void @llvm.memset.p0i8.i64(i8* %2, i8 0, i64 2, i32 1, i1 false), !dbg !189
+getMatchingFunctions
+res.push_back: stubDelay
+
+        Transformed "set_accel_pwr" from 11 to 15 basic blocks and from 80 to 86 instructionsgetMatchingFunctions
+res.push_back: stubDelay
+getMatchingFunctions
+res.push_back: stubDelay
+
+        Transformed "set_gyro_pwr" from 15 to 23 basic blocks and from 95 to 107 instructionsTODO MKB implement precondition handling: IE
+Reading in precondition at: jobs/116/precondition_accel_self_test_positive_excitation.txt
+preconFile: jobs/116/precondition_accel_self_test_positive_excitation.txt
+ref: [underoverapprox]name of function arguments, argValue:  
+ref: [underoverapprox]name of function arguments, argValue:  
+name of function arguments line
+ERROR boolCond is nullptr
+ERROR boolCond is nullptr
+ERROR boolCond is nullptr
+ERROR boolCond is nullptr
+ERROR boolCond is nullptr
+Writing precondition type at: jobs/116/precondition_type_perform_accel_self_test.txt
+
+Type of Precondition:
+[underoverapprox]
+precondition found, end encoding
+
+                                                           0 sec [DONE]
+        Number of expressions:                         50339
+        after encoding
+
+      267 assertions before transformations (133 no_function_call, 134 no_back_edge).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                           42038
+        Fixed Memory Address Assigner
+          Number of moved ops                              6
+          Number of rewrites                               9
+        Simplifier
+          Number of moved ops                              1
+          Number of rewrites                            3704
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               8
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                            1727
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               6
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                               0
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      267 assertions remain after transformations (133 no_function_call, 134 no_back_edge).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...            0 sec [DONE]
+        
+                                                           0 sec [DONE]
+      after performing Check
+evaluateCheckerResultsViaRefinementLoop
+getCheckerResultAfterUpdatingMarker
+Result is NoTrace
+
+                                                           0 sec [DONE]
+    allunsafe
+    
+                                                           0 sec [DONE]
+  tLoop
+getCheckerResultAfterUpdatingMarker
+Result is NoTrace
+
+                                                           0 sec [DONE]
+    allunsafe
+    
+                                                           0 sec [DONE]
+  fter performing Check
+evaluateCheckerResultsViaRefinementLoop
+checker.getResult() is Trace
+checkOnlyPrecon: 1, size:1
+setCheckToUnsafe for precondition Instruction
+checkID: 822
+setCheckToUnsafe
+set check to unsafe
+getCheckerResultAfterUpdatingMarker
+failingInst:   %7 = call i8 @qpr.precondition.bmi160_get_sensor_data(i8 1, %struct.bmi160_sensor_data.8* %arg0, %struct.bmi160_sensor_data.8* null, %struct.bmi160_dev.7* @configStub), !dbg !207
+Preconditions internal: 
+
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   %7 = call i8 @qpr.precondition.bmi160_get_sensor_data(i8 1, %struct.bmi160_sensor_data.8* %arg0, %struct.bmi160_sensor_data.8* null, %struct.bmi160_dev.7* @configStub), !dbg !207
+Preconditions internal: 
+
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   %7 = call i8 @qpr.precondition.bmi160_get_sensor_data(i8 1, %struct.bmi160_sensor_data.8* %arg0, %struct.bmi160_sensor_data.8* null, %struct.bmi160_dev.7* @configStub), !dbg !207
+Preconditions internal: 
+
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   %7 = call i8 @qpr.precondition.bmi160_get_sensor_data(i8 1, %struct.bmi160_sensor_data.8* %arg0, %struct.bmi160_sensor_data.8* null, %struct.bmi160_dev.7* @configStub), !dbg !207
+Preconditions internal: 
+
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   %7 = call i8 @qpr.precondition.bmi160_get_sensor_data(i8 1, %struct.bmi160_sensor_data.8* %arg0, %struct.bmi160_sensor_data.8* null, %struct.bmi160_dev.7* @configStub), !dbg !207
+Preconditions internal: 
+
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      name of function arguments: Writing precondition at: jobs/116/precondition_accel_self_test_negative_excitation.txt
+
+Generated Preconditions:
+[underoverapprox]name of function arguments: 
+
+
+
+
+
+
+                                                           0 sec [DONE]
+    allunsafe
+    
+                                                           0 sec [DONE]
+  

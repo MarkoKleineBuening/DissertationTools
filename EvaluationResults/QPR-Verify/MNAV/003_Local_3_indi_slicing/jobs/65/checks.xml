@@ -1,0 +1,25 @@
+<VerificationJob>
+  <Configuration>
+    <AnalyzeChecksIndividually value="true" />
+    <BitcodeTraces value="false" />
+    <EnableSlicing value="true" />
+    <EntryPoint value="decode_imupacket" />
+    <FixPoint value="true" />
+    <Hosted value="true" />
+    <IgnoreMissingFunctions value="false" />
+    <InitializedGlobals value="false" />
+    <LoopUnrollBound value="3" />
+    <PreconditionLocation value="jobs/65" />
+    <SourceDirectory value="/home/i12/mbuening/100_Dissertation/MNAV/MNAV1.5" />
+    <TimeOut value="300" />
+  </Configuration>
+  <CheckList>
+    <Check id="386" location="392" category="explicit.conversion.overflow" status="unsafe" scope="decode_imupacket">
+      <Annotations>
+        <Annotation>An explicit conversion operation can overflow.</Annotation>
+      </Annotations>
+    </Check>
+  </CheckList>
+  <Annotation>allunsafe</Annotation>
+  <Status>allunsafe</Status>
+</VerificationJob>

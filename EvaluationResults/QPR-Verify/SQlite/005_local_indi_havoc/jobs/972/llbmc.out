@@ -1,0 +1,139 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 972 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 1
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/972
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : shellEscapeCrnl
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "shellEscapeCrnl" for 1 iterations succeeded.
+      Unrolling loop in function "shellEscapeCrnl" for 1 iterations succeeded.
+      Transformed "shellEscapeCrnl" from 40 to 42 basic blocks and from 285 to 308 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...Current: shellEscapeCrnl Havoced: sqlite3_value_text
+Current: shellEscapeCrnl Havoced: sqlite3_value_bytes
+Current: shellEscapeCrnl Havoced: unused_string
+
+        Unrolling loop in function "llbmc.strlen" for 0 iterations succeeded.
+        Transformed "llbmc.strlen" from 8 to 9 instructionsCurrent: shellEscapeCrnl Havoced: unused_string
+Current: shellEscapeCrnl Havoced: sqlite3_result_value
+Current: shellEscapeCrnl Havoced: sqlite3_malloc64
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %66, i8* getelementptr inbounds ([9 x i8], [9 x i8]* @.str.262, i32 0, i32 0), i64 8, i32 1, i1 false), !dbg !5736
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %63, i8* getelementptr inbounds ([17 x i8], [17 x i8]* @.str.261, i32 0, i32 0), i64 16, i32 1, i1 false), !dbg !5731
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %88, i8* %.lcssa39, i64 %89, i32 1, i1 false), !dbg !5765
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %79, i8* %.lcssa38, i64 %80, i32 1, i1 false), !dbg !5753
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %106, i8* getelementptr inbounds ([3 x i8], [3 x i8]* @.str.263, i32 0, i32 0), i64 2, i32 1, i1 false), !dbg !5784
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %109, i8* %.lcssa38, i64 %110, i32 1, i1 false), !dbg !5788
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %113, i8* getelementptr inbounds ([13 x i8], [13 x i8]* @.str.264, i32 0, i32 0), i64 12, i32 1, i1 false), !dbg !5791
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %118, i8* getelementptr inbounds ([3 x i8], [3 x i8]* @.str.263, i32 0, i32 0), i64 2, i32 1, i1 false), !dbg !5799
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %121, i8* %.lcssa39, i64 %122, i32 1, i1 false), !dbg !5803
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %125, i8* getelementptr inbounds ([13 x i8], [13 x i8]* @.str.265, i32 0, i32 0), i64 12, i32 1, i1 false), !dbg !5806
+Current: shellEscapeCrnl Havoced: sqlite3_result_text
+Current: shellEscapeCrnl Havoced: sqlite3_free
+Current: shellEscapeCrnl Havoced: sqlite3_result_error_nomem
+
+                                                           0 sec [DONE]
+        Number of expressions:                        155526
+        after encoding
+
+      5 assertions before transformations (4 no_back_edge, 1 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            3706
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72632
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               2
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               7
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             206
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              1
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      5 assertions remain after transformations (4 no_back_edge, 1 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...            0 sec [DONE]
+        
+                                                           1 sec [DONE]
+      after performing Check
+evaluateCheckerResultsViaRefinementLoop
+checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+BranchInst - LoopBound
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+BranchInst - LoopBound
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+BranchInst - LoopBound
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      getCheckerResultAfterUpdatingMarker
+Result is NoTrace
+
+                                                           2 sec [DONE]
+    allsafe
+    
+                                                           2 sec [DONE]
+  

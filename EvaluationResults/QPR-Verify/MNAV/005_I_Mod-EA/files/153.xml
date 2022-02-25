@@ -1,0 +1,265 @@
+<SourceFile>
+  <Line number="1">/******************************************************************************</Line>
+  <Line number="2">* FILE: control.c</Line>
+  <Line number="3">* DESCRIPTION:</Line>
+  <Line number="4">*   </Line>
+  <Line number="5">*   </Line>
+  <Line number="6">*</Line>
+  <Line number="7">* SOURCE: </Line>
+  <Line number="8">* LAST REVISED: 10/11/05 Jung Soon Jang</Line>
+  <Line number="9">******************************************************************************/</Line>
+  <Line number="10">#include &lt;stdio.h&gt;</Line>
+  <Line number="11">#include &lt;sys/time.h&gt;</Line>
+  <Line number="12">#include &lt;stdlib.h&gt;</Line>
+  <Line number="13">#include &lt;math.h&gt;</Line>
+  <Line number="14">#include &quot;globaldefs.h&quot;</Line>
+  <Line number="15"></Line>
+  <Line number="16">void send_servo_cmd(word cnt_cmd[3]);</Line>
+  <Line number="17">double satfun(double dta);</Line>
+  <Line number="18">extern double wraparound(double dta);</Line>
+  <Line number="19"></Line>
+  <Line number="20">//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</Line>
+  <Line number="21">//pre-defined constant</Line>
+  <Line number="22">//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</Line>
+  <Line number="23">#define	cdT	      0.04   	     // 25 Hz </Line>
+  <Line number="24">#define deg2servo     819    	     // 65536/80deg.</Line>
+  <Line number="25">#define servo_mid_pos 32768          // middle position of the servos</Line>
+  <Line number="26">#define sign(arg)    (arg&gt;=0 ? 1:-1)</Line>
+  <Line number="27"></Line>
+  <Line number="28"></Line>
+  <Line number="29"></Line>
+  <Line number="30">//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</Line>
+  <Line number="31">//global variables</Line>
+  <Line number="32">//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</Line>
+  <Line number="33">static double sum[5]={0.,};</Line>
+  <Line number="34">static struct servo    servopos;</Line>
+  <Line number="35">static struct imu      imuval;</Line>
+  <Line number="36">static struct gps      gpsval;</Line>
+  <Line number="37">static struct nav      navval;</Line>
+  <Line number="38">enum   	      modedefs {pitch_mode,roll_mode,heading_mode,altitude_mode,speed_mode,waypoint_mode};</Line>
+  <Line number="39">//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</Line>
+  <Line number="40">//external global variables</Line>
+  <Line number="41">//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</Line>
+  <Line number="42">extern int    sPort0;</Line>
+  <Line number="43">extern short  screen_on;</Line>
+  <Line number="44">extern short  whichmode[6];</Line>
+  <Line number="45">extern double pitch_gain[3],roll_gain[3];</Line>
+  <Line number="46">extern double heading_gain[3],alt_gain[3],pos_gain[3];</Line>
+  <Line number="47">extern int    numofwaypoints;     </Line>
+  <Line number="48">extern double waypoints[8][2];</Line>
+  <Line number="49"></Line>
+  <Line number="50"></Line>
+  <Line number="51">//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</Line>
+  <Line number="52">//control code</Line>
+  <Line number="53">//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</Line>
+  <Line number="54">void control_uav(short init_done, short flight_mode)</Line>
+  <Line number="55">{</Line>
+  <Line number="56">   short   i=<CheckRefs ids="633">0</CheckRefs>;</Line>
+  <Line number="57">   word    cnt_cmd[3]={<CheckRefs ids="634">0</CheckRefs>,};		 	 //elevator,aileron,throttle command</Line>
+  <Line number="58">   double  de=<CheckRefs ids="635">0</CheckRefs>,da=<CheckRefs ids="636">0</CheckRefs>,dthr=<CheckRefs ids="637">0</CheckRefs>;                     //temp. variables</Line>
+  <Line number="59">   double  dthe,dphi,dpsi,dh;                    //perturbed variables</Line>
+  <Line number="60">   double  dthe_ref,dphi_ref,dpsi_ref=<CheckRefs ids="638">0</CheckRefs>,dh_ref=<CheckRefs ids="639">0</CheckRefs>;//perturbed reference variable</Line>
+  <Line number="61">   double  tmpr=<CheckRefs ids="640">0</CheckRefs>,tmpr1=<CheckRefs ids="641">0</CheckRefs>,nav_psi=<CheckRefs ids="642">0</CheckRefs>;</Line>
+  <Line number="62">   double  Ps_f=<CheckRefs ids="643">0</CheckRefs>;</Line>
+  <Line number="63">   static  short anti_windup[4]={<CheckRefs ids="644">1</CheckRefs>,};</Line>
+  <Line number="64">   static short count = <CheckRefs ids="645">0</CheckRefs>,k=<CheckRefs ids="646">0</CheckRefs>; </Line>
+  <Line number="65">   static double Ps_f_p=<CheckRefs ids="647">0</CheckRefs>;</Line>
+  <Line number="66"></Line>
+  <Line number="67">   if (<CheckRefs ids="648">init_done</CheckRefs> == <CheckRefs ids="649">FALSE</CheckRefs>) 		         //initialization:</Line>
+  <Line number="68">   {</Line>
+  <Line number="69">	servopos = servopacket;  	         // save the last servo positions</Line>
+  <Line number="70">        imuval   = imupacket;                    // save the last attitude</Line>
+  <Line number="71">        gpsval   = gpspacket;                    // save the last gps</Line>
+  <Line number="72">        navval   = navpacket;                    // save the last nav</Line>
+  <Line number="73">        Ps_f_p   <CheckRefs ids="650">=</CheckRefs> 0.0;			</Line>
+  <Line number="74">        sum[0<CheckRefs ids="652">]</CheckRefs><CheckRefs ids="651">=</CheckRefs>sum[1<CheckRefs ids="654">]</CheckRefs><CheckRefs ids="653">=</CheckRefs>sum[2<CheckRefs ids="656">]</CheckRefs><CheckRefs ids="655">=</CheckRefs>sum[3<CheckRefs ids="658">]</CheckRefs><CheckRefs ids="657">=</CheckRefs>sum[4<CheckRefs ids="660">]</CheckRefs><CheckRefs ids="659">=</CheckRefs> 0.;  // initialize integral sums</Line>
+  <Line number="75">        anti_windup[0<CheckRefs ids="661">]</CheckRefs>=anti_windup[1<CheckRefs ids="662">]</CheckRefs>=<CheckRefs ids="663">0</CheckRefs>;</Line>
+  <Line number="76">        anti_windup[2<CheckRefs ids="664">]</CheckRefs>=anti_windup[3<CheckRefs ids="665">]</CheckRefs>=<CheckRefs ids="666">0</CheckRefs>;</Line>
+  <Line number="77">        k        = <CheckRefs ids="667">0</CheckRefs>;</Line>
+  <Line number="78">        //printf(&quot;\n[control]::control is initialized..!\n&quot;);</Line>
+  <Line number="79">   }</Line>
+  <Line number="80">   //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</Line>
+  <Line number="81">   //obtain the purturbed states</Line>
+  <Line number="82">   //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</Line>
+  <Line number="83">   dthe   <CheckRefs ids="668">=</CheckRefs> imupacket.the; </Line>
+  <Line number="84">   dphi   <CheckRefs ids="669">=</CheckRefs> imupacket.phi;</Line>
+  <Line number="85"></Line>
+  <Line number="86">   //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</Line>
+  <Line number="87">   //pass through the first order low pass filter to remove noise</Line>
+  <Line number="88">   //G(s)=1/(tau s + 1), tau =0.4;</Line>
+  <Line number="89">   //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</Line>
+  <Line number="90">   Ps_f   <CheckRefs ids="670">=</CheckRefs> 0.9048<CheckRefs ids="672">*</CheckRefs>Ps_f_p <CheckRefs ids="671">+</CheckRefs> 0.09516<CheckRefs ids="673">*</CheckRefs>imupacket.Ps;</Line>
+  <Line number="91">   Ps_f_p <CheckRefs ids="674">=</CheckRefs> Ps_f;</Line>
+  <Line number="92">   dh     <CheckRefs ids="675">=</CheckRefs> Ps_f  <CheckRefs ids="676">-</CheckRefs> imuval.Ps;</Line>
+  <Line number="93"></Line>
+  <Line number="94">   //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</Line>
+  <Line number="95">   //outer-loop control: position control</Line>
+  <Line number="96">   //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</Line>
+  <Line number="97">   if(numofwaypoints &gt; 0 &amp;&amp; <CheckRefs ids="677">whichmode</CheckRefs>[4<CheckRefs ids="678">]</CheckRefs> == 1)</Line>
+  <Line number="98">   {</Line>
+  <Line number="99">       dpsi_ref <CheckRefs ids="679">=</CheckRefs> atan2(waypoints[k<CheckRefs ids="682">]</CheckRefs>[1<CheckRefs ids="681">]</CheckRefs><CheckRefs ids="680">-</CheckRefs>gpspacket.lon, waypoints[k<CheckRefs ids="685">]</CheckRefs>[0<CheckRefs ids="684">]</CheckRefs><CheckRefs ids="683">-</CheckRefs>gpspacket.lat);</Line>
+  <Line number="100">       //measure error</Line>
+  <Line number="101">       tmpr <CheckRefs ids="686">=</CheckRefs> sqrt( (waypoints[k<CheckRefs ids="691">]</CheckRefs>[1<CheckRefs ids="690">]</CheckRefs><CheckRefs ids="689">-</CheckRefs>gpspacket.lon)<CheckRefs ids="688">*</CheckRefs>(waypoints[k<CheckRefs ids="694">]</CheckRefs>[1<CheckRefs ids="693">]</CheckRefs><CheckRefs ids="692">-</CheckRefs>gpspacket.lon)</Line>
+  <Line number="102">                   <CheckRefs ids="687">+</CheckRefs>(waypoints[k<CheckRefs ids="698">]</CheckRefs>[0<CheckRefs ids="697">]</CheckRefs><CheckRefs ids="696">-</CheckRefs>gpspacket.lat)<CheckRefs ids="695">*</CheckRefs>(waypoints[k<CheckRefs ids="701">]</CheckRefs>[0<CheckRefs ids="700">]</CheckRefs><CheckRefs ids="699">-</CheckRefs>gpspacket.lat) );</Line>
+  <Line number="103"></Line>
+  <Line number="104">       //if error is in 15 meters</Line>
+  <Line number="105">       if(tmpr &lt;= 2.0e-4) {</Line>
+  <Line number="106">           if(<CheckRefs ids="702">k</CheckRefs> == (numofwaypoints<CheckRefs ids="703">-</CheckRefs>1)) k = <CheckRefs ids="704">0</CheckRefs>; </Line>
+  <Line number="107"> 	   else                        k = <CheckRefs ids="707">k</CheckRefs> <CheckRefs ids="706,705">+</CheckRefs> 1;</Line>
+  <Line number="108"></Line>
+  <Line number="109">           sum[3<CheckRefs ids="709">]</CheckRefs> <CheckRefs ids="708">=</CheckRefs> <CheckRefs ids="710">0</CheckRefs>;</Line>
+  <Line number="110">       } </Line>
+  <Line number="111">       whichmode[2<CheckRefs ids="711">]</CheckRefs> = <CheckRefs ids="712">1</CheckRefs>; //enable heading control</Line>
+  <Line number="112">   }</Line>
+  <Line number="113">   else dpsi_ref <CheckRefs ids="713">=</CheckRefs> <CheckRefs ids="714">0</CheckRefs>;</Line>
+  <Line number="114"></Line>
+  <Line number="115">   //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</Line>
+  <Line number="116">   //outer-loop control: heading and altitude control</Line>
+  <Line number="117">   //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</Line>
+  <Line number="118">   //check whether the outer-loop controls are enabled</Line>
+  <Line number="119">   //heading</Line>
+  <Line number="120">   if (<CheckRefs ids="715">whichmode</CheckRefs>[2<CheckRefs ids="716">]</CheckRefs> == 1) {</Line>
+  <Line number="121"></Line>
+  <Line number="122">      //####################################################################</Line>
+  <Line number="123">      // No.1 wraparound(dpsi_ref-nav_psi) needs to be bounded to</Line>
+  <Line number="124">      //      keep control manageable.=&gt; sat(wraparound(dpsi_ref-nav_psi))</Line>
+  <Line number="125">      // No.2 determine whether we want to use nav_psi or imu_psi</Line>
+  <Line number="126">      //####################################################################</Line>
+  <Line number="127">      if (pos_gain[1<CheckRefs ids="717">]</CheckRefs> == <CheckRefs ids="718">0</CheckRefs>)</Line>
+  <Line number="128">         nav_psi  <CheckRefs ids="719">=</CheckRefs> atan2(navpacket.ve, navpacket.vn);</Line>
+  <Line number="129">      else</Line>
+  <Line number="130">         nav_psi  <CheckRefs ids="720">=</CheckRefs> imupacket.psi;</Line>
+  <Line number="131"></Line>
+  <Line number="132">      //wrap around and saturation</Line>
+  <Line number="133">      tmpr     <CheckRefs ids="721">=</CheckRefs> wraparound(dpsi_ref <CheckRefs ids="722">-</CheckRefs> nav_psi); //sin(dpsi_ref - nav_psi);</Line>
+  <Line number="134">      tmpr1    <CheckRefs ids="723">=</CheckRefs> satfun(tmpr);</Line>
+  <Line number="135">      //####################################################################</Line>
+  <Line number="136">      </Line>
+  <Line number="137">      sum[3<CheckRefs ids="725">]</CheckRefs>  <CheckRefs ids="724">+=</CheckRefs> tmpr1<CheckRefs ids="727">*</CheckRefs>cdT<CheckRefs ids="726">*</CheckRefs><CheckRefs ids="728">anti_windup</CheckRefs>[2<CheckRefs ids="729">]</CheckRefs>;</Line>
+  <Line number="138"></Line>
+  <Line number="139">      dphi_ref <CheckRefs ids="730">=</CheckRefs> heading_gain[0<CheckRefs ids="734">]</CheckRefs><CheckRefs ids="733">*</CheckRefs>tmpr1</Line>
+  <Line number="140">               <CheckRefs ids="732">-</CheckRefs> heading_gain[2<CheckRefs ids="736">]</CheckRefs><CheckRefs ids="735">*</CheckRefs>imupacket.r</Line>
+  <Line number="141">               <CheckRefs ids="731">+</CheckRefs> heading_gain[1<CheckRefs ids="738">]</CheckRefs><CheckRefs ids="737">*</CheckRefs>sum[3<CheckRefs ids="739">]</CheckRefs>;</Line>
+  <Line number="142"></Line>
+  <Line number="143">      //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</Line>
+  <Line number="144">      //bound the command input</Line>
+  <Line number="145">      //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</Line>
+  <Line number="146">      if(fabs(dphi_ref) &gt; 0.61082) // 35 degrees</Line>
+  <Line number="147">      {</Line>
+  <Line number="148">	  dphi_ref <CheckRefs ids="740">=</CheckRefs> <CheckRefs ids="744,743,742">sign</CheckRefs>(dphi_ref)<CheckRefs ids="741">*</CheckRefs>0.61082;</Line>
+  <Line number="149">          anti_windup[2<CheckRefs ids="745">]</CheckRefs> = <CheckRefs ids="746">0</CheckRefs>;</Line>
+  <Line number="150">      }</Line>
+  <Line number="151">      else anti_windup[2<CheckRefs ids="747">]</CheckRefs> = <CheckRefs ids="748">1</CheckRefs>;</Line>
+  <Line number="152">   }</Line>
+  <Line number="153">   else dphi_ref <CheckRefs ids="749">=</CheckRefs> <CheckRefs ids="750">0</CheckRefs>;</Line>
+  <Line number="154"></Line>
+  <Line number="155">   //altitude</Line>
+  <Line number="156">   if (<CheckRefs ids="751">whichmode</CheckRefs>[3<CheckRefs ids="752">]</CheckRefs> == 1) {</Line>
+  <Line number="157">       dh_ref   <CheckRefs ids="753">=</CheckRefs> 0.0;</Line>
+  <Line number="158">       sum[2<CheckRefs ids="755">]</CheckRefs>  <CheckRefs ids="754">+=</CheckRefs> (dh_ref <CheckRefs ids="758">-</CheckRefs> dh)<CheckRefs ids="757">*</CheckRefs>cdT<CheckRefs ids="756">*</CheckRefs><CheckRefs ids="759">anti_windup</CheckRefs>[3<CheckRefs ids="760">]</CheckRefs>;</Line>
+  <Line number="159">       dthe_ref <CheckRefs ids="761">=</CheckRefs> alt_gain[0<CheckRefs ids="765">]</CheckRefs><CheckRefs ids="764">*</CheckRefs>(dh_ref <CheckRefs ids="766">-</CheckRefs> dh) </Line>
+  <Line number="160">                <CheckRefs ids="763">+</CheckRefs> alt_gain[2<CheckRefs ids="768">]</CheckRefs><CheckRefs ids="767">*</CheckRefs>gpspacket.vd</Line>
+  <Line number="161">                <CheckRefs ids="762">+</CheckRefs> alt_gain[1<CheckRefs ids="770">]</CheckRefs><CheckRefs ids="769">*</CheckRefs>sum[2<CheckRefs ids="771">]</CheckRefs>;</Line>
+  <Line number="162">      //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</Line>
+  <Line number="163">      //bound the command input</Line>
+  <Line number="164">      //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</Line>
+  <Line number="165">      if(fabs(dthe_ref) &gt; 0.43630) // 25 degrees</Line>
+  <Line number="166">      {</Line>
+  <Line number="167">	  dthe_ref <CheckRefs ids="772">=</CheckRefs> <CheckRefs ids="776,774,775">sign</CheckRefs>(dthe_ref)<CheckRefs ids="773">*</CheckRefs>0.43630;</Line>
+  <Line number="168">          anti_windup[3<CheckRefs ids="777">]</CheckRefs> = <CheckRefs ids="778">0</CheckRefs>;</Line>
+  <Line number="169">      }</Line>
+  <Line number="170">      else anti_windup[3<CheckRefs ids="779">]</CheckRefs> = <CheckRefs ids="780">1</CheckRefs>;</Line>
+  <Line number="171">    }</Line>
+  <Line number="172">   else dthe_ref <CheckRefs ids="781">=</CheckRefs> <CheckRefs ids="782">0</CheckRefs>;	</Line>
+  <Line number="173"></Line>
+  <Line number="174">   //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</Line>
+  <Line number="175">   //inner-loop control: pitch and roll attitude control</Line>
+  <Line number="176">   //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</Line>
+  <Line number="177">   sum[0<CheckRefs ids="784">]</CheckRefs><CheckRefs ids="783">+=</CheckRefs> (dthe_ref <CheckRefs ids="787">-</CheckRefs> dthe)<CheckRefs ids="786">*</CheckRefs>cdT<CheckRefs ids="785">*</CheckRefs><CheckRefs ids="788">anti_windup</CheckRefs>[0<CheckRefs ids="789">]</CheckRefs>; //pitch integral</Line>
+  <Line number="178">   sum[1<CheckRefs ids="791">]</CheckRefs><CheckRefs ids="790">+=</CheckRefs> (dphi_ref <CheckRefs ids="794">-</CheckRefs> dphi)<CheckRefs ids="793">*</CheckRefs>cdT<CheckRefs ids="792">*</CheckRefs><CheckRefs ids="795">anti_windup</CheckRefs>[1<CheckRefs ids="796">]</CheckRefs>; //roll integral</Line>
+  <Line number="179"></Line>
+  <Line number="180">   </Line>
+  <Line number="181">   de  <CheckRefs ids="797">=</CheckRefs> pitch_gain[0<CheckRefs ids="802">]</CheckRefs><CheckRefs ids="801">*</CheckRefs>(dthe_ref <CheckRefs ids="803">-</CheckRefs> dthe)	 // radian</Line>
+  <Line number="182">       <CheckRefs ids="800">+</CheckRefs> pitch_gain[2<CheckRefs ids="805">]</CheckRefs><CheckRefs ids="804">*</CheckRefs>(<CheckRefs ids="806">-</CheckRefs>imupacket.q)</Line>
+  <Line number="183">       <CheckRefs ids="799">+</CheckRefs> pitch_gain[1<CheckRefs ids="808">]</CheckRefs><CheckRefs ids="807">*</CheckRefs>sum[0<CheckRefs ids="809">]</CheckRefs></Line>
+  <Line number="184">       <CheckRefs ids="798">+</CheckRefs> pos_gain[0<CheckRefs ids="811">]</CheckRefs><CheckRefs ids="810">*</CheckRefs>fabs(dphi);		 // compensate for the altitude loss</Line>
+  <Line number="185">   da  <CheckRefs ids="812">=</CheckRefs> roll_gain[0<CheckRefs ids="816">]</CheckRefs><CheckRefs ids="815">*</CheckRefs>(dphi_ref <CheckRefs ids="817">-</CheckRefs> dphi)          // radian</Line>
+  <Line number="186">       <CheckRefs ids="814">+</CheckRefs> roll_gain[2<CheckRefs ids="819">]</CheckRefs><CheckRefs ids="818">*</CheckRefs>(<CheckRefs ids="820">-</CheckRefs>imupacket.p)</Line>
+  <Line number="187">       <CheckRefs ids="813">+</CheckRefs> roll_gain[1<CheckRefs ids="822">]</CheckRefs><CheckRefs ids="821">*</CheckRefs>sum[1<CheckRefs ids="823">]</CheckRefs>;</Line>
+  <Line number="188"></Line>
+  <Line number="189">   //maximum deflection of control servos limited to 20 degrees</Line>
+  <Line number="190">   if (fabs(de) &gt; 0.34904) { de <CheckRefs ids="824">=</CheckRefs> <CheckRefs ids="828,826,827">sign</CheckRefs>(de)<CheckRefs ids="825">*</CheckRefs>0.34904; anti_windup[0<CheckRefs ids="829">]</CheckRefs> = <CheckRefs ids="830">0</CheckRefs>; }</Line>
+  <Line number="191">   else anti_windup[0<CheckRefs ids="831">]</CheckRefs> = <CheckRefs ids="832">1</CheckRefs>;</Line>
+  <Line number="192">   //maximum deflection of control servos limited to 15 degrees</Line>
+  <Line number="193">   if (fabs(da) &gt; 0.26178) { da <CheckRefs ids="833">=</CheckRefs> <CheckRefs ids="837,836,835">sign</CheckRefs>(da)<CheckRefs ids="834">*</CheckRefs>0.26178; anti_windup[1<CheckRefs ids="838">]</CheckRefs> = <CheckRefs ids="839">0</CheckRefs>; }</Line>
+  <Line number="194">   else anti_windup[1<CheckRefs ids="840">]</CheckRefs> = <CheckRefs ids="841">1</CheckRefs>;</Line>
+  <Line number="195"></Line>
+  <Line number="196"></Line>
+  <Line number="197">   //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</Line>
+  <Line number="198">   //elervons:elevator and aileron mixing</Line>
+  <Line number="199">   //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</Line>
+  <Line number="200">   //elevator</Line>
+  <Line number="201">   cnt_cmd[1<CheckRefs ids="842">]</CheckRefs> = <CheckRefs ids="845">servopos</CheckRefs>.chn[1<CheckRefs ids="846">]</CheckRefs> <CheckRefs ids="844,843">+</CheckRefs> <CheckRefs ids="847,848">(</CheckRefs>word)(<CheckRefs ids="851">deg2servo</CheckRefs><CheckRefs ids="850">*</CheckRefs>(de<CheckRefs ids="852">+</CheckRefs>da)<CheckRefs ids="849">*</CheckRefs>57.3);</Line>
+  <Line number="202">   //aileron</Line>
+  <Line number="203">   cnt_cmd[0<CheckRefs ids="853">]</CheckRefs> = <CheckRefs ids="856">servopos</CheckRefs>.chn[0<CheckRefs ids="857">]</CheckRefs> <CheckRefs ids="855,854">+</CheckRefs> <CheckRefs ids="858,859">(</CheckRefs>word)(<CheckRefs ids="862">deg2servo</CheckRefs><CheckRefs ids="861">*</CheckRefs>(da<CheckRefs ids="863">-</CheckRefs>de)<CheckRefs ids="860">*</CheckRefs>57.3);</Line>
+  <Line number="204">   //throttle</Line>
+  <Line number="205">   cnt_cmd[2<CheckRefs ids="864">]</CheckRefs> = servopos.chn[2<CheckRefs ids="865">]</CheckRefs>;</Line>
+  <Line number="206"></Line>
+  <Line number="207"></Line>
+  <Line number="208">   //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</Line>
+  <Line number="209">   //send commands</Line>
+  <Line number="210">   //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</Line>
+  <Line number="211">   send_servo_cmd(cnt_cmd);</Line>
+  <Line number="212"></Line>
+  <Line number="213">   </Line>
+  <Line number="214">}</Line>
+  <Line number="215"></Line>
+  <Line number="216">void send_servo_cmd(word cnt_cmd[3])</Line>
+  <Line number="217">{</Line>
+  <Line number="218">   //cnt_cmd[1] = ch1:elevator, cnt_cmd[0] = ch0:aileron, cnt_cmd[2] = ch2:throttle</Line>
+  <Line number="219">   byte  data[24]={<CheckRefs ids="866">0</CheckRefs>,};</Line>
+  <Line number="220">   short i = <CheckRefs ids="867">0</CheckRefs>, nbytes = <CheckRefs ids="868">0</CheckRefs>;</Line>
+  <Line number="221">   word  sum=<CheckRefs ids="869">0</CheckRefs>;</Line>
+  <Line number="222"></Line>
+  <Line number="223">   data[0<CheckRefs ids="870">]</CheckRefs> = <CheckRefs ids="871">0x55</CheckRefs>; </Line>
+  <Line number="224">   data[1<CheckRefs ids="872">]</CheckRefs> = <CheckRefs ids="873">0x55</CheckRefs>;</Line>
+  <Line number="225">   data[2<CheckRefs ids="874">]</CheckRefs> = <CheckRefs ids="875">0x53</CheckRefs>;</Line>
+  <Line number="226">   data[3<CheckRefs ids="876">]</CheckRefs> = <CheckRefs ids="877">0x53</CheckRefs>;</Line>
+  <Line number="227"></Line>
+  <Line number="228">   //aileron ch#0,elevator ch#1,throttle ch#2</Line>
+  <Line number="229">   //aileron</Line>
+  <Line number="230">   data[4<CheckRefs ids="878">]</CheckRefs> = <CheckRefs ids="879">(</CheckRefs>byte)(<CheckRefs ids="883">cnt_cmd</CheckRefs>[0] <CheckRefs ids="881,880,882">&gt;&gt;</CheckRefs> 8); </Line>
+  <Line number="231">   data[5<CheckRefs ids="884">]</CheckRefs> = <CheckRefs ids="885">(</CheckRefs>byte)cnt_cmd[0];</Line>
+  <Line number="232">   //elevator</Line>
+  <Line number="233">   data[6<CheckRefs ids="886">]</CheckRefs> = <CheckRefs ids="887">(</CheckRefs>byte)(<CheckRefs ids="891">cnt_cmd</CheckRefs>[1] <CheckRefs ids="888,889,890">&gt;&gt;</CheckRefs> 8);</Line>
+  <Line number="234">   data[7<CheckRefs ids="892">]</CheckRefs> = <CheckRefs ids="893">(</CheckRefs>byte)cnt_cmd[1];</Line>
+  <Line number="235">   //throttle</Line>
+  <Line number="236">   data[8<CheckRefs ids="894">]</CheckRefs> = <CheckRefs ids="895">(</CheckRefs>byte)(<CheckRefs ids="899">cnt_cmd</CheckRefs>[2] <CheckRefs ids="896,897,898">&gt;&gt;</CheckRefs> 8);</Line>
+  <Line number="237">   data[9<CheckRefs ids="900">]</CheckRefs> = <CheckRefs ids="901">(</CheckRefs>byte)cnt_cmd[2];</Line>
+  <Line number="238"></Line>
+  <Line number="239">   //checksum</Line>
+  <Line number="240">   sum = <CheckRefs ids="902">0xa6</CheckRefs>; //0x53+0x53</Line>
+  <Line number="241">   for(i=<CheckRefs ids="903">4</CheckRefs>;<CheckRefs ids="904">i</CheckRefs>&lt;22;i<CheckRefs ids="905">++</CheckRefs>) sum <CheckRefs ids="906">+=</CheckRefs> <CheckRefs ids="907">data</CheckRefs>[i<CheckRefs ids="908">]</CheckRefs>;</Line>
+  <Line number="242">  </Line>
+  <Line number="243">   data[22<CheckRefs ids="909">]</CheckRefs> = <CheckRefs ids="910">(</CheckRefs>byte)(<CheckRefs ids="914">sum</CheckRefs> <CheckRefs ids="911,912,913">&gt;&gt;</CheckRefs> 8);</Line>
+  <Line number="244">   data[23<CheckRefs ids="915">]</CheckRefs> = <CheckRefs ids="916">(</CheckRefs>byte)sum;</Line>
+  <Line number="245">   </Line>
+  <Line number="246">   //sendout the command packet</Line>
+  <Line number="247">   while (<CheckRefs ids="917">nbytes</CheckRefs> != 24) nbytes = <CheckRefs ids="918">write</CheckRefs>(sPort0,(char*)data, 24); </Line>
+  <Line number="248"> </Line>
+  <Line number="249">}</Line>
+  <Line number="250">//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</Line>
+  <Line number="251">// saturation function : sets to 60 degrees</Line>
+  <Line number="252">//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</Line>
+  <Line number="253">double satfun(double dta)</Line>
+  <Line number="254">{</Line>
+  <Line number="255">   double temp=<CheckRefs ids="919">0</CheckRefs>;</Line>
+  <Line number="256">   </Line>
+  <Line number="257">   if (fabs(dta) &gt; 1.04712)</Line>
+  <Line number="258">   	temp <CheckRefs ids="920">=</CheckRefs> <CheckRefs ids="924,922,923">sign</CheckRefs>(dta)<CheckRefs ids="921">*</CheckRefs>1.04712;</Line>
+  <Line number="259">   else</Line>
+  <Line number="260">   	temp <CheckRefs ids="925">=</CheckRefs> dta;	</Line>
+  <Line number="261">   		</Line>
+  <Line number="262">   return temp;	</Line>
+  <Line number="263">}	</Line>
+</SourceFile>

@@ -1,0 +1,42 @@
+<VerificationJob>
+  <Configuration>
+    <AnalyzeChecksIndividually value="true" />
+    <BitcodeTraces value="false" />
+    <CheckCallers value="true" />
+    <DumpVerifierBitcodeFiles value="false" />
+    <EnableSlicing value="false" />
+    <EntryPoint value="sqlite3PagerSetPagesize" />
+    <FixPoint value="true" />
+    <ForkJobs value="true" />
+    <HavocLimit value="2" />
+    <Hosted value="true" />
+    <IgnoreMissingFunctions value="false" />
+    <InitializedGlobals value="false" />
+    <LoopUnrollBound value="1" />
+    <PreconditionLocation value="jobs/2564" />
+    <SourceDirectory value="/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld" />
+    <TimeOut value="600" />
+    <XMLTraces value="false" />
+  </Configuration>
+  <CheckList>
+    <Check id="8416" location="9146" category="arithmetic.overflow.warning" status="unsafe|loopboundreached|callstackboundreached|functionbodymissing" scope="pager_reset">
+      <Annotations>
+        <Annotation>An unsigned arithmetic operation can overflow (wraparound).</Annotation>
+        <Annotation>A loop bound was reached (/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld//home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld/sqlite3.c:63343:3)</Annotation>
+        <Annotation>A function body is missing (/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld//home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld/sqlite3.c:23664:10)</Annotation>
+        <Annotation>A call stack bound was reached calling sqlite3OsUnfetch (/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld//home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld/sqlite3.c:23664:10)</Annotation>
+      </Annotations>
+      <EntryStatus>
+        <SingleEntryStatus>pagerBeginReadTransaction, unknown</SingleEntryStatus>
+        <SingleEntryStatus>pager_playback, unknown</SingleEntryStatus>
+        <SingleEntryStatus>pager_unlock, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3PagerClearCache, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3PagerClose, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3PagerSetPagesize, unsafe|loopboundreached|callstackboundreached|functionbodymissing</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3PagerSharedLock, unknown</SingleEntryStatus>
+      </EntryStatus>
+    </Check>
+  </CheckList>
+  <Annotation>allunsafe</Annotation>
+  <Status>allunsafe</Status>
+</VerificationJob>

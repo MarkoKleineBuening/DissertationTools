@@ -1,0 +1,38 @@
+<VerificationJob>
+  <Configuration>
+    <AnalyzeChecksIndividually value="true" />
+    <BitcodeTraces value="false" />
+    <CheckCallers value="true" />
+    <DumpVerifierBitcodeFiles value="false" />
+    <EnableSlicing value="true" />
+    <EntryPoint value="moveToRoot" />
+    <FixPoint value="true" />
+    <ForkJobs value="true" />
+    <Hosted value="true" />
+    <IgnoreMissingFunctions value="false" />
+    <InitializedGlobals value="false" />
+    <LoopUnrollBound value="1" />
+    <PreconditionLocation value="jobs/3460" />
+    <SourceDirectory value="/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld" />
+    <TimeOut value="600" />
+    <XMLTraces value="false" />
+  </Configuration>
+  <CheckList>
+    <Check id="11028" location="11990" category="arrayindex" status="unsafe" scope="moveToChild">
+      <Annotations>
+        <Annotation>An array can be indexed out of bounds.</Annotation>
+      </Annotations>
+      <EntryStatus>
+        <SingleEntryStatus>btreeNext, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>btreePrevious, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>moveToLeftmost, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>moveToRightmost, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>moveToRoot, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3BtreeCount, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3BtreeMovetoUnpacked, unsafe</SingleEntryStatus>
+      </EntryStatus>
+    </Check>
+  </CheckList>
+  <Annotation>allunsafe</Annotation>
+  <Status>allunsafe</Status>
+</VerificationJob>

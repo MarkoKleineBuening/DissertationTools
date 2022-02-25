@@ -1,0 +1,123 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 5541 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 1
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/5541
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : renameResolveTrigger
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "renameResolveTrigger" for 1 iterations succeeded.
+      Unrolling loop in function "renameResolveTrigger" for 1 iterations succeeded.
+      Transformed "renameResolveTrigger" from 48 to 111 basic blocks and from 284 to 656 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...isMemset:   call void @llvm.memset.p0i8.i64(i8* %5, i8 0, i64 56, i32 8, i1 false), !dbg !5665
+Current: renameResolveTrigger Havoced: sqlite3SchemaToIndex
+Current: renameResolveTrigger Havoced: sqlite3FindTable
+Current: renameResolveTrigger Havoced: sqlite3ViewGetColumnNames
+Current: renameResolveTrigger Havoced: sqlite3ResolveExprNames
+Current: renameResolveTrigger Havoced: sqlite3SelectPrep
+Current: renameResolveTrigger Havoced: sqlite3TriggerStepSrc
+Current: renameResolveTrigger Havoced: sqlite3LocateTableItem
+Current: renameResolveTrigger Havoced: sqlite3ViewGetColumnNames
+Current: renameResolveTrigger Havoced: sqlite3SelectPrep
+Current: renameResolveTrigger Havoced: sqlite3ExpandSubquery
+Current: renameResolveTrigger Havoced: sqlite3SelectPrep
+Current: renameResolveTrigger Havoced: sqlite3ResolveExprNames
+Current: renameResolveTrigger Havoced: sqlite3ResolveExprListNames
+Current: renameResolveTrigger Havoced: sqlite3ResolveExprListNames
+Current: renameResolveTrigger Havoced: sqlite3ResolveExprListNames
+Current: renameResolveTrigger Havoced: sqlite3ResolveExprNames
+Current: renameResolveTrigger Havoced: sqlite3ResolveExprNames
+Current: renameResolveTrigger Havoced: sqlite3SrcListDelete
+Current: renameResolveTrigger Havoced: sqlite3SelectPrep
+Current: renameResolveTrigger Havoced: sqlite3TriggerStepSrc
+Current: renameResolveTrigger Havoced: sqlite3LocateTableItem
+Current: renameResolveTrigger Havoced: sqlite3ViewGetColumnNames
+Current: renameResolveTrigger Havoced: sqlite3SelectPrep
+Current: renameResolveTrigger Havoced: sqlite3ExpandSubquery
+Current: renameResolveTrigger Havoced: sqlite3SelectPrep
+Current: renameResolveTrigger Havoced: sqlite3ResolveExprNames
+Current: renameResolveTrigger Havoced: sqlite3ResolveExprListNames
+Current: renameResolveTrigger Havoced: sqlite3ResolveExprListNames
+Current: renameResolveTrigger Havoced: sqlite3ResolveExprListNames
+Current: renameResolveTrigger Havoced: sqlite3ResolveExprNames
+Current: renameResolveTrigger Havoced: sqlite3ResolveExprNames
+Current: renameResolveTrigger Havoced: sqlite3SrcListDelete
+Current: renameResolveTrigger Havoced: sqlite3LocateTableItem
+Current: renameResolveTrigger Havoced: sqlite3ViewGetColumnNames
+Current: renameResolveTrigger Havoced: sqlite3SelectPrep
+Current: renameResolveTrigger Havoced: sqlite3ExpandSubquery
+Current: renameResolveTrigger Havoced: sqlite3SelectPrep
+Current: renameResolveTrigger Havoced: sqlite3LocateTableItem
+Current: renameResolveTrigger Havoced: sqlite3ViewGetColumnNames
+Current: renameResolveTrigger Havoced: sqlite3SelectPrep
+Current: renameResolveTrigger Havoced: sqlite3ExpandSubquery
+Current: renameResolveTrigger Havoced: sqlite3SelectPrep
+                      0 sec [DONE]
+        Number of expressions:                        156263
+        after encoding
+
+      7 assertions before transformations (3 no_back_edge, 4 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            4023
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72689
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               1
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                              21
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             199
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      7 assertions remain after transformations (3 no_back_edge, 4 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...

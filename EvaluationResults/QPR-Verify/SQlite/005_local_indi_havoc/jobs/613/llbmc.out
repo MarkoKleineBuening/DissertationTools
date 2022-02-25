@@ -1,0 +1,120 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 613 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 1
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/613
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : idxFindCompatible
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "idxFindCompatible" for 1 iterations succeeded.
+      Unrolling loop in function "idxFindCompatible" for 1 iterations succeeded.
+      Unrolling loop in function "idxFindCompatible" for 1 iterations succeeded.
+      Unrolling loop in function "idxFindCompatible" for 1 iterations succeeded.
+      Unrolling loop in function "idxFindCompatible" for 1 iterations succeeded.
+      Transformed "idxFindCompatible" from 43 to 135 basic blocks and from 181 to 498 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...Current: idxFindCompatible Havoced: idxPrintfPrepareStmt
+Current: idxFindCompatible Havoced: sqlite3_step
+Current: idxFindCompatible Havoced: sqlite3_column_text
+Current: idxFindCompatible Havoced: idxPrintfPrepareStmt
+Current: idxFindCompatible Havoced: sqlite3_step
+Current: idxFindCompatible Havoced: sqlite3_column_int
+Current: idxFindCompatible Havoced: sqlite3_column_int
+Current: idxFindCompatible Havoced: sqlite3_column_text
+Current: idxFindCompatible Havoced: sqlite3_stricmp
+Current: idxFindCompatible Havoced: sqlite3_stricmp
+Current: idxFindCompatible Havoced: sqlite3_step
+Current: idxFindCompatible Havoced: sqlite3_column_int
+Current: idxFindCompatible Havoced: sqlite3_column_int
+Current: idxFindCompatible Havoced: sqlite3_column_text
+Current: idxFindCompatible Havoced: sqlite3_stricmp
+Current: idxFindCompatible Havoced: sqlite3_stricmp
+Current: idxFindCompatible Havoced: idxFinalize
+Current: idxFindCompatible Havoced: sqlite3_step
+Current: idxFindCompatible Havoced: idxFinalize
+Current: idxFindCompatible Havoced: sqlite3_column_text
+Current: idxFindCompatible Havoced: idxPrintfPrepareStmt
+Current: idxFindCompatible Havoced: sqlite3_step
+Current: idxFindCompatible Havoced: sqlite3_column_int
+Current: idxFindCompatible Havoced: sqlite3_column_int
+Current: idxFindCompatible Havoced: sqlite3_column_text
+Current: idxFindCompatible Havoced: sqlite3_stricmp
+Current: idxFindCompatible Havoced: sqlite3_stricmp
+Current: idxFindCompatible Havoced: sqlite3_step
+Current: idxFindCompatible Havoced: sqlite3_column_int
+Current: idxFindCompatible Havoced: sqlite3_column_int
+Current: idxFindCompatible Havoced: sqlite3_column_text
+Current: idxFindCompatible Havoced: sqlite3_stricmp
+Current: idxFindCompatible Havoced: sqlite3_stricmp
+Current: idxFindCompatible Havoced: idxFinalize
+Current: idxFindCompatible Havoced: sqlite3_finalize
+                      0 sec [DONE]
+        Number of expressions:                        156262
+        after encoding
+
+      11 assertions before transformations (10 no_back_edge, 1 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            4105
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72716
+        Memory Model Encoder
+          Number of moved ops                              1rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               3
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               6
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             142
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      11 assertions remain after transformations (10 no_back_edge, 1 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...

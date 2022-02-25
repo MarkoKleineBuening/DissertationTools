@@ -1,0 +1,349 @@
+<SourceFile>
+  <Line number="1">/******************************************************************************</Line>
+  <Line number="2">* FILE: ahrs_main.c</Line>
+  <Line number="3">* DESCRIPTION: attitude heading reference system providing the attitude of</Line>
+  <Line number="4">*   	       the vehicle using an extended Kalman filter</Line>
+  <Line number="5">*   </Line>
+  <Line number="6">*</Line>
+  <Line number="7">* REVISION: fixed Kpsi update error.</Line>
+  <Line number="8">*</Line>
+  <Line number="9">* LAST REVISED: 8/31/06 Jung Soon Jang</Line>
+  <Line number="10">* LAST REVISED:12/03/07 Jung Soon Jang</Line>
+  <Line number="11">******************************************************************************/</Line>
+  <Line number="12">#include &lt;stdio.h&gt;</Line>
+  <Line number="13">#include &lt;math.h&gt;</Line>
+  <Line number="14">#include &lt;time.h&gt;</Line>
+  <Line number="15">#include &lt;stdlib.h&gt;</Line>
+  <Line number="16">#include &quot;globaldefs.h&quot;</Line>
+  <Line number="17">#include &quot;matrix.h&quot;</Line>
+  <Line number="18"></Line>
+  <Line number="19">//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</Line>
+  <Line number="20">//prototype definition</Line>
+  <Line number="21">//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</Line>
+  <Line number="22">void 		AHRS_Algorithm(struct imu *data);</Line>
+  <Line number="23">double 		wraparound(double dta);</Line>
+  <Line number="24">extern void 	display_message(struct imu *data, int disptime);</Line>
+  <Line number="25">extern void 	snap_time_interval(char *threadname, int displaytime,short id);</Line>
+  <Line number="26">extern double 	get_time_interval(short id);</Line>
+  <Line number="27">extern double 	get_Time();</Line>
+  <Line number="28">extern void 	control_uav(short init_done, short flight_mode);</Line>
+  <Line number="29"></Line>
+  <Line number="30"></Line>
+  <Line number="31">//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</Line>
+  <Line number="32">//predefined variables</Line>
+  <Line number="33">//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</Line>
+  <Line number="34">#define		g	9.81		//m/sec^2</Line>
+  <Line number="35">#define         g2      19.62   	//2*g</Line>
+  <Line number="36">#define		r2d	57.2958         //raidan to degree</Line>
+  <Line number="37">#define		d2r     0.01745		//degree to radian</Line>
+  <Line number="38">#define         pi      3.141592	</Line>
+  <Line number="39">#define         pi2     6.283184	//pi*2</Line>
+  <Line number="40"></Line>
+  <Line number="41"></Line>
+  <Line number="42">#define		ANGLE_Update	25	//Angle update rate in Hz</Line>
+  <Line number="43">#define		MAG_Update	10	//Mag. update rate in Hz</Line>
+  <Line number="44">#define		AHRS_Run	50	//AHRS runs at ( ) Hz</Line>
+  <Line number="45"></Line>
+  <Line number="46">//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</Line>
+  <Line number="47">//sensor characteristics</Line>
+  <Line number="48">//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</Line>
+  <Line number="49">/*magnetometer hard-iron calibration: users need to fill out proper values </Line>
+  <Line number="50">  for their unit if necessary. Use the following link to understand how to</Line>
+  <Line number="51">  go about: www.ssec.honeywell.com/magnetic/datasheets/amr.pdf                        */</Line>
+  <Line number="52">#define		bBy	 0.0     </Line>
+  <Line number="53">#define		bBx	 0.0     </Line>
+  <Line number="54">#define         sfx      1</Line>
+  <Line number="55">#define         sfy      1</Line>
+  <Line number="56">/*err covariance of accelerometers: users must change these values </Line>
+  <Line number="57">  depending on the environment under the vehicle is in operation                      */</Line>
+  <Line number="58">#define		var_az  0.962361        //(0.1*g)^2</Line>
+  <Line number="59">#define		var_ax	0.962361     			</Line>
+  <Line number="60">#define         var_ay  0.962361                       	</Line>
+  <Line number="61">/*err covariance of magnetometer heading					      */</Line>
+  <Line number="62">#define		var_psi 0.014924        //(7*d2r)^2		</Line>
+  <Line number="63">//sign function</Line>
+  <Line number="64">#define         sign(arg) (arg&gt;=0 ? 1:-1)</Line>
+  <Line number="65"></Line>
+  <Line number="66">//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</Line>
+  <Line number="67">//(extern) global variables</Line>
+  <Line number="68">//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</Line>
+  <Line number="69">MATRIX aP,aQ,aR,aK,Fsys,Hj,Iden;</Line>
+  <Line number="70">MATRIX tmp73,tmp33,tmp77,tmpr,Rinv,mat77;</Line>
+  <Line number="71">MATRIX Hpsi,Kpsi,tmp71;</Line>
+  <Line number="72">double xs[7]={1,0,0,0,0,0,0};</Line>
+  <Line number="73">char   *cnt_status;</Line>
+  <Line number="74">extern short screen_on;</Line>
+  <Line number="75"></Line>
+  <Line number="76"></Line>
+  <Line number="77">void *ahrs_main(void *thread_id)</Line>
+  <Line number="78">{</Line>
+  <Line number="79">   short  i=<CheckRefs ids="49">0</CheckRefs>,j=<CheckRefs ids="50">0</CheckRefs>;</Line>
+  <Line number="80">   int    rc;</Line>
+  <Line number="81">   static short control_init =<CheckRefs ids="52,51">FALSE</CheckRefs>;</Line>
+  <Line number="82">   static short count = <CheckRefs ids="53">0</CheckRefs>, enable=<CheckRefs ids="54,55">FALSE</CheckRefs>;</Line>
+  <Line number="83"></Line>
+  <Line number="84">#ifndef NCURSE_DISPLAY_OPTION</Line>
+  <Line number="85">   printf(&quot;[ahrs_main]::thread[%d] initiated...\n&quot;,thread_id);</Line>
+  <Line number="86">#endif</Line>
+  <Line number="87">   </Line>
+  <Line number="88">   //initialization of err, measurement, and process cov. matrices</Line>
+  <Line number="89">   aP = mat_creat(7,7,ZERO_MATRIX); </Line>
+  <Line number="90">   aQ = mat_creat(7,7,ZERO_MATRIX); </Line>
+  <Line number="91">   aR = mat_creat(3,3,ZERO_MATRIX);</Line>
+  <Line number="92">   </Line>
+  <Line number="93">   aP[0][0]<CheckRefs ids="56">=</CheckRefs>aP[1][1]<CheckRefs ids="57">=</CheckRefs>aP[2][2]<CheckRefs ids="58">=</CheckRefs>aP[3][3]<CheckRefs ids="59">=</CheckRefs>1.0e-1; aP[4][4]<CheckRefs ids="60">=</CheckRefs>aP[5][5]<CheckRefs ids="61">=</CheckRefs>aP[6][6]<CheckRefs ids="62">=</CheckRefs>1.0e-1;</Line>
+  <Line number="94">   aQ[0][0]<CheckRefs ids="63">=</CheckRefs>aQ[1][1]<CheckRefs ids="64">=</CheckRefs>aQ[2][2]<CheckRefs ids="65">=</CheckRefs>aQ[3][3]<CheckRefs ids="66">=</CheckRefs>1.0e-8; aQ[4][4]<CheckRefs ids="67">=</CheckRefs>aQ[5][5]<CheckRefs ids="68">=</CheckRefs>aQ[6][6]<CheckRefs ids="69">=</CheckRefs>1.0e-12;</Line>
+  <Line number="95">   aR[0][0]<CheckRefs ids="70">=</CheckRefs>aR[1][1]<CheckRefs ids="71">=</CheckRefs>aR[2][2]<CheckRefs ids="72">=</CheckRefs>var_ax;</Line>
+  <Line number="96">   </Line>
+  <Line number="97">   //initialization of gain matrix</Line>
+  <Line number="98">   aK = mat_creat(7,3,ZERO_MATRIX);</Line>
+  <Line number="99">   //initialization of state transition matrix</Line>
+  <Line number="100">   Fsys = mat_creat(7,7,UNIT_MATRIX);</Line>
+  <Line number="101">   //initialization of Identity matrix</Line>
+  <Line number="102">   Iden = mat_creat(7,7,UNIT_MATRIX);   </Line>
+  <Line number="103">   //initialization of Jacobian matrix</Line>
+  <Line number="104">   Hj   = mat_creat(3,7,ZERO_MATRIX);</Line>
+  <Line number="105">   //initialization related to heading</Line>
+  <Line number="106">   Hpsi  = mat_creat(1,7,ZERO_MATRIX);</Line>
+  <Line number="107">   Kpsi  = mat_creat(7,1,ZERO_MATRIX);</Line>
+  <Line number="108">   tmp71 = mat_creat(7,1,ZERO_MATRIX);</Line>
+  <Line number="109">   //initialization of other matrice used in ahrs</Line>
+  <Line number="110">   Rinv  = mat_creat(3,3,ZERO_MATRIX);</Line>
+  <Line number="111">   tmp33 = mat_creat(3,3,ZERO_MATRIX);</Line>
+  <Line number="112">   tmp73 = mat_creat(7,3,ZERO_MATRIX);</Line>
+  <Line number="113">   tmp77 = mat_creat(7,7,ZERO_MATRIX);</Line>
+  <Line number="114">   tmpr  = mat_creat(7,7,ZERO_MATRIX);</Line>
+  <Line number="115">   mat77 = mat_creat(7,7,ZERO_MATRIX);</Line>
+  <Line number="116">   </Line>
+  <Line number="117">   sleep(1);</Line>
+  <Line number="118">   while (1)</Line>
+  <Line number="119">   {</Line>
+  <Line number="120"></Line>
+  <Line number="121">           //wait until data acquisition is done</Line>
+  <Line number="122">           pthread_mutex_lock(&amp;mutex_imu);</Line>
+  <Line number="123">              rc  = pthread_cond_wait(&amp;trigger_ahrs, &amp;mutex_imu);</Line>
+  <Line number="124">              //run attitude and heading estimation algorithm</Line>
+  <Line number="125">              if (rc == 0) { 	   </Line>
+  <Line number="126">                  AHRS_Algorithm(&amp;imupacket);	   </Line>
+  <Line number="127">              }</Line>
+  <Line number="128">           pthread_mutex_unlock(&amp;mutex_imu);</Line>
+  <Line number="129">           </Line>
+  <Line number="130">	   </Line>
+  <Line number="131">           if(!screen_on) snap_time_interval(&quot;ahrs&quot;,  100, <CheckRefs ids="73">0</CheckRefs>);</Line>
+  <Line number="132">           </Line>
+  <Line number="133">	   //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</Line>
+  <Line number="134">	   //control logic: add delay on control trigger to minimize </Line>
+  <Line number="135">           //mode confusion caused by the transmitter power off</Line>
+  <Line number="136">	   //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</Line>
+  <Line number="137">           if (<CheckRefs ids="74">servopacket</CheckRefs>.chn[4<CheckRefs ids="75">]</CheckRefs> &lt;= 12000)     // if the autopilot is enabled</Line>
+  <Line number="138">	   {</Line>
+  <Line number="139">              enable =  <CheckRefs ids="76">TRUE</CheckRefs>;  </Line>
+  <Line number="140">              count  =  <CheckRefs ids="77">15</CheckRefs>;</Line>
+  <Line number="141">              cnt_status = &quot;MNAV in AutoPilot Mode&quot;;</Line>
+  <Line number="142">           }</Line>
+  <Line number="143">	   else if (<CheckRefs ids="78">servopacket</CheckRefs>.chn[4<CheckRefs ids="79">]</CheckRefs> &gt; 12000 &amp;&amp; <CheckRefs ids="80">servopacket</CheckRefs>.chn[4<CheckRefs ids="81">]</CheckRefs> &lt; 60000)</Line>
+  <Line number="144">	   {</Line>
+  <Line number="145">	      if (<CheckRefs ids="82">count</CheckRefs> &lt;  0) { enable = <CheckRefs ids="84,83">FALSE</CheckRefs>;  control_init = <CheckRefs ids="85,86">FALSE</CheckRefs>; cnt_status = &quot;MNAV in Manual Mode&quot;; }</Line>
+  <Line number="146">              else            { count<CheckRefs ids="87">--</CheckRefs>; }</Line>
+  <Line number="147">           }		</Line>
+  <Line number="148"></Line>
+  <Line number="149">           if (<CheckRefs ids="88">enable</CheckRefs> == TRUE) { control_uav(control_init, <CheckRefs ids="89">0</CheckRefs>); control_init = <CheckRefs ids="90">TRUE</CheckRefs>; }	   </Line>
+  <Line number="150"></Line>
+  <Line number="151">	   </Line>
+  <Line number="152">   }</Line>
+  <Line number="153"></Line>
+  <Line number="154">   //free memory space</Line>
+  <Line number="155">   mat_free(aP);</Line>
+  <Line number="156">   mat_free(aQ);</Line>
+  <Line number="157">   mat_free(aR);</Line>
+  <Line number="158">   mat_free(aK);</Line>
+  <Line number="159">   mat_free(Fsys);</Line>
+  <Line number="160">   mat_free(Iden);</Line>
+  <Line number="161">   mat_free(Hj);</Line>
+  <Line number="162">   mat_free(Rinv);</Line>
+  <Line number="163">   mat_free(tmp77);</Line>
+  <Line number="164">   mat_free(tmp33);</Line>
+  <Line number="165">   mat_free(tmp73);</Line>
+  <Line number="166">   mat_free(tmpr);</Line>
+  <Line number="167">   mat_free(mat77);</Line>
+  <Line number="168">   mat_free(Kpsi);</Line>
+  <Line number="169">   mat_free(Hpsi);</Line>
+  <Line number="170">   mat_free(tmp71);</Line>
+  <Line number="171"></Line>
+  <Line number="172">   pthread_exit(NULL);</Line>
+  <Line number="173">}</Line>
+  <Line number="174"></Line>
+  <Line number="175">//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</Line>
+  <Line number="176">//extended kalman filter algorithm</Line>
+  <Line number="177">//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</Line>
+  <Line number="178">void AHRS_Algorithm(struct imu *data)</Line>
+  <Line number="179">{</Line>
+  <Line number="180">   static double tnow,tprev=<CheckRefs ids="91">0</CheckRefs>;</Line>
+  <Line number="181">   double pc,qc,rc;</Line>
+  <Line number="182">   double h[3]={0.,},cPHI,sPHI; </Line>
+  <Line number="183">   double norm,Bxc,Byc,invR;</Line>
+  <Line number="184">   double dt,Hdt;</Line>
+  <Line number="185">   double coeff1[3]={<CheckRefs ids="92">0</CheckRefs>,},temp[2]={<CheckRefs ids="93">0</CheckRefs>,};</Line>
+  <Line number="186">   double xsn[4]={<CheckRefs ids="94">0</CheckRefs>,};</Line>
+  <Line number="187">   short  i=<CheckRefs ids="95">0</CheckRefs>,j=<CheckRefs ids="96">0</CheckRefs>;</Line>
+  <Line number="188">   static unsigned short counter=<CheckRefs ids="97">0</CheckRefs>;</Line>
+  <Line number="189">   </Line>
+  <Line number="190">   //snap the time interval, dt, of this routine</Line>
+  <Line number="191">   tnow <CheckRefs ids="98">=</CheckRefs> get_Time();</Line>
+  <Line number="192">   dt   <CheckRefs ids="99">=</CheckRefs> tnow <CheckRefs ids="100">-</CheckRefs> tprev; </Line>
+  <Line number="193">   tprev<CheckRefs ids="101">=</CheckRefs> tnow;</Line>
+  <Line number="194">   if (dt==<CheckRefs ids="102">0</CheckRefs>) dt <CheckRefs ids="103">=</CheckRefs> 0.020; </Line>
+  <Line number="195"></Line>
+  <Line number="196">   Hdt <CheckRefs ids="104">=</CheckRefs> 0.5<CheckRefs ids="105">*</CheckRefs>dt;</Line>
+  <Line number="197">   </Line>
+  <Line number="198">   /*assign new variables			*/</Line>
+  <Line number="199">   pc <CheckRefs ids="106">=</CheckRefs> (data-&gt;p <CheckRefs ids="108">-</CheckRefs> xs[4<CheckRefs ids="109">]</CheckRefs>)<CheckRefs ids="107">*</CheckRefs>Hdt;  </Line>
+  <Line number="200">   qc <CheckRefs ids="110">=</CheckRefs> (data-&gt;q <CheckRefs ids="112">-</CheckRefs> xs[5<CheckRefs ids="113">]</CheckRefs>)<CheckRefs ids="111">*</CheckRefs>Hdt;  </Line>
+  <Line number="201">   rc <CheckRefs ids="114">=</CheckRefs> (data-&gt;r <CheckRefs ids="116">-</CheckRefs> xs[6<CheckRefs ids="117">]</CheckRefs>)<CheckRefs ids="115">*</CheckRefs>Hdt;  </Line>
+  <Line number="202"> </Line>
+  <Line number="203">   /*state transition matrix			*/</Line>
+  <Line number="204">   Fsys[0][1] <CheckRefs ids="118">=</CheckRefs> <CheckRefs ids="119">-</CheckRefs>pc; Fsys[0][2] <CheckRefs ids="120">=</CheckRefs> <CheckRefs ids="121">-</CheckRefs>qc; Fsys[0][3] <CheckRefs ids="122">=</CheckRefs> <CheckRefs ids="123">-</CheckRefs>rc;  </Line>
+  <Line number="205">   Fsys[1][0] <CheckRefs ids="124">=</CheckRefs>  pc; Fsys[1][2] <CheckRefs ids="125">=</CheckRefs>  rc; Fsys[1][3] <CheckRefs ids="126">=</CheckRefs> <CheckRefs ids="127">-</CheckRefs>qc;  </Line>
+  <Line number="206">   Fsys[2][0] <CheckRefs ids="128">=</CheckRefs>  qc; Fsys[2][1] <CheckRefs ids="129">=</CheckRefs> <CheckRefs ids="130">-</CheckRefs>rc; Fsys[2][3] <CheckRefs ids="131">=</CheckRefs>  pc;  </Line>
+  <Line number="207">   Fsys[3][0] <CheckRefs ids="132">=</CheckRefs>  rc; Fsys[3][1] <CheckRefs ids="133">=</CheckRefs>  qc; Fsys[3][2] <CheckRefs ids="134">=</CheckRefs> <CheckRefs ids="135">-</CheckRefs>pc;  </Line>
+  <Line number="208">   </Line>
+  <Line number="209">   Fsys[0][4] <CheckRefs ids="136">=</CheckRefs> xs[1<CheckRefs ids="138">]</CheckRefs><CheckRefs ids="137">*</CheckRefs>Hdt;  Fsys[0][5] <CheckRefs ids="139">=</CheckRefs> xs[2<CheckRefs ids="141">]</CheckRefs><CheckRefs ids="140">*</CheckRefs>Hdt;  Fsys[0][6] <CheckRefs ids="142">=</CheckRefs> xs[3<CheckRefs ids="144">]</CheckRefs><CheckRefs ids="143">*</CheckRefs>Hdt;</Line>
+  <Line number="210">   Fsys[1][4] <CheckRefs ids="145">=</CheckRefs><CheckRefs ids="147">-</CheckRefs>xs[0<CheckRefs ids="148">]</CheckRefs><CheckRefs ids="146">*</CheckRefs>Hdt;  Fsys[1][5] <CheckRefs ids="149">=</CheckRefs> xs[3<CheckRefs ids="151">]</CheckRefs><CheckRefs ids="150">*</CheckRefs>Hdt;  Fsys[1][6] <CheckRefs ids="152">=</CheckRefs><CheckRefs ids="153">-</CheckRefs>Fsys[0][5];</Line>
+  <Line number="211">   Fsys[2][4] <CheckRefs ids="154">=</CheckRefs><CheckRefs ids="155">-</CheckRefs>Fsys[1][5]; Fsys[2][5] <CheckRefs ids="156">=</CheckRefs> Fsys[1][4]; Fsys[2][6] <CheckRefs ids="157">=</CheckRefs> Fsys[0][4];</Line>
+  <Line number="212">   Fsys[3][4] <CheckRefs ids="158">=</CheckRefs> Fsys[0][5]; Fsys[3][5] <CheckRefs ids="159">=</CheckRefs><CheckRefs ids="160">-</CheckRefs>Fsys[0][4]; Fsys[3][6] <CheckRefs ids="161">=</CheckRefs> Fsys[1][4];</Line>
+  <Line number="213">   </Line>
+  <Line number="214">   </Line>
+  <Line number="215">   //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</Line>
+  <Line number="216">   //Extended Kalman filter: prediction step</Line>
+  <Line number="217">   //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</Line>
+  <Line number="218">   /*propagation of quaternion using gyro measurement</Line>
+  <Line number="219">     at a given sampling interval dt                                   */</Line>
+  <Line number="220">   xsn[0<CheckRefs ids="163">]</CheckRefs> <CheckRefs ids="162">=</CheckRefs> xs[0<CheckRefs ids="167">]</CheckRefs> <CheckRefs ids="166">-</CheckRefs> pc<CheckRefs ids="168">*</CheckRefs>xs[1<CheckRefs ids="169">]</CheckRefs> <CheckRefs ids="165">-</CheckRefs> qc<CheckRefs ids="170">*</CheckRefs>xs[2<CheckRefs ids="171">]</CheckRefs> <CheckRefs ids="164">-</CheckRefs> rc<CheckRefs ids="172">*</CheckRefs>xs[3<CheckRefs ids="173">]</CheckRefs>;</Line>
+  <Line number="221">   xsn[1<CheckRefs ids="175">]</CheckRefs> <CheckRefs ids="174">=</CheckRefs> xs[1<CheckRefs ids="179">]</CheckRefs> <CheckRefs ids="178">+</CheckRefs> pc<CheckRefs ids="180">*</CheckRefs>xs[0<CheckRefs ids="181">]</CheckRefs> <CheckRefs ids="177">-</CheckRefs> qc<CheckRefs ids="182">*</CheckRefs>xs[3<CheckRefs ids="183">]</CheckRefs> <CheckRefs ids="176">+</CheckRefs> rc<CheckRefs ids="184">*</CheckRefs>xs[2<CheckRefs ids="185">]</CheckRefs>;</Line>
+  <Line number="222">   xsn[2<CheckRefs ids="187">]</CheckRefs> <CheckRefs ids="186">=</CheckRefs> xs[2<CheckRefs ids="191">]</CheckRefs> <CheckRefs ids="190">+</CheckRefs> pc<CheckRefs ids="192">*</CheckRefs>xs[3<CheckRefs ids="193">]</CheckRefs> <CheckRefs ids="189">+</CheckRefs> qc<CheckRefs ids="194">*</CheckRefs>xs[0<CheckRefs ids="195">]</CheckRefs> <CheckRefs ids="188">-</CheckRefs> rc<CheckRefs ids="196">*</CheckRefs>xs[1<CheckRefs ids="197">]</CheckRefs>;</Line>
+  <Line number="223">   xsn[3<CheckRefs ids="199">]</CheckRefs> <CheckRefs ids="198">=</CheckRefs> xs[3<CheckRefs ids="203">]</CheckRefs> <CheckRefs ids="202">-</CheckRefs> pc<CheckRefs ids="204">*</CheckRefs>xs[2<CheckRefs ids="205">]</CheckRefs> <CheckRefs ids="201">+</CheckRefs> qc<CheckRefs ids="206">*</CheckRefs>xs[1<CheckRefs ids="207">]</CheckRefs> <CheckRefs ids="200">+</CheckRefs> rc<CheckRefs ids="208">*</CheckRefs>xs[0<CheckRefs ids="209">]</CheckRefs>;</Line>
+  <Line number="224">   </Line>
+  <Line number="225">   for(i=<CheckRefs ids="210">0</CheckRefs>;<CheckRefs ids="211">i</CheckRefs>&lt;4;i<CheckRefs ids="212">++</CheckRefs>) xs[i<CheckRefs ids="214">]</CheckRefs> <CheckRefs ids="213">=</CheckRefs> xsn[i<CheckRefs ids="215">]</CheckRefs>;</Line>
+  <Line number="226">   </Line>
+  <Line number="227">   //error covriance propagation: P = Fsys*P*Fsys&apos; + Q</Line>
+  <Line number="228">   mat_mymul2(Fsys,aP,tmp77,<CheckRefs ids="216">3</CheckRefs>); </Line>
+  <Line number="229">   mat_mymul3(tmp77,Fsys,aP,<CheckRefs ids="217">3</CheckRefs>);</Line>
+  <Line number="230">   for(i=<CheckRefs ids="218">0</CheckRefs>;<CheckRefs ids="219">i</CheckRefs>&lt;7;i<CheckRefs ids="220">++</CheckRefs>) aP[i][i] <CheckRefs ids="221">+=</CheckRefs> aQ[i][i];</Line>
+  <Line number="231"></Line>
+  <Line number="232">   counter<CheckRefs ids="222">++</CheckRefs>;</Line>
+  <Line number="233"></Line>
+  <Line number="234">   if (<CheckRefs ids="224">counter</CheckRefs><CheckRefs ids="223">%</CheckRefs>(AHRS_Run<CheckRefs ids="225,226">/</CheckRefs>ANGLE_Update) == 0)   // Pitch and Roll Update at 25 Hz</Line>
+  <Line number="235">   {</Line>
+  <Line number="236">      //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</Line>
+  <Line number="237">      //Extended Kalman filter: correction step for pitch and roll</Line>
+  <Line number="238">      //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</Line>
+  <Line number="239">      //nonlinear measurement equation of h(x)</Line>
+  <Line number="240">      h[0<CheckRefs ids="228">]</CheckRefs>    <CheckRefs ids="227">=</CheckRefs> <CheckRefs ids="230">-</CheckRefs>g2<CheckRefs ids="229">*</CheckRefs>(xs[1<CheckRefs ids="233">]</CheckRefs><CheckRefs ids="232">*</CheckRefs>xs[3<CheckRefs ids="234">]</CheckRefs><CheckRefs ids="231">-</CheckRefs>xs[0<CheckRefs ids="236">]</CheckRefs><CheckRefs ids="235">*</CheckRefs>xs[2<CheckRefs ids="237">]</CheckRefs>);</Line>
+  <Line number="241">      h[1<CheckRefs ids="239">]</CheckRefs>    <CheckRefs ids="238">=</CheckRefs> <CheckRefs ids="241">-</CheckRefs>g2<CheckRefs ids="240">*</CheckRefs>(xs[0<CheckRefs ids="244">]</CheckRefs><CheckRefs ids="243">*</CheckRefs>xs[1<CheckRefs ids="245">]</CheckRefs><CheckRefs ids="242">+</CheckRefs>xs[2<CheckRefs ids="247">]</CheckRefs><CheckRefs ids="246">*</CheckRefs>xs[3<CheckRefs ids="248">]</CheckRefs>);</Line>
+  <Line number="242">      h[2<CheckRefs ids="250">]</CheckRefs>    <CheckRefs ids="249">=</CheckRefs>  <CheckRefs ids="252">-</CheckRefs>g<CheckRefs ids="251">*</CheckRefs>(xs[0<CheckRefs ids="257">]</CheckRefs><CheckRefs ids="256">*</CheckRefs>xs[0<CheckRefs ids="258">]</CheckRefs><CheckRefs ids="255">-</CheckRefs>xs[1<CheckRefs ids="260">]</CheckRefs><CheckRefs ids="259">*</CheckRefs>xs[1<CheckRefs ids="261">]</CheckRefs><CheckRefs ids="254">-</CheckRefs>xs[2<CheckRefs ids="263">]</CheckRefs><CheckRefs ids="262">*</CheckRefs>xs[2<CheckRefs ids="264">]</CheckRefs><CheckRefs ids="253">+</CheckRefs>xs[3<CheckRefs ids="266">]</CheckRefs><CheckRefs ids="265">*</CheckRefs>xs[3<CheckRefs ids="267">]</CheckRefs>);</Line>
+  <Line number="243">   </Line>
+  <Line number="244">      //compute Jacobian matrix of h(x)</Line>
+  <Line number="245">      Hj[0][0] <CheckRefs ids="268">=</CheckRefs> g2<CheckRefs ids="269">*</CheckRefs>xs[2<CheckRefs ids="270">]</CheckRefs>; Hj[0][1] <CheckRefs ids="271">=</CheckRefs><CheckRefs ids="273">-</CheckRefs>g2<CheckRefs ids="272">*</CheckRefs>xs[3<CheckRefs ids="274">]</CheckRefs>; Hj[0][2] <CheckRefs ids="275">=</CheckRefs> g2<CheckRefs ids="276">*</CheckRefs>xs[0<CheckRefs ids="277">]</CheckRefs>; Hj[0][3] <CheckRefs ids="278">=</CheckRefs> <CheckRefs ids="280">-</CheckRefs>g2<CheckRefs ids="279">*</CheckRefs>xs[1<CheckRefs ids="281">]</CheckRefs>; </Line>
+  <Line number="246">      Hj[1][0] <CheckRefs ids="282">=</CheckRefs> Hj[0][3]; Hj[1][1] <CheckRefs ids="283">=</CheckRefs><CheckRefs ids="284">-</CheckRefs>Hj[0][2]; Hj[1][2] <CheckRefs ids="285">=</CheckRefs> Hj[0][1]; Hj[1][3] <CheckRefs ids="286">=</CheckRefs> <CheckRefs ids="287">-</CheckRefs>Hj[0][0]; </Line>
+  <Line number="247">      Hj[2][0] <CheckRefs ids="288">=</CheckRefs><CheckRefs ids="289">-</CheckRefs>Hj[0][2]; Hj[2][1] <CheckRefs ids="290">=</CheckRefs><CheckRefs ids="291">-</CheckRefs>Hj[0][3]; Hj[2][2] <CheckRefs ids="292">=</CheckRefs> Hj[0][0]; Hj[2][3] <CheckRefs ids="293">=</CheckRefs>  Hj[0][1]; </Line>
+  <Line number="248">   </Line>
+  <Line number="249">      //gain matrix aK = aP*Hj&apos;*(Hj*aP*Hj&apos; + aR)^-1</Line>
+  <Line number="250">      mat_mymul4(aP,Hj,tmp73,<CheckRefs ids="294">3</CheckRefs>);</Line>
+  <Line number="251">      mat_mymul(Hj,tmp73,tmp33,<CheckRefs ids="295">3</CheckRefs>);</Line>
+  <Line number="252">      for(i=<CheckRefs ids="296">0</CheckRefs>;<CheckRefs ids="297">i</CheckRefs>&lt;3;i<CheckRefs ids="298">++</CheckRefs>) tmp33[i][i] <CheckRefs ids="299">+=</CheckRefs> aR[i][i];</Line>
+  <Line number="253">      mat_inv(tmp33,Rinv);</Line>
+  <Line number="254">      mat_mul(tmp73,Rinv,aK);</Line>
+  <Line number="255">      </Line>
+  <Line number="256">      //state update</Line>
+  <Line number="257">      for(i=<CheckRefs ids="300">0</CheckRefs>;<CheckRefs ids="301">i</CheckRefs>&lt;7;i<CheckRefs ids="302">++</CheckRefs>)</Line>
+  <Line number="258">      {</Line>
+  <Line number="259">	   xs[i<CheckRefs ids="304">]</CheckRefs> <CheckRefs ids="303">+=</CheckRefs> aK[i][0]<CheckRefs ids="307">*</CheckRefs>(data-&gt;ax <CheckRefs ids="308">-</CheckRefs> h[0<CheckRefs ids="309">]</CheckRefs>) </Line>
+  <Line number="260">	         <CheckRefs ids="306">+</CheckRefs>  aK[i][1]<CheckRefs ids="310">*</CheckRefs>(data-&gt;ay <CheckRefs ids="311">-</CheckRefs> h[1<CheckRefs ids="312">]</CheckRefs>) </Line>
+  <Line number="261">	         <CheckRefs ids="305">+</CheckRefs>  aK[i][2]<CheckRefs ids="313">*</CheckRefs>(data-&gt;az <CheckRefs ids="314">-</CheckRefs> h[2<CheckRefs ids="315">]</CheckRefs>);</Line>
+  <Line number="262">      }</Line>
+  <Line number="263">      </Line>
+  <Line number="264">      //error covariance matrix update aP = (I - aK*Hj)*aP</Line>
+  <Line number="265">      mat_mymul1(aK,Hj,mat77,<CheckRefs ids="316">3</CheckRefs>); </Line>
+  <Line number="266">      mat_sub(Iden,mat77,tmpr); </Line>
+  <Line number="267">      mat_mymul5(tmpr,aP,tmp77,<CheckRefs ids="317">3</CheckRefs>);</Line>
+  <Line number="268">      mat_copy(tmp77,aP);</Line>
+  <Line number="269">   }</Line>
+  <Line number="270">   </Line>
+  <Line number="271">   </Line>
+  <Line number="272">   if(<CheckRefs ids="319">counter</CheckRefs><CheckRefs ids="318">%</CheckRefs>(AHRS_Run<CheckRefs ids="320,321">/</CheckRefs>MAG_Update) == 1) // Heading update at 10 Hz</Line>
+  <Line number="273">   {  </Line>
+  <Line number="274"></Line>
+  <Line number="275">   //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</Line>
+  <Line number="276">   // second stage kalman filter update to estimate the heading angle</Line>
+  <Line number="277">   //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</Line>
+  <Line number="278">      //hard-iron calibration</Line>
+  <Line number="279">      data-&gt;hx <CheckRefs ids="322">=</CheckRefs> <CheckRefs ids="325">sfx</CheckRefs><CheckRefs ids="324">*</CheckRefs>(data-&gt;hx) <CheckRefs ids="323">-</CheckRefs> bBx;</Line>
+  <Line number="280">      data-&gt;hy <CheckRefs ids="326">=</CheckRefs> <CheckRefs ids="329">sfy</CheckRefs><CheckRefs ids="328">*</CheckRefs>(data-&gt;hy) <CheckRefs ids="327">-</CheckRefs> bBy;</Line>
+  <Line number="281">   </Line>
+  <Line number="282">      //magnetic heading correction due to roll and pitch angle</Line>
+  <Line number="283">      cPHI<CheckRefs ids="330">=</CheckRefs> cos(data-&gt;phi);</Line>
+  <Line number="284">      sPHI<CheckRefs ids="331">=</CheckRefs> sin(data-&gt;phi);</Line>
+  <Line number="285">      Bxc <CheckRefs ids="332">=</CheckRefs> (data-&gt;hx)<CheckRefs ids="334">*</CheckRefs>cos(data-&gt;the)<CheckRefs ids="333">+</CheckRefs>((data-&gt;hy)<CheckRefs ids="337">*</CheckRefs>sPHI<CheckRefs ids="336">+</CheckRefs>(data-&gt;hz)<CheckRefs ids="338">*</CheckRefs>cPHI)<CheckRefs ids="335">*</CheckRefs>sin(data-&gt;the);</Line>
+  <Line number="286">      Byc <CheckRefs ids="339">=</CheckRefs> (data-&gt;hy)<CheckRefs ids="341">*</CheckRefs>cPHI<CheckRefs ids="340">-</CheckRefs>(data-&gt;hz)<CheckRefs ids="342">*</CheckRefs>sPHI;</Line>
+  <Line number="287"></Line>
+  <Line number="288">      //Jacobian</Line>
+  <Line number="289">      //||q||^2=1 must happen before using this</Line>
+  <Line number="290">      norm <CheckRefs ids="343">=</CheckRefs> 1.0<CheckRefs ids="344,345">/</CheckRefs>sqrt(xs[0<CheckRefs ids="350">]</CheckRefs><CheckRefs ids="349">*</CheckRefs>xs[0<CheckRefs ids="351">]</CheckRefs><CheckRefs ids="348">+</CheckRefs>xs[1<CheckRefs ids="353">]</CheckRefs><CheckRefs ids="352">*</CheckRefs>xs[1<CheckRefs ids="354">]</CheckRefs><CheckRefs ids="347">+</CheckRefs>xs[2<CheckRefs ids="356">]</CheckRefs><CheckRefs ids="355">*</CheckRefs>xs[2<CheckRefs ids="357">]</CheckRefs><CheckRefs ids="346">+</CheckRefs>xs[3<CheckRefs ids="359">]</CheckRefs><CheckRefs ids="358">*</CheckRefs>xs[3<CheckRefs ids="360">]</CheckRefs>);</Line>
+  <Line number="291">      for(i=<CheckRefs ids="361">0</CheckRefs>;<CheckRefs ids="362">i</CheckRefs>&lt;4;i<CheckRefs ids="363">++</CheckRefs>) xs[i<CheckRefs ids="365">]</CheckRefs> <CheckRefs ids="364">=</CheckRefs> xs[i<CheckRefs ids="367">]</CheckRefs><CheckRefs ids="366">*</CheckRefs>norm;</Line>
+  <Line number="292">   </Line>
+  <Line number="293">      coeff1[0<CheckRefs ids="369">]</CheckRefs><CheckRefs ids="368">=</CheckRefs> <CheckRefs ids="371">2</CheckRefs><CheckRefs ids="370">*</CheckRefs>(xs[1<CheckRefs ids="374">]</CheckRefs><CheckRefs ids="373">*</CheckRefs>xs[2<CheckRefs ids="375">]</CheckRefs><CheckRefs ids="372">+</CheckRefs>xs[0<CheckRefs ids="377">]</CheckRefs><CheckRefs ids="376">*</CheckRefs>xs[3<CheckRefs ids="378">]</CheckRefs>);</Line>
+  <Line number="294">      coeff1[1<CheckRefs ids="380">]</CheckRefs><CheckRefs ids="379">=</CheckRefs> <CheckRefs ids="382">1</CheckRefs> <CheckRefs ids="381">-</CheckRefs> <CheckRefs ids="384">2</CheckRefs><CheckRefs ids="383">*</CheckRefs>(xs[2<CheckRefs ids="387">]</CheckRefs><CheckRefs ids="386">*</CheckRefs>xs[2<CheckRefs ids="388">]</CheckRefs><CheckRefs ids="385">+</CheckRefs>xs[3<CheckRefs ids="390">]</CheckRefs><CheckRefs ids="389">*</CheckRefs>xs[3<CheckRefs ids="391">]</CheckRefs>);</Line>
+  <Line number="295">      coeff1[2<CheckRefs ids="393">]</CheckRefs><CheckRefs ids="392">=</CheckRefs> <CheckRefs ids="396">2</CheckRefs><CheckRefs ids="395,394">/</CheckRefs>(coeff1[0<CheckRefs ids="399">]</CheckRefs><CheckRefs ids="398">*</CheckRefs>coeff1[0<CheckRefs ids="400">]</CheckRefs><CheckRefs ids="397">+</CheckRefs>coeff1[1<CheckRefs ids="402">]</CheckRefs><CheckRefs ids="401">*</CheckRefs>coeff1[1<CheckRefs ids="403">]</CheckRefs>);</Line>
+  <Line number="296">   </Line>
+  <Line number="297">      temp[0<CheckRefs ids="405">]</CheckRefs> <CheckRefs ids="404">=</CheckRefs> coeff1[1<CheckRefs ids="407">]</CheckRefs><CheckRefs ids="406">*</CheckRefs>coeff1[2<CheckRefs ids="408">]</CheckRefs>;</Line>
+  <Line number="298">      temp[1<CheckRefs ids="410">]</CheckRefs> <CheckRefs ids="409">=</CheckRefs> coeff1[0<CheckRefs ids="412">]</CheckRefs><CheckRefs ids="411">*</CheckRefs>coeff1[2<CheckRefs ids="413">]</CheckRefs>;</Line>
+  <Line number="299">      </Line>
+  <Line number="300">      Hpsi[0][0] <CheckRefs ids="414">=</CheckRefs> xs[3<CheckRefs ids="416">]</CheckRefs><CheckRefs ids="415">*</CheckRefs>temp[0<CheckRefs ids="417">]</CheckRefs>;</Line>
+  <Line number="301">      Hpsi[0][1] <CheckRefs ids="418">=</CheckRefs> xs[2<CheckRefs ids="420">]</CheckRefs><CheckRefs ids="419">*</CheckRefs>temp[0<CheckRefs ids="421">]</CheckRefs>;</Line>
+  <Line number="302">      Hpsi[0][2] <CheckRefs ids="422">=</CheckRefs> xs[1<CheckRefs ids="425">]</CheckRefs><CheckRefs ids="424">*</CheckRefs>temp[0<CheckRefs ids="426">]</CheckRefs><CheckRefs ids="423">+</CheckRefs><CheckRefs ids="429">2</CheckRefs><CheckRefs ids="428">*</CheckRefs>xs[2<CheckRefs ids="430">]</CheckRefs><CheckRefs ids="427">*</CheckRefs>temp[1<CheckRefs ids="431">]</CheckRefs>;</Line>
+  <Line number="303">      Hpsi[0][3] <CheckRefs ids="432">=</CheckRefs> xs[0<CheckRefs ids="435">]</CheckRefs><CheckRefs ids="434">*</CheckRefs>temp[0<CheckRefs ids="436">]</CheckRefs><CheckRefs ids="433">+</CheckRefs><CheckRefs ids="439">2</CheckRefs><CheckRefs ids="438">*</CheckRefs>xs[3<CheckRefs ids="440">]</CheckRefs><CheckRefs ids="437">*</CheckRefs>temp[1<CheckRefs ids="441">]</CheckRefs>;</Line>
+  <Line number="304">           </Line>
+  <Line number="305">      //gain matrix Kpsi = aP*Hpsi&apos;*(Hpsi*aP*Hpsi&apos; + Rpsi)^-1</Line>
+  <Line number="306">      mat_mymul4(aP,Hpsi,tmp71,<CheckRefs ids="442">3</CheckRefs>);</Line>
+  <Line number="307">      invR <CheckRefs ids="443">=</CheckRefs> <CheckRefs ids="446">1</CheckRefs><CheckRefs ids="444,445">/</CheckRefs>(Hpsi[0][0]<CheckRefs ids="451">*</CheckRefs>tmp71[0][0]<CheckRefs ids="450">+</CheckRefs>Hpsi[0][1]<CheckRefs ids="452">*</CheckRefs>tmp71[1][0]<CheckRefs ids="449">+</CheckRefs>Hpsi[0][2]<CheckRefs ids="453">*</CheckRefs>tmp71[2][0]<CheckRefs ids="448">+</CheckRefs>Hpsi[0][3]<CheckRefs ids="454">*</CheckRefs>tmp71[3][0]<CheckRefs ids="447">+</CheckRefs>var_psi);</Line>
+  <Line number="308">             </Line>
+  <Line number="309">      //state update</Line>
+  <Line number="310">      data-&gt;psi <CheckRefs ids="455">=</CheckRefs> atan2(coeff1[0<CheckRefs ids="456">]</CheckRefs>,coeff1[1<CheckRefs ids="457">]</CheckRefs>);</Line>
+  <Line number="311">      for(i=<CheckRefs ids="458">0</CheckRefs>;<CheckRefs ids="459">i</CheckRefs>&lt;7;i<CheckRefs ids="460">++</CheckRefs>) {</Line>
+  <Line number="312">         Kpsi[i][0] <CheckRefs ids="461">=</CheckRefs> invR<CheckRefs ids="462">*</CheckRefs>tmp71[i][0];</Line>
+  <Line number="313">         xs[i<CheckRefs ids="464">]</CheckRefs> <CheckRefs ids="463">+=</CheckRefs> Kpsi[i][0]<CheckRefs ids="465">*</CheckRefs>wraparound(atan2(Byc,<CheckRefs ids="467">-</CheckRefs>Bxc) <CheckRefs ids="466">-</CheckRefs> data-&gt;psi);</Line>
+  <Line number="314">      }</Line>
+  <Line number="315">      //error covariance matrix update aP = (I - Kpsi*Hpsi)*aP</Line>
+  <Line number="316">      mat_mymul1(Kpsi,Hpsi,mat77,<CheckRefs ids="468">3</CheckRefs>); </Line>
+  <Line number="317">      mat_sub(Iden,mat77,tmpr);</Line>
+  <Line number="318">      mat_mymul5(tmpr,aP, tmp77,<CheckRefs ids="469">3</CheckRefs>);</Line>
+  <Line number="319">      mat_copy(tmp77,aP);      </Line>
+  <Line number="320">      </Line>
+  <Line number="321">   }</Line>
+  <Line number="322">   </Line>
+  <Line number="323">   //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ </Line>
+  <Line number="324">   //scaling of quertonian,||q||^2 = 1</Line>
+  <Line number="325">   //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</Line>
+  <Line number="326">   norm <CheckRefs ids="470">=</CheckRefs> 1.0<CheckRefs ids="471,472">/</CheckRefs>sqrt(xs[0<CheckRefs ids="477">]</CheckRefs><CheckRefs ids="476">*</CheckRefs>xs[0<CheckRefs ids="478">]</CheckRefs><CheckRefs ids="475">+</CheckRefs>xs[1<CheckRefs ids="480">]</CheckRefs><CheckRefs ids="479">*</CheckRefs>xs[1<CheckRefs ids="481">]</CheckRefs><CheckRefs ids="474">+</CheckRefs>xs[2<CheckRefs ids="483">]</CheckRefs><CheckRefs ids="482">*</CheckRefs>xs[2<CheckRefs ids="484">]</CheckRefs><CheckRefs ids="473">+</CheckRefs>xs[3<CheckRefs ids="486">]</CheckRefs><CheckRefs ids="485">*</CheckRefs>xs[3<CheckRefs ids="487">]</CheckRefs>);</Line>
+  <Line number="327">   for(i=<CheckRefs ids="488">0</CheckRefs>;<CheckRefs ids="489">i</CheckRefs>&lt;4;i<CheckRefs ids="490">++</CheckRefs>) xs[i<CheckRefs ids="492">]</CheckRefs> <CheckRefs ids="491">=</CheckRefs> xs[i<CheckRefs ids="494">]</CheckRefs><CheckRefs ids="493">*</CheckRefs>norm;</Line>
+  <Line number="328">   </Line>
+  <Line number="329">   //obtain euler angles from quaternion</Line>
+  <Line number="330">   data-&gt;the <CheckRefs ids="495">=</CheckRefs> asin(<CheckRefs ids="498,497">-</CheckRefs>2<CheckRefs ids="496">*</CheckRefs>(xs[1<CheckRefs ids="501">]</CheckRefs><CheckRefs ids="500">*</CheckRefs>xs[3<CheckRefs ids="502">]</CheckRefs><CheckRefs ids="499">-</CheckRefs>xs[0<CheckRefs ids="504">]</CheckRefs><CheckRefs ids="503">*</CheckRefs>xs[2<CheckRefs ids="505">]</CheckRefs>));</Line>
+  <Line number="331">   data-&gt;phi <CheckRefs ids="506">=</CheckRefs> atan2(<CheckRefs ids="508">2</CheckRefs><CheckRefs ids="507">*</CheckRefs>(xs[0<CheckRefs ids="511">]</CheckRefs><CheckRefs ids="510">*</CheckRefs>xs[1<CheckRefs ids="512">]</CheckRefs><CheckRefs ids="509">+</CheckRefs>xs[2<CheckRefs ids="514">]</CheckRefs><CheckRefs ids="513">*</CheckRefs>xs[3<CheckRefs ids="515">]</CheckRefs>),<CheckRefs ids="517">1</CheckRefs><CheckRefs ids="516">-</CheckRefs><CheckRefs ids="519">2</CheckRefs><CheckRefs ids="518">*</CheckRefs>(xs[1<CheckRefs ids="522">]</CheckRefs><CheckRefs ids="521">*</CheckRefs>xs[1<CheckRefs ids="523">]</CheckRefs><CheckRefs ids="520">+</CheckRefs>xs[2<CheckRefs ids="525">]</CheckRefs><CheckRefs ids="524">*</CheckRefs>xs[2<CheckRefs ids="526">]</CheckRefs>));</Line>
+  <Line number="332">   data-&gt;psi <CheckRefs ids="527">=</CheckRefs> atan2(<CheckRefs ids="529">2</CheckRefs><CheckRefs ids="528">*</CheckRefs>(xs[1<CheckRefs ids="532">]</CheckRefs><CheckRefs ids="531">*</CheckRefs>xs[2<CheckRefs ids="533">]</CheckRefs><CheckRefs ids="530">+</CheckRefs>xs[0<CheckRefs ids="535">]</CheckRefs><CheckRefs ids="534">*</CheckRefs>xs[3<CheckRefs ids="536">]</CheckRefs>),<CheckRefs ids="538">1</CheckRefs><CheckRefs ids="537">-</CheckRefs><CheckRefs ids="540">2</CheckRefs><CheckRefs ids="539">*</CheckRefs>(xs[2<CheckRefs ids="543">]</CheckRefs><CheckRefs ids="542">*</CheckRefs>xs[2<CheckRefs ids="544">]</CheckRefs><CheckRefs ids="541">+</CheckRefs>xs[3<CheckRefs ids="546">]</CheckRefs><CheckRefs ids="545">*</CheckRefs>xs[3<CheckRefs ids="547">]</CheckRefs>));</Line>
+  <Line number="333">   </Line>
+  <Line number="334">}</Line>
+  <Line number="335"></Line>
+  <Line number="336">//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</Line>
+  <Line number="337">// wrap around for -180 and + 180 </Line>
+  <Line number="338">//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</Line>
+  <Line number="339">double wraparound(double dta)</Line>
+  <Line number="340">{</Line>
+  <Line number="341">	</Line>
+  <Line number="342">   //bound heading angle between -180 and 180</Line>
+  <Line number="343">   if(dta &gt;  pi) dta <CheckRefs ids="548">-=</CheckRefs> pi2;</Line>
+  <Line number="344">   if(dta &lt; <CheckRefs ids="549">-</CheckRefs>pi) dta <CheckRefs ids="550">+=</CheckRefs> pi2;</Line>
+  <Line number="345">   </Line>
+  <Line number="346">   return dta;</Line>
+  <Line number="347">}	</Line>
+</SourceFile>

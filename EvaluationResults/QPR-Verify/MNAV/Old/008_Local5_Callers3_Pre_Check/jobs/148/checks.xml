@@ -1,0 +1,34 @@
+<VerificationJob>
+  <Configuration>
+    <AnalyzeChecksIndividually value="true" />
+    <BitcodeTraces value="false" />
+    <CheckCallers value="true" />
+    <DumpVerifierBitcodeFiles value="false" />
+    <EnableSlicing value="false" />
+    <EntryPoint value="ahrs_main" />
+    <FixPoint value="true" />
+    <ForkJobs value="true" />
+    <Hosted value="true" />
+    <IgnoreMissingFunctions value="false" />
+    <InitializedGlobals value="false" />
+    <LoopUnrollBound value="4" />
+    <PreconditionLocation value="jobs/148" />
+    <SourceDirectory value="/home/marko/Examples/23_MNAV/MNAV1.5" />
+    <TimeOut value="300" />
+    <XMLTraces value="false" />
+  </Configuration>
+  <CheckList>
+    <Check id="1569" location="1656" category="arithmetic.overflow" status="safe|functionbodymissing" scope="mat_mymul2">
+      <Annotations>
+        <Annotation>The function body for clock_gettime is missing (/home/marko/Examples/23_MNAV/MNAV1.5//home/marko/Examples/23_MNAV/MNAV1.5/misc.c:87:5)</Annotation>
+        <Annotation>The function body for clock_gettime is missing (/home/marko/Examples/23_MNAV/MNAV1.5//home/marko/Examples/23_MNAV/MNAV1.5/misc.c:90:2)</Annotation>
+        <Annotation>The function body for printf is missing (/home/marko/Examples/23_MNAV/MNAV1.5//home/marko/Examples/23_MNAV/MNAV1.5/ahrs_main.c:85:4)</Annotation>
+      </Annotations>
+      <EntryStatus>
+        <SingleEntryStatus>ahrs_main, safe|functionbodymissing</SingleEntryStatus>
+      </EntryStatus>
+    </Check>
+  </CheckList>
+  <Annotation>allsafe</Annotation>
+  <Status>allsafe</Status>
+</VerificationJob>

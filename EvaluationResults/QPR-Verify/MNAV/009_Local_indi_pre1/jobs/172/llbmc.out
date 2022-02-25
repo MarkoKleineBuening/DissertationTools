@@ -1,0 +1,189 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+handleJobInSeparateProcess0
+
+Checking job 172 ...about to run job:
+preconNumber: 5, 1
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 3
+    HavocLimit : 0
+    PreconditionNumber : 5
+    PreconditionLocation : jobs/172
+    TimeOut : 300
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : mat_cofact
+m_checker->run()
+
+    Performing bounded model checking ...
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...size Alloca: 1
+
+        Unrolling loop in function "_mat_creat" for 3 iterations succeeded.
+        Transformed "_mat_creat" from 10 to 17 basic blocks and from 54 to 97 instructions
+        Transformed "mat_error" from 5 to 10 basic blocks and from 10 to 19 instructions
+        Unrolling loop in function "mat_fill" for 3 iterations succeeded.
+        Unrolling loop in function "mat_fill" for 3 iterations succeeded.
+        Transformed "mat_fill" from 18 to 98 basic blocks and from 67 to 408 instructions
+        Unrolling loop in function "mat_submat" for 3 iterations succeeded.
+        Unrolling loop in function "mat_submat" for 3 iterations succeeded.
+        Transformed "mat_submat" from 17 to 65 basic blocks and from 106 to 426 instructions
+        Unrolling loop in function "mat_det" for 3 iterations succeeded.
+        Transformed "mat_det" from 13 to 20 basic blocks and from 79 to 139 instructions
+        Unrolling loop in function "mat_copy" for 3 iterations succeeded.
+        Unrolling loop in function "mat_copy" for 3 iterations succeeded.
+        Transformed "mat_copy" from 9 to 37 basic blocks and from 49 to 263 instructions
+        Unrolling loop in function "mat_lu" for 3 iterations succeeded.
+        Unrolling loop in function "mat_lu" for 3 iterations succeeded.
+        Unrolling loop in function "mat_lu" for 3 iterations succeeded.
+        Unrolling loop in function "mat_lu" for 3 iterations succeeded.
+        Unrolling loop in function "mat_lu" for 3 iterations succeeded.
+        Transformed "mat_lu" from 28 to 183 basic blocks and from 239 to 2361 instructions
+        Unrolling loop in function "mat_free" for 3 iterations succeeded.
+        Transformed "mat_free" from 8 to 13 basic blocks and from 33 to 65 instructions
+                                                           0 sec [DONE]
+        Number of expressions:                         15101
+        after encoding
+
+      75 assertions before transformations (29 no_function_call, 44 no_back_edge, 1 custom, 1 no_unreachable_executed).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            6191
+        Fixed Memory Address Assigner
+          Number of moved ops                              1
+          Number of rewrites                             389
+        Simplifier
+          Number of moved ops                              1
+          Number of rewrites                            8087
+        Memory Model Encoder
+          Number of moved ops                              0
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                               9
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                             346
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of rewrites                              24
+                                                           0 sec [DONE]
+        
+      75 assertions remain after transformations (29 no_function_call, 44 no_back_edge, 1 custom, 1 no_unreachable_executed).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...           27 sec [DONE]
+        
+                                                          27 sec [DONE]
+      after performing Check
+evaluateCheckerResultsViaRefinementLoop
+checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+BranchInst - LoopBound
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...           26 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+BranchInst - LoopBound
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...           31 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setCheckToUnsafe
+setCheckToUnsafe
+Check for floating point traces / abstractions currently deactivated
+getCheckerResultAfterUpdatingMarker
+failingInst:   call void @llbmc.assert(i1 %5, i32 %0)
+Preconditions internal: 
+i32 %arg1:2147483647; (i32 %arg1:2147483647)i32 %arg2:1; (i32 %arg2:1)
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: i32 %arg1 = nondef() : 2147483647
+assumePair: i32 %arg2 = nondef() : 1
+
+    Rerunning SMT solver (STP with MiniSat) ...           42 sec [DONE]
+      failingInst:   call void @llbmc.assert(i1 %5, i32 %0)
+Preconditions internal: 
+i32 %arg1:2147221504; (i32 %arg1:2147221504)i32 %arg2:262144; (i32 %arg2:262144)
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: i32 %arg1 = nondef() : 2147221504
+assumePair: i32 %arg2 = nondef() : 262144
+
+    Rerunning SMT solver (STP with MiniSat) ...           30 sec [DONE]
+      failingInst:   call void @llbmc.assert(i1 %5, i32 %0)
+Preconditions internal: 
+i32 %arg1:1; (i32 %arg1:1)i32 %arg2:2147483647; (i32 %arg2:2147483647)
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: i32 %arg1 = nondef() : 1
+assumePair: i32 %arg2 = nondef() : 2147483647
+
+    Rerunning SMT solver (STP with MiniSat) ...           26 sec [DONE]
+      failingInst:   call void @llbmc.assert(i1 %5, i32 %0)
+Preconditions internal: 
+i32 %arg1:3; (i32 %arg1:3)i32 %arg2:2147483647; (i32 %arg2:2147483647)
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: i32 %arg1 = nondef() : 3
+assumePair: i32 %arg2 = nondef() : 2147483647
+
+    Rerunning SMT solver (STP with MiniSat) ...           27 sec [DONE]
+      failingInst:   call void @llbmc.assert(i1 %5, i32 %0)
+Preconditions internal: 
+i32 %arg1:241; (i32 %arg1:241)i32 %arg2:2147483407; (i32 %arg2:2147483407)
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: i32 %arg1 = nondef() : 241
+assumePair: i32 %arg2 = nondef() : 2147483407
+
+    Rerunning SMT solver (STP with MiniSat) ...           27 sec [DONE]
+      name of function arguments: Writing precondition at: jobs/172/precondition_mat_cofact.txt
+
+Generated Preconditions:
+[underoverapprox]name of function arguments: 
+i32 %arg1:2147483647; i32 %arg2:1; 
+i32 %arg1:2147221504; i32 %arg2:262144; 
+i32 %arg1:1; i32 %arg2:2147483647; 
+i32 %arg1:3; i32 %arg2:2147483647; 
+i32 %arg1:241; i32 %arg2:2147483407; 
+
+                                                         241 sec [DONE]
+    allunsafe
+    
+                                                         241 sec [DONE]
+  

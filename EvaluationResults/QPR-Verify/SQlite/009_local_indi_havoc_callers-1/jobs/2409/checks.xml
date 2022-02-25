@@ -1,0 +1,35 @@
+<VerificationJob>
+  <Configuration>
+    <AnalyzeChecksIndividually value="true" />
+    <BitcodeTraces value="false" />
+    <CheckCallers value="true" />
+    <DumpVerifierBitcodeFiles value="false" />
+    <EnableSlicing value="false" />
+    <EntryPoint value="getPageNormal" />
+    <FixPoint value="true" />
+    <ForkJobs value="true" />
+    <HavocLimit value="2" />
+    <Hosted value="true" />
+    <IgnoreMissingFunctions value="false" />
+    <InitializedGlobals value="false" />
+    <LoopUnrollBound value="1" />
+    <PreconditionLocation value="jobs/2409" />
+    <SourceDirectory value="/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld" />
+    <TimeOut value="600" />
+    <XMLTraces value="false" />
+  </Configuration>
+  <CheckList>
+    <Check id="8038" location="8720" category="arithmetic.overflow" status="internalerror" scope="sqlite3PcacheFetchFinish">
+      <Annotations>
+        <Annotation>The model checker terminated with an exception (job:2409)</Annotation>
+      </Annotations>
+      <EntryStatus>
+        <SingleEntryStatus>getPageNormal, internalerror</SingleEntryStatus>
+        <SingleEntryStatus>pcacheFetchFinishWithInit, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3PagerLookup, unknown</SingleEntryStatus>
+      </EntryStatus>
+    </Check>
+  </CheckList>
+  <Annotation>The model checker terminated with an exception</Annotation>
+  <Status>internalerror</Status>
+</VerificationJob>

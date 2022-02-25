@@ -1,0 +1,34 @@
+<VerificationJob>
+  <Configuration>
+    <AnalyzeChecksIndividually value="true" />
+    <BitcodeTraces value="false" />
+    <CheckCallers value="true" />
+    <DumpVerifierBitcodeFiles value="false" />
+    <EnableSlicing value="true" />
+    <EntryPoint value="sqlite3BtreeBeginTrans" />
+    <FixPoint value="true" />
+    <ForkJobs value="true" />
+    <Hosted value="true" />
+    <IgnoreMissingFunctions value="false" />
+    <InitializedGlobals value="false" />
+    <LoopUnrollBound value="1" />
+    <PreconditionLocation value="jobs/3370" />
+    <SourceDirectory value="/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld" />
+    <TimeOut value="600" />
+    <XMLTraces value="false" />
+  </Configuration>
+  <CheckList>
+    <Check id="10765" location="11700" category="explicit.conversion.overflow" status="unsafe" scope="newDatabase">
+      <Annotations>
+        <Annotation>An explicit conversion operation can overflow.</Annotation>
+      </Annotations>
+      <EntryStatus>
+        <SingleEntryStatus>sqlite3BtreeBeginTrans, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3BtreeNewDb, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3BtreeSavepoint, unsafe</SingleEntryStatus>
+      </EntryStatus>
+    </Check>
+  </CheckList>
+  <Annotation>allunsafe</Annotation>
+  <Status>allunsafe</Status>
+</VerificationJob>

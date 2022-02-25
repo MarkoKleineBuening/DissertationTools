@@ -1,0 +1,10 @@
+configure-project TimeOut:300
+configure-project LoopUnrollBound:1
+configure-project AnalyzeChecksIndividually:false
+configure-project Hosted:true
+find-source-files
+murphy
+compile
+optimize-bitcode mem2reg instnamer
+copy-source-files
+check-all-functions-locally

@@ -1,0 +1,35 @@
+<VerificationJob>
+  <Configuration>
+    <AnalyzeChecksIndividually value="true" />
+    <BitcodeTraces value="false" />
+    <CheckCallers value="true" />
+    <DumpVerifierBitcodeFiles value="false" />
+    <EnableSlicing value="false" />
+    <EntryPoint value="do_meta_command" />
+    <FixPoint value="true" />
+    <ForkJobs value="true" />
+    <HavocLimit value="2" />
+    <Hosted value="true" />
+    <IgnoreMissingFunctions value="false" />
+    <InitializedGlobals value="false" />
+    <LoopUnrollBound value="1" />
+    <PreconditionLocation value="jobs/8294" />
+    <SourceDirectory value="/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld" />
+    <TimeOut value="600" />
+    <XMLTraces value="false" />
+  </Configuration>
+  <CheckList>
+    <Check id="27314" location="30596" category="arrayindex" status="safe|functionbodymissing" scope="sqlite3_limit">
+      <Annotations>
+        <Annotation>The function body for fopen64 is missing (/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld//home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld/shell.c:2286:8)</Annotation>
+      </Annotations>
+      <EntryStatus>
+        <SingleEntryStatus>do_meta_command, safe|functionbodymissing</SingleEntryStatus>
+        <SingleEntryStatus>readFileContents, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3Pragma, unknown</SingleEntryStatus>
+      </EntryStatus>
+    </Check>
+  </CheckList>
+  <Annotation>allsafe</Annotation>
+  <Status>allsafe</Status>
+</VerificationJob>

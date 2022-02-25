@@ -1,0 +1,153 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 1279 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 1
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/1279
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [1] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : process_input
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "process_input" for 1 iterations succeeded.
+      Unrolling loop in function "process_input" for 1 iterations succeeded.
+      Unrolling loop in function "process_input" for 1 iterations succeeded.
+      Unrolling loop in function "process_input" for 1 iterations succeeded.
+      Transformed "process_input" from 73 to 267 basic blocks and from 346 to 1235 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...Current: process_input Havoced: one_input_line
+Current: process_input Havoced: _all_whitespace
+Current: process_input Havoced: one_input_line
+Current: process_input Havoced: _all_whitespace
+Current: process_input Havoced: do_meta_command
+Current: process_input Havoced: one_input_line
+Current: process_input Havoced: _all_whitespace
+Current: process_input Havoced: one_input_line
+Current: process_input Havoced: _all_whitespace
+Current: process_input Havoced: line_is_command_terminator
+Current: process_input Havoced: line_is_complete
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %205, i8* getelementptr inbounds ([2 x i8], [2 x i8]* @.str.1201, i32 0, i32 0), i64 2, i32 1, i1 false), !dbg !5753
+Current: process_input Havoced: strlen30
+isMemmove:   call void @memmove(i8* %r, i8* %ptr, i64 %cpysize)
+Current: process_input Havoced: shell_out_of_memory
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %276, i8* %205, i64 %278, i32 1, i1 false), !dbg !5828
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %220, i8* %265, i64 %268, i32 1, i1 false), !dbg !5815
+Current: process_input Havoced: line_contains_semicolon
+Current: process_input Havoced: sqlite3_complete
+Current: process_input Havoced: _all_whitespace
+Current: process_input Havoced: runOneSqlLine
+Current: process_input Havoced: clearTempFile
+Current: process_input Havoced: output_reset
+Current: process_input Havoced: one_input_line
+Current: process_input Havoced: _all_whitespace
+Current: process_input Havoced: one_input_line
+Current: process_input Havoced: _all_whitespace
+Current: process_input Havoced: do_meta_command
+Current: process_input Havoced: one_input_line
+Current: process_input Havoced: _all_whitespace
+Current: process_input Havoced: one_input_line
+Current: process_input Havoced: _all_whitespace
+Current: process_input Havoced: line_is_command_terminator
+Current: process_input Havoced: line_is_complete
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %507, i8* getelementptr inbounds ([2 x i8], [2 x i8]* @.str.1201, i32 0, i32 0), i64 2, i32 1, i1 false), !dbg !5753
+Current: process_input Havoced: strlen30
+isMemmove:   call void @memmove(i8* %r, i8* %ptr, i64 %cpysize)
+Current: process_input Havoced: shell_out_of_memory
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %578, i8* %507, i64 %580, i32 1, i1 false), !dbg !5828
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %522, i8* %567, i64 %570, i32 1, i1 false), !dbg !5815
+Current: process_input Havoced: line_contains_semicolon
+Current: process_input Havoced: sqlite3_complete
+Current: process_input Havoced: _all_whitespace
+Current: process_input Havoced: runOneSqlLine
+Current: process_input Havoced: clearTempFile
+Current: process_input Havoced: output_reset
+Current: process_input Havoced: do_meta_command
+Current: process_input Havoced: do_meta_command
+Current: process_input Havoced: _all_whitespace
+Current: process_input Havoced: runOneSqlLine
+                      0 sec [DONE]
+        Number of expressions:                        158042
+        after encoding
+
+      40 assertions before transformations (27 no_function_call, 9 no_back_edge, 3 custom, 1 no_unreachable_executed).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            5749
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5212
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72605
+        Memory Model Encoder
+          Number of moved ops                              0
+          Number of rewrites                               5
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                             150
+        ToASC Analyser
+          Memcpy/memset found                            yes
+        Byte-Based Memory Creator
+          Number of rewrites                            9061
+        Instantiation-Based ToASC Simplifier
+          Number of rewrites                               6
+        Simplifier
+          Number of moved ops                             14
+          Number of rewrites                           23172
+        FP Abstraction
+          Number of rewrites                              22
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      40 assertions remain after transformations (27 no_function_call, 9 no_back_edge, 3 custom, 1 no_unreachable_executed).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...            0 sec [DONE]
+        
+                                                           1 sec [DONE]
+      after performing Check
+evaluateCheckerResultsViaRefinementLoop
+checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      getCheckerResultAfterUpdatingMarker
+Result is NoTrace
+
+                                                           2 sec [DONE]
+    allsafe
+    
+                                                           2 sec [DONE]
+  

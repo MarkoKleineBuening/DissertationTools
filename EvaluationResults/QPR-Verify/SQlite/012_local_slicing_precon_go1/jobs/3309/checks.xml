@@ -1,0 +1,40 @@
+<VerificationJob>
+  <Configuration>
+    <AnalyzeChecksIndividually value="true" />
+    <BitcodeTraces value="false" />
+    <CheckOnlyPrecondition value="true" />
+    <DumpVerifierBitcodeFiles value="false" />
+    <EnableSlicing value="true" />
+    <EntryPoint value="clearDatabasePage" />
+    <FixPoint value="true" />
+    <ForkJobs value="true" />
+    <Hosted value="true" />
+    <IgnoreMissingFunctions value="false" />
+    <InitializedGlobals value="false" />
+    <LoopUnrollBound value="1" />
+    <PreconditionLocation value="jobs/3309" />
+    <PreconditionNumber value="5" />
+    <SourceDirectory value="/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld" />
+    <StopEncodingAfterCheck value="true" />
+    <StopEncodingAfterCheckLoop value="1" />
+    <TimeOut value="600" />
+    <XMLTraces value="false" />
+  </Configuration>
+  <CheckList>
+    <Check id="10566" location="11505" category="implicit.conversion.overflow" status="unsafe" scope="zeroPage">
+      <Annotations>
+        <Annotation>An implicit conversion operation can overflow.</Annotation>
+      </Annotations>
+      <EntryStatus>
+        <SingleEntryStatus>balance_deeper, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>balance_nonroot, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>balance_quick, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>btreeCreateTable, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>clearDatabasePage, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>newDatabase, unsafe</SingleEntryStatus>
+      </EntryStatus>
+    </Check>
+  </CheckList>
+  <Annotation>allunsafe</Annotation>
+  <Status>allunsafe</Status>
+</VerificationJob>

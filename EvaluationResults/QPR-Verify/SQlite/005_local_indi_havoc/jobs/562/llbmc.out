@@ -1,0 +1,86 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 562 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 1
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/562
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : idxHashAdd
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "idxHashAdd" for 1 iterations succeeded.
+      Transformed "idxHashAdd" from 19 to 20 basic blocks and from 132 to 135 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...
+        Unrolling loop in function "llbmc.strlen" for 0 iterations succeeded.
+        Transformed "llbmc.strlen" from 8 to 9 instructionsCurrent: idxHashAdd Havoced: idxHashString
+
+        Unrolling loop in function "llbmc.memcmp" for 0 iterations succeeded.
+        Transformed "llbmc.memcmp" from 17 to 20 instructionsCurrent: idxHashAdd Havoced: idxMalloc
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %41, i8* %arg2, i64 %42, i32 1, i1 false), !dbg !5694
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %51, i8* %arg3, i64 %52, i32 1, i1 false), !dbg !5706
+
+                                                           0 sec [DONE]
+        Number of expressions:                        155369
+        after encoding
+
+      8 assertions before transformations (5 no_back_edge, 2 custom, 1 no_unreachable_executed).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            3612
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72606
+        Memory Model Encoder
+          Number of moved ops                              0
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                               2
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             142
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      8 assertions remain after transformations (5 no_back_edge, 2 custom, 1 no_unreachable_executed).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...

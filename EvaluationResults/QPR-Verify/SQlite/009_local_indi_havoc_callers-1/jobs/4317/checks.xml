@@ -1,0 +1,46 @@
+<VerificationJob>
+  <Configuration>
+    <AnalyzeChecksIndividually value="true" />
+    <BitcodeTraces value="false" />
+    <CheckCallers value="true" />
+    <DumpVerifierBitcodeFiles value="false" />
+    <EnableSlicing value="false" />
+    <EntryPoint value="sqlite3CompleteInsertion" />
+    <FixPoint value="true" />
+    <ForkJobs value="true" />
+    <HavocLimit value="2" />
+    <Hosted value="true" />
+    <IgnoreMissingFunctions value="false" />
+    <InitializedGlobals value="false" />
+    <LoopUnrollBound value="1" />
+    <PreconditionLocation value="jobs/4317" />
+    <SourceDirectory value="/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld" />
+    <TimeOut value="600" />
+    <XMLTraces value="false" />
+  </Configuration>
+  <CheckList>
+    <Check id="13100" location="14200" category="implicit.conversion.overflow" status="safe" scope="sqlite3VdbeAppendP4">
+      <EntryStatus>
+        <SingleEntryStatus>finalizeAggFunctions, safe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3ColumnDefault, safe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3CompleteInsertion, safe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3ExprCodeTarget, safe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3GenerateConstraintChecks, safe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3GenerateRowDelete, safe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3Update, safe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3VdbeSetP4KeyInfo, todo</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3WindowCodeInit, safe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3WindowCodeStep, safe</SingleEntryStatus>
+        <SingleEntryStatus>updateAccumulator, safe</SingleEntryStatus>
+        <SingleEntryStatus>windowAggFinal, safe</SingleEntryStatus>
+        <SingleEntryStatus>windowAggStep, safe</SingleEntryStatus>
+        <SingleEntryStatus>windowCheckValue, safe</SingleEntryStatus>
+        <SingleEntryStatus>windowCodeRangeTest, safe</SingleEntryStatus>
+        <SingleEntryStatus>windowFullScan, safe</SingleEntryStatus>
+        <SingleEntryStatus>windowIfNewPeer, safe</SingleEntryStatus>
+      </EntryStatus>
+    </Check>
+  </CheckList>
+  <Annotation>allsafe</Annotation>
+  <Status>allsafe</Status>
+</VerificationJob>

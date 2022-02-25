@@ -1,0 +1,36 @@
+<VerificationJob>
+  <Configuration>
+    <AnalyzeChecksIndividually value="true" />
+    <BitcodeTraces value="false" />
+    <CheckCallers value="true" />
+    <DumpVerifierBitcodeFiles value="false" />
+    <EnableSlicing value="false" />
+    <EntryPoint value="sqlite3CodeVerifySchema" />
+    <FixPoint value="true" />
+    <ForkJobs value="true" />
+    <HavocLimit value="2" />
+    <Hosted value="true" />
+    <IgnoreMissingFunctions value="false" />
+    <InitializedGlobals value="false" />
+    <LoopUnrollBound value="1" />
+    <PreconditionLocation value="jobs/5988" />
+    <SourceDirectory value="/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld" />
+    <TimeOut value="600" />
+    <XMLTraces value="false" />
+  </Configuration>
+  <CheckList>
+    <Check id="18616" location="20556" category="shift.by.amount" status="unsafe" scope="sqlite3CodeVerifySchemaAtToplevel">
+      <Annotations>
+        <Annotation>Shift operation can be by more than bitwidth.</Annotation>
+        <Annotation>Shift operation can be by more than bitwidth.</Annotation>
+        <Annotation>Shift operation can be by more than bitwidth.</Annotation>
+      </Annotations>
+      <EntryStatus>
+        <SingleEntryStatus>sqlite3BeginWriteOperation, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3CodeVerifySchema, unsafe</SingleEntryStatus>
+      </EntryStatus>
+    </Check>
+  </CheckList>
+  <Annotation>allunsafe</Annotation>
+  <Status>allunsafe</Status>
+</VerificationJob>

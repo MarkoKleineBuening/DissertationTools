@@ -1,0 +1,11 @@
+configure-project TimeOut:300
+configure-project LoopUnrollBound:3
+configure-project AnalyzeChecksIndividually:false
+configure-project EnableSlicing:false
+find-source-files
+murphy
+compile
+optimize-bitcode mem2reg instnamer
+copy-source-files
+configure-project HavocLimit:1
+check-all-functions-locally

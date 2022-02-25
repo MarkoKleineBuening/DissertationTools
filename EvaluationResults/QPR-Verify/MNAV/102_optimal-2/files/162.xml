@@ -1,0 +1,270 @@
+<SourceFile>
+  <Line number="1">/*-------------------------------------------------------------------</Line>
+  <Line number="2"> *</Line>
+  <Line number="3"> *     Module:          Navfuncs.c</Line>
+  <Line number="4"> *     Modified:        Gokhan Inalhan (remaining) </Line>
+  <Line number="5"> *                      Demoz Gebre (first three functions)</Line>
+  <Line number="6"> *                      Jung Soon Jang</Line>
+  <Line number="7"> *    </Line>
+  <Line number="8"> *     Description:     navfunc.c contains the listing for all the</Line>
+  <Line number="9"> *                      real-time inertial navigation software.</Line>
+  <Line number="10"> *</Line>
+  <Line number="11"> *		Note: all the functions here do not create memory without</Line>
+  <Line number="12"> *			  clearing it.</Line>
+  <Line number="13"> *</Line>
+  <Line number="14"> *--------------------------------------------------------------------*/</Line>
+  <Line number="15"></Line>
+  <Line number="16">/*     Include Pertinent Header Files */</Line>
+  <Line number="17"></Line>
+  <Line number="18">#include &lt;math.h&gt;</Line>
+  <Line number="19">#include &quot;matrix.h&quot;</Line>
+  <Line number="20">#include &quot;navfunc.h&quot;</Line>
+  <Line number="21"></Line>
+  <Line number="22">/*=================================================================*/</Line>
+  <Line number="23"></Line>
+  <Line number="24">// dcm better be 3 x 3</Line>
+  <Line number="25">MATRIX EulerToDcm(MATRIX euler, double decA, MATRIX dcm)</Line>
+  <Line number="26">{</Line>
+  <Line number="27">  MATRIX A,B;</Line>
+  <Line number="28">  double cPHI,sPHI,cTHE,sTHE,cPSI,sPSI;</Line>
+  <Line number="29">  </Line>
+  <Line number="30">  cPHI <CheckRefs ids="2058">=</CheckRefs> cos(euler[2][0]); sPHI <CheckRefs ids="2059">=</CheckRefs> sin(euler[2][0]);</Line>
+  <Line number="31">  cTHE <CheckRefs ids="2060">=</CheckRefs> cos(euler[1][0]); sTHE <CheckRefs ids="2061">=</CheckRefs> sin(euler[1][0]);</Line>
+  <Line number="32">  cPSI <CheckRefs ids="2062">=</CheckRefs> cos(euler[0][0]); sPSI <CheckRefs ids="2063">=</CheckRefs> sin(euler[0][0]);</Line>
+  <Line number="33"></Line>
+  <Line number="34">  A = mat_creat(3,3,ZERO_MATRIX);</Line>
+  <Line number="35">  B = mat_creat(3,3,<CheckRefs ids="2064">UNDEFINED</CheckRefs>);</Line>
+  <Line number="36">  </Line>
+  <Line number="37">  A[0][0] <CheckRefs ids="2065">=</CheckRefs> cos(decA); A[0][1] <CheckRefs ids="2066">=</CheckRefs><CheckRefs ids="2067">-</CheckRefs>sin(decA);</Line>
+  <Line number="38">  A[1][0] <CheckRefs ids="2068">=</CheckRefs> sin(decA); A[1][1] <CheckRefs ids="2069">=</CheckRefs> cos(decA);</Line>
+  <Line number="39">  A[2][2] <CheckRefs ids="2070">=</CheckRefs> <CheckRefs ids="2071">1</CheckRefs>;</Line>
+  <Line number="40">    </Line>
+  <Line number="41">  B[0][0] <CheckRefs ids="2072">=</CheckRefs> cTHE<CheckRefs ids="2073">*</CheckRefs>cPSI; B[0][1] <CheckRefs ids="2074">=</CheckRefs> sPHI<CheckRefs ids="2077">*</CheckRefs>sTHE<CheckRefs ids="2076">*</CheckRefs>cPSI<CheckRefs ids="2075">-</CheckRefs>cPHI<CheckRefs ids="2078">*</CheckRefs>sPSI; B[0][2] <CheckRefs ids="2079">=</CheckRefs> cPHI<CheckRefs ids="2082">*</CheckRefs>sTHE<CheckRefs ids="2081">*</CheckRefs>cPSI<CheckRefs ids="2080">+</CheckRefs>sPHI<CheckRefs ids="2083">*</CheckRefs>sPSI;</Line>
+  <Line number="42">  B[1][0] <CheckRefs ids="2084">=</CheckRefs> cTHE<CheckRefs ids="2085">*</CheckRefs>sPSI; B[1][1] <CheckRefs ids="2086">=</CheckRefs> sPHI<CheckRefs ids="2089">*</CheckRefs>sTHE<CheckRefs ids="2088">*</CheckRefs>sPSI<CheckRefs ids="2087">+</CheckRefs>cPHI<CheckRefs ids="2090">*</CheckRefs>cPSI; B[1][2] <CheckRefs ids="2091">=</CheckRefs> cPHI<CheckRefs ids="2094">*</CheckRefs>sTHE<CheckRefs ids="2093">*</CheckRefs>sPSI<CheckRefs ids="2092">-</CheckRefs>sPHI<CheckRefs ids="2095">*</CheckRefs>cPSI;</Line>
+  <Line number="43">  B[2][0] <CheckRefs ids="2096">=</CheckRefs><CheckRefs ids="2097">-</CheckRefs>sTHE;      B[2][1] <CheckRefs ids="2098">=</CheckRefs> sPHI<CheckRefs ids="2099">*</CheckRefs>cTHE;                B[2][2] <CheckRefs ids="2100">=</CheckRefs> cPHI<CheckRefs ids="2101">*</CheckRefs>cTHE;</Line>
+  <Line number="44">  </Line>
+  <Line number="45">  mat_mul(A,B,dcm);</Line>
+  <Line number="46">  </Line>
+  <Line number="47">  mat_free(A);</Line>
+  <Line number="48">  mat_free(B);</Line>
+  <Line number="49">  </Line>
+  <Line number="50">  return(dcm);</Line>
+  <Line number="51"></Line>
+  <Line number="52">}</Line>
+  <Line number="53"></Line>
+  <Line number="54"></Line>
+  <Line number="55"></Line>
+  <Line number="56"></Line>
+  <Line number="57">/*=================================================================*/</Line>
+  <Line number="58"></Line>
+  <Line number="59">void EcefToLatLonAlt(MATRIX vector)</Line>
+  <Line number="60">{</Line>
+  <Line number="61"></Line>
+  <Line number="62">  int i;</Line>
+  <Line number="63">  double x, y, z, q, p, sinlat, sinlat2;</Line>
+  <Line number="64">  double a, b, d, radius, lat, alt, dummy;</Line>
+  <Line number="65">  double E_WGS84, E2_WGS84, ONE_MIN_E2, A_WGS84;</Line>
+  <Line number="66">  MATRIX lla;</Line>
+  <Line number="67"></Line>
+  <Line number="68">  lla = mat_creat(3,1,ZERO_MATRIX);</Line>
+  <Line number="69"></Line>
+  <Line number="70">  E_WGS84 <CheckRefs ids="2102">=</CheckRefs> ECCENTRICITY;   /* Earth ellipse ecc - unitless */</Line>
+  <Line number="71">  E2_WGS84 <CheckRefs ids="2103">=</CheckRefs> E_WGS84<CheckRefs ids="2104">*</CheckRefs>E_WGS84;  /* Earth&apos;s ellipse ecc^2 - unitless */</Line>
+  <Line number="72">  ONE_MIN_E2 <CheckRefs ids="2105">=</CheckRefs> 1.0 <CheckRefs ids="2106">-</CheckRefs> E2_WGS84;</Line>
+  <Line number="73">  A_WGS84 <CheckRefs ids="2107">=</CheckRefs> <CheckRefs ids="2108">EARTH_RADIUS</CheckRefs>;         /* Earth&apos;s ellipse semi-major axis - meters */</Line>
+  <Line number="74"></Line>
+  <Line number="75">  x <CheckRefs ids="2109">=</CheckRefs> vector[0][0];</Line>
+  <Line number="76">  y <CheckRefs ids="2110">=</CheckRefs> vector[1][0];</Line>
+  <Line number="77">  z <CheckRefs ids="2111">=</CheckRefs> vector[2][0];</Line>
+  <Line number="78"></Line>
+  <Line number="79">  lla[1][0] <CheckRefs ids="2112">=</CheckRefs> atan2(y, x);           /*  Longitude  */</Line>
+  <Line number="80"></Line>
+  <Line number="81">  p <CheckRefs ids="2113">=</CheckRefs> sqrt((x <CheckRefs ids="2115">*</CheckRefs> x) <CheckRefs ids="2114">+</CheckRefs> (y <CheckRefs ids="2116">*</CheckRefs> y));      /*  Latitude and Altitude  */</Line>
+  <Line number="82"></Line>
+  <Line number="83">  if (p &lt; 0.1)</Line>
+  <Line number="84">  {  </Line>
+  <Line number="85">    p <CheckRefs ids="2117">=</CheckRefs> 0.1;</Line>
+  <Line number="86">  }</Line>
+  <Line number="87"></Line>
+  <Line number="88">  q <CheckRefs ids="2118">=</CheckRefs> z <CheckRefs ids="2119,2120">/</CheckRefs> p;</Line>
+  <Line number="89">  alt <CheckRefs ids="2121">=</CheckRefs> 0.0;</Line>
+  <Line number="90">  lat <CheckRefs ids="2122">=</CheckRefs> atan(q <CheckRefs ids="2123">*</CheckRefs> (1.0 <CheckRefs ids="2124,2125">/</CheckRefs> ONE_MIN_E2));</Line>
+  <Line number="91">  a <CheckRefs ids="2126">=</CheckRefs> 1.0;</Line>
+  <Line number="92">  i = 0;</Line>
+  <Line number="93"></Line>
+  <Line number="94">  while ((a &gt; 0.2) &amp;&amp; (i &lt; 20))</Line>
+  <Line number="95">    {</Line>
+  <Line number="96">        sinlat <CheckRefs ids="2127">=</CheckRefs> sin(lat);</Line>
+  <Line number="97">        sinlat2 <CheckRefs ids="2128">=</CheckRefs> sinlat <CheckRefs ids="2129">*</CheckRefs> sinlat;</Line>
+  <Line number="98">        dummy <CheckRefs ids="2130">=</CheckRefs>sqrt((1.0 <CheckRefs ids="2132">-</CheckRefs> (E2_WGS84 <CheckRefs ids="2133">*</CheckRefs> sinlat2))<CheckRefs ids="2131">*</CheckRefs>(1.0 <CheckRefs ids="2134">-</CheckRefs> (E2_WGS84 <CheckRefs ids="2135">*</CheckRefs> sinlat2)));</Line>
+  <Line number="99">        radius <CheckRefs ids="2136">=</CheckRefs> A_WGS84 <CheckRefs ids="2137,2138">/</CheckRefs> sqrt(dummy);</Line>
+  <Line number="100">        d <CheckRefs ids="2139">=</CheckRefs> alt;</Line>
+  <Line number="101">        alt <CheckRefs ids="2140">=</CheckRefs> (p <CheckRefs ids="2143,2142">/</CheckRefs> cos(lat)) <CheckRefs ids="2141">-</CheckRefs> radius;</Line>
+  <Line number="102">        a <CheckRefs ids="2144">=</CheckRefs> q <CheckRefs ids="2145">*</CheckRefs> (radius <CheckRefs ids="2146">+</CheckRefs> alt);</Line>
+  <Line number="103">        b <CheckRefs ids="2147">=</CheckRefs> (ONE_MIN_E2 <CheckRefs ids="2149">*</CheckRefs> radius) <CheckRefs ids="2148">+</CheckRefs> alt;</Line>
+  <Line number="104">        lat <CheckRefs ids="2150">=</CheckRefs> atan2(a, b);</Line>
+  <Line number="105">        a <CheckRefs ids="2151">=</CheckRefs> sqrt((alt <CheckRefs ids="2153">-</CheckRefs> d)<CheckRefs ids="2152">*</CheckRefs>(alt <CheckRefs ids="2154">-</CheckRefs> d));</Line>
+  <Line number="106">        i = i <CheckRefs ids="2155">+</CheckRefs> 1;</Line>
+  <Line number="107">    }</Line>
+  <Line number="108"></Line>
+  <Line number="109">    lla[0][0] <CheckRefs ids="2156">=</CheckRefs> lat;</Line>
+  <Line number="110">    lla[2][0] <CheckRefs ids="2157">=</CheckRefs> alt;</Line>
+  <Line number="111"></Line>
+  <Line number="112">    for (i = 0; i &lt; 3; i<CheckRefs ids="2158">++</CheckRefs>)</Line>
+  <Line number="113">      {</Line>
+  <Line number="114">        vector[i][0] <CheckRefs ids="2159">=</CheckRefs> lla[i][0];</Line>
+  <Line number="115">      }</Line>
+  <Line number="116">      </Line>
+  <Line number="117">      mat_free(lla);</Line>
+  <Line number="118"></Line>
+  <Line number="119">}</Line>
+  <Line number="120"></Line>
+  <Line number="121"></Line>
+  <Line number="122">/*=================================================================*/</Line>
+  <Line number="123"></Line>
+  <Line number="124">void EcefToEnu(MATRIX outputVector, MATRIX inputVector, MATRIX position)</Line>
+  <Line number="125">{</Line>
+  <Line number="126"></Line>
+  <Line number="127">  int i;</Line>
+  <Line number="128">  double lat, lon;</Line>
+  <Line number="129">  MATRIX C, ned, ref_position;</Line>
+  <Line number="130">  MATRIX position_copy, delta_pos;</Line>
+  <Line number="131"></Line>
+  <Line number="132">  C = mat_creat(3,3,ZERO_MATRIX);</Line>
+  <Line number="133">  ref_position = mat_creat(3,1,ZERO_MATRIX);</Line>
+  <Line number="134">  delta_pos = mat_creat(3,1,ZERO_MATRIX);</Line>
+  <Line number="135">  position_copy = mat_creat(MatRow(position),MatCol(position),ZERO_MATRIX);</Line>
+  <Line number="136">  mat_copy(position, position_copy);</Line>
+  <Line number="137"></Line>
+  <Line number="138">  lat <CheckRefs ids="2160">=</CheckRefs> position[0][0];</Line>
+  <Line number="139">  lon <CheckRefs ids="2161">=</CheckRefs> position[1][0];</Line>
+  <Line number="140"></Line>
+  <Line number="141">  LatLonAltToEcef(ref_position,position_copy);</Line>
+  <Line number="142"></Line>
+  <Line number="143">  mat_sub(inputVector,ref_position,delta_pos);</Line>
+  <Line number="144"></Line>
+  <Line number="145">  C[0][0] <CheckRefs ids="2162">=</CheckRefs> <CheckRefs ids="2163">-</CheckRefs>sin(lon);</Line>
+  <Line number="146">  C[0][1] <CheckRefs ids="2164">=</CheckRefs> cos(lon);</Line>
+  <Line number="147">  C[0][2] <CheckRefs ids="2165">=</CheckRefs> <CheckRefs ids="2166">0</CheckRefs>;</Line>
+  <Line number="148">  </Line>
+  <Line number="149">  C[1][0] <CheckRefs ids="2167">=</CheckRefs> <CheckRefs ids="2169">-</CheckRefs>sin(lat)<CheckRefs ids="2168">*</CheckRefs>cos(lon);</Line>
+  <Line number="150">  C[1][1] <CheckRefs ids="2170">=</CheckRefs> <CheckRefs ids="2172">-</CheckRefs>sin(lat)<CheckRefs ids="2171">*</CheckRefs>sin(lon);</Line>
+  <Line number="151">  C[1][2] <CheckRefs ids="2173">=</CheckRefs> cos(lat);</Line>
+  <Line number="152">  </Line>
+  <Line number="153">  C[2][0] <CheckRefs ids="2174">=</CheckRefs> cos(lat)<CheckRefs ids="2175">*</CheckRefs>cos(lon);</Line>
+  <Line number="154">  C[2][1] <CheckRefs ids="2176">=</CheckRefs> cos(lat)<CheckRefs ids="2177">*</CheckRefs>sin(lon);</Line>
+  <Line number="155">  C[2][2] <CheckRefs ids="2178">=</CheckRefs> sin(lat);</Line>
+  <Line number="156"></Line>
+  <Line number="157">  ned = mat_creat(MatRow(C),MatCol(delta_pos),ZERO_MATRIX);</Line>
+  <Line number="158">  mat_mul(C,delta_pos,ned);</Line>
+  <Line number="159"></Line>
+  <Line number="160">  for (i = 0; i &lt; 3; i<CheckRefs ids="2179">++</CheckRefs>)</Line>
+  <Line number="161">    {</Line>
+  <Line number="162">      outputVector[i][0] <CheckRefs ids="2180">=</CheckRefs> ned[i][0];</Line>
+  <Line number="163">    }</Line>
+  <Line number="164"></Line>
+  <Line number="165">  mat_free(ned);</Line>
+  <Line number="166">  mat_free(C);</Line>
+  <Line number="167">  mat_free(delta_pos);</Line>
+  <Line number="168">  mat_free(ref_position);</Line>
+  <Line number="169">  mat_free(position_copy);</Line>
+  <Line number="170">  </Line>
+  <Line number="171">}</Line>
+  <Line number="172"></Line>
+  <Line number="173">/*=================================================================*/</Line>
+  <Line number="174"></Line>
+  <Line number="175">void LatLonAltToEcef(MATRIX vector, MATRIX position)</Line>
+  <Line number="176">{</Line>
+  <Line number="177"></Line>
+  <Line number="178"> </Line>
+  <Line number="179">  double Rn, ecc2, alt, denom;</Line>
+  <Line number="180">  double sinlat, coslat, coslon, sinlon;</Line>
+  <Line number="181"></Line>
+  <Line number="182"></Line>
+  <Line number="183">  ecc2 <CheckRefs ids="2181">=</CheckRefs> ECCENTRICITY<CheckRefs ids="2182">*</CheckRefs>ECCENTRICITY; </Line>
+  <Line number="184">  sinlat <CheckRefs ids="2183">=</CheckRefs> sin(position[0][0]);</Line>
+  <Line number="185">  coslat <CheckRefs ids="2184">=</CheckRefs> cos(position[0][0]);</Line>
+  <Line number="186">  coslon <CheckRefs ids="2185">=</CheckRefs> cos(position[1][0]);</Line>
+  <Line number="187">  sinlon <CheckRefs ids="2186">=</CheckRefs> sin(position[1][0]);</Line>
+  <Line number="188">  alt <CheckRefs ids="2187">=</CheckRefs> position[2][0];</Line>
+  <Line number="189"></Line>
+  <Line number="190">  denom <CheckRefs ids="2188">=</CheckRefs> (1.0 <CheckRefs ids="2189">-</CheckRefs> (ecc2 <CheckRefs ids="2191">*</CheckRefs> sinlat <CheckRefs ids="2190">*</CheckRefs> sinlat));</Line>
+  <Line number="191">  denom <CheckRefs ids="2192">=</CheckRefs> sqrt(denom<CheckRefs ids="2193">*</CheckRefs>denom);</Line>
+  <Line number="192"></Line>
+  <Line number="193">  Rn <CheckRefs ids="2194">=</CheckRefs> <CheckRefs ids="2197">EARTH_RADIUS</CheckRefs> <CheckRefs ids="2195,2196">/</CheckRefs> sqrt(denom);</Line>
+  <Line number="194"></Line>
+  <Line number="195">//  vector[0][0] = (Rn - alt) * coslat * coslon;</Line>
+  <Line number="196">// vector[1][0] = (Rn - alt) * coslat * sinlon;</Line>
+  <Line number="197">//  vector[2][0] = (Rn * (1.0 - ecc2) - alt) * sinlat;</Line>
+  <Line number="198">  vector[0][0] <CheckRefs ids="2198">=</CheckRefs> (Rn <CheckRefs ids="2201">+</CheckRefs> alt) <CheckRefs ids="2200">*</CheckRefs> coslat <CheckRefs ids="2199">*</CheckRefs> coslon;</Line>
+  <Line number="199">  vector[1][0] <CheckRefs ids="2202">=</CheckRefs> (Rn <CheckRefs ids="2205">+</CheckRefs> alt) <CheckRefs ids="2204">*</CheckRefs> coslat <CheckRefs ids="2203">*</CheckRefs> sinlon;</Line>
+  <Line number="200">  vector[2][0] <CheckRefs ids="2206">=</CheckRefs> (Rn <CheckRefs ids="2209">*</CheckRefs> (1.0 <CheckRefs ids="2210">-</CheckRefs> ecc2) <CheckRefs ids="2208">+</CheckRefs> alt) <CheckRefs ids="2207">*</CheckRefs> sinlat;</Line>
+  <Line number="201">}</Line>
+  <Line number="202"></Line>
+  <Line number="203">/*=================================================================*/</Line>
+  <Line number="204"></Line>
+  <Line number="205">void nCltrans(MATRIX n_C_l, double magdec)</Line>
+  <Line number="206">{</Line>
+  <Line number="207">    double gamma;</Line>
+  <Line number="208"></Line>
+  <Line number="209">    gamma<CheckRefs ids="2211">=</CheckRefs>magdec;</Line>
+  <Line number="210">    n_C_l[0][0]<CheckRefs ids="2212">=</CheckRefs><CheckRefs ids="2213">-</CheckRefs>sin(gamma);</Line>
+  <Line number="211">    n_C_l[0][1]<CheckRefs ids="2214">=</CheckRefs>cos(gamma);</Line>
+  <Line number="212">    n_C_l[0][2]<CheckRefs ids="2215">=</CheckRefs><CheckRefs ids="2216">0</CheckRefs>;</Line>
+  <Line number="213">    n_C_l[1][0]<CheckRefs ids="2217">=</CheckRefs>cos(gamma);</Line>
+  <Line number="214">    n_C_l[1][1]<CheckRefs ids="2218">=</CheckRefs>sin(gamma);</Line>
+  <Line number="215">    n_C_l[1][2]<CheckRefs ids="2219">=</CheckRefs><CheckRefs ids="2220">0</CheckRefs>;</Line>
+  <Line number="216">    n_C_l[2][0]<CheckRefs ids="2221">=</CheckRefs><CheckRefs ids="2222">0</CheckRefs>;</Line>
+  <Line number="217">    n_C_l[2][1]<CheckRefs ids="2223">=</CheckRefs><CheckRefs ids="2224">0</CheckRefs>;</Line>
+  <Line number="218">    n_C_l[2][2]<CheckRefs ids="2225">=</CheckRefs><CheckRefs ids="2227,2226">-</CheckRefs>1;</Line>
+  <Line number="219"></Line>
+  <Line number="220">}</Line>
+  <Line number="221"></Line>
+  <Line number="222"></Line>
+  <Line number="223">/*=================================================================*/</Line>
+  <Line number="224"></Line>
+  <Line number="225">void eCntrans(MATRIX e_C_n, MATRIX LatLon)</Line>
+  <Line number="226">{</Line>
+  <Line number="227">    double lat,lon;</Line>
+  <Line number="228">    </Line>
+  <Line number="229">    lat<CheckRefs ids="2228">=</CheckRefs>LatLon[0][0];</Line>
+  <Line number="230">    lon<CheckRefs ids="2229">=</CheckRefs>LatLon[1][0];</Line>
+  <Line number="231">    </Line>
+  <Line number="232">    e_C_n[0][0]<CheckRefs ids="2230">=</CheckRefs><CheckRefs ids="2231">-</CheckRefs>sin(lon);</Line>
+  <Line number="233">    e_C_n[0][1]<CheckRefs ids="2232">=</CheckRefs><CheckRefs ids="2234">-</CheckRefs>cos(lon)<CheckRefs ids="2233">*</CheckRefs>sin(lat);</Line>
+  <Line number="234">    e_C_n[0][2]<CheckRefs ids="2235">=</CheckRefs>cos(lon)<CheckRefs ids="2236">*</CheckRefs>sin(lat);</Line>
+  <Line number="235"> </Line>
+  <Line number="236">    e_C_n[1][0]<CheckRefs ids="2237">=</CheckRefs>cos(lon);</Line>
+  <Line number="237">    e_C_n[1][1]<CheckRefs ids="2238">=</CheckRefs><CheckRefs ids="2240">-</CheckRefs>sin(lat)<CheckRefs ids="2239">*</CheckRefs>sin(lon);</Line>
+  <Line number="238">    e_C_n[1][2]<CheckRefs ids="2241">=</CheckRefs>sin(lon)<CheckRefs ids="2242">*</CheckRefs>cos(lat);</Line>
+  <Line number="239"></Line>
+  <Line number="240">    e_C_n[2][0]<CheckRefs ids="2243">=</CheckRefs><CheckRefs ids="2244">0</CheckRefs>;</Line>
+  <Line number="241">    e_C_n[2][1]<CheckRefs ids="2245">=</CheckRefs>cos(lat);</Line>
+  <Line number="242">    e_C_n[2][2]<CheckRefs ids="2246">=</CheckRefs>sin(lat);</Line>
+  <Line number="243">}</Line>
+  <Line number="244"></Line>
+  <Line number="245"></Line>
+  <Line number="246">/*=====================================================================*/</Line>
+  <Line number="247"></Line>
+  <Line number="248">void lCbtrans(MATRIX l_C_b, MATRIX YawPitchRoll)</Line>
+  <Line number="249">{</Line>
+  <Line number="250">    double psi,theta,phi;</Line>
+  <Line number="251">    </Line>
+  <Line number="252">    psi<CheckRefs ids="2247">=</CheckRefs>YawPitchRoll[0][0];</Line>
+  <Line number="253">    theta<CheckRefs ids="2248">=</CheckRefs>YawPitchRoll[1][0];</Line>
+  <Line number="254">    phi<CheckRefs ids="2249">=</CheckRefs>YawPitchRoll[2][0];</Line>
+  <Line number="255">    </Line>
+  <Line number="256">    l_C_b[0][0]<CheckRefs ids="2250">=</CheckRefs>cos(theta)<CheckRefs ids="2251">*</CheckRefs>cos(psi);</Line>
+  <Line number="257">    l_C_b[0][1]<CheckRefs ids="2252">=</CheckRefs><CheckRefs ids="2255">-</CheckRefs>cos(phi)<CheckRefs ids="2254">*</CheckRefs>sin(psi)<CheckRefs ids="2253">+</CheckRefs>sin(phi)<CheckRefs ids="2257">*</CheckRefs>sin(theta)<CheckRefs ids="2256">*</CheckRefs>cos(psi);</Line>
+  <Line number="258">    l_C_b[0][2]<CheckRefs ids="2258">=</CheckRefs>sin(phi)<CheckRefs ids="2260">*</CheckRefs>sin(psi)<CheckRefs ids="2259">+</CheckRefs>cos(phi)<CheckRefs ids="2262">*</CheckRefs>sin(theta)<CheckRefs ids="2261">*</CheckRefs>cos(psi);</Line>
+  <Line number="259"> </Line>
+  <Line number="260">    l_C_b[1][0]<CheckRefs ids="2263">=</CheckRefs>cos(theta)<CheckRefs ids="2264">*</CheckRefs>sin(psi);</Line>
+  <Line number="261">    l_C_b[1][1]<CheckRefs ids="2265">=</CheckRefs>cos(phi)<CheckRefs ids="2267">*</CheckRefs>cos(psi)<CheckRefs ids="2266">+</CheckRefs>sin(phi)<CheckRefs ids="2269">*</CheckRefs>sin(theta)<CheckRefs ids="2268">*</CheckRefs>sin(psi);</Line>
+  <Line number="262">    l_C_b[1][2]<CheckRefs ids="2270">=</CheckRefs><CheckRefs ids="2273">-</CheckRefs>sin(phi)<CheckRefs ids="2272">*</CheckRefs>cos(psi)<CheckRefs ids="2271">+</CheckRefs>cos(phi)<CheckRefs ids="2275">*</CheckRefs>sin(theta)<CheckRefs ids="2274">*</CheckRefs>sin(psi);</Line>
+  <Line number="263"></Line>
+  <Line number="264">    l_C_b[2][0]<CheckRefs ids="2276">=</CheckRefs><CheckRefs ids="2277">-</CheckRefs>sin(theta);</Line>
+  <Line number="265">    l_C_b[2][1]<CheckRefs ids="2278">=</CheckRefs>sin(phi)<CheckRefs ids="2279">*</CheckRefs>cos(theta);</Line>
+  <Line number="266">    l_C_b[2][2]<CheckRefs ids="2280">=</CheckRefs>cos(phi)<CheckRefs ids="2281">*</CheckRefs>cos(theta);</Line>
+  <Line number="267">}</Line>
+  <Line number="268"></Line>
+</SourceFile>

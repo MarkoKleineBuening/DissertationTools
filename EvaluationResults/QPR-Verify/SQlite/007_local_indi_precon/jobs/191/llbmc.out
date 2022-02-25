@@ -1,0 +1,159 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+handleJobInSeparateProcess0
+
+Checking job 191 ...about to run job:
+preconNumber: 5, 1
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 1
+    LoopUnrollBound : 1
+    HavocLimit : 0
+    PreconditionNumber : 5
+    PreconditionLocation : jobs/191
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : true
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : uintCollFunc
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "uintCollFunc" for 1 iterations succeeded.
+      Unrolling loop in function "uintCollFunc" for 1 iterations succeeded.
+      Unrolling loop in function "uintCollFunc" for 1 iterations succeeded.
+      Unrolling loop in function "uintCollFunc" for 1 iterations succeeded.
+      Transformed "uintCollFunc" from 42 to 104 basic blocks and from 265 to 681 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...size Alloca: 1
+size Alloca: 1
+size Alloca: 1
+-----found check = true
+
+        Unrolling loop in function "llbmc.memcmp" for 0 iterations succeeded.
+        Transformed "llbmc.memcmp" from 17 to 20 instructions
+                                                           0 sec [DONE]
+        Number of expressions:                        155638
+        after encoding
+
+      10 assertions before transformations (8 no_function_call, 1 no_back_edge, 1 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            3815
+        Fixed Memory Address Assigner
+          Number of moved ops                              3
+          Number of rewrites                            5211
+        Simplifier
+          Number of moved ops                              3
+          Number of rewrites                           72603
+        Memory Model Encoder
+          Number of moved ops                              0
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                             142
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      10 assertions remain after transformations (8 no_function_call, 1 no_back_edge, 1 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...            0 sec [DONE]
+        
+                                                           0 sec [DONE]
+      after performing Check
+evaluateCheckerResultsViaRefinementLoop
+checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+getCheckerResultAfterUpdatingMarker
+failingInst:   %14 = call i16** @__ctype_b_loc() #2, !dbg !5645
+Preconditions internal: 
+i32 %arg1:2147483647; (i32 %arg1:2147483647)i32 %arg3:2147483647; (i32 %arg3:2147483647)
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: i32 %arg1 = nondef() : 2147483647
+assumePair: i32 %arg3 = nondef() : 2147483647
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   %14 = call i16** @__ctype_b_loc() #2, !dbg !5645
+Preconditions internal: 
+i32 %arg1:1; (i32 %arg1:1)i32 %arg3:1; (i32 %arg3:1)
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: i32 %arg1 = nondef() : 1
+assumePair: i32 %arg3 = nondef() : 1
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   %14 = call i16** @__ctype_b_loc() #2, !dbg !5645
+Preconditions internal: 
+i32 %arg1:1; (i32 %arg1:1)i32 %arg3:2; (i32 %arg3:2)
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: i32 %arg1 = nondef() : 1
+assumePair: i32 %arg3 = nondef() : 2
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   %14 = call i16** @__ctype_b_loc() #2, !dbg !5645
+Preconditions internal: 
+i32 %arg1:1; (i32 %arg1:1)i32 %arg3:3; (i32 %arg3:3)
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: i32 %arg1 = nondef() : 1
+assumePair: i32 %arg3 = nondef() : 3
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   %14 = call i16** @__ctype_b_loc() #2, !dbg !5645
+Preconditions internal: 
+i32 %arg1:1; (i32 %arg1:1)i32 %arg3:7; (i32 %arg3:7)
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: i32 %arg1 = nondef() : 1
+assumePair: i32 %arg3 = nondef() : 7
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      name of function arguments: Writing precondition at: jobs/191/precondition_uintCollFunc.txt
+
+Generated Preconditions:
+[underoverapprox]name of function arguments: 
+i32 %arg1:2147483647; i32 %arg3:2147483647; 
+i32 %arg1:1; i32 %arg3:1; 
+i32 %arg1:1; i32 %arg3:2; 
+i32 %arg1:1; i32 %arg3:3; 
+i32 %arg1:1; i32 %arg3:7; 
+
+                                                           2 sec [DONE]
+    allsafe
+    
+                                                           2 sec [DONE]
+  

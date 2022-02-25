@@ -1,0 +1,80 @@
+<VerificationJob>
+  <Configuration>
+    <AnalyzeChecksIndividually value="true" />
+    <BitcodeTraces value="false" />
+    <CheckOnlyPrecondition value="true" />
+    <DumpVerifierBitcodeFiles value="false" />
+    <EnableSlicing value="true" />
+    <EntryPoint value="sqlite3BtreeSetMmapLimit" />
+    <FixPoint value="true" />
+    <ForkJobs value="true" />
+    <Hosted value="true" />
+    <IgnoreMissingFunctions value="false" />
+    <InitializedGlobals value="false" />
+    <LoopUnrollBound value="1" />
+    <PreconditionLocation value="jobs/3045" />
+    <PreconditionNumber value="5" />
+    <SourceDirectory value="/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld" />
+    <StopEncodingAfterCheck value="true" />
+    <StopEncodingAfterCheckLoop value="1" />
+    <TimeOut value="600" />
+    <XMLTraces value="false" />
+  </Configuration>
+  <CheckList>
+    <Check id="9875" location="10793" category="arithmetic.overflow" status="safe" scope="sqlite3BtreeEnter">
+      <Annotations>
+        <Annotation>A signed arithmetic operation can overflow.</Annotation>
+      </Annotations>
+      <EntryStatus>
+        <SingleEntryStatus>attachFunc, safe</SingleEntryStatus>
+        <SingleEntryStatus>btreeCursorWithLock, safe</SingleEntryStatus>
+        <SingleEntryStatus>btreeEnterAll, safe</SingleEntryStatus>
+        <SingleEntryStatus>doWalCallbacks, safe</SingleEntryStatus>
+        <SingleEntryStatus>openDatabase, safe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3BtreeBeginStmt, safe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3BtreeBeginTrans, safe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3BtreeCheckpoint, safe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3BtreeClearTable, safe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3BtreeClose, safe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3BtreeCloseCursor, safe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3BtreeCommit, safe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3BtreeCommitPhaseOne, safe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3BtreeCommitPhaseTwo, safe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3BtreeCopyFile, safe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3BtreeCreateTable, safe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3BtreeDropTable, safe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3BtreeEnterCursor, safe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3BtreeGetAutoVacuum, safe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3BtreeGetMeta, safe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3BtreeGetRequestedReserve, safe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3BtreeIncrVacuum, safe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3BtreeIntegrityCheck, safe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3BtreeLockTable, safe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3BtreeMaxPageCount, safe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3BtreeNewDb, safe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3BtreeRollback, safe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3BtreeSavepoint, safe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3BtreeSchema, safe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3BtreeSchemaLocked, safe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3BtreeSecureDelete, safe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3BtreeSetAutoVacuum, safe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3BtreeSetCacheSize, safe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3BtreeSetMmapLimit, safe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3BtreeSetPageSize, safe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3BtreeSetPagerFlags, safe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3BtreeSetSpillSize, safe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3BtreeTripAllCursors, safe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3BtreeUpdateMeta, safe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3InitOne, safe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3VdbeEnter, safe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3VdbeSorterInit, safe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3_backup_finish, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3_backup_step, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3_file_control, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>vdbeCommit, safe</SingleEntryStatus>
+      </EntryStatus>
+    </Check>
+  </CheckList>
+  <Annotation>allunsafe</Annotation>
+  <Status>allsafe</Status>
+</VerificationJob>

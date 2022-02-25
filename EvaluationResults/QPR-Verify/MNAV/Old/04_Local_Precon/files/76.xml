@@ -1,0 +1,152 @@
+<SourceFile>
+  <Line number="1">/******************************************************************************</Line>
+  <Line number="2">* FILE: uplink.c</Line>
+  <Line number="3">* DESCRIPTION:</Line>
+  <Line number="4">*   </Line>
+  <Line number="5">*   </Line>
+  <Line number="6">*</Line>
+  <Line number="7">* SOURCE: </Line>
+  <Line number="8">* LAST REVISED: 10/11/05 Jung Soon Jang</Line>
+  <Line number="9">******************************************************************************/</Line>
+  <Line number="10">#include &lt;stdio.h&gt;</Line>
+  <Line number="11">#include &lt;pthread.h&gt;</Line>
+  <Line number="12">#include &lt;sys/types.h&gt;</Line>
+  <Line number="13">#include &lt;sys/socket.h&gt;</Line>
+  <Line number="14">#include &lt;sys/stat.h&gt;</Line>
+  <Line number="15">#include &lt;netinet/in.h&gt;</Line>
+  <Line number="16">#include &lt;fcntl.h&gt;</Line>
+  <Line number="17">#include &lt;sys/time.h&gt;</Line>
+  <Line number="18">#include &lt;stdlib.h&gt;</Line>
+  <Line number="19">#include &lt;string.h&gt;</Line>
+  <Line number="20">#include &quot;globaldefs.h&quot;</Line>
+  <Line number="21"></Line>
+  <Line number="22">//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</Line>
+  <Line number="23">//pre-defined constant</Line>
+  <Line number="24">//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</Line>
+  <Line number="25">#define	numofuplink	180</Line>
+  <Line number="26">#define maxwaypoints    8</Line>
+  <Line number="27"></Line>
+  <Line number="28"></Line>
+  <Line number="29">//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</Line>
+  <Line number="30">//globals</Line>
+  <Line number="31">//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</Line>
+  <Line number="32">extern short   open_client();</Line>
+  <Line number="33">extern int     sock_fd;		   //socket </Line>
+  <Line number="34">extern short   retvalsock;         //socket status</Line>
+  <Line number="35">extern struct  sockaddr_in serv_addr;</Line>
+  <Line number="36"></Line>
+  <Line number="37"></Line>
+  <Line number="38">char	       bufs[numofuplink];  //data buffer</Line>
+  <Line number="39">int	       numofwaypoints;     //number of waypoints from ground</Line>
+  <Line number="40">double 	       waypoints[maxwaypoints][2];</Line>
+  <Line number="41">float	       pid_gain[3];</Line>
+  <Line number="42">short          manual=1,pid_mode,altholdc,turnc,waypointc;</Line>
+  <Line number="43">//initial values for control gains</Line>
+  <Line number="44">double         pitch_gain[3]  ={0.256, 0.010, 0.011}, roll_gain[3]={0.326,  0.04, 0.023};</Line>
+  <Line number="45">double         heading_gain[3]={0.714, 0.203, 0.000}, alt_gain[3] ={0.080, 0.097, 0.024};</Line>
+  <Line number="46">double         pos_gain[3]={0.23,0.0,0.0};</Line>
+  <Line number="47">short          whichmode[6]={-1,-1,-1, 1, 1,-1};</Line>
+  <Line number="48">char           uplinkstr[80];</Line>
+  <Line number="49"></Line>
+  <Line number="50">void *uplink_acq(void *thread_id)</Line>
+  <Line number="51">{</Line>
+  <Line number="52">   int ret,errFlag,i;</Line>
+  <Line number="53">   char temp[20],tempr[20];</Line>
+  <Line number="54">   unsigned long sum=<CheckRefs ids="561">0</CheckRefs>;</Line>
+  <Line number="55">   int     serv_addrlen = <CheckRefs ids="562">sizeof</CheckRefs>(serv_addr);</Line>
+  <Line number="56"></Line>
+  <Line number="57">#ifndef NCURSE_DISPLAY_OPTION</Line>
+  <Line number="58">   printf(&quot;[uplink_acq]::thread[%d] initiated...\n&quot;,thread_id);  </Line>
+  <Line number="59">#else</Line>
+  <Line number="60">   sprintf(uplinkstr,&quot;[UPLINK  ]:Uplink Data has not been received!&quot;);   </Line>
+  <Line number="61">#endif</Line>
+  <Line number="62"></Line>
+  <Line number="63">   //wait until wifi is connected</Line>
+  <Line number="64">   for(;;){ sleep(3); if(retvalsock) break; };</Line>
+  <Line number="65">   //wait until the uplink data arrives</Line>
+  <Line number="66">   </Line>
+  <Line number="67">   while (1) {</Line>
+  <Line number="68">      if(retvalsock)</Line>
+  <Line number="69">      {</Line>
+  <Line number="70">         if( (ret=<CheckRefs ids="563">recvfrom</CheckRefs>(sock_fd,bufs,<CheckRefs ids="564">numofuplink</CheckRefs>,0,(struct sockaddr *) &amp;serv_addr,&amp;serv_addrlen)) &lt; 0) {</Line>
+  <Line number="71">   		errFlag = 1;</Line>
+  <Line number="72">         }</Line>
+  <Line number="73">         else</Line>
+  <Line number="74">         {</Line>
+  <Line number="75">           if(ret == 0) //the connection is gracefully closed</Line>
+  <Line number="76">           {</Line>
+  <Line number="77">		continue;</Line>
+  <Line number="78">           }</Line>
+  <Line number="79">	   //check checksum</Line>
+  <Line number="80">           sum = <CheckRefs ids="565">0</CheckRefs>; for(i=0;i&lt;numofuplink<CheckRefs ids="566">-</CheckRefs>1;i<CheckRefs ids="567">++</CheckRefs>) sum <CheckRefs ids="568">+=</CheckRefs> <CheckRefs ids="569">bufs</CheckRefs>[i<CheckRefs ids="570">]</CheckRefs>;</Line>
+  <Line number="81">	   if(<CheckRefs ids="571">bufs</CheckRefs>[numofuplink<CheckRefs ids="573">-</CheckRefs>1<CheckRefs ids="572">]</CheckRefs> != sum<CheckRefs ids="574">%</CheckRefs><CheckRefs ids="575">256</CheckRefs>) continue;</Line>
+  <Line number="82">           switch (<CheckRefs ids="576">bufs</CheckRefs>[0<CheckRefs ids="577">]</CheckRefs>) {</Line>
+  <Line number="83">              case &apos;W&apos;:</Line>
+  <Line number="84">           		sscanf(bufs+2,&quot;%d&quot;,&amp;numofwaypoints);</Line>
+  <Line number="85">           		for(i=0;i&lt;numofwaypoints;i<CheckRefs ids="578">++</CheckRefs>) {</Line>
+  <Line number="86">	      			sscanf(bufs+3+i<CheckRefs ids="579">*</CheckRefs>23,&quot;%s %s&quot;,&amp;temp,&amp;tempr);</Line>
+  <Line number="87">              			waypoints[i<CheckRefs ids="582">]</CheckRefs>[0<CheckRefs ids="581">]</CheckRefs> <CheckRefs ids="580">=</CheckRefs> atof(temp);    </Line>
+  <Line number="88">              			waypoints[i<CheckRefs ids="585">]</CheckRefs>[1<CheckRefs ids="584">]</CheckRefs> <CheckRefs ids="583">=</CheckRefs> atof(tempr);</Line>
+  <Line number="89">           		}</Line>
+  <Line number="90">           		#ifndef NCURSE_DISPLAY_OPTION</Line>
+  <Line number="91">		        	//print the results</Line>
+  <Line number="92">                        	for(i=0;i&lt;numofwaypoints;i<CheckRefs ids="586">++</CheckRefs>) {</Line>
+  <Line number="93">           		   	printf(&quot;[uplink]:waypts = %d=&gt;Lat=%f, Lon=%f \n&quot;,</Line>
+  <Line number="94">                   	   	numofwaypoints,waypoints[i<CheckRefs ids="588">]</CheckRefs>[0<CheckRefs ids="587">]</CheckRefs>,waypoints[i<CheckRefs ids="590">]</CheckRefs>[1<CheckRefs ids="589">]</CheckRefs>);</Line>
+  <Line number="95">				}</Line>
+  <Line number="96">			#else</Line>
+  <Line number="97">				sprintf(uplinkstr,&quot;[UPLINK  ]:%d WayPts, Last&gt;&gt; Lat=%f, Lon=%f&quot;,</Line>
+  <Line number="98">				   numofwaypoints,waypoints[numofwaypoints-1][0],waypoints[numofwaypoints-1][1]);</Line>
+  <Line number="99">			#endif</Line>
+  <Line number="100">			break;</Line>
+  <Line number="101">	      case &apos;G&apos;:</Line>
+  <Line number="102"> 			sscanf(bufs+2,&quot;%d %f %f %f&quot;,&amp;pid_mode, &amp;pid_gain[0<CheckRefs ids="591">]</CheckRefs>,&amp;pid_gain[1<CheckRefs ids="592">]</CheckRefs>,&amp;pid_gain[2<CheckRefs ids="593">]</CheckRefs>);</Line>
+  <Line number="103"> 			#ifndef NCURSE_DISPLAY_OPTION</Line>
+  <Line number="104">				printf(&quot;[uplink]:[mode=%d]P=%4.2f I=%4.2f D=%4.2f\n&quot;,<CheckRefs ids="594">pid_mode</CheckRefs>,pid_gain[0<CheckRefs ids="595">]</CheckRefs>,pid_gain[1<CheckRefs ids="596">]</CheckRefs>,pid_gain[2<CheckRefs ids="597">]</CheckRefs>);</Line>
+  <Line number="105">			#else</Line>
+  <Line number="106">				sprintf(uplinkstr,&quot;[UPLINK  ]:Gain [mode=%d]&gt;&gt; P=%4.2f I=%4.2f D=%4.2f\n&quot;,pid_mode,pid_gain[0],pid_gain[1],pid_gain[2]);</Line>
+  <Line number="107">			#endif	</Line>
+  <Line number="108">			//gain tuning</Line>
+  <Line number="109">			switch (<CheckRefs ids="598">pid_mode</CheckRefs>) {</Line>
+  <Line number="110">			      case 0:  //pitch_mode:</Line>
+  <Line number="111">                        		for(i=0;i&lt;3;i<CheckRefs ids="599">++</CheckRefs>) pitch_gain[i<CheckRefs ids="601">]</CheckRefs>  <CheckRefs ids="600">=</CheckRefs> pid_gain[i<CheckRefs ids="602">]</CheckRefs>;</Line>
+  <Line number="112">					whichmode[0<CheckRefs ids="603">]</CheckRefs> = <CheckRefs ids="604">1</CheckRefs>;</Line>
+  <Line number="113">                                        whichmode[3<CheckRefs ids="605">]</CheckRefs> =<CheckRefs ids="606,607">-</CheckRefs>1;</Line>
+  <Line number="114">				        whichmode[4<CheckRefs ids="608">]</CheckRefs> =<CheckRefs ids="609,610">-</CheckRefs>1;</Line>
+  <Line number="115">					break;</Line>
+  <Line number="116">			      case 1:  //roll_mode:</Line>
+  <Line number="117">					for(i=0;i&lt;3;i<CheckRefs ids="611">++</CheckRefs>) roll_gain[i<CheckRefs ids="613">]</CheckRefs>   <CheckRefs ids="612">=</CheckRefs> pid_gain[i<CheckRefs ids="614">]</CheckRefs>;</Line>
+  <Line number="118">					whichmode[1<CheckRefs ids="615">]</CheckRefs> = <CheckRefs ids="616">1</CheckRefs>;</Line>
+  <Line number="119">                                        whichmode[2<CheckRefs ids="617">]</CheckRefs> =<CheckRefs ids="618,619">-</CheckRefs>1;</Line>
+  <Line number="120">					break;</Line>
+  <Line number="121">			      case 2:  //heading_mode:</Line>
+  <Line number="122">					for(i=0;i&lt;3;i<CheckRefs ids="620">++</CheckRefs>) heading_gain[i<CheckRefs ids="622">]</CheckRefs><CheckRefs ids="621">=</CheckRefs> pid_gain[i<CheckRefs ids="623">]</CheckRefs>;</Line>
+  <Line number="123">                                        whichmode[2<CheckRefs ids="624">]</CheckRefs> = <CheckRefs ids="625">1</CheckRefs>;</Line>
+  <Line number="124">                        		break;</Line>
+  <Line number="125">			      case 3:  //altitude_mode:</Line>
+  <Line number="126">					for(i=0;i&lt;3;i<CheckRefs ids="626">++</CheckRefs>) alt_gain[i<CheckRefs ids="628">]</CheckRefs>    <CheckRefs ids="627">=</CheckRefs> pid_gain[i<CheckRefs ids="629">]</CheckRefs>;</Line>
+  <Line number="127">					whichmode[3<CheckRefs ids="630">]</CheckRefs> = <CheckRefs ids="631">1</CheckRefs>;</Line>
+  <Line number="128">                        		break;</Line>
+  <Line number="129">			      case 4:  //pos_mode:</Line>
+  <Line number="130">					for(i=0;i&lt;3;i<CheckRefs ids="632">++</CheckRefs>) pos_gain[i<CheckRefs ids="634">]</CheckRefs>  <CheckRefs ids="633">=</CheckRefs> pid_gain[i<CheckRefs ids="635">]</CheckRefs>;</Line>
+  <Line number="131">					whichmode[4<CheckRefs ids="636">]</CheckRefs> = <CheckRefs ids="637">1</CheckRefs>;</Line>
+  <Line number="132">                        		break;</Line>
+  <Line number="133">			      default:</Line>
+  <Line number="134">				        printf(&quot;[control.c]:unrecognized control gain setting mode!...\n&quot;);</Line>
+  <Line number="135">   			}</Line>
+  <Line number="136">			break;	</Line>
+  <Line number="137">	      case &apos;C&apos;:</Line>
+  <Line number="138">	      		//currently not available</Line>
+  <Line number="139">                        sscanf(bufs+2,&quot;%d %d %d %d&quot;,&amp;manual,&amp;altholdc,&amp;turnc,&amp;waypointc);</Line>
+  <Line number="140">			printf(&quot;\n[uplink]:Manual=%d,AltHold=%d,Turn=%d,WayPoint=%d\n\n&quot;,<CheckRefs ids="638">manual</CheckRefs>,<CheckRefs ids="639">altholdc</CheckRefs>,<CheckRefs ids="640">turnc</CheckRefs>,<CheckRefs ids="641">waypointc</CheckRefs>);</Line>
+  <Line number="141">                        break;</Line>
+  <Line number="142">	      default:</Line>
+  <Line number="143"> 		        printf(&quot;[uplink]:Invalid Uplink...!\n&quot;);</Line>
+  <Line number="144">           } //end switch</Line>
+  <Line number="145">         } //end else</Line>
+  <Line number="146">      }</Line>
+  <Line number="147">      sleep(1);</Line>
+  <Line number="148">   } //end while</Line>
+  <Line number="149"></Line>
+  <Line number="150">}</Line>
+</SourceFile>

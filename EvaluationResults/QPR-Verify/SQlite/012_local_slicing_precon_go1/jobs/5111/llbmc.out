@@ -1,0 +1,162 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+handleJobInSeparateProcess0
+
+Checking job 5111 ...about to run job:
+preconNumber: 5, 1
+
+  Running Model Checker with 1 checks ...W [0] lib/Slicer/LocalSlicer.cpp:368 | argument 0 (i32* undef) has pointer type
+W [0] lib/Slicer/LocalSlicer.cpp:368 | argument 0 (i32* undef) has pointer type
+W [0] lib/Slicer/LocalSlicer.cpp:368 | argument 0 (i64* undef) has pointer type
+W [0] lib/Slicer/LocalSlicer.cpp:368 | argument 0 (i32* undef) has pointer type
+W [0] lib/Slicer/LocalSlicer.cpp:368 | argument 0 (i32* undef) has pointer type
+W [0] lib/Slicer/LocalSlicer.cpp:368 | argument 0 (i32* undef) has pointer type
+W [0] lib/Slicer/LocalSlicer.cpp:368 | argument 0 (%struct.FileChunk* undef) has pointer type
+W [0] lib/Slicer/LocalSlicer.cpp:368 | argument 0 (i64* undef) has pointer type
+W [0] lib/Slicer/LocalSlicer.cpp:495 | unused argument: , qpr.slicing.unused.arg.memjrnlWrite.0
+W [0] lib/Slicer/LocalSlicer.cpp:495 | unused argument: , qpr.slicing.unused.arg.memjrnlWrite.1
+I [0] lib/Slicer/LocalSlicer.cpp:104 | slicing finished
+try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 1
+    LoopUnrollBound : 1
+    HavocLimit : 0
+    PreconditionNumber : 5
+    PreconditionLocation : jobs/5111
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : true
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [1] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : memjrnlWrite
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "memjrnlWrite" for 1 iterations succeeded.
+      Transformed "memjrnlWrite" from 11 to 14 basic blocks and from 49 to 54 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...size Alloca: 1
+size Alloca: 1
+-----found check = true
+                      0 sec [DONE]
+        Number of expressions:                        130970
+        after encoding
+
+      1 assertion before transformations (1 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            2602
+        Fixed Memory Address Assigner
+          Number of moved ops                              2
+          Number of rewrites                            4898
+        Simplifier
+          Number of moved ops                              2
+          Number of rewrites                           61879
+        Memory Model Encoder
+          Number of moved ops                              0
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                              88
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                               0
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      1 assertion remains after transformations (1 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...            0 sec [DONE]
+        
+                                                           0 sec [DONE]
+      after performing Check
+evaluateCheckerResultsViaRefinementLoop
+checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setCheckToUnsafe
+setCheckToUnsafe
+Check for floating point traces / abstractions currently deactivated
+getCheckerResultAfterUpdatingMarker
+failingInst:   call void @llbmc.assert(i1 %5, i32 %0)
+Preconditions internal: 
+i32 %arg2:1; (i32 %arg2:1)i64 %arg3:9223372036854775806; (i64 %arg3:9223372036854775806)
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: i32 %arg2 = nondef() : 1
+assumePair: i64 %arg3 = nondef() : 9223372036854775806
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   call void @llbmc.assert(i1 %5, i32 %0)
+Preconditions internal: 
+i32 %arg2:2147483646; (i32 %arg2:2147483646)i64 %arg3:-72057594037927936; (i64 %arg3:18374686479671623680)
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: i32 %arg2 = nondef() : 2147483646
+assumePair: i64 %arg3 = nondef() : -72057594037927936
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   call void @llbmc.assert(i1 %5, i32 %0)
+Preconditions internal: 
+i32 %arg2:2147483646; (i32 %arg2:2147483646)i64 %arg3:-1513209474796486656; (i64 %arg3:16933534598913064960)
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: i32 %arg2 = nondef() : 2147483646
+assumePair: i64 %arg3 = nondef() : -1513209474796486656
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   call void @llbmc.assert(i1 %5, i32 %0)
+Preconditions internal: 
+i32 %arg2:2147483646; (i32 %arg2:2147483646)i64 %arg3:-1224979098644774912; (i64 %arg3:17221764975064776704)
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: i32 %arg2 = nondef() : 2147483646
+assumePair: i64 %arg3 = nondef() : -1224979098644774912
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   call void @llbmc.assert(i1 %5, i32 %0)
+Preconditions internal: 
+i32 %arg2:2147483646; (i32 %arg2:2147483646)i64 %arg3:-5836665117072162816; (i64 %arg3:12610078956637388800)
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: i32 %arg2 = nondef() : 2147483646
+assumePair: i64 %arg3 = nondef() : -5836665117072162816
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      name of function arguments: Writing precondition at: jobs/5111/precondition_memjrnlWrite.txt
+
+Generated Preconditions:
+[underoverapprox]name of function arguments: 
+i32 %arg2:1; i64 %arg3:9223372036854775806; 
+i32 %arg2:2147483646; i64 %arg3:-72057594037927936; 
+i32 %arg2:2147483646; i64 %arg3:-1513209474796486656; 
+i32 %arg2:2147483646; i64 %arg3:-1224979098644774912; 
+i32 %arg2:2147483646; i64 %arg3:-5836665117072162816; 
+
+                                                           1 sec [DONE]
+    allunsafe
+    
+                                                           1 sec [DONE]
+  

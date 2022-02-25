@@ -1,0 +1,139 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 3377 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 1
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/3377
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : modifyPagePointer
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "modifyPagePointer" for 1 iterations succeeded.getMatchingFunctions
+res.push_back: btreeParseCellPtr
+res.push_back: btreeParseCellPtrNoPayload
+res.push_back: btreeParseCellPtrIndex
+res.push_back: btreeParseCellAdjustSizeForOverflow
+
+      Transformed "modifyPagePointer" from 32 to 122 basic blocks and from 191 to 528 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...Current: modifyPagePointer Havoced: btreeInitPage
+Current: modifyPagePointer Havoced: sqlite3Get4byte
+Current: modifyPagePointer Havoced: sqlite3Put4byte
+Current: modifyPagePointer Havoced: copyNodeContent
+Current: modifyPagePointer Havoced: rowSetTreeToList
+Current: modifyPagePointer Havoced: identPut
+Current: modifyPagePointer Havoced: sqlite3FkDropTable
+Current: modifyPagePointer Havoced: generateWithRecursiveQuery
+Current: modifyPagePointer Havoced: innerLoopLoadRow
+Current: modifyPagePointer Havoced: explainSimpleCount
+Current: modifyPagePointer Havoced: sqlite3AuthContextPush
+Current: modifyPagePointer Havoced: generateColumnTypes
+Current: modifyPagePointer Havoced: whereLikeOptimizationStringFixup
+Current: modifyPagePointer Havoced: sqlite3WhereTabFuncArgs
+Current: modifyPagePointer Havoced: reindexTable
+Current: modifyPagePointer Havoced: analyzeTable
+Current: modifyPagePointer Havoced: sqlite3PagerSetBusyHandler
+Current: modifyPagePointer Havoced: corruptSchema
+Current: modifyPagePointer Havoced: sqlite3SetString
+Current: modifyPagePointer Havoced: addModuleArgument
+Current: modifyPagePointer Havoced: sqlite3ExprFunctionUsable
+Current: modifyPagePointer Havoced: sqlite3ResolveSelectNames
+Current: modifyPagePointer Havoced: sqlite3SelectPrep
+Current: modifyPagePointer Havoced: sqlite3RenameTokenRemap
+Current: modifyPagePointer Havoced: sqlite3WindowChain
+Current: modifyPagePointer Havoced: sqlite3AlterDropColumn
+Current: modifyPagePointer Havoced: sqlite3AlterRenameTable
+Current: modifyPagePointer Havoced: sqlite3Analyze
+Current: modifyPagePointer Havoced: sqlite3Reindex
+Current: modifyPagePointer Havoced: sqlite3FinishTrigger
+Current: modifyPagePointer Havoced: sqlite3Vacuum
+Current: modifyPagePointer Havoced: sqlite3PExprAddSelect
+Current: modifyPagePointer Havoced: sqlite3WindowAttach
+Current: modifyPagePointer Havoced: sqlite3ExprListCheckLength
+Current: modifyPagePointer Havoced: sqlite3SrcListFuncArgs
+Current: modifyPagePointer Havoced: sqlite3SrcListIndexedBy
+Current: modifyPagePointer Havoced: sqlite3AddGenerated
+Current: modifyPagePointer Havoced: sqlite3AddColumn
+Current: modifyPagePointer Havoced: btreeParseCellAdjustSizeForOverflow
+Current: modifyPagePointer Havoced: btreeParseCellPtrIndex
+Current: modifyPagePointer Havoced: btreeParseCellPtrNoPayload
+Current: modifyPagePointer Havoced: btreeParseCellPtr
+Current: modifyPagePointer Havoced: insertElement
+Current: modifyPagePointer Havoced: sqlite3_str_vappendf
+Current: modifyPagePointer Havoced: printSchemaLine
+Current: modifyPagePointer Havoced: tryToCloneData
+Current: modifyPagePointer Havoced: sqlite3Get4byte
+Current: modifyPagePointer Havoced: sqlite3Put4byte
+Current: modifyPagePointer Havoced: sqlite3Get4byte
+Current: modifyPagePointer Havoced: sqlite3Put4byte
+Current: modifyPagePointer Havoced: sqlite3CorruptError
+Current: modifyPagePointer Havoced: sqlite3CorruptError
+Current: modifyPagePointer Havoced: sqlite3Get4byte
+Current: modifyPagePointer Havoced: sqlite3Put4byte
+Current: modifyPagePointer Havoced: sqlite3CorruptError
+                      0 sec [DONE]
+        Number of expressions:                        156313
+        after encoding
+
+      3 assertions before transformations (1 no_function_call, 1 no_back_edge, 1 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            4055
+        Fixed Memory Address Assigner
+          Number of moved ops                              1
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72620
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               1
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                              49
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             142
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      3 assertions remain after transformations (1 no_function_call, 1 no_back_edge, 1 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...

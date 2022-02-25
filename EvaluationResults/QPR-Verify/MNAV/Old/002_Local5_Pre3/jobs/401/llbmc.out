@@ -1,0 +1,128 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+handleJobInSeparateProcess0
+
+Checking job 401 ...about to run job:
+preconNumber: 3, 1
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 4
+    HavocLimit : 0
+    PreconditionNumber : 3
+    PreconditionLocation : jobs/401
+    TimeOut : 300
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : send_servo_cmd
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "send_servo_cmd" for 4 iterations succeeded.
+      Unrolling loop in function "send_servo_cmd" for 18 iterations succeeded.getMatchingFunctions
+getMatchingFunctions
+getMatchingFunctions
+getMatchingFunctions
+
+      Transformed "send_servo_cmd" from 8 to 43 basic blocks and from 146 to 573 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...size Alloca: 1
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %1, i8 0, i64 24, i32 16, i1 false), !dbg !1386
+                      0 sec [DONE]
+        Number of expressions:                          6741
+        after encoding
+
+      10 assertions before transformations (4 no_function_call, 2 no_back_edge, 4 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                             560
+        Fixed Memory Address Assigner
+          Number of moved ops                              1
+          Number of rewrites                             365
+        Simplifier
+          Number of moved ops                              1
+          Number of rewrites                            2735
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               1
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           25797
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                              25
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                               0
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      10 assertions remain after transformations (4 no_function_call, 2 no_back_edge, 4 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...            0 sec [DONE]
+        
+                                                           0 sec [DONE]
+      after performing Check
+evaluateCheckerResultsViaRefinementLoop
+checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+getCheckerResultAfterUpdatingMarker
+failingInst:   %278 = call i32 (i32, i8*, i32, ...) bitcast (i32 (...)* @write to i32 (i32, i8*, i32, ...)*)(i32 %276, i8* %277, i32 24), !dbg !1453
+Preconditions internal: 
+
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   %278 = call i32 (i32, i8*, i32, ...) bitcast (i32 (...)* @write to i32 (i32, i8*, i32, ...)*)(i32 %276, i8* %277, i32 24), !dbg !1453
+Preconditions internal: 
+
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   %278 = call i32 (i32, i8*, i32, ...) bitcast (i32 (...)* @write to i32 (i32, i8*, i32, ...)*)(i32 %276, i8* %277, i32 24), !dbg !1453
+Preconditions internal: 
+
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      name of function arguments: Writing precondition at: jobs/401/precondition_send_servo_cmd.txt
+
+Generated Preconditions:
+[underoverapprox]name of function arguments: 
+
+
+
+
+                                                           0 sec [DONE]
+    allsafe
+    
+                                                           0 sec [DONE]
+  

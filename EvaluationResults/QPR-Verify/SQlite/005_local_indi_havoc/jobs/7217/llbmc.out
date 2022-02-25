@@ -1,0 +1,159 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 7217 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 1
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/7217
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [1] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : updateVirtualTable
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "updateVirtualTable" for 1 iterations succeeded.
+      Unrolling loop in function "updateVirtualTable" for 1 iterations succeeded.
+      Unrolling loop in function "updateVirtualTable" for 1 iterations succeeded.
+      Transformed "updateVirtualTable" from 52 to 55 basic blocks and from 356 to 374 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...Current: updateVirtualTable Havoced: sqlite3GetVTable
+Current: updateVirtualTable Havoced: sqlite3VdbeAddOp2
+Current: updateVirtualTable Havoced: sqlite3WhereBegin
+Current: updateVirtualTable Havoced: sqlite3VdbeAddOp3
+Current: updateVirtualTable Havoced: sqlite3VdbeChangeP5
+Current: updateVirtualTable Havoced: sqlite3ExprCode
+Current: updateVirtualTable Havoced: sqlite3PrimaryKeyIndex
+Current: updateVirtualTable Havoced: sqlite3VdbeAddOp3
+Current: updateVirtualTable Havoced: sqlite3VdbeAddOp2
+Current: updateVirtualTable Havoced: sqlite3VdbeAddOp2
+Current: updateVirtualTable Havoced: sqlite3VdbeAddOp2
+Current: updateVirtualTable Havoced: sqlite3ExprCode
+Current: updateVirtualTable Havoced: sqlite3WhereOkOnePass
+Current: updateVirtualTable Havoced: sqlite3MultiWrite
+Current: updateVirtualTable Havoced: sqlite3VdbeAddOp3
+Current: updateVirtualTable Havoced: sqlite3VdbeAddOp2
+Current: updateVirtualTable Havoced: sqlite3VdbeAddOp3
+Current: updateVirtualTable Havoced: sqlite3VdbeChangeToNoop
+Current: updateVirtualTable Havoced: sqlite3VdbeAddOp1
+Current: updateVirtualTable Havoced: sqlite3PrimaryKeyIndex
+Current: updateVirtualTable Havoced: exprRowColumn
+Current: updateVirtualTable Havoced: sqlite3ExprDup
+Current: updateVirtualTable Havoced: sqlite3PExpr
+Current: updateVirtualTable Havoced: sqlite3ExprDup
+Current: updateVirtualTable Havoced: sqlite3ExprListAppend
+Current: updateVirtualTable Havoced: exprRowColumn
+Current: updateVirtualTable Havoced: sqlite3ExprListAppend
+Current: updateVirtualTable Havoced: sqlite3ExprDup
+Current: updateVirtualTable Havoced: sqlite3ExprListAppend
+Current: updateVirtualTable Havoced: updateFromSelect
+Current: updateVirtualTable Havoced: sqlite3ExprListDelete
+Current: updateVirtualTable Havoced: sqlite3WhereEnd
+Current: updateVirtualTable Havoced: sqlite3VdbeAddOp1
+Current: updateVirtualTable Havoced: sqlite3VdbeAddOp3
+Current: updateVirtualTable Havoced: sqlite3VtabMakeWritable
+Current: updateVirtualTable Havoced: sqlite3VdbeAddOp4
+Current: updateVirtualTable Havoced: sqlite3VdbeChangeP5
+Current: updateVirtualTable Havoced: sqlite3MayAbort
+Current: updateVirtualTable Havoced: sqlite3WhereEnd
+Current: updateVirtualTable Havoced: sqlite3VdbeAddOp2
+Current: updateVirtualTable Havoced: sqlite3VdbeJumpHere
+Current: updateVirtualTable Havoced: sqlite3VdbeAddOp2
+                      0 sec [DONE]
+        Number of expressions:                        155603
+        after encoding
+
+      4 assertions before transformations (3 no_back_edge, 1 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            3660
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72626
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               1
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               5
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             142
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      4 assertions remain after transformations (3 no_back_edge, 1 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...            0 sec [DONE]
+        
+                                                           0 sec [DONE]
+      after performing Check
+evaluateCheckerResultsViaRefinementLoop
+checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+BranchInst - LoopBound
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+BranchInst - LoopBound
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+BranchInst - LoopBound
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      getCheckerResultAfterUpdatingMarker
+Result is NoTrace
+
+                                                           1 sec [DONE]
+    allsafe
+    
+                                                           1 sec [DONE]
+  

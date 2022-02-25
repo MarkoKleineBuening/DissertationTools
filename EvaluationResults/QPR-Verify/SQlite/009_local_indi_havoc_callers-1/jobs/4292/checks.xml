@@ -1,0 +1,36 @@
+<VerificationJob>
+  <Configuration>
+    <AnalyzeChecksIndividually value="true" />
+    <BitcodeTraces value="false" />
+    <CheckCallers value="true" />
+    <DumpVerifierBitcodeFiles value="false" />
+    <EnableSlicing value="false" />
+    <EntryPoint value="sqlite3ExprCodeTarget" />
+    <FixPoint value="true" />
+    <ForkJobs value="true" />
+    <HavocLimit value="2" />
+    <Hosted value="true" />
+    <IgnoreMissingFunctions value="false" />
+    <InitializedGlobals value="false" />
+    <LoopUnrollBound value="1" />
+    <PreconditionLocation value="jobs/4292" />
+    <SourceDirectory value="/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld" />
+    <TimeOut value="600" />
+    <XMLTraces value="false" />
+  </Configuration>
+  <CheckList>
+    <Check id="13008" location="14064" category="arithmetic.overflow" status="safe" scope="sqlite3VdbeAddFunctionCall">
+      <Annotations>
+        <Annotation>A signed arithmetic operation can overflow.</Annotation>
+      </Annotations>
+      <EntryStatus>
+        <SingleEntryStatus>analyzeOneTable, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>callStatGet, safe</SingleEntryStatus>
+        <SingleEntryStatus>codeAttach, safe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3ExprCodeTarget, safe</SingleEntryStatus>
+      </EntryStatus>
+    </Check>
+  </CheckList>
+  <Annotation>allunsafe</Annotation>
+  <Status>allsafe</Status>
+</VerificationJob>

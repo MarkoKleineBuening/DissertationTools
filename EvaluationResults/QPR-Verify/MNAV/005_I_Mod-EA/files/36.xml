@@ -1,0 +1,57 @@
+<SourceFile>
+  <Line number="1">/* Define enum __socket_type for generic Linux.</Line>
+  <Line number="2">   Copyright (C) 1991-2020 Free Software Foundation, Inc.</Line>
+  <Line number="3">   This file is part of the GNU C Library.</Line>
+  <Line number="4"></Line>
+  <Line number="5">   The GNU C Library is free software; you can redistribute it and/or</Line>
+  <Line number="6">   modify it under the terms of the GNU Lesser General Public</Line>
+  <Line number="7">   License as published by the Free Software Foundation; either</Line>
+  <Line number="8">   version 2.1 of the License, or (at your option) any later version.</Line>
+  <Line number="9"></Line>
+  <Line number="10">   The GNU C Library is distributed in the hope that it will be useful,</Line>
+  <Line number="11">   but WITHOUT ANY WARRANTY; without even the implied warranty of</Line>
+  <Line number="12">   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU</Line>
+  <Line number="13">   Lesser General Public License for more details.</Line>
+  <Line number="14"></Line>
+  <Line number="15">   You should have received a copy of the GNU Lesser General Public</Line>
+  <Line number="16">   License along with the GNU C Library; if not, see</Line>
+  <Line number="17">   &lt;https://www.gnu.org/licenses/&gt;.  */</Line>
+  <Line number="18"></Line>
+  <Line number="19">#ifndef _SYS_SOCKET_H</Line>
+  <Line number="20"># error &quot;Never include &lt;bits/socket_type.h&gt; directly; use &lt;sys/socket.h&gt; instead.&quot;</Line>
+  <Line number="21">#endif</Line>
+  <Line number="22"></Line>
+  <Line number="23">/* Types of sockets.  */</Line>
+  <Line number="24">enum __socket_type</Line>
+  <Line number="25">{</Line>
+  <Line number="26">  SOCK_STREAM = 1,		/* Sequenced, reliable, connection-based</Line>
+  <Line number="27">				   byte streams.  */</Line>
+  <Line number="28">#define SOCK_STREAM SOCK_STREAM</Line>
+  <Line number="29">  SOCK_DGRAM = 2,		/* Connectionless, unreliable datagrams</Line>
+  <Line number="30">				   of fixed maximum length.  */</Line>
+  <Line number="31">#define SOCK_DGRAM SOCK_DGRAM</Line>
+  <Line number="32">  SOCK_RAW = 3,			/* Raw protocol interface.  */</Line>
+  <Line number="33">#define SOCK_RAW SOCK_RAW</Line>
+  <Line number="34">  SOCK_RDM = 4,			/* Reliably-delivered messages.  */</Line>
+  <Line number="35">#define SOCK_RDM SOCK_RDM</Line>
+  <Line number="36">  SOCK_SEQPACKET = 5,		/* Sequenced, reliable, connection-based,</Line>
+  <Line number="37">				   datagrams of fixed maximum length.  */</Line>
+  <Line number="38">#define SOCK_SEQPACKET SOCK_SEQPACKET</Line>
+  <Line number="39">  SOCK_DCCP = 6,		/* Datagram Congestion Control Protocol.  */</Line>
+  <Line number="40">#define SOCK_DCCP SOCK_DCCP</Line>
+  <Line number="41">  SOCK_PACKET = 10,		/* Linux specific way of getting packets</Line>
+  <Line number="42">				   at the dev level.  For writing rarp and</Line>
+  <Line number="43">				   other similar things on the user level. */</Line>
+  <Line number="44">#define SOCK_PACKET SOCK_PACKET</Line>
+  <Line number="45"></Line>
+  <Line number="46">  /* Flags to be ORed into the type parameter of socket and socketpair and</Line>
+  <Line number="47">     used for the flags parameter of paccept.  */</Line>
+  <Line number="48"></Line>
+  <Line number="49">  SOCK_CLOEXEC = 02000000,	/* Atomically set close-on-exec flag for the</Line>
+  <Line number="50">				   new descriptor(s).  */</Line>
+  <Line number="51">#define SOCK_CLOEXEC SOCK_CLOEXEC</Line>
+  <Line number="52">  SOCK_NONBLOCK = 00004000	/* Atomically mark descriptor(s) as</Line>
+  <Line number="53">				   non-blocking.  */</Line>
+  <Line number="54">#define SOCK_NONBLOCK SOCK_NONBLOCK</Line>
+  <Line number="55">};</Line>
+</SourceFile>

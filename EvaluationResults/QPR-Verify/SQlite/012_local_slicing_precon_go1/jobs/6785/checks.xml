@@ -1,0 +1,41 @@
+<VerificationJob>
+  <Configuration>
+    <AnalyzeChecksIndividually value="true" />
+    <BitcodeTraces value="false" />
+    <CheckOnlyPrecondition value="true" />
+    <DumpVerifierBitcodeFiles value="false" />
+    <EnableSlicing value="true" />
+    <EntryPoint value="sqlite3Select" />
+    <FixPoint value="true" />
+    <ForkJobs value="true" />
+    <Hosted value="true" />
+    <IgnoreMissingFunctions value="false" />
+    <InitializedGlobals value="false" />
+    <LoopUnrollBound value="1" />
+    <PreconditionLocation value="jobs/6785" />
+    <PreconditionNumber value="5" />
+    <SourceDirectory value="/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld" />
+    <StopEncodingAfterCheck value="true" />
+    <StopEncodingAfterCheckLoop value="1" />
+    <TimeOut value="600" />
+    <XMLTraces value="false" />
+  </Configuration>
+  <CheckList>
+    <Check id="21415" location="23871" category="arithmetic.overflow" status="internalerror" scope="selectInnerLoop">
+      <Annotations>
+        <Annotation>A signed arithmetic operation can overflow.</Annotation>
+        <Annotation>Unable to open precondition file!
+ (job:6785)</Annotation>
+      </Annotations>
+      <EntryStatus>
+        <SingleEntryStatus>generateWithRecursiveQuery, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>multiSelect, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>multiSelectValues, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3Select, internalerror</SingleEntryStatus>
+      </EntryStatus>
+    </Check>
+  </CheckList>
+  <Annotation>Unable to open precondition file!
+</Annotation>
+  <Status>internalerror</Status>
+</VerificationJob>

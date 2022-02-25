@@ -1,0 +1,122 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 6995 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 1
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/6995
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : selectExpander
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "selectExpander" for 1 iterations succeeded.
+      Unrolling loop in function "selectExpander" for 1 iterations succeeded.
+      Unrolling loop in function "selectExpander" for 1 iterations succeeded.
+      Unrolling loop in function "selectExpander" for 1 iterations succeeded.
+      Unrolling loop in function "selectExpander" for 1 iterations succeeded.
+      Transformed "selectExpander" from 149 to 156 basic blocks and from 853 to 915 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...Current: selectExpander Havoced: sqlite3DbMallocZero
+Current: selectExpander Havoced: sqlite3WithPush
+Current: selectExpander Havoced: sqlite3SrcListAssignCursors
+Current: selectExpander Havoced: resolveFromTermToCte
+Current: selectExpander Havoced: sqlite3LocateTableItem
+Current: selectExpander Havoced: cannotBeFunction
+Current: selectExpander Havoced: sqlite3ViewGetColumnNames
+Current: selectExpander Havoced: sqlite3ErrorMsg
+Current: selectExpander Havoced: sqlite3ErrorMsg
+Current: selectExpander Havoced: sqlite3SelectDup
+Current: selectExpander Havoced: sqlite3WalkSelect
+Current: selectExpander Havoced: sqlite3ErrorMsg
+Current: selectExpander Havoced: sqlite3WalkSelect
+Current: selectExpander Havoced: sqlite3ExpandSubquery
+Current: selectExpander Havoced: sqlite3IndexedByLookup
+Current: selectExpander Havoced: sqliteProcessJoin
+Current: selectExpander Havoced: sqlite3StrICmp
+Current: selectExpander Havoced: sqlite3SchemaToIndex
+Current: selectExpander Havoced: sqlite3MatchEName
+Current: selectExpander Havoced: tableAndColumnIndex
+Current: selectExpander Havoced: sqlite3IdListIndex
+Current: selectExpander Havoced: sqlite3Expr
+Current: selectExpander Havoced: sqlite3Expr
+Current: selectExpander Havoced: sqlite3PExpr
+Current: selectExpander Havoced: sqlite3Expr
+Current: selectExpander Havoced: sqlite3PExpr
+Current: selectExpander Havoced: sqlite3MPrintf
+Current: selectExpander Havoced: sqlite3ExprListAppend
+Current: selectExpander Havoced: sqlite3TokenInit
+Current: selectExpander Havoced: sqlite3ExprListSetName
+Current: selectExpander Havoced: sqlite3DbFree
+Current: selectExpander Havoced: sqlite3MPrintf
+Current: selectExpander Havoced: sqlite3DbStrDup
+Current: selectExpander Havoced: sqlite3DbFree
+Current: selectExpander Havoced: sqlite3ErrorMsg
+Current: selectExpander Havoced: sqlite3ErrorMsg
+Current: selectExpander Havoced: sqlite3ExprListAppend
+Current: selectExpander Havoced: sqlite3ExprListDelete
+Current: selectExpander Havoced: sqlite3ErrorMsg
+                      0 sec [DONE]
+        Number of expressions:                        156754
+        after encoding
+
+      6 assertions before transformations (5 no_back_edge, 1 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            4323
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72704
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               1
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                              12
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             142
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      6 assertions remain after transformations (5 no_back_edge, 1 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...

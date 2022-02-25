@@ -1,0 +1,114 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 6916 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 2
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/6916
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : substSelect
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "substSelect" for 1 iterations succeeded.
+      Unrolling loop in function "substSelect" for 1 iterations succeeded.
+      Transformed "substSelect" from 14 to 16 basic blocks and from 86 to 91 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...
+        Unrolling loop in function "substExprList" for 1 iterations succeeded.
+        Transformed "substExprList" from 7 to 9 basic blocks and from 35 to 40 instructionsCurrent: substExprList Havoced: substExpr
+Current: substExprList Havoced: substExpr
+Current: substExprList Havoced: substExpr
+Current: substExpr Havoced: sqlite3ExprIsVector
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %53, i8 0, i64 72, i32 8, i1 false), !dbg !5698
+Current: substExpr Havoced: sqlite3ExprDup
+Current: substExpr Havoced: sqlite3SetJoinExpr
+Current: substExpr Havoced: sqlite3ExprDelete
+Current: substExpr Havoced: sqlite3ExprCollSeq
+Current: substExpr Havoced: sqlite3ExprAddCollateString
+Current: substExpr Havoced: sqlite3ExprDelete
+Current: substExpr Havoced: sqlite3VectorErrorMsg
+Current: substExpr Havoced: substExprList
+Current: substExpr Havoced: substExprList
+Current: substExpr Havoced: substExprList
+Current: substExpr Havoced: sqlite3ExprIsVector
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %53, i8 0, i64 72, i32 8, i1 false), !dbg !5698
+Current: substExpr Havoced: sqlite3ExprDup
+Current: substExpr Havoced: sqlite3SetJoinExpr
+Current: substExpr Havoced: sqlite3ExprDelete
+Current: substExpr Havoced: sqlite3ExprCollSeq
+Current: substExpr Havoced: sqlite3ExprAddCollateString
+Current: substExpr Havoced: sqlite3ExprDelete
+Current: substExpr Havoced: sqlite3VectorErrorMsg
+Current: substExpr Havoced: substExprList
+Current: substExpr Havoced: substExprList
+Current: substExpr Havoced: substExprList
+Current: substExprList Havoced: substExpr
+
+                                                           0 sec [DONE]
+        Number of expressions:                        156453
+        after encoding
+
+      19 assertions before transformations (9 no_function_call, 6 no_back_edge, 4 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            4191
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72652
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               2
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                              15
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             288
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      19 assertions remain after transformations (9 no_function_call, 6 no_back_edge, 4 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...ter sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...

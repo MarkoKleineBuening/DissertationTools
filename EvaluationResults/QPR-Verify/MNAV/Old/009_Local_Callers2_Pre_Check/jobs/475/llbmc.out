@@ -1,0 +1,181 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+handleJobInSeparateProcess0
+
+Checking job 475 ...about to run job:
+preconNumber: 3, 1
+
+  Running Model Checker with 1 checks ...entry: navigation_algorithm, functionName: mat_lu
+entry: navigation_algorithm, functionName: AHRS_Algorithm
+entry: navigation_algorithm, functionName: mat_inv
+  <badref> = call double** @qpr.precondition.mat_inv(double** %402, double** %403)
+entry: navigation_algorithm, functionName: mat_lsolve
+entry: navigation_algorithm, functionName: mat_minor
+entry: navigation_algorithm, functionName: navigation_algorithm
+try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 4
+    HavocLimit : 0
+    PreconditionNumber : 3
+    PreconditionLocation : jobs/475
+    TimeOut : 300
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : navigation_algorithm
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "navigation_algorithm" for 9 iterations succeeded.
+      Unrolling loop in function "navigation_algorithm" for 8 iterations succeeded.
+      Unrolling loop in function "navigation_algorithm" for 6 iterations succeeded.
+      Unrolling loop in function "navigation_algorithm" for 9 iterations succeeded.
+      Unrolling loop in function "navigation_algorithm" for 9 iterations succeeded.
+      Unrolling loop in function "navigation_algorithm" for 9 iterations succeeded.
+      Unrolling loop in function "navigation_algorithm" for 9 iterations succeeded.
+      Transformed "navigation_algorithm" from 33 to 130 basic blocks and from 698 to 2343 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...size Alloca: 1
+size Alloca: 1
+
+        Unrolling loop in function "_mat_creat" for 4 iterations succeeded.
+        Transformed "_mat_creat" from 10 to 20 basic blocks and from 54 to 117 instructions
+        Transformed "mat_error" from 5 to 10 basic blocks and from 10 to 19 instructions
+        Unrolling loop in function "mat_fill" for 4 iterations succeeded.
+        Unrolling loop in function "mat_fill" for 4 iterations succeeded.
+        Transformed "mat_fill" from 18 to 159 basic blocks and from 67 to 679 instructions
+        Unrolling loop in function "mat_mul" for 4 iterations succeeded.
+        Unrolling loop in function "mat_mul" for 4 iterations succeeded.
+        Unrolling loop in function "mat_mul" for 4 iterations succeeded.
+        Transformed "mat_mul" from 13 to 232 basic blocks and from 82 to 2416 instructions
+        Unrolling loop in function "mat_free" for 4 iterations succeeded.
+        Transformed "mat_free" from 8 to 15 basic blocks and from 33 to 79 instructions
+        Unrolling loop in function "mat_scalMul" for 4 iterations succeeded.
+        Unrolling loop in function "mat_scalMul" for 4 iterations succeeded.
+        Transformed "mat_scalMul" from 9 to 56 basic blocks and from 52 to 447 instructions
+        Unrolling loop in function "mat_add" for 4 iterations succeeded.
+        Unrolling loop in function "mat_add" for 4 iterations succeeded.
+        Transformed "mat_add" from 9 to 56 basic blocks and from 58 to 543 instructions
+        Unrolling loop in function "mat_tran" for 4 iterations succeeded.
+        Unrolling loop in function "mat_tran" for 4 iterations succeeded.
+        Transformed "mat_tran" from 9 to 56 basic blocks and from 49 to 429 instructions
+        Unrolling loop in function "mat_subcopy" for 4 iterations succeeded.
+        Unrolling loop in function "mat_subcopy" for 4 iterations succeeded.
+        Transformed "mat_subcopy" from 9 to 56 basic blocks and from 45 to 393 instructionsTODO MKB implement precondition handling: IE
+Reading in precondition at: jobs/475/precondition_mat_inv.txt
+preconFile: jobs/475/precondition_mat_inv.txt
+ref: [underoverapprox]name of function arguments, argValue:  
+ref: [underoverapprox]name of function arguments, argValue:  
+name of function arguments line
+ERROR boolCond is nullptr
+ERROR boolCond is nullptr
+ERROR boolCond is nullptr
+Writing precondition type at: jobs/475/precondition_type_navigation_algorithm.txt
+
+Type of Precondition:
+[underoverapprox]
+precondition found, end encoding
+
+                                                           0 sec [DONE]
+        Number of expressions:                         36775
+        after encoding
+
+      195 assertions before transformations (25 no_function_call, 170 no_back_edge).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                           21289
+        Fixed Memory Address Assigner
+          Number of moved ops                              5
+          Number of rewrites                             386
+        Simplifier
+          Number of moved ops                              2
+          Number of rewrites                           20055
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               2
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                            5098
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                            1645
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of rewrites                               2
+                                                           0 sec [DONE]
+        
+      195 assertions remain after transformations (25 no_function_call, 170 no_back_edge).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...            0 sec [DONE]
+        
+                                                           0 sec [DONE]
+      after performing Check
+evaluateCheckerResultsViaRefinementLoop
+checker.getResult() is Trace
+checkOnlyPrecon: 1, size:1
+setCheckToUnsafe for precondition Instruction
+checkID: 1618
+setCheckToUnsafe
+set check to unsafe
+getCheckerResultAfterUpdatingMarker
+failingInst:   %3 = call i32 @clock_gettime(i32 0, %struct.timeval.141* @get_Time.tset) #9, !dbg !1380
+Preconditions internal: 
+
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   %3 = call i32 @clock_gettime(i32 0, %struct.timeval.141* @get_Time.tset) #9, !dbg !1380
+Preconditions internal: 
+
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   %3 = call i32 @clock_gettime(i32 0, %struct.timeval.141* @get_Time.tset) #9, !dbg !1380
+Preconditions internal: 
+
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      name of function arguments: Writing precondition at: jobs/475/precondition_navigation_algorithm.txt
+
+Generated Preconditions:
+[underoverapprox]name of function arguments: 
+
+
+
+
+                                                           0 sec [DONE]
+    allsafe
+    
+                                                           0 sec [DONE]
+                       0 sec [DONE]
+  

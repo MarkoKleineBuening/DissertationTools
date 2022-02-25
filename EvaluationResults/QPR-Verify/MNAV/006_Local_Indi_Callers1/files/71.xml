@@ -1,0 +1,51 @@
+<SourceFile>
+  <Line number="1">/* Endian macros for string.h functions</Line>
+  <Line number="2">   Copyright (C) 1992-2020 Free Software Foundation, Inc.</Line>
+  <Line number="3">   This file is part of the GNU C Library.</Line>
+  <Line number="4"></Line>
+  <Line number="5">   The GNU C Library is free software; you can redistribute it and/or</Line>
+  <Line number="6">   modify it under the terms of the GNU Lesser General Public</Line>
+  <Line number="7">   License as published by the Free Software Foundation; either</Line>
+  <Line number="8">   version 2.1 of the License, or (at your option) any later version.</Line>
+  <Line number="9"></Line>
+  <Line number="10">   The GNU C Library is distributed in the hope that it will be useful,</Line>
+  <Line number="11">   but WITHOUT ANY WARRANTY; without even the implied warranty of</Line>
+  <Line number="12">   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU</Line>
+  <Line number="13">   Lesser General Public License for more details.</Line>
+  <Line number="14"></Line>
+  <Line number="15">   You should have received a copy of the GNU Lesser General Public</Line>
+  <Line number="16">   License along with the GNU C Library; if not, see</Line>
+  <Line number="17">   &lt;http://www.gnu.org/licenses/&gt;.  */</Line>
+  <Line number="18"></Line>
+  <Line number="19">#ifndef _BITS_ENDIAN_H</Line>
+  <Line number="20">#define _BITS_ENDIAN_H 1</Line>
+  <Line number="21"></Line>
+  <Line number="22">/* Definitions for byte order, according to significance of bytes,</Line>
+  <Line number="23">   from low addresses to high addresses.  The value is what you get by</Line>
+  <Line number="24">   putting &apos;4&apos; in the most significant byte, &apos;3&apos; in the second most</Line>
+  <Line number="25">   significant byte, &apos;2&apos; in the second least significant byte, and &apos;1&apos;</Line>
+  <Line number="26">   in the least significant byte, and then writing down one digit for</Line>
+  <Line number="27">   each byte, starting with the byte at the lowest address at the left,</Line>
+  <Line number="28">   and proceeding to the byte with the highest address at the right.  */</Line>
+  <Line number="29"></Line>
+  <Line number="30">#define	__LITTLE_ENDIAN	1234</Line>
+  <Line number="31">#define	__BIG_ENDIAN	4321</Line>
+  <Line number="32">#define	__PDP_ENDIAN	3412</Line>
+  <Line number="33"></Line>
+  <Line number="34">/* This file defines `__BYTE_ORDER&apos; for the particular machine.  */</Line>
+  <Line number="35">#include &lt;bits/endianness.h&gt;</Line>
+  <Line number="36"></Line>
+  <Line number="37">/* Some machines may need to use a different endianness for floating point</Line>
+  <Line number="38">   values.  */</Line>
+  <Line number="39">#ifndef __FLOAT_WORD_ORDER</Line>
+  <Line number="40"># define __FLOAT_WORD_ORDER __BYTE_ORDER</Line>
+  <Line number="41">#endif</Line>
+  <Line number="42"></Line>
+  <Line number="43">#if __BYTE_ORDER == __LITTLE_ENDIAN</Line>
+  <Line number="44"># define __LONG_LONG_PAIR(HI, LO) LO, HI</Line>
+  <Line number="45">#elif __BYTE_ORDER == __BIG_ENDIAN</Line>
+  <Line number="46"># define __LONG_LONG_PAIR(HI, LO) HI, LO</Line>
+  <Line number="47">#endif</Line>
+  <Line number="48"></Line>
+  <Line number="49">#endif /* bits/endian.h */</Line>
+</SourceFile>

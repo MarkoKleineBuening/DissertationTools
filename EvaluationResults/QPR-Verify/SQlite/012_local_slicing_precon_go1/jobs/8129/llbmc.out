@@ -1,0 +1,190 @@
+runJobCommand
+precondition analysis with entry:sqlite3Parser
+arguents: child
+arguents: job
+arguents: mode
+arguents: precondition
+handleJobInSeparateProcess0
+
+Checking job 8129 ...about to run job:
+preconNumber: 5, 1
+
+  Running Model Checker with 1 checks ...entry: sqlite3Parser, functionName: yy_reduce
+  <badref> = call i16 @qpr.precondition.yy_reduce(%struct.yyParser.291* %10, i32 %25, i32 %1, i8* %42, i32 %44, %struct.Parse.129* %12)
+entry: sqlite3Parser, functionName: sqlite3Parser
+entry: sqlite3Parser, functionName: yy_reduce
+try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 1
+    LoopUnrollBound : 1
+    HavocLimit : 0
+    PreconditionNumber : 5
+    PreconditionLocation : jobs/8129
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : true
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : sqlite3Parser
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "sqlite3Parser" for 1 iterations succeeded.
+      Transformed "sqlite3Parser" from 15 to 16 basic blocks and from 109 to 119 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...size Alloca: 1
+size Alloca: 1
+
+        Unrolling loop in function "yy_find_shift_action" for 1 iterations succeeded.
+        Transformed "yy_find_shift_action" from 13 to 14 basic blocks and from 86 to 90 instructionsTODO MKB implement precondition handling: IE
+Reading in precondition at: jobs/8129/precondition_yy_reduce.txt
+preconFile: jobs/8129/precondition_yy_reduce.txt
+ref: [underoverapprox]name of function arguments, argValue:  
+ref: [underoverapprox]name of function arguments, argValue:  
+name of function arguments line
+param: i32 %arg1:-1
+---name: i32 %arg1, value: -1.
+integer, char or other simple types
+name: i32 %arg1
+assuming that there are not more then 10 arguments
+nameIndex: 1
+nameID: 1
+argument name: 
+value: -1
+###new bool cond: bool % = compare(%, %i32__4294967295)
+param:  i32 %arg2:arbitrary
+---name:  i32 %arg2, value: arbitrary.
+param:  i32 %arg4:arbitrary
+---name:  i32 %arg4, value: arbitrary.
+pruneOrAssert -- adding line boolCond: bool % = compare(%, %i32__4294967295)
+param: i32 %arg1:398
+---name: i32 %arg1, value: 398.
+integer, char or other simple types
+name: i32 %arg1
+assuming that there are not more then 10 arguments
+nameIndex: 1
+nameID: 1
+argument name: 
+value: 398
+###new bool cond: bool % = compare(%, %i32__398)
+param:  i32 %arg2:arbitrary
+---name:  i32 %arg2, value: arbitrary.
+param:  i32 %arg4:arbitrary
+---name:  i32 %arg4, value: arbitrary.
+pruneOrAssert -- adding line boolCond: bool % = compare(%, %i32__398)
+param: i32 %arg1:399
+---name: i32 %arg1, value: 399.
+integer, char or other simple types
+name: i32 %arg1
+assuming that there are not more then 10 arguments
+nameIndex: 1
+nameID: 1
+argument name: 
+value: 399
+###new bool cond: bool % = compare(%, %i32__399)
+param:  i32 %arg2:arbitrary
+---name:  i32 %arg2, value: arbitrary.
+param:  i32 %arg4:arbitrary
+---name:  i32 %arg4, value: arbitrary.
+pruneOrAssert -- adding line boolCond: bool % = compare(%, %i32__399)
+param: i32 %arg1:407
+---name: i32 %arg1, value: 407.
+integer, char or other simple types
+name: i32 %arg1
+assuming that there are not more then 10 arguments
+nameIndex: 1
+nameID: 1
+argument name: 
+value: 407
+###new bool cond: bool % = compare(%, %i32__407)
+param:  i32 %arg2:arbitrary
+---name:  i32 %arg2, value: arbitrary.
+param:  i32 %arg4:arbitrary
+---name:  i32 %arg4, value: arbitrary.
+pruneOrAssert -- adding line boolCond: bool % = compare(%, %i32__407)
+param: i32 %arg1:414
+---name: i32 %arg1, value: 414.
+integer, char or other simple types
+name: i32 %arg1
+assuming that there are not more then 10 arguments
+nameIndex: 1
+nameID: 1
+argument name: 
+value: 414
+###new bool cond: bool % = compare(%, %i32__414)
+param:  i32 %arg2:arbitrary
+---name:  i32 %arg2, value: arbitrary.
+param:  i32 %arg4:arbitrary
+---name:  i32 %arg4, value: arbitrary.
+pruneOrAssert -- adding line boolCond: bool % = compare(%, %i32__414)
+Writing precondition type at: jobs/8129/precondition_type_sqlite3Parser.txt
+
+Type of Precondition:
+[underoverapprox]
+precondition found, end encoding
+
+                                                           0 sec [DONE]
+        Number of expressions:                        155249
+        after encoding
+
+      6 assertions before transformations (1 no_back_edge, 5 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            3464
+        Fixed Memory Address Assigner
+          Number of moved ops                              2
+          Number of rewrites                            5210
+        Simplifier
+          Number of moved ops                              2
+          Number of rewrites                           72604
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               2
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                            2763
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                          207520
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      6 assertions remain after transformations (1 no_back_edge, 5 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...ng precondition at: jobs/8129/precondition_yy_reduce.txt
+
+Generated Preconditions:
+[underoverapprox]name of function arguments: 
+i32 %arg1:-1; i32 %arg2:arbitrary; i32 %arg4:arbitrary; 
+i32 %arg1:398; i32 %arg2:arbitrary; i32 %arg4:arbitrary; 
+i32 %arg1:399; i32 %arg2:arbitrary; i32 %arg4:arbitrary; 
+i32 %arg1:407; i32 %arg2:arbitrary; i32 %arg4:arbitrary; 
+i32 %arg1:414; i32 %arg2:arbitrary; i32 %arg4:arbitrary; 
+
+                                                           1 sec [DONE]
+    allunsafe
+    
+                                                           1 sec [DONE]
+  

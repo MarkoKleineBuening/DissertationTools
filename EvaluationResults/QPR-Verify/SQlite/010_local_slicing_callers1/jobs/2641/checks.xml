@@ -1,0 +1,37 @@
+<VerificationJob>
+  <Configuration>
+    <AnalyzeChecksIndividually value="true" />
+    <BitcodeTraces value="false" />
+    <CheckCallers value="true" />
+    <DumpVerifierBitcodeFiles value="false" />
+    <EnableSlicing value="true" />
+    <EntryPoint value="lockBtree" />
+    <FixPoint value="true" />
+    <ForkJobs value="true" />
+    <Hosted value="true" />
+    <IgnoreMissingFunctions value="false" />
+    <InitializedGlobals value="false" />
+    <LoopUnrollBound value="1" />
+    <PreconditionLocation value="jobs/2641" />
+    <SourceDirectory value="/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld" />
+    <TimeOut value="600" />
+    <XMLTraces value="false" />
+  </Configuration>
+  <CheckList>
+    <Check id="8655" location="9410" category="implicit.conversion.overflow" status="unsafe" scope="sqlite3PagerSetPagesize">
+      <Annotations>
+        <Annotation>An implicit conversion operation can overflow.</Annotation>
+      </Annotations>
+      <EntryStatus>
+        <SingleEntryStatus>lockBtree, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>pager_playback, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>readJournalHdr, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3BtreeOpen, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3BtreeSetPageSize, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3PagerOpen, unsafe</SingleEntryStatus>
+      </EntryStatus>
+    </Check>
+  </CheckList>
+  <Annotation>allunsafe</Annotation>
+  <Status>allunsafe</Status>
+</VerificationJob>

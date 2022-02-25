@@ -1,0 +1,226 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 161 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 2
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/161
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : apndTruncate
+m_checker->run()
+
+    Performing bounded model checking ...getMatchingFunctions
+res.push_back: apndTruncate
+res.push_back: memdbTruncate
+res.push_back: unixTruncate
+res.push_back: memjrnlTruncate
+res.push_back: sqlite3OsTruncate
+res.push_back: backupTruncateFile
+
+      Transformed "apndTruncate" from 4 to 46 basic blocks and from 29 to 140 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...
+        Unrolling loop in function "apndWriteMark" for 8 iterations succeeded.getMatchingFunctions
+res.push_back: apndRead
+res.push_back: apndWrite
+res.push_back: memdbRead
+res.push_back: memdbWrite
+res.push_back: unixRead
+res.push_back: unixWrite
+res.push_back: sqlite3OsWrite
+res.push_back: memjrnlRead
+res.push_back: memjrnlWrite
+res.push_back: sqlite3OsRead
+
+        Transformed "apndWriteMark" from 9 to 43 basic blocks and from 71 to 304 instructionsisMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %9, i8* getelementptr inbounds ([18 x i8], [18 x i8]* @.str.35, i32 0, i32 0), i64 17, i32 1, i1 false), !dbg !5634
+Current: apndWriteMark Havoced: walWriteToLog
+Current: apndWriteMark Havoced: walWriteOneFrame
+Current: apndWriteMark Havoced: sqlite3OsRead
+Current: apndWriteMark Havoced: memjrnlWrite
+Current: apndWriteMark Havoced: memjrnlRead
+Current: apndWriteMark Havoced: sqlite3OsWrite
+Current: apndWriteMark Havoced: unixWrite
+Current: apndWriteMark Havoced: unixRead
+Current: apndWriteMark Havoced: memdbWrite
+Current: apndWriteMark Havoced: memdbRead
+Current: apndWriteMark Havoced: apndWrite
+Current: apndWriteMark Havoced: apndRead
+Current: backupTruncateFile Havoced: sqlite3OsFileSize
+Current: backupTruncateFile Havoced: sqlite3OsTruncate
+
+        Unrolling loop in function "putVarint64" for 8 iterations succeeded.
+        Unrolling loop in function "putVarint64" for 1 iterations succeeded.
+        Unrolling loop in function "putVarint64" for 1 iterations succeeded.
+        Transformed "putVarint64" from 15 to 29 basic blocks and from 109 to 269 instructionsCurrent: sqlite3PutVarint Havoced: putVarint64
+Current: sqlite3SubInt64 Havoced: sqlite3AddInt64
+
+        Unrolling loop in function "whereLoopAddBtree" for 1 iterations succeeded.
+        Unrolling loop in function "whereLoopAddBtree" for 1 iterations succeeded.
+        Unrolling loop in function "whereLoopAddBtree" for 1 iterations succeeded.
+        Transformed "whereLoopAddBtree" from 90 to 163 basic blocks and from 730 to 1255 instructionsisMemset:   call void @llvm.memset.p0i8.i64(i8* %38, i8 0, i64 112, i32 8, i1 false), !dbg !5741
+Current: whereLoopAddBtree Havoced: estLog
+Current: whereLoopAddBtree Havoced: termCanDriveIndex
+Current: whereLoopAddBtree Havoced: sqlite3LogEstAdd
+Current: whereLoopAddBtree Havoced: whereLoopInsert
+Current: whereLoopAddBtree Havoced: termCanDriveIndex
+Current: whereLoopAddBtree Havoced: sqlite3LogEstAdd
+Current: whereLoopAddBtree Havoced: whereLoopInsert
+Current: whereLoopAddBtree Havoced: whereUsablePartialIndex
+Current: whereLoopAddBtree Havoced: indexMightHelpWithOrderBy
+Current: whereLoopAddBtree Havoced: sqlite3ExprCoveredByIndex
+Current: whereLoopAddBtree Havoced: sqlite3LogEstAdd
+Current: whereLoopAddBtree Havoced: whereLoopOutputAdjust
+Current: whereLoopAddBtree Havoced: whereLoopInsert
+Current: whereLoopAddBtree Havoced: whereLoopOutputAdjust
+Current: whereLoopAddBtree Havoced: whereLoopInsert
+Current: whereLoopAddBtree Havoced: whereLoopAddBtreeIndex
+Current: whereLoopAddBtree Havoced: whereUsablePartialIndex
+Current: whereLoopAddBtree Havoced: indexMightHelpWithOrderBy
+Current: whereLoopAddBtree Havoced: sqlite3ExprCoveredByIndex
+Current: whereLoopAddBtree Havoced: sqlite3LogEstAdd
+Current: whereLoopAddBtree Havoced: whereLoopOutputAdjust
+Current: whereLoopAddBtree Havoced: whereLoopInsert
+Current: whereLoopAddBtree Havoced: whereLoopOutputAdjust
+Current: whereLoopAddBtree Havoced: whereLoopInsert
+Current: whereLoopAddBtree Havoced: whereLoopAddBtreeIndex
+Current: sqlite3BtreeSetMmapLimit Havoced: sqlite3BtreeEnter
+Current: sqlite3BtreeSetMmapLimit Havoced: sqlite3PagerSetMmapLimit
+Current: sqlite3BtreeSetMmapLimit Havoced: sqlite3BtreeLeave
+getMatchingFunctions
+res.push_back: apndTruncate
+res.push_back: memdbTruncate
+res.push_back: unixTruncate
+res.push_back: memjrnlTruncate
+res.push_back: sqlite3OsTruncate
+res.push_back: backupTruncateFile
+
+        Transformed "sqlite3OsTruncate" from 1 to 43 basic blocks and from 10 to 121 instructionsCurrent: sqlite3OsTruncate Havoced: backupTruncateFile
+Current: sqlite3OsTruncate Havoced: putVarint64
+Current: sqlite3OsTruncate Havoced: btreePayloadToLocal
+Current: sqlite3OsTruncate Havoced: sqlite3PutVarint
+Current: sqlite3OsTruncate Havoced: sqlite3MulInt64
+Current: sqlite3OsTruncate Havoced: sqlite3SubInt64
+Current: sqlite3OsTruncate Havoced: whereLoopAddBtree
+Current: sqlite3OsTruncate Havoced: sqlite3BtreeSetMmapLimit
+Current: sqlite3OsTruncate Havoced: memjrnlTruncate
+Current: sqlite3OsTruncate Havoced: sqlite3_blob_reopen
+Current: sqlite3OsTruncate Havoced: sqlite3_result_zeroblob64
+Current: sqlite3OsTruncate Havoced: sqlite3AddInt64
+Current: sqlite3OsTruncate Havoced: fcntlSizeHint
+Current: sqlite3OsTruncate Havoced: unixMapfile
+Current: sqlite3OsTruncate Havoced: unixTruncate
+Current: sqlite3OsTruncate Havoced: memdbEnlarge
+Current: sqlite3OsTruncate Havoced: memdbTruncate
+
+        Unrolling loop in function "memjrnlTruncate" for 1 iterations succeeded.
+        Transformed "memjrnlTruncate" from 14 to 19 basic blocks and from 81 to 104 instructionsCurrent: memjrnlTruncate Havoced: memjrnlFreeChunks
+Current: memjrnlTruncate Havoced: memjrnlFreeChunks
+Current: sqlite3_blob_reopen Havoced: sqlite3_mutex_enter
+Current: sqlite3_blob_reopen Havoced: blobSeekToRow
+Current: sqlite3_blob_reopen Havoced: sqlite3ErrorWithMsg
+Current: sqlite3_blob_reopen Havoced: sqlite3DbFree
+Current: sqlite3_blob_reopen Havoced: sqlite3ApiExit
+Current: sqlite3_blob_reopen Havoced: sqlite3_mutex_leave
+Current: sqlite3_blob_reopen Havoced: sqlite3MisuseError
+Current: sqlite3_result_zeroblob64 Havoced: sqlite3VdbeMemSetZeroBlob
+
+        Unrolling loop in function "fcntlSizeHint" for 1 iterations succeeded.getMatchingFunctions
+res.push_back: fstat64
+
+        Transformed "fcntlSizeHint" from 23 to 47 basic blocks and from 154 to 234 instructionsCurrent: fcntlSizeHint Havoced: sqlite3BitvecBuiltinTest
+Current: fcntlSizeHint Havoced: unixGetTempname
+Current: fcntlSizeHint Havoced: re_hex
+Current: fcntlSizeHint Havoced: main
+Current: fcntlSizeHint Havoced: seekAndWrite
+Current: fcntlSizeHint Havoced: robust_ftruncate
+Current: fcntlSizeHint Havoced: unixMapfile
+Current: fcntlSizeHint Havoced: storeLastErrno
+Current: fcntlSizeHint Havoced: unixLogErrorAtLine
+Current: fcntlSizeHint Havoced: seekAndWrite
+getMatchingFunctions
+res.push_back: fstat64
+
+        Transformed "unixMapfile" from 12 to 30 basic blocks and from 52 to 101 instructionsCurrent: unixMapfile Havoced: sqlite3BitvecBuiltinTest
+Current: unixMapfile Havoced: unixGetTempname
+Current: unixMapfile Havoced: re_hex
+Current: unixMapfile Havoced: main
+Current: unixMapfile Havoced: unixRemapfile
+Current: unixTruncate Havoced: robust_ftruncate
+Current: unixTruncate Havoced: storeLastErrno
+Current: unixTruncate Havoced: unixLogErrorAtLine
+Current: memdbEnlarge Havoced: sqlite3Realloc
+Current: memdbTruncate Havoced: memdbEnter
+Current: memdbTruncate Havoced: memdbLeave
+
+                                                           0 sec [DONE]
+        Number of expressions:                        160615
+        after encoding
+
+      41 assertions before transformations (21 no_function_call, 10 no_back_edge, 9 custom, 1 no_unreachable_executed).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            6653
+        Fixed Memory Address Assigner
+          Number of moved ops                              3
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72794
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               9
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                              69
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                         1177710
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           1 sec [DONE]
+        
+      41 assertions remain after transformations (21 no_function_call, 10 no_back_edge, 9 custom, 1 no_unreachable_executed).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...

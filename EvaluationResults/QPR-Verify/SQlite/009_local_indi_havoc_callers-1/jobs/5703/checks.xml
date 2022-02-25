@@ -1,0 +1,47 @@
+<VerificationJob>
+  <Configuration>
+    <AnalyzeChecksIndividually value="true" />
+    <BitcodeTraces value="false" />
+    <CheckCallers value="true" />
+    <DumpVerifierBitcodeFiles value="false" />
+    <EnableSlicing value="false" />
+    <EntryPoint value="sqlite3ViewGetColumnNames" />
+    <FixPoint value="true" />
+    <ForkJobs value="true" />
+    <HavocLimit value="2" />
+    <Hosted value="true" />
+    <IgnoreMissingFunctions value="false" />
+    <InitializedGlobals value="false" />
+    <LoopUnrollBound value="1" />
+    <PreconditionLocation value="jobs/5703" />
+    <SourceDirectory value="/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld" />
+    <TimeOut value="600" />
+    <XMLTraces value="false" />
+  </Configuration>
+  <CheckList>
+    <Check id="17696" location="19532" category="arithmetic.overflow.warning" status="unsafe" scope="sqlite3DeleteTable">
+      <Annotations>
+        <Annotation>An unsigned arithmetic operation can overflow (wraparound).</Annotation>
+        <Annotation>The model checker terminated with an exception (job:5703)</Annotation>
+        <Annotation>An unsigned arithmetic operation can overflow (wraparound).</Annotation>
+      </Annotations>
+      <EntryStatus>
+        <SingleEntryStatus>renameParseCleanup, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3EndTable, todo</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3ResultSetOfSelect, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3RunParser, todo</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3SchemaClear, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3SrcListDelete, todo</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3SrcListLookup, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3UnlinkAndDeleteTable, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3ViewGetColumnNames, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3VtabCallDestroy, todo</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3VtabEponymousTableClear, todo</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3_db_status, todo</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3_declare_vtab, todo</SingleEntryStatus>
+      </EntryStatus>
+    </Check>
+  </CheckList>
+  <Annotation>The model checker terminated with an exception</Annotation>
+  <Status>allunsafe</Status>
+</VerificationJob>

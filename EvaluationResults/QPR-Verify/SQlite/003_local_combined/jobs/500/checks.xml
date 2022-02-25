@@ -1,0 +1,46 @@
+<VerificationJob>
+  <Configuration>
+    <AnalyzeChecksIndividually value="false" />
+    <BitcodeTraces value="false" />
+    <DumpVerifierBitcodeFiles value="false" />
+    <EnableSlicing value="false" />
+    <EntryPoint value="operatorMask" />
+    <FixPoint value="true" />
+    <ForkJobs value="true" />
+    <Hosted value="true" />
+    <IgnoreMissingFunctions value="false" />
+    <InitializedGlobals value="false" />
+    <LoopUnrollBound value="1" />
+    <OverApproxVaArgs value="false" />
+    <PreconditionLocation value="jobs/500" />
+    <SourceDirectory value="/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld" />
+    <StopEncodingAfterCheck value="false" />
+    <StopEncodingAfterCheckLoop value="0" />
+    <TimeOut value="600" />
+    <XMLTraces value="false" />
+  </Configuration>
+  <CheckList>
+    <Check id="23397" location="26276" category="explicit.conversion.overflow" status="unsafe" scope="operatorMask">
+      <Annotations>
+        <Annotation>An explicit conversion operation can overflow.</Annotation>
+      </Annotations>
+    </Check>
+    <Check id="23398" location="26277" category="shift.by.amount" status="unsafe" scope="operatorMask">
+      <Annotations>
+        <Annotation>Shift operation can be by more than bitwidth.</Annotation>
+      </Annotations>
+    </Check>
+    <Check id="23399" location="26277" category="shift.by.negative" status="unsafe" scope="operatorMask">
+      <Annotations>
+        <Annotation>Shift operation can be by a negative number.</Annotation>
+      </Annotations>
+    </Check>
+    <Check id="23401" location="26278" category="arithmetic.overflow" status="unsafe" scope="operatorMask">
+      <Annotations>
+        <Annotation>A signed arithmetic operation can overflow.</Annotation>
+      </Annotations>
+    </Check>
+  </CheckList>
+  <Annotation>allunsafe</Annotation>
+  <Status>allunsafe</Status>
+</VerificationJob>

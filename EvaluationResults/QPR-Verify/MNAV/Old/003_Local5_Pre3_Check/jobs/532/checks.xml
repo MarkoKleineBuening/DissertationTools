@@ -1,0 +1,34 @@
+<VerificationJob>
+  <Configuration>
+    <AnalyzeChecksIndividually value="true" />
+    <BitcodeTraces value="false" />
+    <CheckOnlyPrecondition value="true" />
+    <DumpVerifierBitcodeFiles value="false" />
+    <EnableSlicing value="false" />
+    <EntryPoint value="navigation" />
+    <FixPoint value="true" />
+    <ForkJobs value="true" />
+    <Hosted value="true" />
+    <IgnoreMissingFunctions value="false" />
+    <InitializedGlobals value="false" />
+    <LoopUnrollBound value="4" />
+    <PreconditionLocation value="jobs/532" />
+    <PreconditionNumber value="3" />
+    <SourceDirectory value="/home/marko/Examples/23_MNAV/MNAV1.5" />
+    <TimeOut value="300" />
+    <XMLTraces value="false" />
+  </Configuration>
+  <CheckList>
+    <Check id="1804" location="1893" category="arrayindex" status="unsafe" scope="snap_time_interval">
+      <Annotations>
+        <Annotation>The function body for clock_gettime is missing (/home/marko/Examples/23_MNAV/MNAV1.5//home/marko/Examples/23_MNAV/MNAV1.5/misc.c:44:2)</Annotation>
+      </Annotations>
+      <EntryStatus>
+        <SingleEntryStatus>ahrs_main, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>navigation, unsafe</SingleEntryStatus>
+      </EntryStatus>
+    </Check>
+  </CheckList>
+  <Annotation>allsafe</Annotation>
+  <Status>allunsafe</Status>
+</VerificationJob>

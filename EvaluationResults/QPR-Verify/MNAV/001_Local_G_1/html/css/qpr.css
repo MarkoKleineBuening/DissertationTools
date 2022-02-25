@@ -1,0 +1,706 @@
+/*
+ * name: qpr.css
+ * author: Alexander Hantelmann, Florian Merz, Carsten Sinz, Calvin Urankar
+ * description: the main qpr stylesheet
+ * version: 0.6
+ */
+
+@import url(https://fonts.googleapis.com/css?family=Inconsolata:400,700);
+
+/* general settings */
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+/* section headers */
+
+.section-header h2 {
+  font-size: 18px;
+  border-bottom: 2px solid #aaa;
+  margin: .5em 0 .2em .5em;
+}
+
+.report table {
+  width: 100%;
+}
+
+.report td {
+  padding: 5px 5px;
+  border-color: #DDD;
+  border-style: solid;
+  border-width: 0px 1px 0px 0px;
+}
+
+.report th {
+  padding: 5px 5px;
+  border-style: solid;
+  border-color: #DDD;
+  border-width: 0px 1px 0px 0px;
+}
+
+.report .check:not(:first-child) {
+  border-style: solid;
+  border-color: #DDD;
+  border-width: 1px 0px 0px 0px;
+}
+
+.report .num {
+  font-size: small;
+  color: #999999;
+  width: 50px;
+  text-align: right;
+}
+
+.report .emblem {
+  width: 10%;
+  text-align: center;
+}
+
+.report .location {
+  width: 20%;
+}
+
+.report .kind {
+  width: 20%;
+}
+
+.report .leftlabel {
+  margin-left: auto;
+  text-align: right;
+  padding-right: 10px;
+  color: #999;
+}
+
+.code {
+  width: 100%;
+}
+
+.code .ast
+{
+  font-weight: bold;
+}
+
+.code td {
+  padding: 0px 5px;
+}
+
+.code .num {
+  font-size: small;
+  color: #999999;
+  width: 50px;
+  text-align: right;
+  border-color: #EEE;
+  border-style: solid;
+  border-width: 0px 1px 0px 0px;
+}
+
+.code .line {
+  white-space: pre;
+  font-family: monospace;
+}
+
+.panel-body {
+  padding: 0px;
+}
+
+.code .alert {
+  margin: 5pt 0pt 5pt -38pt;
+  padding: 5pt;
+}
+
+.alert {
+  margin-bottom: 10px;
+}
+
+
+/* additional layout information for new report page */
+
+/***
+ * filter settings
+ ***/
+
+#apply-button {
+  margin-bottom: 3%;
+}
+
+#source-file-filter-box {
+  max-height: 250px;
+  overflow: auto;
+}
+
+#function-filter-box {
+  max-height: 250px;
+  overflow: auto;
+}
+
+
+#check-kind-filter-box {
+  max-height: 250px;
+  overflow: auto;
+}
+
+#check-status-filter-box {
+  max-height: 250px;
+  overflow: auto;
+}
+
+.summary-table {
+  table-layout: fixed;
+  width: 100%;
+}
+
+.summary-table tr {
+  border-bottom: 1px solid #d5d5d5;
+}
+
+.summary-table .number {
+  text-align: right;
+  word-wrap: break-word;
+}
+
+body { padding-top: 70px; } /* reserve space for the top navbar */
+
+.state-icon {
+  left: -5px;
+}
+
+.list-group {
+  font-size: 80%;
+}
+
+.result-table-header-right {
+  text-align: right;
+}
+
+.filter-item {
+  cursor: pointer;
+}
+
+/* check result overview pie chart */
+
+#overview-chart-wrapper {
+  display: inline-flex;
+}
+
+.pie-chart-legend {
+  margin-left: 50px;
+}
+
+table.pie-chart-legend {
+  padding-left: 105px;
+}
+
+.legendColorBox {
+  padding: 5px;
+}
+
+.pie-chart {
+  float: left;
+  width: 220px;
+  height: 220px;
+}
+
+.legendLabel {
+  font-size: 12pt;
+}
+
+/* Start by setting display:none to make this hidden.
+   Then we position it in relation to the viewport window
+   with position:fixed. Width, height, top and left speak
+   for themselves. Background we set to 80% white with
+   our animation centered, and no-repeating */
+.modal {
+  display:    none;
+  position:   fixed;
+  z-index:    1000;
+  top:        0;
+  left:       0;
+  height:     100%;
+  width:      100%;
+  background: rgba( 255, 255, 255, .8 )
+              url('../img/loading.gif')
+              50% 50%
+              no-repeat;
+}
+
+/* loading divs */
+div.loading {
+  min-height: 120px;
+  width: 100%;
+  height: 100%;
+  background: rgba( 255, 255, 255, .8 )
+              url('../img/loading.gif')
+              50% 50%
+              no-repeat;
+}
+
+/* When the body has the loading class, we turn
+   the scrollbar off with overflow:hidden */
+body.loading {
+  overflow: hidden;
+}
+
+/* Anytime the body has the loading class, our
+   modal element will be visible */
+body.loading .modal {
+  display: block;
+}
+
+.error-trace-button {
+  float: right;
+}
+
+.error-trace-button:hover, .error-trace-button:visited, .error-trace-button:link, .error-trace-button:active {
+  text-decoration: none;
+}
+
+/* fix jumping too far for anchors */
+.anchor {
+  padding-top: 70px;
+  margin-top: -70px;
+}
+
+.logo {
+  margin-top: -5px;
+}
+
+.subcheck {
+  background-color: #eee;
+}
+
+/* Source Code View */
+
+.tc {
+  display: table-cell;
+  margin: 0 5%;
+}
+
+div.line {
+  display: table-row;
+}
+
+div.line-number {
+  display: table-cell;
+  border-right: 0.1em solid rgb(221,221,221);
+}
+
+div.line-text {
+  display: table-cell;
+  white-space: pre;
+}
+
+/* TOOLTIPS */
+/* Tooltip container */
+.mytooltip {
+    position: relative;
+    display: inline-block;
+}
+
+/* Tooltip text */
+.mytooltip .tooltiptext {
+    visibility: hidden;
+    background-color: #033ab7;
+    width: 320px;
+    color: #ffffff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+ 
+    /* Position the tooltip text - see examples below! */
+    position: absolute;
+    z-index: 1;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.mytooltip:hover .tooltiptext {
+    visibility: visible;
+}
+
+/***********************
+ ***  status emblem  ***
+ ***********************/
+
+.status {
+  width: 16px;
+  height: 16px;
+  vertical-align: middle;
+  display: inline-block;
+}
+
+.status-safe {
+  background: url(../img/symbols/Status_Safe.png) no-repeat;
+}
+
+.status-condSafe {
+  background: url(../img/symbols/Status_CondSafe.png) no-repeat;
+}
+
+.status-unsafe {
+  background: url(../img/symbols/Status_Unsafe.png) no-repeat;
+}
+
+.status-condUnsafe {
+  background: url(../img/symbols/Status_CondUnsafe.png) no-repeat;
+}
+
+.status-unknown {
+  background: url(../img/symbols/Status_Unknown.png) no-repeat;
+}
+
+.status-unsupported {
+  background: url(../img/symbols/Status_Unsupported.png) no-repeat;
+}
+
+.status-notyetsupported {
+  background: url(../img/symbols/Status_Unsupported.png) no-repeat;
+}
+
+.status-internalError {
+  background: url(../img/symbols/Status_internalFailure.png) no-repeat;
+}
+
+.status-toDo {
+  background: url(../img/symbols/Status_ToDo.png) no-repeat;
+}
+
+.status-compiler-fatal {
+  background: url(../img/symbols/Status_Error.png) no-repeat;
+}
+
+.status-compiler-error {
+  background: url(../img/symbols/Status_Error.png) no-repeat;
+}
+
+.status-compiler-warning {
+  background: url(../img/symbols/Status_Unknown.png) no-repeat;
+}
+
+.status-compiler-note {
+  background: url(../img/symbols/Status_condSafe.png) no-repeat;
+}
+
+.status-compiler-remark {
+  background: url(../img/symbols/Status_condSafe.png) no-repeat;
+}
+
+/*********************
+ ***  annotations  ***
+ *********************/
+
+.annotation-list {
+  width: 192px;  /* space for 9 icons (16px) plus 48px for spacing */
+}
+
+.annotation {
+  width: 16px;
+  height: 16px;
+  margin: 0px 2px 0px 2px;
+  vertical-align: middle;
+  display: inline-block;
+}
+
+/* timeout */
+.annotation-timeout-safe {
+  background: url(../img/symbols/Timeout_Green.png) no-repeat;
+}
+.annotation-timeout-condSafe {
+  background: url(../img/symbols/Timeout_LightGreen.png) no-repeat;
+}
+.annotation-timeout-unsafe {
+  background: url(../img/symbols/Timeout_Red.png) no-repeat;
+}
+.annotation-timeout-condUnsafe {
+  background: url(../img/symbols/Timeout_LightRed.png) no-repeat;
+}
+.annotation-timeout-unknown {
+  background: url(../img/symbols/Timeout_Orange.png) no-repeat;
+}
+.annotation-timeout-none {
+  background: url(../img/symbols/Timeout_Grey.png) no-repeat;
+}
+
+/* memoryout */
+.annotation-memoryout-safe {
+  background: url(../img/symbols/OutOfMem_Green.png) no-repeat;
+}
+.annotation-memoryout-condSafe {
+  background: url(../img/symbols/OutOfMem_LightGreen.png) no-repeat;
+}
+.annotation-memoryout-unsafe {
+  background: url(../img/symbols/OutOfMem_Red.png) no-repeat;
+}
+.annotation-memoryout-condUnsafe {
+  background: url(../img/symbols/OutOfMem_LightRed.png) no-repeat;
+}
+.annotation-memoryout-unknown {
+  background: url(../img/symbols/OutOfMem_Orange.png) no-repeat;
+}
+.annotation-memoryout-none {
+  background: url(../img/symbols/OutOfMem_Grey.png) no-repeat;
+}
+
+/* locally */
+.annotation-locally-safe {
+  background: url(../img/symbols/Local_Green.png) no-repeat;
+}
+.annotation-locally-condSafe {
+  background: url(../img/symbols/Local_LightGreen.png) no-repeat;
+}
+.annotation-locally-unsafe {
+  background: url(../img/symbols/Local_Red.png) no-repeat;
+}
+.annotation-locally-condUnsafe {
+  background: url(../img/symbols/Local_LightRed.png) no-repeat;
+}
+.annotation-locally-unknown {
+  background: url(../img/symbols/Local_Orange.png) no-repeat;
+}
+.annotation-locally-none {
+  background: url(../img/symbols/Local_Grey.png) no-repeat;
+}
+
+/* globally */
+.annotation-globally-safe {
+  background: url(../img/symbols/Global_Green.png) no-repeat;
+}
+.annotation-globally-condSafe {
+  background: url(../img/symbols/Global_LightGreen.png) no-repeat;
+}
+.annotation-globally-unsafe {
+  background: url(../img/symbols/Global_Red.png) no-repeat;
+}
+.annotation-globally-condUnsafe {
+  background: url(../img/symbols/Global_LightRed.png) no-repeat;
+}
+.annotation-globally-unknown {
+  background: url(../img/symbols/Global_Orange.png) no-repeat;
+}
+.annotation-globally-none {
+  background: url(../img/symbols/Global_Grey.png) no-repeat;
+}
+
+/* loopboundreached */
+.annotation-loopboundreached-safe {
+  background: url(../img/symbols/Loopbound_Reached_Green.png) no-repeat;
+}
+.annotation-loopboundreached-condSafe {
+  background: url(../img/symbols/Loopbound_Reached_LightGreen.png) no-repeat;
+}
+.annotation-loopboundreached-unsafe {
+  background: url(../img/symbols/Loopbound_Reached_Red.png) no-repeat;
+}
+.annotation-loopboundreached-condUnsafe {
+  background: url(../img/symbols/Loopbound_Reached_LightRed.png) no-repeat;
+}
+.annotation-loopboundreached-unknown {
+  background: url(../img/symbols/Loopbound_Reached_Orange.png) no-repeat;
+}
+.annotation-loopboundreached-none {
+  background: url(../img/symbols/Loopbound_Reached_Grey.png) no-repeat;
+}
+
+/* callstackboundreached */
+.annotation-callstackboundreached-safe {
+  background: url(../img/symbols/Stack_Bound_Reached_Green.png) no-repeat;
+}
+.annotation-callstackboundreached-condSafe {
+  background: url(../img/symbols/Stack_Bound_Reached_LightGreen.png) no-repeat;
+}
+.annotation-callstackboundreached-unsafe {
+  background: url(../img/symbols/Stack_Bound_Reached_Red.png) no-repeat;
+}
+.annotation-callstackboundreached-condUnsafe {
+  background: url(../img/symbols/Stack_Bound_Reached_LightRed.png) no-repeat;
+}
+.annotation-callstackboundreached-unknown {
+  background: url(../img/symbols/Stack_Bound_Reached_Orange.png) no-repeat;
+}
+.annotation-callstackboundreached-none {
+  background: url(../img/symbols/Stack_Bound_Reached_Grey.png) no-repeat;
+}
+
+/* functionbodymissing */
+.annotation-functionbodymissing-safe {
+  background: url(../img/symbols/Function_Body_Missing_Green.png) no-repeat;
+}
+.annotation-functionbodymissing-condSafe {
+  background: url(../img/symbols/Function_Body_Missing_LightGreen.png) no-repeat;
+}
+.annotation-functionbodymissing-unsafe {
+  background: url(../img/symbols/Function_Body_Missing_Red.png) no-repeat;
+}
+.annotation-functionbodymissing-condUnsafe {
+  background: url(../img/symbols/Function_Body_Missing_LightRed.png) no-repeat;
+}
+.annotation-functionbodymissing-unknown {
+  background: url(../img/symbols/Function_Body_Missing_Orange.png) no-repeat;
+}
+.annotation-functionbodymissing-none {
+  background: url(../img/symbols/Function_Body_Missing_Grey.png) no-repeat;
+}
+
+/* floatingpointabstraction */
+.annotation-floatingpointabstraction-safe {
+  background: url(../img/symbols/Floating_Point_Green.png) no-repeat;
+}
+.annotation-floatingpointabstraction-condSafe {
+  background: url(../img/symbols/Floating_Point_LightGreen.png) no-repeat;
+}
+.annotation-floatingpointabstraction-unsafe {
+  background: url(../img/symbols/Floating_Point_Red.png) no-repeat;
+}
+.annotation-floatingpointabstraction-condUnsafe {
+  background: url(../img/symbols/Floating_Point_LightRed.png) no-repeat;
+}
+.annotation-floatingpointabstraction-unknown {
+  background: url(../img/symbols/Floating_Point_Orange.png) no-repeat;
+}
+.annotation-floatingpointabstraction-none {
+  background: url(../img/symbols/Floating_Point_Grey.png) no-repeat;
+}
+
+/* inlineassembly */
+.annotation-inlineassembly-safe {
+  background: url(../img/symbols/InlineAssembly_Green.png) no-repeat;
+}
+.annotation-inlineassembly-condSafe {
+  background: url(../img/symbols/InlineAssembly_LightGreen.png) no-repeat;
+}
+.annotation-inlineassembly-unsafe {
+  background: url(../img/symbols/InlineAssembly_Red.png) no-repeat;
+}
+.annotation-inlineassembly-condUnsafe {
+  background: url(../img/symbols/InlineAssembly_LightRed.png) no-repeat;
+}
+.annotation-inlineassembly-unknown {
+  background: url(../img/symbols/InlineAssembly_Orange.png) no-repeat;
+}
+.annotation-inlineassembly-none {
+  background: url(../img/symbols/InlineAssembly_Grey.png) no-repeat;
+}
+
+.location-widget {
+  position: relative;
+  display: inline-block;
+}
+
+.location-widget .location-button {
+  cursor: pointer;
+}
+
+.location-widget .location-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+/*  min-width: 160px;*/
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.location-widget:hover .location-button {
+  background-color: lightgray;
+}
+
+.location-widget:hover .location-content {
+    display: block;
+}
+
+/* Source Code View*/
+
+#source-code {
+  font-family: Inconsolata, Monaco;
+}
+
+.ast.safe {
+  box-shadow:
+  inset 0 0 0 3px #97bf0d;
+  margin: 0 auto;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  position: relative;
+}
+
+.ast.condSafe {
+  box-shadow:
+  inset 0 0 0 3px #cadc87;
+  margin: 0 auto;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  position: relative;
+}
+
+.ast.unsafe {
+  box-shadow:
+  inset 0 0 0 3px #e70033;
+  margin: 0 auto;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  position: relative;
+
+}
+
+.ast.condUnsafe {
+  box-shadow:
+  inset 0 0 0 3px #e94c70;
+  margin: 0 auto;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  position: relative;
+
+}
+
+.ast.unsupported {
+  background-color: #696969;
+}
+
+.ast.notyetsupported {
+  background-color: #afafaf;
+}
+
+.ast.unknown {
+  box-shadow:
+    inset 0 0 0 3px #ffa200;
+  margin: 0 auto;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  position: relative;
+}
+
+/* Pagination */
+#pagination-panel {
+  float: right;
+  margin: 0 0 0 0;
+}
+
+#pagination-table td{
+  height: 100%;
+  border: 0px solid black;
+  margin: auto;
+  vertical-align: middle;
+}
+
+.nmb {
+  width: 60px;
+  text-align: center;
+}
+
+#currpage {
+  padding-top: 5px;
+}

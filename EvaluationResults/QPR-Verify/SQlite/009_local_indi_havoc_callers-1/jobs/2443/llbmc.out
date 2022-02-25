@@ -1,0 +1,93 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 2443 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 2
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/2443
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : pcache1FetchStage2
+m_checker->run()
+
+    Performing bounded model checking ...
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...Current: pcache1UnderMemoryPressure Havoced: sqlite3HeapNearlyFull
+
+        Unrolling loop in function "pcache1ResizeHash" for 1 iterations succeeded.
+        Unrolling loop in function "pcache1ResizeHash" for 1 iterations succeeded.
+        Transformed "pcache1ResizeHash" from 16 to 18 basic blocks and from 97 to 105 instructionsCurrent: pcache1ResizeHash Havoced: sqlite3BeginBenignMalloc
+Current: pcache1ResizeHash Havoced: sqlite3MallocZero
+Current: pcache1ResizeHash Havoced: sqlite3EndBenignMalloc
+Current: pcache1ResizeHash Havoced: sqlite3_free
+Current: pcache1UnderMemoryPressure Havoced: sqlite3HeapNearlyFull
+
+        Unrolling loop in function "pcache1RemoveFromHash" for 1 iterations succeeded.
+        Transformed "pcache1RemoveFromHash" from 7 to 8 basic blocks and from 48 to 54 instructionsCurrent: pcache1RemoveFromHash Havoced: pcache1FreePage
+Current: pcache1FreePage Havoced: pcache1Free
+Current: pcache1AllocPage Havoced: pcache1InitBulk
+Current: pcache1AllocPage Havoced: sqlite3BeginBenignMalloc
+Current: pcache1AllocPage Havoced: pcache1Alloc
+Current: pcache1AllocPage Havoced: sqlite3EndBenignMalloc
+
+                                                           0 sec [DONE]
+        Number of expressions:                        155889
+        after encoding
+
+      4 assertions before transformations (3 no_back_edge, 1 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            3773
+        Fixed Memory Address Assigner
+          Number of moved ops                              3
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                          281740
+        Memory Model Encoder
+          Number of moved ops                              0
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                              10
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             142
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      4 assertions remain after transformations (3 no_back_edge, 1 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...

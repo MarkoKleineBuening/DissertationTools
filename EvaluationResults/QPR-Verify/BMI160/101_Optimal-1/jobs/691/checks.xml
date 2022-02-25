@@ -1,0 +1,29 @@
+<VerificationJob>
+  <Configuration>
+    <AnalyzeChecksIndividually value="true" />
+    <BitcodeTraces value="false" />
+    <CheckCallers value="true" />
+    <EnableSlicing value="true" />
+    <EntryPoint value="bmi160_extract_aux" />
+    <FixPoint value="true" />
+    <HavocLimit value="0" />
+    <IgnoreMissingFunctions value="false" />
+    <InitializedGlobals value="false" />
+    <LoopUnrollBound value="12" />
+    <PreconditionLocation value="jobs/691" />
+    <SourceDirectory value="/home/i12/mbuening/100_Dissertation/BMI160/BMI160_driver" />
+    <TimeOut value="300" />
+  </Configuration>
+  <CheckList>
+    <Check id="2454" location="2611" category="implicit.conversion.overflow" status="unsafe" scope="unpack_aux_frame">
+      <Annotations>
+        <Annotation>An implicit conversion operation can overflow.</Annotation>
+      </Annotations>
+      <EntryStatus>
+        <SingleEntryStatus>bmi160_extract_aux, unsafe</SingleEntryStatus>
+      </EntryStatus>
+    </Check>
+  </CheckList>
+  <Annotation>allunsafe</Annotation>
+  <Status>allunsafe</Status>
+</VerificationJob>

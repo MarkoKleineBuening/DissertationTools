@@ -1,0 +1,41 @@
+<VerificationJob>
+  <Configuration>
+    <AnalyzeChecksIndividually value="true" />
+    <BitcodeTraces value="false" />
+    <CheckCallers value="true" />
+    <DumpVerifierBitcodeFiles value="false" />
+    <EnableSlicing value="false" />
+    <EntryPoint value="main" />
+    <FixPoint value="true" />
+    <ForkJobs value="true" />
+    <HavocLimit value="2" />
+    <Hosted value="true" />
+    <IgnoreMissingFunctions value="false" />
+    <InitializedGlobals value="false" />
+    <LoopUnrollBound value="1" />
+    <PreconditionLocation value="jobs/8222" />
+    <SourceDirectory value="/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld" />
+    <TimeOut value="600" />
+    <XMLTraces value="false" />
+  </Configuration>
+  <CheckList>
+    <Check id="27087" location="30344" category="arithmetic.overflow" status="safe|functionbodymissing" scope="sqlite3_config">
+      <Annotations>
+        <Annotation>The function body for fprintf is missing (/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld//home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld/shell.c:21788:5)</Annotation>
+        <Annotation>The function body for fprintf is missing (/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld//home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld/shell.c:21788:5)</Annotation>
+        <Annotation>The function body for setvbuf is missing (/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld//home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld/shell.c:21880:3)</Annotation>
+      </Annotations>
+      <EntryStatus>
+        <SingleEntryStatus>main, safe|functionbodymissing</SingleEntryStatus>
+        <SingleEntryStatus>main_init, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3MemSetDefault, safe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3MemTraceActivate, safe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3MemTraceDeactivate, safe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3PCacheSetDefault, safe</SingleEntryStatus>
+        <SingleEntryStatus>verify_uninitialized, unknown</SingleEntryStatus>
+      </EntryStatus>
+    </Check>
+  </CheckList>
+  <Annotation>allsafe</Annotation>
+  <Status>allsafe</Status>
+</VerificationJob>

@@ -1,0 +1,200 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 3376 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 2
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/3376
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : relocatePage
+m_checker->run()
+
+    Performing bounded model checking ...
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...Current: sqlite3PagerMovepage Havoced: sqlite3PagerWrite
+Current: sqlite3PagerMovepage Havoced: subjournalPageIfRequired
+Current: sqlite3PagerMovepage Havoced: sqlite3PagerLookup
+Current: sqlite3PagerMovepage Havoced: sqlite3PcacheDrop
+Current: sqlite3PagerMovepage Havoced: sqlite3PcacheMove
+Current: sqlite3PagerMovepage Havoced: sqlite3PcacheMove
+Current: sqlite3PagerMovepage Havoced: sqlite3PcacheMakeDirty
+Current: sqlite3PagerMovepage Havoced: sqlite3PcacheMove
+Current: sqlite3PagerMovepage Havoced: sqlite3PagerUnrefNotNull
+Current: sqlite3PagerMovepage Havoced: sqlite3PagerGet
+Current: sqlite3PagerMovepage Havoced: sqlite3PcacheMakeDirty
+Current: sqlite3PagerMovepage Havoced: sqlite3PagerUnrefNotNull
+Current: sqlite3PagerMovepage Havoced: sqlite3BitvecClear
+Current: sqlite3PagerMovepage Havoced: sqlite3PagerUnrefNotNull
+Current: sqlite3PagerMovepage Havoced: sqlite3CorruptError
+Current: ptrmapPut Havoced: ptrmapPageno
+Current: ptrmapPut Havoced: sqlite3PagerGet
+Current: ptrmapPut Havoced: sqlite3PagerGetExtra
+Current: ptrmapPut Havoced: sqlite3PagerGetData
+Current: ptrmapPut Havoced: sqlite3Get4byte
+Current: ptrmapPut Havoced: sqlite3PagerWrite
+Current: ptrmapPut Havoced: sqlite3Put4byte
+Current: ptrmapPut Havoced: sqlite3CorruptError
+Current: ptrmapPut Havoced: sqlite3CorruptError
+Current: ptrmapPut Havoced: sqlite3PagerUnref
+Current: ptrmapPut Havoced: sqlite3CorruptError
+
+        Unrolling loop in function "setChildPtrmaps" for 1 iterations succeeded.
+        Transformed "setChildPtrmaps" from 15 to 16 basic blocks and from 117 to 120 instructionsCurrent: setChildPtrmaps Havoced: btreeInitPage
+Current: setChildPtrmaps Havoced: ptrmapPutOvflPtr
+Current: setChildPtrmaps Havoced: sqlite3Get4byte
+Current: setChildPtrmaps Havoced: ptrmapPut
+Current: setChildPtrmaps Havoced: sqlite3Get4byte
+Current: setChildPtrmaps Havoced: ptrmapPut
+Current: btreeGetPage Havoced: sqlite3PagerGet
+Current: btreeGetPage Havoced: btreePageFromDbPage
+Current: sqlite3PagerWrite Havoced: pager_write
+Current: sqlite3PagerWrite Havoced: pagerWriteLargeSector
+Current: sqlite3PagerWrite Havoced: subjournalPageIfRequired
+
+        Unrolling loop in function "modifyPagePointer" for 1 iterations succeeded.getMatchingFunctions
+res.push_back: btreeParseCellPtr
+res.push_back: btreeParseCellPtrNoPayload
+res.push_back: btreeParseCellPtrIndex
+res.push_back: btreeParseCellAdjustSizeForOverflow
+
+        Transformed "modifyPagePointer" from 32 to 122 basic blocks and from 191 to 528 instructionsCurrent: modifyPagePointer Havoced: btreeInitPage
+Current: modifyPagePointer Havoced: sqlite3Get4byte
+Current: modifyPagePointer Havoced: sqlite3Put4byte
+Current: modifyPagePointer Havoced: copyNodeContent
+Current: modifyPagePointer Havoced: rowSetTreeToList
+Current: modifyPagePointer Havoced: identPut
+Current: modifyPagePointer Havoced: sqlite3FkDropTable
+Current: modifyPagePointer Havoced: generateWithRecursiveQuery
+Current: modifyPagePointer Havoced: innerLoopLoadRow
+Current: modifyPagePointer Havoced: explainSimpleCount
+Current: modifyPagePointer Havoced: sqlite3AuthContextPush
+Current: modifyPagePointer Havoced: generateColumnTypes
+Current: modifyPagePointer Havoced: whereLikeOptimizationStringFixup
+Current: modifyPagePointer Havoced: sqlite3WhereTabFuncArgs
+Current: modifyPagePointer Havoced: reindexTable
+Current: modifyPagePointer Havoced: analyzeTable
+Current: modifyPagePointer Havoced: sqlite3PagerSetBusyHandler
+Current: modifyPagePointer Havoced: corruptSchema
+Current: modifyPagePointer Havoced: sqlite3SetString
+Current: modifyPagePointer Havoced: addModuleArgument
+Current: modifyPagePointer Havoced: sqlite3ExprFunctionUsable
+Current: modifyPagePointer Havoced: sqlite3ResolveSelectNames
+Current: modifyPagePointer Havoced: sqlite3SelectPrep
+Current: modifyPagePointer Havoced: sqlite3RenameTokenRemap
+Current: modifyPagePointer Havoced: sqlite3WindowChain
+Current: modifyPagePointer Havoced: sqlite3AlterDropColumn
+Current: modifyPagePointer Havoced: sqlite3AlterRenameTable
+Current: modifyPagePointer Havoced: sqlite3Analyze
+Current: modifyPagePointer Havoced: sqlite3Reindex
+Current: modifyPagePointer Havoced: sqlite3FinishTrigger
+Current: modifyPagePointer Havoced: sqlite3Vacuum
+Current: modifyPagePointer Havoced: sqlite3PExprAddSelect
+Current: modifyPagePointer Havoced: sqlite3WindowAttach
+Current: modifyPagePointer Havoced: sqlite3ExprListCheckLength
+Current: modifyPagePointer Havoced: sqlite3SrcListFuncArgs
+Current: modifyPagePointer Havoced: sqlite3SrcListIndexedBy
+Current: modifyPagePointer Havoced: sqlite3AddGenerated
+Current: modifyPagePointer Havoced: sqlite3AddColumn
+Current: modifyPagePointer Havoced: btreeParseCellAdjustSizeForOverflow
+Current: modifyPagePointer Havoced: btreeParseCellPtrIndex
+Current: modifyPagePointer Havoced: btreeParseCellPtrNoPayload
+Current: modifyPagePointer Havoced: btreeParseCellPtr
+Current: modifyPagePointer Havoced: insertElement
+Current: modifyPagePointer Havoced: sqlite3_str_vappendf
+Current: modifyPagePointer Havoced: printSchemaLine
+Current: modifyPagePointer Havoced: tryToCloneData
+Current: modifyPagePointer Havoced: sqlite3Get4byte
+Current: modifyPagePointer Havoced: sqlite3Put4byte
+Current: modifyPagePointer Havoced: sqlite3Get4byte
+Current: modifyPagePointer Havoced: sqlite3Put4byte
+Current: modifyPagePointer Havoced: sqlite3CorruptError
+Current: modifyPagePointer Havoced: sqlite3CorruptError
+Current: modifyPagePointer Havoced: sqlite3Get4byte
+Current: modifyPagePointer Havoced: sqlite3Put4byte
+Current: modifyPagePointer Havoced: sqlite3CorruptError
+Current: releasePage Havoced: releasePageNotNull
+Current: ptrmapPut Havoced: ptrmapPageno
+Current: ptrmapPut Havoced: sqlite3PagerGet
+Current: ptrmapPut Havoced: sqlite3PagerGetExtra
+Current: ptrmapPut Havoced: sqlite3PagerGetData
+Current: ptrmapPut Havoced: sqlite3Get4byte
+Current: ptrmapPut Havoced: sqlite3PagerWrite
+Current: ptrmapPut Havoced: sqlite3Put4byte
+Current: ptrmapPut Havoced: sqlite3CorruptError
+Current: ptrmapPut Havoced: sqlite3CorruptError
+Current: ptrmapPut Havoced: sqlite3PagerUnref
+Current: ptrmapPut Havoced: sqlite3CorruptError
+Current: releasePage Havoced: releasePageNotNull
+Current: sqlite3CorruptError Havoced: sqlite3ReportError
+
+                                                           0 sec [DONE]
+        Number of expressions:                        157648
+        after encoding
+
+      5 assertions before transformations (1 no_function_call, 2 no_back_edge, 2 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            4759
+        Fixed Memory Address Assigner
+          Number of moved ops                              1
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72661
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               8
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                              73
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             142
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      5 assertions remain after transformations (1 no_function_call, 2 no_back_edge, 2 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...

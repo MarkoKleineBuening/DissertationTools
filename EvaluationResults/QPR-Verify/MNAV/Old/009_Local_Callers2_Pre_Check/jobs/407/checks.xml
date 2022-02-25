@@ -1,0 +1,51 @@
+<VerificationJob>
+  <Configuration>
+    <AnalyzeChecksIndividually value="true" />
+    <BitcodeTraces value="false" />
+    <CheckOnlyPrecondition value="true" />
+    <DumpVerifierBitcodeFiles value="false" />
+    <EnableSlicing value="false" />
+    <EntryPoint value="navigation" />
+    <FixPoint value="true" />
+    <ForkJobs value="true" />
+    <Hosted value="true" />
+    <IgnoreMissingFunctions value="false" />
+    <InitializedGlobals value="false" />
+    <LoopUnrollBound value="4" />
+    <PreconditionLocation value="jobs/407" />
+    <PreconditionNumber value="3" />
+    <SourceDirectory value="/home/marko/Examples/23_MNAV/MNAV1.5" />
+    <TimeOut value="300" />
+    <XMLTraces value="false" />
+  </Configuration>
+  <CheckList>
+    <Check id="1438" location="1514" category="arithmetic.overflow.warning" status="internalerror" scope="_mat_creat">
+      <Annotations>
+        <Annotation>An unsigned arithmetic operation can overflow (wraparound).</Annotation>
+        <Annotation>A loop bound was reached (/home/marko/Examples/23_MNAV/MNAV1.5//home/marko/Examples/23_MNAV/MNAV1.5/matrix.c:71:2)</Annotation>
+        <Annotation>Found 6 errors in the formula. Cannot start bug checking. (job:407)</Annotation>
+        <Annotation>Found 6 errors in the formula. Cannot start bug checking. (job:407)</Annotation>
+        <Annotation>Unable to open precondition file!
+ (job:407)</Annotation>
+        <Annotation>Unable to open precondition file!
+ (job:407)</Annotation>
+      </Annotations>
+      <EntryStatus>
+        <SingleEntryStatus>EcefToEnu, safe</SingleEntryStatus>
+        <SingleEntryStatus>EcefToLatLonAlt, safe</SingleEntryStatus>
+        <SingleEntryStatus>ahrs_main, unknown</SingleEntryStatus>
+        <SingleEntryStatus>mat_T321, safe</SingleEntryStatus>
+        <SingleEntryStatus>mat_cofact, safe</SingleEntryStatus>
+        <SingleEntryStatus>mat_det, safe</SingleEntryStatus>
+        <SingleEntryStatus>mat_durbin, safe</SingleEntryStatus>
+        <SingleEntryStatus>mat_inv, safe</SingleEntryStatus>
+        <SingleEntryStatus>mat_lsolve, safe</SingleEntryStatus>
+        <SingleEntryStatus>mat_lsolve_durbin, safe</SingleEntryStatus>
+        <SingleEntryStatus>navigation, internalerror</SingleEntryStatus>
+      </EntryStatus>
+    </Check>
+  </CheckList>
+  <Annotation>Unable to open precondition file!
+</Annotation>
+  <Status>internalerror</Status>
+</VerificationJob>

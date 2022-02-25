@@ -1,0 +1,39 @@
+<VerificationJob>
+  <Configuration>
+    <AnalyzeChecksIndividually value="true" />
+    <BitcodeTraces value="false" />
+    <CheckCallers value="true" />
+    <DumpVerifierBitcodeFiles value="false" />
+    <EnableSlicing value="false" />
+    <EntryPoint value="sqlite3BitvecBuiltinTest" />
+    <FixPoint value="true" />
+    <ForkJobs value="true" />
+    <HavocLimit value="2" />
+    <Hosted value="true" />
+    <IgnoreMissingFunctions value="false" />
+    <InitializedGlobals value="false" />
+    <LoopUnrollBound value="1" />
+    <PreconditionLocation value="jobs/2333" />
+    <SourceDirectory value="/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld" />
+    <TimeOut value="600" />
+    <XMLTraces value="false" />
+  </Configuration>
+  <CheckList>
+    <Check id="7788" location="8458" category="arrayindex" status="internalerror" scope="sqlite3BitvecSet">
+      <Annotations>
+        <Annotation>An array can be indexed out of bounds.</Annotation>
+        <Annotation>The model checker terminated with an exception (job:2333)</Annotation>
+      </Annotations>
+      <EntryStatus>
+        <SingleEntryStatus>addToSavepointBitvecs, todo</SingleEntryStatus>
+        <SingleEntryStatus>btreeSetHasContent, todo</SingleEntryStatus>
+        <SingleEntryStatus>getPageNormal, unknown</SingleEntryStatus>
+        <SingleEntryStatus>pagerAddPageToRollbackJournal, todo</SingleEntryStatus>
+        <SingleEntryStatus>pager_playback_one_page, todo</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3BitvecBuiltinTest, internalerror</SingleEntryStatus>
+      </EntryStatus>
+    </Check>
+  </CheckList>
+  <Annotation>The model checker terminated with an exception</Annotation>
+  <Status>internalerror</Status>
+</VerificationJob>

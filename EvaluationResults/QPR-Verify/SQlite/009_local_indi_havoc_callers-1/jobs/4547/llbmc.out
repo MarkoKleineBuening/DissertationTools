@@ -1,0 +1,106 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 4547 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 2
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/4547
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [1] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : sqlite3VdbeIdxRowid
+m_checker->run()
+
+    Performing bounded model checking ...
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...Current: sqlite3BtreePayloadSize Havoced: getCellInfo
+Current: sqlite3VdbeMemFromBtreeZeroOffset Havoced: sqlite3BtreePayloadFetch
+Current: sqlite3VdbeMemFromBtreeZeroOffset Havoced: sqlite3VdbeMemFromBtree
+Current: sqlite3GetVarint32 Havoced: sqlite3GetVarint
+Current: sqlite3GetVarint32 Havoced: sqlite3GetVarint
+
+        Transformed "sqlite3VdbeSerialGet" from 13 to 25 basic blocks and from 235 to 258 instructionsCurrent: sqlite3VdbeSerialGet Havoced: serialGet
+Current: sqlite3VdbeMemRelease Havoced: vdbeMemClear
+Current: sqlite3VdbeMemRelease Havoced: vdbeMemClear
+Current: sqlite3CorruptError Havoced: sqlite3ReportError
+
+                                                           0 sec [DONE]
+        Number of expressions:                        155900
+        after encoding
+
+      2 assertions before transformations (2 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            3780
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72622
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               7
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                              53
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             142
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      2 assertions remain after transformations (2 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...            0 sec [DONE]
+        
+                                                           0 sec [DONE]
+      after performing Check
+evaluateCheckerResultsViaRefinementLoop
+getCheckerResultAfterUpdatingMarker
+Result is NoTrace
+
+                                                           1 sec [DONE]
+    allsafe
+    
+                                                           1 sec [DONE]
+  

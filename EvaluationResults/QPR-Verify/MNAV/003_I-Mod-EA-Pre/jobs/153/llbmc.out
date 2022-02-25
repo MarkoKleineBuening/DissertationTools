@@ -1,0 +1,180 @@
+runJobCommand
+precondition analysis with entry:mat_creat
+arguents: child
+arguents: job
+arguents: mode
+arguents: precondition
+handleJobInSeparateProcess0
+
+Checking job 153 ...about to run job:
+preconNumber: 5, 1
+
+  Running Model Checker with 1 checks ...entry: mat_creat, functionName: _mat_creat
+  <badref> = call double** @qpr.precondition._mat_creat(i32 %0, i32 %1)
+entry: mat_creat, functionName: _mat_creat
+entry: mat_creat, functionName: mat_creat
+try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 0
+    PreconditionNumber : 5
+    PreconditionLocation : jobs/153
+    TimeOut : 300
+    InitializedGlobals : false
+    IgnoreMissingFunctions : true
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : mat_creat
+m_checker->run()
+
+    Performing bounded model checking ...
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...TODO MKB implement precondition handling: IE
+Reading in precondition at: jobs/153/precondition__mat_creat.txt
+preconFile: jobs/153/precondition__mat_creat.txt
+ref: [overapprox]name of function arguments, argValue:  
+ref: [overapprox]name of function arguments, argValue:  
+name of function arguments line
+param: i32 %arg0:-1
+---name: i32 %arg0, value: -1.
+integer, char or other simple types
+name: i32 %arg0
+assuming that there are not more then 10 arguments
+nameIndex: 0
+nameID: 0
+argument name: arg0
+value: -1
+###new bool cond: bool % = compare(%arg0, %i32__4294967295)
+param:  i32 %arg1:arbitrary
+---name:  i32 %arg1, value: arbitrary.
+pruneOrAssert -- adding line boolCond: bool % = compare(%arg0, %i32__4294967295)
+Writing precondition type at: jobs/153/precondition_type_mat_creat.txt
+
+Type of Precondition:
+[overapprox]
+precondition found, end encoding
+                      0 sec [DONE]
+        Number of expressions:                          6052
+        after encoding
+
+      1 assertion before transformations (1 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                              94
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                             364
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                            2730
+        Memory Model Encoder
+          Number of moved ops                              0
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                               0
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      1 assertion remains after transformations (1 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...            0 sec [DONE]
+        
+                                                           0 sec [DONE]
+      after performing Check
+evaluateCheckerResultsViaRefinementLoop
+checker.getResult() is Trace
+checkOnlyPrecon: 1, size:1
+setCheckToUnsafe for precondition Instruction
+checkID: 1441
+setCheckToUnsafe
+set check to unsafe
+getCheckerResultAfterUpdatingMarker
+failingInst:   %2 = call double** @qpr.precondition._mat_creat(i32 %arg0, i32 %arg1), !dbg !1381
+Preconditions internal: 
+i32 %arg0:-1; (i32 %arg0:4294967295)i32 %arg1:1; (i32 %arg1:1)i32 %arg2:arbitrary; 
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: i32 %arg0 = nondef() : -1
+assumePair: i32 %arg1 = nondef() : 1
+assumePair: i32 %arg2 = nondef() : 0
+error: No matching SMT expression for Op %arg2 (nondef) found!
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   %2 = call double** @qpr.precondition._mat_creat(i32 %arg0, i32 %arg1), !dbg !1381
+Preconditions internal: 
+i32 %arg0:-1; (i32 %arg0:4294967295)i32 %arg1:3; (i32 %arg1:3)i32 %arg2:arbitrary; 
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: i32 %arg0 = nondef() : -1
+assumePair: i32 %arg1 = nondef() : 3
+assumePair: i32 %arg2 = nondef() : 0
+error: No matching SMT expression for Op %arg2 (nondef) found!
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   %2 = call double** @qpr.precondition._mat_creat(i32 %arg0, i32 %arg1), !dbg !1381
+Preconditions internal: 
+i32 %arg0:-1; (i32 %arg0:4294967295)i32 %arg1:2; (i32 %arg1:2)i32 %arg2:arbitrary; 
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: i32 %arg0 = nondef() : -1
+assumePair: i32 %arg1 = nondef() : 2
+assumePair: i32 %arg2 = nondef() : 0
+error: No matching SMT expression for Op %arg2 (nondef) found!
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   %2 = call double** @qpr.precondition._mat_creat(i32 %arg0, i32 %arg1), !dbg !1381
+Preconditions internal: 
+i32 %arg0:-1; (i32 %arg0:4294967295)i32 %arg1:6; (i32 %arg1:6)i32 %arg2:arbitrary; 
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: i32 %arg0 = nondef() : -1
+assumePair: i32 %arg1 = nondef() : 6
+assumePair: i32 %arg2 = nondef() : 0
+error: No matching SMT expression for Op %arg2 (nondef) found!
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   %2 = call double** @qpr.precondition._mat_creat(i32 %arg0, i32 %arg1), !dbg !1381
+Preconditions internal: 
+i32 %arg0:-1; (i32 %arg0:4294967295)i32 %arg1:10; (i32 %arg1:10)i32 %arg2:arbitrary; 
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: i32 %arg0 = nondef() : -1
+assumePair: i32 %arg1 = nondef() : 10
+assumePair: i32 %arg2 = nondef() : 0
+error: No matching SMT expression for Op %arg2 (nondef) found!
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      name of function arguments: Writing precondition at: jobs/153/precondition_mat_creat.txt
+
+Generated Preconditions:
+[underoverapprox]name of function arguments: 
+i32 %arg0:-1; i32 %arg1:1; i32 %arg2:arbitrary; 
+i32 %arg0:-1; i32 %arg1:3; i32 %arg2:arbitrary; 
+i32 %arg0:-1; i32 %arg1:2; i32 %arg2:arbitrary; 
+i32 %arg0:-1; i32 %arg1:6; i32 %arg2:arbitrary; 
+i32 %arg0:-1; i32 %arg1:10; i32 %arg2:arbitrary; 
+
+                                                           0 sec [DONE]
+    allunsafe
+    
+                                                           0 sec [DONE]
+  

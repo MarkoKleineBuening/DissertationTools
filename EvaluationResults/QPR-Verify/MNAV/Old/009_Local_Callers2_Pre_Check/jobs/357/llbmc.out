@@ -1,0 +1,226 @@
+runJobCommand
+precondition analysis with entry:navigation
+arguents: child
+arguents: job
+arguents: mode
+arguents: precondition
+handleJobInSeparateProcess0
+
+Checking job 357 ...about to run job:
+preconNumber: 3, 1
+
+  Running Model Checker with 1 checks ...entry: navigation, functionName: navigation_algorithm
+  call void @qpr.precondition.navigation_algorithm(%struct.imu.131* %3, %struct.gps.133* %4)
+entry: navigation, functionName: navigation
+entry: navigation, functionName: navigation_algorithm
+try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 4
+    HavocLimit : 0
+    PreconditionNumber : 3
+    PreconditionLocation : jobs/357
+    TimeOut : 300
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : navigation
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "navigation" for 4 iterations succeeded.
+      Unrolling loop in function "navigation" for 4 iterations succeeded.getMatchingFunctions
+res.push_back: sched_get_priority_max
+res.push_back: close
+res.push_back: abs
+getMatchingFunctions
+res.push_back: sched_get_priority_max
+res.push_back: close
+res.push_back: abs
+getMatchingFunctions
+res.push_back: sched_get_priority_max
+res.push_back: close
+res.push_back: abs
+getMatchingFunctions
+res.push_back: sched_get_priority_max
+res.push_back: close
+res.push_back: abs
+getMatchingFunctions
+res.push_back: sched_get_priority_max
+res.push_back: close
+res.push_back: abs
+
+      Transformed "navigation" from 19 to 103 basic blocks and from 342 to 768 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...size Alloca: 1
+
+        Unrolling loop in function "_mat_creat" for 4 iterations succeeded.
+        Transformed "_mat_creat" from 10 to 20 basic blocks and from 54 to 117 instructions
+        Transformed "mat_error" from 5 to 10 basic blocks and from 10 to 19 instructions
+        Unrolling loop in function "mat_fill" for 4 iterations succeeded.
+        Unrolling loop in function "mat_fill" for 4 iterations succeeded.
+        Transformed "mat_fill" from 18 to 159 basic blocks and from 67 to 679 instructionsisMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %249, i8* %250, i64 16, i32 8, i1 false), !dbg !1680
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %262, i8* bitcast (%struct.gps.133* @gpspacket to i8*), i64 64, i32 8, i1 false), !dbg !1699
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %265, i8* bitcast (%struct.imu.131* @imupacket to i8*), i64 128, i32 8, i1 false), !dbg !1702
+TODO MKB implement precondition handling: IE
+Reading in precondition at: jobs/357/precondition_navigation_algorithm.txt
+preconFile: jobs/357/precondition_navigation_algorithm.txt
+ref: [underoverapprox]name of function arguments, argValue:  
+ref: [underoverapprox]name of function arguments, argValue:  
+name of function arguments line
+ERROR boolCond is nullptr
+ERROR boolCond is nullptr
+ERROR boolCond is nullptr
+Writing precondition type at: jobs/357/precondition_type_navigation.txt
+
+Type of Precondition:
+[underoverapprox]
+precondition found, end encoding
+
+                                                           0 sec [DONE]
+        Number of expressions:                         47058
+        after encoding
+
+      280 assertions before transformations (159 no_function_call, 121 no_back_edge).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                           34789
+        Fixed Memory Address Assigner
+          Number of moved ops                              8
+          Number of rewrites                             565
+        Simplifier
+          Number of moved ops                              1
+          Number of rewrites                           28056
+        Memory Model Encoder
+          Number of moved ops                              1rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               5
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                              12
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           12459
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                             991
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      280 assertions remain after transformations (159 no_function_call, 121 no_back_edge).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...            0 sec [DONE]
+        
+                                                           0 sec [DONE]
+      after performing Check
+evaluateCheckerResultsViaRefinementLoop
+checker.getResult() is Trace
+checkOnlyPrecon: 1, size:1
+setCheckToUnsafe for precondition Instruction
+checkID: 777
+setCheckToUnsafe
+set check to unsafe
+getCheckerResultAfterUpdatingMarker
+failingInst:   br i1 %54, label %bb3.0.3, label %bb2.bb7_crit_edge, !dbg !1397, !llvm.loop !1415
+Preconditions internal: 
+
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   br i1 %54, label %bb3.0.3, label %bb2.bb7_crit_edge, !dbg !1397, !llvm.loop !1415
+Preconditions internal: 
+
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   br i1 %54, label %bb3.0.3, label %bb2.bb7_crit_edge, !dbg !1397, !llvm.loop !1415
+Preconditions internal: 
+
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      name of function arguments: Writing precondition at: jobs/357/precondition_navigation.txt
+
+Generated Preconditions:
+[underoverapprox]name of function arguments: 
+
+
+
+
+                                                           0 sec [DONE]
+    allsafe
+    
+                                                           0 sec [DONE]
+                                         0 sec [DONE]
+      after performing Check
+evaluateCheckerResultsViaRefinementLoop
+checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+getCheckerResultAfterUpdatingMarker
+failingInst:   %3 = call i32 @clock_gettime(i32 0, %struct.timeval.141* @get_Time.tset) #9, !dbg !1380
+Preconditions internal: 
+
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   %3 = call i32 @clock_gettime(i32 0, %struct.timeval.141* @get_Time.tset) #9, !dbg !1380
+Preconditions internal: 
+
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   %3 = call i32 @clock_gettime(i32 0, %struct.timeval.141* @get_Time.tset) #9, !dbg !1380
+Preconditions internal: 
+
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      name of function arguments: Writing precondition at: jobs/357/precondition_navigation_algorithm.txt
+
+Generated Preconditions:
+[underoverapprox]name of function arguments: 
+
+
+
+
+                                                           0 sec [DONE]
+    allsafe
+    
+                                                           0 sec [DONE]
+  

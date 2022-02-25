@@ -1,0 +1,38 @@
+<VerificationJob>
+  <Configuration>
+    <AnalyzeChecksIndividually value="true" />
+    <BitcodeTraces value="false" />
+    <CheckCallers value="true" />
+    <DumpVerifierBitcodeFiles value="false" />
+    <EnableSlicing value="true" />
+    <EntryPoint value="sqlite3MemTraceDeactivate" />
+    <FixPoint value="true" />
+    <ForkJobs value="true" />
+    <Hosted value="true" />
+    <IgnoreMissingFunctions value="false" />
+    <InitializedGlobals value="false" />
+    <LoopUnrollBound value="1" />
+    <PreconditionLocation value="jobs/8224" />
+    <SourceDirectory value="/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld" />
+    <TimeOut value="600" />
+    <XMLTraces value="false" />
+  </Configuration>
+  <CheckList>
+    <Check id="27089" location="30348" category="implicit.conversion.overflow" status="unsafe" scope="sqlite3_config">
+      <Annotations>
+        <Annotation>An implicit conversion operation can overflow.</Annotation>
+      </Annotations>
+      <EntryStatus>
+        <SingleEntryStatus>main, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>main_init, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3MemSetDefault, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3MemTraceActivate, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3MemTraceDeactivate, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3PCacheSetDefault, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>verify_uninitialized, unsafe</SingleEntryStatus>
+      </EntryStatus>
+    </Check>
+  </CheckList>
+  <Annotation>allunsafe</Annotation>
+  <Status>allunsafe</Status>
+</VerificationJob>

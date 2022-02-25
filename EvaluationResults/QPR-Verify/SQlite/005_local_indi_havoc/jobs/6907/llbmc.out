@@ -1,0 +1,147 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 6907 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 1
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/6907
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : multiSelectOrderBy
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "multiSelectOrderBy" for 1 iterations succeeded.
+      Unrolling loop in function "multiSelectOrderBy" for 1 iterations succeeded.
+      Unrolling loop in function "multiSelectOrderBy" for 1 iterations succeeded.
+      Unrolling loop in function "multiSelectOrderBy" for 1 iterations succeeded.
+      Transformed "multiSelectOrderBy" from 70 to 92 basic blocks and from 572 to 692 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...Current: multiSelectOrderBy Havoced: sqlite3VdbeMakeLabel
+Current: multiSelectOrderBy Havoced: sqlite3VdbeMakeLabel
+Current: multiSelectOrderBy Havoced: sqlite3Expr
+Current: multiSelectOrderBy Havoced: sqlite3ExprListAppend
+Current: multiSelectOrderBy Havoced: sqlite3DbMallocRawNN
+Current: multiSelectOrderBy Havoced: multiSelectOrderByKeyInfo
+Current: multiSelectOrderBy Havoced: sqlite3ExprListDup
+Current: multiSelectOrderBy Havoced: sqlite3VdbeAddOp2
+Current: multiSelectOrderBy Havoced: sqlite3KeyInfoAlloc
+Current: multiSelectOrderBy Havoced: multiSelectCollSeq
+Current: multiSelectOrderBy Havoced: sqlite3ResolveOrderGroupBy
+Current: multiSelectOrderBy Havoced: sqlite3ResolveOrderGroupBy
+Current: multiSelectOrderBy Havoced: computeLimitRegisters
+Current: multiSelectOrderBy Havoced: sqlite3VdbeAddOp2
+Current: multiSelectOrderBy Havoced: sqlite3VdbeAddOp2
+Current: multiSelectOrderBy Havoced: sqlite3ExprDelete
+Current: multiSelectOrderBy Havoced: sqlite3SelectDestInit
+Current: multiSelectOrderBy Havoced: sqlite3SelectDestInit
+Current: multiSelectOrderBy Havoced: sqlite3SelectOpName
+Current: multiSelectOrderBy Havoced: sqlite3VdbeExplain
+Current: multiSelectOrderBy Havoced: sqlite3VdbeCurrentAddr
+Current: multiSelectOrderBy Havoced: sqlite3VdbeAddOp3
+Current: multiSelectOrderBy Havoced: sqlite3VdbeExplain
+Current: multiSelectOrderBy Havoced: sqlite3Select
+Current: multiSelectOrderBy Havoced: sqlite3VdbeEndCoroutine
+Current: multiSelectOrderBy Havoced: sqlite3VdbeJumpHere
+Current: multiSelectOrderBy Havoced: sqlite3VdbeCurrentAddr
+Current: multiSelectOrderBy Havoced: sqlite3VdbeAddOp3
+Current: multiSelectOrderBy Havoced: sqlite3VdbeExplain
+Current: multiSelectOrderBy Havoced: sqlite3Select
+Current: multiSelectOrderBy Havoced: sqlite3VdbeEndCoroutine
+Current: multiSelectOrderBy Havoced: generateOutputSubroutine
+Current: multiSelectOrderBy Havoced: generateOutputSubroutine
+Current: multiSelectOrderBy Havoced: sqlite3KeyInfoUnref
+Current: multiSelectOrderBy Havoced: sqlite3VdbeAddOp2
+Current: multiSelectOrderBy Havoced: sqlite3VdbeAddOp2
+Current: multiSelectOrderBy Havoced: sqlite3VdbeGoto
+Current: multiSelectOrderBy Havoced: sqlite3LogEstAdd
+Current: multiSelectOrderBy Havoced: sqlite3VdbeAddOp2
+Current: multiSelectOrderBy Havoced: sqlite3VdbeAddOp2
+Current: multiSelectOrderBy Havoced: sqlite3VdbeGoto
+Current: multiSelectOrderBy Havoced: sqlite3VdbeAddOp2
+Current: multiSelectOrderBy Havoced: sqlite3VdbeAddOp2
+Current: multiSelectOrderBy Havoced: sqlite3VdbeGoto
+Current: multiSelectOrderBy Havoced: sqlite3VdbeAddOp2
+Current: multiSelectOrderBy Havoced: sqlite3VdbeGoto
+Current: multiSelectOrderBy Havoced: sqlite3VdbeCurrentAddr
+Current: multiSelectOrderBy Havoced: sqlite3VdbeAddOp2
+Current: multiSelectOrderBy Havoced: sqlite3VdbeAddOp2
+Current: multiSelectOrderBy Havoced: sqlite3VdbeGoto
+Current: multiSelectOrderBy Havoced: sqlite3VdbeJumpHere
+Current: multiSelectOrderBy Havoced: sqlite3VdbeAddOp2
+Current: multiSelectOrderBy Havoced: sqlite3VdbeAddOp2
+Current: multiSelectOrderBy Havoced: sqlite3VdbeResolveLabel
+Current: multiSelectOrderBy Havoced: sqlite3VdbeAddOp4
+Current: multiSelectOrderBy Havoced: sqlite3VdbeAddOp4
+Current: multiSelectOrderBy Havoced: sqlite3VdbeChangeP5
+Current: multiSelectOrderBy Havoced: sqlite3VdbeAddOp3
+Current: multiSelectOrderBy Havoced: sqlite3VdbeResolveLabel
+Current: multiSelectOrderBy Havoced: sqlite3SelectDelete
+Current: multiSelectOrderBy Havoced: sqlite3ExprListDelete
+Current: multiSelectOrderBy Havoced: sqlite3VdbeExplainPop
+Current: multiSelectOrderBy Havoced: sqlite3Expr
+Current: multiSelectOrderBy Havoced: sqlite3ExprListAppend
+                      0 sec [DONE]
+        Number of expressions:                        156106
+        after encoding
+
+      6 assertions before transformations (5 no_back_edge, 1 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            3883
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72655
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               2
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               5
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             142
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      6 assertions remain after transformations (5 no_back_edge, 1 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...

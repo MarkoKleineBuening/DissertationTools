@@ -1,0 +1,45 @@
+<VerificationJob>
+  <Configuration>
+    <AnalyzeChecksIndividually value="true" />
+    <BitcodeTraces value="false" />
+    <CheckCallers value="true" />
+    <DumpVerifierBitcodeFiles value="false" />
+    <EnableSlicing value="false" />
+    <EntryPoint value="pragmaVtabConnect" />
+    <FixPoint value="true" />
+    <ForkJobs value="true" />
+    <HavocLimit value="2" />
+    <Hosted value="true" />
+    <IgnoreMissingFunctions value="false" />
+    <InitializedGlobals value="false" />
+    <LoopUnrollBound value="1" />
+    <PreconditionLocation value="jobs/1726" />
+    <SourceDirectory value="/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld" />
+    <TimeOut value="600" />
+    <XMLTraces value="false" />
+  </Configuration>
+  <CheckList>
+    <Check id="5661" location="6106" category="implicit.conversion.overflow" status="safe|loopboundreached" scope="sqlite3_str_append">
+      <Annotations>
+        <Annotation>An implicit conversion operation can overflow.</Annotation>
+        <Annotation>A loop bound was reached (/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld//home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld/sqlite3.c:145187:3)</Annotation>
+        <Annotation>A loop bound was reached (/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld//home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld/sqlite3.c:130824:3)</Annotation>
+      </Annotations>
+      <EntryStatus>
+        <SingleEntryStatus>checkAppendMsg, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>explainAppendTerm, unknown</SingleEntryStatus>
+        <SingleEntryStatus>explainIndexRange, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>groupConcatStep, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>pragmaVtabConnect, safe|loopboundreached</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3UniqueConstraint, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3VdbeDisplayP4, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3VdbeExpandSql, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3WhereExplainOneScan, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3_str_appendall, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3_str_vappendf, unknown</SingleEntryStatus>
+      </EntryStatus>
+    </Check>
+  </CheckList>
+  <Annotation>allunsafe</Annotation>
+  <Status>allsafe</Status>
+</VerificationJob>

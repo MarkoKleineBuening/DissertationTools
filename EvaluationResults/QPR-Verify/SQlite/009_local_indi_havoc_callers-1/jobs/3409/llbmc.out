@@ -1,0 +1,147 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 3409 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 2
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/3409
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : sqlite3BtreeCommitPhaseOne
+m_checker->run()
+
+    Performing bounded model checking ...
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...Current: sqlite3BtreeEnter Havoced: btreeLockCarefully
+
+        Unrolling loop in function "autoVacuumCommit" for 1 iterations succeeded.
+        Transformed "autoVacuumCommit" from 23 to 28 basic blocks and from 126 to 144 instructionsCurrent: autoVacuumCommit Havoced: invalidateAllOverflowCache
+Current: autoVacuumCommit Havoced: btreePagecount
+Current: autoVacuumCommit Havoced: ptrmapPageno
+Current: autoVacuumCommit Havoced: sqlite3Get4byte
+Current: autoVacuumCommit Havoced: finalDbSize
+Current: autoVacuumCommit Havoced: saveAllCursors
+Current: autoVacuumCommit Havoced: incrVacuumStep
+Current: autoVacuumCommit Havoced: sqlite3PagerWrite
+Current: autoVacuumCommit Havoced: sqlite3Put4byte
+Current: autoVacuumCommit Havoced: sqlite3Put4byte
+Current: autoVacuumCommit Havoced: sqlite3Put4byte
+Current: autoVacuumCommit Havoced: sqlite3PagerRollback
+Current: autoVacuumCommit Havoced: incrVacuumStep
+Current: autoVacuumCommit Havoced: sqlite3CorruptError
+Current: autoVacuumCommit Havoced: sqlite3CorruptError
+Current: sqlite3PagerCommitPhaseOne Havoced: sqlite3FaultSim
+Current: sqlite3PagerCommitPhaseOne Havoced: pagerFlushOnCommit
+Current: sqlite3PagerCommitPhaseOne Havoced: pager_incr_changecounter
+Current: sqlite3PagerCommitPhaseOne Havoced: writeSuperJournal
+Current: sqlite3PagerCommitPhaseOne Havoced: syncJournal
+Current: sqlite3PagerCommitPhaseOne Havoced: sqlite3PcacheDirtyList
+Current: sqlite3PagerCommitPhaseOne Havoced: pager_write_pagelist
+Current: sqlite3PagerCommitPhaseOne Havoced: sqlite3PcacheCleanAll
+Current: sqlite3PagerCommitPhaseOne Havoced: pager_truncate
+Current: sqlite3PagerCommitPhaseOne Havoced: sqlite3PagerSync
+Current: sqlite3PagerCommitPhaseOne Havoced: sqlite3PcacheDirtyList
+Current: sqlite3PagerCommitPhaseOne Havoced: sqlite3PagerGet
+Current: sqlite3PagerCommitPhaseOne Havoced: pagerWalFrames
+Current: sqlite3PagerCommitPhaseOne Havoced: sqlite3PagerUnref
+Current: sqlite3PagerCommitPhaseOne Havoced: sqlite3PcacheCleanAll
+Current: sqlite3PagerCommitPhaseOne Havoced: sqlite3BackupRestart
+Current: sqlite3BtreeLeave Havoced: unlockBtreeMutex
+Current: sqlite3BtreeLeave Havoced: unlockBtreeMutex
+
+                                                           0 sec [DONE]
+        Number of expressions:                        155909
+        after encoding
+
+      2 assertions before transformations (1 no_back_edge, 1 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            3837
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72649
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               1
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                              15
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             142
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      2 assertions remain after transformations (1 no_back_edge, 1 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...AllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                              14
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                              50
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             142
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      9 assertions remain after transformations (8 no_back_edge, 1 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...

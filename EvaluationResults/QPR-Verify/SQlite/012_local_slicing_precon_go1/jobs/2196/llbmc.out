@@ -1,0 +1,167 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+handleJobInSeparateProcess0
+
+Checking job 2196 ...about to run job:
+preconNumber: 5, 1
+
+  Running Model Checker with 1 checks ...W [0] lib/Slicer/LocalSlicer.cpp:368 | argument 0 (i32* undef) has pointer type
+W [0] lib/Slicer/LocalSlicer.cpp:368 | argument 0 (i16* undef) has pointer type
+W [0] lib/Slicer/LocalSlicer.cpp:368 | argument 0 (i16* undef) has pointer type
+W [0] lib/Slicer/LocalSlicer.cpp:368 | argument 0 (i32* undef) has pointer type
+W [0] lib/Slicer/LocalSlicer.cpp:368 | argument 0 (i16* undef) has pointer type
+W [0] lib/Slicer/LocalSlicer.cpp:357 | argument %struct.unixFile* null of call instruction has pointer type
+W [0] lib/Slicer/LocalSlicer.cpp:495 | unused argument: , qpr.slicing.unused.arg.unixShmSystemLock.0
+W [0] lib/Slicer/LocalSlicer.cpp:495 | unused argument: , qpr.slicing.unused.arg.unixShmSystemLock.1
+W [0] lib/Slicer/LocalSlicer.cpp:495 | unused argument: , qpr.slicing.unused.arg.unixShmSystemLock.2
+W [0] lib/Slicer/LocalSlicer.cpp:495 | unused argument: , qpr.slicing.unused.arg.unixShmSystemLock.3
+W [0] lib/Slicer/LocalSlicer.cpp:495 | unused argument: , qpr.slicing.unused.arg.unixShmLock.0
+I [0] lib/Slicer/LocalSlicer.cpp:104 | slicing finished
+try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 1
+    LoopUnrollBound : 1
+    HavocLimit : 0
+    PreconditionNumber : 5
+    PreconditionLocation : jobs/2196
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : true
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : unixShmLock
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "unixShmLock" for 1 iterations succeeded.
+      Transformed "unixShmLock" from 12 to 13 basic blocks and from 61 to 67 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...size Alloca: 1
+-----found check = true
+                      0 sec [DONE]
+        Number of expressions:                        130981
+        after encoding
+
+      2 assertions before transformations (1 no_back_edge, 1 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            2606
+        Fixed Memory Address Assigner
+          Number of moved ops                              1
+          Number of rewrites                            4897
+        Simplifier
+          Number of moved ops                              1
+          Number of rewrites                           61878
+        Memory Model Encoder
+          Number of moved ops                              0
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                              88
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                               0
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      2 assertions remain after transformations (1 no_back_edge, 1 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...            0 sec [DONE]
+        
+                                                           0 sec [DONE]
+      after performing Check
+evaluateCheckerResultsViaRefinementLoop
+checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setCheckToUnsafe
+setCheckToUnsafe
+Check for floating point traces / abstractions currently deactivated
+getCheckerResultAfterUpdatingMarker
+failingInst:   call void @llbmc.assert(i1 %5, i32 %0)
+Preconditions internal: 
+i32 %arg1:0; (i32 %arg1:0)i32 %arg2:-2147483647; (i32 %arg2:2147483649)i32 %arg3:1; (i32 %arg3:1)
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: i32 %arg1 = nondef() : 0
+assumePair: i32 %arg2 = nondef() : -2147483647
+assumePair: i32 %arg3 = nondef() : 1
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   br i1 %29, label %bb3, label %bb2.bb7_crit_edge, !dbg !4895, !llvm.loop !4913
+Preconditions internal: 
+i32 %arg1:-402653184; (i32 %arg1:3892314112)i32 %arg2:-2147483647; (i32 %arg2:2147483649)i32 %arg3:-2147483647; (i32 %arg3:2147483649)
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: i32 %arg1 = nondef() : -402653184
+assumePair: i32 %arg2 = nondef() : -2147483647
+assumePair: i32 %arg3 = nondef() : -2147483647
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   br i1 %29, label %bb3, label %bb2.bb7_crit_edge, !dbg !4895, !llvm.loop !4913
+Preconditions internal: 
+i32 %arg1:-1610612736; (i32 %arg1:2684354560)i32 %arg2:-2147483647; (i32 %arg2:2147483649)i32 %arg3:1; (i32 %arg3:1)
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: i32 %arg1 = nondef() : -1610612736
+assumePair: i32 %arg2 = nondef() : -2147483647
+assumePair: i32 %arg3 = nondef() : 1
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   br i1 %29, label %bb3, label %bb2.bb7_crit_edge, !dbg !4895, !llvm.loop !4913
+Preconditions internal: 
+i32 %arg1:-134217728; (i32 %arg1:4160749568)i32 %arg2:-2147483647; (i32 %arg2:2147483649)i32 %arg3:-2147483647; (i32 %arg3:2147483649)
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: i32 %arg1 = nondef() : -134217728
+assumePair: i32 %arg2 = nondef() : -2147483647
+assumePair: i32 %arg3 = nondef() : -2147483647
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   br i1 %29, label %bb3, label %bb2.bb7_crit_edge, !dbg !4895, !llvm.loop !4913
+Preconditions internal: 
+i32 %arg1:-1308622848; (i32 %arg1:2986344448)i32 %arg2:-2147483647; (i32 %arg2:2147483649)i32 %arg3:1; (i32 %arg3:1)
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: i32 %arg1 = nondef() : -1308622848
+assumePair: i32 %arg2 = nondef() : -2147483647
+assumePair: i32 %arg3 = nondef() : 1
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      name of function arguments: Writing precondition at: jobs/2196/precondition_unixShmLock.txt
+
+Generated Preconditions:
+[underoverapprox]name of function arguments: 
+i32 %arg1:0; i32 %arg2:-2147483647; i32 %arg3:1; 
+i32 %arg1:-402653184; i32 %arg2:-2147483647; i32 %arg3:-2147483647; 
+i32 %arg1:-1610612736; i32 %arg2:-2147483647; i32 %arg3:1; 
+i32 %arg1:-134217728; i32 %arg2:-2147483647; i32 %arg3:-2147483647; 
+i32 %arg1:-1308622848; i32 %arg2:-2147483647; i32 %arg3:1; 
+
+                                                           1 sec [DONE]
+    allunsafe
+    
+                                                           1 sec [DONE]
+  

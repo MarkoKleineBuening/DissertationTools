@@ -1,0 +1,429 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 2718 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 2
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/2718
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : sqlite3BtreeBeginTrans
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "sqlite3BtreeBeginTrans" for 1 iterations succeeded.
+      Unrolling loop in function "sqlite3BtreeBeginTrans" for 1 iterations succeeded.
+      Unrolling loop in function "sqlite3BtreeBeginTrans" for 1 iterations succeeded.
+      Transformed "sqlite3BtreeBeginTrans" from 78 to 79 basic blocks and from 378 to 384 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...Current: sqlite3BtreeEnter Havoced: btreeLockCarefully
+
+        Unrolling loop in function "querySharedCacheTableLock" for 1 iterations succeeded.
+        Transformed "querySharedCacheTableLock" from 17 to 18 basic blocks and from 78 to 81 instructionsCurrent: lockBtree Havoced: sqlite3PagerSharedLock
+Current: lockBtree Havoced: btreeGetPage
+Current: lockBtree Havoced: sqlite3Get4byte
+Current: lockBtree Havoced: sqlite3PagerPagecount
+
+        Unrolling loop in function "llbmc.memcmp" for 0 iterations succeeded.
+        Transformed "llbmc.memcmp" from 17 to 20 instructionsCurrent: lockBtree Havoced: sqlite3PagerOpenWal
+Current: lockBtree Havoced: sqlite3WritableSchema
+Current: lockBtree Havoced: sqlite3Get4byte
+Current: lockBtree Havoced: sqlite3Get4byte
+Current: lockBtree Havoced: sqlite3CorruptError
+Current: lockBtree Havoced: releasePageOne
+Current: lockBtree Havoced: freeTempSpace
+Current: lockBtree Havoced: sqlite3PagerSetPagesize
+Current: lockBtree Havoced: releasePageOne
+Current: lockBtree Havoced: releasePageOne
+Current: sqlite3PagerBegin Havoced: pagerLockDb
+Current: sqlite3PagerBegin Havoced: pager_wait_on_lock
+Current: sqlite3PagerBegin Havoced: sqlite3WalExclusiveMode
+Current: sqlite3PagerBegin Havoced: pagerLockDb
+Current: sqlite3PagerBegin Havoced: sqlite3WalExclusiveMode
+Current: sqlite3PagerBegin Havoced: sqlite3WalBeginWriteTransaction
+Current: newDatabase Havoced: sqlite3PagerWrite
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %7, i8* getelementptr inbounds ([16 x i8], [16 x i8]* @zMagicHeader, i32 0, i32 0), i64 16, i32 1, i1 false), !dbg !5636
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %36, i8 0, i64 76, i32 1, i1 false), !dbg !5666
+Current: newDatabase Havoced: zeroPage
+Current: newDatabase Havoced: sqlite3Put4byte
+Current: newDatabase Havoced: sqlite3Put4byte
+Current: unlockBtreeIfUnused Havoced: releasePageOne
+Current: btreeInvokeBusyHandler Havoced: sqlite3InvokeBusyHandler
+Current: sqlite3PagerWrite Havoced: pager_write
+Current: sqlite3PagerWrite Havoced: pagerWriteLargeSector
+Current: sqlite3PagerWrite Havoced: subjournalPageIfRequired
+Current: sqlite3PagerOpenSavepoint Havoced: pagerOpenSavepoint
+Current: sqlite3BtreeLeave Havoced: unlockBtreeMutex
+
+                                                           0 sec [DONE]
+        Number of expressions:                        157380
+        after encoding
+
+      8 assertions before transformations (7 no_back_edge, 1 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            4622
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72725
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               3
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                              51
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             162
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      8 assertions remain after transformations (7 no_back_edge, 1 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...te3SelectExprHeight
+Current: pager_wait_on_lock Havoced: moveToLeftmost
+Current: pager_wait_on_lock Havoced: btreeNext
+Current: pager_wait_on_lock Havoced: moveToRoot
+Current: pager_wait_on_lock Havoced: moveToRightmost
+Current: pager_wait_on_lock Havoced: btreeRestoreCursorPosition
+Current: pager_wait_on_lock Havoced: btreePrevious
+Current: pager_wait_on_lock Havoced: sqlite3UpsertNextIsIPK
+Current: pager_wait_on_lock Havoced: sqlite3IsBinary
+Current: pager_wait_on_lock Havoced: sqlite3VdbeExplainParent
+Current: pager_wait_on_lock Havoced: sqlite3WhereUsesDeferredSeek
+Current: pager_wait_on_lock Havoced: whereLoopAddAll
+Current: pager_wait_on_lock Havoced: whereShortCut
+Current: pager_wait_on_lock Havoced: exprIsDeterministic
+Current: pager_wait_on_lock Havoced: sqlite3VdbeHasSubProgram
+Current: pager_wait_on_lock Havoced: sqlite3ExprListFlags
+Current: pager_wait_on_lock Havoced: getTempStore
+Current: pager_wait_on_lock Havoced: integrityCheckResultRow
+Current: pager_wait_on_lock Havoced: invalidateTempStorage
+Current: pager_wait_on_lock Havoced: getAutoVacuum
+Current: pager_wait_on_lock Havoced: sqlite3BtreeGetAutoVacuum
+Current: pager_wait_on_lock Havoced: getLockingMode
+Current: pager_wait_on_lock Havoced: sqlite3WalHeapMemory
+Current: pager_wait_on_lock Havoced: sqlite3BtreeIsInBackup
+Current: pager_wait_on_lock Havoced: sqlite3JournalSize
+Current: pager_wait_on_lock Havoced: sqlite3OpenTempDatabase
+Current: pager_wait_on_lock Havoced: sqlite3InRhsIsConstant
+Current: pager_wait_on_lock Havoced: sqlite3GetTempReg
+Current: pager_wait_on_lock Havoced: sqlite3VdbeMakeLabel
+Current: pager_wait_on_lock Havoced: sqlite3ExprIsConstantNotJoin
+Current: pager_wait_on_lock Havoced: sqlite3VdbeCurrentAddr
+Current: pager_wait_on_lock Havoced: sqlite3ExprIsVector
+Current: pager_wait_on_lock Havoced: sqlite3ExprTruthValue
+Current: pager_wait_on_lock Havoced: sqlite3ReadOnlyShadowTables
+Current: pager_wait_on_lock Havoced: sqlite3BtreeSharable
+Current: pager_wait_on_lock Havoced: sqlite3IndexHasDuplicateRootPage
+Current: pager_wait_on_lock Havoced: pragmaVtabEof
+Current: pager_wait_on_lock Havoced: pragmaVtabNext
+Current: pager_wait_on_lock Havoced: pragmaVtabClose
+Current: pager_wait_on_lock Havoced: pragmaVtabDisconnect
+Current: pager_wait_on_lock Havoced: sqlite3ReadSchema
+Current: pager_wait_on_lock Havoced: sqlite3IsTrueOrFalse
+Current: pager_wait_on_lock Havoced: sqlite3IsRowid
+Current: pager_wait_on_lock Havoced: sqlite3ExprVectorSize
+Current: pager_wait_on_lock Havoced: exprProbability
+Current: pager_wait_on_lock Havoced: sqlite3ExprCanBeNull
+Current: pager_wait_on_lock Havoced: exprStructSize
+Current: pager_wait_on_lock Havoced: sqlite3VdbeMemRealify
+Current: pager_wait_on_lock Havoced: sqlite3VdbeMemIntegerify
+Current: pager_wait_on_lock Havoced: sqlite3VdbeMemNumerify
+Current: pager_wait_on_lock Havoced: sqlite3ExprIsConstant
+Current: pager_wait_on_lock Havoced: sqlite3ExprIdToTrueFalse
+Current: pager_wait_on_lock Havoced: analyzeWindowKeyword
+Current: pager_wait_on_lock Havoced: sqlite3WalDbsize
+Current: pager_wait_on_lock Havoced: pagerBeginReadTransaction
+Current: pager_wait_on_lock Havoced: pagerOpenWalIfPresent
+Current: pager_wait_on_lock Havoced: pagerExclusiveLock
+Current: pager_wait_on_lock Havoced: pagerOpenWal
+Current: pager_wait_on_lock Havoced: sqlite3PagerWalSupported
+Current: pager_wait_on_lock Havoced: sqlite3WritableSchema
+Current: pager_wait_on_lock Havoced: sqlite3PagerSharedLock
+Current: pager_wait_on_lock Havoced: sqlite3WalBeginWriteTransaction
+Current: pager_wait_on_lock Havoced: sqlite3InvokeBusyHandler
+Current: pager_wait_on_lock Havoced: btreeInvokeBusyHandler
+Current: pager_wait_on_lock Havoced: sqlite3TempInMemory
+Current: pager_wait_on_lock Havoced: lockBtree
+Current: pager_wait_on_lock Havoced: sqlite3PagerDataVersion
+Current: pager_wait_on_lock Havoced: sqlite3BtreeCommit
+Current: pager_wait_on_lock Havoced: vdbeSorterJoinThread
+Current: pager_wait_on_lock Havoced: walPagesize
+Current: pager_wait_on_lock Havoced: pagerSyncHotJournal
+Current: pager_wait_on_lock Havoced: removeFromSharingList
+Current: pager_wait_on_lock Havoced: sqlite3BtreeClose
+Current: pager_wait_on_lock Havoced: sqlite3BtreeCloseCursor
+Current: pager_wait_on_lock Havoced: sqlite3VdbeFrameRestore
+Current: pager_wait_on_lock Havoced: sqlite3VtabRollback
+Current: pager_wait_on_lock Havoced: sqlite3PagerPageRefcount
+Current: pager_wait_on_lock Havoced: sqlite3BitvecSize
+Current: pager_wait_on_lock Havoced: btreeCellSizeCheck
+Current: pager_wait_on_lock Havoced: btreeInitPage
+Current: pager_wait_on_lock Havoced: setChildPtrmaps
+Current: pager_wait_on_lock Havoced: walIndexRecover
+Current: pager_wait_on_lock Havoced: walRestartLog
+Current: pager_wait_on_lock Havoced: autoVacuumCommit
+Current: pager_wait_on_lock Havoced: sqlite3PagerCommitPhaseTwo
+Current: pager_wait_on_lock Havoced: sqlite3VtabCommit
+Current: pager_wait_on_lock Havoced: sqlite3PagerExclusiveLock
+Current: pager_wait_on_lock Havoced: sqlite3PagerGetJournalMode
+Current: pager_wait_on_lock Havoced: sqlite3BtreePayloadSize
+Current: pager_wait_on_lock Havoced: saveCursorKey
+Current: pager_wait_on_lock Havoced: saveCursorPosition
+Current: pager_wait_on_lock Havoced: sqlite3PcachePageRefcount
+Current: pager_wait_on_lock Havoced: btreePagecount
+Current: pager_wait_on_lock Havoced: sqlite3BtreeLastPage
+Current: pager_wait_on_lock Havoced: sqlite3PagerIsMemdb
+Current: pager_wait_on_lock Havoced: sqlite3BtreeGetPageSize
+Current: pager_wait_on_lock Havoced: sqlite3OsSectorSize
+Current: pager_wait_on_lock Havoced: sqlite3SectorSize
+Current: pager_wait_on_lock Havoced: numberOfCachePages
+Current: pager_wait_on_lock Havoced: sqlite3PCachePercentDirty
+Current: pager_wait_on_lock Havoced: sqlite3WalEndWriteTransaction
+Current: pager_wait_on_lock Havoced: sqlite3PagerRollback
+Current: pager_wait_on_lock Havoced: readDbPage
+Current: pager_wait_on_lock Havoced: sqlite3PcacheRefCount
+Current: pager_wait_on_lock Havoced: pagerRollbackWal
+Current: pager_wait_on_lock Havoced: sqlite3JournalIsInMemory
+Current: pager_wait_on_lock Havoced: openSubJournal
+Current: pager_wait_on_lock Havoced: subjournalPage
+Current: pager_wait_on_lock Havoced: subjRequiresPage
+Current: pager_wait_on_lock Havoced: memjrnlCreateFile
+Current: pager_wait_on_lock Havoced: memjrnlClose
+Current: pager_wait_on_lock Havoced: sqlite3OsDeviceCharacteristics
+Current: pager_wait_on_lock Havoced: writeJournalHdr
+Current: pager_wait_on_lock Havoced: databaseIsUnmoved
+Current: pager_wait_on_lock Havoced: jrnlBufferSize
+Current: pager_wait_on_lock Havoced: pagerAddPageToRollbackJournal
+Current: pager_wait_on_lock Havoced: pager_open_journal
+Current: pager_wait_on_lock Havoced: pager_write
+Current: pager_wait_on_lock Havoced: pagerWriteLargeSector
+Current: pager_wait_on_lock Havoced: subjournalPageIfRequired
+Current: pager_wait_on_lock Havoced: sqlite3PagerWrite
+Current: pager_wait_on_lock Havoced: sqlite3Get4byte
+Current: pager_wait_on_lock Havoced: newDatabase
+Current: pager_wait_on_lock Havoced: sqlite3VdbeTransferError
+Current: pager_wait_on_lock Havoced: sqlite3VdbeHalt
+Current: pager_wait_on_lock Havoced: sqlite3VdbeReset
+Current: pager_wait_on_lock Havoced: sqlite3VdbeFinalize
+Current: pager_wait_on_lock Havoced: sqlite3BtreeSchemaLocked
+Current: pager_wait_on_lock Havoced: sqlite3SafetyCheckOk
+Current: pager_wait_on_lock Havoced: vdbeSafety
+Current: pager_wait_on_lock Havoced: vdbeSafetyNotNull
+Current: pager_wait_on_lock Havoced: sqlite3BtreeTxnState
+Current: pager_wait_on_lock Havoced: sqlite3_value_frombind
+Current: pager_wait_on_lock Havoced: sqlite3_stmt_isexplain
+Current: pager_wait_on_lock Havoced: sqlite3_str_length
+Current: pager_wait_on_lock Havoced: sqlite3_str_errcode
+Current: pager_wait_on_lock Havoced: sqlite3_value_nochange
+Current: pager_wait_on_lock Havoced: sqlite3_vtab_nochange
+Current: pager_wait_on_lock Havoced: sqlite3_system_errno
+Current: pager_wait_on_lock Havoced: sqlite3_db_cacheflush
+Current: pager_wait_on_lock Havoced: sqlite3_value_subtype
+Current: pager_wait_on_lock Havoced: sqlite3_cancel_auto_extension
+Current: pager_wait_on_lock Havoced: sqlite3_auto_extension
+Current: pager_wait_on_lock Havoced: sqlite3_stmt_readonly
+Current: pager_wait_on_lock Havoced: sqlite3_stmt_busy
+Current: pager_wait_on_lock Havoced: sqlite3_db_release_memory
+Current: pager_wait_on_lock Havoced: sqlite3_close_v2
+Current: pager_wait_on_lock Havoced: sqlite3_vtab_on_conflict
+Current: pager_wait_on_lock Havoced: sqlite3_extended_errcode
+Current: pager_wait_on_lock Havoced: sqlite3_backup_remaining
+Current: pager_wait_on_lock Havoced: sqlite3_backup_pagecount
+Current: pager_wait_on_lock Havoced: sqlite3_backup_finish
+Current: pager_wait_on_lock Havoced: sqlite3_vfs_unregister
+Current: pager_wait_on_lock Havoced: sqlite3_blob_close
+Current: pager_wait_on_lock Havoced: sqlite3_blob_bytes
+Current: pager_wait_on_lock Havoced: sqlite3_clear_bindings
+Current: pager_wait_on_lock Havoced: sqlite3_value_bytes16
+Current: pager_wait_on_lock Havoced: sqlite3_step
+Current: pager_wait_on_lock Havoced: sqlite3_reset
+Current: pager_wait_on_lock Havoced: sqlite3_get_autocommit
+Current: pager_wait_on_lock Havoced: sqlite3_finalize
+Current: pager_wait_on_lock Havoced: sqlite3_expired
+Current: pager_wait_on_lock Havoced: sqlite3_errcode
+Current: pager_wait_on_lock Havoced: sqlite3_data_count
+Current: pager_wait_on_lock Havoced: sqlite3_complete16
+Current: pager_wait_on_lock Havoced: sqlite3_complete
+Current: pager_wait_on_lock Havoced: sqlite3_column_count
+Current: pager_wait_on_lock Havoced: sqlite3_close
+Current: pager_wait_on_lock Havoced: sqlite3_bind_parameter_count
+Current: pager_wait_on_lock Havoced: sqlite3_aggregate_count
+Current: pager_wait_on_lock Havoced: sqlite3OsGetLastError
+Current: pager_wait_on_lock Havoced: sqlite3_compileoption_used
+Current: pager_wait_on_lock Havoced: sqlite3_changes
+Current: pager_wait_on_lock Havoced: sqlite3_total_changes
+Current: pager_wait_on_lock Havoced: sqlite3_value_int
+Current: pager_wait_on_lock Havoced: sqlite3VdbeMemHandleBom
+Current: pager_wait_on_lock Havoced: sqlite3Utf8Read
+Current: pager_wait_on_lock Havoced: sqlite3_value_bytes
+Current: pager_wait_on_lock Havoced: sqlite3_value_type
+Current: pager_wait_on_lock Havoced: sqlite3_value_numeric_type
+Current: pager_wait_on_lock Havoced: pcache1InitBulk
+Current: pager_wait_on_lock Havoced: pcache1UnderMemoryPressure
+Current: pager_wait_on_lock Havoced: pcache1Pagecount
+Current: pager_wait_on_lock Havoced: pcache1Init
+Current: pager_wait_on_lock Havoced: sqlite3MemInit
+Current: pager_wait_on_lock Havoced: sqlite3MemSize
+Current: pager_wait_on_lock Havoced: sqlite3Atoi
+Current: pager_wait_on_lock Havoced: unixOpenSharedMemory
+Current: pager_wait_on_lock Havoced: unixClose
+Current: pager_wait_on_lock Havoced: nolockClose
+Current: pager_wait_on_lock Havoced: closeUnixFile
+Current: pager_wait_on_lock Havoced: fileHasMoved
+Current: pager_wait_on_lock Havoced: unixDeviceCharacteristics
+Current: pager_wait_on_lock Havoced: unixSectorSize
+Current: pager_wait_on_lock Havoced: dotlockClose
+Current: pager_wait_on_lock Havoced: memdbDeviceCharacteristics
+Current: pager_wait_on_lock Havoced: memdbClose
+Current: pager_wait_on_lock Havoced: countLookasideSlots
+Current: pager_wait_on_lock Havoced: sqlite3_mutex_try
+Current: pager_wait_on_lock Havoced: sqlite3PcachePagecount
+Current: pager_wait_on_lock Havoced: strHash
+Current: pager_wait_on_lock Havoced: sqlite3BtreeConnectionCount
+Current: pager_wait_on_lock Havoced: sqlite3PagerMemUsed
+Current: pager_wait_on_lock Havoced: vdbeMemAddTerminator
+Current: pager_wait_on_lock Havoced: sqlite3VdbeMemNulTerminate
+Current: pager_wait_on_lock Havoced: sqlite3VdbeMemMakeWriteable
+Current: pager_wait_on_lock Havoced: sqlite3VdbeMemExpandBlob
+Current: pager_wait_on_lock Havoced: sqlite3Strlen30
+Current: pager_wait_on_lock Havoced: sqlite3MallocSize
+Current: pager_wait_on_lock Havoced: line_is_command_terminator
+Current: pager_wait_on_lock Havoced: _all_whitespace
+Current: pager_wait_on_lock Havoced: wsToEol
+Current: pager_wait_on_lock Havoced: strlenChar
+Current: pager_wait_on_lock Havoced: get4byteInt
+Current: pager_wait_on_lock Havoced: get2byteInt
+Current: pager_wait_on_lock Havoced: shellDatabaseError
+Current: pager_wait_on_lock Havoced: notNormalFile
+Current: pager_wait_on_lock Havoced: progress_handler
+Current: pager_wait_on_lock Havoced: booleanValue
+Current: pager_wait_on_lock Havoced: idxIdentifierRequiresQuotes
+Current: pager_wait_on_lock Havoced: expertEof
+Current: pager_wait_on_lock Havoced: expertNext
+Current: pager_wait_on_lock Havoced: expertClose
+Current: pager_wait_on_lock Havoced: expertDisconnect
+Current: pager_wait_on_lock Havoced: idxRegisterVtab
+Current: pager_wait_on_lock Havoced: re_esc_char
+Current: pager_wait_on_lock Havoced: re_next_char
+Current: pager_wait_on_lock Havoced: re_next_char_nocase
+Current: pager_wait_on_lock Havoced: seriesEof
+Current: pager_wait_on_lock Havoced: seriesNext
+Current: pager_wait_on_lock Havoced: seriesClose
+Current: pager_wait_on_lock Havoced: seriesDisconnect
+Current: pager_wait_on_lock Havoced: memtraceInit
+Current: pager_wait_on_lock Havoced: memtraceSize
+Current: pager_wait_on_lock Havoced: apndDeviceCharacteristics
+Current: pager_wait_on_lock Havoced: apndSectorSize
+Current: pager_wait_on_lock Havoced: apndClose
+Current: pager_wait_on_lock Havoced: completionEof
+Current: pager_wait_on_lock Havoced: completionNext
+Current: pager_wait_on_lock Havoced: completionClose
+Current: pager_wait_on_lock Havoced: completionDisconnect
+Current: pager_wait_on_lock Havoced: fsdirEof
+Current: pager_wait_on_lock Havoced: fsdirNext
+Current: pager_wait_on_lock Havoced: fsdirClose
+Current: pager_wait_on_lock Havoced: fsdirDisconnect
+Current: pager_wait_on_lock Havoced: makeDirectory
+Current: pager_wait_on_lock Havoced: process_input
+Current: pager_wait_on_lock Havoced: strlen30
+Current: pager_wait_on_lock Havoced: shellDeleteFile
+Current: pager_wait_on_lock Havoced: sqlite3_expert_count
+Current: pager_wait_on_lock Havoced: idxCreateCandidates
+Current: pager_wait_on_lock Havoced: sqlite3MemTraceActivate
+Current: pager_wait_on_lock Havoced: sqlite3CompletionVtabInit
+Current: pager_wait_on_lock Havoced: fsdirRegister
+Current: sqlite3WalExclusiveMode Havoced: walUnlockShared
+Current: sqlite3WalExclusiveMode Havoced: walLockShared
+Current: pagerLockDb Havoced: sqlite3OsLock
+Current: sqlite3WalExclusiveMode Havoced: walUnlockShared
+Current: sqlite3WalExclusiveMode Havoced: walLockShared
+Current: sqlite3WalBeginWriteTransaction Havoced: walLockExclusive
+Current: sqlite3WalBeginWriteTransaction Havoced: walIndexHdr
+
+        Unrolling loop in function "llbmc.memcmp" for 0 iterations succeeded.
+        Transformed "llbmc.memcmp" from 17 to 20 instructionsCurrent: sqlite3WalBeginWriteTransaction Havoced: walUnlockExclusive
+
+                                                           0 sec [DONE]
+        Number of expressions:                        162222
+        after encoding
+
+      21 assertions before transformations (18 no_function_call, 2 no_back_edge, 1 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            7763
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72639
+        Memory Model Encoder
+          Number of moved ops                              0
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                               8
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             142
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      21 assertions remain after transformations (18 no_function_call, 2 no_back_edge, 1 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...

@@ -1,0 +1,162 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+handleJobInSeparateProcess0
+
+Checking job 164 ...about to run job:
+preconNumber: 5, 1
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 1
+    LoopUnrollBound : 1
+    HavocLimit : 0
+    PreconditionNumber : 5
+    PreconditionLocation : jobs/164
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : true
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [1] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : apndWriteMark
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "apndWriteMark" for 8 iterations succeeded.getMatchingFunctions
+res.push_back: apndRead
+res.push_back: apndWrite
+res.push_back: memdbRead
+res.push_back: memdbWrite
+res.push_back: unixRead
+res.push_back: unixWrite
+res.push_back: sqlite3OsWrite
+res.push_back: memjrnlRead
+res.push_back: memjrnlWrite
+res.push_back: sqlite3OsRead
+
+      Transformed "apndWriteMark" from 9 to 43 basic blocks and from 71 to 304 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...size Alloca: 1
+size Alloca: 1
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %6, i8* getelementptr inbounds ([18 x i8], [18 x i8]* @.str.35, i32 0, i32 0), i64 17, i32 1, i1 false), !dbg !5634
+-----found check = true
+                      0 sec [DONE]
+        Number of expressions:                        155237
+        after encoding
+
+      4 assertions before transformations (1 no_back_edge, 2 custom, 1 no_unreachable_executed).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            3503
+        Fixed Memory Address Assigner
+          Number of moved ops                              2
+          Number of rewrites                            5210
+        Simplifier
+          Number of moved ops                              2
+          Number of rewrites                          142304
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               1
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           69715
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                         1177597
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           1 sec [DONE]
+        
+      4 assertions remain after transformations (1 no_back_edge, 2 custom, 1 no_unreachable_executed).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...            0 sec [DONE]
+        
+                                                           1 sec [DONE]
+      after performing Check
+evaluateCheckerResultsViaRefinementLoop
+checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+getCheckerResultAfterUpdatingMarker
+failingInst:   call void @__assert_fail(i8* getelementptr inbounds ([23 x i8], [23 x i8]* @.str.132, i32 0, i32 0), i8* getelementptr inbounds ([62 x i8], [62 x i8]* @.str.43, i32 0, i32 0), i32 3913, i8* getelementptr inbounds ([60 x i8], [60 x i8]* @__PRETTY_FUNCTION__.apndWriteMark, i32 0, i32 0)) #10, !dbg !5632
+Preconditions internal: 
+i64 %arg2:0; (i64 %arg2:0)
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: i64 %arg2 = nondef() : 0
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   call void @__assert_fail(i8* getelementptr inbounds ([23 x i8], [23 x i8]* @.str.132, i32 0, i32 0), i8* getelementptr inbounds ([62 x i8], [62 x i8]* @.str.43, i32 0, i32 0), i32 3913, i8* getelementptr inbounds ([60 x i8], [60 x i8]* @__PRETTY_FUNCTION__.apndWriteMark, i32 0, i32 0)) #10, !dbg !5632
+Preconditions internal: 
+i64 %arg2:1; (i64 %arg2:1)
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: i64 %arg2 = nondef() : 1
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   call void @__assert_fail(i8* getelementptr inbounds ([23 x i8], [23 x i8]* @.str.132, i32 0, i32 0), i8* getelementptr inbounds ([62 x i8], [62 x i8]* @.str.43, i32 0, i32 0), i32 3913, i8* getelementptr inbounds ([60 x i8], [60 x i8]* @__PRETTY_FUNCTION__.apndWriteMark, i32 0, i32 0)) #10, !dbg !5632
+Preconditions internal: 
+i64 %arg2:2; (i64 %arg2:2)
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: i64 %arg2 = nondef() : 2
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   call void @__assert_fail(i8* getelementptr inbounds ([23 x i8], [23 x i8]* @.str.132, i32 0, i32 0), i8* getelementptr inbounds ([62 x i8], [62 x i8]* @.str.43, i32 0, i32 0), i32 3913, i8* getelementptr inbounds ([60 x i8], [60 x i8]* @__PRETTY_FUNCTION__.apndWriteMark, i32 0, i32 0)) #10, !dbg !5632
+Preconditions internal: 
+i64 %arg2:3; (i64 %arg2:3)
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: i64 %arg2 = nondef() : 3
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   call void @__assert_fail(i8* getelementptr inbounds ([23 x i8], [23 x i8]* @.str.132, i32 0, i32 0), i8* getelementptr inbounds ([62 x i8], [62 x i8]* @.str.43, i32 0, i32 0), i32 3913, i8* getelementptr inbounds ([60 x i8], [60 x i8]* @__PRETTY_FUNCTION__.apndWriteMark, i32 0, i32 0)) #10, !dbg !5632
+Preconditions internal: 
+i64 %arg2:6; (i64 %arg2:6)
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: i64 %arg2 = nondef() : 6
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      name of function arguments: Writing precondition at: jobs/164/precondition_apndWriteMark.txt
+
+Generated Preconditions:
+[underoverapprox]name of function arguments: 
+i64 %arg2:0; 
+i64 %arg2:1; 
+i64 %arg2:2; 
+i64 %arg2:3; 
+i64 %arg2:6; 
+
+                                                           3 sec [DONE]
+    allsafe
+    
+                                                           3 sec [DONE]
+  

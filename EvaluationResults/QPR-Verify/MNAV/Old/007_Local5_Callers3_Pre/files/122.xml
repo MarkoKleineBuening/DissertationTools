@@ -1,0 +1,33 @@
+<SourceFile>
+  <Line number="1">/* System-specific extensions of &lt;signal.h&gt;, Linux version.</Line>
+  <Line number="2">   Copyright (C) 2019-2020 Free Software Foundation, Inc.</Line>
+  <Line number="3">   This file is part of the GNU C Library.</Line>
+  <Line number="4"></Line>
+  <Line number="5">   The GNU C Library is free software; you can redistribute it and/or</Line>
+  <Line number="6">   modify it under the terms of the GNU Lesser General Public</Line>
+  <Line number="7">   License as published by the Free Software Foundation; either</Line>
+  <Line number="8">   version 2.1 of the License, or (at your option) any later version.</Line>
+  <Line number="9"></Line>
+  <Line number="10">   The GNU C Library is distributed in the hope that it will be useful,</Line>
+  <Line number="11">   but WITHOUT ANY WARRANTY; without even the implied warranty of</Line>
+  <Line number="12">   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU</Line>
+  <Line number="13">   Lesser General Public License for more details.</Line>
+  <Line number="14"></Line>
+  <Line number="15">   You should have received a copy of the GNU Lesser General Public</Line>
+  <Line number="16">   License along with the GNU C Library; if not, see</Line>
+  <Line number="17">   &lt;https://www.gnu.org/licenses/&gt;.  */</Line>
+  <Line number="18"></Line>
+  <Line number="19">#ifndef _SIGNAL_H</Line>
+  <Line number="20"># error &quot;Never include &lt;bits/signal_ext.h&gt; directly; use &lt;signal.h&gt; instead.&quot;</Line>
+  <Line number="21">#endif</Line>
+  <Line number="22"></Line>
+  <Line number="23">#ifdef __USE_GNU</Line>
+  <Line number="24"></Line>
+  <Line number="25">/* Send SIGNAL to the thread TID in the thread group (process)</Line>
+  <Line number="26">   identified by TGID.  This function behaves like kill, but also</Line>
+  <Line number="27">   fails with ESRCH if the specified TID does not belong to the</Line>
+  <Line number="28">   specified thread group.  */</Line>
+  <Line number="29">extern int tgkill (__pid_t __tgid, __pid_t __tid, int __signal);</Line>
+  <Line number="30"></Line>
+  <Line number="31">#endif /* __USE_GNU */</Line>
+</SourceFile>

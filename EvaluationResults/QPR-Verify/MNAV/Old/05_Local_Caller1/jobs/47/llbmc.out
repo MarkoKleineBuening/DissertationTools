@@ -1,0 +1,344 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+handleJobInSeparateProcess0
+
+Checking job 47 ...about to run job:
+preconNumber: 5, 1
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 12
+    HavocLimit : 0
+    PreconditionNumber : 5
+    PreconditionLocation : jobs/47
+    TimeOut : 300
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : navigation
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "navigation" for 12 iterations succeeded.
+      Unrolling loop in function "navigation" for 12 iterations succeeded.getMatchingFunctions
+res.push_back: sched_get_priority_max
+res.push_back: close
+res.push_back: abs
+getMatchingFunctions
+res.push_back: sched_get_priority_max
+res.push_back: close
+res.push_back: abs
+getMatchingFunctions
+res.push_back: sched_get_priority_max
+res.push_back: close
+res.push_back: abs
+getMatchingFunctions
+res.push_back: sched_get_priority_max
+res.push_back: close
+res.push_back: abs
+getMatchingFunctions
+res.push_back: sched_get_priority_max
+res.push_back: close
+res.push_back: abs
+getMatchingFunctions
+res.push_back: sched_get_priority_max
+res.push_back: close
+res.push_back: abs
+getMatchingFunctions
+res.push_back: sched_get_priority_max
+res.push_back: close
+res.push_back: abs
+getMatchingFunctions
+res.push_back: sched_get_priority_max
+res.push_back: close
+res.push_back: abs
+getMatchingFunctions
+res.push_back: sched_get_priority_max
+res.push_back: close
+res.push_back: abs
+getMatchingFunctions
+res.push_back: sched_get_priority_max
+res.push_back: close
+res.push_back: abs
+getMatchingFunctions
+res.push_back: sched_get_priority_max
+res.push_back: close
+res.push_back: abs
+getMatchingFunctions
+res.push_back: sched_get_priority_max
+res.push_back: close
+res.push_back: abs
+getMatchingFunctions
+res.push_back: sched_get_priority_max
+res.push_back: close
+res.push_back: abs
+
+      Transformed "navigation" from 19 to 255 basic blocks and from 342 to 1592 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...size Alloca: 1
+
+        Unrolling loop in function "_mat_creat" for 12 iterations succeeded.
+        Transformed "_mat_creat" from 10 to 44 basic blocks and from 54 to 277 instructions
+        Transformed "mat_error" from 5 to 10 basic blocks and from 10 to 19 instructions
+        Unrolling loop in function "mat_fill" for 12 iterations succeeded.
+        Unrolling loop in function "mat_fill" for 12 iterations succeeded.
+        Transformed "mat_fill" from 18 to 1223 basic blocks and from 67 to 5439 instructionsisMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %385, i8* %386, i64 16, i32 8, i1 false), !dbg !1680
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %398, i8* bitcast (%struct.gps.133* @gpspacket to i8*), i64 64, i32 8, i1 false), !dbg !1699
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %401, i8* bitcast (%struct.imu.131* @imupacket to i8*), i64 128, i32 8, i1 false), !dbg !1702
+
+        Unrolling loop in function "navigation_algorithm" for 9 iterations succeeded.
+        Unrolling loop in function "navigation_algorithm" for 8 iterations succeeded.
+        Unrolling loop in function "navigation_algorithm" for 6 iterations succeeded.
+        Unrolling loop in function "navigation_algorithm" for 9 iterations succeeded.
+        Unrolling loop in function "navigation_algorithm" for 9 iterations succeeded.
+        Unrolling loop in function "navigation_algorithm" for 9 iterations succeeded.
+        Unrolling loop in function "navigation_algorithm" for 9 iterations succeeded.
+        Transformed "navigation_algorithm" from 33 to 130 basic blocks and from 698 to 2343 instructions
+        Unrolling loop in function "mat_mul" for 12 iterations succeeded.
+        Unrolling loop in function "mat_mul" for 12 iterations succeeded.
+        Unrolling loop in function "mat_mul" for 12 iterations succeeded.
+        Transformed "mat_mul" from 13 to 4240 basic blocks and from 82 to 55688 instructions
+        Unrolling loop in function "mat_free" for 12 iterations succeeded.
+        Transformed "mat_free" from 8 to 31 basic blocks and from 33 to 191 instructions
+        Unrolling loop in function "mat_scalMul" for 12 iterations succeeded.
+        Unrolling loop in function "mat_scalMul" for 12 iterations succeeded.
+        Transformed "mat_scalMul" from 9 to 352 basic blocks and from 52 to 3415 instructions
+        Unrolling loop in function "mat_add" for 12 iterations succeeded.
+        Unrolling loop in function "mat_add" for 12 iterations succeeded.
+        Transformed "mat_add" from 9 to 352 basic blocks and from 58 to 4279 instructions
+        Unrolling loop in function "mat_tran" for 12 iterations succeeded.
+        Unrolling loop in function "mat_tran" for 12 iterations succeeded.
+        Transformed "mat_tran" from 9 to 352 basic blocks and from 49 to 3269 instructions
+        Unrolling loop in function "mat_subcopy" for 12 iterations succeeded.
+        Unrolling loop in function "mat_subcopy" for 12 iterations succeeded.
+        Transformed "mat_subcopy" from 9 to 352 basic blocks and from 45 to 3065 instructions
+        Unrolling loop in function "mat_inv" for 12 iterations succeeded.
+        Transformed "mat_inv" from 20 to 43 basic blocks and from 96 to 264 instructions
+        Unrolling loop in function "mat_copy" for 12 iterations succeeded.
+        Unrolling loop in function "mat_copy" for 12 iterations succeeded.
+        Transformed "mat_copy" from 9 to 352 basic blocks and from 49 to 3269 instructions
+        Unrolling loop in function "mat_lu" for 12 iterations succeeded.
+        Unrolling loop in function "mat_lu" for 12 iterations succeeded.
+        Unrolling loop in function "mat_lu" for 12 iterations succeeded.
+        Unrolling loop in function "mat_lu" for 12 iterations succeeded.
+        Unrolling loop in function "mat_lu" for 12 iterations succeeded.
+        Transformed "mat_lu" from 28 to 4917 basic blocks and from 239 to 94971 instructions
+        Unrolling loop in function "mat_backsubs1" for 12 iterations succeeded.
+        Unrolling loop in function "mat_backsubs1" for 12 iterations succeeded.
+        Unrolling loop in function "mat_backsubs1" for 12 iterations succeeded.
+        Unrolling loop in function "mat_backsubs1" for 12 iterations succeeded.
+        Transformed "mat_backsubs1" from 17 to 703 basic blocks and from 201 to 11821 instructions
+        Unrolling loop in function "mat_sub" for 12 iterations succeeded.
+        Unrolling loop in function "mat_sub" for 12 iterations succeeded.
+        Transformed "mat_sub" from 9 to 352 basic blocks and from 58 to 4279 instructionsisMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %25, i8* %26, i64 16, i32 8, i1 false), !dbg !1401
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %446, i8* bitcast (%struct.gps.133* @gpspacket to i8*), i64 64, i32 8, i1 false), !dbg !1699
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %449, i8* bitcast (%struct.imu.131* @imupacket to i8*), i64 128, i32 8, i1 false), !dbg !1702
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %25, i8* %26, i64 16, i32 8, i1 false), !dbg !1401
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %494, i8* bitcast (%struct.gps.133* @gpspacket to i8*), i64 64, i32 8, i1 false), !dbg !1699
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %497, i8* bitcast (%struct.imu.131* @imupacket to i8*), i64 128, i32 8, i1 false), !dbg !1702
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %25, i8* %26, i64 16, i32 8, i1 false), !dbg !1401
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %542, i8* bitcast (%struct.gps.133* @gpspacket to i8*), i64 64, i32 8, i1 false), !dbg !1699
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %545, i8* bitcast (%struct.imu.131* @imupacket to i8*), i64 128, i32 8, i1 false), !dbg !1702
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %25, i8* %26, i64 16, i32 8, i1 false), !dbg !1401
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %590, i8* bitcast (%struct.gps.133* @gpspacket to i8*), i64 64, i32 8, i1 false), !dbg !1699
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %593, i8* bitcast (%struct.imu.131* @imupacket to i8*), i64 128, i32 8, i1 false), !dbg !1702
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %25, i8* %26, i64 16, i32 8, i1 false), !dbg !1401
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %638, i8* bitcast (%struct.gps.133* @gpspacket to i8*), i64 64, i32 8, i1 false), !dbg !1699
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %641, i8* bitcast (%struct.imu.131* @imupacket to i8*), i64 128, i32 8, i1 false), !dbg !1702
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %25, i8* %26, i64 16, i32 8, i1 false), !dbg !1401
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %686, i8* bitcast (%struct.gps.133* @gpspacket to i8*), i64 64, i32 8, i1 false), !dbg !1699
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %689, i8* bitcast (%struct.imu.131* @imupacket to i8*), i64 128, i32 8, i1 false), !dbg !1702
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %25, i8* %26, i64 16, i32 8, i1 false), !dbg !1401
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %734, i8* bitcast (%struct.gps.133* @gpspacket to i8*), i64 64, i32 8, i1 false), !dbg !1699
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %737, i8* bitcast (%struct.imu.131* @imupacket to i8*), i64 128, i32 8, i1 false), !dbg !1702
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %25, i8* %26, i64 16, i32 8, i1 false), !dbg !1401
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %782, i8* bitcast (%struct.gps.133* @gpspacket to i8*), i64 64, i32 8, i1 false), !dbg !1699
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %785, i8* bitcast (%struct.imu.131* @imupacket to i8*), i64 128, i32 8, i1 false), !dbg !1702
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %25, i8* %26, i64 16, i32 8, i1 false), !dbg !1401
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %830, i8* bitcast (%struct.gps.133* @gpspacket to i8*), i64 64, i32 8, i1 false), !dbg !1699
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %833, i8* bitcast (%struct.imu.131* @imupacket to i8*), i64 128, i32 8, i1 false), !dbg !1702
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %25, i8* %26, i64 16, i32 8, i1 false), !dbg !1401
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %878, i8* bitcast (%struct.gps.133* @gpspacket to i8*), i64 64, i32 8, i1 false), !dbg !1699
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %881, i8* bitcast (%struct.imu.131* @imupacket to i8*), i64 128, i32 8, i1 false), !dbg !1702
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %25, i8* %26, i64 16, i32 8, i1 false), !dbg !1401
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %926, i8* bitcast (%struct.gps.133* @gpspacket to i8*), i64 64, i32 8, i1 false), !dbg !1699
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %929, i8* bitcast (%struct.imu.131* @imupacket to i8*), i64 128, i32 8, i1 false), !dbg !1702
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %25, i8* %26, i64 16, i32 8, i1 false), !dbg !1401
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %974, i8* bitcast (%struct.gps.133* @gpspacket to i8*), i64 64, i32 8, i1 false), !dbg !1699
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %977, i8* bitcast (%struct.imu.131* @imupacket to i8*), i64 128, i32 8, i1 false), !dbg !1702
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %25, i8* %26, i64 16, i32 8, i1 false), !dbg !1401
+
+                                                          16 sec [DONE]
+        Number of expressions:                      15408793
+        after encoding
+
+      30678 assertions before transformations (2835 no_function_call, 27725 no_back_edge, 104 custom, 14 no_unreachable_executed).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                         9808526
+        Fixed Memory Address Assigner
+          Number of moved ops                             17
+          Number of rewrites                            2575
+        Simplifier
+          Number of moved ops                              1
+          Number of rewrites                         1800579
+        Memory Model Encoder
+          Number of moved ops                              1rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                              57
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                          635061
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                         9251296
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                         1048041
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                            4082
+                                                          71 sec [DONE]
+        
+      30678 assertions remain after transformations (2835 no_function_call, 27725 no_back_edge, 104 custom, 14 no_unreachable_executed).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...            0 sec [DONE]
+        
+                                                          94 sec [DONE]
+      after performing Check
+evaluateCheckerResultsViaRefinementLoop
+checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+getCheckerResultAfterUpdatingMarker
+failingInst:   %137 = call i32 (i8*, ...) @printf(i8* getelementptr inbounds ([31 x i8], [31 x i8]* @.str.3.13, i32 0, i32 0)), !dbg !1635
+Preconditions internal: 
+
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   %137 = call i32 (i8*, ...) @printf(i8* getelementptr inbounds ([31 x i8], [31 x i8]* @.str.3.13, i32 0, i32 0)), !dbg !1635
+Preconditions internal: 
+
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   %137 = call i32 (i8*, ...) @printf(i8* getelementptr inbounds ([31 x i8], [31 x i8]* @.str.3.13, i32 0, i32 0)), !dbg !1635
+Preconditions internal: 
+
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   %137 = call i32 (i8*, ...) @printf(i8* getelementptr inbounds ([31 x i8], [31 x i8]* @.str.3.13, i32 0, i32 0)), !dbg !1635
+Preconditions internal: 
+
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   %137 = call i32 (i8*, ...) @printf(i8* getelementptr inbounds ([31 x i8], [31 x i8]* @.str.3.13, i32 0, i32 0)), !dbg !1635
+Preconditions internal: 
+
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      name of function arguments: Writing precondition at: jobs/47/precondition_navigation.txt
+
+Generated Preconditions:
+[underoverapprox]name of function arguments: 
+
+
+
+
+
+
+                                                         103 sec [DONE]
+    allsafe
+    
+                                                         103 sec [DONE]
+  

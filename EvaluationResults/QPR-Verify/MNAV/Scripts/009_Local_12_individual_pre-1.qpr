@@ -1,0 +1,12 @@
+configure-project TimeOut:300
+configure-project LoopUnrollBound:3
+configure-project AnalyzeChecksIndividually:true
+configure-project EnableSlicing:false
+find-source-files
+murphy
+compile
+optimize-bitcode mem2reg instnamer
+copy-source-files
+configure-project PreconditionNumber:5
+configure-project PreconditionCheckMemory:false
+check-all-functions-locally

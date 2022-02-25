@@ -1,0 +1,40 @@
+<VerificationJob>
+  <Configuration>
+    <AnalyzeChecksIndividually value="true" />
+    <BitcodeTraces value="false" />
+    <CheckCallers value="true" />
+    <DumpVerifierBitcodeFiles value="false" />
+    <EnableSlicing value="false" />
+    <EntryPoint value="sqlite3RegisterLikeFunctions" />
+    <FixPoint value="true" />
+    <ForkJobs value="true" />
+    <HavocLimit value="2" />
+    <Hosted value="true" />
+    <IgnoreMissingFunctions value="false" />
+    <InitializedGlobals value="false" />
+    <LoopUnrollBound value="1" />
+    <PreconditionLocation value="jobs/6022" />
+    <SourceDirectory value="/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld" />
+    <TimeOut value="600" />
+    <XMLTraces value="false" />
+  </Configuration>
+  <CheckList>
+    <Check id="18734" location="20696" category="arithmetic.overflow.warning" status="safe|loopboundreached" scope="sqlite3FindFunction">
+      <Annotations>
+        <Annotation>A loop bound was reached (/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld//home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld/sqlite3.c:118262:3)</Annotation>
+        <Annotation>A loop bound was reached (/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld//home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld/sqlite3.c:118287:5)</Annotation>
+      </Annotations>
+      <EntryStatus>
+        <SingleEntryStatus>analyzeAggregate, todo</SingleEntryStatus>
+        <SingleEntryStatus>resolveExprStep, todo</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3CreateFunc, todo</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3ExprCodeTarget, todo</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3IsLikeFunction, todo</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3RegisterLikeFunctions, safe|loopboundreached</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3_overload_function, todo</SingleEntryStatus>
+      </EntryStatus>
+    </Check>
+  </CheckList>
+  <Annotation>allsafe</Annotation>
+  <Status>allsafe</Status>
+</VerificationJob>

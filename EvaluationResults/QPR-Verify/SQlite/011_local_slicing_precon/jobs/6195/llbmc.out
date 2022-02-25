@@ -1,0 +1,128 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+handleJobInSeparateProcess0
+
+Checking job 6195 ...about to run job:
+preconNumber: 5, 1
+
+  Running Model Checker with 1 checks ...W [0] lib/Slicer/LocalSlicer.cpp:368 | argument 0 (i8* undef) has pointer type
+W [0] lib/Slicer/LocalSlicer.cpp:357 | argument %struct.sqlite3_value* null of call instruction has pointer type
+W [0] lib/Slicer/LocalSlicer.cpp:368 | argument 0 (i8* undef) has pointer type
+W [0] lib/Slicer/LocalSlicer.cpp:368 | argument 0 (i8* undef) has pointer type
+W [0] lib/Slicer/LocalSlicer.cpp:368 | argument 0 (i8* undef) has pointer type
+W [0] lib/Slicer/LocalSlicer.cpp:368 | argument 0 (i8** undef) has pointer type
+W [0] lib/Slicer/LocalSlicer.cpp:368 | argument 0 (i8* undef) has pointer type
+W [0] lib/Slicer/LocalSlicer.cpp:368 | argument 0 (i8* undef) has pointer type
+W [0] lib/Slicer/LocalSlicer.cpp:495 | unused argument: , qpr.slicing.unused.arg.sqlite3_value_type.0
+W [0] lib/Slicer/LocalSlicer.cpp:495 | unused argument: , qpr.slicing.unused.arg.trimFunc.0
+W [0] lib/Slicer/LocalSlicer.cpp:495 | unused argument: , qpr.slicing.unused.arg.trimFunc.2
+I [0] lib/Slicer/LocalSlicer.cpp:104 | slicing finished
+try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 1
+    LoopUnrollBound : 1
+    HavocLimit : 0
+    PreconditionNumber : 5
+    PreconditionLocation : jobs/6195
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : true
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : trimFunc
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "trimFunc" for 1 iterations succeeded.
+      Unrolling loop in function "trimFunc" for 1 iterations succeeded.
+      Transformed "trimFunc" from 19 to 17 basic blocks
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...size Alloca: 1
+size Alloca: 1
+-----found check = true
+                      0 sec [DONE]
+        Number of expressions:                        131000
+        after encoding
+
+      3 assertions before transformations (2 no_back_edge, 1 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            2650
+        Fixed Memory Address Assigner
+          Number of moved ops                              2
+          Number of rewrites                            4898
+        Simplifier
+          Number of moved ops                              2
+          Number of rewrites                           61885
+        Memory Model Encoder
+          Number of moved ops                              0
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                              88
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                               0
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      3 assertions remain after transformations (2 no_back_edge, 1 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...            0 sec [DONE]
+        
+                                                           0 sec [DONE]
+      after performing Check
+evaluateCheckerResultsViaRefinementLoop
+checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+BranchInst - LoopBound
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setCheckToUnsafe
+setCheckToUnsafe
+Check for floating point traces / abstractions currently deactivated
+getCheckerResultAfterUpdatingMarker
+failingInst:   call void @llbmc.assert(i1 %4, i32 %0)
+Preconditions internal: 
+i32 %arg1:1; (i32 %arg1:1)
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: i32 %arg1 = nondef() : 1
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      Function is safe w.r.t. the previous generated preconditions. 
+name of function arguments: Writing precondition at: jobs/6195/precondition_trimFunc.txt
+
+Generated Preconditions:
+[overapprox]name of function arguments: 
+i32 %arg1:1; 
+
+                                                           1 sec [DONE]
+    allunsafe
+    
+                                                           1 sec [DONE]
+  

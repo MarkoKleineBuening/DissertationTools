@@ -1,0 +1,37 @@
+<VerificationJob>
+  <Configuration>
+    <AnalyzeChecksIndividually value="true" />
+    <BitcodeTraces value="false" />
+    <CheckCallers value="true" />
+    <DumpVerifierBitcodeFiles value="false" />
+    <EnableSlicing value="false" />
+    <EntryPoint value="sqlite3_column_decltype" />
+    <FixPoint value="true" />
+    <ForkJobs value="true" />
+    <HavocLimit value="2" />
+    <Hosted value="true" />
+    <IgnoreMissingFunctions value="false" />
+    <InitializedGlobals value="false" />
+    <LoopUnrollBound value="1" />
+    <PreconditionLocation value="jobs/4577" />
+    <SourceDirectory value="/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld" />
+    <TimeOut value="600" />
+    <XMLTraces value="false" />
+  </Configuration>
+  <CheckList>
+    <Check id="14140" location="15400" category="arithmetic.overflow" status="unsafe" scope="columnName">
+      <Annotations>
+        <Annotation>A signed arithmetic operation can overflow.</Annotation>
+        <Annotation>A signed arithmetic operation can overflow.</Annotation>
+      </Annotations>
+      <EntryStatus>
+        <SingleEntryStatus>sqlite3_column_decltype, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3_column_decltype16, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3_column_name, safe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3_column_name16, safe</SingleEntryStatus>
+      </EntryStatus>
+    </Check>
+  </CheckList>
+  <Annotation>allsafe</Annotation>
+  <Status>allunsafe</Status>
+</VerificationJob>

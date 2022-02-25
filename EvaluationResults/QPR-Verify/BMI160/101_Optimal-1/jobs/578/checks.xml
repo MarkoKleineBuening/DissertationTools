@@ -1,0 +1,44 @@
+<VerificationJob>
+  <Configuration>
+    <AnalyzeChecksIndividually value="true" />
+    <BitcodeTraces value="false" />
+    <CheckCallers value="true" />
+    <EnableSlicing value="true" />
+    <EntryPoint value="bmi160_set_int_config" />
+    <FixPoint value="true" />
+    <HavocLimit value="0" />
+    <IgnoreMissingFunctions value="false" />
+    <InitializedGlobals value="false" />
+    <LoopUnrollBound value="12" />
+    <PreconditionLocation value="jobs/578" />
+    <SourceDirectory value="/home/i12/mbuening/100_Dissertation/BMI160/BMI160_driver" />
+    <TimeOut value="300" />
+  </Configuration>
+  <CheckList>
+    <Check id="25" location="32" category="arithmetic.overflow.warning" status="unsafe|loopboundreached" scope="bmi160_set_regs">
+      <Annotations>
+        <Annotation>An unsigned arithmetic operation can overflow (wraparound).</Annotation>
+        <Annotation>A loop bound was reached (/home/i12/mbuening/100_Dissertation/BMI160/BMI160_driver//home/i12/mbuening/100_Dissertation/BMI160/BMI160_driver/bmi160.c:1412:4)</Annotation>
+      </Annotations>
+      <EntryStatus>
+        <SingleEntryStatus>bmi160_aux_init, unknown</SingleEntryStatus>
+        <SingleEntryStatus>bmi160_aux_read, unknown</SingleEntryStatus>
+        <SingleEntryStatus>bmi160_aux_write, unknown</SingleEntryStatus>
+        <SingleEntryStatus>bmi160_init, unknown</SingleEntryStatus>
+        <SingleEntryStatus>bmi160_perform_self_test, unknown</SingleEntryStatus>
+        <SingleEntryStatus>bmi160_set_aux_auto_mode, unknown</SingleEntryStatus>
+        <SingleEntryStatus>bmi160_set_fifo_config, unknown</SingleEntryStatus>
+        <SingleEntryStatus>bmi160_set_fifo_down, unknown</SingleEntryStatus>
+        <SingleEntryStatus>bmi160_set_fifo_flush, unknown</SingleEntryStatus>
+        <SingleEntryStatus>bmi160_set_fifo_wm, unknown</SingleEntryStatus>
+        <SingleEntryStatus>bmi160_set_int_config, unsafe|loopboundreached</SingleEntryStatus>
+        <SingleEntryStatus>bmi160_set_offsets, unknown</SingleEntryStatus>
+        <SingleEntryStatus>bmi160_set_step_counter, unknown</SingleEntryStatus>
+        <SingleEntryStatus>bmi160_start_foc, unknown</SingleEntryStatus>
+        <SingleEntryStatus>bmi160_update_nvm, unknown</SingleEntryStatus>
+      </EntryStatus>
+    </Check>
+  </CheckList>
+  <Annotation>allunsafe</Annotation>
+  <Status>allunsafe</Status>
+</VerificationJob>

@@ -1,0 +1,33 @@
+<VerificationJob>
+  <Configuration>
+    <AnalyzeChecksIndividually value="false" />
+    <BitcodeTraces value="false" />
+    <EntryPoint value="get_time_interval" />
+    <FixPoint value="true" />
+    <Hosted value="true" />
+    <IgnoreMissingFunctions value="true" />
+    <InitializedGlobals value="false" />
+    <LoopUnrollBound value="1" />
+    <OverApproxVaArgs value="false" />
+    <PreconditionLocation value="jobs/50" />
+    <SourceDirectory value="/home/i12/mbuening/100_Dissertation/MNAV/MNAV1.5" />
+    <StopEncodingAfterCheck value="false" />
+    <StopEncodingAfterCheckLoop value="0" />
+    <TimeOut value="300" />
+  </Configuration>
+  <CheckList>
+    <Check id="2317" location="2288" category="arithmetic.overflow" status="unsafe" scope="get_time_interval">
+      <Annotations>
+        <Annotation>A signed arithmetic operation can overflow.</Annotation>
+      </Annotations>
+    </Check>
+    <Check id="2318" location="2289" category="arrayindex" status="unsafe" scope="get_time_interval">
+      <Annotations>
+        <Annotation>An array can be indexed out of bounds.</Annotation>
+      </Annotations>
+    </Check>
+    <Check id="2323" location="2294" category="arrayindex" status="safe" scope="get_time_interval" />
+  </CheckList>
+  <Annotation>someunsafe</Annotation>
+  <Status>someunsafe</Status>
+</VerificationJob>

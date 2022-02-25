@@ -1,0 +1,181 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 98 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 1
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/98
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [1] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : sha3QueryFunc
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "sha3QueryFunc" for 8 iterations succeeded.
+      Unrolling loop in function "sha3QueryFunc" for 8 iterations succeeded.
+      Unrolling loop in function "sha3QueryFunc" for 1 iterations succeeded.
+      Unrolling loop in function "sha3QueryFunc" for 1 iterations succeeded.
+      Unrolling loop in function "sha3QueryFunc" for 1 iterations succeeded.
+      Transformed "sha3QueryFunc" from 42 to 78 basic blocks and from 261 to 593 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...Current: sha3QueryFunc Havoced: sqlite3_context_db_handle
+Current: sha3QueryFunc Havoced: sqlite3_value_text
+Current: sha3QueryFunc Havoced: sqlite3_value_int
+Current: sha3QueryFunc Havoced: sqlite3_result_error
+Current: sha3QueryFunc Havoced: SHA3Init
+Current: sha3QueryFunc Havoced: sqlite3_prepare_v2
+Current: sha3QueryFunc Havoced: sqlite3_stmt_readonly
+Current: sha3QueryFunc Havoced: sqlite3_sql
+Current: sha3QueryFunc Havoced: sqlite3_mprintf
+Current: sha3QueryFunc Havoced: sqlite3_finalize
+Current: sha3QueryFunc Havoced: sqlite3_result_error
+Current: sha3QueryFunc Havoced: sqlite3_free
+Current: sha3QueryFunc Havoced: sqlite3_column_count
+Current: sha3QueryFunc Havoced: sqlite3_sql
+
+        Unrolling loop in function "llbmc.strlen" for 0 iterations succeeded.
+        Transformed "llbmc.strlen" from 8 to 9 instructionsCurrent: sha3QueryFunc Havoced: hash_step_vformat
+Current: sha3QueryFunc Havoced: SHA3Update
+Current: sha3QueryFunc Havoced: sqlite3_step
+Current: sha3QueryFunc Havoced: SHA3Update
+Current: sha3QueryFunc Havoced: sqlite3_column_type
+Current: sha3QueryFunc Havoced: SHA3Update
+Current: sha3QueryFunc Havoced: sqlite3_column_bytes
+Current: sha3QueryFunc Havoced: sqlite3_column_blob
+Current: sha3QueryFunc Havoced: hash_step_vformat
+Current: sha3QueryFunc Havoced: SHA3Update
+Current: sha3QueryFunc Havoced: sqlite3_column_bytes
+Current: sha3QueryFunc Havoced: sqlite3_column_text
+Current: sha3QueryFunc Havoced: hash_step_vformat
+Current: sha3QueryFunc Havoced: SHA3Update
+Current: sha3QueryFunc Havoced: sqlite3_column_double
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %153, i8* %154, i64 8, i32 8, i1 false), !dbg !5802
+Current: sha3QueryFunc Havoced: SHA3Update
+Current: sha3QueryFunc Havoced: sqlite3_column_int64
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %59, i8* %60, i64 8, i32 8, i1 false), !dbg !5769
+Current: sha3QueryFunc Havoced: SHA3Update
+Current: sha3QueryFunc Havoced: sqlite3_step
+Current: sha3QueryFunc Havoced: sqlite3_finalize
+Current: sha3QueryFunc Havoced: SHA3Final
+Current: sha3QueryFunc Havoced: sqlite3_result_blob
+Current: sha3QueryFunc Havoced: sqlite3_errmsg
+Current: sha3QueryFunc Havoced: sqlite3_mprintf
+Current: sha3QueryFunc Havoced: sqlite3_finalize
+Current: sha3QueryFunc Havoced: sqlite3_result_error
+Current: sha3QueryFunc Havoced: sqlite3_free
+
+                                                           0 sec [DONE]
+        Number of expressions:                        155972
+        after encoding
+
+      7 assertions before transformations (6 no_back_edge, 1 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            3924
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72612
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               9
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                              94
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             176
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              45
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               1
+                                                           0 sec [DONE]
+        
+      7 assertions remain after transformations (6 no_back_edge, 1 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...            0 sec [DONE]
+        
+                                                           0 sec [DONE]
+      after performing Check
+evaluateCheckerResultsViaRefinementLoop
+checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+BranchInst - LoopBound
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+BranchInst - LoopBound
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+BranchInst - LoopBound
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+BranchInst - LoopBound
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      getCheckerResultAfterUpdatingMarker
+Result is NoTrace
+
+                                                           1 sec [DONE]
+    allsafe
+    
+                                                           1 sec [DONE]
+  

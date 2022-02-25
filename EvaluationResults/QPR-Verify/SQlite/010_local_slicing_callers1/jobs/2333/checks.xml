@@ -1,0 +1,40 @@
+<VerificationJob>
+  <Configuration>
+    <AnalyzeChecksIndividually value="true" />
+    <BitcodeTraces value="false" />
+    <CheckCallers value="true" />
+    <DumpVerifierBitcodeFiles value="false" />
+    <EnableSlicing value="true" />
+    <EntryPoint value="addToSavepointBitvecs" />
+    <FixPoint value="true" />
+    <ForkJobs value="true" />
+    <Hosted value="true" />
+    <IgnoreMissingFunctions value="false" />
+    <InitializedGlobals value="false" />
+    <LoopUnrollBound value="1" />
+    <PreconditionLocation value="jobs/2333" />
+    <SourceDirectory value="/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld" />
+    <TimeOut value="600" />
+    <XMLTraces value="false" />
+  </Configuration>
+  <CheckList>
+    <Check id="7788" location="8458" category="arrayindex" status="unsafe|loopboundreached" scope="sqlite3BitvecSet">
+      <Annotations>
+        <Annotation>An array can be indexed out of bounds.</Annotation>
+        <Annotation>A loop bound was reached (/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld//home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld/sqlite3.c:49620:3)</Annotation>
+        <Annotation>An array can be indexed out of bounds.</Annotation>
+        <Annotation>A loop bound was reached (/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld//home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld/sqlite3.c:49620:3)</Annotation>
+      </Annotations>
+      <EntryStatus>
+        <SingleEntryStatus>addToSavepointBitvecs, unsafe|loopboundreached</SingleEntryStatus>
+        <SingleEntryStatus>btreeSetHasContent, unknown</SingleEntryStatus>
+        <SingleEntryStatus>getPageNormal, unknown</SingleEntryStatus>
+        <SingleEntryStatus>pagerAddPageToRollbackJournal, unknown</SingleEntryStatus>
+        <SingleEntryStatus>pager_playback_one_page, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3BitvecBuiltinTest, unknown</SingleEntryStatus>
+      </EntryStatus>
+    </Check>
+  </CheckList>
+  <Annotation>allunsafe</Annotation>
+  <Status>allunsafe</Status>
+</VerificationJob>

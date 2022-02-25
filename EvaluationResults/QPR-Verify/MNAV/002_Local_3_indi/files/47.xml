@@ -1,0 +1,30 @@
+<SourceFile>
+  <Line number="1">#ifndef __struct_tm_defined</Line>
+  <Line number="2">#define __struct_tm_defined 1</Line>
+  <Line number="3"></Line>
+  <Line number="4">#include &lt;bits/types.h&gt;</Line>
+  <Line number="5"></Line>
+  <Line number="6">/* ISO C `broken-down time&apos; structure.  */</Line>
+  <Line number="7">struct tm</Line>
+  <Line number="8">{</Line>
+  <Line number="9">  int tm_sec;			/* Seconds.	[0-60] (1 leap second) */</Line>
+  <Line number="10">  int tm_min;			/* Minutes.	[0-59] */</Line>
+  <Line number="11">  int tm_hour;			/* Hours.	[0-23] */</Line>
+  <Line number="12">  int tm_mday;			/* Day.		[1-31] */</Line>
+  <Line number="13">  int tm_mon;			/* Month.	[0-11] */</Line>
+  <Line number="14">  int tm_year;			/* Year	- 1900.  */</Line>
+  <Line number="15">  int tm_wday;			/* Day of week.	[0-6] */</Line>
+  <Line number="16">  int tm_yday;			/* Days in year.[0-365]	*/</Line>
+  <Line number="17">  int tm_isdst;			/* DST.		[-1/0/1]*/</Line>
+  <Line number="18"></Line>
+  <Line number="19"># ifdef	__USE_MISC</Line>
+  <Line number="20">  long int tm_gmtoff;		/* Seconds east of UTC.  */</Line>
+  <Line number="21">  const char *tm_zone;		/* Timezone abbreviation.  */</Line>
+  <Line number="22"># else</Line>
+  <Line number="23">  long int __tm_gmtoff;		/* Seconds east of UTC.  */</Line>
+  <Line number="24">  const char *__tm_zone;	/* Timezone abbreviation.  */</Line>
+  <Line number="25"># endif</Line>
+  <Line number="26">};</Line>
+  <Line number="27"></Line>
+  <Line number="28">#endif</Line>
+</SourceFile>

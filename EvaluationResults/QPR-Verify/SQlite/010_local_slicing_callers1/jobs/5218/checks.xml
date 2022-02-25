@@ -1,0 +1,48 @@
+<VerificationJob>
+  <Configuration>
+    <AnalyzeChecksIndividually value="true" />
+    <BitcodeTraces value="false" />
+    <CheckCallers value="true" />
+    <DumpVerifierBitcodeFiles value="false" />
+    <EnableSlicing value="true" />
+    <EntryPoint value="isLikeOrGlob" />
+    <FixPoint value="true" />
+    <ForkJobs value="true" />
+    <Hosted value="true" />
+    <IgnoreMissingFunctions value="false" />
+    <InitializedGlobals value="false" />
+    <LoopUnrollBound value="1" />
+    <PreconditionLocation value="jobs/5218" />
+    <SourceDirectory value="/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld" />
+    <TimeOut value="600" />
+    <XMLTraces value="false" />
+  </Configuration>
+  <CheckList>
+    <Check id="16180" location="17704" category="arrayindex" status="unsafe" scope="sqlite3ExprAffinity">
+      <Annotations>
+        <Annotation>An array can be indexed out of bounds.</Annotation>
+        <Annotation>An array can be indexed out of bounds.</Annotation>
+      </Annotations>
+      <EntryStatus>
+        <SingleEntryStatus>binaryCompareP5, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>comparisonAffinity, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>constInsert, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>exprAnalyzeOrTerm, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>exprINAffinity, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>isLikeOrGlob, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>propagateConstantExprRewrite, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>propagateConstantExprRewriteOne, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3CodeRhsOfIN, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3CompareAffinity, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3IndexAffinityStr, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3SelectAddColumnTypeAndCollation, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>termIsEquivalence, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>whereIndexExprTransNode, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>whereRangeVectorLen, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>whereScanInitIndexExpr, unsafe</SingleEntryStatus>
+      </EntryStatus>
+    </Check>
+  </CheckList>
+  <Annotation>allunsafe</Annotation>
+  <Status>allunsafe</Status>
+</VerificationJob>

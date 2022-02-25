@@ -1,0 +1,89 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 5028 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 1
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/5028
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : vdbeSorterListToPMA
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "vdbeSorterListToPMA" for 1 iterations succeeded.
+      Transformed "vdbeSorterListToPMA" from 15 to 16 basic blocks and from 124 to 129 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...isMemset:   call void @llvm.memset.p0i8.i64(i8* %5, i8 0, i64 48, i32 8, i1 false), !dbg !5639
+Current: vdbeSorterListToPMA Havoced: vdbeSorterOpenTempFile
+Current: vdbeSorterListToPMA Havoced: vdbeSorterExtendFile
+Current: vdbeSorterListToPMA Havoced: vdbeSorterSort
+Current: vdbeSorterListToPMA Havoced: vdbePmaWriterInit
+Current: vdbeSorterListToPMA Havoced: vdbePmaWriteVarint
+Current: vdbeSorterListToPMA Havoced: vdbePmaWriteVarint
+Current: vdbeSorterListToPMA Havoced: vdbePmaWriteBlob
+Current: vdbeSorterListToPMA Havoced: sqlite3_free
+Current: vdbeSorterListToPMA Havoced: vdbePmaWriterFinish
+                      0 sec [DONE]
+        Number of expressions:                        155212
+        after encoding
+
+      2 assertions before transformations (1 no_back_edge, 1 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            3440
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72617
+        Memory Model Encoder
+          Number of moved ops                              1rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               1
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               2
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             191
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      2 assertions remain after transformations (1 no_back_edge, 1 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...

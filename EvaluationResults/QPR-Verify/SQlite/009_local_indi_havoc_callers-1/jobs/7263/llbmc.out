@@ -1,0 +1,114 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 7263 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 2
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/7263
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : deleteTable
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "deleteTable" for 1 iterations succeeded.
+      Transformed "deleteTable" from 9 to 10 basic blocks and from 58 to 61 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...Current: sqlite3HashInsert Havoced: findElementWithHash
+Current: sqlite3HashInsert Havoced: sqlite3Malloc
+Current: sqlite3HashInsert Havoced: rehash
+Current: sqlite3HashInsert Havoced: strHash
+Current: sqlite3HashInsert Havoced: insertElement
+Current: sqlite3HashInsert Havoced: removeElementGivenHash
+Current: sqlite3FreeIndex Havoced: sqlite3DeleteIndexSamples
+Current: sqlite3FreeIndex Havoced: sqlite3ExprDelete
+Current: sqlite3FreeIndex Havoced: sqlite3ExprListDelete
+Current: sqlite3FreeIndex Havoced: sqlite3DbFree
+Current: sqlite3FreeIndex Havoced: sqlite3DbFree
+Current: sqlite3FreeIndex Havoced: sqlite3DbFree
+
+        Unrolling loop in function "sqlite3FkDelete" for 1 iterations succeeded.
+        Transformed "sqlite3FkDelete" from 16 to 17 basic blocks and from 85 to 88 instructionsCurrent: sqlite3FkDelete Havoced: sqlite3HashInsert
+Current: sqlite3FkDelete Havoced: fkTriggerDelete
+Current: sqlite3FkDelete Havoced: fkTriggerDelete
+Current: sqlite3FkDelete Havoced: sqlite3DbFree
+
+        Unrolling loop in function "sqlite3DeleteColumnNames" for 1 iterations succeeded.
+        Transformed "sqlite3DeleteColumnNames" from 7 to 8 basic blocks and from 45 to 52 instructionsCurrent: sqlite3DeleteColumnNames Havoced: sqlite3DbFree
+Current: sqlite3DeleteColumnNames Havoced: sqlite3ExprDelete
+Current: sqlite3DeleteColumnNames Havoced: sqlite3DbFree
+Current: sqlite3DeleteColumnNames Havoced: sqlite3DbFree
+Current: sqlite3DbFree Havoced: sqlite3DbFreeNN
+Current: sqlite3DbFree Havoced: sqlite3DbFreeNN
+Current: sqlite3SelectDelete Havoced: clearSelect
+Current: sqlite3ExprListDelete Havoced: exprListDeleteNN
+
+        Unrolling loop in function "sqlite3VtabClear" for 1 iterations succeeded.
+        Transformed "sqlite3VtabClear" from 12 to 13 basic blocks and from 45 to 49 instructionsCurrent: sqlite3VtabClear Havoced: vtabDisconnectAll
+Current: sqlite3VtabClear Havoced: sqlite3DbFree
+Current: sqlite3VtabClear Havoced: sqlite3DbFree
+Current: sqlite3DbFree Havoced: sqlite3DbFreeNN
+
+                                                           0 sec [DONE]
+        Number of expressions:                        155855
+        after encoding
+
+      5 assertions before transformations (4 no_back_edge, 1 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            3838
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72624
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               1
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               4
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             142
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      5 assertions remain after transformations (4 no_back_edge, 1 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...

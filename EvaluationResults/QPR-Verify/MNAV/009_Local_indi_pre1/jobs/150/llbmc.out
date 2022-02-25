@@ -1,0 +1,144 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+handleJobInSeparateProcess0
+
+Checking job 150 ...about to run job:
+preconNumber: 5, 1
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 3
+    HavocLimit : 0
+    PreconditionNumber : 5
+    PreconditionLocation : jobs/150
+    TimeOut : 300
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : open_serial
+m_checker->run()
+
+    Performing bounded model checking ...
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...size Alloca: 1
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %8, i8 0, i64 60, i32 4, i1 false), !dbg !1404
+                      0 sec [DONE]
+        Number of expressions:                          6135
+        after encoding
+
+      11 assertions before transformations (9 no_function_call, 1 custom, 1 no_unreachable_executed).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                             138
+        Fixed Memory Address Assigner
+          Number of moved ops                              1
+          Number of rewrites                             365
+        Simplifier
+          Number of moved ops                              1
+          Number of rewrites                            5278
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               1
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               6
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                              61
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                               0
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      11 assertions remain after transformations (9 no_function_call, 1 custom, 1 no_unreachable_executed).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...            0 sec [DONE]
+        
+                                                           0 sec [DONE]
+      after performing Check
+evaluateCheckerResultsViaRefinementLoop
+checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+getCheckerResultAfterUpdatingMarker
+failingInst:   %1 = call i32 (i8*, i32, ...) @open(i8* %arg0, i32 258), !dbg !1391
+Preconditions internal: 
+i32 %arg1:arbitrary; 
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: i32 %arg1 = nondef() : 0
+error: No matching SMT expression for Op %arg1 (nondef) found!
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   %1 = call i32 (i8*, i32, ...) @open(i8* %arg0, i32 258), !dbg !1391
+Preconditions internal: 
+i32 %arg1:arbitrary; 
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: i32 %arg1 = nondef() : 0
+error: No matching SMT expression for Op %arg1 (nondef) found!
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   %1 = call i32 (i8*, i32, ...) @open(i8* %arg0, i32 258), !dbg !1391
+Preconditions internal: 
+i32 %arg1:arbitrary; 
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: i32 %arg1 = nondef() : 0
+error: No matching SMT expression for Op %arg1 (nondef) found!
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   %1 = call i32 (i8*, i32, ...) @open(i8* %arg0, i32 258), !dbg !1391
+Preconditions internal: 
+i32 %arg1:arbitrary; 
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: i32 %arg1 = nondef() : 0
+error: No matching SMT expression for Op %arg1 (nondef) found!
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   %1 = call i32 (i8*, i32, ...) @open(i8* %arg0, i32 258), !dbg !1391
+Preconditions internal: 
+i32 %arg1:arbitrary; 
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: i32 %arg1 = nondef() : 0
+error: No matching SMT expression for Op %arg1 (nondef) found!
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      name of function arguments: Writing precondition at: jobs/150/precondition_open_serial.txt
+
+Generated Preconditions:
+[underoverapprox]name of function arguments: 
+i32 %arg1:arbitrary; 
+i32 %arg1:arbitrary; 
+i32 %arg1:arbitrary; 
+i32 %arg1:arbitrary; 
+i32 %arg1:arbitrary; 
+
+                                                           0 sec [DONE]
+    allsafe
+    
+                                                           0 sec [DONE]
+  

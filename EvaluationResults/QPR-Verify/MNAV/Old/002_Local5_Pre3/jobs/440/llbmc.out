@@ -1,0 +1,135 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+handleJobInSeparateProcess0
+
+Checking job 440 ...about to run job:
+preconNumber: 3, 1
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 4
+    HavocLimit : 0
+    PreconditionNumber : 3
+    PreconditionLocation : jobs/440
+    TimeOut : 300
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : mat_durbin
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "mat_durbin" for 4 iterations succeeded.
+      Unrolling loop in function "mat_durbin" for 4 iterations succeeded.
+      Unrolling loop in function "mat_durbin" for 4 iterations succeeded.
+      Unrolling loop in function "mat_durbin" for 4 iterations succeeded.
+      Transformed "mat_durbin" from 34 to 140 basic blocks and from 281 to 1658 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...size Alloca: 1
+size Alloca: 1
+
+        Unrolling loop in function "_mat_creat" for 4 iterations succeeded.
+        Transformed "_mat_creat" from 10 to 20 basic blocks and from 54 to 117 instructions
+        Transformed "mat_error" from 5 to 10 basic blocks and from 10 to 19 instructions
+        Unrolling loop in function "mat_fill" for 4 iterations succeeded.
+        Unrolling loop in function "mat_fill" for 4 iterations succeeded.
+        Transformed "mat_fill" from 18 to 159 basic blocks and from 67 to 679 instructions
+        Unrolling loop in function "mat_free" for 4 iterations succeeded.
+        Transformed "mat_free" from 8 to 15 basic blocks and from 33 to 79 instructions
+                                                           0 sec [DONE]
+        Number of expressions:                         17184
+        after encoding
+
+      81 assertions before transformations (26 no_function_call, 38 no_back_edge, 16 custom, 1 no_unreachable_executed).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            8651
+        Fixed Memory Address Assigner
+          Number of moved ops                              2
+          Number of rewrites                             406
+        Simplifier
+          Number of moved ops                              2
+          Number of rewrites                            5509
+        Memory Model Encoder
+          Number of moved ops                              0
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                              20
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                             337
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      81 assertions remain after transformations (26 no_function_call, 38 no_back_edge, 16 custom, 1 no_unreachable_executed).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...           54 sec [DONE]
+        
+                                                          54 sec [DONE]
+      after performing Check
+evaluateCheckerResultsViaRefinementLoop
+checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+getCheckerResultAfterUpdatingMarker
+failingInst:   %15 = call i32 (i8*, ...) @printf(i8* getelementptr inbounds ([51 x i8], [51 x i8]* @.str.3.56, i32 0, i32 0)), !dbg !1407
+Preconditions internal: 
+
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+
+    Rerunning SMT solver (STP with MiniSat) ...           53 sec [DONE]
+      failingInst:   %15 = call i32 (i8*, ...) @printf(i8* getelementptr inbounds ([51 x i8], [51 x i8]* @.str.3.56, i32 0, i32 0)), !dbg !1407
+Preconditions internal: 
+
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+
+    Rerunning SMT solver (STP with MiniSat) ...           52 sec [DONE]
+      failingInst:   br i1 %38, label %bb3.0.3, label %bb2.bb5_crit_edge, !dbg !1387, !llvm.loop !1395
+Preconditions internal: 
+
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+
+    Rerunning SMT solver (STP with MiniSat) ...           53 sec [DONE]
+      name of function arguments: Writing precondition at: jobs/440/precondition_mat_durbin.txt
+
+Generated Preconditions:
+[underoverapprox]name of function arguments: 
+
+
+
+
+                                                         214 sec [DONE]
+    allsafe
+    
+                                                         214 sec [DONE]
+  

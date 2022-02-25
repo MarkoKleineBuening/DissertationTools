@@ -1,0 +1,152 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+handleJobInSeparateProcess0
+
+Checking job 2314 ...about to run job:
+preconNumber: 5, 1
+
+  Running Model Checker with 1 checks ...W [0] lib/Slicer/LocalSlicer.cpp:368 | argument 0 (i32* undef) has pointer type
+W [0] lib/Slicer/LocalSlicer.cpp:368 | argument 0 (i32* undef) has pointer type
+W [0] lib/Slicer/LocalSlicer.cpp:368 | argument 0 (i32* undef) has pointer type
+W [0] lib/Slicer/LocalSlicer.cpp:368 | argument 0 (i32* undef) has pointer type
+W [0] lib/Slicer/LocalSlicer.cpp:368 | argument 0 (%struct.Bitvec* undef) has pointer type
+W [0] lib/Slicer/LocalSlicer.cpp:495 | unused argument: , qpr.slicing.unused.arg.sqlite3BitvecTestNotNull.0
+I [0] lib/Slicer/LocalSlicer.cpp:104 | slicing finished
+try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 1
+    LoopUnrollBound : 1
+    HavocLimit : 0
+    PreconditionNumber : 5
+    PreconditionLocation : jobs/2314
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : true
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : sqlite3BitvecTestNotNull
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "sqlite3BitvecTestNotNull" for 1 iterations succeeded.
+      Transformed "sqlite3BitvecTestNotNull" from 6 to 9 basic blocks and from 23 to 30 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...size Alloca: 1
+-----found check = true
+                      0 sec [DONE]
+        Number of expressions:                        130889
+        after encoding
+
+      1 assertion before transformations (1 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            2560
+        Fixed Memory Address Assigner
+          Number of moved ops                              1
+          Number of rewrites                            4897
+        Simplifier
+          Number of moved ops                              1
+          Number of rewrites                           61876
+        Memory Model Encoder
+          Number of moved ops                              0
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                              88
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                               0
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      1 assertion remains after transformations (1 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...            0 sec [DONE]
+        
+                                                           0 sec [DONE]
+      after performing Check
+evaluateCheckerResultsViaRefinementLoop
+checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setCheckToUnsafe
+setCheckToUnsafe
+Check for floating point traces / abstractions currently deactivated
+getCheckerResultAfterUpdatingMarker
+failingInst:   call void @llbmc.assert(i1 %3, i32 %0)
+Preconditions internal: 
+i32 %arg1:1; (i32 %arg1:1)
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: i32 %arg1 = nondef() : 1
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   call void @llbmc.assert(i1 %3, i32 %0)
+Preconditions internal: 
+i32 %arg1:2; (i32 %arg1:2)
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: i32 %arg1 = nondef() : 2
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   call void @llbmc.assert(i1 %3, i32 %0)
+Preconditions internal: 
+i32 %arg1:3; (i32 %arg1:3)
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: i32 %arg1 = nondef() : 3
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   call void @llbmc.assert(i1 %3, i32 %0)
+Preconditions internal: 
+i32 %arg1:11; (i32 %arg1:11)
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: i32 %arg1 = nondef() : 11
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   call void @llbmc.assert(i1 %3, i32 %0)
+Preconditions internal: 
+i32 %arg1:15; (i32 %arg1:15)
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: i32 %arg1 = nondef() : 15
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      name of function arguments: Writing precondition at: jobs/2314/precondition_sqlite3BitvecTestNotNull.txt
+
+Generated Preconditions:
+[underoverapprox]name of function arguments: 
+i32 %arg1:1; 
+i32 %arg1:2; 
+i32 %arg1:3; 
+i32 %arg1:11; 
+i32 %arg1:15; 
+
+                                                           1 sec [DONE]
+    allunsafe
+    
+                                                           1 sec [DONE]
+  

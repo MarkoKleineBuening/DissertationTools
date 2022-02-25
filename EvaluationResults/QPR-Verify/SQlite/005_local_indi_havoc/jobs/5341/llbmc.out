@@ -1,0 +1,137 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 5341 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 1
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/5341
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [1] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : sqlite3FindInIndex
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "sqlite3FindInIndex" for 1 iterations succeeded.
+      Unrolling loop in function "sqlite3FindInIndex" for 1 iterations succeeded.
+      Unrolling loop in function "sqlite3FindInIndex" for 1 iterations succeeded.
+      Unrolling loop in function "sqlite3FindInIndex" for 1 iterations succeeded.
+      Unrolling loop in function "sqlite3FindInIndex" for 1 iterations succeeded.
+      Unrolling loop in function "sqlite3FindInIndex" for 1 iterations succeeded.
+      Transformed "sqlite3FindInIndex" from 97 to 167 basic blocks and from 524 to 833 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...Current: sqlite3FindInIndex Havoced: sqlite3GetVdbe
+Current: sqlite3FindInIndex Havoced: sqlite3ExprCanBeNull
+Current: sqlite3FindInIndex Havoced: isCandidateForInOpt
+Current: sqlite3FindInIndex Havoced: sqlite3SchemaToIndex
+Current: sqlite3FindInIndex Havoced: sqlite3CodeVerifySchema
+Current: sqlite3FindInIndex Havoced: sqlite3TableLock
+Current: sqlite3FindInIndex Havoced: sqlite3VectorFieldSubexpr
+Current: sqlite3FindInIndex Havoced: sqlite3TableColumnAffinity
+Current: sqlite3FindInIndex Havoced: sqlite3CompareAffinity
+Current: sqlite3FindInIndex Havoced: sqlite3VectorFieldSubexpr
+Current: sqlite3FindInIndex Havoced: sqlite3BinaryCompareCollSeq
+Current: sqlite3FindInIndex Havoced: sqlite3StrICmp
+Current: sqlite3FindInIndex Havoced: sqlite3VdbeAddOp0
+Current: sqlite3FindInIndex Havoced: sqlite3VdbeExplain
+Current: sqlite3FindInIndex Havoced: sqlite3VdbeAddOp3
+Current: sqlite3FindInIndex Havoced: sqlite3VdbeSetP4KeyInfo
+Current: sqlite3FindInIndex Havoced: sqlite3SetHasNullFlag
+Current: sqlite3FindInIndex Havoced: sqlite3VdbeJumpHere
+Current: sqlite3FindInIndex Havoced: sqlite3VectorFieldSubexpr
+Current: sqlite3FindInIndex Havoced: sqlite3BinaryCompareCollSeq
+Current: sqlite3FindInIndex Havoced: sqlite3StrICmp
+Current: sqlite3FindInIndex Havoced: sqlite3VdbeAddOp0
+Current: sqlite3FindInIndex Havoced: sqlite3VdbeExplain
+Current: sqlite3FindInIndex Havoced: sqlite3VdbeAddOp3
+Current: sqlite3FindInIndex Havoced: sqlite3VdbeSetP4KeyInfo
+Current: sqlite3FindInIndex Havoced: sqlite3SetHasNullFlag
+Current: sqlite3FindInIndex Havoced: sqlite3VdbeJumpHere
+Current: sqlite3FindInIndex Havoced: sqlite3VectorFieldSubexpr
+Current: sqlite3FindInIndex Havoced: sqlite3TableColumnAffinity
+Current: sqlite3FindInIndex Havoced: sqlite3CompareAffinity
+Current: sqlite3FindInIndex Havoced: sqlite3VdbeAddOp0
+Current: sqlite3FindInIndex Havoced: sqlite3OpenTable
+Current: sqlite3FindInIndex Havoced: sqlite3VdbeExplain
+Current: sqlite3FindInIndex Havoced: sqlite3VdbeJumpHere
+Current: sqlite3FindInIndex Havoced: sqlite3InRhsIsConstant
+Current: sqlite3FindInIndex Havoced: sqlite3CodeRhsOfIN
+Current: sqlite3FindInIndex Havoced: sqlite3SetHasNullFlag
+Current: sqlite3FindInIndex Havoced: sqlite3ExprVectorSize
+                      0 sec [DONE]
+        Number of expressions:                        156669
+        after encoding
+
+      9 assertions before transformations (8 no_back_edge, 1 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            4366
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72720
+        Memory Model Encoder
+          Number of moved ops                              0
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                               2
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             142
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      9 assertions remain after transformations (8 no_back_edge, 1 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...            0 sec [DONE]
+        
+                                                           1 sec [DONE]
+      after performing Check
+evaluateCheckerResultsViaRefinementLoop
+checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+E [3] lib/ModelChecker/Verifier.cpp:515 | VerificationException due to Could not find the failing instruction. This is a bug that only  leads to CheckStatus::InternalError for robustness reasons. (Note that instructions optimized away are a different case, which does not yield a check ID at all)
+getCheckerResultAfterUpdatingMarker
+E [3] lib/ModelChecker/Verifier.cpp:299 | The Model checker terminated with an exception
+E [3] lib/Core/CheckStatusMarker.cpp:61 | A job finished with an internal error
+E [3] lib/Core/CheckStatusMarker.cpp:63 | The model checker terminated with an exception (job:5341)
+
+                                                           3 sec [DONE]
+    The model checker terminated with an exception
+    
+                                                           3 sec [DONE]
+  

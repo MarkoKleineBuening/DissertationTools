@@ -1,0 +1,48 @@
+<VerificationJob>
+  <Configuration>
+    <AnalyzeChecksIndividually value="true" />
+    <BitcodeTraces value="false" />
+    <CheckCallers value="true" />
+    <CheckOnlyPrecondition value="true" />
+    <DumpVerifierBitcodeFiles value="false" />
+    <EnableSlicing value="false" />
+    <EntryPoint value="mat_lsolve_durbin" />
+    <FixPoint value="true" />
+    <ForkJobs value="true" />
+    <Hosted value="true" />
+    <IgnoreMissingFunctions value="false" />
+    <InitializedGlobals value="false" />
+    <LoopUnrollBound value="4" />
+    <PreconditionLocation value="jobs/406" />
+    <PreconditionNumber value="3" />
+    <SourceDirectory value="/home/marko/Examples/23_MNAV/MNAV1.5" />
+    <TimeOut value="300" />
+    <XMLTraces value="false" />
+  </Configuration>
+  <CheckList>
+    <Check id="1437" location="1513" category="arithmetic.overflow" status="safe" scope="_mat_creat">
+      <Annotations>
+        <Annotation>A loop bound was reached (/home/marko/Examples/23_MNAV/MNAV1.5//home/marko/Examples/23_MNAV/MNAV1.5/matrix.c:71:2)</Annotation>
+        <Annotation>The function body for printf is missing (/home/marko/Examples/23_MNAV/MNAV1.5//home/marko/Examples/23_MNAV/MNAV1.5/matrix.c:561:4)</Annotation>
+        <Annotation>Found 6 errors in the formula. Cannot start bug checking. (job:406)</Annotation>
+        <Annotation>Found 6 errors in the formula. Cannot start bug checking. (job:406)</Annotation>
+      </Annotations>
+      <EntryStatus>
+        <SingleEntryStatus>EcefToEnu, safe</SingleEntryStatus>
+        <SingleEntryStatus>EcefToLatLonAlt, safe</SingleEntryStatus>
+        <SingleEntryStatus>EulerToDcm, unknown</SingleEntryStatus>
+        <SingleEntryStatus>ahrs_main, unknown</SingleEntryStatus>
+        <SingleEntryStatus>mat_T321, safe</SingleEntryStatus>
+        <SingleEntryStatus>mat_det, safe</SingleEntryStatus>
+        <SingleEntryStatus>mat_durbin, safe</SingleEntryStatus>
+        <SingleEntryStatus>mat_inv, safe</SingleEntryStatus>
+        <SingleEntryStatus>mat_lsolve, safe</SingleEntryStatus>
+        <SingleEntryStatus>mat_lsolve_durbin, safe</SingleEntryStatus>
+        <SingleEntryStatus>mat_minor, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>navigation, unsafe</SingleEntryStatus>
+      </EntryStatus>
+    </Check>
+  </CheckList>
+  <Annotation>Found 6 errors in the formula. Cannot start bug checking.</Annotation>
+  <Status>allsafe</Status>
+</VerificationJob>

@@ -1,0 +1,973 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 8268 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 1
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/8268
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [1] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : sqlite3LeaveMutexAndCloseZombie
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "sqlite3LeaveMutexAndCloseZombie" for 1 iterations succeeded.
+      Unrolling loop in function "sqlite3LeaveMutexAndCloseZombie" for 3 iterations succeeded.
+      Unrolling loop in function "sqlite3LeaveMutexAndCloseZombie" for 1 iterations succeeded.
+      Unrolling loop in function "sqlite3LeaveMutexAndCloseZombie" for 1 iterations succeeded.
+      Unrolling loop in function "sqlite3LeaveMutexAndCloseZombie" for 1 iterations succeeded.
+      Unrolling loop in function "sqlite3LeaveMutexAndCloseZombie" for 1 iterations succeeded.getMatchingFunctions
+res.push_back: free
+res.push_back: printBold
+res.push_back: memtraceFree
+res.push_back: memtraceShutdown
+res.push_back: resolve_backslashes
+res.push_back: sqlite3_free
+res.push_back: sqlite3MemFree
+res.push_back: sqlite3MemShutdown
+res.push_back: pcache1Shutdown
+res.push_back: pcache1Free
+res.push_back: sqlite3_free_filename
+res.push_back: sqlite3NoopDestructor
+res.push_back: sqlite3SchemaClear
+res.push_back: sqlite3PageFree
+res.push_back: sqlite3ParserFinalize
+res.push_back: statAccumDestructor
+res.push_back: sqlite3Dequote
+res.push_back: logBadConnection
+res.push_back: sqlite3VdbeFrameMemDel
+res.push_back: sqlite3RowSetClear
+res.push_back: sqlite3RowSetDelete
+getMatchingFunctions
+res.push_back: free
+res.push_back: printBold
+res.push_back: memtraceFree
+res.push_back: memtraceShutdown
+res.push_back: resolve_backslashes
+res.push_back: sqlite3_free
+res.push_back: sqlite3MemFree
+res.push_back: sqlite3MemShutdown
+res.push_back: pcache1Shutdown
+res.push_back: pcache1Free
+res.push_back: sqlite3_free_filename
+res.push_back: sqlite3NoopDestructor
+res.push_back: sqlite3SchemaClear
+res.push_back: sqlite3PageFree
+res.push_back: sqlite3ParserFinalize
+res.push_back: statAccumDestructor
+res.push_back: sqlite3Dequote
+res.push_back: logBadConnection
+res.push_back: sqlite3VdbeFrameMemDel
+res.push_back: sqlite3RowSetClear
+res.push_back: sqlite3RowSetDelete
+getMatchingFunctions
+res.push_back: free
+res.push_back: printBold
+res.push_back: memtraceFree
+res.push_back: memtraceShutdown
+res.push_back: resolve_backslashes
+res.push_back: sqlite3_free
+res.push_back: sqlite3MemFree
+res.push_back: sqlite3MemShutdown
+res.push_back: pcache1Shutdown
+res.push_back: pcache1Free
+res.push_back: sqlite3_free_filename
+res.push_back: sqlite3NoopDestructor
+res.push_back: sqlite3SchemaClear
+res.push_back: sqlite3PageFree
+res.push_back: sqlite3ParserFinalize
+res.push_back: statAccumDestructor
+res.push_back: sqlite3Dequote
+res.push_back: logBadConnection
+res.push_back: sqlite3VdbeFrameMemDel
+res.push_back: sqlite3RowSetClear
+res.push_back: sqlite3RowSetDelete
+
+      Transformed "sqlite3LeaveMutexAndCloseZombie" from 38 to 1675 basic blocks and from 213 to 5014 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...Current: sqlite3LeaveMutexAndCloseZombie Havoced: connectionIsBusy
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3RollbackAll
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3CloseSavepoints
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3BtreeClose
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3SchemaClear
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3VtabUnlockList
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3CollapseDatabaseArray
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: functionDestroy
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3DbFree
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3HashClear
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: pthreadMutexLeave
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: pthreadMutexEnter
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: pthreadMutexFree
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: noopMutexLeave
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: noopMutexEnter
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: noopMutexFree
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: renameParseCleanup
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: first_valueFinalizeFunc
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: noopValueFunc
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: nth_valueFinalizeFunc
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: last_valueValueFunc
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: last_valueFinalizeFunc
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: ntileValueFunc
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: cume_distValueFunc
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: percent_rankValueFunc
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: rankValueFunc
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: dense_rankValueFunc
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: row_numberValueFunc
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: clearYMD_HMS_TZ
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: datetimeError
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: computeHMS
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: computeYMD
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: computeYMD_HMS
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: computeJD
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: columnMallocFailure
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3VdbeResetStepResult
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3BtreeLeaveCursor
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3BtreeEnterCursor
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3AutoLoadExtensions
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3RegisterPerConnectionBuiltinFunctions
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3ResultIntReal
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: attachBackupObject
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3BtreeCursorZero
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: allocateTempSpace
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: vdbeIncrMergerSetThreads
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3PcacheRef
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3PagerDontWrite
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3PagerRef
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3RowSetDelete
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3RowSetClear
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3PagerClearCache
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3BtreeCursorUnpin
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3BtreeCursorPin
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3VdbeFrameMemDel
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3BtreeIncrblobCursor
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3CloseExtensions
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: disconnectAllVtab
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3PcacheShrink
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3PagerShrink
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: logBadConnection
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3VdbeRewind
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3AutoincrementBegin
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: codeTableLocks
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: estimateTableWidth
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: recomputeColumnsNotIndexed
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: estimateIndexWidth
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3StringToId
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: windowFullScan
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: windowReturnOneRow
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3DequoteExpr
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3AuthContextPop
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: moveToParent
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3VdbeExplainPop
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: whereLoopInit
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3WhereClauseClear
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: whereUndoExprMods
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3WhereEnd
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: autoIncrementEnd
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3AutoincrementEnd
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3VdbeCountChanges
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: exprSetHeight
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3ForceNotReadOnly
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3VdbeReusable
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: setAllPagerFlags
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3VdbeRunOnlyOnce
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3Dequote
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3MultiWrite
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: statAccumDestructor
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: pageReinit
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3ClearTempRegCache
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: setDoNotMergeFlagOnCopy
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3MayAbort
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: addArgumentToVtab
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3DefaultRowEst
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: pragmaVtabCursorClear
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqliteAuthBadReturnCode
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: gatherSelectWindows
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3VtabArgInit
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3SrcListShiftJoinType
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: disableLookaside
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3FinishCoding
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: yy_accept
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: yyStackOverflow
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: yy_pop_parser_stack
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3ParserFinalize
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: vdbeIncrFree
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: vdbeMergeEngineFree
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: vdbePmaReaderClear
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: walIteratorFree
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3PcacheClose
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: pagerFreeMapHdrs
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: freeTempSpace
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3VdbeFrameDelete
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: closeCursorsInFrame
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3BtreeClearCursor
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3CollapseDatabaseArray
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3ResetAllSchemasOfConnection
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: vdbeLeave
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: invalidateAllOverflowCache
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3OsShmBarrier
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: walShmBarrier
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: walIndexWriteHdr
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3PcacheClearSyncFlags
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: pager_write_changecounter
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3PagerUnrefPageOne
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: releasePageOne
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: unlockBtreeIfUnused
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: clearAllSharedCacheTableLocks
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: downgradeAllSharedCacheTableLocks
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: btreeEndTransaction
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: btreeClearHasContent
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3OsCloseFree
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: releasePage
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: getCellInfo
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: releasePageNotNull
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: btreeReleaseAllCursorPages
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3PagerUnref
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3PcacheClear
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3BackupRestart
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: setSectorSize
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3PcacheMakeClean
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3PcacheClearWritable
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3PcacheCleanAll
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3WalEndReadTransaction
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: releaseAllSavepoints
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: pager_unlock
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: pagerUnlockAndRollback
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: pagerUnlockIfUnused
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3PcacheDrop
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: setGetterMethod
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: pagerFixMaplimit
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3PageFree
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: pager_reset
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: walCleanupHash
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: pcacheUnpin
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3PcacheRelease
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: pagerReleaseMapPage
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3PagerUnrefNotNull
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3OsClose
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: memjrnlFreeChunks
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3BitvecDestroy
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3MemJournalOpen
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3PcacheMakeDirty
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3VtabLock
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3CommitInternalChanges
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3VdbeLeave
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3CloseSavepoints
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3VdbeEnter
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: closeAllCursors
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3VdbeDelete
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3ParserReset
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3ErrorClear
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: schemaIsValid
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3VtabUnlockList
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3HashInit
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3SchemaClear
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3NoopDestructor
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3_free_filename
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3_interrupt
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3_free_table
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3ValueSetNull
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3OomClear
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3SkipAccumulatorLoad
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3_value_free
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3_result_null
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3_result_error_nomem
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3_result_error_toobig
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3VdbeIntegerAffinity
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: groupConcatValue
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: groupConcatFinalize
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: countFinalize
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: avgFinalize
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: totalFinalize
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sumFinalize
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: minMaxValue
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: minMaxFinalize
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: pcache1ResizeHash
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: pcache1Free
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: pcache1FreePage
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: pcache1EnforceMaxPage
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: pcache1Shrink
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: pcache1Destroy
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: pcache1Shutdown
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3MemShutdown
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3MemFree
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: releaseInodeInfo
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: setPendingFd
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: closePendingFds
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: verifyDbFile
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: setDeviceCharacteristics
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: unixShmPurge
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: unixUnmapfile
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: unixShmBarrier
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: memdbLeave
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: memdbEnter
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: vfsUnlink
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3_mutex_free
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: lockBtreeMutex
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: btreeLockCarefully
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3BtreeEnter
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: btreeEnterAll
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: unlockBtreeMutex
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3BtreeLeave
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: btreeLeaveAll
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3HashClear
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3WindowUnlinkFromSelect
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3VtabUnlock
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3ValueFree
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3KeyInfoUnref
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3BtreeLeaveAll
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3BtreeEnterAll
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: vdbeMemClear
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3VdbeMemRelease
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: vdbeMemClearExternAndSetNull
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3VdbeMemSetNull
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3OomFault
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3_free
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3_str_reset
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3_mutex_leave
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3_mutex_enter
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: outputModePop
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: eqp_reset
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: explain_data_delete
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: eqp_render
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: displayLinuxIoStats
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: toggleSelectOrder
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: freeColumnList
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: createSelftestTable
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: bind_table_init
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: outputModePush
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: output_file_close
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: import_cleanup
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: resolve_backslashes
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: freeText
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: initText
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: idxConstraintFree
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3re_free
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: decimal_clear
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: decimal_free
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: memtraceShutdown
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: memtraceFree
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: apndShmBarrier
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: completionCursorReset
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: fsdirResetCursor
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: KeccakF1600Step
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: clearTempFile
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: output_reset
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: printBold
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: main_init
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: close_db
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: idxWriteFree
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: idxTableFree
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3_expert_destroy
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: idxHashClear
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: idxHashInit
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: decimalSumValue
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: decimalSumFinalize
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: pthreadMutexLeave
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: pthreadMutexEnter
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: pthreadMutexFree
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: noopMutexLeave
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: noopMutexEnter
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: noopMutexFree
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: renameParseCleanup
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: first_valueFinalizeFunc
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: noopValueFunc
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: nth_valueFinalizeFunc
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: last_valueValueFunc
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: last_valueFinalizeFunc
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: ntileValueFunc
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: cume_distValueFunc
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: percent_rankValueFunc
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: rankValueFunc
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: dense_rankValueFunc
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: row_numberValueFunc
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: clearYMD_HMS_TZ
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: datetimeError
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: computeHMS
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: computeYMD
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: computeYMD_HMS
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: computeJD
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: columnMallocFailure
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3VdbeResetStepResult
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3BtreeLeaveCursor
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3BtreeEnterCursor
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3AutoLoadExtensions
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3RegisterPerConnectionBuiltinFunctions
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3ResultIntReal
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: attachBackupObject
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3BtreeCursorZero
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: allocateTempSpace
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: vdbeIncrMergerSetThreads
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3PcacheRef
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3PagerDontWrite
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3PagerRef
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3RowSetDelete
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3RowSetClear
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3PagerClearCache
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3BtreeCursorUnpin
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3BtreeCursorPin
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3VdbeFrameMemDel
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3BtreeIncrblobCursor
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3CloseExtensions
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: disconnectAllVtab
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3PcacheShrink
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3PagerShrink
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: logBadConnection
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3VdbeRewind
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3AutoincrementBegin
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: codeTableLocks
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: estimateTableWidth
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: recomputeColumnsNotIndexed
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: estimateIndexWidth
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3StringToId
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: windowFullScan
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: windowReturnOneRow
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3DequoteExpr
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3AuthContextPop
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: moveToParent
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3VdbeExplainPop
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: whereLoopInit
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3WhereClauseClear
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: whereUndoExprMods
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3WhereEnd
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: autoIncrementEnd
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3AutoincrementEnd
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3VdbeCountChanges
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: exprSetHeight
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3ForceNotReadOnly
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3VdbeReusable
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: setAllPagerFlags
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3VdbeRunOnlyOnce
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3Dequote
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3MultiWrite
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: statAccumDestructor
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: pageReinit
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3ClearTempRegCache
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: setDoNotMergeFlagOnCopy
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3MayAbort
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: addArgumentToVtab
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3DefaultRowEst
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: pragmaVtabCursorClear
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqliteAuthBadReturnCode
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: gatherSelectWindows
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3VtabArgInit
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3SrcListShiftJoinType
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: disableLookaside
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3FinishCoding
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: yy_accept
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: yyStackOverflow
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: yy_pop_parser_stack
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3ParserFinalize
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: vdbeIncrFree
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: vdbeMergeEngineFree
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: vdbePmaReaderClear
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: walIteratorFree
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3PcacheClose
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: pagerFreeMapHdrs
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: freeTempSpace
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3VdbeFrameDelete
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: closeCursorsInFrame
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3BtreeClearCursor
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3CollapseDatabaseArray
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3ResetAllSchemasOfConnection
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: vdbeLeave
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: invalidateAllOverflowCache
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3OsShmBarrier
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: walShmBarrier
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: walIndexWriteHdr
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3PcacheClearSyncFlags
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: pager_write_changecounter
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3PagerUnrefPageOne
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: releasePageOne
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: unlockBtreeIfUnused
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: clearAllSharedCacheTableLocks
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: downgradeAllSharedCacheTableLocks
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: btreeEndTransaction
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: btreeClearHasContent
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3OsCloseFree
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: releasePage
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: getCellInfo
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: releasePageNotNull
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: btreeReleaseAllCursorPages
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3PagerUnref
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3PcacheClear
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3BackupRestart
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: setSectorSize
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3PcacheMakeClean
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3PcacheClearWritable
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3PcacheCleanAll
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3WalEndReadTransaction
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: releaseAllSavepoints
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: pager_unlock
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: pagerUnlockAndRollback
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: pagerUnlockIfUnused
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3PcacheDrop
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: setGetterMethod
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: pagerFixMaplimit
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3PageFree
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: pager_reset
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: walCleanupHash
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: pcacheUnpin
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3PcacheRelease
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: pagerReleaseMapPage
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3PagerUnrefNotNull
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3OsClose
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: memjrnlFreeChunks
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3BitvecDestroy
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3MemJournalOpen
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3PcacheMakeDirty
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3VtabLock
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3CommitInternalChanges
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3VdbeLeave
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3CloseSavepoints
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3VdbeEnter
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: closeAllCursors
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3VdbeDelete
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3ParserReset
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3ErrorClear
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: schemaIsValid
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3VtabUnlockList
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3HashInit
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3SchemaClear
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3NoopDestructor
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3_free_filename
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3_interrupt
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3_free_table
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3ValueSetNull
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3OomClear
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3SkipAccumulatorLoad
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3_value_free
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3_result_null
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3_result_error_nomem
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3_result_error_toobig
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3VdbeIntegerAffinity
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: groupConcatValue
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: groupConcatFinalize
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: countFinalize
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: avgFinalize
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: totalFinalize
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sumFinalize
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: minMaxValue
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: minMaxFinalize
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: pcache1ResizeHash
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: pcache1Free
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: pcache1FreePage
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: pcache1EnforceMaxPage
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: pcache1Shrink
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: pcache1Destroy
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: pcache1Shutdown
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3MemShutdown
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3MemFree
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: releaseInodeInfo
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: setPendingFd
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: closePendingFds
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: verifyDbFile
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: setDeviceCharacteristics
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: unixShmPurge
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: unixUnmapfile
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: unixShmBarrier
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: memdbLeave
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: memdbEnter
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: vfsUnlink
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3_mutex_free
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: lockBtreeMutex
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: btreeLockCarefully
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3BtreeEnter
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: btreeEnterAll
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: unlockBtreeMutex
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3BtreeLeave
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: btreeLeaveAll
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3HashClear
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3WindowUnlinkFromSelect
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3VtabUnlock
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3ValueFree
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3KeyInfoUnref
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3BtreeLeaveAll
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3BtreeEnterAll
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: vdbeMemClear
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3VdbeMemRelease
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: vdbeMemClearExternAndSetNull
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3VdbeMemSetNull
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3OomFault
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3_free
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3_str_reset
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3_mutex_leave
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3_mutex_enter
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: outputModePop
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: eqp_reset
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: explain_data_delete
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: eqp_render
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: displayLinuxIoStats
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: toggleSelectOrder
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: freeColumnList
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: createSelftestTable
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: bind_table_init
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: outputModePush
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: output_file_close
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: import_cleanup
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: resolve_backslashes
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: freeText
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: initText
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: idxConstraintFree
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3re_free
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: decimal_clear
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: decimal_free
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: memtraceShutdown
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: memtraceFree
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: apndShmBarrier
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: completionCursorReset
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: fsdirResetCursor
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: KeccakF1600Step
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: clearTempFile
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: output_reset
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: printBold
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: main_init
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: close_db
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: idxWriteFree
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: idxTableFree
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3_expert_destroy
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: idxHashClear
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: idxHashInit
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: decimalSumValue
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: decimalSumFinalize
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: pthreadMutexLeave
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: pthreadMutexEnter
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: pthreadMutexFree
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: noopMutexLeave
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: noopMutexEnter
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: noopMutexFree
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: renameParseCleanup
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: first_valueFinalizeFunc
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: noopValueFunc
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: nth_valueFinalizeFunc
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: last_valueValueFunc
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: last_valueFinalizeFunc
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: ntileValueFunc
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: cume_distValueFunc
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: percent_rankValueFunc
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: rankValueFunc
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: dense_rankValueFunc
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: row_numberValueFunc
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: clearYMD_HMS_TZ
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: datetimeError
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: computeHMS
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: computeYMD
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: computeYMD_HMS
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: computeJD
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: columnMallocFailure
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3VdbeResetStepResult
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3BtreeLeaveCursor
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3BtreeEnterCursor
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3AutoLoadExtensions
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3RegisterPerConnectionBuiltinFunctions
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3ResultIntReal
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: attachBackupObject
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3BtreeCursorZero
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: allocateTempSpace
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: vdbeIncrMergerSetThreads
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3PcacheRef
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3PagerDontWrite
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3PagerRef
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3RowSetDelete
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3RowSetClear
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3PagerClearCache
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3BtreeCursorUnpin
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3BtreeCursorPin
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3VdbeFrameMemDel
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3BtreeIncrblobCursor
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3CloseExtensions
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: disconnectAllVtab
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3PcacheShrink
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3PagerShrink
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: logBadConnection
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3VdbeRewind
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3AutoincrementBegin
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: codeTableLocks
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: estimateTableWidth
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: recomputeColumnsNotIndexed
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: estimateIndexWidth
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3StringToId
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: windowFullScan
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: windowReturnOneRow
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3DequoteExpr
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3AuthContextPop
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: moveToParent
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3VdbeExplainPop
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: whereLoopInit
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3WhereClauseClear
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: whereUndoExprMods
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3WhereEnd
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: autoIncrementEnd
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3AutoincrementEnd
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3VdbeCountChanges
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: exprSetHeight
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3ForceNotReadOnly
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3VdbeReusable
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: setAllPagerFlags
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3VdbeRunOnlyOnce
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3Dequote
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3MultiWrite
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: statAccumDestructor
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: pageReinit
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3ClearTempRegCache
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: setDoNotMergeFlagOnCopy
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3MayAbort
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: addArgumentToVtab
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3DefaultRowEst
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: pragmaVtabCursorClear
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqliteAuthBadReturnCode
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: gatherSelectWindows
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3VtabArgInit
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3SrcListShiftJoinType
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: disableLookaside
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3FinishCoding
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: yy_accept
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: yyStackOverflow
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: yy_pop_parser_stack
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3ParserFinalize
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: vdbeIncrFree
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: vdbeMergeEngineFree
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: vdbePmaReaderClear
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: walIteratorFree
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3PcacheClose
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: pagerFreeMapHdrs
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: freeTempSpace
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3VdbeFrameDelete
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: closeCursorsInFrame
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3BtreeClearCursor
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3CollapseDatabaseArray
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3ResetAllSchemasOfConnection
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: vdbeLeave
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: invalidateAllOverflowCache
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3OsShmBarrier
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: walShmBarrier
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: walIndexWriteHdr
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3PcacheClearSyncFlags
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: pager_write_changecounter
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3PagerUnrefPageOne
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: releasePageOne
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: unlockBtreeIfUnused
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: clearAllSharedCacheTableLocks
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: downgradeAllSharedCacheTableLocks
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: btreeEndTransaction
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: btreeClearHasContent
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3OsCloseFree
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: releasePage
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: getCellInfo
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: releasePageNotNull
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: btreeReleaseAllCursorPages
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3PagerUnref
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3PcacheClear
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3BackupRestart
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: setSectorSize
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3PcacheMakeClean
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3PcacheClearWritable
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3PcacheCleanAll
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3WalEndReadTransaction
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: releaseAllSavepoints
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: pager_unlock
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: pagerUnlockAndRollback
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: pagerUnlockIfUnused
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3PcacheDrop
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: setGetterMethod
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: pagerFixMaplimit
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3PageFree
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: pager_reset
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: walCleanupHash
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: pcacheUnpin
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3PcacheRelease
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: pagerReleaseMapPage
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3PagerUnrefNotNull
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3OsClose
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: memjrnlFreeChunks
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3BitvecDestroy
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3MemJournalOpen
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3PcacheMakeDirty
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3VtabLock
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3CommitInternalChanges
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3VdbeLeave
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3CloseSavepoints
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3VdbeEnter
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: closeAllCursors
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3VdbeDelete
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3ParserReset
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3ErrorClear
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: schemaIsValid
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3VtabUnlockList
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3HashInit
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3SchemaClear
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3NoopDestructor
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3_free_filename
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3_interrupt
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3_free_table
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3ValueSetNull
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3OomClear
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3SkipAccumulatorLoad
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3_value_free
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3_result_null
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3_result_error_nomem
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3_result_error_toobig
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3VdbeIntegerAffinity
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: groupConcatValue
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: groupConcatFinalize
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: countFinalize
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: avgFinalize
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: totalFinalize
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sumFinalize
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: minMaxValue
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: minMaxFinalize
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: pcache1ResizeHash
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: pcache1Free
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: pcache1FreePage
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: pcache1EnforceMaxPage
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: pcache1Shrink
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: pcache1Destroy
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: pcache1Shutdown
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3MemShutdown
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3MemFree
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: releaseInodeInfo
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: setPendingFd
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: closePendingFds
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: verifyDbFile
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: setDeviceCharacteristics
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: unixShmPurge
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: unixUnmapfile
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: unixShmBarrier
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: memdbLeave
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: memdbEnter
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: vfsUnlink
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3_mutex_free
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: lockBtreeMutex
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: btreeLockCarefully
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3BtreeEnter
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: btreeEnterAll
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: unlockBtreeMutex
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3BtreeLeave
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: btreeLeaveAll
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3HashClear
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3WindowUnlinkFromSelect
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3VtabUnlock
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3ValueFree
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3KeyInfoUnref
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3BtreeLeaveAll
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3BtreeEnterAll
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: vdbeMemClear
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3VdbeMemRelease
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: vdbeMemClearExternAndSetNull
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3VdbeMemSetNull
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3OomFault
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3_free
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3_str_reset
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3_mutex_leave
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3_mutex_enter
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: outputModePop
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: eqp_reset
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: explain_data_delete
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: eqp_render
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: displayLinuxIoStats
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: toggleSelectOrder
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: freeColumnList
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: createSelftestTable
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: bind_table_init
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: outputModePush
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: output_file_close
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: import_cleanup
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: resolve_backslashes
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: freeText
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: initText
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: idxConstraintFree
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3re_free
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: decimal_clear
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: decimal_free
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: memtraceShutdown
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: memtraceFree
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: apndShmBarrier
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: completionCursorReset
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: fsdirResetCursor
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: KeccakF1600Step
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: clearTempFile
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: output_reset
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: printBold
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: main_init
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: close_db
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: idxWriteFree
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: idxTableFree
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3_expert_destroy
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: idxHashClear
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: idxHashInit
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: decimalSumValue
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: decimalSumFinalize
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3DbFree
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3HashClear
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3VtabEponymousTableClear
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3VtabModuleUnref
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3HashClear
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3Error
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3ValueFree
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3CloseExtensions
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3DbFree
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3_mutex_leave
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3_mutex_free
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3_free
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3_free
+Current: sqlite3LeaveMutexAndCloseZombie Havoced: sqlite3_mutex_leave
+                      0 sec [DONE]
+        Number of expressions:                        171112
+        after encoding
+
+      16 assertions before transformations (9 no_function_call, 6 no_back_edge, 1 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                           13353
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72647
+        Memory Model Encoder
+          Number of moved ops                              0
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                               2
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             142
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      16 assertions remain after transformations (9 no_function_call, 6 no_back_edge, 1 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...

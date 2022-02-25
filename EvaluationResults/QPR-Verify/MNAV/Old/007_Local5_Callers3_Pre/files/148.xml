@@ -1,0 +1,34 @@
+<SourceFile>
+  <Line number="1">/***************************************************************************</Line>
+  <Line number="2"> * Serial communication interface (RS232) in Stargate</Line>
+  <Line number="3"> * header file for serial.c</Line>
+  <Line number="4"> * Jung Soon Jang, May 2005</Line>
+  <Line number="5"> ***************************************************************************/</Line>
+  <Line number="6"></Line>
+  <Line number="7">/* Serial port information for talking to components */</Line>
+  <Line number="8">#define SERIAL_PORT0  &quot;/dev/tts/0&quot; 	</Line>
+  <Line number="9">#define SERIAL_PORT1  &quot;/dev/tts/1&quot; 	</Line>
+  <Line number="10">#define SERIAL_PORT2  &quot;/dev/tts/2&quot; 	</Line>
+  <Line number="11">#define SERIAL_PORT3  &quot;/dev/tts/3&quot;</Line>
+  <Line number="12">#define SERIAL_PORT4  &quot;/dev/tts/4&quot;</Line>
+  <Line number="13">#define sPORT1_iMoteZ &quot;/dev/ttyS1&quot;</Line>
+  <Line number="14"></Line>
+  <Line number="15">/* Baud rate */</Line>
+  <Line number="16">#define	BAUDRATE_9600	B9600</Line>
+  <Line number="17">#define BAUDRATE_19200	B19200</Line>
+  <Line number="18">#define BAUDRATE_38400	B38400</Line>
+  <Line number="19">#define BAUDRATE_57600  B57600</Line>
+  <Line number="20">#define BAUDRATE_76800	B76800</Line>
+  <Line number="21">#define	BAUDRATE_115200	B115200</Line>
+  <Line number="22"></Line>
+  <Line number="23">/* Serial data structure */</Line>
+  <Line number="24">#define s8N1	0		/* 8 data bits,   no parity, 1 stop bit */</Line>
+  <Line number="25">#define s8E1	1		/* 8 data bits, even parity, 1 stop bit */	</Line>
+  <Line number="26">#define	s8O1	2		/* 8 data bits,  odd parity, 1 stop bit */</Line>
+  <Line number="27"></Line>
+  <Line number="28">/* function prototypes */</Line>
+  <Line number="29">int  open_serial(char* serial_port,int baudrate);</Line>
+  <Line number="30"></Line>
+  <Line number="31"></Line>
+  <Line number="32"></Line>
+</SourceFile>

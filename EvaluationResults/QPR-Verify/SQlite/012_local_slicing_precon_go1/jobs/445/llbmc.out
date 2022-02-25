@@ -1,0 +1,151 @@
+runJobCommand
+precondition analysis with entry:re_esc_char
+arguents: child
+arguents: job
+arguents: mode
+arguents: precondition
+handleJobInSeparateProcess0
+
+Checking job 445 ...about to run job:
+preconNumber: 5, 1
+
+  Running Model Checker with 1 checks ...entry: re_esc_char, functionName: re_hex
+  <badref> = call i32 @qpr.precondition.re_hex(i32 %43, i32* %2)
+entry: re_esc_char, functionName: re_esc_char
+entry: re_esc_char, functionName: re_hex
+try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 1
+    LoopUnrollBound : 1
+    HavocLimit : 0
+    PreconditionNumber : 5
+    PreconditionLocation : jobs/445
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : true
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : re_esc_char
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "re_esc_char" for 1 iterations succeeded.
+      Transformed "re_esc_char" from 29 to 34 basic blocks and from 203 to 231 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...size Alloca: 1
+TODO MKB implement precondition handling: IE
+Reading in precondition at: jobs/445/precondition_re_hex.txt
+preconFile: jobs/445/precondition_re_hex.txt
+ref: [underoverapprox]name of function arguments, argValue:  
+ref: [underoverapprox]name of function arguments, argValue:  
+name of function arguments line
+param: i32 %arg0:48
+---name: i32 %arg0, value: 48.
+integer, char or other simple types
+name: i32 %arg0
+assuming that there are not more then 10 arguments
+nameIndex: 0
+nameID: 0
+argument name: 
+value: 48
+###new bool cond: bool % = compare(%, %i32__48)
+pruneOrAssert -- adding line boolCond: bool % = compare(%, %i32__48)
+param: i32 %arg0:49
+---name: i32 %arg0, value: 49.
+integer, char or other simple types
+name: i32 %arg0
+assuming that there are not more then 10 arguments
+nameIndex: 0
+nameID: 0
+argument name: 
+value: 49
+###new bool cond: bool % = compare(%, %i32__49)
+pruneOrAssert -- adding line boolCond: bool % = compare(%, %i32__49)
+param: i32 %arg0:50
+---name: i32 %arg0, value: 50.
+integer, char or other simple types
+name: i32 %arg0
+assuming that there are not more then 10 arguments
+nameIndex: 0
+nameID: 0
+argument name: 
+value: 50
+###new bool cond: bool % = compare(%, %i32__50)
+pruneOrAssert -- adding line boolCond: bool % = compare(%, %i32__50)
+param: i32 %arg0:51
+---name: i32 %arg0, value: 51.
+integer, char or other simple types
+name: i32 %arg0
+assuming that there are not more then 10 arguments
+nameIndex: 0
+nameID: 0
+argument name: 
+value: 51
+###new bool cond: bool % = compare(%, %i32__51)
+pruneOrAssert -- adding line boolCond: bool % = compare(%, %i32__51)
+param: i32 %arg0:54
+---name: i32 %arg0, value: 54.
+integer, char or other simple types
+name: i32 %arg0
+assuming that there are not more then 10 arguments
+nameIndex: 0
+nameID: 0
+argument name: 
+value: 54
+###new bool cond: bool % = compare(%, %i32__54)
+pruneOrAssert -- adding line boolCond: bool % = compare(%, %i32__54)
+Writing precondition type at: jobs/445/precondition_type_re_esc_char.txt
+
+Type of Precondition:
+[underoverapprox]
+precondition found, end encoding
+                      0 sec [DONE]
+        Number of expressions:                        155087
+        after encoding
+
+      5 assertions before transformations (5 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            3369
+        Fixed Memory Address Assigner
+          Number of moved ops                              1
+          Number of rewrites                            5209
+        Simplifier
+          Number of moved ops                              1
+          Number of rewrites                           72605
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               1
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                          419564
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           69268
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      5 assertions remain after transformations (5 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...

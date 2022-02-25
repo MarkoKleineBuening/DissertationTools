@@ -1,0 +1,91 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 2145 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 1
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/2145
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : fcntlSizeHint
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "fcntlSizeHint" for 1 iterations succeeded.getMatchingFunctions
+res.push_back: fstat64
+
+      Transformed "fcntlSizeHint" from 23 to 47 basic blocks and from 154 to 234 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...Current: fcntlSizeHint Havoced: sqlite3BitvecBuiltinTest
+Current: fcntlSizeHint Havoced: unixGetTempname
+Current: fcntlSizeHint Havoced: re_hex
+Current: fcntlSizeHint Havoced: main
+Current: fcntlSizeHint Havoced: seekAndWrite
+Current: fcntlSizeHint Havoced: robust_ftruncate
+Current: fcntlSizeHint Havoced: unixMapfile
+Current: fcntlSizeHint Havoced: storeLastErrno
+Current: fcntlSizeHint Havoced: unixLogErrorAtLine
+Current: fcntlSizeHint Havoced: seekAndWrite
+                      0 sec [DONE]
+        Number of expressions:                        155492
+        after encoding
+
+      8 assertions before transformations (6 no_function_call, 1 no_back_edge, 1 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            3629
+        Fixed Memory Address Assigner
+          Number of moved ops                              2
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           73300
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               1
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                              14
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           69268
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      8 assertions remain after transformations (6 no_function_call, 1 no_back_edge, 1 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...

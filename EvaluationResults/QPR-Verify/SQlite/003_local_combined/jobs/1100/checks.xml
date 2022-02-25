@@ -1,0 +1,37 @@
+<VerificationJob>
+  <Configuration>
+    <AnalyzeChecksIndividually value="false" />
+    <BitcodeTraces value="false" />
+    <DumpVerifierBitcodeFiles value="false" />
+    <EnableSlicing value="false" />
+    <EntryPoint value="sqlite3PCacheBufferSetup" />
+    <FixPoint value="true" />
+    <ForkJobs value="true" />
+    <Hosted value="true" />
+    <IgnoreMissingFunctions value="false" />
+    <InitializedGlobals value="false" />
+    <LoopUnrollBound value="1" />
+    <OverApproxVaArgs value="false" />
+    <PreconditionLocation value="jobs/1100" />
+    <SourceDirectory value="/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld" />
+    <StopEncodingAfterCheck value="false" />
+    <StopEncodingAfterCheckLoop value="0" />
+    <TimeOut value="600" />
+    <XMLTraces value="false" />
+  </Configuration>
+  <CheckList>
+    <Check id="8101" location="8794" category="arithmetic.overflow" status="safe|loopboundreached" scope="sqlite3PCacheBufferSetup">
+      <Annotations>
+        <Annotation>A loop bound was reached (/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld//home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld/sqlite3.c:51020:5)</Annotation>
+      </Annotations>
+    </Check>
+    <Check id="8104" location="8796" category="arithmetic.overflow" status="unsafe|loopboundreached" scope="sqlite3PCacheBufferSetup">
+      <Annotations>
+        <Annotation>A signed arithmetic operation can overflow.</Annotation>
+        <Annotation>A loop bound was reached (/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld//home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld/sqlite3.c:51020:5)</Annotation>
+      </Annotations>
+    </Check>
+  </CheckList>
+  <Annotation>someunsafe</Annotation>
+  <Status>someunsafe</Status>
+</VerificationJob>

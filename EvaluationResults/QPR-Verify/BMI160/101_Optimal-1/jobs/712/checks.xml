@@ -1,0 +1,33 @@
+<VerificationJob>
+  <Configuration>
+    <AnalyzeChecksIndividually value="true" />
+    <BitcodeTraces value="false" />
+    <CheckCallers value="true" />
+    <EnableSlicing value="false" />
+    <EntryPoint value="bmi160_aux_init" />
+    <FixPoint value="true" />
+    <HavocLimit value="0" />
+    <IgnoreMissingFunctions value="false" />
+    <InitializedGlobals value="false" />
+    <LoopUnrollBound value="12" />
+    <PreconditionLocation value="jobs/712" />
+    <SourceDirectory value="/home/i12/mbuening/100_Dissertation/BMI160/BMI160_driver" />
+    <TimeOut value="300" />
+  </Configuration>
+  <CheckList>
+    <Check id="179" location="209" category="explicit.conversion.overflow" status="unsafe" scope="bmi160_config_aux_mode">
+      <Annotations>
+        <Annotation>An explicit conversion operation can overflow.</Annotation>
+        <Annotation>An explicit conversion operation can overflow.</Annotation>
+        <Annotation>An explicit conversion operation can overflow.</Annotation>
+        <Annotation>An explicit conversion operation can overflow.</Annotation>
+      </Annotations>
+      <EntryStatus>
+        <SingleEntryStatus>bmi160_aux_init, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>bmi160_set_aux_auto_mode, unsafe</SingleEntryStatus>
+      </EntryStatus>
+    </Check>
+  </CheckList>
+  <Annotation>allunsafe</Annotation>
+  <Status>allunsafe</Status>
+</VerificationJob>

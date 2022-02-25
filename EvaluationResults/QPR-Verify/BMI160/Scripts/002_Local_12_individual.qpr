@@ -1,0 +1,12 @@
+configure-project TimeOut:300
+configure-project LoopUnrollBound:12
+configure-project AnalyzeChecksIndividually:true
+configure-project EnableSlicing:false
+find-source-files
+add-compiler-option "-DLOCAL_ANALYSIS"
+add-compiler-option "-DSTUB_FIFO_SIZE_BYTES=8"
+murphy
+compile
+optimize-bitcode mem2reg instnamer
+copy-source-files
+check-all-functions-locally

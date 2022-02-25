@@ -1,0 +1,159 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 5126 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 2
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/5126
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : lookupName
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "lookupName" for 1 iterations succeeded.
+      Unrolling loop in function "lookupName" for 1 iterations succeeded.
+      Unrolling loop in function "lookupName" for 1 iterations succeeded.
+      Unrolling loop in function "lookupName" for 1 iterations succeeded.
+      Unrolling loop in function "lookupName" for 1 iterations succeeded.
+      Unrolling loop in function "lookupName" for 1 iterations succeeded.
+      Unrolling loop in function "lookupName" for 1 iterations succeeded.
+      Unrolling loop in function "lookupName" for 1 iterations succeeded.
+      Transformed "lookupName" from 200 to 212 basic blocks and from 1080 to 1177 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...
+        Unrolling loop in function "sqlite3StrICmp" for 1 iterations succeeded.
+        Transformed "sqlite3StrICmp" from 10 to 16 basic blocks and from 56 to 98 instructions
+        Unrolling loop in function "sqlite3MatchEName" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3MatchEName" for 1 iterations succeeded.
+        Transformed "sqlite3MatchEName" from 27 to 37 basic blocks and from 116 to 164 instructionsCurrent: sqlite3MatchEName Havoced: sqlite3_strnicmp
+Current: sqlite3MatchEName Havoced: sqlite3_strnicmp
+Current: sqlite3MatchEName Havoced: sqlite3StrICmp
+
+        Unrolling loop in function "sqlite3RenameTokenRemap" for 1 iterations succeeded.
+        Transformed "sqlite3RenameTokenRemap" from 7 to 9 basic blocks and from 28 to 33 instructions
+        Unrolling loop in function "sqlite3StrIHash" for 1 iterations succeeded.
+        Transformed "sqlite3StrIHash" from 7 to 8 basic blocks and from 39 to 46 instructions
+        Unrolling loop in function "nameInUsingClause" for 1 iterations succeeded.
+        Transformed "nameInUsingClause" from 10 to 11 basic blocks and from 34 to 38 instructionsCurrent: nameInUsingClause Havoced: sqlite3StrICmp
+Current: sqlite3IsRowid Havoced: sqlite3StrICmp
+Current: sqlite3IsRowid Havoced: sqlite3StrICmp
+Current: sqlite3IsRowid Havoced: sqlite3StrICmp
+
+        Unrolling loop in function "sqlite3TableColumnToStorage" for 1 iterations succeeded.
+        Transformed "sqlite3TableColumnToStorage" from 13 to 14 basic blocks and from 79 to 88 instructionsCurrent: sqlite3IsRowid Havoced: sqlite3StrICmp
+Current: sqlite3IsRowid Havoced: sqlite3StrICmp
+Current: sqlite3IsRowid Havoced: sqlite3StrICmp
+Current: sqlite3_stricmp Havoced: sqlite3StrICmp
+Current: areDoubleQuotedStringsEnabled Havoced: sqlite3WritableSchema
+Current: sqlite3ExprIdToTrueFalse Havoced: sqlite3IsTrueOrFalse
+Current: sqlite3ErrorMsg Havoced: sqlite3VMPrintf
+Current: sqlite3ErrorMsg Havoced: sqlite3DbFree
+Current: sqlite3ErrorMsg Havoced: sqlite3DbFree
+Current: sqlite3ErrorMsg Havoced: sqlite3VMPrintf
+Current: sqlite3ErrorMsg Havoced: sqlite3DbFree
+Current: sqlite3ErrorMsg Havoced: sqlite3DbFree
+Current: sqlite3ErrorMsg Havoced: sqlite3VMPrintf
+Current: sqlite3ErrorMsg Havoced: sqlite3DbFree
+Current: sqlite3ErrorMsg Havoced: sqlite3DbFree
+Current: sqlite3ExprDelete Havoced: sqlite3ExprDeleteNN
+Current: sqlite3ExprDelete Havoced: sqlite3ExprDeleteNN
+Current: sqlite3_log Havoced: renderLogMsg
+Current: resolveAlias Havoced: sqlite3ExprDup
+Current: resolveAlias Havoced: incrAggFunctionDepth
+Current: resolveAlias Havoced: sqlite3ExprAddCollateString
+Current: resolveAlias Havoced: sqlite3ExprDelete
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %28, i8* %29, i64 72, i32 8, i1 false), !dbg !5657
+Current: resolveAlias Havoced: sqlite3DbStrDup
+Current: resolveAlias Havoced: sqlite3DbFree
+Current: resolveAlias Havoced: sqlite3ExprDelete
+
+        Unrolling loop in function "sqlite3AuthRead" for 1 iterations succeeded.
+        Transformed "sqlite3AuthRead" from 22 to 24 basic blocks and from 118 to 124 instructionsCurrent: sqlite3AuthRead Havoced: sqlite3SchemaToIndex
+Current: sqlite3AuthRead Havoced: sqlite3AuthReadCol
+Current: sqlite3ErrorMsg Havoced: sqlite3VMPrintf
+Current: sqlite3ErrorMsg Havoced: sqlite3DbFree
+Current: sqlite3ErrorMsg Havoced: sqlite3DbFree
+Current: sqlite3ErrorMsg Havoced: sqlite3VMPrintf
+Current: sqlite3ErrorMsg Havoced: sqlite3DbFree
+Current: sqlite3ErrorMsg Havoced: sqlite3DbFree
+Current: sqlite3ErrorMsg Havoced: sqlite3VMPrintf
+Current: sqlite3ErrorMsg Havoced: sqlite3DbFree
+Current: sqlite3ErrorMsg Havoced: sqlite3DbFree
+
+                                                           0 sec [DONE]
+        Number of expressions:                        160970
+        after encoding
+
+      28 assertions before transformations (27 no_back_edge, 1 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            6915
+        Fixed Memory Address Assigner
+          Number of moved ops                              2
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           73077
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                              14
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             167
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             145
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      28 assertions remain after transformations (27 no_back_edge, 1 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...

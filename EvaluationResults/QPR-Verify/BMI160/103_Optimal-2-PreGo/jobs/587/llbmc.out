@@ -1,0 +1,275 @@
+runJobCommand
+precondition analysis with entry:bmi160_aux_read
+arguents: child
+arguents: job
+arguents: mode
+arguents: precondition
+handleJobInSeparateProcess0
+
+Checking job 587 ...about to run job:
+preconNumber: 5, 1
+
+  Running Model Checker with 1 checks ...entry: bmi160_aux_read, functionName: extract_aux_read
+  <badref> = call i8 @qpr.precondition.extract_aux_read(i16 %24, i8 %0, i8* %1, i16 %2, %struct.bmi160_dev.7* @configStub)
+entry: bmi160_aux_read, functionName: bmi160_aux_read
+entry: bmi160_aux_read, functionName: extract_aux_read
+try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 12
+    HavocLimit : 0
+    PreconditionNumber : 5
+    PreconditionLocation : jobs/587
+    TimeOut : 300
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : bmi160_aux_read
+m_checker->run()
+
+    Performing bounded model checking ...
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...size Alloca: 1
+size Alloca: 1
+
+        Transformed "map_read_len" from 7 to 13 basic blocks and from 36 to 47 instructionsTODO MKB implement precondition handling: IE
+Reading in precondition at: jobs/587/precondition_extract_aux_read.txt
+preconFile: jobs/587/precondition_extract_aux_read.txt
+ref: [underoverapprox]name of function arguments, argValue:  
+ref: [underoverapprox]name of function arguments, argValue:  
+name of function arguments line
+param: i16 %arg0:256
+---name: i16 %arg0, value: 256.
+integer, char or other simple types
+name: i16 %arg0
+assuming that there are not more then 10 arguments
+nameIndex: 0
+nameID: 0
+argument name: 
+value: 256
+###new bool cond: bool % = compare(%, %i16__256)
+param:  i8 %arg1:0
+---name:  i8 %arg1, value: 0.
+integer, char or other simple types
+name:  i8 %arg1
+assuming that there are not more then 10 arguments
+nameIndex: 1
+nameID: 1
+argument name: arg0
+value: 0
+###added bool cond: bool % = or(%, %)
+param:  i16 %arg3:0
+---name:  i16 %arg3, value: 0.
+integer, char or other simple types
+name:  i16 %arg3
+assuming that there are not more then 10 arguments
+nameIndex: 3
+nameID: 3
+argument name: arg2
+value: 0
+###added bool cond: bool % = or(%, %)
+pruneOrAssert -- adding line boolCond: bool % = or(%, %)
+param: i16 %arg0:0
+---name: i16 %arg0, value: 0.
+integer, char or other simple types
+name: i16 %arg0
+assuming that there are not more then 10 arguments
+nameIndex: 0
+nameID: 0
+argument name: 
+value: 0
+###new bool cond: bool % = compare(%, %i16__0)
+param:  i8 %arg1:0
+---name:  i8 %arg1, value: 0.
+integer, char or other simple types
+name:  i8 %arg1
+assuming that there are not more then 10 arguments
+nameIndex: 1
+nameID: 1
+argument name: arg0
+value: 0
+###added bool cond: bool % = or(%, %)
+param:  i16 %arg3:1
+---name:  i16 %arg3, value: 1.
+integer, char or other simple types
+name:  i16 %arg3
+assuming that there are not more then 10 arguments
+nameIndex: 3
+nameID: 3
+argument name: arg2
+value: 1
+###added bool cond: bool % = or(%, %)
+pruneOrAssert -- adding line boolCond: bool % = or(%, %)
+param: i16 %arg0:0
+---name: i16 %arg0, value: 0.
+integer, char or other simple types
+name: i16 %arg0
+assuming that there are not more then 10 arguments
+nameIndex: 0
+nameID: 0
+argument name: 
+value: 0
+###new bool cond: bool % = compare(%, %i16__0)
+param:  i8 %arg1:1
+---name:  i8 %arg1, value: 1.
+integer, char or other simple types
+name:  i8 %arg1
+assuming that there are not more then 10 arguments
+nameIndex: 1
+nameID: 1
+argument name: arg0
+value: 1
+###added bool cond: bool % = or(%, %)
+param:  i16 %arg3:1
+---name:  i16 %arg3, value: 1.
+integer, char or other simple types
+name:  i16 %arg3
+assuming that there are not more then 10 arguments
+nameIndex: 3
+nameID: 3
+argument name: arg2
+value: 1
+###added bool cond: bool % = or(%, %)
+pruneOrAssert -- adding line boolCond: bool % = or(%, %)
+param: i16 %arg0:0
+---name: i16 %arg0, value: 0.
+integer, char or other simple types
+name: i16 %arg0
+assuming that there are not more then 10 arguments
+nameIndex: 0
+nameID: 0
+argument name: 
+value: 0
+###new bool cond: bool % = compare(%, %i16__0)
+param:  i8 %arg1:0
+---name:  i8 %arg1, value: 0.
+integer, char or other simple types
+name:  i8 %arg1
+assuming that there are not more then 10 arguments
+nameIndex: 1
+nameID: 1
+argument name: arg0
+value: 0
+###added bool cond: bool % = or(%, %)
+param:  i16 %arg3:2
+---name:  i16 %arg3, value: 2.
+integer, char or other simple types
+name:  i16 %arg3
+assuming that there are not more then 10 arguments
+nameIndex: 3
+nameID: 3
+argument name: arg2
+value: 2
+###added bool cond: bool % = or(%, %)
+pruneOrAssert -- adding line boolCond: bool % = or(%, %)
+param: i16 %arg0:0
+---name: i16 %arg0, value: 0.
+integer, char or other simple types
+name: i16 %arg0
+assuming that there are not more then 10 arguments
+nameIndex: 0
+nameID: 0
+argument name: 
+value: 0
+###new bool cond: bool % = compare(%, %i16__0)
+param:  i8 %arg1:0
+---name:  i8 %arg1, value: 0.
+integer, char or other simple types
+name:  i8 %arg1
+assuming that there are not more then 10 arguments
+nameIndex: 1
+nameID: 1
+argument name: arg0
+value: 0
+###added bool cond: bool % = or(%, %)
+param:  i16 %arg3:3
+---name:  i16 %arg3, value: 3.
+integer, char or other simple types
+name:  i16 %arg3
+assuming that there are not more then 10 arguments
+nameIndex: 3
+nameID: 3
+argument name: arg2
+value: 3
+###added bool cond: bool % = or(%, %)
+pruneOrAssert -- adding line boolCond: bool % = or(%, %)
+Writing precondition type at: jobs/587/precondition_type_bmi160_aux_read.txt
+
+Type of Precondition:
+[underoverapprox]
+precondition found, end encoding
+
+                                                           0 sec [DONE]
+        Number of expressions:                           334
+        after encoding
+
+      5 assertions before transformations (5 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                             133
+        Fixed Memory Address Assigner
+          Number of moved ops                             17
+          Number of rewrites                              10
+        Simplifier
+          Number of moved ops                              2
+          Number of rewrites                              70
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               1
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                              29
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      5 assertions remain after transformations (5 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...            0 sec [DONE]
+        
+                                                           0 sec [DONE]
+      after performing Check
+evaluateCheckerResultsViaRefinementLoop
+getCheckerResultAfterUpdatingMarker
+Result is NoTrace
+
+                                                           0 sec [DONE]
+    allunsafe
+    
+                                                           0 sec [DONE]
+  ) ...            0 sec [DONE]
+      name of function arguments: Writing precondition at: jobs/587/precondition_extract_aux_read.txt
+
+Generated Preconditions:
+[underoverapprox]name of function arguments: 
+i16 %arg0:256; i8 %arg1:0; i16 %arg3:0; 
+i16 %arg0:0; i8 %arg1:0; i16 %arg3:1; 
+i16 %arg0:0; i8 %arg1:1; i16 %arg3:1; 
+i16 %arg0:0; i8 %arg1:0; i16 %arg3:2; 
+i16 %arg0:0; i8 %arg1:0; i16 %arg3:3; 
+
+                                                           1 sec [DONE]
+    allunsafe
+    
+                                                           1 sec [DONE]
+  

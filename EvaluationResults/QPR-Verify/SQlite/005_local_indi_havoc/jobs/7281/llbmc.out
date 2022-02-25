@@ -1,0 +1,115 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 7281 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 1
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/7281
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : vtabCallConstructor
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "vtabCallConstructor" for 1 iterations succeeded.
+      Unrolling loop in function "vtabCallConstructor" for 1 iterations succeeded.
+      Unrolling loop in function "vtabCallConstructor" for 1 iterations succeeded.
+      Unrolling loop in function "vtabCallConstructor" for 1 iterations succeeded.getMatchingFunctions
+res.push_back: fsdirConnect
+res.push_back: completionConnect
+res.push_back: seriesConnect
+res.push_back: expertConnect
+res.push_back: pragmaVtabConnect
+
+      Transformed "vtabCallConstructor" from 49 to 72 basic blocks and from 342 to 417 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...Current: vtabCallConstructor Havoced: sqlite3DbStrDup
+Current: vtabCallConstructor Havoced: sqlite3MallocZero
+Current: vtabCallConstructor Havoced: sqlite3OomFault
+Current: vtabCallConstructor Havoced: sqlite3DbFree
+Current: vtabCallConstructor Havoced: sqlite3SchemaToIndex
+Current: vtabCallConstructor Havoced: sqlite3VdbeNextOpcode
+Current: vtabCallConstructor Havoced: sqlite3FindInIndex
+Current: vtabCallConstructor Havoced: pragmaVtabConnect
+Current: vtabCallConstructor Havoced: sqlite3_create_collation_v2
+Current: vtabCallConstructor Havoced: expertConnect
+Current: vtabCallConstructor Havoced: seriesConnect
+Current: vtabCallConstructor Havoced: completionConnect
+Current: vtabCallConstructor Havoced: fsdirConnect
+Current: vtabCallConstructor Havoced: sqlite3OomFault
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %102, i8 0, i64 24, i32 8, i1 false), !dbg !5770
+Current: vtabCallConstructor Havoced: sqlite3ColumnType
+Current: vtabCallConstructor Havoced: sqlite3Strlen30
+Current: vtabCallConstructor Havoced: sqlite3_strnicmp
+Current: vtabCallConstructor Havoced: sqlite3MPrintf
+Current: vtabCallConstructor Havoced: sqlite3VtabUnlock
+Current: vtabCallConstructor Havoced: sqlite3MPrintf
+Current: vtabCallConstructor Havoced: sqlite3_free
+Current: vtabCallConstructor Havoced: sqlite3MPrintf
+Current: vtabCallConstructor Havoced: sqlite3DbFree
+Current: vtabCallConstructor Havoced: sqlite3DbFree
+Current: vtabCallConstructor Havoced: sqlite3MPrintf
+                      0 sec [DONE]
+        Number of expressions:                        155803
+        after encoding
+
+      6 assertions before transformations (1 no_function_call, 4 no_back_edge, 1 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            3780
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72627
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               2
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                              14
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             144
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      6 assertions remain after transformations (1 no_function_call, 4 no_back_edge, 1 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...

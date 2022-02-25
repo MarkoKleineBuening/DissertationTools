@@ -1,0 +1,95 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 3695 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 1
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/3695
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : editPage
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "editPage" for 1 iterations succeeded.
+      Transformed "editPage" from 31 to 32 basic blocks and from 316 to 325 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...Current: editPage Havoced: pageFreeArray
+isMemmove:   call void @llvm.memmove.p0i8.p0i8.i64(i8* %29, i8* %34, i64 %36, i32 1, i1 false), !dbg !5700
+Current: editPage Havoced: pageFreeArray
+isMemmove:   call void @llvm.memmove.p0i8.p0i8.i64(i8* %74, i8* %71, i64 %76, i32 1, i1 false), !dbg !5734
+Current: editPage Havoced: pageInsertArray
+isMemmove:   call void @llvm.memmove.p0i8.p0i8.i64(i8* %102, i8* %100, i64 %105, i32 1, i1 false), !dbg !5772
+Current: editPage Havoced: cachedCellSize
+Current: editPage Havoced: pageInsertArray
+Current: editPage Havoced: pageInsertArray
+Current: editPage Havoced: populateCellCache
+Current: editPage Havoced: rebuildPage
+Current: editPage Havoced: sqlite3CorruptError
+                      0 sec [DONE]
+        Number of expressions:                        155419
+        after encoding
+
+      2 assertions before transformations (1 no_back_edge, 1 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            3524
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72616
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               1
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               2
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             142
+        ToASC Analyser
+          Memcpy/memset found                            yes
+        Byte-Based Memory Creator
+          Number of rewrites                            8933
+        Instantiation-Based ToASC Simplifier
+          Number of rewrites                               3
+        Simplifier
+          Number of moved ops                             46
+          Number of rewrites                           23082
+        FP Abstraction
+          Number of rewrites                              22
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      2 assertions remain after transformations (1 no_back_edge, 1 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...

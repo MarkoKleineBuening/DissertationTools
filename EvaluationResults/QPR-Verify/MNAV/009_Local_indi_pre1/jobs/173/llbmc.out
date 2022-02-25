@@ -1,0 +1,166 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+handleJobInSeparateProcess0
+
+Checking job 173 ...about to run job:
+preconNumber: 5, 1
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 3
+    HavocLimit : 0
+    PreconditionNumber : 5
+    PreconditionLocation : jobs/173
+    TimeOut : 300
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : mat_det
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "mat_det" for 3 iterations succeeded.
+      Transformed "mat_det" from 13 to 20 basic blocks and from 79 to 139 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...size Alloca: 1
+
+        Unrolling loop in function "_mat_creat" for 3 iterations succeeded.
+        Transformed "_mat_creat" from 10 to 17 basic blocks and from 54 to 97 instructions
+        Transformed "mat_error" from 5 to 10 basic blocks and from 10 to 19 instructions
+        Unrolling loop in function "mat_fill" for 3 iterations succeeded.
+        Unrolling loop in function "mat_fill" for 3 iterations succeeded.
+        Transformed "mat_fill" from 18 to 98 basic blocks and from 67 to 408 instructions
+        Unrolling loop in function "mat_copy" for 3 iterations succeeded.
+        Unrolling loop in function "mat_copy" for 3 iterations succeeded.
+        Transformed "mat_copy" from 9 to 37 basic blocks and from 49 to 263 instructions
+        Unrolling loop in function "mat_lu" for 3 iterations succeeded.
+        Unrolling loop in function "mat_lu" for 3 iterations succeeded.
+        Unrolling loop in function "mat_lu" for 3 iterations succeeded.
+        Unrolling loop in function "mat_lu" for 3 iterations succeeded.
+        Unrolling loop in function "mat_lu" for 3 iterations succeeded.
+        Transformed "mat_lu" from 28 to 183 basic blocks and from 239 to 2361 instructions
+        Unrolling loop in function "mat_free" for 3 iterations succeeded.
+        Transformed "mat_free" from 8 to 13 basic blocks and from 33 to 65 instructions
+                                                           0 sec [DONE]
+        Number of expressions:                         12870
+        after encoding
+
+      58 assertions before transformations (21 no_function_call, 34 no_back_edge, 3 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            4530
+        Fixed Memory Address Assigner
+          Number of moved ops                              1
+          Number of rewrites                             381
+        Simplifier
+          Number of moved ops                              1
+          Number of rewrites                            5455
+        Memory Model Encoder
+          Number of moved ops                              0
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                              10
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                             308
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of rewrites                              24
+                                                           0 sec [DONE]
+        
+      58 assertions remain after transformations (21 no_function_call, 34 no_back_edge, 3 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...           10 sec [DONE]
+        
+                                                          10 sec [DONE]
+      after performing Check
+evaluateCheckerResultsViaRefinementLoop
+checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+BranchInst - LoopBound
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...           13 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+getCheckerResultAfterUpdatingMarker
+failingInst:   %50 = call double @fabs(double %49) #2, !dbg !1428
+Preconditions internal: 
+
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+
+    Rerunning SMT solver (STP with MiniSat) ...           13 sec [DONE]
+      failingInst:   %50 = call double @fabs(double %49) #2, !dbg !1428
+Preconditions internal: 
+
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+
+    Rerunning SMT solver (STP with MiniSat) ...           11 sec [DONE]
+      failingInst:   br i1 %43, label %bb3.0.2, label %bb2.bb7_crit_edge, !dbg !1389, !llvm.loop !1407
+Preconditions internal: 
+
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+
+    Rerunning SMT solver (STP with MiniSat) ...           10 sec [DONE]
+      failingInst:   br i1 %43, label %bb3.0.2, label %bb2.bb7_crit_edge, !dbg !1389, !llvm.loop !1407
+Preconditions internal: 
+
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+
+    Rerunning SMT solver (STP with MiniSat) ...           11 sec [DONE]
+      failingInst:   %50 = call double @fabs(double %49) #2, !dbg !1428
+Preconditions internal: 
+
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+
+    Rerunning SMT solver (STP with MiniSat) ...           13 sec [DONE]
+      name of function arguments: Writing precondition at: jobs/173/precondition_mat_det.txt
+
+Generated Preconditions:
+[underoverapprox]name of function arguments: 
+
+
+
+
+
+
+                                                          84 sec [DONE]
+    allsafe
+    
+                                                          84 sec [DONE]
+  

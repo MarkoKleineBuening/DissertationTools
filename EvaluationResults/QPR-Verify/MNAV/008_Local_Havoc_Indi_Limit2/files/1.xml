@@ -1,0 +1,350 @@
+<SourceFile>
+  <Line number="1">/*****************************************************************************************</Line>
+  <Line number="2">* FILE: avionics.c</Line>
+  <Line number="3">* DESCRIPTION:</Line>
+  <Line number="4">*   </Line>
+  <Line number="5">*   </Line>
+  <Line number="6">*</Line>
+  <Line number="7">* SOURCE: </Line>
+  <Line number="8">* REVISED:  9/02/05 Jung Soon Jang</Line>
+  <Line number="9">* REVISED:  4/07/06 Jung Soon Jang</Line>
+  <Line number="10">* REVISED:  7/25/06 Jung Soon Jang - AHRS runs at 50Hz, TCP-&gt;UDP Comm.</Line>
+  <Line number="11">* REVISED: 12/03/07 Jung Soon Jang - AHRS Mag (Kpsi) update error fix and gumstix compatible</Line>
+  <Line number="12">******************************************************************************************/</Line>
+  <Line number="13">#include &lt;stdio.h&gt;</Line>
+  <Line number="14">#include &lt;pthread.h&gt;</Line>
+  <Line number="15">#include &lt;sys/types.h&gt;</Line>
+  <Line number="16">#include &lt;sys/socket.h&gt;</Line>
+  <Line number="17">#include &lt;sys/stat.h&gt;</Line>
+  <Line number="18">#include &lt;netinet/in.h&gt;</Line>
+  <Line number="19">#include &lt;fcntl.h&gt;</Line>
+  <Line number="20">#include &lt;sys/time.h&gt;</Line>
+  <Line number="21">#include &lt;stdlib.h&gt;</Line>
+  <Line number="22">#include &lt;signal.h&gt;</Line>
+  <Line number="23">#include &lt;unistd.h&gt;</Line>
+  <Line number="24">#include &lt;string.h&gt;</Line>
+  <Line number="25">#include &lt;sys/resource.h&gt;</Line>
+  <Line number="26">#include &quot;globaldefs.h&quot;</Line>
+  <Line number="27"></Line>
+  <Line number="28">#ifdef NCURSE_DISPLAY_OPTION</Line>
+  <Line number="29">#include &lt;ncurses/ncurses.h&gt;</Line>
+  <Line number="30">#endif   </Line>
+  <Line number="31"></Line>
+  <Line number="32"></Line>
+  <Line number="33">//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</Line>
+  <Line number="34">//pre-defined defintions</Line>
+  <Line number="35">//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</Line>
+  <Line number="36">#define NUM_THREADS	  4		 // number of thread spawned by main</Line>
+  <Line number="37">#define NETWORK_PORT      9001		 // network port number</Line>
+  <Line number="38">#define UPDATE_USECS	  200000         // downlink at 5 Hz</Line>
+  <Line number="39"></Line>
+  <Line number="40">//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</Line>
+  <Line number="41">//global variables</Line>
+  <Line number="42">//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</Line>
+  <Line number="43">int     sock_fd;</Line>
+  <Line number="44">short   wifi          = 1;		  //wifi is enabled</Line>
+  <Line number="45">short	retvalsock    = 0;</Line>
+  <Line number="46">short	screen_on     = 0;	          //data logging is disabled	</Line>
+  <Line number="47">char    *HOST_IP_ADDR = &quot;192.168.11.101&quot;; //default ground station IP address</Line>
+  <Line number="48">char    buf_err[50];</Line>
+  <Line number="49">struct  sockaddr_in serv_addr;</Line>
+  <Line number="50"></Line>
+  <Line number="51"></Line>
+  <Line number="52">#ifdef NCURSE_DISPLAY_OPTION</Line>
+  <Line number="53">WINDOW  *win;</Line>
+  <Line number="54">#endif</Line>
+  <Line number="55"></Line>
+  <Line number="56">//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</Line>
+  <Line number="57">//thread prototypes</Line>
+  <Line number="58">//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</Line>
+  <Line number="59">extern void *ahrs_main(void *thread_id);</Line>
+  <Line number="60">extern void *imugps_acq(void *thread_id);</Line>
+  <Line number="61">extern void *navigation(void *thread_id);</Line>
+  <Line number="62">extern void *uplink_acq(void *thread_id);</Line>
+  <Line number="63"></Line>
+  <Line number="64">extern void display_message(struct imu *data, struct gps *gdata, struct nav *ndata, int id);</Line>
+  <Line number="65">short	    open_client();</Line>
+  <Line number="66">void        send_client();</Line>
+  <Line number="67">void	    timer_intr1(int sig);</Line>
+  <Line number="68">void	    help_message();</Line>
+  <Line number="69">void        cleanup(int sig_number);</Line>
+  <Line number="70">//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</Line>
+  <Line number="71">//main here...</Line>
+  <Line number="72">//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</Line>
+  <Line number="73">main(int argc, char **argv)</Line>
+  <Line number="74">{</Line>
+  <Line number="75">   pthread_t 		threads[NUM_THREADS];</Line>
+  <Line number="76">   pthread_attr_t	attr;</Line>
+  <Line number="77">   struct sched_param	param;</Line>
+  <Line number="78">   struct timespec	timeout;</Line>
+  <Line number="79">   int 			rc[NUM_THREADS],tnum,rout,iarg;</Line>
+  <Line number="80">   static short		try = <CheckRefs ids="71">0</CheckRefs>;</Line>
+  <Line number="81">   struct itimerval     it;</Line>
+  <Line number="82">   struct sigaction     sa;</Line>
+  <Line number="83">   sigset_t             allsigs;</Line>
+  <Line number="84">   short		disp_on=<CheckRefs ids="72">1</CheckRefs>;</Line>
+  <Line number="85">   </Line>
+  <Line number="86">   </Line>
+  <Line number="87">   //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</Line>
+  <Line number="88">   // cleanup on death</Line>
+  <Line number="89">   //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++	</Line>
+  <Line number="90">   signal(SIGINT,  cleanup);</Line>
+  <Line number="91">   signal(SIGQUIT, cleanup);</Line>
+  <Line number="92">   signal(SIGKILL, cleanup);</Line>
+  <Line number="93">   signal(SIGSTOP, cleanup);</Line>
+  <Line number="94">	</Line>
+  <Line number="95">   /*********************************************************************</Line>
+  <Line number="96">    *Parse the command line</Line>
+  <Line number="97">    *********************************************************************/</Line>
+  <Line number="98">   for(iarg=1;iarg&lt;argc;iarg<CheckRefs ids="73">++</CheckRefs>)</Line>
+  <Line number="99">   {</Line>
+  <Line number="100">	if(!strcmp(argv[iarg],&quot;-save&quot;)  ) {</Line>
+  <Line number="101">	   if(!strcmp(argv[iarg<CheckRefs ids="74">+</CheckRefs>1], &quot;on&quot;)) screen_on  = <CheckRefs ids="75">1</CheckRefs>;</Line>
+  <Line number="102">	   if(!strcmp(argv[iarg<CheckRefs ids="76">+</CheckRefs>1],&quot;off&quot;)) screen_on  = <CheckRefs ids="77">0</CheckRefs>;</Line>
+  <Line number="103">	}</Line>
+  <Line number="104">	if(!strcmp(argv[iarg],&quot;-wifi&quot;)  ) {</Line>
+  <Line number="105">	   if(!strcmp(argv[iarg<CheckRefs ids="78">+</CheckRefs>1], &quot;on&quot;)) wifi  = <CheckRefs ids="79">1</CheckRefs>;</Line>
+  <Line number="106">	   if(!strcmp(argv[iarg<CheckRefs ids="80">+</CheckRefs>1],&quot;off&quot;)) wifi  = <CheckRefs ids="81">0</CheckRefs>;</Line>
+  <Line number="107">	}</Line>
+  <Line number="108">	if(!strcmp(argv[iarg],&quot;-screen&quot;)  ) {</Line>
+  <Line number="109">	   if(!strcmp(argv[iarg<CheckRefs ids="82">+</CheckRefs>1], &quot;on&quot;)) disp_on  = <CheckRefs ids="83">1</CheckRefs>;</Line>
+  <Line number="110">	   if(!strcmp(argv[iarg<CheckRefs ids="84">+</CheckRefs>1],&quot;off&quot;)) disp_on  = <CheckRefs ids="85">0</CheckRefs>;</Line>
+  <Line number="111">	}</Line>
+  <Line number="112">        if(!strcmp(argv[iarg],&quot;-ip&quot;    ))  HOST_IP_ADDR = argv[iarg<CheckRefs ids="86">+</CheckRefs>1];</Line>
+  <Line number="113">        if(!strcmp(argv[iarg],&quot;-help&quot;)) help_message();</Line>
+  <Line number="114">   }</Line>
+  <Line number="115">   </Line>
+  <Line number="116">#ifdef NCURSE_DISPLAY_OPTION    </Line>
+  <Line number="117">   /*********************************************************************</Line>
+  <Line number="118">    *ncurses setting for display</Line>
+  <Line number="119">    *********************************************************************/</Line>
+  <Line number="120">   int width,height;</Line>
+  <Line number="121"> </Line>
+  <Line number="122">   initscr();</Line>
+  <Line number="123">   if (has_colors())</Line>
+  <Line number="124">   	start_color();</Line>
+  <Line number="125">   cbreak();</Line>
+  <Line number="126">   curs_set(0);</Line>
+  <Line number="127">   width = 70;</Line>
+  <Line number="128">   height= 23;</Line>
+  <Line number="129">   // Create a drawing window </Line>
+  <Line number="130">   win = newwin(height, width, (LINES - height) /2, (COLS - width) /2);</Line>
+  <Line number="131">   if (win == NULL) {</Line>
+  <Line number="132">   	endwin();</Line>
+  <Line number="133">   	printf(&quot;ncurses window creation failed!...\n&quot;);</Line>
+  <Line number="134">  	_exit(-1);</Line>
+  <Line number="135">   }		</Line>
+  <Line number="136">#endif</Line>
+  <Line number="137">       </Line>
+  <Line number="138">   /*********************************************************************</Line>
+  <Line number="139">    *initialize mutex and conditional variables</Line>
+  <Line number="140">    *********************************************************************/</Line>
+  <Line number="141">   pthread_mutex_init(&amp;mutex_imu,NULL);</Line>
+  <Line number="142">   pthread_mutex_init(&amp;mutex_gps,NULL);</Line>
+  <Line number="143">   pthread_mutex_init(&amp;mutex_nav,NULL);</Line>
+  <Line number="144">   pthread_cond_init(&amp;trigger_ahrs,NULL);</Line>
+  <Line number="145">   pthread_cond_init(&amp;trigger_nav,NULL);</Line>
+  <Line number="146"></Line>
+  <Line number="147">   /*********************************************************************</Line>
+  <Line number="148">    *create multiple threads</Line>
+  <Line number="149">    *********************************************************************/</Line>
+  <Line number="150">   /*setup the nice value for higher process priority */</Line>
+  <Line number="151">   //setpriority(PRIO_PROCESS, getpid(), -10);</Line>
+  <Line number="152">   /*initialize and set thread detached attribute */</Line>
+  <Line number="153">   pthread_attr_init(&amp;attr);</Line>
+  <Line number="154">   pthread_attr_setdetachstate(&amp;attr, PTHREAD_CREATE_DETACHED);</Line>
+  <Line number="155">   /*set scheduling policy */</Line>
+  <Line number="156">   pthread_attr_setinheritsched(&amp;attr,PTHREAD_EXPLICIT_SCHED);</Line>
+  <Line number="157">   pthread_attr_setschedpolicy(&amp;attr, SCHED_RR);</Line>
+  <Line number="158">   /*set thread priority */</Line>
+  <Line number="159">   sleep(<CheckRefs ids="87">2</CheckRefs>);</Line>
+  <Line number="160">   #ifndef NCURSE_DISPLAY_OPTION</Line>
+  <Line number="161">   printf(&quot;Creating threads...\n&quot;);</Line>
+  <Line number="162">   #endif</Line>
+  <Line number="163">   param.sched_priority = sched_get_priority_max(SCHED_RR); </Line>
+  <Line number="164">   pthread_attr_setschedparam(&amp;attr, &amp;param);</Line>
+  <Line number="165">   rc[0<CheckRefs ids="88">]</CheckRefs> = pthread_create(&amp;threads[0<CheckRefs ids="89">]</CheckRefs>, &amp;attr, ahrs_main,  (void *)0);</Line>
+  <Line number="166">   </Line>
+  <Line number="167">   param.sched_priority <CheckRefs ids="90">-=</CheckRefs>  0;</Line>
+  <Line number="168">   pthread_attr_setschedparam(&amp;attr, &amp;param);</Line>
+  <Line number="169">   rc[1<CheckRefs ids="91">]</CheckRefs> = pthread_create(&amp;threads[1<CheckRefs ids="92">]</CheckRefs>, &amp;attr, imugps_acq, (void *)1);</Line>
+  <Line number="170">      </Line>
+  <Line number="171">   param.sched_priority <CheckRefs ids="93">-=</CheckRefs>  5; pthread_attr_setschedparam(&amp;attr, &amp;param);</Line>
+  <Line number="172">   rc[2<CheckRefs ids="94">]</CheckRefs> = pthread_create(&amp;threads[2<CheckRefs ids="95">]</CheckRefs>, &amp;attr, navigation, (void *)2);</Line>
+  <Line number="173"></Line>
+  <Line number="174">   param.sched_priority <CheckRefs ids="96">-=</CheckRefs>  5; pthread_attr_setschedparam(&amp;attr, &amp;param);</Line>
+  <Line number="175">   rc[3<CheckRefs ids="97">]</CheckRefs> = pthread_create(&amp;threads[3<CheckRefs ids="98">]</CheckRefs>, &amp;attr, uplink_acq, (void *)3);</Line>
+  <Line number="176"></Line>
+  <Line number="177">   for(tnum=0;tnum&lt;NUM_THREADS;tnum<CheckRefs ids="99">++</CheckRefs>) {</Line>
+  <Line number="178">      if (rc[tnum<CheckRefs ids="100">]</CheckRefs>){</Line>
+  <Line number="179">            printf(&quot;ERROR: return code from pthread_create() is %d\n&quot;, rc[tnum<CheckRefs ids="101">]</CheckRefs>);</Line>
+  <Line number="180">            _exit(<CheckRefs ids="102">-</CheckRefs>1);</Line>
+  <Line number="181">      }</Line>
+  <Line number="182">   }</Line>
+  <Line number="183"></Line>
+  <Line number="184">   </Line>
+  <Line number="185">   /*time interval setting */</Line>
+  <Line number="186">   timeout.tv_sec = <CheckRefs ids="103">0</CheckRefs>;</Line>
+  <Line number="187">   timeout.tv_nsec= NSECS_PER_SEC<CheckRefs ids="106,105,104">/</CheckRefs>10;</Line>
+  <Line number="188"></Line>
+  <Line number="189">   it.it_interval.tv_sec = <CheckRefs ids="107">0</CheckRefs>;</Line>
+  <Line number="190">   it.it_interval.tv_usec= <CheckRefs ids="108">UPDATE_USECS</CheckRefs>;</Line>
+  <Line number="191">   it.it_value           = it.it_interval;</Line>
+  <Line number="192"></Line>
+  <Line number="193">   sigemptyset(&amp;sa.sa_mask);</Line>
+  <Line number="194">   sa.sa_flags = 0;</Line>
+  <Line number="195">   sa.sa_handler = timer_intr1;</Line>
+  <Line number="196"></Line>
+  <Line number="197">   sigaction(SIGALRM, &amp;sa, NULL);</Line>
+  <Line number="198">   setitimer(ITIMER_REAL, &amp;it, NULL);</Line>
+  <Line number="199">   sigemptyset(&amp;allsigs);</Line>
+  <Line number="200"></Line>
+  <Line number="201">   //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</Line>
+  <Line number="202">   //open client</Line>
+  <Line number="203">   //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</Line>
+  <Line number="204">   if (<CheckRefs ids="109">wifi</CheckRefs> == 1) retvalsock = open_client();</Line>
+  <Line number="205"></Line>
+  <Line number="206">   //++++++++++++++++++++++++++++++++++++++++++++++++++++++++</Line>
+  <Line number="207">   //main-loop</Line>
+  <Line number="208">   //++++++++++++++++++++++++++++++++++++++++++++++++++++++++</Line>
+  <Line number="209">   while (1)</Line>
+  <Line number="210">   {</Line>
+  <Line number="211">      //rout = nanosleep(&amp;timeout,NULL);</Line>
+  <Line number="212">      sigsuspend(&amp;allsigs); rout = 0;</Line>
+  <Line number="213">  </Line>
+  <Line number="214">      if (rout == 0) //timout is expired ...</Line>
+  <Line number="215">      {</Line>
+  <Line number="216">          //telemetry</Line>
+  <Line number="217">          if (<CheckRefs ids="110">wifi</CheckRefs> == 1)</Line>
+  <Line number="218">          {</Line>
+  <Line number="219">             if (retvalsock) { send_client(); snap_time_interval(&quot;TCP&quot;,  5, 2); }</Line>
+  <Line number="220">             else {</Line>
+  <Line number="221">                //try connection every 2.0 sec</Line>
+  <Line number="222">                if (try<CheckRefs ids="111,112">++</CheckRefs> == 10) { </Line>
+  <Line number="223">                   retvalsock = open_client(); try = <CheckRefs ids="113">0</CheckRefs>;</Line>
+  <Line number="224">                }</Line>
+  <Line number="225">             }        </Line>
+  <Line number="226">          }</Line>
+  <Line number="227">          //screen dump</Line>
+  <Line number="228">          if (disp_on) display_message(&amp;imupacket, &amp;gpspacket, &amp;navpacket, 5);</Line>
+  <Line number="229">          </Line>
+  <Line number="230">      }</Line>
+  <Line number="231">      else { }</Line>
+  <Line number="232"></Line>
+  <Line number="233">   } //end while</Line>
+  <Line number="234"></Line>
+  <Line number="235">  /**********************************************************************</Line>
+  <Line number="236">   * close</Line>
+  <Line number="237">   **********************************************************************/</Line>
+  <Line number="238">#ifdef NCURSE_DISPLAY_OPTION   </Line>
+  <Line number="239">   endwin();</Line>
+  <Line number="240">#endif</Line>
+  <Line number="241">   </Line>
+  <Line number="242">   pthread_mutex_destory(&amp;mutex_imu);</Line>
+  <Line number="243">   pthread_mutex_destory(&amp;mutex_gps);</Line>
+  <Line number="244">   pthread_mutex_destory(&amp;mutex_nav);</Line>
+  <Line number="245">   </Line>
+  <Line number="246">   pthread_attr_destory(&amp;attr);</Line>
+  <Line number="247">   pthread_cond_destory(&amp;trigger_ahrs);</Line>
+  <Line number="248">   pthread_exit(NULL);</Line>
+  <Line number="249">}</Line>
+  <Line number="250"></Line>
+  <Line number="251">/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</Line>
+  <Line number="252"> * open client to transmit/receive the packet to/from ground station</Line>
+  <Line number="253"> *+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/</Line>
+  <Line number="254">short open_client ()</Line>
+  <Line number="255">{</Line>
+  <Line number="256">  //struct sockaddr_in serv_addr;</Line>
+  <Line number="257">  short  ret;</Line>
+  <Line number="258">  </Line>
+  <Line number="259">  bzero((char *) &amp;serv_addr, sizeof(serv_addr));</Line>
+  <Line number="260">  serv_addr.sin_family      = <CheckRefs ids="114">AF_INET</CheckRefs>; </Line>
+  <Line number="261">  serv_addr.sin_addr.s_addr = <CheckRefs ids="115">inet_addr</CheckRefs>(HOST_IP_ADDR);</Line>
+  <Line number="262">  serv_addr.sin_port        = htons(<CheckRefs ids="116">NETWORK_PORT</CheckRefs>); </Line>
+  <Line number="263">  sock_fd = socket(AF_INET, SOCK_DGRAM, 0);</Line>
+  <Line number="264">  </Line>
+  <Line number="265">  </Line>
+  <Line number="266">  if (connect(sock_fd,(void *) &amp;serv_addr,<CheckRefs ids="117">sizeof</CheckRefs>(serv_addr)) &lt; 0) {</Line>
+  <Line number="267">    #ifdef NCURSE_DISPLAY_OPTION</Line>
+  <Line number="268">        sprintf(buf_err,&quot;Connection::Failed!   &quot;);</Line>
+  <Line number="269">    #else        	</Line>
+  <Line number="270">        printf(&quot;uNAV CLIENT: Connect Failed.\n&quot;);</Line>
+  <Line number="271">    #endif        </Line>
+  <Line number="272">        close(sock_fd);</Line>
+  <Line number="273">        ret = <CheckRefs ids="118">0</CheckRefs>;</Line>
+  <Line number="274">  }</Line>
+  <Line number="275">  else </Line>
+  <Line number="276">  {</Line>
+  <Line number="277">    #ifdef NCURSE_DISPLAY_OPTION</Line>
+  <Line number="278">        sprintf(buf_err,&quot;Connection::Success!      &quot;);</Line>
+  <Line number="279">    #else     	</Line>
+  <Line number="280">        printf(&quot;uNAV CLIENT: Connected to server.\n&quot;);</Line>
+  <Line number="281">    #endif    	</Line>
+  <Line number="282">     </Line>
+  <Line number="283">    ret = <CheckRefs ids="119">1</CheckRefs>;</Line>
+  <Line number="284">  }</Line>
+  <Line number="285">  </Line>
+  <Line number="286">  return ret;</Line>
+  <Line number="287">}</Line>
+  <Line number="288"></Line>
+  <Line number="289">void send_client (void)</Line>
+  <Line number="290">{</Line>
+  <Line number="291">  char buf[200]={<CheckRefs ids="120">0</CheckRefs>,};</Line>
+  <Line number="292">  short i = <CheckRefs ids="121">0</CheckRefs>;</Line>
+  <Line number="293">  unsigned long  sum = <CheckRefs ids="122">0</CheckRefs>;</Line>
+  <Line number="294"></Line>
+  <Line number="295">  sprintf(buf,&quot;%7.4f %7.4f %7.4f %7.4f %7.4f %7.4f %7.4f %7.4f %7.4f %7.4f %7.4f %7.4f %7.4f %7.4f %f %f %6.2f %d %d %d  end&quot;,</Line>
+  <Line number="296">            imupacket.p,  imupacket.q,  imupacket.r,</Line>
+  <Line number="297">            imupacket.ax, imupacket.ay, imupacket.az,</Line>
+  <Line number="298">            imupacket.phi,imupacket.the,imupacket.psi,</Line>
+  <Line number="299">            imupacket.hx, imupacket.hy, imupacket.hz,</Line>
+  <Line number="300">            imupacket.Ps, imupacket.Pt, </Line>
+  <Line number="301">            gpspacket.lat,gpspacket.lon,gpspacket.alt,<CheckRefs ids="123">gpspacket</CheckRefs>.err_type,<CheckRefs ids="124">imupacket</CheckRefs>.err_type,<CheckRefs ids="125">navpacket</CheckRefs>.err_type);</Line>
+  <Line number="302"></Line>
+  <Line number="303">  for(i=<CheckRefs ids="126">0</CheckRefs>;<CheckRefs ids="127">i</CheckRefs>&lt;199;i<CheckRefs ids="128">++</CheckRefs>) sum <CheckRefs ids="129">+=</CheckRefs> <CheckRefs ids="130">buf</CheckRefs>[i<CheckRefs ids="131">]</CheckRefs>;</Line>
+  <Line number="304">  buf[199<CheckRefs ids="132">]</CheckRefs> = <CheckRefs ids="133">(</CheckRefs>char)(sum<CheckRefs ids="134">%</CheckRefs><CheckRefs ids="135">256</CheckRefs>);</Line>
+  <Line number="305">  </Line>
+  <Line number="306">  </Line>
+  <Line number="307">     </Line>
+  <Line number="308">  if (sendto(sock_fd, buf, <CheckRefs ids="136">200</CheckRefs>, 0,(struct sockaddr *)&amp;serv_addr, <CheckRefs ids="137">sizeof</CheckRefs>(serv_addr)) == <CheckRefs ids="138,139">-</CheckRefs>1) {</Line>
+  <Line number="309">     #ifdef NCURSE_DISPLAY_OPTION</Line>
+  <Line number="310">        sprintf(buf_err,&quot;Sending Packet::Failed!   &quot;);</Line>
+  <Line number="311">     #else  	</Line>
+  <Line number="312">        printf(&quot;uNAV CLIENT: Sending Packet Failed.\n&quot;);</Line>
+  <Line number="313">     #endif     </Line>
+  <Line number="314">  }</Line>
+  <Line number="315">  else</Line>
+  <Line number="316">     sprintf(buf_err,&quot;Sending Packet::OK!    &quot;);</Line>
+  <Line number="317">    </Line>
+  <Line number="318">}</Line>
+  <Line number="319"></Line>
+  <Line number="320">void timer_intr1(int sig)</Line>
+  <Line number="321">{</Line>
+  <Line number="322">   return;</Line>
+  <Line number="323">}</Line>
+  <Line number="324">//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</Line>
+  <Line number="325">// help message</Line>
+  <Line number="326">//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</Line>
+  <Line number="327">void help_message()</Line>
+  <Line number="328">{</Line>
+  <Line number="329">   printf(&quot;\n./avionics -option1 -option2 ... \n&quot;);</Line>
+  <Line number="330">   printf(&quot;-wifi on/off        : enable or disable WiFi communication with GS \n&quot;);</Line>
+  <Line number="331">   printf(&quot;-save on/off        : enable or disable datalogging in /mnt/cf1/ \n&quot;);	</Line>
+  <Line number="332">   printf(&quot;-screen on/off      : enable or disable dumping data to screen \n&quot;);	</Line>
+  <Line number="333">   printf(&quot;-ip xxx.xxx.xxx.xxx : set GS i.p. address for WiFi comm. \n&quot;);</Line>
+  <Line number="334">   printf(&quot;-help               : display the help messages \n\n&quot;);</Line>
+  <Line number="335">    </Line>
+  <Line number="336">   _exit(0);	</Line>
+  <Line number="337">}	</Line>
+  <Line number="338"></Line>
+  <Line number="339">//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</Line>
+  <Line number="340">//clean up</Line>
+  <Line number="341">//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</Line>
+  <Line number="342">void cleanup(int sig_number)</Line>
+  <Line number="343">{</Line>
+  <Line number="344">#ifdef NCURSE_DISPLAY_OPTION   </Line>
+  <Line number="345">   endwin();</Line>
+  <Line number="346">#endif</Line>
+  <Line number="347">   _exit(0);</Line>
+  <Line number="348">}	</Line>
+</SourceFile>

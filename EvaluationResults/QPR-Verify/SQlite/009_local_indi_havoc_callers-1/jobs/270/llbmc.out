@@ -1,0 +1,93 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 270 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 2
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/270
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [1] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : decimal_add
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "decimal_add" for 1 iterations succeeded.
+      Unrolling loop in function "decimal_add" for 1 iterations succeeded.
+      Transformed "decimal_add" from 41 to 43 basic blocks and from 294 to 302 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...Current: decimal_expand Havoced: sqlite3_realloc64
+isMemmove:   call void @llvm.memmove.p0i8.p0i8.i64(i8* %27, i8* %29, i64 %32, i32 1, i1 false), !dbg !5675
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %34, i8 0, i64 %35, i32 1, i1 false), !dbg !5678
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %46, i8 0, i64 %47, i32 1, i1 false), !dbg !5690
+Current: decimal_expand Havoced: sqlite3_realloc64
+isMemmove:   call void @llvm.memmove.p0i8.p0i8.i64(i8* %27, i8* %29, i64 %32, i32 1, i1 false), !dbg !5675
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %34, i8 0, i64 %35, i32 1, i1 false), !dbg !5678
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %46, i8 0, i64 %47, i32 1, i1 false), !dbg !5690
+
+        Unrolling loop in function "llbmc.memcmp" for 0 iterations succeeded.
+        Transformed "llbmc.memcmp" from 17 to 20 instructions
+                                                           0 sec [DONE]
+        Number of expressions:                        155844
+        after encoding
+
+      5 assertions before transformations (3 no_back_edge, 2 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            3772
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72632
+        Memory Model Encoder
+          Number of moved ops                              0
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                               5
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             142
+        ToASC Analyser
+          Memcpy/memset found                            yes
+        Byte-Based Memory Creator
+          Number of rewrites                            8984
+        Instantiation-Based ToASC Simplifier
+          Number of rewrites                               6
+        Simplifier
+          Number of moved ops                            633
+          Number of rewrites                           23174
+        FP Abstraction
+          Number of rewrites                              22
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      5 assertions remain after transformations (3 no_back_edge, 2 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...

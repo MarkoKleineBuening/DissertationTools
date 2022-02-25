@@ -1,0 +1,108 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 6074 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 2
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/6074
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : instrFunc
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "instrFunc" for 1 iterations succeeded.
+      Unrolling loop in function "instrFunc" for 1 iterations succeeded.
+      Transformed "instrFunc" from 39 to 50 basic blocks and from 214 to 271 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...Current: sqlite3_value_bytes Havoced: sqlite3ValueBytes
+Current: sqlite3_value_bytes Havoced: sqlite3ValueBytes
+Current: sqlite3_value_dup Havoced: sqlite3_malloc
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %5, i8 0, i64 56, i32 8, i1 false), !dbg !5624
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %6, i8* %7, i64 24, i32 8, i1 false), !dbg !5625
+Current: sqlite3_value_dup Havoced: sqlite3VdbeMemMakeWriteable
+Current: sqlite3_value_dup Havoced: sqlite3ValueFree
+Current: sqlite3_value_text Havoced: sqlite3ValueText
+Current: sqlite3_value_bytes Havoced: sqlite3ValueBytes
+Current: sqlite3_value_dup Havoced: sqlite3_malloc
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %5, i8 0, i64 56, i32 8, i1 false), !dbg !5624
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %6, i8* %7, i64 24, i32 8, i1 false), !dbg !5625
+Current: sqlite3_value_dup Havoced: sqlite3VdbeMemMakeWriteable
+Current: sqlite3_value_dup Havoced: sqlite3ValueFree
+Current: sqlite3_value_text Havoced: sqlite3ValueText
+Current: sqlite3_value_bytes Havoced: sqlite3ValueBytes
+Current: sqlite3_value_text Havoced: sqlite3ValueText
+Current: sqlite3_value_text Havoced: sqlite3ValueText
+Current: sqlite3_value_blob Havoced: sqlite3_value_text
+Current: sqlite3_value_blob Havoced: sqlite3VdbeMemExpandBlob
+Current: sqlite3_value_blob Havoced: sqlite3_value_text
+Current: sqlite3_value_blob Havoced: sqlite3VdbeMemExpandBlob
+
+        Unrolling loop in function "llbmc.memcmp" for 0 iterations succeeded.
+        Transformed "llbmc.memcmp" from 17 to 20 instructionsCurrent: sqlite3_result_int Havoced: sqlite3VdbeMemSetInt64
+Current: sqlite3_result_error_nomem Havoced: sqlite3VdbeMemSetNull
+Current: sqlite3_result_error_nomem Havoced: sqlite3OomFault
+Current: sqlite3_value_free Havoced: sqlite3ValueFree
+Current: sqlite3_value_free Havoced: sqlite3ValueFree
+
+                                                           0 sec [DONE]
+        Number of expressions:                        156166
+        after encoding
+
+      7 assertions before transformations (5 no_back_edge, 2 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            4035
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72701
+        Memory Model Encoder
+          Number of moved ops                              0
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                              12
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             152
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      7 assertions remain after transformations (5 no_back_edge, 2 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...

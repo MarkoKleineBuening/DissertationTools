@@ -1,0 +1,172 @@
+runJobCommand
+precondition analysis with entry:AHRS_Algorithm
+arguents: child
+arguents: job
+arguents: mode
+arguents: precondition
+handleJobInSeparateProcess0
+
+Checking job 214 ...about to run job:
+preconNumber: 5, 1
+
+  Running Model Checker with 1 checks ...entry: AHRS_Algorithm, functionName: mat_mymul3
+  <badref> = call double** @qpr.precondition.mat_mymul3(double** %247, double** %248, double** %249, i16 3)
+entry: AHRS_Algorithm, functionName: AHRS_Algorithm
+entry: AHRS_Algorithm, functionName: mat_mymul3
+try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 0
+    PreconditionNumber : 5
+    PreconditionLocation : jobs/214
+    TimeOut : 300
+    InitializedGlobals : false
+    IgnoreMissingFunctions : true
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : AHRS_Algorithm
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "AHRS_Algorithm" for 4 iterations succeeded.
+      Unrolling loop in function "AHRS_Algorithm" for 7 iterations succeeded.
+      Unrolling loop in function "AHRS_Algorithm" for 4 iterations succeeded.
+      Unrolling loop in function "AHRS_Algorithm" for 7 iterations succeeded.
+      Unrolling loop in function "AHRS_Algorithm" for 3 iterations succeeded.
+      Unrolling loop in function "AHRS_Algorithm" for 7 iterations succeeded.
+      Unrolling loop in function "AHRS_Algorithm" for 4 iterations succeeded.
+      Transformed "AHRS_Algorithm" from 35 to 86 basic blocks and from 1166 to 2136 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...size Alloca: 1
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %4, i8 0, i64 24, i32 16, i1 false), !dbg !1391
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %5, i8 0, i64 24, i32 16, i1 false), !dbg !1393
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %6, i8 0, i64 16, i32 16, i1 false), !dbg !1395
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %7, i8 0, i64 32, i32 16, i1 false), !dbg !1398
+
+        Unrolling loop in function "mat_mymul2" for 7 iterations succeeded.
+        Unrolling loop in function "mat_mymul2" for 3 iterations succeeded.
+        Unrolling loop in function "mat_mymul2" for 1 iterations succeeded.
+        Unrolling loop in function "mat_mymul2" for 1 iterations succeeded.
+        Unrolling loop in function "mat_mymul2" for 1 iterations succeeded.
+        Transformed "mat_mymul2" from 21 to 68 basic blocks and from 122 to 559 instructionsTODO MKB implement precondition handling: IE
+Reading in precondition at: jobs/214/precondition_mat_mymul3.txt
+preconFile: jobs/214/precondition_mat_mymul3.txt
+ref: [underoverapprox]name of function arguments, argValue:  
+ref: [underoverapprox]name of function arguments, argValue:  
+name of function arguments line
+param: i16 %arg3:-32768
+---name: i16 %arg3, value: -32768.
+integer, char or other simple types
+name: i16 %arg3
+assuming that there are not more then 10 arguments
+nameIndex: 3
+nameID: 3
+argument name: 
+value: -32768
+###new bool cond: bool % = compare(%i16__3, %i16__32768)
+pruneOrAssert -- adding line boolCond: bool % = compare(%i16__3, %i16__32768)
+param: i16 %arg3:-32636
+---name: i16 %arg3, value: -32636.
+integer, char or other simple types
+name: i16 %arg3
+assuming that there are not more then 10 arguments
+nameIndex: 3
+nameID: 3
+argument name: 
+value: -32636
+###new bool cond: bool % = compare(%i16__3, %i16__32900)
+pruneOrAssert -- adding line boolCond: bool % = compare(%i16__3, %i16__32900)
+param: i16 %arg3:-9065
+---name: i16 %arg3, value: -9065.
+integer, char or other simple types
+name: i16 %arg3
+assuming that there are not more then 10 arguments
+nameIndex: 3
+nameID: 3
+argument name: 
+value: -9065
+###new bool cond: bool % = compare(%i16__3, %i16__56471)
+pruneOrAssert -- adding line boolCond: bool % = compare(%i16__3, %i16__56471)
+param: i16 %arg3:-32764
+---name: i16 %arg3, value: -32764.
+integer, char or other simple types
+name: i16 %arg3
+assuming that there are not more then 10 arguments
+nameIndex: 3
+nameID: 3
+argument name: 
+value: -32764
+###new bool cond: bool % = compare(%i16__3, %i16__32772)
+pruneOrAssert -- adding line boolCond: bool % = compare(%i16__3, %i16__32772)
+param: i16 %arg3:-16384
+---name: i16 %arg3, value: -16384.
+integer, char or other simple types
+name: i16 %arg3
+assuming that there are not more then 10 arguments
+nameIndex: 3
+nameID: 3
+argument name: 
+value: -16384
+###new bool cond: bool % = compare(%i16__3, %i16__49152)
+pruneOrAssert -- adding line boolCond: bool % = compare(%i16__3, %i16__49152)
+Writing precondition type at: jobs/214/precondition_type_AHRS_Algorithm.txt
+
+Type of Precondition:
+[underoverapprox]
+precondition found, end encoding
+
+                                                           0 sec [DONE]
+        Number of expressions:                          7374
+        after encoding
+
+      13 assertions before transformations (8 no_back_edge, 5 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                             858
+        Fixed Memory Address Assigner
+          Number of moved ops                             10
+          Number of rewrites                             365
+        Simplifier
+          Number of moved ops                              1
+          Number of rewrites                            2784
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               5
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           12825
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             100
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                             116
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               2
+                                                           0 sec [DONE]
+        
+      13 assertions remain after transformations (8 no_back_edge, 5 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...

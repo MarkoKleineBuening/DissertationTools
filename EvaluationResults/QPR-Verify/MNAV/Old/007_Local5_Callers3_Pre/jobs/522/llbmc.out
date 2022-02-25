@@ -1,0 +1,130 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+handleJobInSeparateProcess0
+
+Checking job 522 ...about to run job:
+preconNumber: 3, 1
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 4
+    HavocLimit : 0
+    PreconditionNumber : 3
+    PreconditionLocation : jobs/522
+    TimeOut : 300
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : snap_time_interval
+m_checker->run()
+
+    Performing bounded model checking ...
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...size Alloca: 1
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %22, i8* %23, i64 16, i32 8, i1 false), !dbg !1401
+                      0 sec [DONE]
+        Number of expressions:                          6137
+        after encoding
+
+      3 assertions before transformations (2 no_function_call, 1 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                             116
+        Fixed Memory Address Assigner
+          Number of moved ops                              1
+          Number of rewrites                             365
+        Simplifier
+          Number of moved ops                              1
+          Number of rewrites                            2730
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               1
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                            5099
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           40786
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              16
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      3 assertions remain after transformations (2 no_function_call, 1 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...            0 sec [DONE]
+        
+                                                           0 sec [DONE]
+      after performing Check
+evaluateCheckerResultsViaRefinementLoop
+checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+getCheckerResultAfterUpdatingMarker
+failingInst:   %1 = call i32 @clock_gettime(i32 0, %struct.timeval.141* %0) #9, !dbg !1384
+Preconditions internal: 
+i32 %arg1:arbitrary; i16 %arg2:arbitrary; 
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: i32 %arg1 = nondef() : 0
+error: No matching SMT expression for Op %arg1 (nondef) found!assumePair: i16 %arg2 = nondef() : 0
+error: No matching SMT expression for Op %arg2 (nondef) found!
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   %1 = call i32 @clock_gettime(i32 0, %struct.timeval.141* %0) #9, !dbg !1384
+Preconditions internal: 
+i32 %arg1:arbitrary; i16 %arg2:arbitrary; 
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: i32 %arg1 = nondef() : 0
+error: No matching SMT expression for Op %arg1 (nondef) found!assumePair: i16 %arg2 = nondef() : 0
+error: No matching SMT expression for Op %arg2 (nondef) found!
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   %1 = call i32 @clock_gettime(i32 0, %struct.timeval.141* %0) #9, !dbg !1384
+Preconditions internal: 
+i32 %arg1:arbitrary; i16 %arg2:arbitrary; 
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: i32 %arg1 = nondef() : 0
+error: No matching SMT expression for Op %arg1 (nondef) found!assumePair: i16 %arg2 = nondef() : 0
+error: No matching SMT expression for Op %arg2 (nondef) found!
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      name of function arguments: Writing precondition at: jobs/522/precondition_snap_time_interval.txt
+
+Generated Preconditions:
+[underoverapprox]name of function arguments: 
+i32 %arg1:arbitrary; i16 %arg2:arbitrary; 
+i32 %arg1:arbitrary; i16 %arg2:arbitrary; 
+i32 %arg1:arbitrary; i16 %arg2:arbitrary; 
+
+                                                           0 sec [DONE]
+    allsafe
+    
+                                                           0 sec [DONE]
+  

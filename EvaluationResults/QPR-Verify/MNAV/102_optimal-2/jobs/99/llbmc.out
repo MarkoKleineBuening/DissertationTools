@@ -1,0 +1,120 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+handleJobInSeparateProcess0
+
+Checking job 99 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 2 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 3
+    HavocLimit : 0
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/99
+    TimeOut : 300
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : mat_scalMult
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "mat_scalMult" for 3 iterations succeeded.
+      Unrolling loop in function "mat_scalMult" for 3 iterations succeeded.
+      Transformed "mat_scalMult" from 9 to 37 basic blocks and from 52 to 274 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...                      0 sec [DONE]
+        Number of expressions:                          6622
+        after encoding
+
+      16 assertions before transformations (4 no_back_edge, 12 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                             436
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                             364
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                            2747
+        Memory Model Encoder
+          Number of moved ops                              0
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                              12
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              18
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      16 assertions remain after transformations (4 no_back_edge, 12 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...            5 sec [DONE]
+        
+                                                           5 sec [DONE]
+      after performing Check
+evaluateCheckerResultsViaRefinementLoop
+checker.getResult() is Trace
+checkOnlyPrecon: 0, size:2
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+BranchInst - LoopBound
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            5 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:2
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+BranchInst - LoopBound
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            5 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:2
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+BranchInst - LoopBound
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            5 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:2
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+BranchInst - LoopBound
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      getCheckerResultAfterUpdatingMarker
+Result is NoTrace
+
+                                                          23 sec [DONE]
+    allsafe
+    
+                                                          23 sec [DONE]
+  

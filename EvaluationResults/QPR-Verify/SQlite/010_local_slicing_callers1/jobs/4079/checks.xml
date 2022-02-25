@@ -1,0 +1,37 @@
+<VerificationJob>
+  <Configuration>
+    <AnalyzeChecksIndividually value="true" />
+    <BitcodeTraces value="false" />
+    <CheckCallers value="true" />
+    <DumpVerifierBitcodeFiles value="false" />
+    <EnableSlicing value="true" />
+    <EntryPoint value="sqlite3InitOne" />
+    <FixPoint value="true" />
+    <ForkJobs value="true" />
+    <Hosted value="true" />
+    <IgnoreMissingFunctions value="false" />
+    <InitializedGlobals value="false" />
+    <LoopUnrollBound value="1" />
+    <PreconditionLocation value="jobs/4079" />
+    <SourceDirectory value="/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld" />
+    <TimeOut value="600" />
+    <XMLTraces value="false" />
+  </Configuration>
+  <CheckList>
+    <Check id="12344" location="13348" category="arithmetic.overflow.warning" status="unsafe" scope="sqlite3BtreeGetMeta">
+      <Annotations>
+        <Annotation>An unsigned arithmetic operation can overflow (wraparound).</Annotation>
+      </Annotations>
+      <EntryStatus>
+        <SingleEntryStatus>btreeCreateTable, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>btreeDropTable, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>schemaIsValid, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3InitOne, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3RunVacuum, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3VdbeExec, unsafe</SingleEntryStatus>
+      </EntryStatus>
+    </Check>
+  </CheckList>
+  <Annotation>allunsafe</Annotation>
+  <Status>allunsafe</Status>
+</VerificationJob>

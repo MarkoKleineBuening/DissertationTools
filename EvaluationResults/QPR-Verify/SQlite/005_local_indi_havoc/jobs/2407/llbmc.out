@@ -1,0 +1,425 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 2407 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 1
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/2407
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [1] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : sqlite3PcacheSetPageSize
+m_checker->run()
+
+    Performing bounded model checking ...getMatchingFunctions
+res.push_back: pcache1Create
+getMatchingFunctions
+res.push_back: pcache1Cachesize
+res.push_back: pcache1Truncate
+getMatchingFunctions
+res.push_back: pcache1Destroy
+res.push_back: pcache1Shrink
+
+      Transformed "sqlite3PcacheSetPageSize" from 8 to 698 basic blocks and from 50 to 2099 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...Current: sqlite3PcacheSetPageSize Havoced: pcache1Create
+Current: sqlite3PcacheSetPageSize Havoced: numberOfCachePages
+Current: sqlite3PcacheSetPageSize Havoced: vdbeMergeEngineCompare
+Current: sqlite3PcacheSetPageSize Havoced: btreeHeapInsert
+Current: sqlite3PcacheSetPageSize Havoced: setPageReferenced
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3BtreeCursorHintFlags
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3OpenSchemaTable
+Current: sqlite3PcacheSetPageSize Havoced: sqliteViewResetAll
+Current: sqlite3PcacheSetPageSize Havoced: windowAggFinal
+Current: sqlite3PcacheSetPageSize Havoced: unsetJoinExpr
+Current: sqlite3PcacheSetPageSize Havoced: createMask
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3VdbeJumpHereOrPopInst
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3VdbeEndCoroutine
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3RegisterLikeFunctions
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3VdbeSetNumCols
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3PagerSetFlags
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3ResolvePartIdxLabel
+Current: sqlite3PcacheSetPageSize Havoced: loadAnalysis
+Current: sqlite3PcacheSetPageSize Havoced: analyzeDatabase
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3CodeVerifySchemaAtToplevel
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3CodeVerifySchema
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3ReleaseTempReg
+Current: sqlite3PcacheSetPageSize Havoced: exprToRegister
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3VdbeResolveLabel
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3VdbeJumpHere
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3VdbeUsesBtree
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3ChangeCookie
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3PcacheSetCachesize
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3PagerSetCachesize
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3SetJoinExpr
+Current: sqlite3PcacheSetPageSize Havoced: incrAggFunctionDepth
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3VdbeSetVarmask
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3DeferForeignKey
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3AddNotNull
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3EndTransaction
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3BeginTransaction
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3PcacheMove
+Current: sqlite3PcacheSetPageSize Havoced: walIndexClose
+Current: sqlite3PcacheSetPageSize Havoced: walRestartHdr
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3PagerTruncateImage
+Current: sqlite3PcacheSetPageSize Havoced: callFinaliser
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3PcacheTruncate
+Current: sqlite3PcacheSetPageSize Havoced: walUnlockShared
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3Put4byte
+Current: sqlite3PcacheSetPageSize Havoced: zeroPage
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3VdbeSetChanges
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3RollbackAll
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3ResetOneSchema
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3ExpirePreparedStatements
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3_result_subtype
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3_result_zeroblob
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3SystemError
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3ErrorFinish
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3Error
+Current: sqlite3PcacheSetPageSize Havoced: minMaxValueFinalize
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3VdbeMemSetZeroBlob
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3_result_error_code
+Current: sqlite3PcacheSetPageSize Havoced: applyNumericAffinity
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3_result_int
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3InsertBuiltinFuncs
+Current: sqlite3PcacheSetPageSize Havoced: pcache1TruncateUnsafe
+Current: sqlite3PcacheSetPageSize Havoced: pcache1RemoveFromHash
+Current: sqlite3PcacheSetPageSize Havoced: pcache1Truncate
+Current: sqlite3PcacheSetPageSize Havoced: pcache1Cachesize
+Current: sqlite3PcacheSetPageSize Havoced: storeLastErrno
+Current: sqlite3PcacheSetPageSize Havoced: releaseMemArray
+Current: sqlite3PcacheSetPageSize Havoced: print_box_line
+Current: sqlite3PcacheSetPageSize Havoced: eqp_render_level
+Current: sqlite3PcacheSetPageSize Havoced: print_dashes
+Current: sqlite3PcacheSetPageSize Havoced: import_append_char
+Current: sqlite3PcacheSetPageSize Havoced: re_add_state
+Current: sqlite3PcacheSetPageSize Havoced: SHA3Init
+Current: sqlite3PcacheSetPageSize Havoced: open_db
+Current: sqlite3PcacheSetPageSize Havoced: pthreadMutexLeave
+Current: sqlite3PcacheSetPageSize Havoced: pthreadMutexEnter
+Current: sqlite3PcacheSetPageSize Havoced: pthreadMutexFree
+Current: sqlite3PcacheSetPageSize Havoced: noopMutexLeave
+Current: sqlite3PcacheSetPageSize Havoced: noopMutexEnter
+Current: sqlite3PcacheSetPageSize Havoced: noopMutexFree
+Current: sqlite3PcacheSetPageSize Havoced: renameParseCleanup
+Current: sqlite3PcacheSetPageSize Havoced: first_valueFinalizeFunc
+Current: sqlite3PcacheSetPageSize Havoced: noopValueFunc
+Current: sqlite3PcacheSetPageSize Havoced: nth_valueFinalizeFunc
+Current: sqlite3PcacheSetPageSize Havoced: last_valueValueFunc
+Current: sqlite3PcacheSetPageSize Havoced: last_valueFinalizeFunc
+Current: sqlite3PcacheSetPageSize Havoced: ntileValueFunc
+Current: sqlite3PcacheSetPageSize Havoced: cume_distValueFunc
+Current: sqlite3PcacheSetPageSize Havoced: percent_rankValueFunc
+Current: sqlite3PcacheSetPageSize Havoced: rankValueFunc
+Current: sqlite3PcacheSetPageSize Havoced: dense_rankValueFunc
+Current: sqlite3PcacheSetPageSize Havoced: row_numberValueFunc
+Current: sqlite3PcacheSetPageSize Havoced: clearYMD_HMS_TZ
+Current: sqlite3PcacheSetPageSize Havoced: datetimeError
+Current: sqlite3PcacheSetPageSize Havoced: computeHMS
+Current: sqlite3PcacheSetPageSize Havoced: computeYMD
+Current: sqlite3PcacheSetPageSize Havoced: computeYMD_HMS
+Current: sqlite3PcacheSetPageSize Havoced: computeJD
+Current: sqlite3PcacheSetPageSize Havoced: columnMallocFailure
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3VdbeResetStepResult
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3BtreeLeaveCursor
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3BtreeEnterCursor
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3AutoLoadExtensions
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3RegisterPerConnectionBuiltinFunctions
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3ResultIntReal
+Current: sqlite3PcacheSetPageSize Havoced: attachBackupObject
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3BtreeCursorZero
+Current: sqlite3PcacheSetPageSize Havoced: allocateTempSpace
+Current: sqlite3PcacheSetPageSize Havoced: vdbeIncrMergerSetThreads
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3PcacheRef
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3PagerDontWrite
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3PagerRef
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3RowSetDelete
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3RowSetClear
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3PagerClearCache
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3BtreeCursorUnpin
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3BtreeCursorPin
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3VdbeFrameMemDel
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3BtreeIncrblobCursor
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3CloseExtensions
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3LeaveMutexAndCloseZombie
+Current: sqlite3PcacheSetPageSize Havoced: disconnectAllVtab
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3PcacheShrink
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3PagerShrink
+Current: sqlite3PcacheSetPageSize Havoced: logBadConnection
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3VdbeRewind
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3AutoincrementBegin
+Current: sqlite3PcacheSetPageSize Havoced: codeTableLocks
+Current: sqlite3PcacheSetPageSize Havoced: estimateTableWidth
+Current: sqlite3PcacheSetPageSize Havoced: recomputeColumnsNotIndexed
+Current: sqlite3PcacheSetPageSize Havoced: estimateIndexWidth
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3StringToId
+Current: sqlite3PcacheSetPageSize Havoced: windowFullScan
+Current: sqlite3PcacheSetPageSize Havoced: windowReturnOneRow
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3DequoteExpr
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3AuthContextPop
+Current: sqlite3PcacheSetPageSize Havoced: moveToParent
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3VdbeExplainPop
+Current: sqlite3PcacheSetPageSize Havoced: whereLoopInit
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3WhereClauseClear
+Current: sqlite3PcacheSetPageSize Havoced: whereUndoExprMods
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3WhereEnd
+Current: sqlite3PcacheSetPageSize Havoced: autoIncrementEnd
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3AutoincrementEnd
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3VdbeCountChanges
+Current: sqlite3PcacheSetPageSize Havoced: exprSetHeight
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3ForceNotReadOnly
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3VdbeReusable
+Current: sqlite3PcacheSetPageSize Havoced: setAllPagerFlags
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3VdbeRunOnlyOnce
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3Dequote
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3MultiWrite
+Current: sqlite3PcacheSetPageSize Havoced: statAccumDestructor
+Current: sqlite3PcacheSetPageSize Havoced: pageReinit
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3ClearTempRegCache
+Current: sqlite3PcacheSetPageSize Havoced: setDoNotMergeFlagOnCopy
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3MayAbort
+Current: sqlite3PcacheSetPageSize Havoced: addArgumentToVtab
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3DefaultRowEst
+Current: sqlite3PcacheSetPageSize Havoced: pragmaVtabCursorClear
+Current: sqlite3PcacheSetPageSize Havoced: sqliteAuthBadReturnCode
+Current: sqlite3PcacheSetPageSize Havoced: gatherSelectWindows
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3VtabArgInit
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3SrcListShiftJoinType
+Current: sqlite3PcacheSetPageSize Havoced: disableLookaside
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3FinishCoding
+Current: sqlite3PcacheSetPageSize Havoced: yy_accept
+Current: sqlite3PcacheSetPageSize Havoced: yyStackOverflow
+Current: sqlite3PcacheSetPageSize Havoced: yy_pop_parser_stack
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3ParserFinalize
+Current: sqlite3PcacheSetPageSize Havoced: vdbeIncrFree
+Current: sqlite3PcacheSetPageSize Havoced: vdbeMergeEngineFree
+Current: sqlite3PcacheSetPageSize Havoced: vdbePmaReaderClear
+Current: sqlite3PcacheSetPageSize Havoced: walIteratorFree
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3PcacheClose
+Current: sqlite3PcacheSetPageSize Havoced: pagerFreeMapHdrs
+Current: sqlite3PcacheSetPageSize Havoced: freeTempSpace
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3VdbeFrameDelete
+Current: sqlite3PcacheSetPageSize Havoced: closeCursorsInFrame
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3BtreeClearCursor
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3CollapseDatabaseArray
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3ResetAllSchemasOfConnection
+Current: sqlite3PcacheSetPageSize Havoced: vdbeLeave
+Current: sqlite3PcacheSetPageSize Havoced: invalidateAllOverflowCache
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3OsShmBarrier
+Current: sqlite3PcacheSetPageSize Havoced: walShmBarrier
+Current: sqlite3PcacheSetPageSize Havoced: walIndexWriteHdr
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3PcacheClearSyncFlags
+Current: sqlite3PcacheSetPageSize Havoced: pager_write_changecounter
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3PagerUnrefPageOne
+Current: sqlite3PcacheSetPageSize Havoced: releasePageOne
+Current: sqlite3PcacheSetPageSize Havoced: unlockBtreeIfUnused
+Current: sqlite3PcacheSetPageSize Havoced: clearAllSharedCacheTableLocks
+Current: sqlite3PcacheSetPageSize Havoced: downgradeAllSharedCacheTableLocks
+Current: sqlite3PcacheSetPageSize Havoced: btreeEndTransaction
+Current: sqlite3PcacheSetPageSize Havoced: btreeClearHasContent
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3OsCloseFree
+Current: sqlite3PcacheSetPageSize Havoced: releasePage
+Current: sqlite3PcacheSetPageSize Havoced: getCellInfo
+Current: sqlite3PcacheSetPageSize Havoced: releasePageNotNull
+Current: sqlite3PcacheSetPageSize Havoced: btreeReleaseAllCursorPages
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3PagerUnref
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3PcacheClear
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3BackupRestart
+Current: sqlite3PcacheSetPageSize Havoced: setSectorSize
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3PcacheMakeClean
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3PcacheClearWritable
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3PcacheCleanAll
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3WalEndReadTransaction
+Current: sqlite3PcacheSetPageSize Havoced: releaseAllSavepoints
+Current: sqlite3PcacheSetPageSize Havoced: pager_unlock
+Current: sqlite3PcacheSetPageSize Havoced: pagerUnlockAndRollback
+Current: sqlite3PcacheSetPageSize Havoced: pagerUnlockIfUnused
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3PcacheDrop
+Current: sqlite3PcacheSetPageSize Havoced: setGetterMethod
+Current: sqlite3PcacheSetPageSize Havoced: pagerFixMaplimit
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3PageFree
+Current: sqlite3PcacheSetPageSize Havoced: pager_reset
+Current: sqlite3PcacheSetPageSize Havoced: walCleanupHash
+Current: sqlite3PcacheSetPageSize Havoced: pcacheUnpin
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3PcacheRelease
+Current: sqlite3PcacheSetPageSize Havoced: pagerReleaseMapPage
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3PagerUnrefNotNull
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3OsClose
+Current: sqlite3PcacheSetPageSize Havoced: memjrnlFreeChunks
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3BitvecDestroy
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3MemJournalOpen
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3PcacheMakeDirty
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3VtabLock
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3CommitInternalChanges
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3VdbeLeave
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3CloseSavepoints
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3VdbeEnter
+Current: sqlite3PcacheSetPageSize Havoced: closeAllCursors
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3VdbeDelete
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3ParserReset
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3ErrorClear
+Current: sqlite3PcacheSetPageSize Havoced: schemaIsValid
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3VtabUnlockList
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3HashInit
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3SchemaClear
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3NoopDestructor
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3_free_filename
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3_interrupt
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3_free_table
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3ValueSetNull
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3OomClear
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3SkipAccumulatorLoad
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3_value_free
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3_result_null
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3_result_error_nomem
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3_result_error_toobig
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3VdbeIntegerAffinity
+Current: sqlite3PcacheSetPageSize Havoced: groupConcatValue
+Current: sqlite3PcacheSetPageSize Havoced: groupConcatFinalize
+Current: sqlite3PcacheSetPageSize Havoced: countFinalize
+Current: sqlite3PcacheSetPageSize Havoced: avgFinalize
+Current: sqlite3PcacheSetPageSize Havoced: totalFinalize
+Current: sqlite3PcacheSetPageSize Havoced: sumFinalize
+Current: sqlite3PcacheSetPageSize Havoced: minMaxValue
+Current: sqlite3PcacheSetPageSize Havoced: minMaxFinalize
+Current: sqlite3PcacheSetPageSize Havoced: pcache1ResizeHash
+Current: sqlite3PcacheSetPageSize Havoced: pcache1Free
+Current: sqlite3PcacheSetPageSize Havoced: pcache1FreePage
+Current: sqlite3PcacheSetPageSize Havoced: pcache1EnforceMaxPage
+Current: sqlite3PcacheSetPageSize Havoced: pcache1Shrink
+Current: sqlite3PcacheSetPageSize Havoced: pcache1Destroy
+Current: sqlite3PcacheSetPageSize Havoced: pcache1Shutdown
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3MemShutdown
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3MemFree
+Current: sqlite3PcacheSetPageSize Havoced: releaseInodeInfo
+Current: sqlite3PcacheSetPageSize Havoced: setPendingFd
+Current: sqlite3PcacheSetPageSize Havoced: closePendingFds
+Current: sqlite3PcacheSetPageSize Havoced: verifyDbFile
+Current: sqlite3PcacheSetPageSize Havoced: setDeviceCharacteristics
+Current: sqlite3PcacheSetPageSize Havoced: unixShmPurge
+Current: sqlite3PcacheSetPageSize Havoced: unixUnmapfile
+Current: sqlite3PcacheSetPageSize Havoced: unixShmBarrier
+Current: sqlite3PcacheSetPageSize Havoced: memdbLeave
+Current: sqlite3PcacheSetPageSize Havoced: memdbEnter
+Current: sqlite3PcacheSetPageSize Havoced: vfsUnlink
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3_mutex_free
+Current: sqlite3PcacheSetPageSize Havoced: lockBtreeMutex
+Current: sqlite3PcacheSetPageSize Havoced: btreeLockCarefully
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3BtreeEnter
+Current: sqlite3PcacheSetPageSize Havoced: btreeEnterAll
+Current: sqlite3PcacheSetPageSize Havoced: unlockBtreeMutex
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3BtreeLeave
+Current: sqlite3PcacheSetPageSize Havoced: btreeLeaveAll
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3HashClear
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3WindowUnlinkFromSelect
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3VtabUnlock
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3ValueFree
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3KeyInfoUnref
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3BtreeLeaveAll
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3BtreeEnterAll
+Current: sqlite3PcacheSetPageSize Havoced: vdbeMemClear
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3VdbeMemRelease
+Current: sqlite3PcacheSetPageSize Havoced: vdbeMemClearExternAndSetNull
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3VdbeMemSetNull
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3OomFault
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3_free
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3_str_reset
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3_mutex_leave
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3_mutex_enter
+Current: sqlite3PcacheSetPageSize Havoced: outputModePop
+Current: sqlite3PcacheSetPageSize Havoced: eqp_reset
+Current: sqlite3PcacheSetPageSize Havoced: explain_data_delete
+Current: sqlite3PcacheSetPageSize Havoced: eqp_render
+Current: sqlite3PcacheSetPageSize Havoced: displayLinuxIoStats
+Current: sqlite3PcacheSetPageSize Havoced: toggleSelectOrder
+Current: sqlite3PcacheSetPageSize Havoced: freeColumnList
+Current: sqlite3PcacheSetPageSize Havoced: createSelftestTable
+Current: sqlite3PcacheSetPageSize Havoced: bind_table_init
+Current: sqlite3PcacheSetPageSize Havoced: outputModePush
+Current: sqlite3PcacheSetPageSize Havoced: output_file_close
+Current: sqlite3PcacheSetPageSize Havoced: import_cleanup
+Current: sqlite3PcacheSetPageSize Havoced: resolve_backslashes
+Current: sqlite3PcacheSetPageSize Havoced: freeText
+Current: sqlite3PcacheSetPageSize Havoced: initText
+Current: sqlite3PcacheSetPageSize Havoced: idxConstraintFree
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3re_free
+Current: sqlite3PcacheSetPageSize Havoced: decimal_clear
+Current: sqlite3PcacheSetPageSize Havoced: decimal_free
+Current: sqlite3PcacheSetPageSize Havoced: memtraceShutdown
+Current: sqlite3PcacheSetPageSize Havoced: memtraceFree
+Current: sqlite3PcacheSetPageSize Havoced: apndShmBarrier
+Current: sqlite3PcacheSetPageSize Havoced: completionCursorReset
+Current: sqlite3PcacheSetPageSize Havoced: fsdirResetCursor
+Current: sqlite3PcacheSetPageSize Havoced: KeccakF1600Step
+Current: sqlite3PcacheSetPageSize Havoced: clearTempFile
+Current: sqlite3PcacheSetPageSize Havoced: output_reset
+Current: sqlite3PcacheSetPageSize Havoced: printBold
+Current: sqlite3PcacheSetPageSize Havoced: main_init
+Current: sqlite3PcacheSetPageSize Havoced: close_db
+Current: sqlite3PcacheSetPageSize Havoced: idxWriteFree
+Current: sqlite3PcacheSetPageSize Havoced: idxTableFree
+Current: sqlite3PcacheSetPageSize Havoced: sqlite3_expert_destroy
+Current: sqlite3PcacheSetPageSize Havoced: idxHashClear
+Current: sqlite3PcacheSetPageSize Havoced: idxHashInit
+Current: sqlite3PcacheSetPageSize Havoced: decimalSumValue
+Current: sqlite3PcacheSetPageSize Havoced: decimalSumFinalize
+                      0 sec [DONE]
+        Number of expressions:                        161928
+        after encoding
+
+      5 assertions before transformations (4 no_function_call, 1 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            7524
+        Fixed Memory Address Assigner
+          Number of moved ops                              6
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           73312
+        Memory Model Encoder
+          Number of moved ops                              1
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                               2
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           69268
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      5 assertions remain after transformations (4 no_function_call, 1 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...

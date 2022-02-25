@@ -1,0 +1,50 @@
+<VerificationJob>
+  <Configuration>
+    <AnalyzeChecksIndividually value="true" />
+    <BitcodeTraces value="false" />
+    <CheckCallers value="true" />
+    <DumpVerifierBitcodeFiles value="false" />
+    <EnableSlicing value="true" />
+    <EntryPoint value="sqlite3_vmprintf" />
+    <FixPoint value="true" />
+    <ForkJobs value="true" />
+    <Hosted value="true" />
+    <IgnoreMissingFunctions value="false" />
+    <InitializedGlobals value="false" />
+    <LoopUnrollBound value="1" />
+    <PreconditionLocation value="jobs/8219" />
+    <SourceDirectory value="/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld" />
+    <TimeOut value="600" />
+    <XMLTraces value="false" />
+  </Configuration>
+  <CheckList>
+    <Check id="27078" location="30334" category="arithmetic.overflow" status="unsafe" scope="sqlite3_initialize">
+      <Annotations>
+        <Annotation>A signed arithmetic operation can overflow.</Annotation>
+      </Annotations>
+      <EntryStatus>
+        <SingleEntryStatus>main, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>openDatabase, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3_auto_extension, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3_complete16, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3_hard_heap_limit64, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3_malloc, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3_malloc64, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3_mprintf, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3_mutex_alloc, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3_open16, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3_randomness, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3_realloc, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3_realloc64, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3_reset_auto_extension, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3_soft_heap_limit64, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3_vfs_find, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3_vfs_register, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3_vfs_unregister, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3_vmprintf, unsafe</SingleEntryStatus>
+      </EntryStatus>
+    </Check>
+  </CheckList>
+  <Annotation>allunsafe</Annotation>
+  <Status>allunsafe</Status>
+</VerificationJob>

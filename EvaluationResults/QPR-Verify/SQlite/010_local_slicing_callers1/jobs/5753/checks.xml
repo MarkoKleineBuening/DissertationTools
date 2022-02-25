@@ -1,0 +1,39 @@
+<VerificationJob>
+  <Configuration>
+    <AnalyzeChecksIndividually value="true" />
+    <BitcodeTraces value="false" />
+    <CheckCallers value="true" />
+    <DumpVerifierBitcodeFiles value="false" />
+    <EnableSlicing value="true" />
+    <EntryPoint value="sqlite3VtabFinishParse" />
+    <FixPoint value="true" />
+    <ForkJobs value="true" />
+    <Hosted value="true" />
+    <IgnoreMissingFunctions value="false" />
+    <InitializedGlobals value="false" />
+    <LoopUnrollBound value="1" />
+    <PreconditionLocation value="jobs/5753" />
+    <SourceDirectory value="/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld" />
+    <TimeOut value="600" />
+    <XMLTraces value="false" />
+  </Configuration>
+  <CheckList>
+    <Check id="18014" location="19867" category="explicit.conversion.overflow" status="unsafe" scope="sqlite3ChangeCookie">
+      <Annotations>
+        <Annotation>An explicit conversion operation can overflow.</Annotation>
+      </Annotations>
+      <EntryStatus>
+        <SingleEntryStatus>renameReloadSchema, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3CodeDropTable, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3CreateIndex, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3DropIndex, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3DropTriggerPtr, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3EndTable, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3FinishTrigger, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3VtabFinishParse, unsafe</SingleEntryStatus>
+      </EntryStatus>
+    </Check>
+  </CheckList>
+  <Annotation>allunsafe</Annotation>
+  <Status>allunsafe</Status>
+</VerificationJob>

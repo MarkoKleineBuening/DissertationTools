@@ -1,0 +1,38 @@
+<VerificationJob>
+  <Configuration>
+    <AnalyzeChecksIndividually value="true" />
+    <BitcodeTraces value="false" />
+    <CheckCallers value="true" />
+    <DumpVerifierBitcodeFiles value="false" />
+    <EnableSlicing value="true" />
+    <EntryPoint value="vdbeRecordCompareString" />
+    <FixPoint value="true" />
+    <ForkJobs value="true" />
+    <Hosted value="true" />
+    <IgnoreMissingFunctions value="false" />
+    <InitializedGlobals value="false" />
+    <LoopUnrollBound value="1" />
+    <PreconditionLocation value="jobs/1992" />
+    <SourceDirectory value="/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld" />
+    <TimeOut value="600" />
+    <XMLTraces value="false" />
+  </Configuration>
+  <CheckList>
+    <Check id="6565" location="7125" category="explicit.conversion.overflow" status="unsafe" scope="sqlite3GetVarint32">
+      <Annotations>
+        <Annotation>An explicit conversion operation can overflow.</Annotation>
+      </Annotations>
+      <EntryStatus>
+        <SingleEntryStatus>sqlite3VdbeExec, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3VdbeIdxRowid, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3VdbeRecordCompareWithSkip, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3VdbeRecordUnpack, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3VdbeSorterWrite, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>vdbeRecordCompareString, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>vdbeSorterCompareText, unsafe</SingleEntryStatus>
+      </EntryStatus>
+    </Check>
+  </CheckList>
+  <Annotation>allunsafe</Annotation>
+  <Status>allunsafe</Status>
+</VerificationJob>

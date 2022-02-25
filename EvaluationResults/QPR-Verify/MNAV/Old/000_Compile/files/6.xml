@@ -1,0 +1,126 @@
+<SourceFile>
+  <Line number="1">/* Definition of the cpu_set_t structure used by the POSIX 1003.1b-1993</Line>
+  <Line number="2">   scheduling interface.</Line>
+  <Line number="3">   Copyright (C) 1996-2020 Free Software Foundation, Inc.</Line>
+  <Line number="4">   This file is part of the GNU C Library.</Line>
+  <Line number="5"></Line>
+  <Line number="6">   The GNU C Library is free software; you can redistribute it and/or</Line>
+  <Line number="7">   modify it under the terms of the GNU Lesser General Public</Line>
+  <Line number="8">   License as published by the Free Software Foundation; either</Line>
+  <Line number="9">   version 2.1 of the License, or (at your option) any later version.</Line>
+  <Line number="10"></Line>
+  <Line number="11">   The GNU C Library is distributed in the hope that it will be useful,</Line>
+  <Line number="12">   but WITHOUT ANY WARRANTY; without even the implied warranty of</Line>
+  <Line number="13">   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU</Line>
+  <Line number="14">   Lesser General Public License for more details.</Line>
+  <Line number="15"></Line>
+  <Line number="16">   You should have received a copy of the GNU Lesser General Public</Line>
+  <Line number="17">   License along with the GNU C Library; if not, see</Line>
+  <Line number="18">   &lt;https://www.gnu.org/licenses/&gt;.  */</Line>
+  <Line number="19"></Line>
+  <Line number="20">#ifndef _BITS_CPU_SET_H</Line>
+  <Line number="21">#define _BITS_CPU_SET_H 1</Line>
+  <Line number="22"></Line>
+  <Line number="23">#ifndef _SCHED_H</Line>
+  <Line number="24"># error &quot;Never include &lt;bits/cpu-set.h&gt; directly; use &lt;sched.h&gt; instead.&quot;</Line>
+  <Line number="25">#endif</Line>
+  <Line number="26"></Line>
+  <Line number="27">/* Size definition for CPU sets.  */</Line>
+  <Line number="28">#define __CPU_SETSIZE	1024</Line>
+  <Line number="29">#define __NCPUBITS	(8 * sizeof (__cpu_mask))</Line>
+  <Line number="30"></Line>
+  <Line number="31">/* Type for array elements in &apos;cpu_set_t&apos;.  */</Line>
+  <Line number="32">typedef __CPU_MASK_TYPE __cpu_mask;</Line>
+  <Line number="33"></Line>
+  <Line number="34">/* Basic access functions.  */</Line>
+  <Line number="35">#define __CPUELT(cpu)	((cpu) / __NCPUBITS)</Line>
+  <Line number="36">#define __CPUMASK(cpu)	((__cpu_mask) 1 &lt;&lt; ((cpu) % __NCPUBITS))</Line>
+  <Line number="37"></Line>
+  <Line number="38">/* Data structure to describe CPU mask.  */</Line>
+  <Line number="39">typedef struct</Line>
+  <Line number="40">{</Line>
+  <Line number="41">  __cpu_mask __bits[<CheckRefs ids="8">__CPU_SETSIZE</CheckRefs> <CheckRefs ids="7">/</CheckRefs> <CheckRefs ids="9,10">__NCPUBITS</CheckRefs>];</Line>
+  <Line number="42">} cpu_set_t;</Line>
+  <Line number="43"></Line>
+  <Line number="44">/* Access functions for CPU masks.  */</Line>
+  <Line number="45">#if __GNUC_PREREQ (2, 91)</Line>
+  <Line number="46"># define __CPU_ZERO_S(setsize, cpusetp) \</Line>
+  <Line number="47">  do __builtin_memset (cpusetp, &apos;\0&apos;, setsize); while (0)</Line>
+  <Line number="48">#else</Line>
+  <Line number="49"># define __CPU_ZERO_S(setsize, cpusetp) \</Line>
+  <Line number="50">  do {									      \</Line>
+  <Line number="51">    size_t __i;								      \</Line>
+  <Line number="52">    size_t __imax = (setsize) / sizeof (__cpu_mask);			      \</Line>
+  <Line number="53">    __cpu_mask *__bits = (cpusetp)-&gt;__bits;				      \</Line>
+  <Line number="54">    for (__i = 0; __i &lt; __imax; ++__i)					      \</Line>
+  <Line number="55">      __bits[__i] = 0;							      \</Line>
+  <Line number="56">  } while (0)</Line>
+  <Line number="57">#endif</Line>
+  <Line number="58">#define __CPU_SET_S(cpu, setsize, cpusetp) \</Line>
+  <Line number="59">  (__extension__							      \</Line>
+  <Line number="60">   ({ size_t __cpu = (cpu);						      \</Line>
+  <Line number="61">      __cpu / 8 &lt; (setsize)						      \</Line>
+  <Line number="62">      ? (((__cpu_mask *) ((cpusetp)-&gt;__bits))[__CPUELT (__cpu)]		      \</Line>
+  <Line number="63">	 |= __CPUMASK (__cpu))						      \</Line>
+  <Line number="64">      : 0; }))</Line>
+  <Line number="65">#define __CPU_CLR_S(cpu, setsize, cpusetp) \</Line>
+  <Line number="66">  (__extension__							      \</Line>
+  <Line number="67">   ({ size_t __cpu = (cpu);						      \</Line>
+  <Line number="68">      __cpu / 8 &lt; (setsize)						      \</Line>
+  <Line number="69">      ? (((__cpu_mask *) ((cpusetp)-&gt;__bits))[__CPUELT (__cpu)]		      \</Line>
+  <Line number="70">	 &amp;= ~__CPUMASK (__cpu))						      \</Line>
+  <Line number="71">      : 0; }))</Line>
+  <Line number="72">#define __CPU_ISSET_S(cpu, setsize, cpusetp) \</Line>
+  <Line number="73">  (__extension__							      \</Line>
+  <Line number="74">   ({ size_t __cpu = (cpu);						      \</Line>
+  <Line number="75">      __cpu / 8 &lt; (setsize)						      \</Line>
+  <Line number="76">      ? ((((const __cpu_mask *) ((cpusetp)-&gt;__bits))[__CPUELT (__cpu)]	      \</Line>
+  <Line number="77">	  &amp; __CPUMASK (__cpu))) != 0					      \</Line>
+  <Line number="78">      : 0; }))</Line>
+  <Line number="79"></Line>
+  <Line number="80">#define __CPU_COUNT_S(setsize, cpusetp) \</Line>
+  <Line number="81">  __sched_cpucount (setsize, cpusetp)</Line>
+  <Line number="82"></Line>
+  <Line number="83">#if __GNUC_PREREQ (2, 91)</Line>
+  <Line number="84"># define __CPU_EQUAL_S(setsize, cpusetp1, cpusetp2) \</Line>
+  <Line number="85">  (__builtin_memcmp (cpusetp1, cpusetp2, setsize) == 0)</Line>
+  <Line number="86">#else</Line>
+  <Line number="87"># define __CPU_EQUAL_S(setsize, cpusetp1, cpusetp2) \</Line>
+  <Line number="88">  (__extension__							      \</Line>
+  <Line number="89">   ({ const __cpu_mask *__arr1 = (cpusetp1)-&gt;__bits;			      \</Line>
+  <Line number="90">      const __cpu_mask *__arr2 = (cpusetp2)-&gt;__bits;			      \</Line>
+  <Line number="91">      size_t __imax = (setsize) / sizeof (__cpu_mask);			      \</Line>
+  <Line number="92">      size_t __i;							      \</Line>
+  <Line number="93">      for (__i = 0; __i &lt; __imax; ++__i)				      \</Line>
+  <Line number="94">	if (__arr1[__i] != __arr2[__i])					      \</Line>
+  <Line number="95">	  break;							      \</Line>
+  <Line number="96">      __i == __imax; }))</Line>
+  <Line number="97">#endif</Line>
+  <Line number="98"></Line>
+  <Line number="99">#define __CPU_OP_S(setsize, destset, srcset1, srcset2, op) \</Line>
+  <Line number="100">  (__extension__							      \</Line>
+  <Line number="101">   ({ cpu_set_t *__dest = (destset);					      \</Line>
+  <Line number="102">      const __cpu_mask *__arr1 = (srcset1)-&gt;__bits;			      \</Line>
+  <Line number="103">      const __cpu_mask *__arr2 = (srcset2)-&gt;__bits;			      \</Line>
+  <Line number="104">      size_t __imax = (setsize) / sizeof (__cpu_mask);			      \</Line>
+  <Line number="105">      size_t __i;							      \</Line>
+  <Line number="106">      for (__i = 0; __i &lt; __imax; ++__i)				      \</Line>
+  <Line number="107">	((__cpu_mask *) __dest-&gt;__bits)[__i] = __arr1[__i] op __arr2[__i];    \</Line>
+  <Line number="108">      __dest; }))</Line>
+  <Line number="109"></Line>
+  <Line number="110">#define __CPU_ALLOC_SIZE(count) \</Line>
+  <Line number="111">  ((((count) + __NCPUBITS - 1) / __NCPUBITS) * sizeof (__cpu_mask))</Line>
+  <Line number="112">#define __CPU_ALLOC(count) __sched_cpualloc (count)</Line>
+  <Line number="113">#define __CPU_FREE(cpuset) __sched_cpufree (cpuset)</Line>
+  <Line number="114"></Line>
+  <Line number="115">__BEGIN_DECLS</Line>
+  <Line number="116"></Line>
+  <Line number="117">extern int __sched_cpucount (size_t __setsize, const cpu_set_t *__setp)</Line>
+  <Line number="118">     __THROW;</Line>
+  <Line number="119">extern cpu_set_t *__sched_cpualloc (size_t __count) __THROW __wur;</Line>
+  <Line number="120">extern void __sched_cpufree (cpu_set_t *__set) __THROW;</Line>
+  <Line number="121"></Line>
+  <Line number="122">__END_DECLS</Line>
+  <Line number="123"></Line>
+  <Line number="124">#endif /* bits/cpu-set.h */</Line>
+</SourceFile>

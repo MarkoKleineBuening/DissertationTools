@@ -1,0 +1,37 @@
+<VerificationJob>
+  <Configuration>
+    <AnalyzeChecksIndividually value="true" />
+    <BitcodeTraces value="false" />
+    <CheckCallers value="true" />
+    <DumpVerifierBitcodeFiles value="false" />
+    <EnableSlicing value="true" />
+    <EntryPoint value="copyNodeContent" />
+    <FixPoint value="true" />
+    <ForkJobs value="true" />
+    <Hosted value="true" />
+    <IgnoreMissingFunctions value="false" />
+    <InitializedGlobals value="false" />
+    <LoopUnrollBound value="1" />
+    <PreconditionLocation value="jobs/3278" />
+    <SourceDirectory value="/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld" />
+    <TimeOut value="600" />
+    <XMLTraces value="false" />
+  </Configuration>
+  <CheckList>
+    <Check id="10488" location="11426" category="implicit.conversion.overflow" status="safe|loopboundreached" scope="btreeComputeFreeSpace">
+      <Annotations>
+        <Annotation>A loop bound was reached (/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld//home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld/sqlite3.c:67439:11)</Annotation>
+      </Annotations>
+      <EntryStatus>
+        <SingleEntryStatus>balance, unknown</SingleEntryStatus>
+        <SingleEntryStatus>balance_nonroot, unknown</SingleEntryStatus>
+        <SingleEntryStatus>checkTreePage, unknown</SingleEntryStatus>
+        <SingleEntryStatus>copyNodeContent, safe|loopboundreached</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3BtreeDelete, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3BtreeInsert, unknown</SingleEntryStatus>
+      </EntryStatus>
+    </Check>
+  </CheckList>
+  <Annotation>allsafe</Annotation>
+  <Status>allsafe</Status>
+</VerificationJob>

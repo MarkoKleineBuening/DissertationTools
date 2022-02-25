@@ -1,0 +1,44 @@
+<VerificationJob>
+  <Configuration>
+    <AnalyzeChecksIndividually value="true" />
+    <BitcodeTraces value="false" />
+    <CheckCallers value="true" />
+    <DumpVerifierBitcodeFiles value="false" />
+    <EnableSlicing value="true" />
+    <EntryPoint value="sqlite3_db_status" />
+    <FixPoint value="true" />
+    <ForkJobs value="true" />
+    <Hosted value="true" />
+    <IgnoreMissingFunctions value="false" />
+    <InitializedGlobals value="false" />
+    <LoopUnrollBound value="1" />
+    <PreconditionLocation value="jobs/5703" />
+    <SourceDirectory value="/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld" />
+    <TimeOut value="600" />
+    <XMLTraces value="false" />
+  </Configuration>
+  <CheckList>
+    <Check id="17696" location="19532" category="arithmetic.overflow.warning" status="unsafe" scope="sqlite3DeleteTable">
+      <Annotations>
+        <Annotation>An unsigned arithmetic operation can overflow (wraparound).</Annotation>
+      </Annotations>
+      <EntryStatus>
+        <SingleEntryStatus>renameParseCleanup, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3EndTable, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3ResultSetOfSelect, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3RunParser, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3SchemaClear, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3SrcListDelete, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3SrcListLookup, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3UnlinkAndDeleteTable, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3ViewGetColumnNames, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3VtabCallDestroy, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3VtabEponymousTableClear, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3_db_status, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3_declare_vtab, unsafe</SingleEntryStatus>
+      </EntryStatus>
+    </Check>
+  </CheckList>
+  <Annotation>allunsafe</Annotation>
+  <Status>allunsafe</Status>
+</VerificationJob>

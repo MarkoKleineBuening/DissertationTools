@@ -1,0 +1,144 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 2863 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 1
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/2863
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : walIndexRecover
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "walIndexRecover" for 1 iterations succeeded.
+      Unrolling loop in function "walIndexRecover" for 1 iterations succeeded.
+      Unrolling loop in function "walIndexRecover" for 1 iterations succeeded.
+      Transformed "walIndexRecover" from 67 to 68 basic blocks and from 549 to 573 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...isMemset:   call void @llvm.memset.p0i8.i64(i8* %6, i8 0, i64 8, i32 4, i1 false), !dbg !5665
+Current: walIndexRecover Havoced: walLockExclusive
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %15, i8 0, i64 48, i32 8, i1 false), !dbg !5679
+Current: walIndexRecover Havoced: sqlite3OsFileSize
+Current: walIndexRecover Havoced: sqlite3OsRead
+Current: walIndexRecover Havoced: sqlite3Get4byte
+Current: walIndexRecover Havoced: sqlite3Get4byte
+Current: walIndexRecover Havoced: sqlite3Get4byte
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %48, i8* %49, i64 8, i32 8, i1 false), !dbg !5737
+Current: walIndexRecover Havoced: walChecksumBytes
+Current: walIndexRecover Havoced: sqlite3Get4byte
+Current: walIndexRecover Havoced: sqlite3Get4byte
+Current: walIndexRecover Havoced: sqlite3Get4byte
+Current: walIndexRecover Havoced: sqlite3_malloc64
+Current: walIndexRecover Havoced: walFramePage
+Current: walIndexRecover Havoced: walIndexPage
+Current: walIndexRecover Havoced: sqlite3OsRead
+Current: walIndexRecover Havoced: walDecodeFrame
+Current: walIndexRecover Havoced: walIndexAppend
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %177, i8* %180, i64 %182, i32 4, i1 false), !dbg !5916
+Current: walIndexRecover Havoced: walFramePage
+Current: walIndexRecover Havoced: sqlite3_free
+Current: walIndexRecover Havoced: sqlite3CantopenError
+Current: walIndexRecover Havoced: walIndexWriteHdr
+Current: walIndexRecover Havoced: walCkptInfo
+Current: walIndexRecover Havoced: walLockExclusive
+Current: walIndexRecover Havoced: walUnlockExclusive
+Current: walIndexRecover Havoced: sqlite3_log
+Current: walIndexRecover Havoced: walUnlockExclusive
+                      0 sec [DONE]
+        Number of expressions:                        155796
+        after encoding
+
+      4 assertions before transformations (3 no_back_edge, 1 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            3793
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72623
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               6
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                              11
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             163
+        ToASC Analyser
+          Memcpy/memset found                            yes
+        Byte-Based Memory Creator
+          Number of rewrites                            8957
+        Instantiation-Based ToASC Simplifier
+          Number of rewrites                               1
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           23256
+        FP Abstraction
+          Number of rewrites                              22
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      4 assertions remain after transformations (3 no_back_edge, 1 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...            0 sec [DONE]
+        
+                                                           1 sec [DONE]
+      after performing Check
+evaluateCheckerResultsViaRefinementLoop
+checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+BranchInst - LoopBound
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+E [3] lib/ModelChecker/Verifier.cpp:515 | VerificationException due to Could not find the failing instruction. This is a bug that only  leads to CheckStatus::InternalError for robustness reasons. (Note that instructions optimized away are a different case, which does not yield a check ID at all)
+getCheckerResultAfterUpdatingMarker
+E [3] lib/ModelChecker/Verifier.cpp:299 | The Model checker terminated with an exception
+E [3] lib/Core/CheckStatusMarker.cpp:61 | A job finished with an internal error
+E [3] lib/Core/CheckStatusMarker.cpp:63 | The model checker terminated with an exception (job:2863)
+
+                                                           3 sec [DONE]
+    The model checker terminated with an exception
+    
+                                                           3 sec [DONE]
+  

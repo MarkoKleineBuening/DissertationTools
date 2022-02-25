@@ -1,0 +1,207 @@
+runJobCommand
+precondition analysis with entry:navigation
+arguents: child
+arguents: job
+arguents: mode
+arguents: precondition
+handleJobInSeparateProcess0
+
+Checking job 407 ...about to run job:
+preconNumber: 3, 1
+
+  Running Model Checker with 1 checks ...entry: navigation, functionName: _mat_creat
+entry: navigation, functionName: ahrs_main
+entry: navigation, functionName: navigation
+entry: navigation, functionName: navigation_algorithm
+  call void @qpr.precondition.navigation_algorithm(%struct.imu.131* %3, %struct.gps.133* %4)
+try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 4
+    HavocLimit : 0
+    PreconditionNumber : 3
+    PreconditionLocation : jobs/407
+    TimeOut : 300
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : navigation
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "navigation" for 4 iterations succeeded.
+      Unrolling loop in function "navigation" for 4 iterations succeeded.getMatchingFunctions
+res.push_back: sched_get_priority_max
+res.push_back: close
+res.push_back: abs
+getMatchingFunctions
+res.push_back: sched_get_priority_max
+res.push_back: close
+res.push_back: abs
+getMatchingFunctions
+res.push_back: sched_get_priority_max
+res.push_back: close
+res.push_back: abs
+getMatchingFunctions
+res.push_back: sched_get_priority_max
+res.push_back: close
+res.push_back: abs
+getMatchingFunctions
+res.push_back: sched_get_priority_max
+res.push_back: close
+res.push_back: abs
+
+      Transformed "navigation" from 19 to 103 basic blocks and from 342 to 768 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...size Alloca: 1
+
+        Unrolling loop in function "_mat_creat" for 4 iterations succeeded.
+        Transformed "_mat_creat" from 10 to 20 basic blocks and from 54 to 117 instructions
+        Transformed "mat_error" from 5 to 10 basic blocks and from 10 to 19 instructions
+        Unrolling loop in function "mat_fill" for 4 iterations succeeded.
+        Unrolling loop in function "mat_fill" for 4 iterations succeeded.
+        Transformed "mat_fill" from 18 to 159 basic blocks and from 67 to 679 instructionsisMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %249, i8* %250, i64 16, i32 8, i1 false), !dbg !1680
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %262, i8* bitcast (%struct.gps.133* @gpspacket to i8*), i64 64, i32 8, i1 false), !dbg !1699
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %265, i8* bitcast (%struct.imu.131* @imupacket to i8*), i64 128, i32 8, i1 false), !dbg !1702
+TODO MKB implement precondition handling: IE
+Reading in precondition at: jobs/407/precondition_navigation_algorithm.txt
+preconFile: jobs/407/precondition_navigation_algorithm.txt
+
+                                                           0 sec [DONE]
+        
+                                                           0 sec [DONE]
+      E [0] lib/Core/CheckStatusMarker.cpp:61 | A job finished with an internal error
+E [0] lib/Core/CheckStatusMarker.cpp:63 | Unable to open precondition file!
+E [0] |  (job:407)
+
+                                                           0 sec [DONE]
+    Unable to open precondition file!
+
+    
+                                                           0 sec [DONE]
+                                                             0 sec [DONE]
+        
+      0 assertions remain after transformations.
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...            0 sec [DONE]
+        
+                                                           0 sec [DONE]
+      after performing Check
+evaluateCheckerResultsViaRefinementLoop
+getCheckerResultAfterUpdatingMarker
+Result is NoTrace
+
+                                                           0 sec [DONE]
+    Unable to open precondition file!
+
+    
+                                                           0 sec [DONE]
+    4
+          Number of rewrites                             365
+        Simplifier
+          Number of moved ops                              1
+          Number of rewrites                            7839
+        Memory Model Encoder
+          Number of moved ops                              0
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                               0
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      3 assertions remain after transformations (3 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...            0 sec [DONE]
+        
+                                                           0 sec [DONE]
+      after performing Check
+evaluateCheckerResultsViaRefinementLoop
+getCheckerResultAfterUpdatingMarker
+Result is NoTrace
+
+                                                           0 sec [DONE]
+    Found 6 errors in the formula. Cannot start bug checking.
+    
+                                                           0 sec [DONE]
+                       0 sec [DONE]
+  la. Cannot start bug checking.
+    
+                                                           0 sec [DONE]
+  ]
+    Found 6 errors in the formula. Cannot start bug checking.
+    
+                                                           0 sec [DONE]
+  n the formula. Cannot start bug checking.
+    
+                                                           0 sec [DONE]
+  ; i32 %arg2:arbitrary; 
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: i32 %arg1 = nondef() : 0
+error: No matching SMT expression for Op %arg1 (nondef) found!assumePair: i32 %arg2 = nondef() : 0
+error: No matching SMT expression for Op %arg2 (nondef) found!
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst is nullptr
+Preconditions internal: 
+i32 %arg1:arbitrary; i32 %arg2:arbitrary; 
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: i32 %arg1 = nondef() : 0
+error: No matching SMT expression for Op %arg1 (nondef) found!assumePair: i32 %arg2 = nondef() : 0
+error: No matching SMT expression for Op %arg2 (nondef) found!
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      name of function arguments: Writing precondition at: jobs/407/precondition_mat_minor.txt
+
+Generated Preconditions:
+[underoverapprox]name of function arguments: 
+i32 %arg1:arbitrary; i32 %arg2:arbitrary; 
+i32 %arg1:arbitrary; i32 %arg2:arbitrary; 
+i32 %arg1:arbitrary; i32 %arg2:arbitrary; 
+
+                                                           0 sec [DONE]
+    Found 6 errors in the formula. Cannot start bug checking.
+    
+                                                           0 sec [DONE]
+  .10, i32 0, i32 0), i8* getelementptr inbounds ([4 x i8], [4 x i8]* @.str.1.11, i32 0, i32 0)), !dbg !1545
+Preconditions internal: 
+
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      name of function arguments: Writing precondition at: jobs/407/precondition_navigation.txt
+
+Generated Preconditions:
+[underoverapprox]name of function arguments: 
+
+
+
+
+                                                           0 sec [DONE]
+    Found 6 errors in the formula. Cannot start bug checking.
+    
+                                                           0 sec [DONE]
+  

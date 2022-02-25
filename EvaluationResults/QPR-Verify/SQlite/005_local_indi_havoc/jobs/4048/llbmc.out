@@ -1,0 +1,155 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 4048 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 1
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/4048
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : sqlite3BtreeDelete
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "sqlite3BtreeDelete" for 1 iterations succeeded.getMatchingFunctions
+res.push_back: btreeParseCellPtr
+res.push_back: btreeParseCellPtrNoPayload
+res.push_back: btreeParseCellPtrIndex
+res.push_back: btreeParseCellAdjustSizeForOverflow
+getMatchingFunctions
+res.push_back: cellSizePtr
+res.push_back: cellSizePtrNoPayload
+
+      Transformed "sqlite3BtreeDelete" from 70 to 167 basic blocks and from 475 to 824 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...Current: sqlite3BtreeDelete Havoced: btreeRestoreCursorPosition
+Current: sqlite3BtreeDelete Havoced: btreeComputeFreeSpace
+Current: sqlite3BtreeDelete Havoced: cellSizePtr
+Current: sqlite3BtreeDelete Havoced: saveCursorKey
+Current: sqlite3BtreeDelete Havoced: sqlite3BtreePrevious
+Current: sqlite3BtreeDelete Havoced: saveAllCursors
+Current: sqlite3BtreeDelete Havoced: invalidateIncrblobCursors
+Current: sqlite3BtreeDelete Havoced: sqlite3PagerWrite
+Current: sqlite3BtreeDelete Havoced: copyNodeContent
+Current: sqlite3BtreeDelete Havoced: rowSetTreeToList
+Current: sqlite3BtreeDelete Havoced: identPut
+Current: sqlite3BtreeDelete Havoced: sqlite3FkDropTable
+Current: sqlite3BtreeDelete Havoced: generateWithRecursiveQuery
+Current: sqlite3BtreeDelete Havoced: innerLoopLoadRow
+Current: sqlite3BtreeDelete Havoced: explainSimpleCount
+Current: sqlite3BtreeDelete Havoced: sqlite3AuthContextPush
+Current: sqlite3BtreeDelete Havoced: generateColumnTypes
+Current: sqlite3BtreeDelete Havoced: whereLikeOptimizationStringFixup
+Current: sqlite3BtreeDelete Havoced: sqlite3WhereTabFuncArgs
+Current: sqlite3BtreeDelete Havoced: reindexTable
+Current: sqlite3BtreeDelete Havoced: analyzeTable
+Current: sqlite3BtreeDelete Havoced: sqlite3PagerSetBusyHandler
+Current: sqlite3BtreeDelete Havoced: corruptSchema
+Current: sqlite3BtreeDelete Havoced: sqlite3SetString
+Current: sqlite3BtreeDelete Havoced: addModuleArgument
+Current: sqlite3BtreeDelete Havoced: sqlite3ExprFunctionUsable
+Current: sqlite3BtreeDelete Havoced: sqlite3ResolveSelectNames
+Current: sqlite3BtreeDelete Havoced: sqlite3SelectPrep
+Current: sqlite3BtreeDelete Havoced: sqlite3RenameTokenRemap
+Current: sqlite3BtreeDelete Havoced: sqlite3WindowChain
+Current: sqlite3BtreeDelete Havoced: sqlite3AlterDropColumn
+Current: sqlite3BtreeDelete Havoced: sqlite3AlterRenameTable
+Current: sqlite3BtreeDelete Havoced: sqlite3Analyze
+Current: sqlite3BtreeDelete Havoced: sqlite3Reindex
+Current: sqlite3BtreeDelete Havoced: sqlite3FinishTrigger
+Current: sqlite3BtreeDelete Havoced: sqlite3Vacuum
+Current: sqlite3BtreeDelete Havoced: sqlite3PExprAddSelect
+Current: sqlite3BtreeDelete Havoced: sqlite3WindowAttach
+Current: sqlite3BtreeDelete Havoced: sqlite3ExprListCheckLength
+Current: sqlite3BtreeDelete Havoced: sqlite3SrcListFuncArgs
+Current: sqlite3BtreeDelete Havoced: sqlite3SrcListIndexedBy
+Current: sqlite3BtreeDelete Havoced: sqlite3AddGenerated
+Current: sqlite3BtreeDelete Havoced: sqlite3AddColumn
+Current: sqlite3BtreeDelete Havoced: btreeParseCellAdjustSizeForOverflow
+Current: sqlite3BtreeDelete Havoced: btreeParseCellPtrIndex
+Current: sqlite3BtreeDelete Havoced: btreeParseCellPtrNoPayload
+Current: sqlite3BtreeDelete Havoced: btreeParseCellPtr
+Current: sqlite3BtreeDelete Havoced: insertElement
+Current: sqlite3BtreeDelete Havoced: sqlite3_str_vappendf
+Current: sqlite3BtreeDelete Havoced: printSchemaLine
+Current: sqlite3BtreeDelete Havoced: tryToCloneData
+Current: sqlite3BtreeDelete Havoced: clearCellOverflow
+Current: sqlite3BtreeDelete Havoced: dropCell
+Current: sqlite3BtreeDelete Havoced: btreeComputeFreeSpace
+Current: sqlite3BtreeDelete Havoced: exprCommute
+Current: sqlite3BtreeDelete Havoced: cellSizePtrNoPayload
+Current: sqlite3BtreeDelete Havoced: cellSizePtr
+Current: sqlite3BtreeDelete Havoced: sqlite3PagerWrite
+Current: sqlite3BtreeDelete Havoced: insertCell
+Current: sqlite3BtreeDelete Havoced: dropCell
+Current: sqlite3BtreeDelete Havoced: sqlite3CorruptError
+Current: sqlite3BtreeDelete Havoced: balance
+Current: sqlite3BtreeDelete Havoced: releasePageNotNull
+Current: sqlite3BtreeDelete Havoced: releasePage
+Current: sqlite3BtreeDelete Havoced: balance
+Current: sqlite3BtreeDelete Havoced: moveToRoot
+Current: sqlite3BtreeDelete Havoced: btreeReleaseAllCursorPages
+                      0 sec [DONE]
+        Number of expressions:                        156855
+        after encoding
+
+      4 assertions before transformations (2 no_function_call, 1 no_back_edge, 1 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            4318
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72637
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               2
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                              47
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             142
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      4 assertions remain after transformations (2 no_function_call, 1 no_back_edge, 1 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...

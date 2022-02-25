@@ -1,0 +1,122 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 3360 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 2
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/3360
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : sqlite3BtreeBeginTrans
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "sqlite3BtreeBeginTrans" for 1 iterations succeeded.
+      Unrolling loop in function "sqlite3BtreeBeginTrans" for 1 iterations succeeded.
+      Unrolling loop in function "sqlite3BtreeBeginTrans" for 1 iterations succeeded.
+      Transformed "sqlite3BtreeBeginTrans" from 78 to 79 basic blocks and from 378 to 384 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...Current: sqlite3BtreeEnter Havoced: btreeLockCarefully
+
+        Unrolling loop in function "querySharedCacheTableLock" for 1 iterations succeeded.
+        Transformed "querySharedCacheTableLock" from 17 to 18 basic blocks and from 78 to 81 instructionsCurrent: lockBtree Havoced: sqlite3PagerSharedLock
+Current: lockBtree Havoced: btreeGetPage
+Current: lockBtree Havoced: sqlite3Get4byte
+Current: lockBtree Havoced: sqlite3PagerPagecount
+
+        Unrolling loop in function "llbmc.memcmp" for 0 iterations succeeded.
+        Transformed "llbmc.memcmp" from 17 to 20 instructionsCurrent: lockBtree Havoced: sqlite3PagerOpenWal
+Current: lockBtree Havoced: sqlite3WritableSchema
+Current: lockBtree Havoced: sqlite3Get4byte
+Current: lockBtree Havoced: sqlite3Get4byte
+Current: lockBtree Havoced: sqlite3CorruptError
+Current: lockBtree Havoced: releasePageOne
+Current: lockBtree Havoced: freeTempSpace
+Current: lockBtree Havoced: sqlite3PagerSetPagesize
+Current: lockBtree Havoced: releasePageOne
+Current: lockBtree Havoced: releasePageOne
+Current: sqlite3PagerBegin Havoced: pagerLockDb
+Current: sqlite3PagerBegin Havoced: pager_wait_on_lock
+Current: sqlite3PagerBegin Havoced: sqlite3WalExclusiveMode
+Current: sqlite3PagerBegin Havoced: pagerLockDb
+Current: sqlite3PagerBegin Havoced: sqlite3WalExclusiveMode
+Current: sqlite3PagerBegin Havoced: sqlite3WalBeginWriteTransaction
+Current: newDatabase Havoced: sqlite3PagerWrite
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %7, i8* getelementptr inbounds ([16 x i8], [16 x i8]* @zMagicHeader, i32 0, i32 0), i64 16, i32 1, i1 false), !dbg !5636
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %36, i8 0, i64 76, i32 1, i1 false), !dbg !5666
+Current: newDatabase Havoced: zeroPage
+Current: newDatabase Havoced: sqlite3Put4byte
+Current: newDatabase Havoced: sqlite3Put4byte
+Current: unlockBtreeIfUnused Havoced: releasePageOne
+Current: btreeInvokeBusyHandler Havoced: sqlite3InvokeBusyHandler
+Current: sqlite3PagerWrite Havoced: pager_write
+Current: sqlite3PagerWrite Havoced: pagerWriteLargeSector
+Current: sqlite3PagerWrite Havoced: subjournalPageIfRequired
+Current: sqlite3PagerOpenSavepoint Havoced: pagerOpenSavepoint
+Current: sqlite3BtreeLeave Havoced: unlockBtreeMutex
+
+                                                           0 sec [DONE]
+        Number of expressions:                        157385
+        after encoding
+
+      8 assertions before transformations (7 no_back_edge, 1 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            4623
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72724
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               3
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                              49
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             162
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      8 assertions remain after transformations (7 no_back_edge, 1 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...Sat) ...

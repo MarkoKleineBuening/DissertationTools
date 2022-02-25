@@ -1,0 +1,102 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 5758 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 2
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/5758
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : createTableStmt
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "createTableStmt" for 1 iterations succeeded.
+      Unrolling loop in function "createTableStmt" for 1 iterations succeeded.
+      Transformed "createTableStmt" from 15 to 17 basic blocks and from 182 to 200 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...
+        Unrolling loop in function "identLength" for 1 iterations succeeded.
+        Transformed "identLength" from 7 to 8 basic blocks and from 33 to 40 instructionsCurrent: sqlite3DbMallocRaw Havoced: sqlite3Malloc
+Current: sqlite3DbMallocRaw Havoced: sqlite3DbMallocRawNN
+Current: sqlite3_snprintf Havoced: sqlite3_vsnprintf
+
+        Unrolling loop in function "llbmc.strlen" for 0 iterations succeeded.
+        Transformed "llbmc.strlen" from 8 to 9 instructions
+        Unrolling loop in function "identPut" for 1 iterations succeeded.
+        Unrolling loop in function "identPut" for 1 iterations succeeded.
+        Transformed "identPut" from 22 to 25 basic blocks and from 146 to 162 instructionsCurrent: identPut Havoced: sqlite3KeywordCode
+Current: sqlite3_snprintf Havoced: sqlite3_vsnprintf
+Current: identPut Havoced: sqlite3KeywordCode
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %80, i8* %76, i64 %81, i32 1, i1 false), !dbg !5726
+Current: sqlite3_snprintf Havoced: sqlite3_vsnprintf
+
+                                                           0 sec [DONE]
+        Number of expressions:                        156308
+        after encoding
+
+      13 assertions before transformations (11 no_back_edge, 2 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            4139
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72660
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               7
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                              55
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             142
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      13 assertions remain after transformations (11 no_back_edge, 2 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...

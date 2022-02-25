@@ -1,0 +1,111 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 6009 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 2
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/6009
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : sqlite3GetCollSeq
+m_checker->run()
+
+    Performing bounded model checking ...
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...Current: sqlite3FindCollSeq Havoced: findCollSeqEntry
+getMatchingFunctions
+getMatchingFunctions
+
+        Transformed "callCollNeeded" from 9 to 45 basic blocks and from 52 to 178 instructionsCurrent: callCollNeeded Havoced: sqlite3DbStrDup
+Current: callCollNeeded Havoced: renumberCursors
+Current: callCollNeeded Havoced: sqlite3_result_text16le
+Current: callCollNeeded Havoced: sqlite3_result_text16be
+Current: callCollNeeded Havoced: sqlite3_result_text16
+Current: callCollNeeded Havoced: sqlite3_result_blob
+Current: callCollNeeded Havoced: sqlite3_result_text
+Current: callCollNeeded Havoced: printSchemaLineN
+Current: callCollNeeded Havoced: sqlite3DbFree
+Current: callCollNeeded Havoced: sqlite3ValueNew
+Current: callCollNeeded Havoced: sqlite3ValueSetStr
+Current: callCollNeeded Havoced: sqlite3ValueText
+Current: callCollNeeded Havoced: renumberCursors
+Current: callCollNeeded Havoced: sqlite3_result_text16le
+Current: callCollNeeded Havoced: sqlite3_result_text16be
+Current: callCollNeeded Havoced: sqlite3_result_text16
+Current: callCollNeeded Havoced: sqlite3_result_blob
+Current: callCollNeeded Havoced: sqlite3_result_text
+Current: callCollNeeded Havoced: printSchemaLineN
+Current: callCollNeeded Havoced: sqlite3ValueFree
+Current: sqlite3FindCollSeq Havoced: findCollSeqEntry
+
+        Unrolling loop in function "synthCollSeq" for 1 iterations succeeded.
+        Transformed "synthCollSeq" from 8 to 7 basic blocks and from 40 to 41 instructionsCurrent: synthCollSeq Havoced: sqlite3FindCollSeq
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %12, i8* %13, i64 40, i32 8, i1 false), !dbg !5631
+Current: sqlite3ErrorMsg Havoced: sqlite3VMPrintf
+Current: sqlite3ErrorMsg Havoced: sqlite3DbFree
+Current: sqlite3ErrorMsg Havoced: sqlite3DbFree
+
+                                                           0 sec [DONE]
+        Number of expressions:                        155820
+        after encoding
+
+      6 assertions before transformations (2 no_function_call, 1 no_back_edge, 3 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            3831
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72624
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               2
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                              24
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             145
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      6 assertions remain after transformations (2 no_function_call, 1 no_back_edge, 3 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...

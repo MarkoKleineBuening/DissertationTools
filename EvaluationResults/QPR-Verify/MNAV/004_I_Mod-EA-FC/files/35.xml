@@ -1,0 +1,10 @@
+<SourceFile>
+  <Line number="1">/* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */</Line>
+  <Line number="2"># ifdef __i386__</Line>
+  <Line number="3">#  include &lt;asm/posix_types_32.h&gt;</Line>
+  <Line number="4"># elif defined(__ILP32__)</Line>
+  <Line number="5">#  include &lt;asm/posix_types_x32.h&gt;</Line>
+  <Line number="6"># else</Line>
+  <Line number="7">#  include &lt;asm/posix_types_64.h&gt;</Line>
+  <Line number="8"># endif</Line>
+</SourceFile>

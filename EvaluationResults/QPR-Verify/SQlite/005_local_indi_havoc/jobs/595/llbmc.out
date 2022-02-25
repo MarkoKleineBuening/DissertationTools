@@ -1,0 +1,112 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 595 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 1
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/595
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [1] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : idxGetTableInfo
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "idxGetTableInfo" for 1 iterations succeeded.
+      Unrolling loop in function "idxGetTableInfo" for 1 iterations succeeded.
+      Transformed "idxGetTableInfo" from 24 to 36 basic blocks and from 250 to 389 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...
+        Unrolling loop in function "llbmc.strlen" for 0 iterations succeeded.
+        Transformed "llbmc.strlen" from 8 to 9 instructionsCurrent: idxGetTableInfo Havoced: idxPrintfPrepareStmt
+Current: idxGetTableInfo Havoced: sqlite3_step
+Current: idxGetTableInfo Havoced: sqlite3_column_text
+Current: idxGetTableInfo Havoced: sqlite3_table_column_metadata
+Current: idxGetTableInfo Havoced: sqlite3_column_int
+Current: idxGetTableInfo Havoced: sqlite3_step
+Current: idxGetTableInfo Havoced: sqlite3_reset
+Current: idxGetTableInfo Havoced: idxMalloc
+Current: idxGetTableInfo Havoced: sqlite3_step
+Current: idxGetTableInfo Havoced: sqlite3_column_text
+Current: idxGetTableInfo Havoced: sqlite3_column_int
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %96, i8* %126, i64 %127, i32 1, i1 false), !dbg !5754
+Current: idxGetTableInfo Havoced: sqlite3_table_column_metadata
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %129, i8* %143, i64 %144, i32 1, i1 false), !dbg !5774
+Current: idxGetTableInfo Havoced: sqlite3_step
+Current: idxGetTableInfo Havoced: idxFinalize
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %208, i8* %arg1, i64 %210, i32 1, i1 false), !dbg !5798
+Current: idxGetTableInfo Havoced: sqlite3_free
+Current: idxGetTableInfo Havoced: sqlite3_column_text
+Current: idxGetTableInfo Havoced: sqlite3_column_int
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %149, i8* %179, i64 %180, i32 1, i1 false), !dbg !5754
+Current: idxGetTableInfo Havoced: sqlite3_table_column_metadata
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %182, i8* %196, i64 %197, i32 1, i1 false), !dbg !5774
+Current: idxGetTableInfo Havoced: sqlite3_column_text
+Current: idxGetTableInfo Havoced: sqlite3_table_column_metadata
+Current: idxGetTableInfo Havoced: sqlite3_column_int
+
+                                                           0 sec [DONE]
+        Number of expressions:                        155816
+        after encoding
+
+      13 assertions before transformations (11 no_back_edge, 2 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            3828
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72646
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               4
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                              11
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             157
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      13 assertions remain after transformations (11 no_back_edge, 2 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...

@@ -1,0 +1,202 @@
+runJobCommand
+precondition analysis with entry:btreeOverwriteContent
+arguents: child
+arguents: job
+arguents: mode
+arguents: precondition
+handleJobInSeparateProcess0
+
+Checking job 4003 ...about to run job:
+preconNumber: 5, 1
+
+  Running Model Checker with 1 checks ...entry: btreeOverwriteContent, functionName: btreeOverwriteContent
+  <badref> = call i32 @qpr.precondition.btreeOverwriteContent(%struct.MemPage.144* %0, i8* %43, %struct.BtreePayload.333* %2, i32 %44, i32 %45)
+entry: btreeOverwriteContent, functionName: btreeOverwriteContent
+try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 1
+    LoopUnrollBound : 1
+    HavocLimit : 0
+    PreconditionNumber : 5
+    PreconditionLocation : jobs/4003
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : true
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [1] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : btreeOverwriteContent
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "btreeOverwriteContent" for 1 iterations succeeded.
+      Transformed "btreeOverwriteContent" from 23 to 28 basic blocks and from 105 to 124 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...size Alloca: 1
+size Alloca: 1
+size Alloca: 1
+-----found check = true
+                      0 sec [DONE]
+        Number of expressions:                        155053
+        after encoding
+
+      1 assertion before transformations (1 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            3360
+        Fixed Memory Address Assigner
+          Number of moved ops                              3
+          Number of rewrites                            5211
+        Simplifier
+          Number of moved ops                              3
+          Number of rewrites                           72600
+        Memory Model Encoder
+          Number of moved ops                              0
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                             142
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      1 assertion remains after transformations (1 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...ameID: 3
+argument name: 
+value: 2
+###new bool cond: bool % = compare(%i32__0, %i32__2)
+param:  i32 %arg4:2147483647
+---name:  i32 %arg4, value: 2147483647.
+integer, char or other simple types
+name:  i32 %arg4
+assuming that there are not more then 10 arguments
+nameIndex: 4
+nameID: 4
+argument name: 
+value: 2147483647
+###added bool cond: bool % = or(%, %)
+pruneOrAssert -- adding line boolCond: bool % = or(%, %)
+param: i32 %arg3:6
+---name: i32 %arg3, value: 6.
+integer, char or other simple types
+name: i32 %arg3
+assuming that there are not more then 10 arguments
+nameIndex: 3
+nameID: 3
+argument name: 
+value: 6
+###new bool cond: bool % = compare(%i32__0, %i32__6)
+param:  i32 %arg4:2147483646
+---name:  i32 %arg4, value: 2147483646.
+integer, char or other simple types
+name:  i32 %arg4
+assuming that there are not more then 10 arguments
+nameIndex: 4
+nameID: 4
+argument name: 
+value: 2147483646
+###added bool cond: bool % = or(%, %)
+pruneOrAssert -- adding line boolCond: bool % = or(%, %)
+param: i32 %arg3:4
+---name: i32 %arg3, value: 4.
+integer, char or other simple types
+name: i32 %arg3
+assuming that there are not more then 10 arguments
+nameIndex: 3
+nameID: 3
+argument name: 
+value: 4
+###new bool cond: bool % = compare(%i32__0, %i32__4)
+param:  i32 %arg4:2147483646
+---name:  i32 %arg4, value: 2147483646.
+integer, char or other simple types
+name:  i32 %arg4
+assuming that there are not more then 10 arguments
+nameIndex: 4
+nameID: 4
+argument name: 
+value: 2147483646
+###added bool cond: bool % = or(%, %)
+pruneOrAssert -- adding line boolCond: bool % = or(%, %)
+Writing precondition type at: jobs/4003/precondition_type_btreeOverwriteCell.txt
+
+Type of Precondition:
+[underoverapprox]
+precondition found, end encoding
+                      0 sec [DONE]
+        Number of expressions:                        155096
+        after encoding
+
+      5 assertions before transformations (5 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            3363
+        Fixed Memory Address Assigner
+          Number of moved ops                              7
+          Number of rewrites                            5210
+        Simplifier
+          Number of moved ops                              2
+          Number of rewrites                           73311
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               1
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                          141460
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                          138394
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      5 assertions remain after transformations (5 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...            0 sec [DONE]
+        
+                                                           1 sec [DONE]
+      after performing Check
+evaluateCheckerResultsViaRefinementLoop
+getCheckerResultAfterUpdatingMarker
+Result is NoTrace
+
+                                                           1 sec [DONE]
+    allunsafe
+    
+                                                           2 sec [DONE]
+  

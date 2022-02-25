@@ -1,0 +1,49 @@
+<VerificationJob>
+  <Configuration>
+    <AnalyzeChecksIndividually value="true" />
+    <BitcodeTraces value="false" />
+    <CheckOnlyPrecondition value="true" />
+    <DumpVerifierBitcodeFiles value="false" />
+    <EnableSlicing value="true" />
+    <EntryPoint value="sqlite3CodeRhsOfIN" />
+    <FixPoint value="true" />
+    <ForkJobs value="true" />
+    <Hosted value="true" />
+    <IgnoreMissingFunctions value="false" />
+    <InitializedGlobals value="false" />
+    <LoopUnrollBound value="1" />
+    <PreconditionLocation value="jobs/7017" />
+    <PreconditionNumber value="5" />
+    <SourceDirectory value="/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld" />
+    <StopEncodingAfterCheck value="true" />
+    <StopEncodingAfterCheckLoop value="1" />
+    <TimeOut value="600" />
+    <XMLTraces value="false" />
+  </Configuration>
+  <CheckList>
+    <Check id="22054" location="24679" category="arithmetic.overflow" status="internalerror" scope="sqlite3Select">
+      <Annotations>
+        <Annotation>A signed arithmetic operation can overflow.</Annotation>
+        <Annotation>A loop bound was reached (/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld//home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld/sqlite3.c:138412:5)</Annotation>
+        <Annotation>Unable to open precondition file!
+ (job:7017)</Annotation>
+      </Annotations>
+      <EntryStatus>
+        <SingleEntryStatus>codeTriggerProgram, unknown</SingleEntryStatus>
+        <SingleEntryStatus>generateWithRecursiveQuery, unknown</SingleEntryStatus>
+        <SingleEntryStatus>multiSelect, unknown</SingleEntryStatus>
+        <SingleEntryStatus>multiSelectOrderBy, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3CodeRhsOfIN, internalerror</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3CodeSubselect, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3EndTable, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3Insert, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3MaterializeView, unknown</SingleEntryStatus>
+        <SingleEntryStatus>updateFromSelect, unknown</SingleEntryStatus>
+        <SingleEntryStatus>yy_reduce, unknown</SingleEntryStatus>
+      </EntryStatus>
+    </Check>
+  </CheckList>
+  <Annotation>Unable to open precondition file!
+</Annotation>
+  <Status>internalerror</Status>
+</VerificationJob>

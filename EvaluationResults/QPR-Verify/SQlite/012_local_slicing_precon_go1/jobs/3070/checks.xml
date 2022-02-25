@@ -1,0 +1,47 @@
+<VerificationJob>
+  <Configuration>
+    <AnalyzeChecksIndividually value="true" />
+    <BitcodeTraces value="false" />
+    <CheckOnlyPrecondition value="true" />
+    <DumpVerifierBitcodeFiles value="false" />
+    <EnableSlicing value="true" />
+    <EntryPoint value="ptrmapPut" />
+    <FixPoint value="true" />
+    <ForkJobs value="true" />
+    <Hosted value="true" />
+    <IgnoreMissingFunctions value="false" />
+    <InitializedGlobals value="false" />
+    <LoopUnrollBound value="1" />
+    <PreconditionLocation value="jobs/3070" />
+    <PreconditionNumber value="5" />
+    <SourceDirectory value="/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld" />
+    <StopEncodingAfterCheck value="true" />
+    <StopEncodingAfterCheckLoop value="1" />
+    <TimeOut value="600" />
+    <XMLTraces value="false" />
+  </Configuration>
+  <CheckList>
+    <Check id="9964" location="10893" category="arithmetic.overflow.warning" status="unsafe" scope="ptrmapPageno">
+      <Annotations>
+        <Annotation>An unsigned arithmetic operation can overflow (wraparound).</Annotation>
+        <Annotation>Unreachable function / source code</Annotation>
+        <Annotation>Unreachable function / source code</Annotation>
+      </Annotations>
+      <EntryStatus>
+        <SingleEntryStatus>allocateBtreePage, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>autoVacuumCommit, safe</SingleEntryStatus>
+        <SingleEntryStatus>btreeCreateTable, safe</SingleEntryStatus>
+        <SingleEntryStatus>btreeDropTable, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>fillInCell, safe</SingleEntryStatus>
+        <SingleEntryStatus>finalDbSize, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>getOverflowPage, safe</SingleEntryStatus>
+        <SingleEntryStatus>incrVacuumStep, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>ptrmapGet, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>ptrmapPut, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3BtreeIntegrityCheck, unsafe</SingleEntryStatus>
+      </EntryStatus>
+    </Check>
+  </CheckList>
+  <Annotation>Could not find the Op representing the condition of an llvm::BranchInst!</Annotation>
+  <Status>allunsafe</Status>
+</VerificationJob>

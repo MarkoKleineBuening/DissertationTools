@@ -1,0 +1,159 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+handleJobInSeparateProcess0
+
+Checking job 98 ...about to run job:
+preconNumber: 5, 1
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 12
+    HavocLimit : 0
+    PreconditionNumber : 5
+    PreconditionLocation : jobs/98
+    TimeOut : 300
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : mat_inv
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "mat_inv" for 12 iterations succeeded.
+      Transformed "mat_inv" from 20 to 43 basic blocks and from 96 to 264 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...size Alloca: 1
+size Alloca: 1
+
+        Unrolling loop in function "_mat_creat" for 12 iterations succeeded.
+        Transformed "_mat_creat" from 10 to 44 basic blocks and from 54 to 277 instructions
+        Transformed "mat_error" from 5 to 10 basic blocks and from 10 to 19 instructions
+        Unrolling loop in function "mat_fill" for 12 iterations succeeded.
+        Unrolling loop in function "mat_fill" for 12 iterations succeeded.
+        Transformed "mat_fill" from 18 to 1223 basic blocks and from 67 to 5439 instructions
+        Unrolling loop in function "mat_copy" for 12 iterations succeeded.
+        Unrolling loop in function "mat_copy" for 12 iterations succeeded.
+        Transformed "mat_copy" from 9 to 352 basic blocks and from 49 to 3269 instructions
+        Unrolling loop in function "mat_lu" for 12 iterations succeeded.
+        Unrolling loop in function "mat_lu" for 12 iterations succeeded.
+        Unrolling loop in function "mat_lu" for 12 iterations succeeded.
+        Unrolling loop in function "mat_lu" for 12 iterations succeeded.
+        Unrolling loop in function "mat_lu" for 12 iterations succeeded.
+        Transformed "mat_lu" from 28 to 4917 basic blocks and from 239 to 94971 instructions
+        Unrolling loop in function "mat_backsubs1" for 12 iterations succeeded.
+        Unrolling loop in function "mat_backsubs1" for 12 iterations succeeded.
+        Unrolling loop in function "mat_backsubs1" for 12 iterations succeeded.
+        Unrolling loop in function "mat_backsubs1" for 12 iterations succeeded.
+        Transformed "mat_backsubs1" from 17 to 703 basic blocks and from 201 to 11821 instructions
+        Unrolling loop in function "mat_free" for 12 iterations succeeded.
+        Transformed "mat_free" from 8 to 31 basic blocks and from 33 to 191 instructions
+                                                           0 sec [DONE]
+        Number of expressions:                        494767
+        after encoding
+
+      952 assertions before transformations (166 no_function_call, 701 no_back_edge, 84 custom, 1 no_unreachable_executed).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                          277562
+        Fixed Memory Address Assigner
+          Number of moved ops                              2
+          Number of rewrites                             444
+        Simplifier
+          Number of moved ops                              2
+          Number of rewrites                            7096
+        Memory Model Encoder
+          Number of moved ops                              0
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                             112
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                           34236
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of rewrites                             312
+                                                           1 sec [DONE]
+        
+      952 assertions remain after transformations (166 no_function_call, 701 no_back_edge, 84 custom, 1 no_unreachable_executed).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ... ...            0 sec [DONE]
+      failingInst:   %10 = call i32 (i8*, ...) @printf(i8* getelementptr inbounds ([49 x i8], [49 x i8]* @.str.12.81, i32 0, i32 0)), !dbg !1410
+Preconditions internal: 
+double %arg0:arbitrary; double %arg1:arbitrary; double %arg2:arbitrary; 
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: fp_11_52 %arg0 = nondef() : 0.0E+0
+error: No matching SMT expression for Op %arg0 (nondef) found!assumePair: fp_11_52 %arg1 = nondef() : 0.0E+0
+error: No matching SMT expression for Op %arg1 (nondef) found!assumePair: fp_11_52 %arg2 = nondef() : 0.0E+0
+error: No matching SMT expression for Op %arg2 (nondef) found!
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   %10 = call i32 (i8*, ...) @printf(i8* getelementptr inbounds ([49 x i8], [49 x i8]* @.str.12.81, i32 0, i32 0)), !dbg !1410
+Preconditions internal: 
+double %arg0:arbitrary; double %arg1:arbitrary; double %arg2:arbitrary; 
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: fp_11_52 %arg0 = nondef() : 0.0E+0
+error: No matching SMT expression for Op %arg0 (nondef) found!assumePair: fp_11_52 %arg1 = nondef() : 0.0E+0
+error: No matching SMT expression for Op %arg1 (nondef) found!assumePair: fp_11_52 %arg2 = nondef() : 0.0E+0
+error: No matching SMT expression for Op %arg2 (nondef) found!
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   %10 = call i32 (i8*, ...) @printf(i8* getelementptr inbounds ([49 x i8], [49 x i8]* @.str.12.81, i32 0, i32 0)), !dbg !1410
+Preconditions internal: 
+double %arg0:arbitrary; double %arg1:arbitrary; double %arg2:arbitrary; 
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: fp_11_52 %arg0 = nondef() : 0.0E+0
+error: No matching SMT expression for Op %arg0 (nondef) found!assumePair: fp_11_52 %arg1 = nondef() : 0.0E+0
+error: No matching SMT expression for Op %arg1 (nondef) found!assumePair: fp_11_52 %arg2 = nondef() : 0.0E+0
+error: No matching SMT expression for Op %arg2 (nondef) found!
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   %10 = call i32 (i8*, ...) @printf(i8* getelementptr inbounds ([49 x i8], [49 x i8]* @.str.12.81, i32 0, i32 0)), !dbg !1410
+Preconditions internal: 
+double %arg0:arbitrary; double %arg1:arbitrary; double %arg2:arbitrary; 
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: fp_11_52 %arg0 = nondef() : 0.0E+0
+error: No matching SMT expression for Op %arg0 (nondef) found!assumePair: fp_11_52 %arg1 = nondef() : 0.0E+0
+error: No matching SMT expression for Op %arg1 (nondef) found!assumePair: fp_11_52 %arg2 = nondef() : 0.0E+0
+error: No matching SMT expression for Op %arg2 (nondef) found!
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      name of function arguments: Writing precondition at: jobs/98/precondition_mat_T321.txt
+
+Generated Preconditions:
+[underoverapprox]name of function arguments: 
+double %arg0:arbitrary; double %arg1:arbitrary; double %arg2:arbitrary; 
+double %arg0:arbitrary; double %arg1:arbitrary; double %arg2:arbitrary; 
+double %arg0:arbitrary; double %arg1:arbitrary; double %arg2:arbitrary; 
+double %arg0:arbitrary; double %arg1:arbitrary; double %arg2:arbitrary; 
+double %arg0:arbitrary; double %arg1:arbitrary; double %arg2:arbitrary; 
+
+                                                           1 sec [DONE]
+    allsafe
+    
+                                                           1 sec [DONE]
+  

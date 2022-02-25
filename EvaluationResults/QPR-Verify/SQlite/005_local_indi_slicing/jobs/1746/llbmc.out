@@ -1,0 +1,102 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+handleJobInSeparateProcess0
+
+Checking job 1746 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...W [0] lib/Slicer/LocalSlicer.cpp:368 | argument 0 (i8* undef) has pointer type
+W [0] lib/Slicer/LocalSlicer.cpp:368 | argument 0 (%struct.sqlite3_vfs* undef) has pointer type
+W [0] lib/Slicer/LocalSlicer.cpp:357 | argument %struct.sqlite3_vfs* null of call instruction has pointer type
+W [0] lib/Slicer/LocalSlicer.cpp:368 | argument 0 (i32* undef) has pointer type
+W [0] lib/Slicer/LocalSlicer.cpp:368 | argument 0 (i32* undef) has pointer type
+W [0] lib/Slicer/LocalSlicer.cpp:368 | argument 0 (%struct.sqlite3_mutex* undef) has pointer type
+W [0] lib/Slicer/LocalSlicer.cpp:368 | argument 0 (i8* undef) has pointer type
+W [0] lib/Slicer/LocalSlicer.cpp:368 | argument 0 (%struct.sqlite3_mutex* undef) has pointer type
+W [0] lib/Slicer/LocalSlicer.cpp:368 | argument 0 (i32* undef) has pointer type
+W [0] lib/Slicer/LocalSlicer.cpp:368 | argument 0 (i32* undef) has pointer type
+W [0] lib/Slicer/LocalSlicer.cpp:368 | argument 0 (i32* undef) has pointer type
+W [0] lib/Slicer/LocalSlicer.cpp:368 | argument 0 (i8* %1) has pointer type
+W [0] lib/Slicer/LocalSlicer.cpp:368 | argument 0 (i8* undef) has pointer type
+W [0] lib/Slicer/LocalSlicer.cpp:495 | unused argument: , qpr.slicing.unused.arg.sqlite3_vfs_register.0
+W [0] lib/Slicer/LocalSlicer.cpp:495 | unused argument: , qpr.slicing.unused.arg.sqlite3_vfs_register.1
+W [0] lib/Slicer/LocalSlicer.cpp:495 | unused argument: , qpr.slicing.unused.arg.sqlite3_randomness.1
+I [0] lib/Slicer/LocalSlicer.cpp:104 | slicing finished
+try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 0
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/1746
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : sqlite3_randomness
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "sqlite3_randomness" for 256 iterations succeeded.
+      Transformed "sqlite3_randomness" from 9 to 519 basic blocks and from 26 to 2067 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...                      0 sec [DONE]
+        Number of expressions:                        138922
+        after encoding
+
+      257 assertions before transformations (1 no_back_edge, 256 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            9461
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            4896
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           61902
+        Memory Model Encoder
+          Number of moved ops                              0
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                              10
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                              88
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                               0
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      257 assertions remain after transformations (1 no_back_edge, 256 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...            0 sec [DONE]
+        
+                                                           0 sec [DONE]
+      after performing Check
+evaluateCheckerResultsViaRefinementLoop
+getCheckerResultAfterUpdatingMarker
+Result is NoTrace
+
+                                                           1 sec [DONE]
+    allsafe
+    
+                                                           1 sec [DONE]
+  

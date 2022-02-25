@@ -1,0 +1,105 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 626 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 1
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/626
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : idxProcessOneTrigger
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "idxProcessOneTrigger" for 1 iterations succeeded.
+      Unrolling loop in function "idxProcessOneTrigger" for 1 iterations succeeded.
+      Unrolling loop in function "idxProcessOneTrigger" for 1 iterations succeeded.
+      Transformed "idxProcessOneTrigger" from 36 to 46 basic blocks and from 183 to 221 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...Current: idxProcessOneTrigger Havoced: idxPrintfPrepareStmt
+Current: idxProcessOneTrigger Havoced: sqlite3_step
+Current: idxProcessOneTrigger Havoced: sqlite3_column_text
+Current: idxProcessOneTrigger Havoced: sqlite3_exec
+Current: idxProcessOneTrigger Havoced: sqlite3_step
+Current: idxProcessOneTrigger Havoced: idxFinalize
+Current: idxProcessOneTrigger Havoced: sqlite3_mprintf
+Current: idxProcessOneTrigger Havoced: sqlite3_exec
+Current: idxProcessOneTrigger Havoced: sqlite3_free
+Current: idxProcessOneTrigger Havoced: idxAppendText
+Current: idxProcessOneTrigger Havoced: idxAppendText
+Current: idxProcessOneTrigger Havoced: sqlite3_mprintf
+Current: idxProcessOneTrigger Havoced: idxAppendText
+Current: idxProcessOneTrigger Havoced: idxAppendText
+Current: idxProcessOneTrigger Havoced: idxAppendText
+Current: idxProcessOneTrigger Havoced: sqlite3_prepare_v2
+Current: idxProcessOneTrigger Havoced: idxFinalize
+Current: idxProcessOneTrigger Havoced: idxDatabaseError
+Current: idxProcessOneTrigger Havoced: sqlite3_free
+Current: idxProcessOneTrigger Havoced: sqlite3_exec
+Current: idxProcessOneTrigger Havoced: sqlite3_column_text
+Current: idxProcessOneTrigger Havoced: sqlite3_exec
+                      0 sec [DONE]
+        Number of expressions:                        155480
+        after encoding
+
+      6 assertions before transformations (3 no_back_edge, 2 custom, 1 no_unreachable_executed).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            3609
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72621
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               3
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               6
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             142
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      6 assertions remain after transformations (3 no_back_edge, 2 custom, 1 no_unreachable_executed).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...

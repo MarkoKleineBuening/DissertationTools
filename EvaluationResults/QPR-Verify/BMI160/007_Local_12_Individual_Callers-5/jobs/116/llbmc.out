@@ -1,0 +1,199 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+handleJobInSeparateProcess0
+
+Checking job 116 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 12
+    HavocLimit : 0
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/116
+    TimeOut : 300
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : bmi160_perform_self_test
+m_checker->run()
+
+    Performing bounded model checking ...
+      Transformed "bmi160_perform_self_test" from 14 to 18 basic blocks and from 72 to 79 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...getMatchingFunctions
+res.push_back: stubDelay
+
+        Transformed "set_accel_pwr" from 11 to 15 basic blocks and from 80 to 86 instructionsgetMatchingFunctions
+res.push_back: stubRead
+res.push_back: stubWrite
+getMatchingFunctions
+res.push_back: stubDelay
+
+        Transformed "bmi160_get_regs" from 9 to 19 basic blocks and from 62 to 79 instructions
+        Unrolling loop in function "stubRead" for 12 iterations succeeded.
+        Transformed "stubRead" from 7 to 30 basic blocks and from 43 to 190 instructions
+        Unrolling loop in function "bmi160_set_regs" for 12 iterations succeeded.getMatchingFunctions
+res.push_back: stubRead
+res.push_back: stubWrite
+getMatchingFunctions
+res.push_back: stubRead
+res.push_back: stubWrite
+getMatchingFunctions
+res.push_back: stubRead
+res.push_back: stubWrite
+getMatchingFunctions
+res.push_back: stubRead
+res.push_back: stubWrite
+getMatchingFunctions
+res.push_back: stubRead
+res.push_back: stubWrite
+getMatchingFunctions
+res.push_back: stubRead
+res.push_back: stubWrite
+getMatchingFunctions
+res.push_back: stubRead
+res.push_back: stubWrite
+getMatchingFunctions
+res.push_back: stubRead
+res.push_back: stubWrite
+getMatchingFunctions
+res.push_back: stubRead
+res.push_back: stubWrite
+getMatchingFunctions
+res.push_back: stubRead
+res.push_back: stubWrite
+getMatchingFunctions
+res.push_back: stubRead
+res.push_back: stubWrite
+getMatchingFunctions
+res.push_back: stubRead
+res.push_back: stubWrite
+
+        Transformed "bmi160_set_regs" from 5 to 100 basic blocks and from 47 to 473 instructionsgetMatchingFunctions
+res.push_back: stubDelay
+getMatchingFunctions
+res.push_back: stubDelay
+
+        Transformed "set_gyro_pwr" from 15 to 23 basic blocks and from 95 to 107 instructionsgetMatchingFunctions
+res.push_back: stubDelay
+
+        Transformed "enable_gyro_self_test" from 5 to 9 basic blocks and from 43 to 49 instructionsgetMatchingFunctions
+res.push_back: stubDelay
+
+        Transformed "set_accel_conf" from 7 to 11 basic blocks and from 65 to 71 instructionsisMemset:   call void @llvm.memset.p0i8.i64(i8* %2, i8 0, i64 2, i32 1, i1 false), !dbg !189
+getMatchingFunctions
+res.push_back: stubDelay
+
+        Transformed "set_gyro_conf" from 7 to 11 basic blocks and from 65 to 71 instructionsisMemset:   call void @llvm.memset.p0i8.i64(i8* %2, i8 0, i64 2, i32 1, i1 false), !dbg !189
+getMatchingFunctions
+res.push_back: stubDelay
+
+        Transformed "accel_self_test_positive_excitation" from 3 to 7 basic blocks and from 29 to 35 instructions
+        Transformed "bmi160_get_sensor_data" from 21 to 26 basic blocks and from 104 to 113 instructionsisMemset:   call void @llvm.memset.p0i8.i64(i8* %5, i8 0, i64 15, i32 1, i1 false), !dbg !217
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %4, i8 0, i64 15, i32 1, i1 false), !dbg !215
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %4, i8 0, i64 9, i32 1, i1 false), !dbg !215
+getMatchingFunctions
+res.push_back: stubDelay
+
+        Transformed "accel_self_test_negative_excitation" from 3 to 7 basic blocks and from 29 to 35 instructionsisMemset:   call void @llvm.memset.p0i8.i64(i8* %5, i8 0, i64 15, i32 1, i1 false), !dbg !217
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %4, i8 0, i64 15, i32 1, i1 false), !dbg !215
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %4, i8 0, i64 9, i32 1, i1 false), !dbg !215
+getMatchingFunctions
+res.push_back: stubDelay
+
+        Transformed "bmi160_soft_reset" from 10 to 14 basic blocks and from 53 to 59 instructionsisMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %19, i8* %20, i64 4, i32 4, i1 false), !dbg !208
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %23, i8* %24, i64 4, i32 4, i1 false), !dbg !210
+
+                                                           0 sec [DONE]
+        Number of expressions:                        101108
+        after encoding
+
+      537 assertions before transformations (272 no_function_call, 263 no_back_edge, 2 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                           84161
+        Fixed Memory Address Assigner
+          Number of moved ops                              5
+          Number of rewrites                               8
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                            7110
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                              21
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                            4786
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             160
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                               0
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      537 assertions remain after transformations (272 no_function_call, 263 no_back_edge, 2 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...            0 sec [DONE]
+        
+                                                           0 sec [DONE]
+      after performing Check
+evaluateCheckerResultsViaRefinementLoop
+checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setCheckToUnsafe
+setCheckToUnsafe
+Check for floating point traces / abstractions currently deactivated
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      getCheckerResultAfterUpdatingMarker
+Result is NoTrace
+
+                                                           0 sec [DONE]
+    allunsafe
+    
+                                                           0 sec [DONE]
+  

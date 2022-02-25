@@ -1,0 +1,42 @@
+<VerificationJob>
+  <Configuration>
+    <AnalyzeChecksIndividually value="true" />
+    <BitcodeTraces value="false" />
+    <CheckCallers value="true" />
+    <DumpVerifierBitcodeFiles value="false" />
+    <EnableSlicing value="true" />
+    <EntryPoint value="btreeDropTable" />
+    <FixPoint value="true" />
+    <ForkJobs value="true" />
+    <Hosted value="true" />
+    <IgnoreMissingFunctions value="false" />
+    <InitializedGlobals value="false" />
+    <LoopUnrollBound value="1" />
+    <PreconditionLocation value="jobs/3070" />
+    <SourceDirectory value="/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld" />
+    <TimeOut value="600" />
+    <XMLTraces value="false" />
+  </Configuration>
+  <CheckList>
+    <Check id="9964" location="10893" category="arithmetic.overflow.warning" status="unsafe" scope="ptrmapPageno">
+      <Annotations>
+        <Annotation>An unsigned arithmetic operation can overflow (wraparound).</Annotation>
+      </Annotations>
+      <EntryStatus>
+        <SingleEntryStatus>allocateBtreePage, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>autoVacuumCommit, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>btreeCreateTable, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>btreeDropTable, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>fillInCell, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>finalDbSize, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>getOverflowPage, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>incrVacuumStep, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>ptrmapGet, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>ptrmapPut, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3BtreeIntegrityCheck, unsafe</SingleEntryStatus>
+      </EntryStatus>
+    </Check>
+  </CheckList>
+  <Annotation>allunsafe</Annotation>
+  <Status>allunsafe</Status>
+</VerificationJob>

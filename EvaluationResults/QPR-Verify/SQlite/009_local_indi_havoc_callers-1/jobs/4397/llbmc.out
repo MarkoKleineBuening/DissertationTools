@@ -1,0 +1,607 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 4397 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 2
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/4397
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : sqlite3VdbeCloseStatement
+m_checker->run()
+
+    Performing bounded model checking ...
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...
+        Unrolling loop in function "vdbeCloseStatement" for 1 iterations succeeded.
+        Transformed "vdbeCloseStatement" from 21 to 22 basic blocks and from 106 to 113 instructionsCurrent: vdbeCloseStatement Havoced: sqlite3BtreeSavepoint
+Current: vdbeCloseStatement Havoced: sqlite3BtreeSavepoint
+Current: vdbeCloseStatement Havoced: sqlite3VtabSavepoint
+Current: vdbeCloseStatement Havoced: sqlite3VtabSavepoint
+
+                                                           0 sec [DONE]
+        Number of expressions:                        155274
+        after encoding
+
+      2 assertions before transformations (1 no_back_edge, 1 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            3505
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72616
+        Memory Model Encoder
+          Number of moved ops                              0
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                               1
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             142
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      2 assertions remain after transformations (1 no_back_edge, 1 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...abSavepoint Havoced: sqlite3BtreePrevious
+Current: sqlite3VtabSavepoint Havoced: sqlite3BtreeNext
+Current: sqlite3VtabSavepoint Havoced: indexColumnNotNull
+Current: sqlite3VtabSavepoint Havoced: sqlite3ExprIsTableConstant
+Current: sqlite3VtabSavepoint Havoced: sqlite3PcacheSetSpillsize
+Current: sqlite3VtabSavepoint Havoced: sqlite3PagerSetSpillsize
+Current: sqlite3VtabSavepoint Havoced: sqlite3BtreeSetSpillSize
+Current: sqlite3VtabSavepoint Havoced: sqlite3BtreeSetAutoVacuum
+Current: sqlite3VtabSavepoint Havoced: sqlite3BtreeSetPagerFlags
+Current: sqlite3VtabSavepoint Havoced: sqlite3BtreeSecureDelete
+Current: sqlite3VtabSavepoint Havoced: sqlite3PagerLockingMode
+Current: sqlite3VtabSavepoint Havoced: sqlite3ExprImpliesNonNullRow
+Current: sqlite3VtabSavepoint Havoced: sqlite3VdbeChangeToNoop
+Current: sqlite3VtabSavepoint Havoced: sqlite3VdbeGoto
+Current: sqlite3VtabSavepoint Havoced: sqlite3GetTempRange
+Current: sqlite3VtabSavepoint Havoced: growOpArray
+Current: sqlite3VtabSavepoint Havoced: sqlite3VdbeAddOp0
+Current: sqlite3VtabSavepoint Havoced: sqlite3AnalysisLoad
+Current: sqlite3VtabSavepoint Havoced: sqlite3BtreeSetCacheSize
+Current: sqlite3VtabSavepoint Havoced: sqlite3ExprCheckHeight
+Current: sqlite3VtabSavepoint Havoced: dupedExprNodeSize
+Current: sqlite3VtabSavepoint Havoced: dupedExprStructSize
+Current: sqlite3VtabSavepoint Havoced: dupedExprSize
+Current: sqlite3VtabSavepoint Havoced: analyzeFilterKeyword
+Current: sqlite3VtabSavepoint Havoced: analyzeOverKeyword
+Current: sqlite3VtabSavepoint Havoced: pagerOpenSavepoint
+Current: sqlite3VtabSavepoint Havoced: sqlite3PagerOpenSavepoint
+Current: sqlite3VtabSavepoint Havoced: vdbeSorterJoinAll
+Current: sqlite3VtabSavepoint Havoced: sqlite3OsLock
+Current: sqlite3VtabSavepoint Havoced: pagerLockDb
+Current: sqlite3VtabSavepoint Havoced: pager_wait_on_lock
+Current: sqlite3VtabSavepoint Havoced: btreeGetHasContent
+Current: sqlite3VtabSavepoint Havoced: sqlite3OsShmUnmap
+Current: sqlite3VtabSavepoint Havoced: sqlite3OsSleep
+Current: sqlite3VtabSavepoint Havoced: walRewriteChecksums
+Current: sqlite3VtabSavepoint Havoced: syncJournal
+Current: sqlite3VtabSavepoint Havoced: pager_incr_changecounter
+Current: sqlite3VtabSavepoint Havoced: sqlite3BtreeCommitPhaseTwo
+Current: sqlite3VtabSavepoint Havoced: ptrmapPageno
+Current: sqlite3VtabSavepoint Havoced: walFramePgno
+Current: sqlite3VtabSavepoint Havoced: pagerUndoCallback
+Current: sqlite3VtabSavepoint Havoced: pager_error
+Current: sqlite3VtabSavepoint Havoced: pager_playback
+Current: sqlite3VtabSavepoint Havoced: walLockShared
+Current: sqlite3VtabSavepoint Havoced: sqlite3WalExclusiveMode
+Current: sqlite3VtabSavepoint Havoced: pager_truncate
+Current: sqlite3VtabSavepoint Havoced: pagerFlushOnCommit
+Current: sqlite3VtabSavepoint Havoced: zeroJournalHdr
+Current: sqlite3VtabSavepoint Havoced: sqlite3OsSync
+Current: sqlite3VtabSavepoint Havoced: sqlite3OsUnlock
+Current: sqlite3VtabSavepoint Havoced: pagerUnlockDb
+Current: sqlite3VtabSavepoint Havoced: sqlite3PcacheSetPageSize
+Current: sqlite3VtabSavepoint Havoced: sqlite3BitvecTest
+Current: sqlite3VtabSavepoint Havoced: memjrnlSync
+Current: sqlite3VtabSavepoint Havoced: addToSavepointBitvecs
+Current: sqlite3VtabSavepoint Havoced: sqlite3BitvecSet
+Current: sqlite3VtabSavepoint Havoced: sqlite3BitvecTestNotNull
+Current: sqlite3VtabSavepoint Havoced: decodeFlags
+Current: sqlite3VtabSavepoint Havoced: sqlite3VdbeCloseStatement
+Current: sqlite3VtabSavepoint Havoced: sqlite3VdbeCheckFk
+Current: sqlite3VtabSavepoint Havoced: sqlite3Utf16ByteLen
+Current: sqlite3VtabSavepoint Havoced: vdbeUnbind
+Current: sqlite3VtabSavepoint Havoced: sqlite3KeywordCode
+Current: sqlite3VtabSavepoint Havoced: sqlite3_keyword_check
+Current: sqlite3VtabSavepoint Havoced: sqlite3_wal_autocheckpoint
+Current: sqlite3VtabSavepoint Havoced: sqlite3_backup_step
+Current: sqlite3VtabSavepoint Havoced: sqlite3_extended_result_codes
+Current: sqlite3VtabSavepoint Havoced: sqlite3_column_type
+Current: sqlite3VtabSavepoint Havoced: sqlite3_column_int
+Current: sqlite3VtabSavepoint Havoced: sqlite3_column_bytes16
+Current: sqlite3VtabSavepoint Havoced: sqlite3_column_bytes
+Current: sqlite3VtabSavepoint Havoced: sqlite3_busy_timeout
+Current: sqlite3VtabSavepoint Havoced: sqlite3_bind_null
+Current: sqlite3VtabSavepoint Havoced: apiHandleError
+Current: sqlite3VtabSavepoint Havoced: sqlite3ApiExit
+Current: sqlite3VtabSavepoint Havoced: isAllZero
+Current: sqlite3VtabSavepoint Havoced: sqlite3Utf8CharLen
+Current: sqlite3VtabSavepoint Havoced: unixUnlock
+Current: sqlite3VtabSavepoint Havoced: unixLock
+Current: sqlite3VtabSavepoint Havoced: nolockUnlock
+Current: sqlite3VtabSavepoint Havoced: nolockLock
+Current: sqlite3VtabSavepoint Havoced: unixShmUnmap
+Current: sqlite3VtabSavepoint Havoced: dotlockUnlock
+Current: sqlite3VtabSavepoint Havoced: dotlockLock
+Current: sqlite3VtabSavepoint Havoced: unixSync
+Current: sqlite3VtabSavepoint Havoced: unixSleep
+Current: sqlite3VtabSavepoint Havoced: memdbLock
+Current: sqlite3VtabSavepoint Havoced: memdbSync
+Current: sqlite3VtabSavepoint Havoced: memdbSleep
+Current: sqlite3VtabSavepoint Havoced: sqlite3_vfs_register
+Current: sqlite3VtabSavepoint Havoced: rehash
+Current: sqlite3VtabSavepoint Havoced: compare2pow63
+Current: sqlite3VtabSavepoint Havoced: sqlite3VdbeMemClearAndResize
+Current: sqlite3VtabSavepoint Havoced: sqlite3VdbeChangeEncoding
+Current: sqlite3VtabSavepoint Havoced: sqlite3StrAccumEnlarge
+Current: sqlite3VtabSavepoint Havoced: sqlite3ErrorToParser
+Current: sqlite3VtabSavepoint Havoced: line_contains_semicolon
+Current: sqlite3VtabSavepoint Havoced: line_is_complete
+Current: sqlite3VtabSavepoint Havoced: idxHashString
+Current: sqlite3VtabSavepoint Havoced: re_resize
+Current: sqlite3VtabSavepoint Havoced: apndShmUnmap
+Current: sqlite3VtabSavepoint Havoced: apndUnlock
+Current: sqlite3VtabSavepoint Havoced: apndLock
+Current: sqlite3VtabSavepoint Havoced: apndSync
+Current: sqlite3VtabSavepoint Havoced: apndSleep
+Current: sqlite3VtabSavepoint Havoced: deduceDatabaseType
+Current: sqlite3VtabSavepoint Havoced: sqlite3VtabUnlock
+Current: sqlite3VtabSavepoint Havoced: sqlite3VtabLock
+Current: sqlite3VtabSavepoint Havoced: sqlite3_enable_load_extension
+Current: sqlite3VtabSavepoint Havoced: sqliteDefaultBusyCallback
+Current: sqlite3VtabSavepoint Havoced: defragmentPage
+Current: sqlite3VtabSavepoint Havoced: vdbePmaReaderIncrMergeInit
+Current: sqlite3VtabSavepoint Havoced: vdbePmaReaderIncrInit
+Current: sqlite3VtabSavepoint Havoced: btreeSetHasContent
+Current: sqlite3VtabSavepoint Havoced: checkRef
+Current: sqlite3VtabSavepoint Havoced: getPageReferenced
+Current: sqlite3VtabSavepoint Havoced: sqlite3PagerMaxPageCount
+Current: sqlite3VtabSavepoint Havoced: sqlite3BtreeMaxPageCount
+Current: sqlite3VtabSavepoint Havoced: sqlite3BtreeSetVersion
+Current: sqlite3VtabSavepoint Havoced: sqlite3PagerSetJournalMode
+Current: sqlite3VtabSavepoint Havoced: sqlite3BtreeCursorHasHint
+Current: sqlite3VtabSavepoint Havoced: sqlite3BtreeBeginStmt
+Current: sqlite3VtabSavepoint Havoced: sqlite3VdbeBooleanValue
+Current: sqlite3VtabSavepoint Havoced: sqlite3Close
+Current: sqlite3VtabSavepoint Havoced: moveToChild
+Current: sqlite3VtabSavepoint Havoced: sqlite3BtreePrevious
+Current: sqlite3VtabSavepoint Havoced: sqlite3BtreeNext
+Current: sqlite3VtabSavepoint Havoced: indexColumnNotNull
+Current: sqlite3VtabSavepoint Havoced: sqlite3ExprIsTableConstant
+Current: sqlite3VtabSavepoint Havoced: sqlite3PcacheSetSpillsize
+Current: sqlite3VtabSavepoint Havoced: sqlite3PagerSetSpillsize
+Current: sqlite3VtabSavepoint Havoced: sqlite3BtreeSetSpillSize
+Current: sqlite3VtabSavepoint Havoced: sqlite3BtreeSetAutoVacuum
+Current: sqlite3VtabSavepoint Havoced: sqlite3BtreeSetPagerFlags
+Current: sqlite3VtabSavepoint Havoced: sqlite3BtreeSecureDelete
+Current: sqlite3VtabSavepoint Havoced: sqlite3PagerLockingMode
+Current: sqlite3VtabSavepoint Havoced: sqlite3ExprImpliesNonNullRow
+Current: sqlite3VtabSavepoint Havoced: sqlite3VdbeChangeToNoop
+Current: sqlite3VtabSavepoint Havoced: sqlite3VdbeGoto
+Current: sqlite3VtabSavepoint Havoced: sqlite3GetTempRange
+Current: sqlite3VtabSavepoint Havoced: growOpArray
+Current: sqlite3VtabSavepoint Havoced: sqlite3VdbeAddOp0
+Current: sqlite3VtabSavepoint Havoced: sqlite3AnalysisLoad
+Current: sqlite3VtabSavepoint Havoced: sqlite3BtreeSetCacheSize
+Current: sqlite3VtabSavepoint Havoced: sqlite3ExprCheckHeight
+Current: sqlite3VtabSavepoint Havoced: dupedExprNodeSize
+Current: sqlite3VtabSavepoint Havoced: dupedExprStructSize
+Current: sqlite3VtabSavepoint Havoced: dupedExprSize
+Current: sqlite3VtabSavepoint Havoced: analyzeFilterKeyword
+Current: sqlite3VtabSavepoint Havoced: analyzeOverKeyword
+Current: sqlite3VtabSavepoint Havoced: pagerOpenSavepoint
+Current: sqlite3VtabSavepoint Havoced: sqlite3PagerOpenSavepoint
+Current: sqlite3VtabSavepoint Havoced: vdbeSorterJoinAll
+Current: sqlite3VtabSavepoint Havoced: sqlite3OsLock
+Current: sqlite3VtabSavepoint Havoced: pagerLockDb
+Current: sqlite3VtabSavepoint Havoced: pager_wait_on_lock
+Current: sqlite3VtabSavepoint Havoced: btreeGetHasContent
+Current: sqlite3VtabSavepoint Havoced: sqlite3OsShmUnmap
+Current: sqlite3VtabSavepoint Havoced: sqlite3OsSleep
+Current: sqlite3VtabSavepoint Havoced: walRewriteChecksums
+Current: sqlite3VtabSavepoint Havoced: syncJournal
+Current: sqlite3VtabSavepoint Havoced: pager_incr_changecounter
+Current: sqlite3VtabSavepoint Havoced: sqlite3BtreeCommitPhaseTwo
+Current: sqlite3VtabSavepoint Havoced: ptrmapPageno
+Current: sqlite3VtabSavepoint Havoced: walFramePgno
+Current: sqlite3VtabSavepoint Havoced: pagerUndoCallback
+Current: sqlite3VtabSavepoint Havoced: pager_error
+Current: sqlite3VtabSavepoint Havoced: pager_playback
+Current: sqlite3VtabSavepoint Havoced: walLockShared
+Current: sqlite3VtabSavepoint Havoced: sqlite3WalExclusiveMode
+Current: sqlite3VtabSavepoint Havoced: pager_truncate
+Current: sqlite3VtabSavepoint Havoced: pagerFlushOnCommit
+Current: sqlite3VtabSavepoint Havoced: zeroJournalHdr
+Current: sqlite3VtabSavepoint Havoced: sqlite3OsSync
+Current: sqlite3VtabSavepoint Havoced: sqlite3OsUnlock
+Current: sqlite3VtabSavepoint Havoced: pagerUnlockDb
+Current: sqlite3VtabSavepoint Havoced: sqlite3PcacheSetPageSize
+Current: sqlite3VtabSavepoint Havoced: sqlite3BitvecTest
+Current: sqlite3VtabSavepoint Havoced: memjrnlSync
+Current: sqlite3VtabSavepoint Havoced: addToSavepointBitvecs
+Current: sqlite3VtabSavepoint Havoced: sqlite3BitvecSet
+Current: sqlite3VtabSavepoint Havoced: sqlite3BitvecTestNotNull
+Current: sqlite3VtabSavepoint Havoced: decodeFlags
+Current: sqlite3VtabSavepoint Havoced: sqlite3VdbeCloseStatement
+Current: sqlite3VtabSavepoint Havoced: sqlite3VdbeCheckFk
+Current: sqlite3VtabSavepoint Havoced: sqlite3Utf16ByteLen
+Current: sqlite3VtabSavepoint Havoced: vdbeUnbind
+Current: sqlite3VtabSavepoint Havoced: sqlite3KeywordCode
+Current: sqlite3VtabSavepoint Havoced: sqlite3_keyword_check
+Current: sqlite3VtabSavepoint Havoced: sqlite3_wal_autocheckpoint
+Current: sqlite3VtabSavepoint Havoced: sqlite3_backup_step
+Current: sqlite3VtabSavepoint Havoced: sqlite3_extended_result_codes
+Current: sqlite3VtabSavepoint Havoced: sqlite3_column_type
+Current: sqlite3VtabSavepoint Havoced: sqlite3_column_int
+Current: sqlite3VtabSavepoint Havoced: sqlite3_column_bytes16
+Current: sqlite3VtabSavepoint Havoced: sqlite3_column_bytes
+Current: sqlite3VtabSavepoint Havoced: sqlite3_busy_timeout
+Current: sqlite3VtabSavepoint Havoced: sqlite3_bind_null
+Current: sqlite3VtabSavepoint Havoced: apiHandleError
+Current: sqlite3VtabSavepoint Havoced: sqlite3ApiExit
+Current: sqlite3VtabSavepoint Havoced: isAllZero
+Current: sqlite3VtabSavepoint Havoced: sqlite3Utf8CharLen
+Current: sqlite3VtabSavepoint Havoced: unixUnlock
+Current: sqlite3VtabSavepoint Havoced: unixLock
+Current: sqlite3VtabSavepoint Havoced: nolockUnlock
+Current: sqlite3VtabSavepoint Havoced: nolockLock
+Current: sqlite3VtabSavepoint Havoced: unixShmUnmap
+Current: sqlite3VtabSavepoint Havoced: dotlockUnlock
+Current: sqlite3VtabSavepoint Havoced: dotlockLock
+Current: sqlite3VtabSavepoint Havoced: unixSync
+Current: sqlite3VtabSavepoint Havoced: unixSleep
+Current: sqlite3VtabSavepoint Havoced: memdbLock
+Current: sqlite3VtabSavepoint Havoced: memdbSync
+Current: sqlite3VtabSavepoint Havoced: memdbSleep
+Current: sqlite3VtabSavepoint Havoced: sqlite3_vfs_register
+Current: sqlite3VtabSavepoint Havoced: rehash
+Current: sqlite3VtabSavepoint Havoced: compare2pow63
+Current: sqlite3VtabSavepoint Havoced: sqlite3VdbeMemClearAndResize
+Current: sqlite3VtabSavepoint Havoced: sqlite3VdbeChangeEncoding
+Current: sqlite3VtabSavepoint Havoced: sqlite3StrAccumEnlarge
+Current: sqlite3VtabSavepoint Havoced: sqlite3ErrorToParser
+Current: sqlite3VtabSavepoint Havoced: line_contains_semicolon
+Current: sqlite3VtabSavepoint Havoced: line_is_complete
+Current: sqlite3VtabSavepoint Havoced: idxHashString
+Current: sqlite3VtabSavepoint Havoced: re_resize
+Current: sqlite3VtabSavepoint Havoced: apndShmUnmap
+Current: sqlite3VtabSavepoint Havoced: apndUnlock
+Current: sqlite3VtabSavepoint Havoced: apndLock
+Current: sqlite3VtabSavepoint Havoced: apndSync
+Current: sqlite3VtabSavepoint Havoced: apndSleep
+Current: sqlite3VtabSavepoint Havoced: deduceDatabaseType
+Current: sqlite3VtabSavepoint Havoced: sqlite3VtabUnlock
+Current: sqlite3VtabSavepoint Havoced: sqlite3VtabLock
+Current: sqlite3VtabSavepoint Havoced: sqlite3_enable_load_extension
+Current: sqlite3VtabSavepoint Havoced: sqliteDefaultBusyCallback
+Current: sqlite3VtabSavepoint Havoced: defragmentPage
+Current: sqlite3VtabSavepoint Havoced: vdbePmaReaderIncrMergeInit
+Current: sqlite3VtabSavepoint Havoced: vdbePmaReaderIncrInit
+Current: sqlite3VtabSavepoint Havoced: btreeSetHasContent
+Current: sqlite3VtabSavepoint Havoced: checkRef
+Current: sqlite3VtabSavepoint Havoced: getPageReferenced
+Current: sqlite3VtabSavepoint Havoced: sqlite3PagerMaxPageCount
+Current: sqlite3VtabSavepoint Havoced: sqlite3BtreeMaxPageCount
+Current: sqlite3VtabSavepoint Havoced: sqlite3BtreeSetVersion
+Current: sqlite3VtabSavepoint Havoced: sqlite3PagerSetJournalMode
+Current: sqlite3VtabSavepoint Havoced: sqlite3BtreeCursorHasHint
+Current: sqlite3VtabSavepoint Havoced: sqlite3BtreeBeginStmt
+Current: sqlite3VtabSavepoint Havoced: sqlite3VdbeBooleanValue
+Current: sqlite3VtabSavepoint Havoced: sqlite3Close
+Current: sqlite3VtabSavepoint Havoced: moveToChild
+Current: sqlite3VtabSavepoint Havoced: sqlite3BtreePrevious
+Current: sqlite3VtabSavepoint Havoced: sqlite3BtreeNext
+Current: sqlite3VtabSavepoint Havoced: indexColumnNotNull
+Current: sqlite3VtabSavepoint Havoced: sqlite3ExprIsTableConstant
+Current: sqlite3VtabSavepoint Havoced: sqlite3PcacheSetSpillsize
+Current: sqlite3VtabSavepoint Havoced: sqlite3PagerSetSpillsize
+Current: sqlite3VtabSavepoint Havoced: sqlite3BtreeSetSpillSize
+Current: sqlite3VtabSavepoint Havoced: sqlite3BtreeSetAutoVacuum
+Current: sqlite3VtabSavepoint Havoced: sqlite3BtreeSetPagerFlags
+Current: sqlite3VtabSavepoint Havoced: sqlite3BtreeSecureDelete
+Current: sqlite3VtabSavepoint Havoced: sqlite3PagerLockingMode
+Current: sqlite3VtabSavepoint Havoced: sqlite3ExprImpliesNonNullRow
+Current: sqlite3VtabSavepoint Havoced: sqlite3VdbeChangeToNoop
+Current: sqlite3VtabSavepoint Havoced: sqlite3VdbeGoto
+Current: sqlite3VtabSavepoint Havoced: sqlite3GetTempRange
+Current: sqlite3VtabSavepoint Havoced: growOpArray
+Current: sqlite3VtabSavepoint Havoced: sqlite3VdbeAddOp0
+Current: sqlite3VtabSavepoint Havoced: sqlite3AnalysisLoad
+Current: sqlite3VtabSavepoint Havoced: sqlite3BtreeSetCacheSize
+Current: sqlite3VtabSavepoint Havoced: sqlite3ExprCheckHeight
+Current: sqlite3VtabSavepoint Havoced: dupedExprNodeSize
+Current: sqlite3VtabSavepoint Havoced: dupedExprStructSize
+Current: sqlite3VtabSavepoint Havoced: dupedExprSize
+Current: sqlite3VtabSavepoint Havoced: analyzeFilterKeyword
+Current: sqlite3VtabSavepoint Havoced: analyzeOverKeyword
+Current: sqlite3VtabSavepoint Havoced: pagerOpenSavepoint
+Current: sqlite3VtabSavepoint Havoced: sqlite3PagerOpenSavepoint
+Current: sqlite3VtabSavepoint Havoced: vdbeSorterJoinAll
+Current: sqlite3VtabSavepoint Havoced: sqlite3OsLock
+Current: sqlite3VtabSavepoint Havoced: pagerLockDb
+Current: sqlite3VtabSavepoint Havoced: pager_wait_on_lock
+Current: sqlite3VtabSavepoint Havoced: btreeGetHasContent
+Current: sqlite3VtabSavepoint Havoced: sqlite3OsShmUnmap
+Current: sqlite3VtabSavepoint Havoced: sqlite3OsSleep
+Current: sqlite3VtabSavepoint Havoced: walRewriteChecksums
+Current: sqlite3VtabSavepoint Havoced: syncJournal
+Current: sqlite3VtabSavepoint Havoced: pager_incr_changecounter
+Current: sqlite3VtabSavepoint Havoced: sqlite3BtreeCommitPhaseTwo
+Current: sqlite3VtabSavepoint Havoced: ptrmapPageno
+Current: sqlite3VtabSavepoint Havoced: walFramePgno
+Current: sqlite3VtabSavepoint Havoced: pagerUndoCallback
+Current: sqlite3VtabSavepoint Havoced: pager_error
+Current: sqlite3VtabSavepoint Havoced: pager_playback
+Current: sqlite3VtabSavepoint Havoced: walLockShared
+Current: sqlite3VtabSavepoint Havoced: sqlite3WalExclusiveMode
+Current: sqlite3VtabSavepoint Havoced: pager_truncate
+Current: sqlite3VtabSavepoint Havoced: pagerFlushOnCommit
+Current: sqlite3VtabSavepoint Havoced: zeroJournalHdr
+Current: sqlite3VtabSavepoint Havoced: sqlite3OsSync
+Current: sqlite3VtabSavepoint Havoced: sqlite3OsUnlock
+Current: sqlite3VtabSavepoint Havoced: pagerUnlockDb
+Current: sqlite3VtabSavepoint Havoced: sqlite3PcacheSetPageSize
+Current: sqlite3VtabSavepoint Havoced: sqlite3BitvecTest
+Current: sqlite3VtabSavepoint Havoced: memjrnlSync
+Current: sqlite3VtabSavepoint Havoced: addToSavepointBitvecs
+Current: sqlite3VtabSavepoint Havoced: sqlite3BitvecSet
+Current: sqlite3VtabSavepoint Havoced: sqlite3BitvecTestNotNull
+Current: sqlite3VtabSavepoint Havoced: decodeFlags
+Current: sqlite3VtabSavepoint Havoced: sqlite3VdbeCloseStatement
+Current: sqlite3VtabSavepoint Havoced: sqlite3VdbeCheckFk
+Current: sqlite3VtabSavepoint Havoced: sqlite3Utf16ByteLen
+Current: sqlite3VtabSavepoint Havoced: vdbeUnbind
+Current: sqlite3VtabSavepoint Havoced: sqlite3KeywordCode
+Current: sqlite3VtabSavepoint Havoced: sqlite3_keyword_check
+Current: sqlite3VtabSavepoint Havoced: sqlite3_wal_autocheckpoint
+Current: sqlite3VtabSavepoint Havoced: sqlite3_backup_step
+Current: sqlite3VtabSavepoint Havoced: sqlite3_extended_result_codes
+Current: sqlite3VtabSavepoint Havoced: sqlite3_column_type
+Current: sqlite3VtabSavepoint Havoced: sqlite3_column_int
+Current: sqlite3VtabSavepoint Havoced: sqlite3_column_bytes16
+Current: sqlite3VtabSavepoint Havoced: sqlite3_column_bytes
+Current: sqlite3VtabSavepoint Havoced: sqlite3_busy_timeout
+Current: sqlite3VtabSavepoint Havoced: sqlite3_bind_null
+Current: sqlite3VtabSavepoint Havoced: apiHandleError
+Current: sqlite3VtabSavepoint Havoced: sqlite3ApiExit
+Current: sqlite3VtabSavepoint Havoced: isAllZero
+Current: sqlite3VtabSavepoint Havoced: sqlite3Utf8CharLen
+Current: sqlite3VtabSavepoint Havoced: unixUnlock
+Current: sqlite3VtabSavepoint Havoced: unixLock
+Current: sqlite3VtabSavepoint Havoced: nolockUnlock
+Current: sqlite3VtabSavepoint Havoced: nolockLock
+Current: sqlite3VtabSavepoint Havoced: unixShmUnmap
+Current: sqlite3VtabSavepoint Havoced: dotlockUnlock
+Current: sqlite3VtabSavepoint Havoced: dotlockLock
+Current: sqlite3VtabSavepoint Havoced: unixSync
+Current: sqlite3VtabSavepoint Havoced: unixSleep
+Current: sqlite3VtabSavepoint Havoced: memdbLock
+Current: sqlite3VtabSavepoint Havoced: memdbSync
+Current: sqlite3VtabSavepoint Havoced: memdbSleep
+Current: sqlite3VtabSavepoint Havoced: sqlite3_vfs_register
+Current: sqlite3VtabSavepoint Havoced: rehash
+Current: sqlite3VtabSavepoint Havoced: compare2pow63
+Current: sqlite3VtabSavepoint Havoced: sqlite3VdbeMemClearAndResize
+Current: sqlite3VtabSavepoint Havoced: sqlite3VdbeChangeEncoding
+Current: sqlite3VtabSavepoint Havoced: sqlite3StrAccumEnlarge
+Current: sqlite3VtabSavepoint Havoced: sqlite3ErrorToParser
+Current: sqlite3VtabSavepoint Havoced: line_contains_semicolon
+Current: sqlite3VtabSavepoint Havoced: line_is_complete
+Current: sqlite3VtabSavepoint Havoced: idxHashString
+Current: sqlite3VtabSavepoint Havoced: re_resize
+Current: sqlite3VtabSavepoint Havoced: apndShmUnmap
+Current: sqlite3VtabSavepoint Havoced: apndUnlock
+Current: sqlite3VtabSavepoint Havoced: apndLock
+Current: sqlite3VtabSavepoint Havoced: apndSync
+Current: sqlite3VtabSavepoint Havoced: apndSleep
+Current: sqlite3VtabSavepoint Havoced: deduceDatabaseType
+Current: sqlite3VtabSavepoint Havoced: sqlite3VtabUnlock
+Current: sqlite3VtabSavepoint Havoced: sqlite3VtabLock
+Current: sqlite3VtabSavepoint Havoced: sqlite3_enable_load_extension
+Current: sqlite3VtabSavepoint Havoced: sqliteDefaultBusyCallback
+Current: sqlite3VtabSavepoint Havoced: defragmentPage
+Current: sqlite3VtabSavepoint Havoced: vdbePmaReaderIncrMergeInit
+Current: sqlite3VtabSavepoint Havoced: vdbePmaReaderIncrInit
+Current: sqlite3VtabSavepoint Havoced: btreeSetHasContent
+Current: sqlite3VtabSavepoint Havoced: checkRef
+Current: sqlite3VtabSavepoint Havoced: getPageReferenced
+Current: sqlite3VtabSavepoint Havoced: sqlite3PagerMaxPageCount
+Current: sqlite3VtabSavepoint Havoced: sqlite3BtreeMaxPageCount
+Current: sqlite3VtabSavepoint Havoced: sqlite3BtreeSetVersion
+Current: sqlite3VtabSavepoint Havoced: sqlite3PagerSetJournalMode
+Current: sqlite3VtabSavepoint Havoced: sqlite3BtreeCursorHasHint
+Current: sqlite3VtabSavepoint Havoced: sqlite3BtreeBeginStmt
+Current: sqlite3VtabSavepoint Havoced: sqlite3VdbeBooleanValue
+Current: sqlite3VtabSavepoint Havoced: sqlite3Close
+Current: sqlite3VtabSavepoint Havoced: moveToChild
+Current: sqlite3VtabSavepoint Havoced: sqlite3BtreePrevious
+Current: sqlite3VtabSavepoint Havoced: sqlite3BtreeNext
+Current: sqlite3VtabSavepoint Havoced: indexColumnNotNull
+Current: sqlite3VtabSavepoint Havoced: sqlite3ExprIsTableConstant
+Current: sqlite3VtabSavepoint Havoced: sqlite3PcacheSetSpillsize
+Current: sqlite3VtabSavepoint Havoced: sqlite3PagerSetSpillsize
+Current: sqlite3VtabSavepoint Havoced: sqlite3BtreeSetSpillSize
+Current: sqlite3VtabSavepoint Havoced: sqlite3BtreeSetAutoVacuum
+Current: sqlite3VtabSavepoint Havoced: sqlite3BtreeSetPagerFlags
+Current: sqlite3VtabSavepoint Havoced: sqlite3BtreeSecureDelete
+Current: sqlite3VtabSavepoint Havoced: sqlite3PagerLockingMode
+Current: sqlite3VtabSavepoint Havoced: sqlite3ExprImpliesNonNullRow
+Current: sqlite3VtabSavepoint Havoced: sqlite3VdbeChangeToNoop
+Current: sqlite3VtabSavepoint Havoced: sqlite3VdbeGoto
+Current: sqlite3VtabSavepoint Havoced: sqlite3GetTempRange
+Current: sqlite3VtabSavepoint Havoced: growOpArray
+Current: sqlite3VtabSavepoint Havoced: sqlite3VdbeAddOp0
+Current: sqlite3VtabSavepoint Havoced: sqlite3AnalysisLoad
+Current: sqlite3VtabSavepoint Havoced: sqlite3BtreeSetCacheSize
+Current: sqlite3VtabSavepoint Havoced: sqlite3ExprCheckHeight
+Current: sqlite3VtabSavepoint Havoced: dupedExprNodeSize
+Current: sqlite3VtabSavepoint Havoced: dupedExprStructSize
+Current: sqlite3VtabSavepoint Havoced: dupedExprSize
+Current: sqlite3VtabSavepoint Havoced: analyzeFilterKeyword
+Current: sqlite3VtabSavepoint Havoced: analyzeOverKeyword
+Current: sqlite3VtabSavepoint Havoced: pagerOpenSavepoint
+Current: sqlite3VtabSavepoint Havoced: sqlite3PagerOpenSavepoint
+Current: sqlite3VtabSavepoint Havoced: vdbeSorterJoinAll
+Current: sqlite3VtabSavepoint Havoced: sqlite3OsLock
+Current: sqlite3VtabSavepoint Havoced: pagerLockDb
+Current: sqlite3VtabSavepoint Havoced: pager_wait_on_lock
+Current: sqlite3VtabSavepoint Havoced: btreeGetHasContent
+Current: sqlite3VtabSavepoint Havoced: sqlite3OsShmUnmap
+Current: sqlite3VtabSavepoint Havoced: sqlite3OsSleep
+Current: sqlite3VtabSavepoint Havoced: walRewriteChecksums
+Current: sqlite3VtabSavepoint Havoced: syncJournal
+Current: sqlite3VtabSavepoint Havoced: pager_incr_changecounter
+Current: sqlite3VtabSavepoint Havoced: sqlite3BtreeCommitPhaseTwo
+Current: sqlite3VtabSavepoint Havoced: ptrmapPageno
+Current: sqlite3VtabSavepoint Havoced: walFramePgno
+Current: sqlite3VtabSavepoint Havoced: pagerUndoCallback
+Current: sqlite3VtabSavepoint Havoced: pager_error
+Current: sqlite3VtabSavepoint Havoced: pager_playback
+Current: sqlite3VtabSavepoint Havoced: walLockShared
+Current: sqlite3VtabSavepoint Havoced: sqlite3WalExclusiveMode
+Current: sqlite3VtabSavepoint Havoced: pager_truncate
+Current: sqlite3VtabSavepoint Havoced: pagerFlushOnCommit
+Current: sqlite3VtabSavepoint Havoced: zeroJournalHdr
+Current: sqlite3VtabSavepoint Havoced: sqlite3OsSync
+Current: sqlite3VtabSavepoint Havoced: sqlite3OsUnlock
+Current: sqlite3VtabSavepoint Havoced: pagerUnlockDb
+Current: sqlite3VtabSavepoint Havoced: sqlite3PcacheSetPageSize
+Current: sqlite3VtabSavepoint Havoced: sqlite3BitvecTest
+Current: sqlite3VtabSavepoint Havoced: memjrnlSync
+Current: sqlite3VtabSavepoint Havoced: addToSavepointBitvecs
+Current: sqlite3VtabSavepoint Havoced: sqlite3BitvecSet
+Current: sqlite3VtabSavepoint Havoced: sqlite3BitvecTestNotNull
+Current: sqlite3VtabSavepoint Havoced: decodeFlags
+Current: sqlite3VtabSavepoint Havoced: sqlite3VdbeCloseStatement
+Current: sqlite3VtabSavepoint Havoced: sqlite3VdbeCheckFk
+Current: sqlite3VtabSavepoint Havoced: sqlite3Utf16ByteLen
+Current: sqlite3VtabSavepoint Havoced: vdbeUnbind
+Current: sqlite3VtabSavepoint Havoced: sqlite3KeywordCode
+Current: sqlite3VtabSavepoint Havoced: sqlite3_keyword_check
+Current: sqlite3VtabSavepoint Havoced: sqlite3_wal_autocheckpoint
+Current: sqlite3VtabSavepoint Havoced: sqlite3_backup_step
+Current: sqlite3VtabSavepoint Havoced: sqlite3_extended_result_codes
+Current: sqlite3VtabSavepoint Havoced: sqlite3_column_type
+Current: sqlite3VtabSavepoint Havoced: sqlite3_column_int
+Current: sqlite3VtabSavepoint Havoced: sqlite3_column_bytes16
+Current: sqlite3VtabSavepoint Havoced: sqlite3_column_bytes
+Current: sqlite3VtabSavepoint Havoced: sqlite3_busy_timeout
+Current: sqlite3VtabSavepoint Havoced: sqlite3_bind_null
+Current: sqlite3VtabSavepoint Havoced: apiHandleError
+Current: sqlite3VtabSavepoint Havoced: sqlite3ApiExit
+Current: sqlite3VtabSavepoint Havoced: isAllZero
+Current: sqlite3VtabSavepoint Havoced: sqlite3Utf8CharLen
+Current: sqlite3VtabSavepoint Havoced: unixUnlock
+Current: sqlite3VtabSavepoint Havoced: unixLock
+Current: sqlite3VtabSavepoint Havoced: nolockUnlock
+Current: sqlite3VtabSavepoint Havoced: nolockLock
+Current: sqlite3VtabSavepoint Havoced: unixShmUnmap
+Current: sqlite3VtabSavepoint Havoced: dotlockUnlock
+Current: sqlite3VtabSavepoint Havoced: dotlockLock
+Current: sqlite3VtabSavepoint Havoced: unixSync
+Current: sqlite3VtabSavepoint Havoced: unixSleep
+Current: sqlite3VtabSavepoint Havoced: memdbLock
+Current: sqlite3VtabSavepoint Havoced: memdbSync
+Current: sqlite3VtabSavepoint Havoced: memdbSleep
+Current: sqlite3VtabSavepoint Havoced: sqlite3_vfs_register
+Current: sqlite3VtabSavepoint Havoced: rehash
+Current: sqlite3VtabSavepoint Havoced: compare2pow63
+Current: sqlite3VtabSavepoint Havoced: sqlite3VdbeMemClearAndResize
+Current: sqlite3VtabSavepoint Havoced: sqlite3VdbeChangeEncoding
+Current: sqlite3VtabSavepoint Havoced: sqlite3StrAccumEnlarge
+Current: sqlite3VtabSavepoint Havoced: sqlite3ErrorToParser
+Current: sqlite3VtabSavepoint Havoced: line_contains_semicolon
+Current: sqlite3VtabSavepoint Havoced: line_is_complete
+Current: sqlite3VtabSavepoint Havoced: idxHashString
+Current: sqlite3VtabSavepoint Havoced: re_resize
+Current: sqlite3VtabSavepoint Havoced: apndShmUnmap
+Current: sqlite3VtabSavepoint Havoced: apndUnlock
+Current: sqlite3VtabSavepoint Havoced: apndLock
+Current: sqlite3VtabSavepoint Havoced: apndSync
+Current: sqlite3VtabSavepoint Havoced: apndSleep
+Current: sqlite3VtabSavepoint Havoced: deduceDatabaseType
+Current: sqlite3VtabSavepoint Havoced: sqlite3VtabUnlock
+
+                                                           0 sec [DONE]
+        Number of expressions:                        166223
+        after encoding
+
+      28 assertions before transformations (24 no_function_call, 3 no_back_edge, 1 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                           10426
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72689
+        Memory Model Encoder
+          Number of moved ops                              0
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                               7
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             142
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      28 assertions remain after transformations (24 no_function_call, 3 no_back_edge, 1 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...

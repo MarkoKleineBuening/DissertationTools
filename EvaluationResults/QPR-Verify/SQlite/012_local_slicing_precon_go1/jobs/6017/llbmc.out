@@ -1,0 +1,169 @@
+runJobCommand
+precondition analysis with entry:sqlite3RegisterDateTimeFunctions
+arguents: child
+arguents: job
+arguents: mode
+arguents: precondition
+handleJobInSeparateProcess0
+
+Checking job 6017 ...about to run job:
+preconNumber: 5, 1
+
+  Running Model Checker with 1 checks ...entry: sqlite3RegisterDateTimeFunctions, functionName: sqlite3InsertBuiltinFuncs
+  call void @qpr.precondition.sqlite3InsertBuiltinFuncs(%struct.FuncDef.100* getelementptr inbounds ([8 x %struct.FuncDef.100], [8 x %struct.FuncDef.100]* @sqlite3RegisterDateTimeFunctions.aDateTimeFuncs, i32 0, i32 0), i32 8)
+entry: sqlite3RegisterDateTimeFunctions, functionName: sqlite3InsertBuiltinFuncs
+entry: sqlite3RegisterDateTimeFunctions, functionName: sqlite3RegisterBuiltinFunctions
+entry: sqlite3RegisterDateTimeFunctions, functionName: sqlite3RegisterDateTimeFunctions
+try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 1
+    LoopUnrollBound : 1
+    HavocLimit : 0
+    PreconditionNumber : 5
+    PreconditionLocation : jobs/6017
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : true
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : sqlite3RegisterDateTimeFunctions
+m_checker->run()
+
+    Performing bounded model checking ...
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...TODO MKB implement precondition handling: IE
+Reading in precondition at: jobs/6017/precondition_sqlite3InsertBuiltinFuncs.txt
+preconFile: jobs/6017/precondition_sqlite3InsertBuiltinFuncs.txt
+ref: [underoverapprox]name of function arguments, argValue:  
+ref: [underoverapprox]name of function arguments, argValue:  
+name of function arguments line
+param: i32 %arg1:2147483647
+---name: i32 %arg1, value: 2147483647.
+integer, char or other simple types
+name: i32 %arg1
+assuming that there are not more then 10 arguments
+nameIndex: 1
+nameID: 1
+argument name: 
+value: 2147483647
+###new bool cond: bool % = compare(%i32__8, %i32__2147483647)
+pruneOrAssert -- adding line boolCond: bool % = compare(%i32__8, %i32__2147483647)
+param: i32 %arg1:536870912
+---name: i32 %arg1, value: 536870912.
+integer, char or other simple types
+name: i32 %arg1
+assuming that there are not more then 10 arguments
+nameIndex: 1
+nameID: 1
+argument name: 
+value: 536870912
+###new bool cond: bool % = compare(%i32__8, %i32__536870912)
+pruneOrAssert -- adding line boolCond: bool % = compare(%i32__8, %i32__536870912)
+param: i32 %arg1:16916772
+---name: i32 %arg1, value: 16916772.
+integer, char or other simple types
+name: i32 %arg1
+assuming that there are not more then 10 arguments
+nameIndex: 1
+nameID: 1
+argument name: 
+value: 16916772
+###new bool cond: bool % = compare(%i32__8, %i32__16916772)
+pruneOrAssert -- adding line boolCond: bool % = compare(%i32__8, %i32__16916772)
+param: i32 %arg1:136610817
+---name: i32 %arg1, value: 136610817.
+integer, char or other simple types
+name: i32 %arg1
+assuming that there are not more then 10 arguments
+nameIndex: 1
+nameID: 1
+argument name: 
+value: 136610817
+###new bool cond: bool % = compare(%i32__8, %i32__136610817)
+pruneOrAssert -- adding line boolCond: bool % = compare(%i32__8, %i32__136610817)
+param: i32 %arg1:1233410630
+---name: i32 %arg1, value: 1233410630.
+integer, char or other simple types
+name: i32 %arg1
+assuming that there are not more then 10 arguments
+nameIndex: 1
+nameID: 1
+argument name: 
+value: 1233410630
+###new bool cond: bool % = compare(%i32__8, %i32__1233410630)
+pruneOrAssert -- adding line boolCond: bool % = compare(%i32__8, %i32__1233410630)
+Writing precondition type at: jobs/6017/precondition_type_sqlite3RegisterDateTimeFunctions.txt
+
+Type of Precondition:
+[underoverapprox]
+precondition found, end encoding
+                      0 sec [DONE]
+        Number of expressions:                        155020
+        after encoding
+
+      5 assertions before transformations (5 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            3356
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72601
+        Memory Model Encoder
+          Number of moved ops                              0
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                             142
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      5 assertions remain after transformations (5 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...            0 sec [DONE]
+        
+                                                           0 sec [DONE]
+      after performing Check
+evaluateCheckerResultsViaRefinementLoop
+getCheckerResultAfterUpdatingMarker
+Result is NoTrace
+
+                                                           1 sec [DONE]
+    allunsafe
+    
+                                                           1 sec [DONE]
+  might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      17 assertions remain after transformations (9 no_back_edge, 8 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...

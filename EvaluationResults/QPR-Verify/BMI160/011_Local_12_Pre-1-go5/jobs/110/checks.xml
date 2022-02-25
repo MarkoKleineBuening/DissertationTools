@@ -1,0 +1,31 @@
+<VerificationJob>
+  <Configuration>
+    <AnalyzeChecksIndividually value="true" />
+    <BitcodeTraces value="false" />
+    <CheckOnlyPrecondition value="true" />
+    <EnableSlicing value="false" />
+    <EntryPoint value="perform_accel_self_test" />
+    <FixPoint value="true" />
+    <IgnoreMissingFunctions value="false" />
+    <InitializedGlobals value="false" />
+    <LoopUnrollBound value="12" />
+    <PreconditionCheckMemory value="false" />
+    <PreconditionLocation value="jobs/110" />
+    <PreconditionNumber value="5" />
+    <SourceDirectory value="/home/i12/mbuening/100_Dissertation/BMI160/BMI160_driver" />
+    <TimeOut value="300" />
+  </Configuration>
+  <CheckList>
+    <Check id="812" location="940" category="explicit.conversion.overflow" status="safe" scope="get_accel_data">
+      <Annotations>
+        <Annotation>An explicit conversion operation can overflow.</Annotation>
+        <Annotation>A loop bound was reached (/home/i12/mbuening/100_Dissertation/BMI160/BMI160_driver//home/i12/mbuening/100_Dissertation/BMI160/BMI160_driver/BMI160Stubs.c:25:3)</Annotation>
+      </Annotations>
+      <EntryStatus>
+        <SingleEntryStatus>perform_accel_self_test, safe</SingleEntryStatus>
+      </EntryStatus>
+    </Check>
+  </CheckList>
+  <Annotation>allunsafe</Annotation>
+  <Status>allsafe</Status>
+</VerificationJob>

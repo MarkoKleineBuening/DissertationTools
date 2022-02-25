@@ -1,0 +1,122 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 5268 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 2
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/5268
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : exprDup
+m_checker->run()
+
+    Performing bounded model checking ...
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...Current: dupedExprSize Havoced: dupedExprNodeSize
+Current: sqlite3DbMallocRawNN Havoced: dbMallocRawFinish
+Current: sqlite3DbMallocRawNN Havoced: dbMallocRawFinish
+
+        Unrolling loop in function "llbmc.strlen" for 0 iterations succeeded.
+        Transformed "llbmc.strlen" from 8 to 9 instructionsisMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %31, i8* %32, i64 %33, i32 1, i1 false), !dbg !5689
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %38, i8 0, i64 %40, i32 1, i1 false), !dbg !5699
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %27, i8* %28, i64 %29, i32 1, i1 false), !dbg !5684
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %55, i8* %60, i64 %61, i32 1, i1 false), !dbg !5722
+
+        Unrolling loop in function "sqlite3ExprListDup" for 1 iterations succeeded.
+        Transformed "sqlite3ExprListDup" from 17 to 18 basic blocks and from 165 to 172 instructionsCurrent: sqlite3ExprListDup Havoced: sqlite3DbMallocSize
+Current: sqlite3ExprListDup Havoced: sqlite3DbMallocRawNN
+Current: sqlite3ExprListDup Havoced: sqlite3ExprDup
+Current: sqlite3ExprListDup Havoced: sqlite3DbStrDup
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %98, i8* %99, i64 4, i32 4, i1 false), !dbg !5720
+
+        Unrolling loop in function "sqlite3SelectDup" for 1 iterations succeeded.
+        Transformed "sqlite3SelectDup" from 12 to 14 basic blocks and from 146 to 153 instructionsCurrent: sqlite3SelectDup Havoced: sqlite3DbMallocRawNN
+Current: sqlite3SelectDup Havoced: sqlite3ExprListDup
+Current: sqlite3SelectDup Havoced: sqlite3SrcListDup
+Current: sqlite3SelectDup Havoced: sqlite3ExprDup
+Current: sqlite3SelectDup Havoced: sqlite3ExprListDup
+Current: sqlite3SelectDup Havoced: sqlite3ExprDup
+Current: sqlite3SelectDup Havoced: sqlite3ExprListDup
+Current: sqlite3SelectDup Havoced: sqlite3ExprDup
+Current: sqlite3SelectDup Havoced: sqlite3WithDup
+Current: sqlite3SelectDup Havoced: sqlite3WindowListDup
+Current: sqlite3SelectDup Havoced: gatherSelectWindows
+Current: sqlite3SelectDup Havoced: sqlite3SelectDelete
+Current: dupedExprNodeSize Havoced: dupedExprStructSize
+Current: sqlite3WindowDup Havoced: sqlite3DbMallocZero
+Current: sqlite3WindowDup Havoced: sqlite3DbStrDup
+Current: sqlite3WindowDup Havoced: sqlite3DbStrDup
+Current: sqlite3WindowDup Havoced: sqlite3ExprDup
+Current: sqlite3WindowDup Havoced: sqlite3ExprListDup
+Current: sqlite3WindowDup Havoced: sqlite3ExprListDup
+Current: sqlite3WindowDup Havoced: sqlite3ExprDup
+Current: sqlite3WindowDup Havoced: sqlite3ExprDup
+
+                                                           0 sec [DONE]
+        Number of expressions:                        156721
+        after encoding
+
+      11 assertions before transformations (6 no_function_call, 4 no_back_edge, 1 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            4260
+        Fixed Memory Address Assigner
+          Number of moved ops                              1
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72704
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               2
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                              19
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             161
+        ToASC Analyser
+          Memcpy/memset found                            yes
+        Byte-Based Memory Creator
+          Number of rewrites                            9174
+        Instantiation-Based ToASC Simplifier
+          Number of rewrites                               1
+        Simplifier
+          Number of moved ops                            203
+          Number of rewrites                           23947
+        FP Abstraction
+          Number of rewrites                              22
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      11 assertions remain after transformations (6 no_function_call, 4 no_back_edge, 1 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...

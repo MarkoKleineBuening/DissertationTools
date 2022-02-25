@@ -1,0 +1,35 @@
+<VerificationJob>
+  <Configuration>
+    <AnalyzeChecksIndividually value="true" />
+    <BitcodeTraces value="false" />
+    <CheckCallers value="true" />
+    <DumpVerifierBitcodeFiles value="false" />
+    <EnableSlicing value="false" />
+    <EntryPoint value="subjournalPage" />
+    <FixPoint value="true" />
+    <ForkJobs value="true" />
+    <HavocLimit value="2" />
+    <Hosted value="true" />
+    <IgnoreMissingFunctions value="false" />
+    <InitializedGlobals value="false" />
+    <LoopUnrollBound value="1" />
+    <PreconditionLocation value="jobs/2566" />
+    <SourceDirectory value="/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld" />
+    <TimeOut value="600" />
+    <XMLTraces value="false" />
+  </Configuration>
+  <CheckList>
+    <Check id="8419" location="9149" category="arithmetic.overflow" status="internalerror" scope="addToSavepointBitvecs">
+      <Annotations>
+        <Annotation>The model checker terminated with an exception (job:2566)</Annotation>
+      </Annotations>
+      <EntryStatus>
+        <SingleEntryStatus>getPageNormal, unknown</SingleEntryStatus>
+        <SingleEntryStatus>pagerAddPageToRollbackJournal, todo</SingleEntryStatus>
+        <SingleEntryStatus>subjournalPage, internalerror</SingleEntryStatus>
+      </EntryStatus>
+    </Check>
+  </CheckList>
+  <Annotation>The model checker terminated with an exception</Annotation>
+  <Status>internalerror</Status>
+</VerificationJob>

@@ -1,0 +1,53 @@
+<VerificationJob>
+  <Configuration>
+    <AnalyzeChecksIndividually value="true" />
+    <BitcodeTraces value="false" />
+    <CheckOnlyPrecondition value="true" />
+    <DumpVerifierBitcodeFiles value="false" />
+    <EnableSlicing value="true" />
+    <EntryPoint value="openDatabase" />
+    <FixPoint value="true" />
+    <ForkJobs value="true" />
+    <Hosted value="true" />
+    <IgnoreMissingFunctions value="false" />
+    <InitializedGlobals value="false" />
+    <LoopUnrollBound value="1" />
+    <PreconditionLocation value="jobs/8218" />
+    <PreconditionNumber value="5" />
+    <SourceDirectory value="/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld" />
+    <StopEncodingAfterCheck value="true" />
+    <StopEncodingAfterCheckLoop value="1" />
+    <TimeOut value="600" />
+    <XMLTraces value="false" />
+  </Configuration>
+  <CheckList>
+    <Check id="27077" location="30333" category="arithmetic.overflow" status="safe" scope="sqlite3_initialize">
+      <Annotations>
+        <Annotation>A signed arithmetic operation can overflow.</Annotation>
+      </Annotations>
+      <EntryStatus>
+        <SingleEntryStatus>main, safe</SingleEntryStatus>
+        <SingleEntryStatus>openDatabase, safe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3_auto_extension, safe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3_complete16, safe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3_hard_heap_limit64, safe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3_malloc, safe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3_malloc64, safe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3_mprintf, safe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3_mutex_alloc, safe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3_open16, safe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3_randomness, safe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3_realloc, safe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3_realloc64, safe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3_reset_auto_extension, safe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3_soft_heap_limit64, safe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3_vfs_find, safe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3_vfs_register, safe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3_vfs_unregister, safe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3_vmprintf, safe</SingleEntryStatus>
+      </EntryStatus>
+    </Check>
+  </CheckList>
+  <Annotation>allunsafe</Annotation>
+  <Status>allsafe</Status>
+</VerificationJob>

@@ -1,0 +1,106 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 2161 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 1
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/2161
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : unixShmPurge
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "unixShmPurge" for 1 iterations succeeded.getMatchingFunctions
+res.push_back: munmap
+res.push_back: sqlite3PutVarint
+res.push_back: putVarint64
+
+      Transformed "unixShmPurge" from 13 to 56 basic blocks and from 84 to 206 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...Current: unixShmPurge Havoced: unixShmRegionPerMap
+Current: unixShmPurge Havoced: sqlite3_mutex_free
+Current: unixShmPurge Havoced: sqlite3_free
+Current: unixShmPurge Havoced: backupTruncateFile
+Current: unixShmPurge Havoced: putVarint64
+Current: unixShmPurge Havoced: btreePayloadToLocal
+Current: unixShmPurge Havoced: sqlite3PutVarint
+Current: unixShmPurge Havoced: sqlite3MulInt64
+Current: unixShmPurge Havoced: sqlite3SubInt64
+Current: unixShmPurge Havoced: whereLoopAddBtree
+Current: unixShmPurge Havoced: sqlite3BtreeSetMmapLimit
+Current: unixShmPurge Havoced: sqlite3OsTruncate
+Current: unixShmPurge Havoced: memjrnlTruncate
+Current: unixShmPurge Havoced: sqlite3_blob_reopen
+Current: unixShmPurge Havoced: sqlite3_result_zeroblob64
+Current: unixShmPurge Havoced: sqlite3AddInt64
+Current: unixShmPurge Havoced: fcntlSizeHint
+Current: unixShmPurge Havoced: unixMapfile
+Current: unixShmPurge Havoced: unixTruncate
+Current: unixShmPurge Havoced: memdbEnlarge
+Current: unixShmPurge Havoced: memdbTruncate
+Current: unixShmPurge Havoced: apndTruncate
+Current: unixShmPurge Havoced: sqlite3_free
+Current: unixShmPurge Havoced: robust_close
+Current: unixShmPurge Havoced: sqlite3_free
+                      0 sec [DONE]
+        Number of expressions:                        155579
+        after encoding
+
+      4 assertions before transformations (2 no_function_call, 1 no_back_edge, 1 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            3682
+        Fixed Memory Address Assigner
+          Number of moved ops                              2
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72609
+        Memory Model Encoder
+          Number of moved ops                              0
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                               2
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             142
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      4 assertions remain after transformations (2 no_function_call, 1 no_back_edge, 1 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...

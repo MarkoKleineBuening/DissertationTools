@@ -1,0 +1,135 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 7512 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 1
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/7512
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : exprAnalyzeOrTerm
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "exprAnalyzeOrTerm" for 1 iterations succeeded.
+      Unrolling loop in function "exprAnalyzeOrTerm" for 1 iterations succeeded.
+      Unrolling loop in function "exprAnalyzeOrTerm" for 1 iterations succeeded.
+      Unrolling loop in function "exprAnalyzeOrTerm" for 1 iterations succeeded.
+      Unrolling loop in function "exprAnalyzeOrTerm" for 1 iterations succeeded.
+      Unrolling loop in function "exprAnalyzeOrTerm" for 1 iterations succeeded.
+      Unrolling loop in function "exprAnalyzeOrTerm" for 1 iterations succeeded.
+      Unrolling loop in function "exprAnalyzeOrTerm" for 1 iterations succeeded.
+      Transformed "exprAnalyzeOrTerm" from 92 to 195 basic blocks and from 602 to 1213 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...Current: exprAnalyzeOrTerm Havoced: sqlite3DbMallocZero
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %25, i8 0, i64 448, i32 8, i1 false), !dbg !5732
+Current: exprAnalyzeOrTerm Havoced: sqlite3WhereClauseInit
+Current: exprAnalyzeOrTerm Havoced: sqlite3WhereSplit
+Current: exprAnalyzeOrTerm Havoced: sqlite3WhereExprAnalyze
+Current: exprAnalyzeOrTerm Havoced: sqlite3WhereGetMask
+Current: exprAnalyzeOrTerm Havoced: sqlite3WhereGetMask
+Current: exprAnalyzeOrTerm Havoced: sqlite3DbMallocRawNN
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %60, i8 0, i64 448, i32 8, i1 false), !dbg !5777
+Current: exprAnalyzeOrTerm Havoced: sqlite3WhereClauseInit
+Current: exprAnalyzeOrTerm Havoced: sqlite3WhereSplit
+Current: exprAnalyzeOrTerm Havoced: sqlite3WhereExprAnalyze
+Current: exprAnalyzeOrTerm Havoced: allowedOp
+Current: exprAnalyzeOrTerm Havoced: sqlite3WhereGetMask
+Current: exprAnalyzeOrTerm Havoced: whereNthSubterm
+Current: exprAnalyzeOrTerm Havoced: whereNthSubterm
+Current: exprAnalyzeOrTerm Havoced: whereCombineDisjuncts
+Current: exprAnalyzeOrTerm Havoced: whereNthSubterm
+Current: exprAnalyzeOrTerm Havoced: whereNthSubterm
+Current: exprAnalyzeOrTerm Havoced: sqlite3WhereGetMask
+Current: exprAnalyzeOrTerm Havoced: sqlite3ExprCompare
+Current: exprAnalyzeOrTerm Havoced: sqlite3ExprAffinity
+Current: exprAnalyzeOrTerm Havoced: sqlite3ExprAffinity
+Current: exprAnalyzeOrTerm Havoced: sqlite3WhereGetMask
+Current: exprAnalyzeOrTerm Havoced: sqlite3ExprCompare
+Current: exprAnalyzeOrTerm Havoced: sqlite3ExprAffinity
+Current: exprAnalyzeOrTerm Havoced: sqlite3ExprAffinity
+Current: exprAnalyzeOrTerm Havoced: sqlite3ExprCompare
+Current: exprAnalyzeOrTerm Havoced: sqlite3ExprAffinity
+Current: exprAnalyzeOrTerm Havoced: sqlite3ExprAffinity
+Current: exprAnalyzeOrTerm Havoced: sqlite3ExprCompare
+Current: exprAnalyzeOrTerm Havoced: sqlite3ExprAffinity
+Current: exprAnalyzeOrTerm Havoced: sqlite3ExprAffinity
+Current: exprAnalyzeOrTerm Havoced: sqlite3ExprDup
+Current: exprAnalyzeOrTerm Havoced: sqlite3ExprListAppend
+Current: exprAnalyzeOrTerm Havoced: sqlite3ExprDup
+Current: exprAnalyzeOrTerm Havoced: sqlite3PExpr
+Current: exprAnalyzeOrTerm Havoced: sqlite3ExprListDelete
+Current: exprAnalyzeOrTerm Havoced: transferJoinMarkings
+Current: exprAnalyzeOrTerm Havoced: whereClauseInsert
+Current: exprAnalyzeOrTerm Havoced: exprAnalyze
+Current: exprAnalyzeOrTerm Havoced: markTermAsChild
+Current: exprAnalyzeOrTerm Havoced: sqlite3WhereGetMask
+Current: exprAnalyzeOrTerm Havoced: sqlite3WhereGetMask
+Current: exprAnalyzeOrTerm Havoced: sqlite3DbMallocRawNN
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %167, i8 0, i64 448, i32 8, i1 false), !dbg !5777
+Current: exprAnalyzeOrTerm Havoced: sqlite3WhereClauseInit
+Current: exprAnalyzeOrTerm Havoced: sqlite3WhereSplit
+Current: exprAnalyzeOrTerm Havoced: sqlite3WhereExprAnalyze
+Current: exprAnalyzeOrTerm Havoced: allowedOp
+Current: exprAnalyzeOrTerm Havoced: sqlite3WhereGetMask
+                      0 sec [DONE]
+        Number of expressions:                        157096
+        after encoding
+
+      13 assertions before transformations (11 no_back_edge, 2 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            4535
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72760
+        Memory Model Encoder
+          Number of moved ops                              0
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                               5
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             148
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      13 assertions remain after transformations (11 no_back_edge, 2 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...

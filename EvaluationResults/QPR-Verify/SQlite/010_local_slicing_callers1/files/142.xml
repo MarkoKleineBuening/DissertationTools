@@ -1,0 +1,42 @@
+<SourceFile>
+  <Line number="1">/* Copyright (C) 2001-2020 Free Software Foundation, Inc.</Line>
+  <Line number="2">   This file is part of the GNU C Library.</Line>
+  <Line number="3"></Line>
+  <Line number="4">   The GNU C Library is free software; you can redistribute it and/or</Line>
+  <Line number="5">   modify it under the terms of the GNU Lesser General Public</Line>
+  <Line number="6">   License as published by the Free Software Foundation; either</Line>
+  <Line number="7">   version 2.1 of the License, or (at your option) any later version.</Line>
+  <Line number="8"></Line>
+  <Line number="9">   The GNU C Library is distributed in the hope that it will be useful,</Line>
+  <Line number="10">   but WITHOUT ANY WARRANTY; without even the implied warranty of</Line>
+  <Line number="11">   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU</Line>
+  <Line number="12">   Lesser General Public License for more details.</Line>
+  <Line number="13"></Line>
+  <Line number="14">   You should have received a copy of the GNU Lesser General Public</Line>
+  <Line number="15">   License along with the GNU C Library; if not, see</Line>
+  <Line number="16">   &lt;https://www.gnu.org/licenses/&gt;.  */</Line>
+  <Line number="17"></Line>
+  <Line number="18">/* Define the machine-dependent type `jmp_buf&apos;.  x86-64 version.  */</Line>
+  <Line number="19">#ifndef _BITS_SETJMP_H</Line>
+  <Line number="20">#define _BITS_SETJMP_H  1</Line>
+  <Line number="21"></Line>
+  <Line number="22">#if !defined _SETJMP_H &amp;&amp; !defined _PTHREAD_H</Line>
+  <Line number="23"># error &quot;Never include &lt;bits/setjmp.h&gt; directly; use &lt;setjmp.h&gt; instead.&quot;</Line>
+  <Line number="24">#endif</Line>
+  <Line number="25"></Line>
+  <Line number="26">#include &lt;bits/wordsize.h&gt;</Line>
+  <Line number="27"></Line>
+  <Line number="28">#ifndef _ASM</Line>
+  <Line number="29"></Line>
+  <Line number="30"># if __WORDSIZE == 64</Line>
+  <Line number="31">typedef long int __jmp_buf[8];</Line>
+  <Line number="32"># elif defined  __x86_64__</Line>
+  <Line number="33">__extension__ typedef long long int __jmp_buf[8];</Line>
+  <Line number="34"># else</Line>
+  <Line number="35">typedef int __jmp_buf[6];</Line>
+  <Line number="36"># endif</Line>
+  <Line number="37"></Line>
+  <Line number="38">#endif</Line>
+  <Line number="39"></Line>
+  <Line number="40">#endif  /* bits/setjmp.h */</Line>
+</SourceFile>

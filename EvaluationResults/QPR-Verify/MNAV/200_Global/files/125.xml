@@ -1,0 +1,339 @@
+<SourceFile>
+  <Line number="1">/******************************************************************************</Line>
+  <Line number="2">* FILE: imugps.c</Line>
+  <Line number="3">* DESCRIPTION:</Line>
+  <Line number="4">*   </Line>
+  <Line number="5">*   </Line>
+  <Line number="6">*</Line>
+  <Line number="7">* SOURCE: </Line>
+  <Line number="8">* LAST REVISED: 4/05/06 Jung Soon Jang</Line>
+  <Line number="9">******************************************************************************/</Line>
+  <Line number="10">#include &lt;stdio.h&gt;</Line>
+  <Line number="11">#include &lt;string.h&gt;</Line>
+  <Line number="12">#include &lt;unistd.h&gt;</Line>
+  <Line number="13">#include &lt;fcntl.h&gt;</Line>
+  <Line number="14">#include &lt;errno.h&gt;</Line>
+  <Line number="15">#include &lt;termios.h&gt;</Line>
+  <Line number="16">#include &lt;math.h&gt;</Line>
+  <Line number="17">#include &lt;pthread.h&gt;</Line>
+  <Line number="18"></Line>
+  <Line number="19"></Line>
+  <Line number="20">#include &quot;serial.h&quot;</Line>
+  <Line number="21">#include &quot;globaldefs.h&quot;</Line>
+  <Line number="22"></Line>
+  <Line number="23">//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</Line>
+  <Line number="24">//uNAV packet length definition</Line>
+  <Line number="25">//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</Line>
+  <Line number="26">#define FULL_PACKET_LENGTH	38</Line>
+  <Line number="27">#define SENSOR_PACKET_LENGTH    51   </Line>
+  <Line number="28">#define GPS_PACKET_LENGTH	35</Line>
+  <Line number="29">#define FULL_PACKET_SIZE        86   // scaled mode with sampling less than 100Hz</Line>
+  <Line number="30">#define fullspeed		0</Line>
+  <Line number="31"></Line>
+  <Line number="32">#define D2R			0.017453292519940</Line>
+  <Line number="33">#define R2D			57.29577951308232</Line>
+  <Line number="34">#define g			9.81</Line>
+  <Line number="35"></Line>
+  <Line number="36">//temperature compensation for accel.</Line>
+  <Line number="37">//temperature compensation for mag.</Line>
+  <Line number="38"></Line>
+  <Line number="39">//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</Line>
+  <Line number="40">//prototype definition</Line>
+  <Line number="41">//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</Line>
+  <Line number="42">int  checksum(byte* buffer, int packet_len);</Line>
+  <Line number="43">void decode_imupacket(struct imu *data, byte* buffer);</Line>
+  <Line number="44">void decode_gpspacket(struct gps *data, byte* buffer);</Line>
+  <Line number="45">extern void snap_time_interval(char *threadname,int displaytime,short id);</Line>
+  <Line number="46">extern double get_Time();</Line>
+  <Line number="47"></Line>
+  <Line number="48">//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</Line>
+  <Line number="49">//global variables</Line>
+  <Line number="50">//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</Line>
+  <Line number="51">extern short screen_on;</Line>
+  <Line number="52">extern char  buf_err[50];</Line>
+  <Line number="53">int   	     sPort0;</Line>
+  <Line number="54"></Line>
+  <Line number="55"></Line>
+  <Line number="56">void *imugps_acq(void *thread_id)</Line>
+  <Line number="57">{</Line>
+  <Line number="58">  int		count=0,nbytes=0,headerOK=0;</Line>
+  <Line number="59">  short		i=<CheckRefs ids="140">0</CheckRefs>;</Line>
+  <Line number="60">  static int    GPS_INIT=<CheckRefs ids="141">FALSE</CheckRefs>,GPS_FULL=0,err_cnt=0;</Line>
+  <Line number="61">  byte  	input_buffer[FULL_PACKET_SIZE]={<CheckRefs ids="142">0</CheckRefs>,};</Line>
+  <Line number="62">  byte  	SCALED_MODE[11] ={<CheckRefs ids="143">0x55</CheckRefs>,<CheckRefs ids="144">0x55</CheckRefs>,<CheckRefs ids="145">0x53</CheckRefs>,<CheckRefs ids="146">0x46</CheckRefs>,<CheckRefs ids="147">0x01</CheckRefs>,<CheckRefs ids="148">0x00</CheckRefs>,<CheckRefs ids="149">0x03</CheckRefs>,<CheckRefs ids="150">0x00</CheckRefs>, <CheckRefs ids="151">&apos;S&apos;</CheckRefs>,<CheckRefs ids="152">0x00</CheckRefs>,<CheckRefs ids="153">0xF0</CheckRefs>};</Line>
+  <Line number="63">  byte          CH_BAUD[11]     ={<CheckRefs ids="154">0x55</CheckRefs>,<CheckRefs ids="155">0x55</CheckRefs>,<CheckRefs ids="156">0x57</CheckRefs>,<CheckRefs ids="157">0x46</CheckRefs>,<CheckRefs ids="158">0x01</CheckRefs>,<CheckRefs ids="159">0x00</CheckRefs>,<CheckRefs ids="160">0x02</CheckRefs>,<CheckRefs ids="161">0x00</CheckRefs>,<CheckRefs ids="162">0x03</CheckRefs>,<CheckRefs ids="163">0x00</CheckRefs>,<CheckRefs ids="164">0xA3</CheckRefs>};</Line>
+  <Line number="64">  byte		CH_SAMP[11]     ={<CheckRefs ids="165">0x55</CheckRefs>,<CheckRefs ids="166">0x55</CheckRefs>,<CheckRefs ids="167">0x53</CheckRefs>,<CheckRefs ids="168">0x46</CheckRefs>,<CheckRefs ids="169">0x01</CheckRefs>,<CheckRefs ids="170">0x00</CheckRefs>,<CheckRefs ids="171">0x01</CheckRefs>,<CheckRefs ids="172">0x00</CheckRefs>,<CheckRefs ids="173">0x02</CheckRefs>,<CheckRefs ids="174">0x00</CheckRefs>,<CheckRefs ids="175">0x9D</CheckRefs>};</Line>
+  <Line number="65">  byte          CH_SERVO[7]     ={<CheckRefs ids="176">0x55</CheckRefs>,<CheckRefs ids="177">0x55</CheckRefs>,<CheckRefs ids="178">0x53</CheckRefs>,<CheckRefs ids="179">0x50</CheckRefs>,<CheckRefs ids="180">0x08</CheckRefs>,<CheckRefs ids="181">0x00</CheckRefs>,<CheckRefs ids="182">0xAB</CheckRefs>};</Line>
+  <Line number="66">  byte		temp;</Line>
+  <Line number="67">  FILE   	*fimu,*fgps;</Line>
+  <Line number="68">  </Line>
+  <Line number="69">  /*********************************************************************</Line>
+  <Line number="70">   *Open Files</Line>
+  <Line number="71">   *********************************************************************/</Line>
+  <Line number="72">  if (screen_on) {</Line>
+  <Line number="73">         if((fimu = fopen(&quot;/mnt/cf1/imu.dat&quot;,&quot;w+b&quot;))==NULL) {</Line>
+  <Line number="74">            printf(&quot;imu.dat cannot be created in /mnt/cf1 directory...error!\n&quot;);</Line>
+  <Line number="75">            _exit(<CheckRefs ids="183">-</CheckRefs>1);</Line>
+  <Line number="76">         }</Line>
+  <Line number="77">	 if((fgps = fopen(&quot;/mnt/cf1/gps.dat&quot;,&quot;w+b&quot;))==NULL) {</Line>
+  <Line number="78">            printf(&quot;gps.dat cannot be created in /mnt/cf1 directory...error!\n&quot;);</Line>
+  <Line number="79">            _exit(<CheckRefs ids="184">-</CheckRefs>1);</Line>
+  <Line number="80">         }</Line>
+  <Line number="81">  }</Line>
+  <Line number="82"></Line>
+  <Line number="83">#ifndef NCURSE_DISPLAY_OPTION</Line>
+  <Line number="84">  printf(&quot;[imugps_acq]::thread[%d] initiated...\n&quot;,thread_id);</Line>
+  <Line number="85">#endif</Line>
+  <Line number="86">  </Line>
+  <Line number="87">  /*********************************************************************</Line>
+  <Line number="88">   *Open and configure Serial Port2 (com2)</Line>
+  <Line number="89">   *********************************************************************/</Line>
+  <Line number="90">  sPort0 = open_serial(SERIAL_PORT2,BAUDRATE_38400); </Line>
+  <Line number="91">      </Line>
+  <Line number="92">  while (nbytes != 11) nbytes = <CheckRefs ids="185">write</CheckRefs>(sPort0,(char*)CH_BAUD, <CheckRefs ids="186">11</CheckRefs>);     nbytes = 0;  </Line>
+  <Line number="93">  close(sPort0);</Line>
+  <Line number="94">  sPort0 = open_serial(SERIAL_PORT2,BAUDRATE_57600); </Line>
+  <Line number="95">  </Line>
+  <Line number="96">    </Line>
+  <Line number="97">  while (nbytes != 11) nbytes = <CheckRefs ids="187">write</CheckRefs>(sPort0,(char*)CH_SAMP, <CheckRefs ids="188">11</CheckRefs>);     nbytes = 0;  </Line>
+  <Line number="98">  while (nbytes != 11) nbytes = <CheckRefs ids="189">write</CheckRefs>(sPort0,(char*)SCALED_MODE, <CheckRefs ids="190">11</CheckRefs>); nbytes = 0;</Line>
+  <Line number="99">  while (nbytes !=  7) nbytes = <CheckRefs ids="191">write</CheckRefs>(sPort0,(char*)CH_SERVO, <CheckRefs ids="192">7</CheckRefs>);     nbytes = 0;  </Line>
+  <Line number="100">  </Line>
+  <Line number="101">  while (1) {</Line>
+  <Line number="102">  /*********************************************************************</Line>
+  <Line number="103">   *Find start of packet: the heade r (2 bytes) starts with 0x5555</Line>
+  <Line number="104">   *********************************************************************/</Line>
+  <Line number="105">  </Line>
+  <Line number="106">  while (headerOK !=2)</Line>
+  <Line number="107">  {</Line>
+  <Line number="108">     while(<CheckRefs ids="193">1</CheckRefs>!=read(sPort0,input_buffer,<CheckRefs ids="194">1</CheckRefs>));</Line>
+  <Line number="109">     if (<CheckRefs ids="195">input_buffer</CheckRefs>[0<CheckRefs ids="196">]</CheckRefs> == 0x55) headerOK<CheckRefs ids="197">++</CheckRefs>;</Line>
+  <Line number="110">     else		 	  headerOK = 0;</Line>
+  <Line number="111">  }</Line>
+  <Line number="112">     	</Line>
+  <Line number="113">  headerOK = 0; while(<CheckRefs ids="198">1</CheckRefs>!=read(sPort0,&amp;input_buffer[2<CheckRefs ids="199">]</CheckRefs>,<CheckRefs ids="200">1</CheckRefs>));</Line>
+  <Line number="114">  nbytes = 3; </Line>
+  <Line number="115">  </Line>
+  <Line number="116">  </Line>
+  <Line number="117">  /*********************************************************************</Line>
+  <Line number="118">   *Read packet contents</Line>
+  <Line number="119">   *********************************************************************/</Line>
+  <Line number="120">  switch (<CheckRefs ids="201">input_buffer</CheckRefs>[2<CheckRefs ids="202">]</CheckRefs>)</Line>
+  <Line number="121">  {</Line>
+  <Line number="122">	case &apos;S&apos;: /* IMU packet without GPS */</Line>
+  <Line number="123">		  while(nbytes &lt; SENSOR_PACKET_LENGTH)</Line>
+  <Line number="124">		  {</Line>
+  <Line number="125">		    nbytes <CheckRefs ids="203">+=</CheckRefs> read(sPort0, input_buffer+nbytes, SENSOR_PACKET_LENGTH<CheckRefs ids="204,205">-</CheckRefs>nbytes); </Line>
+  <Line number="126">		  }</Line>
+  <Line number="127"></Line>
+  <Line number="128">		  /*************************</Line>
+  <Line number="129">                   *check checksum</Line>
+  <Line number="130">                   *************************/</Line>
+  <Line number="131">                  if(checksum(input_buffer,SENSOR_PACKET_LENGTH)==TRUE)</Line>
+  <Line number="132">		  {</Line>
+  <Line number="133"></Line>
+  <Line number="134">		     pthread_mutex_lock(&amp;mutex_imu);</Line>
+  <Line number="135">		       decode_imupacket(&amp;imupacket, input_buffer);</Line>
+  <Line number="136">		       pthread_cond_signal(&amp;trigger_ahrs);</Line>
+  <Line number="137">		       if(screen_on) fwrite(&amp;imupacket, sizeof(struct imu),<CheckRefs ids="206">1</CheckRefs>,fimu);</Line>
+  <Line number="138">		     pthread_mutex_unlock(&amp;mutex_imu);  </Line>
+  <Line number="139">			     </Line>
+  <Line number="140">		     </Line>
+  <Line number="141"></Line>
+  <Line number="142">		  }</Line>
+  <Line number="143">                  else {</Line>
+  <Line number="144">#ifndef NCURSE_DISPLAY_OPTION </Line>
+  <Line number="145">                  	printf(&quot;[imu]:checksum error...!\n&quot;); </Line>
+  <Line number="146">#endif                  	</Line>
+  <Line number="147">                  	imupacket.err_type = <CheckRefs ids="207">checksum_err</CheckRefs>; </Line>
+  <Line number="148">                  };</Line>
+  <Line number="149">       		  </Line>
+  <Line number="150">		  </Line>
+  <Line number="151">		  break;</Line>
+  <Line number="152">        case &apos;N&apos;: /* IMU packet with    GPS */</Line>
+  <Line number="153">                  while(nbytes &lt; FULL_PACKET_SIZE)</Line>
+  <Line number="154">		  {</Line>
+  <Line number="155">		    nbytes <CheckRefs ids="208">+=</CheckRefs> read(sPort0, input_buffer+nbytes, FULL_PACKET_SIZE<CheckRefs ids="209,210">-</CheckRefs>nbytes); </Line>
+  <Line number="156">		  }</Line>
+  <Line number="157"></Line>
+  <Line number="158">  		  /*************************</Line>
+  <Line number="159">                   *check checksum</Line>
+  <Line number="160">                   *************************/</Line>
+  <Line number="161">                  if(checksum(input_buffer,FULL_PACKET_SIZE)==TRUE)</Line>
+  <Line number="162">		  {</Line>
+  <Line number="163">	             pthread_mutex_lock(&amp;mutex_imu);</Line>
+  <Line number="164">		       decode_imupacket(&amp;imupacket, input_buffer);</Line>
+  <Line number="165">		       pthread_cond_signal(&amp;trigger_ahrs);</Line>
+  <Line number="166">		       if(screen_on) fwrite(&amp;imupacket, sizeof(struct imu),<CheckRefs ids="211">1</CheckRefs>,fimu);</Line>
+  <Line number="167">		     pthread_mutex_unlock(&amp;mutex_imu);  </Line>
+  <Line number="168">		     </Line>
+  <Line number="169">		     /******************************************</Line>
+  <Line number="170">                      *check GPS data packet</Line>
+  <Line number="171">                      ******************************************/</Line>
+  <Line number="172">		     //if(input_buffer[31]==(byte)0x55 &amp;&amp; input_buffer[32]==(byte)0x55 &amp;&amp; input_buffer[33]==&apos;G&apos;) </Line>
+  <Line number="173">		     if(<CheckRefs ids="212">input_buffer</CheckRefs>[33<CheckRefs ids="213">]</CheckRefs>==&apos;G&apos;) </Line>
+  <Line number="174">		     {</Line>
+  <Line number="175">	  	        pthread_mutex_lock(&amp;mutex_gps);</Line>
+  <Line number="176"> 			  decode_gpspacket(&amp;gpspacket, input_buffer);</Line>
+  <Line number="177">			  if(screen_on) fwrite(&amp;gpspacket, sizeof(struct gps),<CheckRefs ids="214">1</CheckRefs>,fgps);</Line>
+  <Line number="178">		        pthread_mutex_unlock(&amp;mutex_gps);</Line>
+  <Line number="179">		     }	</Line>
+  <Line number="180">                     else</Line>
+  <Line number="181">		     {</Line>
+  <Line number="182">#ifndef NCURSE_DISPLAY_OPTION		     	</Line>
+  <Line number="183">		         printf(&quot;[gps]:data error...!\n&quot;);</Line>
+  <Line number="184">#endif		         </Line>
+  <Line number="185">			 gpspacket.err_type = <CheckRefs ids="215">got_invalid</CheckRefs>;</Line>
+  <Line number="186">		     }	</Line>
+  <Line number="187">		  } /* end if(checksum(input_buffer... */</Line>
+  <Line number="188">		  else</Line>
+  <Line number="189">		  { </Line>
+  <Line number="190">#ifndef NCURSE_DISPLAY_OPTION		  	</Line>
+  <Line number="191">		     printf(&quot;[imu]:checksum error(gps)...!\n&quot;);</Line>
+  <Line number="192">#endif		     </Line>
+  <Line number="193">                     gpspacket.err_type = <CheckRefs ids="216">checksum_err</CheckRefs>;</Line>
+  <Line number="194">		     imupacket.err_type = <CheckRefs ids="217">checksum_err</CheckRefs>; </Line>
+  <Line number="195">		  }</Line>
+  <Line number="196">		  </Line>
+  <Line number="197">                  </Line>
+  <Line number="198">		  break;</Line>
+  <Line number="199">        default : </Line>
+  <Line number="200">#ifdef NCURSE_DISPLAY_OPTION        </Line>
+  <Line number="201">		     sprintf(buf_err,&quot;Invalid [imu] data packet (%d)&quot;,++err_cnt);</Line>
+  <Line number="202">#else</Line>
+  <Line number="203">		     printf(&quot;[imu]:invalid data packet...!\n&quot;);</Line>
+  <Line number="204">#endif		  </Line>
+  <Line number="205">		  </Line>
+  <Line number="206">		  </Line>
+  <Line number="207">  } /* end case  */</Line>
+  <Line number="208"></Line>
+  <Line number="209">  } /* end while */</Line>
+  <Line number="210"></Line>
+  <Line number="211">  //close the serial port</Line>
+  <Line number="212">  close(sPort0);</Line>
+  <Line number="213">  //close files</Line>
+  <Line number="214">  fclose(fimu);</Line>
+  <Line number="215">  fclose(fgps);</Line>
+  <Line number="216">  //exit the thread</Line>
+  <Line number="217">  pthread_exit(NULL);</Line>
+  <Line number="218"></Line>
+  <Line number="219">} /* end void *imugps_acq() */</Line>
+  <Line number="220"></Line>
+  <Line number="221">/***************************************************************************************</Line>
+  <Line number="222"> *check the checksum of the data packet</Line>
+  <Line number="223"> ***************************************************************************************/</Line>
+  <Line number="224">int checksum(byte* buffer, int packet_len)</Line>
+  <Line number="225">{</Line>
+  <Line number="226">   word     	 i=<CheckRefs ids="218">0</CheckRefs>,rcvchecksum=<CheckRefs ids="219">0</CheckRefs>;</Line>
+  <Line number="227">   //unsigned long sum=0;</Line>
+  <Line number="228">   word          sum=<CheckRefs ids="220">0</CheckRefs>;</Line>
+  <Line number="229"></Line>
+  <Line number="230">   for(i=<CheckRefs ids="221">2</CheckRefs>;<CheckRefs ids="222">i</CheckRefs>&lt;packet_len<CheckRefs ids="223">-</CheckRefs>2;i<CheckRefs ids="224">++</CheckRefs>) sum = <CheckRefs ids="227">sum</CheckRefs> <CheckRefs ids="226,225">+</CheckRefs> <CheckRefs ids="228">buffer</CheckRefs>[i];</Line>
+  <Line number="231">   rcvchecksum = (<CheckRefs ids="233">(</CheckRefs>rcvchecksum = <CheckRefs ids="234">buffer</CheckRefs>[packet_len<CheckRefs ids="235">-</CheckRefs>2]) <CheckRefs ids="230,231,232">&lt;&lt;</CheckRefs> 8) <CheckRefs ids="229">|</CheckRefs> <CheckRefs ids="236">buffer</CheckRefs>[packet_len<CheckRefs ids="237">-</CheckRefs>1];</Line>
+  <Line number="232"></Line>
+  <Line number="233">// if (rcvchecksum == sum%0x10000)</Line>
+  <Line number="234">   if (<CheckRefs ids="238">rcvchecksum</CheckRefs> == <CheckRefs ids="239">sum</CheckRefs>) //&amp;0xFFFF)</Line>
+  <Line number="235">	return    TRUE;</Line>
+  <Line number="236">   else</Line>
+  <Line number="237"> 	return    <CheckRefs ids="240">FALSE</CheckRefs>;</Line>
+  <Line number="238"></Line>
+  <Line number="239"></Line>
+  <Line number="240"></Line>
+  <Line number="241">}</Line>
+  <Line number="242"></Line>
+  <Line number="243"></Line>
+  <Line number="244">/***************************************************************************************</Line>
+  <Line number="245"> *decode the gps data packet</Line>
+  <Line number="246"> ***************************************************************************************/</Line>
+  <Line number="247">void decode_gpspacket(struct gps *data, byte* buffer)</Line>
+  <Line number="248">{</Line>
+  <Line number="249">   signed long tmp=<CheckRefs ids="241">0</CheckRefs>;</Line>
+  <Line number="250"></Line>
+  <Line number="251">   /* gps velocity in m/s */ </Line>
+  <Line number="252">   data-&gt;vn <CheckRefs ids="242">=</CheckRefs><CheckRefs ids="244">(</CheckRefs>double)((((((tmp = <CheckRefs ids="255,256">(</CheckRefs>signed char)buffer[37]<CheckRefs ids="251,252,253,254">&lt;&lt;</CheckRefs>8)|<CheckRefs ids="257">buffer</CheckRefs>[36])<CheckRefs ids="248,249,250">&lt;&lt;</CheckRefs>8)|<CheckRefs ids="258">buffer</CheckRefs>[35])<CheckRefs ids="246,245,247">&lt;&lt;</CheckRefs>8)|<CheckRefs ids="259">buffer</CheckRefs>[34])<CheckRefs ids="243">*</CheckRefs>1.0e-2; tmp=<CheckRefs ids="260">0</CheckRefs>;</Line>
+  <Line number="253">   data-&gt;ve <CheckRefs ids="261">=</CheckRefs><CheckRefs ids="263">(</CheckRefs>double)((((((tmp = <CheckRefs ids="274,275">(</CheckRefs>signed char)buffer[41]<CheckRefs ids="271,272,270,273">&lt;&lt;</CheckRefs>8)|<CheckRefs ids="276">buffer</CheckRefs>[40])<CheckRefs ids="268,267,269">&lt;&lt;</CheckRefs>8)|<CheckRefs ids="277">buffer</CheckRefs>[39])<CheckRefs ids="265,264,266">&lt;&lt;</CheckRefs>8)|<CheckRefs ids="278">buffer</CheckRefs>[38])<CheckRefs ids="262">*</CheckRefs>1.0e-2; tmp=<CheckRefs ids="279">0</CheckRefs>;</Line>
+  <Line number="254">   data-&gt;vd <CheckRefs ids="280">=</CheckRefs><CheckRefs ids="282">(</CheckRefs>double)((((((tmp = <CheckRefs ids="293,294">(</CheckRefs>signed char)buffer[45]<CheckRefs ids="289,290,291,292">&lt;&lt;</CheckRefs>8)|<CheckRefs ids="295">buffer</CheckRefs>[44])<CheckRefs ids="286,287,288">&lt;&lt;</CheckRefs>8)|<CheckRefs ids="296">buffer</CheckRefs>[43])<CheckRefs ids="284,283,285">&lt;&lt;</CheckRefs>8)|<CheckRefs ids="297">buffer</CheckRefs>[42])<CheckRefs ids="281">*</CheckRefs>1.0e-2; tmp=<CheckRefs ids="298">0</CheckRefs>;</Line>
+  <Line number="255"></Line>
+  <Line number="256">   /* gps position */</Line>
+  <Line number="257">   data-&gt;lon<CheckRefs ids="299">=</CheckRefs><CheckRefs ids="301">(</CheckRefs>double)((((((tmp = <CheckRefs ids="312,313">(</CheckRefs>signed char)buffer[49]<CheckRefs ids="310,309,308,311">&lt;&lt;</CheckRefs>8)|<CheckRefs ids="314">buffer</CheckRefs>[48])<CheckRefs ids="306,305,307">&lt;&lt;</CheckRefs>8)|<CheckRefs ids="315">buffer</CheckRefs>[47])<CheckRefs ids="303,302,304">&lt;&lt;</CheckRefs>8)|<CheckRefs ids="316">buffer</CheckRefs>[46])<CheckRefs ids="300">*</CheckRefs>1.0e-7; tmp=<CheckRefs ids="317">0</CheckRefs>;</Line>
+  <Line number="258">   data-&gt;lat<CheckRefs ids="318">=</CheckRefs><CheckRefs ids="320">(</CheckRefs>double)((((((tmp = <CheckRefs ids="331,332">(</CheckRefs>signed char)buffer[53]<CheckRefs ids="327,328,329,330">&lt;&lt;</CheckRefs>8)|<CheckRefs ids="333">buffer</CheckRefs>[52])<CheckRefs ids="324,325,326">&lt;&lt;</CheckRefs>8)|<CheckRefs ids="334">buffer</CheckRefs>[51])<CheckRefs ids="322,321,323">&lt;&lt;</CheckRefs>8)|<CheckRefs ids="335">buffer</CheckRefs>[50])<CheckRefs ids="319">*</CheckRefs>1.0e-7; tmp=<CheckRefs ids="336">0</CheckRefs>;</Line>
+  <Line number="259">   data-&gt;alt<CheckRefs ids="337">=</CheckRefs><CheckRefs ids="339">(</CheckRefs>double)((((((tmp = <CheckRefs ids="350,351">(</CheckRefs>signed char)buffer[57]<CheckRefs ids="348,347,346,349">&lt;&lt;</CheckRefs>8)|<CheckRefs ids="352">buffer</CheckRefs>[56])<CheckRefs ids="344,343,345">&lt;&lt;</CheckRefs>8)|<CheckRefs ids="353">buffer</CheckRefs>[55])<CheckRefs ids="341,340,342">&lt;&lt;</CheckRefs>8)|<CheckRefs ids="354">buffer</CheckRefs>[54])<CheckRefs ids="338">*</CheckRefs>1.0e-3; tmp=<CheckRefs ids="355">0</CheckRefs>;</Line>
+  <Line number="260">   </Line>
+  <Line number="261">   </Line>
+  <Line number="262">   /* gps time */</Line>
+  <Line number="263">   data-&gt;ITOW = (<CheckRefs ids="360">(</CheckRefs>data-&gt;ITOW = <CheckRefs ids="361">buffer</CheckRefs>[59]) <CheckRefs ids="357,358,359">&lt;&lt;</CheckRefs> 8)<CheckRefs ids="356">|</CheckRefs><CheckRefs ids="362">buffer</CheckRefs>[58];</Line>
+  <Line number="264">   data-&gt;err_type = <CheckRefs ids="363">TRUE</CheckRefs>;</Line>
+  <Line number="265">   data-&gt;time <CheckRefs ids="364">=</CheckRefs> get_Time();</Line>
+  <Line number="266"></Line>
+  <Line number="267">}</Line>
+  <Line number="268"></Line>
+  <Line number="269">/***************************************************************************************</Line>
+  <Line number="270"> *decode the imu data packet</Line>
+  <Line number="271"> ***************************************************************************************/</Line>
+  <Line number="272">void decode_imupacket(struct imu *data, byte* buffer)</Line>
+  <Line number="273">{</Line>
+  <Line number="274">   signed short tmp=<CheckRefs ids="365">0</CheckRefs>;</Line>
+  <Line number="275">   unsigned short tmpr=<CheckRefs ids="366">0</CheckRefs>;</Line>
+  <Line number="276">  </Line>
+  <Line number="277"></Line>
+  <Line number="278">   /* acceleration in m/s^2 */</Line>
+  <Line number="279">   data-&gt;ax <CheckRefs ids="367">=</CheckRefs> <CheckRefs ids="369">(</CheckRefs>double)((<CheckRefs ids="373">(</CheckRefs>tmp = <CheckRefs ids="374,375">(</CheckRefs>signed char)buffer[ 3])<CheckRefs ids="371,370,372">&lt;&lt;</CheckRefs>8)|<CheckRefs ids="376">buffer</CheckRefs>[ 4])<CheckRefs ids="368">*</CheckRefs>5.98755e-04; tmp=<CheckRefs ids="377">0</CheckRefs>;</Line>
+  <Line number="280">   data-&gt;ay <CheckRefs ids="378">=</CheckRefs> <CheckRefs ids="380">(</CheckRefs>double)((<CheckRefs ids="384">(</CheckRefs>tmp = <CheckRefs ids="385,386">(</CheckRefs>signed char)buffer[ 5])<CheckRefs ids="382,381,383">&lt;&lt;</CheckRefs>8)|<CheckRefs ids="387">buffer</CheckRefs>[ 6])<CheckRefs ids="379">*</CheckRefs>5.98755e-04; tmp=<CheckRefs ids="388">0</CheckRefs>;</Line>
+  <Line number="281">   data-&gt;az <CheckRefs ids="389">=</CheckRefs> <CheckRefs ids="391">(</CheckRefs>double)((<CheckRefs ids="395">(</CheckRefs>tmp = <CheckRefs ids="396,397">(</CheckRefs>signed char)buffer[ 7])<CheckRefs ids="392,393,394">&lt;&lt;</CheckRefs>8)|<CheckRefs ids="398">buffer</CheckRefs>[ 8])<CheckRefs ids="390">*</CheckRefs>5.98755e-04; tmp=<CheckRefs ids="399">0</CheckRefs>;</Line>
+  <Line number="282">   </Line>
+  <Line number="283">  </Line>
+  <Line number="284">   /* angular rate in rad/s */</Line>
+  <Line number="285">   data-&gt;p  <CheckRefs ids="400">=</CheckRefs> <CheckRefs ids="402">(</CheckRefs>double)((<CheckRefs ids="406">(</CheckRefs>tmp = <CheckRefs ids="407,408">(</CheckRefs>signed char)buffer[ 9])<CheckRefs ids="403,404,405">&lt;&lt;</CheckRefs>8)|<CheckRefs ids="409">buffer</CheckRefs>[10])<CheckRefs ids="401">*</CheckRefs>1.06526e-04; tmp=<CheckRefs ids="410">0</CheckRefs>;</Line>
+  <Line number="286">   data-&gt;q  <CheckRefs ids="411">=</CheckRefs> <CheckRefs ids="413">(</CheckRefs>double)((<CheckRefs ids="417">(</CheckRefs>tmp = <CheckRefs ids="418,419">(</CheckRefs>signed char)buffer[11])<CheckRefs ids="414,415,416">&lt;&lt;</CheckRefs>8)|<CheckRefs ids="420">buffer</CheckRefs>[12])<CheckRefs ids="412">*</CheckRefs>1.06526e-04; tmp=<CheckRefs ids="421">0</CheckRefs>;</Line>
+  <Line number="287">   data-&gt;r  <CheckRefs ids="422">=</CheckRefs> <CheckRefs ids="424">(</CheckRefs>double)((<CheckRefs ids="428">(</CheckRefs>tmp = <CheckRefs ids="429,430">(</CheckRefs>signed char)buffer[13])<CheckRefs ids="425,426,427">&lt;&lt;</CheckRefs>8)|<CheckRefs ids="431">buffer</CheckRefs>[14])<CheckRefs ids="423">*</CheckRefs>1.06526e-04; tmp=<CheckRefs ids="432">0</CheckRefs>;</Line>
+  <Line number="288">   </Line>
+  <Line number="289">   /* magnetic field in Gauss */</Line>
+  <Line number="290">   data-&gt;hx <CheckRefs ids="433">=</CheckRefs> <CheckRefs ids="435">(</CheckRefs>double)((<CheckRefs ids="439">(</CheckRefs>tmp = <CheckRefs ids="440,441">(</CheckRefs>signed char)buffer[15])<CheckRefs ids="436,437,438">&lt;&lt;</CheckRefs>8)|<CheckRefs ids="442">buffer</CheckRefs>[16])<CheckRefs ids="434">*</CheckRefs>6.10352e-05; tmp=<CheckRefs ids="443">0</CheckRefs>;</Line>
+  <Line number="291">   data-&gt;hy <CheckRefs ids="444">=</CheckRefs> <CheckRefs ids="446">(</CheckRefs>double)((<CheckRefs ids="450">(</CheckRefs>tmp = <CheckRefs ids="451,452">(</CheckRefs>signed char)buffer[17])<CheckRefs ids="448,447,449">&lt;&lt;</CheckRefs>8)|<CheckRefs ids="453">buffer</CheckRefs>[18])<CheckRefs ids="445">*</CheckRefs>6.10352e-05; tmp=<CheckRefs ids="454">0</CheckRefs>;</Line>
+  <Line number="292">   data-&gt;hz <CheckRefs ids="455">=</CheckRefs> <CheckRefs ids="457">(</CheckRefs>double)((<CheckRefs ids="461">(</CheckRefs>tmp = <CheckRefs ids="462,463">(</CheckRefs>signed char)buffer[19])<CheckRefs ids="458,459,460">&lt;&lt;</CheckRefs>8)|<CheckRefs ids="464">buffer</CheckRefs>[20])<CheckRefs ids="456">*</CheckRefs>6.10352e-05; tmp=<CheckRefs ids="465">0</CheckRefs>;</Line>
+  <Line number="293"></Line>
+  <Line number="294">   /* temperature in Celcius */</Line>
+  <Line number="295">   /*</Line>
+  <Line number="296">   data-&gt;Tx = (double)(((tmp = (signed char)buffer[21])&lt;&lt;8)|buffer[22])*6.10352e-03; tmp=0;</Line>
+  <Line number="297">   data-&gt;Ty = (double)(((tmp = (signed char)buffer[23])&lt;&lt;8)|buffer[24])*6.10352e-03; tmp=0;</Line>
+  <Line number="298">   data-&gt;Tz = (double)(((tmp = (signed char)buffer[25])&lt;&lt;8)|buffer[26])*6.10352e-03; tmp=0;</Line>
+  <Line number="299">   */</Line>
+  <Line number="300">   </Line>
+  <Line number="301">   /* pressure in m and m/s */</Line>
+  <Line number="302">   data-&gt;Ps <CheckRefs ids="466">=</CheckRefs> <CheckRefs ids="468">(</CheckRefs>double)((<CheckRefs ids="472">(</CheckRefs>tmp = <CheckRefs ids="473,474">(</CheckRefs>signed char)buffer[27])<CheckRefs ids="469,470,471">&lt;&lt;</CheckRefs>8)|<CheckRefs ids="475">buffer</CheckRefs>[28])<CheckRefs ids="467">*</CheckRefs>3.05176e-01; tmp=<CheckRefs ids="476">0</CheckRefs>;</Line>
+  <Line number="303">   data-&gt;Pt <CheckRefs ids="477">=</CheckRefs> <CheckRefs ids="479">(</CheckRefs>double)((<CheckRefs ids="483">(</CheckRefs>tmp = <CheckRefs ids="484,485">(</CheckRefs>signed char)buffer[29])<CheckRefs ids="480,481,482">&lt;&lt;</CheckRefs>8)|<CheckRefs ids="486">buffer</CheckRefs>[30])<CheckRefs ids="478">*</CheckRefs>2.44141e-03; tmp=<CheckRefs ids="487">0</CheckRefs>;</Line>
+  <Line number="304"></Line>
+  <Line number="305">   </Line>
+  <Line number="306">   </Line>
+  <Line number="307">   /* servo packet */</Line>
+  <Line number="308">   switch (<CheckRefs ids="488">buffer</CheckRefs>[2]) {</Line>
+  <Line number="309">      case &apos;S&apos; :   servopacket.status = buffer[32];</Line>
+  <Line number="310">   		   servopacket.chn[0<CheckRefs ids="489">]</CheckRefs> = (<CheckRefs ids="494">(</CheckRefs>tmpr = <CheckRefs ids="495">buffer</CheckRefs>[33]) <CheckRefs ids="491,492,493">&lt;&lt;</CheckRefs> 8)<CheckRefs ids="490">|</CheckRefs><CheckRefs ids="496">buffer</CheckRefs>[34]; tmpr = <CheckRefs ids="497">0</CheckRefs>;</Line>
+  <Line number="311">	           servopacket.chn[1<CheckRefs ids="498">]</CheckRefs> = (<CheckRefs ids="503">(</CheckRefs>tmpr = <CheckRefs ids="504">buffer</CheckRefs>[35]) <CheckRefs ids="500,501,502">&lt;&lt;</CheckRefs> 8)<CheckRefs ids="499">|</CheckRefs><CheckRefs ids="505">buffer</CheckRefs>[36]; tmpr = <CheckRefs ids="506">0</CheckRefs>;</Line>
+  <Line number="312">		   servopacket.chn[2<CheckRefs ids="507">]</CheckRefs> = (<CheckRefs ids="512">(</CheckRefs>tmpr = <CheckRefs ids="513">buffer</CheckRefs>[37]) <CheckRefs ids="510,509,511">&lt;&lt;</CheckRefs> 8)<CheckRefs ids="508">|</CheckRefs><CheckRefs ids="514">buffer</CheckRefs>[38]; tmpr = <CheckRefs ids="515">0</CheckRefs>;</Line>
+  <Line number="313">		   servopacket.chn[3<CheckRefs ids="516">]</CheckRefs> = (<CheckRefs ids="521">(</CheckRefs>tmpr = <CheckRefs ids="522">buffer</CheckRefs>[39]) <CheckRefs ids="518,519,520">&lt;&lt;</CheckRefs> 8)<CheckRefs ids="517">|</CheckRefs><CheckRefs ids="523">buffer</CheckRefs>[40]; tmpr = <CheckRefs ids="524">0</CheckRefs>;</Line>
+  <Line number="314">		   servopacket.chn[4<CheckRefs ids="525">]</CheckRefs> = (<CheckRefs ids="530">(</CheckRefs>tmpr = <CheckRefs ids="531">buffer</CheckRefs>[41]) <CheckRefs ids="527,528,529">&lt;&lt;</CheckRefs> 8)<CheckRefs ids="526">|</CheckRefs><CheckRefs ids="532">buffer</CheckRefs>[42]; tmpr = <CheckRefs ids="533">0</CheckRefs>;</Line>
+  <Line number="315">		   servopacket.chn[5<CheckRefs ids="534">]</CheckRefs> = (<CheckRefs ids="539">(</CheckRefs>tmpr = <CheckRefs ids="540">buffer</CheckRefs>[43]) <CheckRefs ids="536,537,538">&lt;&lt;</CheckRefs> 8)<CheckRefs ids="535">|</CheckRefs><CheckRefs ids="541">buffer</CheckRefs>[44]; tmpr = <CheckRefs ids="542">0</CheckRefs>;</Line>
+  <Line number="316">		   servopacket.chn[6<CheckRefs ids="543">]</CheckRefs> = (<CheckRefs ids="548">(</CheckRefs>tmpr = <CheckRefs ids="549">buffer</CheckRefs>[45]) <CheckRefs ids="545,546,547">&lt;&lt;</CheckRefs> 8)<CheckRefs ids="544">|</CheckRefs><CheckRefs ids="550">buffer</CheckRefs>[46]; tmpr = <CheckRefs ids="551">0</CheckRefs>;</Line>
+  <Line number="317">		   servopacket.chn[7<CheckRefs ids="552">]</CheckRefs> = (<CheckRefs ids="557">(</CheckRefs>tmpr = <CheckRefs ids="558">buffer</CheckRefs>[47]) <CheckRefs ids="554,555,556">&lt;&lt;</CheckRefs> 8)<CheckRefs ids="553">|</CheckRefs><CheckRefs ids="559">buffer</CheckRefs>[48]; </Line>
+  <Line number="318">		   break;</Line>
+  <Line number="319">      case &apos;N&apos; :   servopacket.status = buffer[67];</Line>
+  <Line number="320">   		   servopacket.chn[0<CheckRefs ids="560">]</CheckRefs> = (<CheckRefs ids="565">(</CheckRefs>tmpr = <CheckRefs ids="566">buffer</CheckRefs>[68]) <CheckRefs ids="562,563,564">&lt;&lt;</CheckRefs> 8)<CheckRefs ids="561">|</CheckRefs><CheckRefs ids="567">buffer</CheckRefs>[69]; tmpr = <CheckRefs ids="568">0</CheckRefs>;</Line>
+  <Line number="321">	           servopacket.chn[1<CheckRefs ids="569">]</CheckRefs> = (<CheckRefs ids="574">(</CheckRefs>tmpr = <CheckRefs ids="575">buffer</CheckRefs>[70]) <CheckRefs ids="571,572,573">&lt;&lt;</CheckRefs> 8)<CheckRefs ids="570">|</CheckRefs><CheckRefs ids="576">buffer</CheckRefs>[71]; tmpr = <CheckRefs ids="577">0</CheckRefs>;</Line>
+  <Line number="322">		   servopacket.chn[2<CheckRefs ids="578">]</CheckRefs> = (<CheckRefs ids="583">(</CheckRefs>tmpr = <CheckRefs ids="584">buffer</CheckRefs>[72]) <CheckRefs ids="580,581,582">&lt;&lt;</CheckRefs> 8)<CheckRefs ids="579">|</CheckRefs><CheckRefs ids="585">buffer</CheckRefs>[73]; tmpr = <CheckRefs ids="586">0</CheckRefs>;</Line>
+  <Line number="323">		   servopacket.chn[3<CheckRefs ids="587">]</CheckRefs> = (<CheckRefs ids="592">(</CheckRefs>tmpr = <CheckRefs ids="593">buffer</CheckRefs>[74]) <CheckRefs ids="589,590,591">&lt;&lt;</CheckRefs> 8)<CheckRefs ids="588">|</CheckRefs><CheckRefs ids="594">buffer</CheckRefs>[75]; tmpr = <CheckRefs ids="595">0</CheckRefs>;</Line>
+  <Line number="324">		   servopacket.chn[4<CheckRefs ids="596">]</CheckRefs> = (<CheckRefs ids="601">(</CheckRefs>tmpr = <CheckRefs ids="602">buffer</CheckRefs>[76]) <CheckRefs ids="598,599,600">&lt;&lt;</CheckRefs> 8)<CheckRefs ids="597">|</CheckRefs><CheckRefs ids="603">buffer</CheckRefs>[77]; tmpr = <CheckRefs ids="604">0</CheckRefs>;</Line>
+  <Line number="325">		   servopacket.chn[5<CheckRefs ids="605">]</CheckRefs> = (<CheckRefs ids="610">(</CheckRefs>tmpr = <CheckRefs ids="611">buffer</CheckRefs>[78]) <CheckRefs ids="607,608,609">&lt;&lt;</CheckRefs> 8)<CheckRefs ids="606">|</CheckRefs><CheckRefs ids="612">buffer</CheckRefs>[79]; tmpr = <CheckRefs ids="613">0</CheckRefs>;</Line>
+  <Line number="326">		   servopacket.chn[6<CheckRefs ids="614">]</CheckRefs> = (<CheckRefs ids="619">(</CheckRefs>tmpr = <CheckRefs ids="620">buffer</CheckRefs>[80]) <CheckRefs ids="617,616,618">&lt;&lt;</CheckRefs> 8)<CheckRefs ids="615">|</CheckRefs><CheckRefs ids="621">buffer</CheckRefs>[81]; tmpr = <CheckRefs ids="622">0</CheckRefs>;</Line>
+  <Line number="327">		   servopacket.chn[7<CheckRefs ids="623">]</CheckRefs> = (<CheckRefs ids="628">(</CheckRefs>tmpr = <CheckRefs ids="629">buffer</CheckRefs>[82]) <CheckRefs ids="625,626,627">&lt;&lt;</CheckRefs> 8)<CheckRefs ids="624">|</CheckRefs><CheckRefs ids="630">buffer</CheckRefs>[83]; </Line>
+  <Line number="328">                   break;</Line>
+  <Line number="329">      default  :</Line>
+  <Line number="330">                   printf(&quot;[imu]:fail to decode servo packet..!\n&quot;);</Line>
+  <Line number="331">   }</Line>
+  <Line number="332"></Line>
+  <Line number="333">  </Line>
+  <Line number="334">   data-&gt;time <CheckRefs ids="631">=</CheckRefs> get_Time();</Line>
+  <Line number="335">   data-&gt;err_type = <CheckRefs ids="632">no_error</CheckRefs>;</Line>
+  <Line number="336">     </Line>
+  <Line number="337">}</Line>
+</SourceFile>

@@ -1,0 +1,102 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 5805 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 1
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/5805
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : convertToWithoutRowidTable
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "convertToWithoutRowidTable" for 1 iterations succeeded.
+      Unrolling loop in function "convertToWithoutRowidTable" for 1 iterations succeeded.
+      Unrolling loop in function "convertToWithoutRowidTable" for 1 iterations succeeded.
+      Unrolling loop in function "convertToWithoutRowidTable" for 1 iterations succeeded.
+      Unrolling loop in function "convertToWithoutRowidTable" for 1 iterations succeeded.
+      Unrolling loop in function "convertToWithoutRowidTable" for 1 iterations succeeded.
+      Unrolling loop in function "convertToWithoutRowidTable" for 1 iterations succeeded.
+      Transformed "convertToWithoutRowidTable" from 74 to 81 basic blocks and from 507 to 551 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...Current: convertToWithoutRowidTable Havoced: sqlite3VdbeChangeP3
+Current: convertToWithoutRowidTable Havoced: sqlite3PrimaryKeyIndex
+Current: convertToWithoutRowidTable Havoced: isDupColumn
+Current: convertToWithoutRowidTable Havoced: sqlite3TokenInit
+Current: convertToWithoutRowidTable Havoced: sqlite3ExprAlloc
+Current: convertToWithoutRowidTable Havoced: sqlite3ExprListAppend
+Current: convertToWithoutRowidTable Havoced: sqlite3RenameTokenRemap
+Current: convertToWithoutRowidTable Havoced: sqlite3CreateIndex
+Current: convertToWithoutRowidTable Havoced: sqlite3PrimaryKeyIndex
+Current: convertToWithoutRowidTable Havoced: sqlite3VdbeChangeOpcode
+Current: convertToWithoutRowidTable Havoced: isDupColumn
+Current: convertToWithoutRowidTable Havoced: resizeIndexObject
+Current: convertToWithoutRowidTable Havoced: isDupColumn
+Current: convertToWithoutRowidTable Havoced: hasColumn
+Current: convertToWithoutRowidTable Havoced: resizeIndexObject
+Current: convertToWithoutRowidTable Havoced: hasColumn
+Current: convertToWithoutRowidTable Havoced: recomputeColumnsNotIndexed
+                      0 sec [DONE]
+        Number of expressions:                        155948
+        after encoding
+
+      8 assertions before transformations (7 no_back_edge, 1 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            3837
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72637
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               1
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               8
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             142
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      8 assertions remain after transformations (7 no_back_edge, 1 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...

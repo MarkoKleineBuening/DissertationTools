@@ -1,0 +1,171 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 1047 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 1
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/1047
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : shell_dbinfo_command
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "shell_dbinfo_command" for 5 iterations succeeded.
+      Unrolling loop in function "shell_dbinfo_command" for 12 iterations succeeded.
+      Transformed "shell_dbinfo_command" from 37 to 177 basic blocks and from 232 to 989 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...Current: shell_dbinfo_command Havoced: open_db
+Current: shell_dbinfo_command Havoced: sqlite3_prepare_v2
+Current: shell_dbinfo_command Havoced: sqlite3_bind_text
+Current: shell_dbinfo_command Havoced: sqlite3_step
+Current: shell_dbinfo_command Havoced: sqlite3_column_bytes
+Current: shell_dbinfo_command Havoced: sqlite3_finalize
+Current: shell_dbinfo_command Havoced: sqlite3_column_blob
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %29, i8* %31, i64 100, i32 1, i1 false), !dbg !5686
+Current: shell_dbinfo_command Havoced: sqlite3_finalize
+Current: shell_dbinfo_command Havoced: get2byteInt
+Current: shell_dbinfo_command Havoced: get4byteInt
+Current: shell_dbinfo_command Havoced: get4byteInt
+Current: shell_dbinfo_command Havoced: get4byteInt
+Current: shell_dbinfo_command Havoced: get4byteInt
+Current: shell_dbinfo_command Havoced: get4byteInt
+Current: shell_dbinfo_command Havoced: get4byteInt
+Current: shell_dbinfo_command Havoced: get4byteInt
+Current: shell_dbinfo_command Havoced: get4byteInt
+Current: shell_dbinfo_command Havoced: get4byteInt
+Current: shell_dbinfo_command Havoced: get4byteInt
+Current: shell_dbinfo_command Havoced: get4byteInt
+Current: shell_dbinfo_command Havoced: get4byteInt
+
+        Unrolling loop in function "llbmc.strcmp" for 0 iterations succeeded.
+        Transformed "llbmc.strcmp" from 4 to 3 basic blocks and from 14 to 16 instructionsCurrent: shell_dbinfo_command Havoced: sqlite3_mprintf
+Current: shell_dbinfo_command Havoced: sqlite3_mprintf
+Current: shell_dbinfo_command Havoced: sqlite3_mprintf
+Current: shell_dbinfo_command Havoced: sqlite3_mprintf
+Current: shell_dbinfo_command Havoced: db_int
+Current: shell_dbinfo_command Havoced: sqlite3_free
+Current: shell_dbinfo_command Havoced: sqlite3_mprintf
+Current: shell_dbinfo_command Havoced: db_int
+Current: shell_dbinfo_command Havoced: sqlite3_free
+Current: shell_dbinfo_command Havoced: sqlite3_mprintf
+Current: shell_dbinfo_command Havoced: db_int
+Current: shell_dbinfo_command Havoced: sqlite3_free
+Current: shell_dbinfo_command Havoced: sqlite3_mprintf
+Current: shell_dbinfo_command Havoced: db_int
+Current: shell_dbinfo_command Havoced: sqlite3_free
+Current: shell_dbinfo_command Havoced: sqlite3_mprintf
+Current: shell_dbinfo_command Havoced: db_int
+Current: shell_dbinfo_command Havoced: sqlite3_free
+Current: shell_dbinfo_command Havoced: sqlite3_free
+Current: shell_dbinfo_command Havoced: sqlite3_file_control
+Current: shell_dbinfo_command Havoced: sqlite3_errmsg
+Current: shell_dbinfo_command Havoced: sqlite3_finalize
+
+                                                           0 sec [DONE]
+        Number of expressions:                        157112
+        after encoding
+
+      76 assertions before transformations (72 no_function_call, 3 no_back_edge, 1 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            4859
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72665
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               3
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               6
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             344
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      76 assertions remain after transformations (72 no_function_call, 3 no_back_edge, 1 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...            0 sec [DONE]
+        
+                                                           0 sec [DONE]
+      after performing Check
+evaluateCheckerResultsViaRefinementLoop
+checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setCheckToUnsafe
+setCheckToUnsafe
+Check for floating point traces / abstractions currently deactivated
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      getCheckerResultAfterUpdatingMarker
+Result is NoTrace
+
+                                                           1 sec [DONE]
+    allunsafe
+    
+                                                           1 sec [DONE]
+  

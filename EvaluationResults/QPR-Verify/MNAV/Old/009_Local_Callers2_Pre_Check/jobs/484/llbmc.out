@@ -1,0 +1,116 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+handleJobInSeparateProcess0
+
+Checking job 484 ...about to run job:
+preconNumber: 3, 1
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 4
+    HavocLimit : 0
+    PreconditionNumber : 3
+    PreconditionLocation : jobs/484
+    TimeOut : 300
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : mat_lsolve
+m_checker->run()
+
+    Performing bounded model checking ...
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...size Alloca: 1
+size Alloca: 1
+size Alloca: 1
+
+        Unrolling loop in function "_mat_creat" for 4 iterations succeeded.
+        Transformed "_mat_creat" from 10 to 20 basic blocks and from 54 to 117 instructions
+        Transformed "mat_error" from 5 to 10 basic blocks and from 10 to 19 instructions
+        Unrolling loop in function "mat_fill" for 4 iterations succeeded.
+        Unrolling loop in function "mat_fill" for 4 iterations succeeded.
+        Transformed "mat_fill" from 18 to 159 basic blocks and from 67 to 679 instructions
+        Unrolling loop in function "mat_copy" for 4 iterations succeeded.
+        Unrolling loop in function "mat_copy" for 4 iterations succeeded.
+        Transformed "mat_copy" from 9 to 56 basic blocks and from 49 to 429 instructions
+        Unrolling loop in function "mat_lu" for 4 iterations succeeded.
+        Unrolling loop in function "mat_lu" for 4 iterations succeeded.
+        Unrolling loop in function "mat_lu" for 4 iterations succeeded.
+        Unrolling loop in function "mat_lu" for 4 iterations succeeded.
+        Unrolling loop in function "mat_lu" for 4 iterations succeeded.
+        Transformed "mat_lu" from 28 to 333 basic blocks and from 239 to 4803 instructions
+        Unrolling loop in function "mat_backsubs1" for 4 iterations succeeded.
+        Unrolling loop in function "mat_backsubs1" for 4 iterations succeeded.
+        Unrolling loop in function "mat_backsubs1" for 4 iterations succeeded.
+        Unrolling loop in function "mat_backsubs1" for 4 iterations succeeded.
+        Transformed "mat_backsubs1" from 17 to 111 basic blocks and from 201 to 1557 instructions
+        Unrolling loop in function "mat_free" for 4 iterations succeeded.
+        Transformed "mat_free" from 8 to 15 basic blocks and from 33 to 79 instructions
+                                                           0 sec [DONE]
+        Number of expressions:                         22530
+        after encoding
+
+      120 assertions before transformations (36 no_function_call, 67 no_back_edge, 16 custom, 1 no_unreachable_executed).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                           10293
+        Fixed Memory Address Assigner
+          Number of moved ops                              3
+          Number of rewrites                             397
+        Simplifier
+          Number of moved ops                              3
+          Number of rewrites                            5559
+        Memory Model Encoder
+          Number of moved ops                              0
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                              29
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                             852
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of rewrites                              40
+                                                           0 sec [DONE]
+        
+      120 assertions remain after transformations (36 no_function_call, 67 no_back_edge, 16 custom, 1 no_unreachable_executed).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...          169 sec [DONE]
+        
+                                                         169 sec [DONE]
+      after performing Check
+evaluateCheckerResultsViaRefinementLoop
+checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+getCheckerResultAfterUpdatingMarker
+failingInst:   %22 = call i32 (i8*, ...) @printf(i8* getelementptr inbounds ([51 x i8], [51 x i8]* @.str.9.75, i32 0, i32 0)), !dbg !1418
+Preconditions internal: 
+
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+
+    Rerunning SMT solver (STP with MiniSat) ...

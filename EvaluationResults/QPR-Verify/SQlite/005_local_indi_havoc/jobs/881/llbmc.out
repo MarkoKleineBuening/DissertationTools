@@ -1,0 +1,89 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 881 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 1
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/881
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : exec_prepared_stmt
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "exec_prepared_stmt" for 1 iterations succeeded.
+      Unrolling loop in function "exec_prepared_stmt" for 1 iterations succeeded.
+      Unrolling loop in function "exec_prepared_stmt" for 1 iterations succeeded.
+      Transformed "exec_prepared_stmt" from 37 to 40 basic blocks and from 157 to 164 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...Current: exec_prepared_stmt Havoced: sqlite3_step
+Current: exec_prepared_stmt Havoced: sqlite3_column_count
+Current: exec_prepared_stmt Havoced: sqlite3_malloc64
+Current: exec_prepared_stmt Havoced: sqlite3_column_name
+Current: exec_prepared_stmt Havoced: sqlite3_column_type
+Current: exec_prepared_stmt Havoced: sqlite3_column_text
+Current: exec_prepared_stmt Havoced: shell_callback
+Current: exec_prepared_stmt Havoced: sqlite3_step
+Current: exec_prepared_stmt Havoced: sqlite3_free
+Current: exec_prepared_stmt Havoced: exec_prepared_stmt_columnar
+                      0 sec [DONE]
+        Number of expressions:                        155395
+        after encoding
+
+      5 assertions before transformations (1 no_function_call, 3 no_back_edge, 1 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            3581
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72611
+        Memory Model Encoder
+          Number of moved ops                              0
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                               1
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             142
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      5 assertions remain after transformations (1 no_function_call, 3 no_back_edge, 1 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...

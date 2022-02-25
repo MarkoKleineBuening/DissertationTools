@@ -1,0 +1,25 @@
+<SourceFile>
+  <Line number="1">#ifndef ____mbstate_t_defined</Line>
+  <Line number="2">#define ____mbstate_t_defined 1</Line>
+  <Line number="3"></Line>
+  <Line number="4">/* Integral type unchanged by default argument promotions that can</Line>
+  <Line number="5">   hold any value corresponding to members of the extended character</Line>
+  <Line number="6">   set, as well as at least one value that does not correspond to any</Line>
+  <Line number="7">   member of the extended character set.  */</Line>
+  <Line number="8">#ifndef __WINT_TYPE__</Line>
+  <Line number="9"># define __WINT_TYPE__ unsigned int</Line>
+  <Line number="10">#endif</Line>
+  <Line number="11"></Line>
+  <Line number="12">/* Conversion state information.  */</Line>
+  <Line number="13">typedef struct</Line>
+  <Line number="14">{</Line>
+  <Line number="15">  int __count;</Line>
+  <Line number="16">  union</Line>
+  <Line number="17">  {</Line>
+  <Line number="18">    __WINT_TYPE__ __wch;</Line>
+  <Line number="19">    char __wchb[4];</Line>
+  <Line number="20">  } __value;		/* Value so far.  */</Line>
+  <Line number="21">} __mbstate_t;</Line>
+  <Line number="22"></Line>
+  <Line number="23">#endif</Line>
+</SourceFile>

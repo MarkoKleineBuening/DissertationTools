@@ -1,0 +1,145 @@
+runJobCommand
+precondition analysis with entry:extract_accel_header_mode
+arguents: child
+arguents: job
+arguents: mode
+arguents: precondition
+handleJobInSeparateProcess0
+
+Checking job 597 ...about to run job:
+preconNumber: 5, 1
+
+  Running Model Checker with 1 checks ...entry: extract_accel_header_mode, functionName: unpack_accel_frame
+  call void @qpr.precondition.unpack_accel_frame(%struct.bmi160_sensor_data.8* %0, i16* %4, i8* %5, i8 %30, %struct.bmi160_dev.7* @configStub)
+entry: extract_accel_header_mode, functionName: extract_accel_header_mode
+entry: extract_accel_header_mode, functionName: unpack_accel_frame
+try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 12
+    HavocLimit : 0
+    PreconditionNumber : 5
+    PreconditionLocation : jobs/597
+    TimeOut : 300
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : extract_accel_header_mode
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "extract_accel_header_mode" for 12 iterations succeeded.
+      Transformed "extract_accel_header_mode" from 16 to 414 basic blocks and from 99 to 1341 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...size Alloca: 1
+size Alloca: 1
+size Alloca: 1
+TODO MKB implement precondition handling: IE
+Reading in precondition at: jobs/597/precondition_unpack_accel_frame.txt
+preconFile: jobs/597/precondition_unpack_accel_frame.txt
+ref: [overapprox]name of function arguments, argValue:  
+ref: [overapprox]name of function arguments, argValue:  
+name of function arguments line
+param: i8 %arg3:-120
+---name: i8 %arg3, value: -120.
+integer, char or other simple types
+name: i8 %arg3
+assuming that there are not more then 10 arguments
+nameIndex: 3
+nameID: 3
+argument name: 
+value: -120
+###new bool cond: bool % = compare(%, %i8__136)
+pruneOrAssert -- adding line boolCond: bool % = compare(%, %i8__136)
+param: i8 %arg3:-128
+---name: i8 %arg3, value: -128.
+integer, char or other simple types
+name: i8 %arg3
+assuming that there are not more then 10 arguments
+nameIndex: 3
+nameID: 3
+argument name: 
+value: -128
+###new bool cond: bool % = compare(%, %i8__128)
+pruneOrAssert -- adding line boolCond: bool % = compare(%, %i8__128)
+Writing precondition type at: jobs/597/precondition_type_extract_accel_header_mode.txt
+
+Type of Precondition:
+[overapprox]
+precondition found, end encoding
+                      0 sec [DONE]
+        Number of expressions:                           529
+        after encoding
+
+      2 assertions before transformations (2 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                             216
+        Fixed Memory Address Assigner
+          Number of moved ops                              8
+          Number of rewrites                              11
+        Simplifier
+          Number of moved ops                              3
+          Number of rewrites                             119
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               2
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             102
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      2 assertions remain after transformations (2 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...            0 sec [DONE]
+        
+                                                           0 sec [DONE]
+      after performing Check
+evaluateCheckerResultsViaRefinementLoop
+getCheckerResultAfterUpdatingMarker
+Result is NoTrace
+
+                                                           0 sec [DONE]
+    allunsafe
+    
+                                                           0 sec [DONE]
+  14 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...            9 sec [DONE]
+        
+                                                           9 sec [DONE]
+      after performing Check
+evaluateCheckerResultsViaRefinementLoop
+getCheckerResultAfterUpdatingMarker
+Result is NoTrace
+
+                                                           9 sec [DONE]
+    allunsafe
+    
+                                                           9 sec [DONE]
+  

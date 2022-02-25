@@ -1,0 +1,169 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+handleJobInSeparateProcess0
+
+Checking job 5240 ...about to run job:
+preconNumber: 5, 1
+
+  Running Model Checker with 1 checks ...W [0] lib/Slicer/LocalSlicer.cpp:368 | argument 0 (i8* undef) has pointer type
+W [0] lib/Slicer/LocalSlicer.cpp:368 | argument 0 (i8* undef) has pointer type
+W [0] lib/Slicer/LocalSlicer.cpp:368 | argument 0 (i32* undef) has pointer type
+W [0] lib/Slicer/LocalSlicer.cpp:368 | argument 0 (i32* undef) has pointer type
+W [0] lib/Slicer/LocalSlicer.cpp:357 | argument %struct.Expr* null of call instruction has pointer type
+W [0] lib/Slicer/LocalSlicer.cpp:368 | argument 0 (i32* undef) has pointer type
+W [0] lib/Slicer/LocalSlicer.cpp:357 | argument %struct.Expr* null of call instruction has pointer type
+W [0] lib/Slicer/LocalSlicer.cpp:495 | unused argument: , qpr.slicing.unused.arg.sqlite3ExprVectorSize.0
+W [0] lib/Slicer/LocalSlicer.cpp:495 | unused argument: , qpr.slicing.unused.arg.codeVectorCompare.0
+W [0] lib/Slicer/LocalSlicer.cpp:495 | unused argument: , qpr.slicing.unused.arg.codeVectorCompare.1
+W [0] lib/Slicer/LocalSlicer.cpp:495 | unused argument: , qpr.slicing.unused.arg.codeVectorCompare.2
+W [0] lib/Slicer/LocalSlicer.cpp:495 | unused argument: , qpr.slicing.unused.arg.codeVectorCompare.4
+I [0] lib/Slicer/LocalSlicer.cpp:104 | slicing finished
+try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 1
+    LoopUnrollBound : 1
+    HavocLimit : 0
+    PreconditionNumber : 5
+    PreconditionLocation : jobs/5240
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : true
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : codeVectorCompare
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "codeVectorCompare" for 1 iterations succeeded.
+      Transformed "codeVectorCompare" from 19 to 20 basic blocks and from 72 to 77 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...size Alloca: 1
+size Alloca: 1
+-----found check = true
+                      0 sec [DONE]
+        Number of expressions:                        130979
+        after encoding
+
+      1 assertion before transformations (1 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            2612
+        Fixed Memory Address Assigner
+          Number of moved ops                              2
+          Number of rewrites                            4898
+        Simplifier
+          Number of moved ops                              2
+          Number of rewrites                           61881
+        Memory Model Encoder
+          Number of moved ops                              0
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                              88
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                               0
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      1 assertion remains after transformations (1 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...            0 sec [DONE]
+        
+                                                           0 sec [DONE]
+      after performing Check
+evaluateCheckerResultsViaRefinementLoop
+checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setCheckToUnsafe
+setCheckToUnsafe
+Check for floating point traces / abstractions currently deactivated
+getCheckerResultAfterUpdatingMarker
+failingInst:   call void @llbmc.assert(i1 %5, i32 %0)
+Preconditions internal: 
+i32 %arg2:arbitrary; i8 %arg3:0; (i8 %arg3:0)i8 %arg4:arbitrary; 
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: i8 %arg3 = nondef() : 0
+assumePair: i8 %arg4 = nondef() : 0
+error: No matching SMT expression for Op %arg4 (nondef) found!assumePair: i32 %arg2 = nondef() : 0
+error: No matching SMT expression for Op %arg2 (nondef) found!
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   call void @llbmc.assert(i1 %5, i32 %0)
+Preconditions internal: 
+i32 %arg2:arbitrary; i8 %arg3:1; (i8 %arg3:1)i8 %arg4:arbitrary; 
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: i8 %arg3 = nondef() : 1
+assumePair: i8 %arg4 = nondef() : 0
+error: No matching SMT expression for Op %arg4 (nondef) found!assumePair: i32 %arg2 = nondef() : 0
+error: No matching SMT expression for Op %arg2 (nondef) found!
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   call void @llbmc.assert(i1 %5, i32 %0)
+Preconditions internal: 
+i32 %arg2:arbitrary; i8 %arg3:2; (i8 %arg3:2)i8 %arg4:arbitrary; 
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: i8 %arg3 = nondef() : 2
+assumePair: i8 %arg4 = nondef() : 0
+error: No matching SMT expression for Op %arg4 (nondef) found!assumePair: i32 %arg2 = nondef() : 0
+error: No matching SMT expression for Op %arg2 (nondef) found!
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   call void @llbmc.assert(i1 %5, i32 %0)
+Preconditions internal: 
+i32 %arg2:arbitrary; i8 %arg3:3; (i8 %arg3:3)i8 %arg4:arbitrary; 
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: i8 %arg3 = nondef() : 3
+assumePair: i8 %arg4 = nondef() : 0
+error: No matching SMT expression for Op %arg4 (nondef) found!assumePair: i32 %arg2 = nondef() : 0
+error: No matching SMT expression for Op %arg2 (nondef) found!
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   call void @llbmc.assert(i1 %5, i32 %0)
+Preconditions internal: 
+i32 %arg2:arbitrary; i8 %arg3:4; (i8 %arg3:4)i8 %arg4:arbitrary; 
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: i8 %arg3 = nondef() : 4
+assumePair: i8 %arg4 = nondef() : 0
+error: No matching SMT expression for Op %arg4 (nondef) found!assumePair: i32 %arg2 = nondef() : 0
+error: No matching SMT expression for Op %arg2 (nondef) found!
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      name of function arguments: Writing precondition at: jobs/5240/precondition_codeVectorCompare.txt
+
+Generated Preconditions:
+[underoverapprox]name of function arguments: 
+i32 %arg2:arbitrary; i8 %arg3:0; i8 %arg4:arbitrary; 
+i32 %arg2:arbitrary; i8 %arg3:1; i8 %arg4:arbitrary; 
+i32 %arg2:arbitrary; i8 %arg3:2; i8 %arg4:arbitrary; 
+i32 %arg2:arbitrary; i8 %arg3:3; i8 %arg4:arbitrary; 
+i32 %arg2:arbitrary; i8 %arg3:4; i8 %arg4:arbitrary; 
+
+                                                           1 sec [DONE]
+    allunsafe
+    
+                                                           1 sec [DONE]
+  

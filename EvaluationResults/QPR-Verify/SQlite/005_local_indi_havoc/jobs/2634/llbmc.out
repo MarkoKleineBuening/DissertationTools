@@ -1,0 +1,98 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 2634 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 1
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/2634
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : pagerPlaybackSavepoint
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "pagerPlaybackSavepoint" for 1 iterations succeeded.
+      Unrolling loop in function "pagerPlaybackSavepoint" for 1 iterations succeeded.
+      Unrolling loop in function "pagerPlaybackSavepoint" for 1 iterations succeeded.
+      Unrolling loop in function "pagerPlaybackSavepoint" for 1 iterations succeeded.
+      Transformed "pagerPlaybackSavepoint" from 51 to 86 basic blocks and from 236 to 396 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...Current: pagerPlaybackSavepoint Havoced: sqlite3BitvecCreate
+Current: pagerPlaybackSavepoint Havoced: pagerRollbackWal
+Current: pagerPlaybackSavepoint Havoced: pager_playback_one_page
+Current: pagerPlaybackSavepoint Havoced: pager_playback_one_page
+Current: pagerPlaybackSavepoint Havoced: readJournalHdr
+Current: pagerPlaybackSavepoint Havoced: pager_playback_one_page
+Current: pagerPlaybackSavepoint Havoced: sqlite3WalSavepointUndo
+Current: pagerPlaybackSavepoint Havoced: pager_playback_one_page
+Current: pagerPlaybackSavepoint Havoced: sqlite3BitvecDestroy
+Current: pagerPlaybackSavepoint Havoced: pager_playback_one_page
+Current: pagerPlaybackSavepoint Havoced: readJournalHdr
+Current: pagerPlaybackSavepoint Havoced: pager_playback_one_page
+Current: pagerPlaybackSavepoint Havoced: pager_playback_one_page
+Current: pagerPlaybackSavepoint Havoced: pager_playback_one_page
+                      0 sec [DONE]
+        Number of expressions:                        155851
+        after encoding
+
+      6 assertions before transformations (5 no_back_edge, 1 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            3827
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72643
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               3
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               2
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             142
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      6 assertions remain after transformations (5 no_back_edge, 1 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...

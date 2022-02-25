@@ -1,0 +1,101 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 6669 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 1
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/6669
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : sqlite3Prepare
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "sqlite3Prepare" for 1 iterations succeeded.
+      Unrolling loop in function "sqlite3Prepare" for 1 iterations succeeded.
+      Transformed "sqlite3Prepare" from 44 to 46 basic blocks and from 260 to 269 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...isMemset:   call void @llvm.memset.p0i8.i64(i8* %2, i8 0, i64 208, i32 8, i1 false), !dbg !5654
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %4, i8 0, i64 152, i32 1, i1 false), !dbg !5656
+Current: sqlite3Prepare Havoced: sqlite3BtreeSchemaLocked
+Current: sqlite3Prepare Havoced: sqlite3ErrorWithMsg
+Current: sqlite3Prepare Havoced: sqlite3VtabUnlockList
+Current: sqlite3Prepare Havoced: sqlite3RunParser
+Current: sqlite3Prepare Havoced: sqlite3DbStrNDup
+Current: sqlite3Prepare Havoced: sqlite3RunParser
+Current: sqlite3Prepare Havoced: sqlite3DbFree
+Current: sqlite3Prepare Havoced: sqlite3VdbeSetSql
+Current: sqlite3Prepare Havoced: sqlite3ErrorClear
+Current: sqlite3Prepare Havoced: schemaIsValid
+Current: sqlite3Prepare Havoced: sqlite3VdbeFinalize
+Current: sqlite3Prepare Havoced: sqlite3Error
+Current: sqlite3Prepare Havoced: sqlite3ErrorWithMsg
+Current: sqlite3Prepare Havoced: sqlite3DbFree
+Current: sqlite3Prepare Havoced: sqlite3DbFree
+Current: sqlite3Prepare Havoced: sqlite3ErrorWithMsg
+Current: sqlite3Prepare Havoced: sqlite3ApiExit
+Current: sqlite3Prepare Havoced: sqlite3ParserReset
+                      0 sec [DONE]
+        Number of expressions:                        155529
+        after encoding
+
+      3 assertions before transformations (2 no_back_edge, 1 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            3600
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72620
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               2
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                              36
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             504
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      3 assertions remain after transformations (2 no_back_edge, 1 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...

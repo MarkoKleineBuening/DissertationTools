@@ -1,0 +1,147 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 1759 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 2
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/1759
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : patternCompare
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "patternCompare" for 1 iterations succeeded.
+      Unrolling loop in function "patternCompare" for 1 iterations succeeded.
+      Unrolling loop in function "patternCompare" for 1 iterations succeeded.
+      Unrolling loop in function "patternCompare" for 1 iterations succeeded.
+      Unrolling loop in function "patternCompare" for 1 iterations succeeded.
+      Unrolling loop in function "patternCompare" for 1 iterations succeeded.
+      Unrolling loop in function "patternCompare" for 1 iterations succeeded.
+      Unrolling loop in function "patternCompare" for 1 iterations succeeded.
+      Transformed "patternCompare" from 113 to 221 basic blocks and from 472 to 912 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...
+        Unrolling loop in function "sqlite3Utf8Read" for 1 iterations succeeded.
+        Transformed "sqlite3Utf8Read" from 10 to 11 basic blocks and from 67 to 77 instructions
+        Unrolling loop in function "llbmc.strcspn" for 0 iterations succeeded.
+        Unrolling loop in function "llbmc.strcspn" for 0 iterations succeeded.
+        Transformed "llbmc.strcspn" from 5 to 10 basic blocks and from 16 to 29 instructions
+                                                           0 sec [DONE]
+        Number of expressions:                        161360
+        after encoding
+
+      76 assertions before transformations (4 no_function_call, 43 no_back_edge, 29 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            6959
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72911
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               3
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             109
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             142
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      76 assertions remain after transformations (4 no_function_call, 43 no_back_edge, 29 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...patternCompare Havoced: sqlite3Utf8Read
+Current: sqlite3_result_int Havoced: sqlite3VdbeMemSetInt64
+Current: sqlite3_result_error Havoced: sqlite3VdbeMemSetStr
+Current: sqlite3_result_error Havoced: sqlite3VdbeMemSetStr
+
+                                                           0 sec [DONE]
+        Number of expressions:                        157905
+        after encoding
+
+      23 assertions before transformations (4 no_function_call, 18 no_back_edge, 1 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            5210
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72727
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               5
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                              47
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             152
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      23 assertions remain after transformations (4 no_function_call, 18 no_back_edge, 1 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...

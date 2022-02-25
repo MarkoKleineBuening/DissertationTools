@@ -1,0 +1,44 @@
+<VerificationJob>
+  <Configuration>
+    <AnalyzeChecksIndividually value="false" />
+    <BitcodeTraces value="false" />
+    <EnableSlicing value="false" />
+    <EntryPoint value="bmi160_set_offsets" />
+    <FixPoint value="true" />
+    <HavocLimit value="1" />
+    <IgnoreMissingFunctions value="false" />
+    <InitializedGlobals value="false" />
+    <LoopUnrollBound value="12" />
+    <OverApproxVaArgs value="false" />
+    <PreconditionLocation value="jobs/32" />
+    <SourceDirectory value="/home/i12/mbuening/100_Dissertation/BMI160/BMI160_driver" />
+    <StopEncodingAfterCheck value="false" />
+    <StopEncodingAfterCheckLoop value="0" />
+    <TimeOut value="300" />
+  </Configuration>
+  <CheckList>
+    <Check id="438" location="509" category="explicit.conversion.overflow" status="unsafe" scope="bmi160_set_offsets">
+      <Annotations>
+        <Annotation>An explicit conversion operation can overflow.</Annotation>
+      </Annotations>
+    </Check>
+    <Check id="440" location="511" category="explicit.conversion.overflow" status="safe" scope="bmi160_set_offsets" />
+    <Check id="442" location="515" category="explicit.conversion.overflow" status="safe" scope="bmi160_set_offsets" />
+    <Check id="445" location="520" category="explicit.conversion.overflow" status="safe" scope="bmi160_set_offsets" />
+    <Check id="448" location="525" category="explicit.conversion.overflow" status="safe" scope="bmi160_set_offsets" />
+    <Check id="450" location="529" category="implicit.conversion.overflow" status="safe" scope="bmi160_set_offsets" />
+    <Check id="453" location="534" category="implicit.conversion.overflow" status="safe" scope="bmi160_set_offsets" />
+    <Check id="456" location="539" category="implicit.conversion.overflow" status="safe" scope="bmi160_set_offsets" />
+    <Check id="460" location="544" category="explicit.conversion.overflow" status="safe" scope="bmi160_set_offsets" />
+    <Check id="463" location="545" category="shift.of.negative" status="safe" scope="bmi160_set_offsets" />
+    <Check id="467" location="547" category="shift.of.negative" status="safe" scope="bmi160_set_offsets" />
+    <Check id="471" location="552" category="implicit.conversion.overflow" status="safe" scope="bmi160_set_offsets" />
+    <Check id="474" location="557" category="implicit.conversion.overflow" status="safe" scope="bmi160_set_offsets" />
+    <Check id="477" location="558" category="shift.of.negative" status="safe" scope="bmi160_set_offsets" />
+    <Check id="480" location="563" category="implicit.conversion.overflow" status="safe" scope="bmi160_set_offsets" />
+    <Check id="483" location="568" category="implicit.conversion.overflow" status="safe" scope="bmi160_set_offsets" />
+    <Check id="486" location="569" category="shift.of.negative" status="safe" scope="bmi160_set_offsets" />
+  </CheckList>
+  <Annotation>someunsafe</Annotation>
+  <Status>someunsafe</Status>
+</VerificationJob>

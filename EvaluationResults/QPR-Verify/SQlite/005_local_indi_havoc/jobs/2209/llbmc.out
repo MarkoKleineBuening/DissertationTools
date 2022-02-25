@@ -1,0 +1,431 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 2209 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 1
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/2209
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : unixShmUnmap
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "unixShmUnmap" for 1 iterations succeeded.getMatchingFunctions
+res.push_back: shellDeleteFile
+res.push_back: unlink
+res.push_back: strlen30
+res.push_back: makeDirectory
+res.push_back: memtraceSize
+res.push_back: memtraceInit
+res.push_back: idxIdentifierRequiresQuotes
+res.push_back: system
+res.push_back: booleanValue
+res.push_back: chdir
+res.push_back: atoi
+res.push_back: progress_handler
+res.push_back: notNormalFile
+res.push_back: get2byteInt
+res.push_back: get4byteInt
+res.push_back: strlenChar
+res.push_back: wsToEol
+res.push_back: _all_whitespace
+res.push_back: line_is_command_terminator
+res.push_back: sqlite3MallocSize
+res.push_back: sqlite3Strlen30
+res.push_back: strHash
+res.push_back: rmdir
+res.push_back: dlclose
+res.push_back: sqlite3Atoi
+res.push_back: sqlite3MemSize
+res.push_back: sqlite3MemInit
+res.push_back: pcache1Init
+res.push_back: sqlite3_compileoption_used
+res.push_back: sqlite3_complete
+res.push_back: sqlite3_complete16
+res.push_back: sqlite3Get4byte
+res.push_back: btreeInvokeBusyHandler
+res.push_back: analyzeWindowKeyword
+res.push_back: sqlite3IsRowid
+res.push_back: sqlite3IsTrueOrFalse
+res.push_back: getLockingMode
+res.push_back: getAutoVacuum
+res.push_back: getTempStore
+res.push_back: identLength
+
+      Transformed "unixShmUnmap" from 13 to 664 basic blocks and from 74 to 1946 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...Current: unixShmUnmap Havoced: sqlite3_mutex_enter
+Current: unixShmUnmap Havoced: sqlite3_free
+Current: unixShmUnmap Havoced: sqlite3_mutex_leave
+Current: unixShmUnmap Havoced: unixEnterMutex
+Current: unixShmUnmap Havoced: pthreadMutexTry
+Current: unixShmUnmap Havoced: noopMutexTry
+Current: unixShmUnmap Havoced: renameResolveTrigger
+Current: unixShmUnmap Havoced: sqlite3NotPureFunc
+Current: unixShmUnmap Havoced: sqlite3WalCallback
+Current: unixShmUnmap Havoced: sqlite3PagerWalCallback
+Current: unixShmUnmap Havoced: doWalCallbacks
+Current: unixShmUnmap Havoced: sqlite3VdbeList
+Current: unixShmUnmap Havoced: sqlite3Reprepare
+Current: unixShmUnmap Havoced: sqlite3Step
+Current: unixShmUnmap Havoced: sqlite3TestExtInit
+Current: unixShmUnmap Havoced: sqlite3BtreeNewDb
+Current: unixShmUnmap Havoced: setDestPgsz
+Current: unixShmUnmap Havoced: anotherValidCursor
+Current: unixShmUnmap Havoced: balance
+Current: unixShmUnmap Havoced: handleMovedCursor
+Current: unixShmUnmap Havoced: sqlite3BtreeCursorHasMoved
+Current: unixShmUnmap Havoced: vdbeSorterSetupMerge
+Current: unixShmUnmap Havoced: vdbeIncrPopulate
+Current: unixShmUnmap Havoced: vdbeIncrBgPopulate
+Current: unixShmUnmap Havoced: vdbeIncrSwap
+Current: unixShmUnmap Havoced: vdbePmaReaderNext
+Current: unixShmUnmap Havoced: vdbeSortAllocUnpacked
+Current: unixShmUnmap Havoced: vdbeSorterFlushPMA
+Current: unixShmUnmap Havoced: btreeComputeFreeSpace
+Current: unixShmUnmap Havoced: sqlite3BtreeGetReserveNoMutex
+Current: unixShmUnmap Havoced: sqlite3BtreeGetRequestedReserve
+Current: unixShmUnmap Havoced: growVTrans
+Current: unixShmUnmap Havoced: sqlite3BtreeIncrVacuum
+Current: unixShmUnmap Havoced: sqlite3PagerOkToChangeJournalMode
+Current: unixShmUnmap Havoced: sqlite3VdbeMemSetRowSet
+Current: unixShmUnmap Havoced: sqlite3BtreeClearTableOfCursor
+Current: unixShmUnmap Havoced: sqlite3VdbeFinishMoveto
+Current: unixShmUnmap Havoced: sqlite3VdbeCursorRestore
+Current: unixShmUnmap Havoced: sqlite3BtreeCursorIsValidNN
+Current: unixShmUnmap Havoced: sqlite3BtreeEof
+Current: unixShmUnmap Havoced: sqlite3VdbeMemTooBig
+Current: unixShmUnmap Havoced: sqlite3VdbeExec
+Current: unixShmUnmap Havoced: connectionIsBusy
+Current: unixShmUnmap Havoced: sqlite3PagerFlush
+Current: unixShmUnmap Havoced: sqlite3SafetyCheckSickOrOk
+Current: unixShmUnmap Havoced: getToken
+Current: unixShmUnmap Havoced: identLength
+Current: unixShmUnmap Havoced: sqlite3BtreeIsReadonly
+Current: unixShmUnmap Havoced: hasAnchor
+Current: unixShmUnmap Havoced: windowArgCount
+Current: unixShmUnmap Havoced: windowCacheFrame
+Current: unixShmUnmap Havoced: sqlite3WhereIsSorted
+Current: unixShmUnmap Havoced: sqlite3WhereBreakLabel
+Current: unixShmUnmap Havoced: sqlite3WhereContinueLabel
+Current: unixShmUnmap Havoced: sqlite3WhereOrderByLimitOptLabel
+Current: unixShmUnmap Havoced: sqlite3WhereIsOrdered
+Current: unixShmUnmap Havoced: sqlite3WhereIsDistinct
+Current: unixShmUnmap Havoced: sqlite3SelectExprHeight
+Current: unixShmUnmap Havoced: moveToLeftmost
+Current: unixShmUnmap Havoced: btreeNext
+Current: unixShmUnmap Havoced: moveToRoot
+Current: unixShmUnmap Havoced: moveToRightmost
+Current: unixShmUnmap Havoced: btreeRestoreCursorPosition
+Current: unixShmUnmap Havoced: btreePrevious
+Current: unixShmUnmap Havoced: sqlite3UpsertNextIsIPK
+Current: unixShmUnmap Havoced: sqlite3IsBinary
+Current: unixShmUnmap Havoced: sqlite3VdbeExplainParent
+Current: unixShmUnmap Havoced: sqlite3WhereUsesDeferredSeek
+Current: unixShmUnmap Havoced: whereLoopAddAll
+Current: unixShmUnmap Havoced: whereShortCut
+Current: unixShmUnmap Havoced: exprIsDeterministic
+Current: unixShmUnmap Havoced: sqlite3VdbeHasSubProgram
+Current: unixShmUnmap Havoced: sqlite3ExprListFlags
+Current: unixShmUnmap Havoced: getTempStore
+Current: unixShmUnmap Havoced: integrityCheckResultRow
+Current: unixShmUnmap Havoced: invalidateTempStorage
+Current: unixShmUnmap Havoced: getAutoVacuum
+Current: unixShmUnmap Havoced: sqlite3BtreeGetAutoVacuum
+Current: unixShmUnmap Havoced: getLockingMode
+Current: unixShmUnmap Havoced: sqlite3WalHeapMemory
+Current: unixShmUnmap Havoced: sqlite3BtreeIsInBackup
+Current: unixShmUnmap Havoced: sqlite3JournalSize
+Current: unixShmUnmap Havoced: sqlite3OpenTempDatabase
+Current: unixShmUnmap Havoced: sqlite3InRhsIsConstant
+Current: unixShmUnmap Havoced: sqlite3GetTempReg
+Current: unixShmUnmap Havoced: sqlite3VdbeMakeLabel
+Current: unixShmUnmap Havoced: sqlite3ExprIsConstantNotJoin
+Current: unixShmUnmap Havoced: sqlite3VdbeCurrentAddr
+Current: unixShmUnmap Havoced: sqlite3ExprIsVector
+Current: unixShmUnmap Havoced: sqlite3ExprTruthValue
+Current: unixShmUnmap Havoced: sqlite3ReadOnlyShadowTables
+Current: unixShmUnmap Havoced: sqlite3BtreeSharable
+Current: unixShmUnmap Havoced: sqlite3IndexHasDuplicateRootPage
+Current: unixShmUnmap Havoced: pragmaVtabEof
+Current: unixShmUnmap Havoced: pragmaVtabNext
+Current: unixShmUnmap Havoced: pragmaVtabClose
+Current: unixShmUnmap Havoced: pragmaVtabDisconnect
+Current: unixShmUnmap Havoced: sqlite3ReadSchema
+Current: unixShmUnmap Havoced: sqlite3IsTrueOrFalse
+Current: unixShmUnmap Havoced: sqlite3IsRowid
+Current: unixShmUnmap Havoced: sqlite3ExprVectorSize
+Current: unixShmUnmap Havoced: exprProbability
+Current: unixShmUnmap Havoced: sqlite3ExprCanBeNull
+Current: unixShmUnmap Havoced: exprStructSize
+Current: unixShmUnmap Havoced: sqlite3VdbeMemRealify
+Current: unixShmUnmap Havoced: sqlite3VdbeMemIntegerify
+Current: unixShmUnmap Havoced: sqlite3VdbeMemNumerify
+Current: unixShmUnmap Havoced: sqlite3ExprIsConstant
+Current: unixShmUnmap Havoced: sqlite3ExprIdToTrueFalse
+Current: unixShmUnmap Havoced: analyzeWindowKeyword
+Current: unixShmUnmap Havoced: sqlite3WalDbsize
+Current: unixShmUnmap Havoced: pagerBeginReadTransaction
+Current: unixShmUnmap Havoced: pagerOpenWalIfPresent
+Current: unixShmUnmap Havoced: pagerExclusiveLock
+Current: unixShmUnmap Havoced: pagerOpenWal
+Current: unixShmUnmap Havoced: sqlite3PagerWalSupported
+Current: unixShmUnmap Havoced: sqlite3WritableSchema
+Current: unixShmUnmap Havoced: sqlite3PagerSharedLock
+Current: unixShmUnmap Havoced: sqlite3WalBeginWriteTransaction
+Current: unixShmUnmap Havoced: sqlite3InvokeBusyHandler
+Current: unixShmUnmap Havoced: btreeInvokeBusyHandler
+Current: unixShmUnmap Havoced: sqlite3TempInMemory
+Current: unixShmUnmap Havoced: lockBtree
+Current: unixShmUnmap Havoced: sqlite3PagerDataVersion
+Current: unixShmUnmap Havoced: sqlite3BtreeCommit
+Current: unixShmUnmap Havoced: vdbeSorterJoinThread
+Current: unixShmUnmap Havoced: walPagesize
+Current: unixShmUnmap Havoced: pagerSyncHotJournal
+Current: unixShmUnmap Havoced: removeFromSharingList
+Current: unixShmUnmap Havoced: sqlite3BtreeClose
+Current: unixShmUnmap Havoced: sqlite3BtreeCloseCursor
+Current: unixShmUnmap Havoced: sqlite3VdbeFrameRestore
+Current: unixShmUnmap Havoced: sqlite3VtabRollback
+Current: unixShmUnmap Havoced: sqlite3PagerPageRefcount
+Current: unixShmUnmap Havoced: sqlite3BitvecSize
+Current: unixShmUnmap Havoced: btreeCellSizeCheck
+Current: unixShmUnmap Havoced: btreeInitPage
+Current: unixShmUnmap Havoced: setChildPtrmaps
+Current: unixShmUnmap Havoced: walIndexRecover
+Current: unixShmUnmap Havoced: walRestartLog
+Current: unixShmUnmap Havoced: autoVacuumCommit
+Current: unixShmUnmap Havoced: sqlite3PagerCommitPhaseTwo
+Current: unixShmUnmap Havoced: sqlite3VtabCommit
+Current: unixShmUnmap Havoced: sqlite3PagerExclusiveLock
+Current: unixShmUnmap Havoced: sqlite3PagerGetJournalMode
+Current: unixShmUnmap Havoced: sqlite3BtreePayloadSize
+Current: unixShmUnmap Havoced: saveCursorKey
+Current: unixShmUnmap Havoced: saveCursorPosition
+Current: unixShmUnmap Havoced: sqlite3PcachePageRefcount
+Current: unixShmUnmap Havoced: btreePagecount
+Current: unixShmUnmap Havoced: sqlite3BtreeLastPage
+Current: unixShmUnmap Havoced: sqlite3PagerIsMemdb
+Current: unixShmUnmap Havoced: sqlite3BtreeGetPageSize
+Current: unixShmUnmap Havoced: sqlite3OsSectorSize
+Current: unixShmUnmap Havoced: sqlite3SectorSize
+Current: unixShmUnmap Havoced: numberOfCachePages
+Current: unixShmUnmap Havoced: sqlite3PCachePercentDirty
+Current: unixShmUnmap Havoced: sqlite3WalEndWriteTransaction
+Current: unixShmUnmap Havoced: sqlite3PagerRollback
+Current: unixShmUnmap Havoced: readDbPage
+Current: unixShmUnmap Havoced: sqlite3PcacheRefCount
+Current: unixShmUnmap Havoced: pagerRollbackWal
+Current: unixShmUnmap Havoced: sqlite3JournalIsInMemory
+Current: unixShmUnmap Havoced: openSubJournal
+Current: unixShmUnmap Havoced: subjournalPage
+Current: unixShmUnmap Havoced: subjRequiresPage
+Current: unixShmUnmap Havoced: memjrnlCreateFile
+Current: unixShmUnmap Havoced: memjrnlClose
+Current: unixShmUnmap Havoced: sqlite3OsDeviceCharacteristics
+Current: unixShmUnmap Havoced: writeJournalHdr
+Current: unixShmUnmap Havoced: databaseIsUnmoved
+Current: unixShmUnmap Havoced: jrnlBufferSize
+Current: unixShmUnmap Havoced: pagerAddPageToRollbackJournal
+Current: unixShmUnmap Havoced: pager_open_journal
+Current: unixShmUnmap Havoced: pager_write
+Current: unixShmUnmap Havoced: pagerWriteLargeSector
+Current: unixShmUnmap Havoced: subjournalPageIfRequired
+Current: unixShmUnmap Havoced: sqlite3PagerWrite
+Current: unixShmUnmap Havoced: sqlite3Get4byte
+Current: unixShmUnmap Havoced: newDatabase
+Current: unixShmUnmap Havoced: sqlite3VdbeTransferError
+Current: unixShmUnmap Havoced: sqlite3VdbeHalt
+Current: unixShmUnmap Havoced: sqlite3VdbeReset
+Current: unixShmUnmap Havoced: sqlite3VdbeFinalize
+Current: unixShmUnmap Havoced: sqlite3BtreeSchemaLocked
+Current: unixShmUnmap Havoced: sqlite3SafetyCheckOk
+Current: unixShmUnmap Havoced: vdbeSafety
+Current: unixShmUnmap Havoced: vdbeSafetyNotNull
+Current: unixShmUnmap Havoced: sqlite3BtreeTxnState
+Current: unixShmUnmap Havoced: sqlite3_value_frombind
+Current: unixShmUnmap Havoced: sqlite3_stmt_isexplain
+Current: unixShmUnmap Havoced: sqlite3_str_length
+Current: unixShmUnmap Havoced: sqlite3_str_errcode
+Current: unixShmUnmap Havoced: sqlite3_value_nochange
+Current: unixShmUnmap Havoced: sqlite3_vtab_nochange
+Current: unixShmUnmap Havoced: sqlite3_system_errno
+Current: unixShmUnmap Havoced: sqlite3_db_cacheflush
+Current: unixShmUnmap Havoced: sqlite3_value_subtype
+Current: unixShmUnmap Havoced: sqlite3_cancel_auto_extension
+Current: unixShmUnmap Havoced: sqlite3_auto_extension
+Current: unixShmUnmap Havoced: sqlite3_stmt_readonly
+Current: unixShmUnmap Havoced: sqlite3_stmt_busy
+Current: unixShmUnmap Havoced: sqlite3_db_release_memory
+Current: unixShmUnmap Havoced: sqlite3_close_v2
+Current: unixShmUnmap Havoced: sqlite3_vtab_on_conflict
+Current: unixShmUnmap Havoced: sqlite3_extended_errcode
+Current: unixShmUnmap Havoced: sqlite3_backup_remaining
+Current: unixShmUnmap Havoced: sqlite3_backup_pagecount
+Current: unixShmUnmap Havoced: sqlite3_backup_finish
+Current: unixShmUnmap Havoced: sqlite3_vfs_unregister
+Current: unixShmUnmap Havoced: sqlite3_blob_close
+Current: unixShmUnmap Havoced: sqlite3_blob_bytes
+Current: unixShmUnmap Havoced: sqlite3_clear_bindings
+Current: unixShmUnmap Havoced: sqlite3_value_bytes16
+Current: unixShmUnmap Havoced: sqlite3_step
+Current: unixShmUnmap Havoced: sqlite3_reset
+Current: unixShmUnmap Havoced: sqlite3_get_autocommit
+Current: unixShmUnmap Havoced: sqlite3_finalize
+Current: unixShmUnmap Havoced: sqlite3_expired
+Current: unixShmUnmap Havoced: sqlite3_errcode
+Current: unixShmUnmap Havoced: sqlite3_data_count
+Current: unixShmUnmap Havoced: sqlite3_complete16
+Current: unixShmUnmap Havoced: sqlite3_complete
+Current: unixShmUnmap Havoced: sqlite3_column_count
+Current: unixShmUnmap Havoced: sqlite3_close
+Current: unixShmUnmap Havoced: sqlite3_bind_parameter_count
+Current: unixShmUnmap Havoced: sqlite3_aggregate_count
+Current: unixShmUnmap Havoced: sqlite3OsGetLastError
+Current: unixShmUnmap Havoced: sqlite3_compileoption_used
+Current: unixShmUnmap Havoced: sqlite3_changes
+Current: unixShmUnmap Havoced: sqlite3_total_changes
+Current: unixShmUnmap Havoced: sqlite3_value_int
+Current: unixShmUnmap Havoced: sqlite3VdbeMemHandleBom
+Current: unixShmUnmap Havoced: sqlite3Utf8Read
+Current: unixShmUnmap Havoced: sqlite3_value_bytes
+Current: unixShmUnmap Havoced: sqlite3_value_type
+Current: unixShmUnmap Havoced: sqlite3_value_numeric_type
+Current: unixShmUnmap Havoced: pcache1InitBulk
+Current: unixShmUnmap Havoced: pcache1UnderMemoryPressure
+Current: unixShmUnmap Havoced: pcache1Pagecount
+Current: unixShmUnmap Havoced: pcache1Init
+Current: unixShmUnmap Havoced: sqlite3MemInit
+Current: unixShmUnmap Havoced: sqlite3MemSize
+Current: unixShmUnmap Havoced: sqlite3Atoi
+Current: unixShmUnmap Havoced: unixOpenSharedMemory
+Current: unixShmUnmap Havoced: unixClose
+Current: unixShmUnmap Havoced: nolockClose
+Current: unixShmUnmap Havoced: closeUnixFile
+Current: unixShmUnmap Havoced: fileHasMoved
+Current: unixShmUnmap Havoced: unixDeviceCharacteristics
+Current: unixShmUnmap Havoced: unixSectorSize
+Current: unixShmUnmap Havoced: dotlockClose
+Current: unixShmUnmap Havoced: memdbDeviceCharacteristics
+Current: unixShmUnmap Havoced: memdbClose
+Current: unixShmUnmap Havoced: countLookasideSlots
+Current: unixShmUnmap Havoced: sqlite3_mutex_try
+Current: unixShmUnmap Havoced: sqlite3PcachePagecount
+Current: unixShmUnmap Havoced: strHash
+Current: unixShmUnmap Havoced: sqlite3BtreeConnectionCount
+Current: unixShmUnmap Havoced: sqlite3PagerMemUsed
+Current: unixShmUnmap Havoced: vdbeMemAddTerminator
+Current: unixShmUnmap Havoced: sqlite3VdbeMemNulTerminate
+Current: unixShmUnmap Havoced: sqlite3VdbeMemMakeWriteable
+Current: unixShmUnmap Havoced: sqlite3VdbeMemExpandBlob
+Current: unixShmUnmap Havoced: sqlite3Strlen30
+Current: unixShmUnmap Havoced: sqlite3MallocSize
+Current: unixShmUnmap Havoced: line_is_command_terminator
+Current: unixShmUnmap Havoced: _all_whitespace
+Current: unixShmUnmap Havoced: wsToEol
+Current: unixShmUnmap Havoced: strlenChar
+Current: unixShmUnmap Havoced: get4byteInt
+Current: unixShmUnmap Havoced: get2byteInt
+Current: unixShmUnmap Havoced: shellDatabaseError
+Current: unixShmUnmap Havoced: notNormalFile
+Current: unixShmUnmap Havoced: progress_handler
+Current: unixShmUnmap Havoced: booleanValue
+Current: unixShmUnmap Havoced: idxIdentifierRequiresQuotes
+Current: unixShmUnmap Havoced: expertEof
+Current: unixShmUnmap Havoced: expertNext
+Current: unixShmUnmap Havoced: expertClose
+Current: unixShmUnmap Havoced: expertDisconnect
+Current: unixShmUnmap Havoced: idxRegisterVtab
+Current: unixShmUnmap Havoced: re_esc_char
+Current: unixShmUnmap Havoced: re_next_char
+Current: unixShmUnmap Havoced: re_next_char_nocase
+Current: unixShmUnmap Havoced: seriesEof
+Current: unixShmUnmap Havoced: seriesNext
+Current: unixShmUnmap Havoced: seriesClose
+Current: unixShmUnmap Havoced: seriesDisconnect
+Current: unixShmUnmap Havoced: memtraceInit
+Current: unixShmUnmap Havoced: memtraceSize
+Current: unixShmUnmap Havoced: apndDeviceCharacteristics
+Current: unixShmUnmap Havoced: apndSectorSize
+Current: unixShmUnmap Havoced: apndClose
+Current: unixShmUnmap Havoced: completionEof
+Current: unixShmUnmap Havoced: completionNext
+Current: unixShmUnmap Havoced: completionClose
+Current: unixShmUnmap Havoced: completionDisconnect
+Current: unixShmUnmap Havoced: fsdirEof
+Current: unixShmUnmap Havoced: fsdirNext
+Current: unixShmUnmap Havoced: fsdirClose
+Current: unixShmUnmap Havoced: fsdirDisconnect
+Current: unixShmUnmap Havoced: makeDirectory
+Current: unixShmUnmap Havoced: process_input
+Current: unixShmUnmap Havoced: strlen30
+Current: unixShmUnmap Havoced: shellDeleteFile
+Current: unixShmUnmap Havoced: sqlite3_expert_count
+Current: unixShmUnmap Havoced: idxCreateCandidates
+Current: unixShmUnmap Havoced: sqlite3MemTraceActivate
+Current: unixShmUnmap Havoced: sqlite3CompletionVtabInit
+Current: unixShmUnmap Havoced: fsdirRegister
+Current: unixShmUnmap Havoced: unixShmPurge
+Current: unixShmUnmap Havoced: unixLeaveMutex
+                      0 sec [DONE]
+        Number of expressions:                        161556
+        after encoding
+
+      20 assertions before transformations (18 no_function_call, 1 no_back_edge, 1 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            7334
+        Fixed Memory Address Assigner
+          Number of moved ops                              2
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72607
+        Memory Model Encoder
+          Number of moved ops                              0
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                               1
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             142
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      20 assertions remain after transformations (18 no_function_call, 1 no_back_edge, 1 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...

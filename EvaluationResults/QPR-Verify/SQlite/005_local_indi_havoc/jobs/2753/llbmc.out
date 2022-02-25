@@ -1,0 +1,93 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 2753 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 1
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/2753
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : sqlite3PagerCommitPhaseOne
+m_checker->run()
+
+    Performing bounded model checking ...
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...Current: sqlite3PagerCommitPhaseOne Havoced: sqlite3FaultSim
+Current: sqlite3PagerCommitPhaseOne Havoced: pagerFlushOnCommit
+Current: sqlite3PagerCommitPhaseOne Havoced: pager_incr_changecounter
+Current: sqlite3PagerCommitPhaseOne Havoced: writeSuperJournal
+Current: sqlite3PagerCommitPhaseOne Havoced: syncJournal
+Current: sqlite3PagerCommitPhaseOne Havoced: sqlite3PcacheDirtyList
+Current: sqlite3PagerCommitPhaseOne Havoced: pager_write_pagelist
+Current: sqlite3PagerCommitPhaseOne Havoced: sqlite3PcacheCleanAll
+Current: sqlite3PagerCommitPhaseOne Havoced: pager_truncate
+Current: sqlite3PagerCommitPhaseOne Havoced: sqlite3PagerSync
+Current: sqlite3PagerCommitPhaseOne Havoced: sqlite3PcacheDirtyList
+Current: sqlite3PagerCommitPhaseOne Havoced: sqlite3PagerGet
+Current: sqlite3PagerCommitPhaseOne Havoced: pagerWalFrames
+Current: sqlite3PagerCommitPhaseOne Havoced: sqlite3PagerUnref
+Current: sqlite3PagerCommitPhaseOne Havoced: sqlite3PcacheCleanAll
+Current: sqlite3PagerCommitPhaseOne Havoced: sqlite3BackupRestart
+                      0 sec [DONE]
+        Number of expressions:                        155379
+        after encoding
+
+      1 assertion before transformations (1 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            3543
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72628
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               1
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               6
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             142
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      1 assertion remains after transformations (1 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...

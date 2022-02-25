@@ -1,0 +1,152 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 2940 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 2
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/2940
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : walIndexReadHdr
+m_checker->run()
+
+    Performing bounded model checking ...
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...Current: walIndexPage Havoced: walIndexPageRealloc
+Current: walIndexTryHdr Havoced: walIndexHdr
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %6, i8* %8, i64 48, i32 1, i1 false), !dbg !5624
+Current: walIndexTryHdr Havoced: walShmBarrier
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %9, i8* %11, i64 48, i32 1, i1 false), !dbg !5628
+
+        Unrolling loop in function "llbmc.memcmp" for 0 iterations succeeded.
+        Transformed "llbmc.memcmp" from 17 to 20 instructionsCurrent: walIndexTryHdr Havoced: walChecksumBytes
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %40, i8* %41, i64 48, i32 4, i1 false), !dbg !5673
+Current: walLockExclusive Havoced: sqlite3OsShmLock
+Current: walIndexPage Havoced: walIndexPageRealloc
+Current: walIndexTryHdr Havoced: walIndexHdr
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %6, i8* %8, i64 48, i32 1, i1 false), !dbg !5624
+Current: walIndexTryHdr Havoced: walShmBarrier
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %9, i8* %11, i64 48, i32 1, i1 false), !dbg !5628
+Current: walIndexTryHdr Havoced: walChecksumBytes
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %40, i8* %41, i64 48, i32 4, i1 false), !dbg !5673
+
+        Unrolling loop in function "walIndexRecover" for 1 iterations succeeded.
+        Unrolling loop in function "walIndexRecover" for 1 iterations succeeded.
+        Unrolling loop in function "walIndexRecover" for 1 iterations succeeded.
+        Transformed "walIndexRecover" from 67 to 68 basic blocks and from 549 to 573 instructionsisMemset:   call void @llvm.memset.p0i8.i64(i8* %7, i8 0, i64 8, i32 4, i1 false), !dbg !5665
+Current: walIndexRecover Havoced: walLockExclusive
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %16, i8 0, i64 48, i32 8, i1 false), !dbg !5679
+Current: walIndexRecover Havoced: sqlite3OsFileSize
+Current: walIndexRecover Havoced: sqlite3OsRead
+Current: walIndexRecover Havoced: sqlite3Get4byte
+Current: walIndexRecover Havoced: sqlite3Get4byte
+Current: walIndexRecover Havoced: sqlite3Get4byte
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %49, i8* %50, i64 8, i32 8, i1 false), !dbg !5737
+Current: walIndexRecover Havoced: walChecksumBytes
+Current: walIndexRecover Havoced: sqlite3Get4byte
+Current: walIndexRecover Havoced: sqlite3Get4byte
+Current: walIndexRecover Havoced: sqlite3Get4byte
+Current: walIndexRecover Havoced: sqlite3_malloc64
+Current: walIndexRecover Havoced: walFramePage
+Current: walIndexRecover Havoced: walIndexPage
+Current: walIndexRecover Havoced: sqlite3OsRead
+Current: walIndexRecover Havoced: walDecodeFrame
+Current: walIndexRecover Havoced: walIndexAppend
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %178, i8* %181, i64 %183, i32 4, i1 false), !dbg !5916
+Current: walIndexRecover Havoced: walFramePage
+Current: walIndexRecover Havoced: sqlite3_free
+Current: walIndexRecover Havoced: sqlite3CantopenError
+Current: walIndexRecover Havoced: walIndexWriteHdr
+Current: walIndexRecover Havoced: walCkptInfo
+Current: walIndexRecover Havoced: walLockExclusive
+Current: walIndexRecover Havoced: walUnlockExclusive
+Current: walIndexRecover Havoced: sqlite3_log
+Current: walIndexRecover Havoced: walUnlockExclusive
+Current: walUnlockExclusive Havoced: sqlite3OsShmLock
+Current: walLockShared Havoced: sqlite3OsShmLock
+Current: walUnlockShared Havoced: sqlite3OsShmLock
+Current: sqlite3CantopenError Havoced: sqlite3ReportError
+
+        Unrolling loop in function "walIndexClose" for 1 iterations succeeded.
+        Transformed "walIndexClose" from 10 to 11 basic blocks and from 54 to 58 instructionsCurrent: walIndexClose Havoced: sqlite3_free
+Current: walIndexClose Havoced: sqlite3OsShmUnmap
+
+                                                           0 sec [DONE]
+        Number of expressions:                        156982
+        after encoding
+
+      10 assertions before transformations (8 no_back_edge, 2 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            4481
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72730
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                              13
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             106
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             751
+        ToASC Analyser
+          Memcpy/memset found                            yes
+        Byte-Based Memory Creator
+          Number of rewrites                            9012
+        Instantiation-Based ToASC Simplifier
+          Number of rewrites                               1
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           23399
+        FP Abstraction
+          Number of rewrites                              22
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      10 assertions remain after transformations (8 no_back_edge, 2 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...

@@ -1,0 +1,635 @@
+<SourceFile>
+  <Line number="1">/* Copyright (C) 1991-2020 Free Software Foundation, Inc.</Line>
+  <Line number="2">   This file is part of the GNU C Library.</Line>
+  <Line number="3"></Line>
+  <Line number="4">   The GNU C Library is free software; you can redistribute it and/or</Line>
+  <Line number="5">   modify it under the terms of the GNU Lesser General Public</Line>
+  <Line number="6">   License as published by the Free Software Foundation; either</Line>
+  <Line number="7">   version 2.1 of the License, or (at your option) any later version.</Line>
+  <Line number="8"></Line>
+  <Line number="9">   The GNU C Library is distributed in the hope that it will be useful,</Line>
+  <Line number="10">   but WITHOUT ANY WARRANTY; without even the implied warranty of</Line>
+  <Line number="11">   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU</Line>
+  <Line number="12">   Lesser General Public License for more details.</Line>
+  <Line number="13"></Line>
+  <Line number="14">   You should have received a copy of the GNU Lesser General Public</Line>
+  <Line number="15">   License along with the GNU C Library; if not, see</Line>
+  <Line number="16">   &lt;https://www.gnu.org/licenses/&gt;.  */</Line>
+  <Line number="17"></Line>
+  <Line number="18">#ifndef	_NETINET_IN_H</Line>
+  <Line number="19">#define	_NETINET_IN_H	1</Line>
+  <Line number="20"></Line>
+  <Line number="21">#include &lt;features.h&gt;</Line>
+  <Line number="22">#include &lt;bits/stdint-uintn.h&gt;</Line>
+  <Line number="23">#include &lt;sys/socket.h&gt;</Line>
+  <Line number="24">#include &lt;bits/types.h&gt;</Line>
+  <Line number="25"></Line>
+  <Line number="26"></Line>
+  <Line number="27">__BEGIN_DECLS</Line>
+  <Line number="28"></Line>
+  <Line number="29">/* Internet address.  */</Line>
+  <Line number="30">typedef uint32_t in_addr_t;</Line>
+  <Line number="31">struct in_addr</Line>
+  <Line number="32">  {</Line>
+  <Line number="33">    in_addr_t s_addr;</Line>
+  <Line number="34">  };</Line>
+  <Line number="35"></Line>
+  <Line number="36">/* Get system-specific definitions.  */</Line>
+  <Line number="37">#include &lt;bits/in.h&gt;</Line>
+  <Line number="38"></Line>
+  <Line number="39">/* Standard well-defined IP protocols.  */</Line>
+  <Line number="40">enum</Line>
+  <Line number="41">  {</Line>
+  <Line number="42">    IPPROTO_IP = 0,	   /* Dummy protocol for TCP.  */</Line>
+  <Line number="43">#define IPPROTO_IP		IPPROTO_IP</Line>
+  <Line number="44">    IPPROTO_ICMP = 1,	   /* Internet Control Message Protocol.  */</Line>
+  <Line number="45">#define IPPROTO_ICMP		IPPROTO_ICMP</Line>
+  <Line number="46">    IPPROTO_IGMP = 2,	   /* Internet Group Management Protocol. */</Line>
+  <Line number="47">#define IPPROTO_IGMP		IPPROTO_IGMP</Line>
+  <Line number="48">    IPPROTO_IPIP = 4,	   /* IPIP tunnels (older KA9Q tunnels use 94).  */</Line>
+  <Line number="49">#define IPPROTO_IPIP		IPPROTO_IPIP</Line>
+  <Line number="50">    IPPROTO_TCP = 6,	   /* Transmission Control Protocol.  */</Line>
+  <Line number="51">#define IPPROTO_TCP		IPPROTO_TCP</Line>
+  <Line number="52">    IPPROTO_EGP = 8,	   /* Exterior Gateway Protocol.  */</Line>
+  <Line number="53">#define IPPROTO_EGP		IPPROTO_EGP</Line>
+  <Line number="54">    IPPROTO_PUP = 12,	   /* PUP protocol.  */</Line>
+  <Line number="55">#define IPPROTO_PUP		IPPROTO_PUP</Line>
+  <Line number="56">    IPPROTO_UDP = 17,	   /* User Datagram Protocol.  */</Line>
+  <Line number="57">#define IPPROTO_UDP		IPPROTO_UDP</Line>
+  <Line number="58">    IPPROTO_IDP = 22,	   /* XNS IDP protocol.  */</Line>
+  <Line number="59">#define IPPROTO_IDP		IPPROTO_IDP</Line>
+  <Line number="60">    IPPROTO_TP = 29,	   /* SO Transport Protocol Class 4.  */</Line>
+  <Line number="61">#define IPPROTO_TP		IPPROTO_TP</Line>
+  <Line number="62">    IPPROTO_DCCP = 33,	   /* Datagram Congestion Control Protocol.  */</Line>
+  <Line number="63">#define IPPROTO_DCCP		IPPROTO_DCCP</Line>
+  <Line number="64">    IPPROTO_IPV6 = 41,     /* IPv6 header.  */</Line>
+  <Line number="65">#define IPPROTO_IPV6		IPPROTO_IPV6</Line>
+  <Line number="66">    IPPROTO_RSVP = 46,	   /* Reservation Protocol.  */</Line>
+  <Line number="67">#define IPPROTO_RSVP		IPPROTO_RSVP</Line>
+  <Line number="68">    IPPROTO_GRE = 47,	   /* General Routing Encapsulation.  */</Line>
+  <Line number="69">#define IPPROTO_GRE		IPPROTO_GRE</Line>
+  <Line number="70">    IPPROTO_ESP = 50,      /* encapsulating security payload.  */</Line>
+  <Line number="71">#define IPPROTO_ESP		IPPROTO_ESP</Line>
+  <Line number="72">    IPPROTO_AH = 51,       /* authentication header.  */</Line>
+  <Line number="73">#define IPPROTO_AH		IPPROTO_AH</Line>
+  <Line number="74">    IPPROTO_MTP = 92,	   /* Multicast Transport Protocol.  */</Line>
+  <Line number="75">#define IPPROTO_MTP		IPPROTO_MTP</Line>
+  <Line number="76">    IPPROTO_BEETPH = 94,   /* IP option pseudo header for BEET.  */</Line>
+  <Line number="77">#define IPPROTO_BEETPH		IPPROTO_BEETPH</Line>
+  <Line number="78">    IPPROTO_ENCAP = 98,	   /* Encapsulation Header.  */</Line>
+  <Line number="79">#define IPPROTO_ENCAP		IPPROTO_ENCAP</Line>
+  <Line number="80">    IPPROTO_PIM = 103,	   /* Protocol Independent Multicast.  */</Line>
+  <Line number="81">#define IPPROTO_PIM		IPPROTO_PIM</Line>
+  <Line number="82">    IPPROTO_COMP = 108,	   /* Compression Header Protocol.  */</Line>
+  <Line number="83">#define IPPROTO_COMP		IPPROTO_COMP</Line>
+  <Line number="84">    IPPROTO_SCTP = 132,	   /* Stream Control Transmission Protocol.  */</Line>
+  <Line number="85">#define IPPROTO_SCTP		IPPROTO_SCTP</Line>
+  <Line number="86">    IPPROTO_UDPLITE = 136, /* UDP-Lite protocol.  */</Line>
+  <Line number="87">#define IPPROTO_UDPLITE		IPPROTO_UDPLITE</Line>
+  <Line number="88">    IPPROTO_MPLS = 137,    /* MPLS in IP.  */</Line>
+  <Line number="89">#define IPPROTO_MPLS		IPPROTO_MPLS</Line>
+  <Line number="90">    IPPROTO_RAW = 255,	   /* Raw IP packets.  */</Line>
+  <Line number="91">#define IPPROTO_RAW		IPPROTO_RAW</Line>
+  <Line number="92">    IPPROTO_MAX</Line>
+  <Line number="93">  };</Line>
+  <Line number="94"></Line>
+  <Line number="95">/* If __USE_KERNEL_IPV6_DEFS is 1 then the user has included the kernel</Line>
+  <Line number="96">   network headers first and we should use those ABI-identical definitions</Line>
+  <Line number="97">   instead of our own, otherwise 0.  */</Line>
+  <Line number="98">#if !__USE_KERNEL_IPV6_DEFS</Line>
+  <Line number="99">enum</Line>
+  <Line number="100">  {</Line>
+  <Line number="101">    IPPROTO_HOPOPTS = 0,   /* IPv6 Hop-by-Hop options.  */</Line>
+  <Line number="102">#define IPPROTO_HOPOPTS		IPPROTO_HOPOPTS</Line>
+  <Line number="103">    IPPROTO_ROUTING = 43,  /* IPv6 routing header.  */</Line>
+  <Line number="104">#define IPPROTO_ROUTING		IPPROTO_ROUTING</Line>
+  <Line number="105">    IPPROTO_FRAGMENT = 44, /* IPv6 fragmentation header.  */</Line>
+  <Line number="106">#define IPPROTO_FRAGMENT	IPPROTO_FRAGMENT</Line>
+  <Line number="107">    IPPROTO_ICMPV6 = 58,   /* ICMPv6.  */</Line>
+  <Line number="108">#define IPPROTO_ICMPV6		IPPROTO_ICMPV6</Line>
+  <Line number="109">    IPPROTO_NONE = 59,     /* IPv6 no next header.  */</Line>
+  <Line number="110">#define IPPROTO_NONE		IPPROTO_NONE</Line>
+  <Line number="111">    IPPROTO_DSTOPTS = 60,  /* IPv6 destination options.  */</Line>
+  <Line number="112">#define IPPROTO_DSTOPTS		IPPROTO_DSTOPTS</Line>
+  <Line number="113">    IPPROTO_MH = 135       /* IPv6 mobility header.  */</Line>
+  <Line number="114">#define IPPROTO_MH		IPPROTO_MH</Line>
+  <Line number="115">  };</Line>
+  <Line number="116">#endif /* !__USE_KERNEL_IPV6_DEFS */</Line>
+  <Line number="117"></Line>
+  <Line number="118">/* Type to represent a port.  */</Line>
+  <Line number="119">typedef uint16_t in_port_t;</Line>
+  <Line number="120"></Line>
+  <Line number="121">/* Standard well-known ports.  */</Line>
+  <Line number="122">enum</Line>
+  <Line number="123">  {</Line>
+  <Line number="124">    IPPORT_ECHO = 7,		/* Echo service.  */</Line>
+  <Line number="125">    IPPORT_DISCARD = 9,		/* Discard transmissions service.  */</Line>
+  <Line number="126">    IPPORT_SYSTAT = 11,		/* System status service.  */</Line>
+  <Line number="127">    IPPORT_DAYTIME = 13,	/* Time of day service.  */</Line>
+  <Line number="128">    IPPORT_NETSTAT = 15,	/* Network status service.  */</Line>
+  <Line number="129">    IPPORT_FTP = 21,		/* File Transfer Protocol.  */</Line>
+  <Line number="130">    IPPORT_TELNET = 23,		/* Telnet protocol.  */</Line>
+  <Line number="131">    IPPORT_SMTP = 25,		/* Simple Mail Transfer Protocol.  */</Line>
+  <Line number="132">    IPPORT_TIMESERVER = 37,	/* Timeserver service.  */</Line>
+  <Line number="133">    IPPORT_NAMESERVER = 42,	/* Domain Name Service.  */</Line>
+  <Line number="134">    IPPORT_WHOIS = 43,		/* Internet Whois service.  */</Line>
+  <Line number="135">    IPPORT_MTP = 57,</Line>
+  <Line number="136"></Line>
+  <Line number="137">    IPPORT_TFTP = 69,		/* Trivial File Transfer Protocol.  */</Line>
+  <Line number="138">    IPPORT_RJE = 77,</Line>
+  <Line number="139">    IPPORT_FINGER = 79,		/* Finger service.  */</Line>
+  <Line number="140">    IPPORT_TTYLINK = 87,</Line>
+  <Line number="141">    IPPORT_SUPDUP = 95,		/* SUPDUP protocol.  */</Line>
+  <Line number="142"></Line>
+  <Line number="143"></Line>
+  <Line number="144">    IPPORT_EXECSERVER = 512,	/* execd service.  */</Line>
+  <Line number="145">    IPPORT_LOGINSERVER = 513,	/* rlogind service.  */</Line>
+  <Line number="146">    IPPORT_CMDSERVER = 514,</Line>
+  <Line number="147">    IPPORT_EFSSERVER = 520,</Line>
+  <Line number="148"></Line>
+  <Line number="149">    /* UDP ports.  */</Line>
+  <Line number="150">    IPPORT_BIFFUDP = 512,</Line>
+  <Line number="151">    IPPORT_WHOSERVER = 513,</Line>
+  <Line number="152">    IPPORT_ROUTESERVER = 520,</Line>
+  <Line number="153"></Line>
+  <Line number="154">    /* Ports less than this value are reserved for privileged processes.  */</Line>
+  <Line number="155">    IPPORT_RESERVED = 1024,</Line>
+  <Line number="156"></Line>
+  <Line number="157">    /* Ports greater this value are reserved for (non-privileged) servers.  */</Line>
+  <Line number="158">    IPPORT_USERRESERVED = 5000</Line>
+  <Line number="159">  };</Line>
+  <Line number="160"></Line>
+  <Line number="161">/* Definitions of the bits in an Internet address integer.</Line>
+  <Line number="162"></Line>
+  <Line number="163">   On subnets, host and network parts are found according to</Line>
+  <Line number="164">   the subnet mask, not these masks.  */</Line>
+  <Line number="165"></Line>
+  <Line number="166">#define	IN_CLASSA(a)		((((in_addr_t)(a)) &amp; 0x80000000) == 0)</Line>
+  <Line number="167">#define	IN_CLASSA_NET		0xff000000</Line>
+  <Line number="168">#define	IN_CLASSA_NSHIFT	24</Line>
+  <Line number="169">#define	IN_CLASSA_HOST		(0xffffffff &amp; ~IN_CLASSA_NET)</Line>
+  <Line number="170">#define	IN_CLASSA_MAX		128</Line>
+  <Line number="171"></Line>
+  <Line number="172">#define	IN_CLASSB(a)		((((in_addr_t)(a)) &amp; 0xc0000000) == 0x80000000)</Line>
+  <Line number="173">#define	IN_CLASSB_NET		0xffff0000</Line>
+  <Line number="174">#define	IN_CLASSB_NSHIFT	16</Line>
+  <Line number="175">#define	IN_CLASSB_HOST		(0xffffffff &amp; ~IN_CLASSB_NET)</Line>
+  <Line number="176">#define	IN_CLASSB_MAX		65536</Line>
+  <Line number="177"></Line>
+  <Line number="178">#define	IN_CLASSC(a)		((((in_addr_t)(a)) &amp; 0xe0000000) == 0xc0000000)</Line>
+  <Line number="179">#define	IN_CLASSC_NET		0xffffff00</Line>
+  <Line number="180">#define	IN_CLASSC_NSHIFT	8</Line>
+  <Line number="181">#define	IN_CLASSC_HOST		(0xffffffff &amp; ~IN_CLASSC_NET)</Line>
+  <Line number="182"></Line>
+  <Line number="183">#define	IN_CLASSD(a)		((((in_addr_t)(a)) &amp; 0xf0000000) == 0xe0000000)</Line>
+  <Line number="184">#define	IN_MULTICAST(a)		IN_CLASSD(a)</Line>
+  <Line number="185"></Line>
+  <Line number="186">#define	IN_EXPERIMENTAL(a)	((((in_addr_t)(a)) &amp; 0xe0000000) == 0xe0000000)</Line>
+  <Line number="187">#define	IN_BADCLASS(a)		((((in_addr_t)(a)) &amp; 0xf0000000) == 0xf0000000)</Line>
+  <Line number="188"></Line>
+  <Line number="189">/* Address to accept any incoming messages.  */</Line>
+  <Line number="190">#define	INADDR_ANY		((in_addr_t) 0x00000000)</Line>
+  <Line number="191">/* Address to send to all hosts.  */</Line>
+  <Line number="192">#define	INADDR_BROADCAST	((in_addr_t) 0xffffffff)</Line>
+  <Line number="193">/* Address indicating an error return.  */</Line>
+  <Line number="194">#define	INADDR_NONE		((in_addr_t) 0xffffffff)</Line>
+  <Line number="195"></Line>
+  <Line number="196">/* Network number for local host loopback.  */</Line>
+  <Line number="197">#define	IN_LOOPBACKNET		127</Line>
+  <Line number="198">/* Address to loopback in software to local host.  */</Line>
+  <Line number="199">#ifndef INADDR_LOOPBACK</Line>
+  <Line number="200"># define INADDR_LOOPBACK	((in_addr_t) 0x7f000001) /* Inet 127.0.0.1.  */</Line>
+  <Line number="201">#endif</Line>
+  <Line number="202"></Line>
+  <Line number="203">/* Defines for Multicast INADDR.  */</Line>
+  <Line number="204">#define INADDR_UNSPEC_GROUP	((in_addr_t) 0xe0000000) /* 224.0.0.0 */</Line>
+  <Line number="205">#define INADDR_ALLHOSTS_GROUP	((in_addr_t) 0xe0000001) /* 224.0.0.1 */</Line>
+  <Line number="206">#define INADDR_ALLRTRS_GROUP    ((in_addr_t) 0xe0000002) /* 224.0.0.2 */</Line>
+  <Line number="207">#define INADDR_ALLSNOOPERS_GROUP ((in_addr_t) 0xe000006a) /* 224.0.0.106 */</Line>
+  <Line number="208">#define INADDR_MAX_LOCAL_GROUP  ((in_addr_t) 0xe00000ff) /* 224.0.0.255 */</Line>
+  <Line number="209"></Line>
+  <Line number="210">#if !__USE_KERNEL_IPV6_DEFS</Line>
+  <Line number="211">/* IPv6 address */</Line>
+  <Line number="212">struct in6_addr</Line>
+  <Line number="213">  {</Line>
+  <Line number="214">    union</Line>
+  <Line number="215">      {</Line>
+  <Line number="216">	uint8_t	__u6_addr8[16];</Line>
+  <Line number="217">	uint16_t __u6_addr16[8];</Line>
+  <Line number="218">	uint32_t __u6_addr32[4];</Line>
+  <Line number="219">      } __in6_u;</Line>
+  <Line number="220">#define s6_addr			__in6_u.__u6_addr8</Line>
+  <Line number="221">#ifdef __USE_MISC</Line>
+  <Line number="222"># define s6_addr16		__in6_u.__u6_addr16</Line>
+  <Line number="223"># define s6_addr32		__in6_u.__u6_addr32</Line>
+  <Line number="224">#endif</Line>
+  <Line number="225">  };</Line>
+  <Line number="226">#endif /* !__USE_KERNEL_IPV6_DEFS */</Line>
+  <Line number="227"></Line>
+  <Line number="228">extern const struct in6_addr in6addr_any;        /* :: */</Line>
+  <Line number="229">extern const struct in6_addr in6addr_loopback;   /* ::1 */</Line>
+  <Line number="230">#define IN6ADDR_ANY_INIT { { { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 } } }</Line>
+  <Line number="231">#define IN6ADDR_LOOPBACK_INIT { { { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1 } } }</Line>
+  <Line number="232"></Line>
+  <Line number="233">#define INET_ADDRSTRLEN 16</Line>
+  <Line number="234">#define INET6_ADDRSTRLEN 46</Line>
+  <Line number="235"></Line>
+  <Line number="236"></Line>
+  <Line number="237">/* Structure describing an Internet socket address.  */</Line>
+  <Line number="238">struct sockaddr_in</Line>
+  <Line number="239">  {</Line>
+  <Line number="240">    __SOCKADDR_COMMON (sin_);</Line>
+  <Line number="241">    in_port_t sin_port;			/* Port number.  */</Line>
+  <Line number="242">    struct in_addr sin_addr;		/* Internet address.  */</Line>
+  <Line number="243"></Line>
+  <Line number="244">    /* Pad to size of `struct sockaddr&apos;.  */</Line>
+  <Line number="245">    unsigned char sin_zero[sizeof (struct sockaddr)</Line>
+  <Line number="246">			   <CheckRefs ids="560">-</CheckRefs> __SOCKADDR_COMMON_SIZE</Line>
+  <Line number="247">			   <CheckRefs ids="559">-</CheckRefs> sizeof (in_port_t)</Line>
+  <Line number="248">			   <CheckRefs ids="558">-</CheckRefs> sizeof (struct in_addr)];</Line>
+  <Line number="249">  };</Line>
+  <Line number="250"></Line>
+  <Line number="251">#if !__USE_KERNEL_IPV6_DEFS</Line>
+  <Line number="252">/* Ditto, for IPv6.  */</Line>
+  <Line number="253">struct sockaddr_in6</Line>
+  <Line number="254">  {</Line>
+  <Line number="255">    __SOCKADDR_COMMON (sin6_);</Line>
+  <Line number="256">    in_port_t sin6_port;	/* Transport layer port # */</Line>
+  <Line number="257">    uint32_t sin6_flowinfo;	/* IPv6 flow information */</Line>
+  <Line number="258">    struct in6_addr sin6_addr;	/* IPv6 address */</Line>
+  <Line number="259">    uint32_t sin6_scope_id;	/* IPv6 scope-id */</Line>
+  <Line number="260">  };</Line>
+  <Line number="261">#endif /* !__USE_KERNEL_IPV6_DEFS */</Line>
+  <Line number="262"></Line>
+  <Line number="263">#ifdef __USE_MISC</Line>
+  <Line number="264">/* IPv4 multicast request.  */</Line>
+  <Line number="265">struct ip_mreq</Line>
+  <Line number="266">  {</Line>
+  <Line number="267">    /* IP multicast address of group.  */</Line>
+  <Line number="268">    struct in_addr imr_multiaddr;</Line>
+  <Line number="269"></Line>
+  <Line number="270">    /* Local IP address of interface.  */</Line>
+  <Line number="271">    struct in_addr imr_interface;</Line>
+  <Line number="272">  };</Line>
+  <Line number="273"></Line>
+  <Line number="274">struct ip_mreq_source</Line>
+  <Line number="275">  {</Line>
+  <Line number="276">    /* IP multicast address of group.  */</Line>
+  <Line number="277">    struct in_addr imr_multiaddr;</Line>
+  <Line number="278"></Line>
+  <Line number="279">    /* IP address of interface.  */</Line>
+  <Line number="280">    struct in_addr imr_interface;</Line>
+  <Line number="281"></Line>
+  <Line number="282">    /* IP address of source.  */</Line>
+  <Line number="283">    struct in_addr imr_sourceaddr;</Line>
+  <Line number="284">  };</Line>
+  <Line number="285">#endif</Line>
+  <Line number="286"></Line>
+  <Line number="287">#if !__USE_KERNEL_IPV6_DEFS</Line>
+  <Line number="288">/* Likewise, for IPv6.  */</Line>
+  <Line number="289">struct ipv6_mreq</Line>
+  <Line number="290">  {</Line>
+  <Line number="291">    /* IPv6 multicast address of group */</Line>
+  <Line number="292">    struct in6_addr ipv6mr_multiaddr;</Line>
+  <Line number="293"></Line>
+  <Line number="294">    /* local interface */</Line>
+  <Line number="295">    unsigned int ipv6mr_interface;</Line>
+  <Line number="296">  };</Line>
+  <Line number="297">#endif /* !__USE_KERNEL_IPV6_DEFS */</Line>
+  <Line number="298"></Line>
+  <Line number="299">#ifdef __USE_MISC</Line>
+  <Line number="300">/* Multicast group request.  */</Line>
+  <Line number="301">struct group_req</Line>
+  <Line number="302">  {</Line>
+  <Line number="303">    /* Interface index.  */</Line>
+  <Line number="304">    uint32_t gr_interface;</Line>
+  <Line number="305"></Line>
+  <Line number="306">    /* Group address.  */</Line>
+  <Line number="307">    struct sockaddr_storage gr_group;</Line>
+  <Line number="308">  };</Line>
+  <Line number="309"></Line>
+  <Line number="310">struct group_source_req</Line>
+  <Line number="311">  {</Line>
+  <Line number="312">    /* Interface index.  */</Line>
+  <Line number="313">    uint32_t gsr_interface;</Line>
+  <Line number="314"></Line>
+  <Line number="315">    /* Group address.  */</Line>
+  <Line number="316">    struct sockaddr_storage gsr_group;</Line>
+  <Line number="317"></Line>
+  <Line number="318">    /* Source address.  */</Line>
+  <Line number="319">    struct sockaddr_storage gsr_source;</Line>
+  <Line number="320">  };</Line>
+  <Line number="321"></Line>
+  <Line number="322"></Line>
+  <Line number="323">/* Full-state filter operations.  */</Line>
+  <Line number="324">struct ip_msfilter</Line>
+  <Line number="325">  {</Line>
+  <Line number="326">    /* IP multicast address of group.  */</Line>
+  <Line number="327">    struct in_addr imsf_multiaddr;</Line>
+  <Line number="328"></Line>
+  <Line number="329">    /* Local IP address of interface.  */</Line>
+  <Line number="330">    struct in_addr imsf_interface;</Line>
+  <Line number="331"></Line>
+  <Line number="332">    /* Filter mode.  */</Line>
+  <Line number="333">    uint32_t imsf_fmode;</Line>
+  <Line number="334"></Line>
+  <Line number="335">    /* Number of source addresses.  */</Line>
+  <Line number="336">    uint32_t imsf_numsrc;</Line>
+  <Line number="337">    /* Source addresses.  */</Line>
+  <Line number="338">    struct in_addr imsf_slist[1];</Line>
+  <Line number="339">  };</Line>
+  <Line number="340"></Line>
+  <Line number="341">#define IP_MSFILTER_SIZE(numsrc) (sizeof (struct ip_msfilter) \</Line>
+  <Line number="342">				  - sizeof (struct in_addr)		      \</Line>
+  <Line number="343">				  + (numsrc) * sizeof (struct in_addr))</Line>
+  <Line number="344"></Line>
+  <Line number="345">struct group_filter</Line>
+  <Line number="346">  {</Line>
+  <Line number="347">    /* Interface index.  */</Line>
+  <Line number="348">    uint32_t gf_interface;</Line>
+  <Line number="349"></Line>
+  <Line number="350">    /* Group address.  */</Line>
+  <Line number="351">    struct sockaddr_storage gf_group;</Line>
+  <Line number="352"></Line>
+  <Line number="353">    /* Filter mode.  */</Line>
+  <Line number="354">    uint32_t gf_fmode;</Line>
+  <Line number="355"></Line>
+  <Line number="356">    /* Number of source addresses.  */</Line>
+  <Line number="357">    uint32_t gf_numsrc;</Line>
+  <Line number="358">    /* Source addresses.  */</Line>
+  <Line number="359">    struct sockaddr_storage gf_slist[1];</Line>
+  <Line number="360">};</Line>
+  <Line number="361"></Line>
+  <Line number="362">#define GROUP_FILTER_SIZE(numsrc) (sizeof (struct group_filter) \</Line>
+  <Line number="363">				   - sizeof (struct sockaddr_storage)	      \</Line>
+  <Line number="364">				   + ((numsrc)				      \</Line>
+  <Line number="365">				      * sizeof (struct sockaddr_storage)))</Line>
+  <Line number="366">#endif</Line>
+  <Line number="367"></Line>
+  <Line number="368">/* Functions to convert between host and network byte order.</Line>
+  <Line number="369"></Line>
+  <Line number="370">   Please note that these functions normally take `unsigned long int&apos; or</Line>
+  <Line number="371">   `unsigned short int&apos; values as arguments and also return them.  But</Line>
+  <Line number="372">   this was a short-sighted decision since on different systems the types</Line>
+  <Line number="373">   may have different representations but the values are always the same.  */</Line>
+  <Line number="374"></Line>
+  <Line number="375">extern uint32_t ntohl (uint32_t __netlong) __THROW __attribute__ ((__const__));</Line>
+  <Line number="376">extern uint16_t ntohs (uint16_t __netshort)</Line>
+  <Line number="377">     __THROW __attribute__ ((__const__));</Line>
+  <Line number="378">extern uint32_t htonl (uint32_t __hostlong)</Line>
+  <Line number="379">     __THROW __attribute__ ((__const__));</Line>
+  <Line number="380">extern uint16_t htons (uint16_t __hostshort)</Line>
+  <Line number="381">     __THROW __attribute__ ((__const__));</Line>
+  <Line number="382"></Line>
+  <Line number="383">#include &lt;endian.h&gt;</Line>
+  <Line number="384"></Line>
+  <Line number="385">/* Get machine dependent optimized versions of byte swapping functions.  */</Line>
+  <Line number="386">#include &lt;bits/byteswap.h&gt;</Line>
+  <Line number="387">#include &lt;bits/uintn-identity.h&gt;</Line>
+  <Line number="388"></Line>
+  <Line number="389">#ifdef __OPTIMIZE__</Line>
+  <Line number="390">/* We can optimize calls to the conversion functions.  Either nothing has</Line>
+  <Line number="391">   to be done or we are using directly the byte-swapping functions which</Line>
+  <Line number="392">   often can be inlined.  */</Line>
+  <Line number="393"># if __BYTE_ORDER == __BIG_ENDIAN</Line>
+  <Line number="394">/* The host byte order is the same as network byte order,</Line>
+  <Line number="395">   so these functions are all just identity.  */</Line>
+  <Line number="396"># define ntohl(x)	__uint32_identity (x)</Line>
+  <Line number="397"># define ntohs(x)	__uint16_identity (x)</Line>
+  <Line number="398"># define htonl(x)	__uint32_identity (x)</Line>
+  <Line number="399"># define htons(x)	__uint16_identity (x)</Line>
+  <Line number="400"># else</Line>
+  <Line number="401">#  if __BYTE_ORDER == __LITTLE_ENDIAN</Line>
+  <Line number="402">#   define ntohl(x)	__bswap_32 (x)</Line>
+  <Line number="403">#   define ntohs(x)	__bswap_16 (x)</Line>
+  <Line number="404">#   define htonl(x)	__bswap_32 (x)</Line>
+  <Line number="405">#   define htons(x)	__bswap_16 (x)</Line>
+  <Line number="406">#  endif</Line>
+  <Line number="407"># endif</Line>
+  <Line number="408">#endif</Line>
+  <Line number="409"></Line>
+  <Line number="410">#ifdef __GNUC__</Line>
+  <Line number="411"># define IN6_IS_ADDR_UNSPECIFIED(a) \</Line>
+  <Line number="412">  (__extension__							      \</Line>
+  <Line number="413">   ({ const struct in6_addr *__a = (const struct in6_addr *) (a);	      \</Line>
+  <Line number="414">      __a-&gt;__in6_u.__u6_addr32[0] == 0					      \</Line>
+  <Line number="415">      &amp;&amp; __a-&gt;__in6_u.__u6_addr32[1] == 0				      \</Line>
+  <Line number="416">      &amp;&amp; __a-&gt;__in6_u.__u6_addr32[2] == 0				      \</Line>
+  <Line number="417">      &amp;&amp; __a-&gt;__in6_u.__u6_addr32[3] == 0; }))</Line>
+  <Line number="418"></Line>
+  <Line number="419"># define IN6_IS_ADDR_LOOPBACK(a) \</Line>
+  <Line number="420">  (__extension__							      \</Line>
+  <Line number="421">   ({ const struct in6_addr *__a = (const struct in6_addr *) (a);	      \</Line>
+  <Line number="422">      __a-&gt;__in6_u.__u6_addr32[0] == 0					      \</Line>
+  <Line number="423">      &amp;&amp; __a-&gt;__in6_u.__u6_addr32[1] == 0				      \</Line>
+  <Line number="424">      &amp;&amp; __a-&gt;__in6_u.__u6_addr32[2] == 0				      \</Line>
+  <Line number="425">      &amp;&amp; __a-&gt;__in6_u.__u6_addr32[3] == htonl (1); }))</Line>
+  <Line number="426"></Line>
+  <Line number="427"># define IN6_IS_ADDR_LINKLOCAL(a) \</Line>
+  <Line number="428">  (__extension__							      \</Line>
+  <Line number="429">   ({ const struct in6_addr *__a = (const struct in6_addr *) (a);	      \</Line>
+  <Line number="430">      (__a-&gt;__in6_u.__u6_addr32[0] &amp; htonl (0xffc00000)) == htonl (0xfe800000); }))</Line>
+  <Line number="431"></Line>
+  <Line number="432"># define IN6_IS_ADDR_SITELOCAL(a) \</Line>
+  <Line number="433">  (__extension__							      \</Line>
+  <Line number="434">   ({ const struct in6_addr *__a = (const struct in6_addr *) (a);	      \</Line>
+  <Line number="435">      (__a-&gt;__in6_u.__u6_addr32[0] &amp; htonl (0xffc00000)) == htonl (0xfec00000); }))</Line>
+  <Line number="436"></Line>
+  <Line number="437"># define IN6_IS_ADDR_V4MAPPED(a) \</Line>
+  <Line number="438">  (__extension__							      \</Line>
+  <Line number="439">   ({ const struct in6_addr *__a = (const struct in6_addr *) (a);	      \</Line>
+  <Line number="440">      __a-&gt;__in6_u.__u6_addr32[0] == 0					      \</Line>
+  <Line number="441">      &amp;&amp; __a-&gt;__in6_u.__u6_addr32[1] == 0				      \</Line>
+  <Line number="442">      &amp;&amp; __a-&gt;__in6_u.__u6_addr32[2] == htonl (0xffff); }))</Line>
+  <Line number="443"></Line>
+  <Line number="444"># define IN6_IS_ADDR_V4COMPAT(a) \</Line>
+  <Line number="445">  (__extension__							      \</Line>
+  <Line number="446">   ({ const struct in6_addr *__a = (const struct in6_addr *) (a);	      \</Line>
+  <Line number="447">      __a-&gt;__in6_u.__u6_addr32[0] == 0					      \</Line>
+  <Line number="448">      &amp;&amp; __a-&gt;__in6_u.__u6_addr32[1] == 0				      \</Line>
+  <Line number="449">      &amp;&amp; __a-&gt;__in6_u.__u6_addr32[2] == 0				      \</Line>
+  <Line number="450">      &amp;&amp; ntohl (__a-&gt;__in6_u.__u6_addr32[3]) &gt; 1; }))</Line>
+  <Line number="451"></Line>
+  <Line number="452"># define IN6_ARE_ADDR_EQUAL(a,b) \</Line>
+  <Line number="453">  (__extension__							      \</Line>
+  <Line number="454">   ({ const struct in6_addr *__a = (const struct in6_addr *) (a);	      \</Line>
+  <Line number="455">      const struct in6_addr *__b = (const struct in6_addr *) (b);	      \</Line>
+  <Line number="456">      __a-&gt;__in6_u.__u6_addr32[0] == __b-&gt;__in6_u.__u6_addr32[0]	      \</Line>
+  <Line number="457">      &amp;&amp; __a-&gt;__in6_u.__u6_addr32[1] == __b-&gt;__in6_u.__u6_addr32[1]	      \</Line>
+  <Line number="458">      &amp;&amp; __a-&gt;__in6_u.__u6_addr32[2] == __b-&gt;__in6_u.__u6_addr32[2]	      \</Line>
+  <Line number="459">      &amp;&amp; __a-&gt;__in6_u.__u6_addr32[3] == __b-&gt;__in6_u.__u6_addr32[3]; }))</Line>
+  <Line number="460">#else</Line>
+  <Line number="461"># define IN6_IS_ADDR_UNSPECIFIED(a) \</Line>
+  <Line number="462">	(((const uint32_t *) (a))[0] == 0				      \</Line>
+  <Line number="463">	 &amp;&amp; ((const uint32_t *) (a))[1] == 0				      \</Line>
+  <Line number="464">	 &amp;&amp; ((const uint32_t *) (a))[2] == 0				      \</Line>
+  <Line number="465">	 &amp;&amp; ((const uint32_t *) (a))[3] == 0)</Line>
+  <Line number="466"></Line>
+  <Line number="467"># define IN6_IS_ADDR_LOOPBACK(a) \</Line>
+  <Line number="468">	(((const uint32_t *) (a))[0] == 0				      \</Line>
+  <Line number="469">	 &amp;&amp; ((const uint32_t *) (a))[1] == 0				      \</Line>
+  <Line number="470">	 &amp;&amp; ((const uint32_t *) (a))[2] == 0				      \</Line>
+  <Line number="471">	 &amp;&amp; ((const uint32_t *) (a))[3] == htonl (1))</Line>
+  <Line number="472"></Line>
+  <Line number="473"># define IN6_IS_ADDR_LINKLOCAL(a) \</Line>
+  <Line number="474">	((((const uint32_t *) (a))[0] &amp; htonl (0xffc00000))		      \</Line>
+  <Line number="475">	 == htonl (0xfe800000))</Line>
+  <Line number="476"></Line>
+  <Line number="477"># define IN6_IS_ADDR_SITELOCAL(a) \</Line>
+  <Line number="478">	((((const uint32_t *) (a))[0] &amp; htonl (0xffc00000))		      \</Line>
+  <Line number="479">	 == htonl (0xfec00000))</Line>
+  <Line number="480"></Line>
+  <Line number="481"># define IN6_IS_ADDR_V4MAPPED(a) \</Line>
+  <Line number="482">	((((const uint32_t *) (a))[0] == 0)				      \</Line>
+  <Line number="483">	 &amp;&amp; (((const uint32_t *) (a))[1] == 0)				      \</Line>
+  <Line number="484">	 &amp;&amp; (((const uint32_t *) (a))[2] == htonl (0xffff)))</Line>
+  <Line number="485"></Line>
+  <Line number="486"># define IN6_IS_ADDR_V4COMPAT(a) \</Line>
+  <Line number="487">	((((const uint32_t *) (a))[0] == 0)				      \</Line>
+  <Line number="488">	 &amp;&amp; (((const uint32_t *) (a))[1] == 0)				      \</Line>
+  <Line number="489">	 &amp;&amp; (((const uint32_t *) (a))[2] == 0)				      \</Line>
+  <Line number="490">	 &amp;&amp; (ntohl (((const uint32_t *) (a))[3]) &gt; 1))</Line>
+  <Line number="491"></Line>
+  <Line number="492"># define IN6_ARE_ADDR_EQUAL(a,b) \</Line>
+  <Line number="493">	((((const uint32_t *) (a))[0] == ((const uint32_t *) (b))[0])	      \</Line>
+  <Line number="494">	 &amp;&amp; (((const uint32_t *) (a))[1] == ((const uint32_t *) (b))[1])      \</Line>
+  <Line number="495">	 &amp;&amp; (((const uint32_t *) (a))[2] == ((const uint32_t *) (b))[2])      \</Line>
+  <Line number="496">	 &amp;&amp; (((const uint32_t *) (a))[3] == ((const uint32_t *) (b))[3]))</Line>
+  <Line number="497">#endif</Line>
+  <Line number="498"></Line>
+  <Line number="499">#define IN6_IS_ADDR_MULTICAST(a) (((const uint8_t *) (a))[0] == 0xff)</Line>
+  <Line number="500"></Line>
+  <Line number="501">#ifdef __USE_MISC</Line>
+  <Line number="502">/* Bind socket to a privileged IP port.  */</Line>
+  <Line number="503">extern int bindresvport (int __sockfd, struct sockaddr_in *__sock_in) __THROW;</Line>
+  <Line number="504"></Line>
+  <Line number="505">/* The IPv6 version of this function.  */</Line>
+  <Line number="506">extern int bindresvport6 (int __sockfd, struct sockaddr_in6 *__sock_in)</Line>
+  <Line number="507">     __THROW;</Line>
+  <Line number="508">#endif</Line>
+  <Line number="509"></Line>
+  <Line number="510"></Line>
+  <Line number="511">#define IN6_IS_ADDR_MC_NODELOCAL(a) \</Line>
+  <Line number="512">	(IN6_IS_ADDR_MULTICAST(a)					      \</Line>
+  <Line number="513">	 &amp;&amp; ((((const uint8_t *) (a))[1] &amp; 0xf) == 0x1))</Line>
+  <Line number="514"></Line>
+  <Line number="515">#define IN6_IS_ADDR_MC_LINKLOCAL(a) \</Line>
+  <Line number="516">	(IN6_IS_ADDR_MULTICAST(a)					      \</Line>
+  <Line number="517">	 &amp;&amp; ((((const uint8_t *) (a))[1] &amp; 0xf) == 0x2))</Line>
+  <Line number="518"></Line>
+  <Line number="519">#define IN6_IS_ADDR_MC_SITELOCAL(a) \</Line>
+  <Line number="520">	(IN6_IS_ADDR_MULTICAST(a)					      \</Line>
+  <Line number="521">	 &amp;&amp; ((((const uint8_t *) (a))[1] &amp; 0xf) == 0x5))</Line>
+  <Line number="522"></Line>
+  <Line number="523">#define IN6_IS_ADDR_MC_ORGLOCAL(a) \</Line>
+  <Line number="524">	(IN6_IS_ADDR_MULTICAST(a)					      \</Line>
+  <Line number="525">	 &amp;&amp; ((((const uint8_t *) (a))[1] &amp; 0xf) == 0x8))</Line>
+  <Line number="526"></Line>
+  <Line number="527">#define IN6_IS_ADDR_MC_GLOBAL(a) \</Line>
+  <Line number="528">	(IN6_IS_ADDR_MULTICAST(a)					      \</Line>
+  <Line number="529">	 &amp;&amp; ((((const uint8_t *) (a))[1] &amp; 0xf) == 0xe))</Line>
+  <Line number="530"></Line>
+  <Line number="531"></Line>
+  <Line number="532">#ifdef __USE_GNU</Line>
+  <Line number="533">struct cmsghdr;			/* Forward declaration.  */</Line>
+  <Line number="534"></Line>
+  <Line number="535">#if !__USE_KERNEL_IPV6_DEFS</Line>
+  <Line number="536">/* IPv6 packet information.  */</Line>
+  <Line number="537">struct in6_pktinfo</Line>
+  <Line number="538">  {</Line>
+  <Line number="539">    struct in6_addr ipi6_addr;	/* src/dst IPv6 address */</Line>
+  <Line number="540">    unsigned int ipi6_ifindex;	/* send/recv interface index */</Line>
+  <Line number="541">  };</Line>
+  <Line number="542"></Line>
+  <Line number="543">/* IPv6 MTU information.  */</Line>
+  <Line number="544">struct ip6_mtuinfo</Line>
+  <Line number="545">  {</Line>
+  <Line number="546">    struct sockaddr_in6 ip6m_addr; /* dst address including zone ID */</Line>
+  <Line number="547">    uint32_t ip6m_mtu;		   /* path MTU in host byte order */</Line>
+  <Line number="548">  };</Line>
+  <Line number="549">#endif /* !__USE_KERNEL_IPV6_DEFS */</Line>
+  <Line number="550"></Line>
+  <Line number="551">/* Obsolete hop-by-hop and Destination Options Processing (RFC 2292).  */</Line>
+  <Line number="552">extern int inet6_option_space (int __nbytes)</Line>
+  <Line number="553">     __THROW __attribute_deprecated__;</Line>
+  <Line number="554">extern int inet6_option_init (void *__bp, struct cmsghdr **__cmsgp,</Line>
+  <Line number="555">			      int __type) __THROW __attribute_deprecated__;</Line>
+  <Line number="556">extern int inet6_option_append (struct cmsghdr *__cmsg,</Line>
+  <Line number="557">				const uint8_t *__typep, int __multx,</Line>
+  <Line number="558">				int __plusy) __THROW __attribute_deprecated__;</Line>
+  <Line number="559">extern uint8_t *inet6_option_alloc (struct cmsghdr *__cmsg, int __datalen,</Line>
+  <Line number="560">				    int __multx, int __plusy)</Line>
+  <Line number="561">     __THROW __attribute_deprecated__;</Line>
+  <Line number="562">extern int inet6_option_next (const struct cmsghdr *__cmsg,</Line>
+  <Line number="563">			      uint8_t **__tptrp)</Line>
+  <Line number="564">     __THROW __attribute_deprecated__;</Line>
+  <Line number="565">extern int inet6_option_find (const struct cmsghdr *__cmsg,</Line>
+  <Line number="566">			      uint8_t **__tptrp, int __type)</Line>
+  <Line number="567">     __THROW __attribute_deprecated__;</Line>
+  <Line number="568"></Line>
+  <Line number="569"></Line>
+  <Line number="570">/* Hop-by-Hop and Destination Options Processing (RFC 3542).  */</Line>
+  <Line number="571">extern int inet6_opt_init (void *__extbuf, socklen_t __extlen) __THROW;</Line>
+  <Line number="572">extern int inet6_opt_append (void *__extbuf, socklen_t __extlen, int __offset,</Line>
+  <Line number="573">			     uint8_t __type, socklen_t __len, uint8_t __align,</Line>
+  <Line number="574">			     void **__databufp) __THROW;</Line>
+  <Line number="575">extern int inet6_opt_finish (void *__extbuf, socklen_t __extlen, int __offset)</Line>
+  <Line number="576">     __THROW;</Line>
+  <Line number="577">extern int inet6_opt_set_val (void *__databuf, int __offset, void *__val,</Line>
+  <Line number="578">			      socklen_t __vallen) __THROW;</Line>
+  <Line number="579">extern int inet6_opt_next (void *__extbuf, socklen_t __extlen, int __offset,</Line>
+  <Line number="580">			   uint8_t *__typep, socklen_t *__lenp,</Line>
+  <Line number="581">			   void **__databufp) __THROW;</Line>
+  <Line number="582">extern int inet6_opt_find (void *__extbuf, socklen_t __extlen, int __offset,</Line>
+  <Line number="583">			   uint8_t __type, socklen_t *__lenp,</Line>
+  <Line number="584">			   void **__databufp) __THROW;</Line>
+  <Line number="585">extern int inet6_opt_get_val (void *__databuf, int __offset, void *__val,</Line>
+  <Line number="586">			      socklen_t __vallen) __THROW;</Line>
+  <Line number="587"></Line>
+  <Line number="588"></Line>
+  <Line number="589">/* Routing Header Option (RFC 3542).  */</Line>
+  <Line number="590">extern socklen_t inet6_rth_space (int __type, int __segments) __THROW;</Line>
+  <Line number="591">extern void *inet6_rth_init (void *__bp, socklen_t __bp_len, int __type,</Line>
+  <Line number="592">			     int __segments) __THROW;</Line>
+  <Line number="593">extern int inet6_rth_add (void *__bp, const struct in6_addr *__addr) __THROW;</Line>
+  <Line number="594">extern int inet6_rth_reverse (const void *__in, void *__out) __THROW;</Line>
+  <Line number="595">extern int inet6_rth_segments (const void *__bp) __THROW;</Line>
+  <Line number="596">extern struct in6_addr *inet6_rth_getaddr (const void *__bp, int __index)</Line>
+  <Line number="597">     __THROW;</Line>
+  <Line number="598"></Line>
+  <Line number="599"></Line>
+  <Line number="600">/* Multicast source filter support.  */</Line>
+  <Line number="601"></Line>
+  <Line number="602">/* Get IPv4 source filter.  */</Line>
+  <Line number="603">extern int getipv4sourcefilter (int __s, struct in_addr __interface_addr,</Line>
+  <Line number="604">				struct in_addr __group, uint32_t *__fmode,</Line>
+  <Line number="605">				uint32_t *__numsrc, struct in_addr *__slist)</Line>
+  <Line number="606">     __THROW;</Line>
+  <Line number="607"></Line>
+  <Line number="608">/* Set IPv4 source filter.  */</Line>
+  <Line number="609">extern int setipv4sourcefilter (int __s, struct in_addr __interface_addr,</Line>
+  <Line number="610">				struct in_addr __group, uint32_t __fmode,</Line>
+  <Line number="611">				uint32_t __numsrc,</Line>
+  <Line number="612">				const struct in_addr *__slist)</Line>
+  <Line number="613">     __THROW;</Line>
+  <Line number="614"></Line>
+  <Line number="615"></Line>
+  <Line number="616">/* Get source filter.  */</Line>
+  <Line number="617">extern int getsourcefilter (int __s, uint32_t __interface_addr,</Line>
+  <Line number="618">			    const struct sockaddr *__group,</Line>
+  <Line number="619">			    socklen_t __grouplen, uint32_t *__fmode,</Line>
+  <Line number="620">			    uint32_t *__numsrc,</Line>
+  <Line number="621">			    struct sockaddr_storage *__slist) __THROW;</Line>
+  <Line number="622"></Line>
+  <Line number="623">/* Set source filter.  */</Line>
+  <Line number="624">extern int setsourcefilter (int __s, uint32_t __interface_addr,</Line>
+  <Line number="625">			    const struct sockaddr *__group,</Line>
+  <Line number="626">			    socklen_t __grouplen, uint32_t __fmode,</Line>
+  <Line number="627">			    uint32_t __numsrc,</Line>
+  <Line number="628">			    const struct sockaddr_storage *__slist) __THROW;</Line>
+  <Line number="629">#endif	/* use GNU */</Line>
+  <Line number="630"></Line>
+  <Line number="631">__END_DECLS</Line>
+  <Line number="632"></Line>
+  <Line number="633">#endif	/* netinet/in.h */</Line>
+</SourceFile>

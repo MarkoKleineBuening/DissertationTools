@@ -1,0 +1,48 @@
+<VerificationJob>
+  <Configuration>
+    <AnalyzeChecksIndividually value="true" />
+    <BitcodeTraces value="false" />
+    <CheckOnlyPrecondition value="true" />
+    <DumpVerifierBitcodeFiles value="false" />
+    <EnableSlicing value="true" />
+    <EntryPoint value="sqlite3UniqueConstraint" />
+    <FixPoint value="true" />
+    <ForkJobs value="true" />
+    <Hosted value="true" />
+    <IgnoreMissingFunctions value="false" />
+    <InitializedGlobals value="false" />
+    <LoopUnrollBound value="1" />
+    <PreconditionLocation value="jobs/1734" />
+    <PreconditionNumber value="5" />
+    <SourceDirectory value="/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld" />
+    <StopEncodingAfterCheck value="true" />
+    <StopEncodingAfterCheckLoop value="1" />
+    <TimeOut value="600" />
+    <XMLTraces value="false" />
+  </Configuration>
+  <CheckList>
+    <Check id="5685" location="6131" category="implicit.conversion.overflow" status="safe" scope="sqlite3StrAccumInit">
+      <Annotations>
+        <Annotation>An implicit conversion operation can overflow.</Annotation>
+      </Annotations>
+      <EntryStatus>
+        <SingleEntryStatus>pragmaVtabConnect, safe</SingleEntryStatus>
+        <SingleEntryStatus>pragmaVtabFilter, safe</SingleEntryStatus>
+        <SingleEntryStatus>printfFunc, safe</SingleEntryStatus>
+        <SingleEntryStatus>renderLogMsg, safe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3BtreeIntegrityCheck, safe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3UniqueConstraint, safe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3VMPrintf, safe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3VdbeDisplayP4, safe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3VdbeExpandSql, safe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3WhereExplainOneScan, safe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3_str_new, safe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3_vmprintf, safe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3_vsnprintf, safe</SingleEntryStatus>
+        <SingleEntryStatus>vdbeMemRenderNum, safe</SingleEntryStatus>
+      </EntryStatus>
+    </Check>
+  </CheckList>
+  <Annotation>allunsafe</Annotation>
+  <Status>allsafe</Status>
+</VerificationJob>

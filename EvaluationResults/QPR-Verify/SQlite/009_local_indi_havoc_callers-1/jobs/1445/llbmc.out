@@ -1,0 +1,171 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 1445 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...Check contains Safe and does not have to refined by preconditions
+try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 2
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/1445
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : parseModifier
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "parseModifier" for 1 iterations succeeded.
+      Unrolling loop in function "parseModifier" for 1 iterations succeeded.
+      Unrolling loop in function "parseModifier" for 1 iterations succeeded.
+      Transformed "parseModifier" from 88 to 111 basic blocks and from 592 to 669 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...
+        Unrolling loop in function "sqlite3_strnicmp" for 1 iterations succeeded.
+        Transformed "sqlite3_strnicmp" from 16 to 21 basic blocks and from 84 to 126 instructions
+        Unrolling loop in function "llbmc.strlen" for 0 iterations succeeded.
+        Transformed "llbmc.strlen" from 8 to 9 instructions
+        Unrolling loop in function "sqlite3AtoF" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3AtoF" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3AtoF" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3AtoF" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3AtoF" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3AtoF" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3AtoF" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3AtoF" for 1 iterations succeeded.
+        Transformed "sqlite3AtoF" from 123 to 170 basic blocks and from 645 to 983 instructionsCurrent: sqlite3AtoF Havoced: sqlite3Pow10
+Current: sqlite3AtoF Havoced: sqlite3Pow10
+Current: computeYMD_HMS Havoced: computeYMD
+Current: computeYMD_HMS Havoced: computeHMS
+Current: computeJD Havoced: datetimeError
+Current: sqlite3_stricmp Havoced: sqlite3StrICmp
+Current: sqlite3_stricmp Havoced: sqlite3StrICmp
+Current: sqlite3NotPureFunc Havoced: sqlite3_mprintf
+Current: sqlite3NotPureFunc Havoced: sqlite3_result_error
+Current: sqlite3NotPureFunc Havoced: sqlite3_free
+Current: computeJD Havoced: datetimeError
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %7, i8 0, i64 56, i32 8, i1 false), !dbg !5661
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %8, i8* %9, i64 48, i32 8, i1 false), !dbg !5662
+Current: localtimeOffset Havoced: computeYMD_HMS
+Current: localtimeOffset Havoced: computeJD
+Current: localtimeOffset Havoced: osLocaltime
+Current: localtimeOffset Havoced: computeJD
+Current: localtimeOffset Havoced: sqlite3_result_error
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %7, i8 0, i64 56, i32 8, i1 false), !dbg !5661
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %8, i8* %9, i64 48, i32 8, i1 false), !dbg !5662
+Current: localtimeOffset Havoced: computeYMD_HMS
+Current: localtimeOffset Havoced: computeJD
+Current: localtimeOffset Havoced: osLocaltime
+Current: localtimeOffset Havoced: computeJD
+Current: localtimeOffset Havoced: sqlite3_result_error
+Current: computeYMD Havoced: validJulianDay
+Current: computeYMD Havoced: datetimeError
+Current: sqlite3_stricmp Havoced: sqlite3StrICmp
+Current: sqlite3_stricmp Havoced: sqlite3StrICmp
+Current: sqlite3_stricmp Havoced: sqlite3StrICmp
+Current: sqlite3_stricmp Havoced: sqlite3StrICmp
+Current: sqlite3NotPureFunc Havoced: sqlite3_mprintf
+Current: sqlite3NotPureFunc Havoced: sqlite3_result_error
+Current: sqlite3NotPureFunc Havoced: sqlite3_free
+Current: computeJD Havoced: datetimeError
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %7, i8 0, i64 56, i32 8, i1 false), !dbg !5661
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %8, i8* %9, i64 48, i32 8, i1 false), !dbg !5662
+Current: localtimeOffset Havoced: computeYMD_HMS
+Current: localtimeOffset Havoced: computeJD
+Current: localtimeOffset Havoced: osLocaltime
+Current: localtimeOffset Havoced: computeJD
+Current: localtimeOffset Havoced: sqlite3_result_error
+Current: sqlite3AtoF Havoced: sqlite3Pow10
+Current: sqlite3AtoF Havoced: sqlite3Pow10
+Current: computeJD Havoced: datetimeError
+Current: computeYMD_HMS Havoced: computeYMD
+Current: computeYMD_HMS Havoced: computeHMS
+Current: computeYMD_HMS Havoced: computeYMD
+Current: computeYMD_HMS Havoced: computeHMS
+Current: computeJD Havoced: datetimeError
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %183, i8 0, i64 48, i32 8, i1 false), !dbg !5930
+
+        Unrolling loop in function "parseHhMmSs" for 1 iterations succeeded.
+        Transformed "parseHhMmSs" from 17 to 19 basic blocks and from 132 to 165 instructionsCurrent: parseHhMmSs Havoced: getDigits
+Current: parseHhMmSs Havoced: getDigits
+Current: parseHhMmSs Havoced: parseTimezone
+Current: computeJD Havoced: datetimeError
+Current: computeJD Havoced: datetimeError
+
+                                                           0 sec [DONE]
+        Number of expressions:                        163150
+        after encoding
+
+      30 assertions before transformations (27 no_back_edge, 3 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            8691
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           73038
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                              18
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                          267840
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             512
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                             207
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               8
+                                                           0 sec [DONE]
+        
+      30 assertions remain after transformations (27 no_back_edge, 3 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...

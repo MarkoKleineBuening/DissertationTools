@@ -1,0 +1,142 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 25 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 3
+    HavocLimit : 1
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/25
+    TimeOut : 300
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : imugps_acq
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "imugps_acq" for 3 iterations succeeded.
+      Unrolling loop in function "imugps_acq" for 3 iterations succeeded.
+      Unrolling loop in function "imugps_acq" for 3 iterations succeeded.
+      Unrolling loop in function "imugps_acq" for 3 iterations succeeded.
+      Unrolling loop in function "imugps_acq" for 3 iterations succeeded.
+      Unrolling loop in function "imugps_acq" for 3 iterations succeeded.
+      Unrolling loop in function "imugps_acq" for 3 iterations succeeded.
+      Unrolling loop in function "imugps_acq" for 3 iterations succeeded.
+      Unrolling loop in function "imugps_acq" for 3 iterations succeeded.
+      Unrolling loop in function "imugps_acq" for 3 iterations succeeded.
+      Transformed "imugps_acq" from 58 to 268 basic blocks and from 284 to 1607 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...isMemset:   call void @llvm.memset.p0i8.i64(i8* %8, i8 0, i64 86, i32 16, i1 false), !dbg !1416
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %9, i8* getelementptr inbounds ([11 x i8], [11 x i8]* @imugps_acq.SCALED_MODE, i32 0, i32 0), i64 11, i32 1, i1 false), !dbg !1421
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %10, i8* getelementptr inbounds ([11 x i8], [11 x i8]* @imugps_acq.CH_BAUD, i32 0, i32 0), i64 11, i32 1, i1 false), !dbg !1423
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %11, i8* getelementptr inbounds ([11 x i8], [11 x i8]* @imugps_acq.CH_SAMP, i32 0, i32 0), i64 11, i32 1, i1 false), !dbg !1425
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %12, i8* getelementptr inbounds ([7 x i8], [7 x i8]* @imugps_acq.CH_SERVO, i32 0, i32 0), i64 7, i32 1, i1 false), !dbg !1428
+Current: imugps_acq Havoced: open_serial
+Current: imugps_acq Havoced: open_serial
+Current: imugps_acq Havoced: checksum
+Current: imugps_acq Havoced: decode_imupacket
+Current: imugps_acq Havoced: checksum
+Current: imugps_acq Havoced: decode_imupacket
+Current: imugps_acq Havoced: decode_gpspacket
+Current: imugps_acq Havoced: checksum
+Current: imugps_acq Havoced: decode_imupacket
+Current: imugps_acq Havoced: checksum
+Current: imugps_acq Havoced: decode_imupacket
+Current: imugps_acq Havoced: decode_gpspacket
+Current: imugps_acq Havoced: checksum
+Current: imugps_acq Havoced: decode_imupacket
+Current: imugps_acq Havoced: checksum
+Current: imugps_acq Havoced: decode_imupacket
+Current: imugps_acq Havoced: decode_gpspacket
+Current: imugps_acq Havoced: checksum
+Current: imugps_acq Havoced: decode_imupacket
+Current: imugps_acq Havoced: checksum
+Current: imugps_acq Havoced: decode_imupacket
+Current: imugps_acq Havoced: decode_gpspacket
+                      0 sec [DONE]
+        Number of expressions:                          9838
+        after encoding
+
+      199 assertions before transformations (152 no_function_call, 33 no_back_edge, 12 custom, 2 no_unreachable_executed).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            2980
+        Fixed Memory Address Assigner
+          Number of moved ops                              2
+          Number of rewrites                             364
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                            2735
+        Memory Model Encoder
+          Number of moved ops                              1rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               5
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                            2602
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           77025
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                               0
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      199 assertions remain after transformations (152 no_function_call, 33 no_back_edge, 12 custom, 2 no_unreachable_executed).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...            0 sec [DONE]
+        
+                                                           0 sec [DONE]
+      after performing Check
+evaluateCheckerResultsViaRefinementLoop
+checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      getCheckerResultAfterUpdatingMarker
+Result is NoTrace
+
+                                                           0 sec [DONE]
+    allsafe
+    
+                                                           0 sec [DONE]
+  

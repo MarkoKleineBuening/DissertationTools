@@ -1,0 +1,163 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 116 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 2
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/116
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : writefileFunc
+m_checker->run()
+
+    Performing bounded model checking ...
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...Current: sqlite3_value_text Havoced: sqlite3ValueText
+Current: sqlite3_value_int Havoced: sqlite3VdbeIntValue
+Current: sqlite3_value_int64 Havoced: sqlite3VdbeIntValue
+Current: writeFile Havoced: sqlite3_value_blob
+Current: writeFile Havoced: sqlite3_value_bytes
+Current: writeFile Havoced: sqlite3_value_bytes
+Current: writeFile Havoced: sqlite3_result_int64
+Current: writeFile Havoced: fileStat
+Current: writeFile Havoced: sqlite3_value_text
+
+        Unrolling loop in function "makeDirectory" for 1 iterations succeeded.
+        Unrolling loop in function "makeDirectory" for 1 iterations succeeded.
+        Transformed "makeDirectory" from 22 to 27 basic blocks and from 94 to 118 instructionsCurrent: makeDirectory Havoced: sqlite3_mprintf
+
+        Unrolling loop in function "llbmc.strlen" for 0 iterations succeeded.
+        Transformed "llbmc.strlen" from 8 to 9 instructionsCurrent: makeDirectory Havoced: fileStat
+Current: makeDirectory Havoced: sqlite3_free
+Current: writeFile Havoced: sqlite3_value_blob
+Current: writeFile Havoced: sqlite3_value_bytes
+Current: writeFile Havoced: sqlite3_value_bytes
+Current: writeFile Havoced: sqlite3_result_int64
+Current: writeFile Havoced: fileStat
+Current: writeFile Havoced: sqlite3_value_text
+Current: ctxErrorMsg Havoced: sqlite3_vmprintf
+Current: ctxErrorMsg Havoced: sqlite3_result_error
+Current: ctxErrorMsg Havoced: sqlite3_free
+Current: ctxErrorMsg Havoced: sqlite3_vmprintf
+Current: ctxErrorMsg Havoced: sqlite3_result_error
+Current: ctxErrorMsg Havoced: sqlite3_free
+Current: ctxErrorMsg Havoced: sqlite3_vmprintf
+Current: ctxErrorMsg Havoced: sqlite3_result_error
+Current: ctxErrorMsg Havoced: sqlite3_free
+Current: sqlite3_result_error Havoced: sqlite3VdbeMemSetStr
+
+                                                           0 sec [DONE]
+        Number of expressions:                        156347
+        after encoding
+
+      26 assertions before transformations (22 no_function_call, 3 no_back_edge, 1 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            4363
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72606
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                              11
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                              68
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             142
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      26 assertions remain after transformations (22 no_function_call, 3 no_back_edge, 1 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...            0 sec [DONE]
+        
+                                                           0 sec [DONE]
+      after performing Check
+evaluateCheckerResultsViaRefinementLoop
+checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setCheckToUnsafe
+setCheckToUnsafe
+Check for floating point traces / abstractions currently deactivated
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      getCheckerResultAfterUpdatingMarker
+Result is NoTrace
+
+                                                           1 sec [DONE]
+    allunsafe
+    
+                                                           1 sec [DONE]
+  

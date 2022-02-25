@@ -1,0 +1,52 @@
+<VerificationJob>
+  <Configuration>
+    <AnalyzeChecksIndividually value="true" />
+    <BitcodeTraces value="false" />
+    <CheckCallers value="true" />
+    <DumpVerifierBitcodeFiles value="false" />
+    <EnableSlicing value="true" />
+    <EntryPoint value="sqlite3DropIndex" />
+    <FixPoint value="true" />
+    <ForkJobs value="true" />
+    <Hosted value="true" />
+    <IgnoreMissingFunctions value="false" />
+    <InitializedGlobals value="false" />
+    <LoopUnrollBound value="1" />
+    <PreconditionLocation value="jobs/5973" />
+    <SourceDirectory value="/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld" />
+    <TimeOut value="600" />
+    <XMLTraces value="false" />
+  </Configuration>
+  <CheckList>
+    <Check id="18590" location="20527" category="arithmetic.overflow" status="safe|loopboundreached" scope="sqlite3SrcListDelete">
+      <Annotations>
+        <Annotation>A loop bound was reached (/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld//home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld/sqlite3.c:117110:3)</Annotation>
+      </Annotations>
+      <EntryStatus>
+        <SingleEntryStatus>clearSelect, unknown</SingleEntryStatus>
+        <SingleEntryStatus>renameResolveTrigger, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3AlterBeginAddColumn, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3AlterDropColumn, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3AlterRenameColumn, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3AlterRenameTable, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3BeginTrigger, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3CreateIndex, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3DeleteFrom, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3DeleteTriggerStep, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3DropIndex, safe|loopboundreached</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3DropTable, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3DropTrigger, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3FkCheck, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3Insert, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3SrcListAppend, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3SrcListAppendList, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3TriggerUpdateStep, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3Update, unknown</SingleEntryStatus>
+        <SingleEntryStatus>yy_destructor, unknown</SingleEntryStatus>
+        <SingleEntryStatus>yy_reduce, unknown</SingleEntryStatus>
+      </EntryStatus>
+    </Check>
+  </CheckList>
+  <Annotation>allsafe</Annotation>
+  <Status>allsafe</Status>
+</VerificationJob>

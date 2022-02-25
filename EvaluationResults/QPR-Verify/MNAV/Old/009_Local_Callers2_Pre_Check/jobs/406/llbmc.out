@@ -1,0 +1,227 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+handleJobInSeparateProcess0
+
+Checking job 406 ...about to run job:
+preconNumber: 3, 1
+
+  Running Model Checker with 1 checks ...entry: mat_lsolve_durbin, functionName: _mat_creat
+entry: mat_lsolve_durbin, functionName: EulerToDcm
+entry: mat_lsolve_durbin, functionName: ahrs_main
+entry: mat_lsolve_durbin, functionName: mat_creat
+  <badref> = call double** @qpr.precondition.mat_creat(i32 %8, i32 1, i32 -1)
+entry: mat_lsolve_durbin, functionName: mat_lsolve_durbin
+entry: mat_lsolve_durbin, functionName: mat_minor
+entry: mat_lsolve_durbin, functionName: navigation
+try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 4
+    HavocLimit : 0
+    PreconditionNumber : 3
+    PreconditionLocation : jobs/406
+    TimeOut : 300
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : mat_lsolve_durbin
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "mat_lsolve_durbin" for 4 iterations succeeded.
+      Transformed "mat_lsolve_durbin" from 8 to 15 basic blocks and from 60 to 117 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...size Alloca: 1
+size Alloca: 1
+size Alloca: 1
+TODO MKB implement precondition handling: IE
+Reading in precondition at: jobs/406/precondition_mat_creat.txt
+preconFile: jobs/406/precondition_mat_creat.txt
+ref: [underoverapprox]name of function arguments, argValue:  
+ref: [underoverapprox]name of function arguments, argValue:  
+name of function arguments line
+param: i32 %arg0:2079719167
+---name: i32 %arg0, value: 2079719167.
+integer, char or other simple types
+name: i32 %arg0
+assuming that there are not more then 10 arguments
+nameIndex: 0
+nameID: 0
+argument name: 
+value: 2079719167
+###new bool cond: bool % = compare(%, %i32__2079719167)
+param:  i32 %arg1:-2147483648
+---name:  i32 %arg1, value: -2147483648.
+integer, char or other simple types
+name:  i32 %arg1
+assuming that there are not more then 10 arguments
+nameIndex: 1
+nameID: 1
+argument name: 
+value: -2147483648
+###added bool cond: bool % = or(%, %)
+param:  i32 %arg2:arbitrary
+---name:  i32 %arg2, value: arbitrary.
+pruneOrAssert -- adding line boolCond: bool % = or(%, %)
+param: i32 %arg0:2029387647
+---name: i32 %arg0, value: 2029387647.
+integer, char or other simple types
+name: i32 %arg0
+assuming that there are not more then 10 arguments
+nameIndex: 0
+nameID: 0
+argument name: 
+value: 2029387647
+###new bool cond: bool % = compare(%, %i32__2029387647)
+param:  i32 %arg1:-2097152128
+---name:  i32 %arg1, value: -2097152128.
+integer, char or other simple types
+name:  i32 %arg1
+assuming that there are not more then 10 arguments
+nameIndex: 1
+nameID: 1
+argument name: 
+value: -2097152128
+###added bool cond: bool % = or(%, %)
+param:  i32 %arg2:arbitrary
+---name:  i32 %arg2, value: arbitrary.
+pruneOrAssert -- adding line boolCond: bool % = or(%, %)
+param: i32 %arg0:2046164863
+---name: i32 %arg0, value: 2046164863.
+integer, char or other simple types
+name: i32 %arg0
+assuming that there are not more then 10 arguments
+nameIndex: 0
+nameID: 0
+argument name: 
+value: 2046164863
+###new bool cond: bool % = compare(%, %i32__2046164863)
+param:  i32 %arg1:-2113929344
+---name:  i32 %arg1, value: -2113929344.
+integer, char or other simple types
+name:  i32 %arg1
+assuming that there are not more then 10 arguments
+nameIndex: 1
+nameID: 1
+argument name: 
+value: -2113929344
+###added bool cond: bool % = or(%, %)
+param:  i32 %arg2:arbitrary
+---name:  i32 %arg2, value: arbitrary.
+pruneOrAssert -- adding line boolCond: bool % = or(%, %)
+Writing precondition type at: jobs/406/precondition_type_mat_lsolve_durbin.txt
+
+Type of Precondition:
+[underoverapprox]
+precondition found, end encoding
+                      0 sec [DONE]
+        Number of expressions:                          6077
+        after encoding
+
+      3 assertions before transformations (3 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                              86
+        Fixed Memory Address Assigner
+          Number of moved ops                              6
+          Number of rewrites                             367
+        Simplifier
+          Number of moved ops                              3
+          Number of rewrites                            5296
+        Memory Model Encoder
+          Number of moved ops                              0
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                               0
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      3 assertions remain after transformations (3 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...            0 sec [DONE]
+        
+                                                           0 sec [DONE]
+      after performing Check
+evaluateCheckerResultsViaRefinementLoop
+getCheckerResultAfterUpdatingMarker
+Result is NoTrace
+
+                                                           0 sec [DONE]
+    Found 6 errors in the formula. Cannot start bug checking.
+    
+                                                           0 sec [DONE]
+  rrors in the formula. Cannot start bug checking.
+    
+                                                           0 sec [DONE]
+  ckFormula
+
+      Running SMT solver (STP with MiniSat) ...            0 sec [DONE]
+        
+                                                           0 sec [DONE]
+      after performing Check
+evaluateCheckerResultsViaRefinementLoop
+checker.getResult() is Trace
+checkOnlyPrecon: 1, size:1
+setCheckToUnsafe for precondition Instruction
+checkID: 1437
+setCheckToUnsafe
+set check to unsafe
+getCheckerResultAfterUpdatingMarker
+failingInst:   %9 = call %struct._IO_FILE.138* @fopen(i8* getelementptr inbounds ([17 x i8], [17 x i8]* @.str.10, i32 0, i32 0), i8* getelementptr inbounds ([4 x i8], [4 x i8]* @.str.1.11, i32 0, i32 0)), !dbg !1545
+Preconditions internal: 
+
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   %9 = call %struct._IO_FILE.138* @fopen(i8* getelementptr inbounds ([17 x i8], [17 x i8]* @.str.10, i32 0, i32 0), i8* getelementptr inbounds ([4 x i8], [4 x i8]* @.str.1.11, i32 0, i32 0)), !dbg !1545
+Preconditions internal: 
+
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   %9 = call %struct._IO_FILE.138* @fopen(i8* getelementptr inbounds ([17 x i8], [17 x i8]* @.str.10, i32 0, i32 0), i8* getelementptr inbounds ([4 x i8], [4 x i8]* @.str.1.11, i32 0, i32 0)), !dbg !1545
+Preconditions internal: 
+
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      name of function arguments: Writing precondition at: jobs/406/precondition_navigation.txt
+
+Generated Preconditions:
+[underoverapprox]name of function arguments: 
+
+
+
+
+                                                           0 sec [DONE]
+    allsafe
+    
+                                                           0 sec [DONE]
+  

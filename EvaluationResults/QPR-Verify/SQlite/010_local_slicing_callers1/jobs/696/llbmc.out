@@ -1,0 +1,109 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+handleJobInSeparateProcess0
+
+Checking job 696 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...Check contains Safe and does not have to refined by preconditions
+E [0] lib/Slicer/LocalDependencyCollector.cpp:75 | check with ID 2547 not found in function 'shell_callback'
+F [0] lib/Frontend/RunJobCommand.cpp:175 | Assertion failed: collecing local dependencies failed
+/LocalSlicer.cpp:368 | argument 0 (i8* %1) has pointer type
+W [1] lib/Slicer/LocalSlicer.cpp:357 | argument i8* null of call instruction has pointer type
+W [1] lib/Slicer/LocalSlicer.cpp:368 | argument 0 (i8* undef) has pointer type
+W [1] lib/Slicer/LocalSlicer.cpp:368 | argument 0 (i8* undef) has pointer type
+W [1] lib/Slicer/LocalSlicer.cpp:368 | argument 0 (i8* undef) has pointer type
+W [1] lib/Slicer/LocalSlicer.cpp:368 | argument 0 (i8* undef) has pointer type
+W [1] lib/Slicer/LocalSlicer.cpp:368 | argument 0 (i8* undef) has pointer type
+W [1] lib/Slicer/LocalSlicer.cpp:357 | argument i8* %1 of call instruction has pointer type
+W [1] lib/Slicer/LocalSlicer.cpp:495 | unused argument: , qpr.slicing.unused.arg.strlen30.0
+W [1] lib/Slicer/LocalSlicer.cpp:495 | unused argument: , qpr.slicing.unused.arg.output_csv.0
+W [1] lib/Slicer/LocalSlicer.cpp:495 | unused argument: , qpr.slicing.unused.arg.output_csv.1
+W [1] lib/Slicer/LocalSlicer.cpp:495 | unused argument: , qpr.slicing.unused.arg.output_csv.2
+I [1] lib/Slicer/LocalSlicer.cpp:104 | slicing finished
+try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 0
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/696
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [1] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : output_csv
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "output_csv" for 1 iterations succeeded.
+      Transformed "output_csv" from 8 to 14 basic blocks and from 34 to 42 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...                      0 sec [DONE]
+        Number of expressions:                        130982
+        after encoding
+
+      2 assertions before transformations (1 no_back_edge, 1 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            2619
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            4896
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           61879
+        Memory Model Encoder
+          Number of moved ops                              0
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                               5
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                              88
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                               0
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      2 assertions remain after transformations (1 no_back_edge, 1 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...            0 sec [DONE]
+        
+                                                           0 sec [DONE]
+      after performing Check
+evaluateCheckerResultsViaRefinementLoop
+checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+BranchInst - LoopBound
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      getCheckerResultAfterUpdatingMarker
+Result is NoTrace
+
+                                                           1 sec [DONE]
+    allsafe
+    
+                                                           1 sec [DONE]
+  

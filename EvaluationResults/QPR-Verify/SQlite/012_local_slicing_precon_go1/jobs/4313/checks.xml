@@ -1,0 +1,52 @@
+<VerificationJob>
+  <Configuration>
+    <AnalyzeChecksIndividually value="true" />
+    <BitcodeTraces value="false" />
+    <CheckOnlyPrecondition value="true" />
+    <DumpVerifierBitcodeFiles value="false" />
+    <EnableSlicing value="true" />
+    <EntryPoint value="sqlite3TableAffinity" />
+    <FixPoint value="true" />
+    <ForkJobs value="true" />
+    <Hosted value="true" />
+    <IgnoreMissingFunctions value="false" />
+    <InitializedGlobals value="false" />
+    <LoopUnrollBound value="1" />
+    <PreconditionLocation value="jobs/4313" />
+    <PreconditionNumber value="5" />
+    <SourceDirectory value="/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld" />
+    <StopEncodingAfterCheck value="true" />
+    <StopEncodingAfterCheckLoop value="1" />
+    <TimeOut value="600" />
+    <XMLTraces value="false" />
+  </Configuration>
+  <CheckList>
+    <Check id="13091" location="14187" category="arithmetic.overflow" status="internalerror" scope="sqlite3VdbeChangeP4">
+      <Annotations>
+        <Annotation>A signed arithmetic operation can overflow.</Annotation>
+        <Annotation>Unable to open precondition file!
+ (job:4313)</Annotation>
+        <Annotation>Unable to open precondition file!
+ (job:4313)</Annotation>
+      </Annotations>
+      <EntryStatus>
+        <SingleEntryStatus>codeDeferredSeek, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>codeDistinct, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>codeRowTrigger, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>multiSelect, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>pushOntoSorter, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3CodeRhsOfIN, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3Select, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3TableAffinity, internalerror</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3VdbeAddOp4, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3WhereBegin, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3_blob_open, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>vdbeChangeP4Full, unknown</SingleEntryStatus>
+        <SingleEntryStatus>xferOptimization, unknown</SingleEntryStatus>
+      </EntryStatus>
+    </Check>
+  </CheckList>
+  <Annotation>Unable to open precondition file!
+</Annotation>
+  <Status>internalerror</Status>
+</VerificationJob>

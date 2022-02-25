@@ -1,0 +1,92 @@
+<VerificationJob>
+  <Configuration>
+    <AnalyzeChecksIndividually value="true" />
+    <BitcodeTraces value="false" />
+    <CheckCallers value="true" />
+    <EnableSlicing value="false" />
+    <EntryPoint value="bmi160_set_aux_auto_mode" />
+    <FixPoint value="true" />
+    <IgnoreMissingFunctions value="false" />
+    <InitializedGlobals value="false" />
+    <LoopUnrollBound value="12" />
+    <PreconditionLocation value="jobs/4" />
+    <SourceDirectory value="/home/i12/mbuening/100_Dissertation/BMI160/BMI160_driver" />
+    <TimeOut value="300" />
+  </Configuration>
+  <CheckList>
+    <Check id="25" location="32" category="arithmetic.overflow.warning" status="safe" scope="bmi160_set_regs">
+      <Annotations>
+        <Annotation>An unsigned arithmetic operation can overflow (wraparound).</Annotation>
+        <Annotation>A loop bound was reached (/home/i12/mbuening/100_Dissertation/BMI160/BMI160_driver//home/i12/mbuening/100_Dissertation/BMI160/BMI160_driver/bmi160.c:1412:4)</Annotation>
+        <Annotation>A loop bound was reached (/home/i12/mbuening/100_Dissertation/BMI160/BMI160_driver//home/i12/mbuening/100_Dissertation/BMI160/BMI160_driver/BMI160Stubs.c:25:3)</Annotation>
+        <Annotation>A loop bound was reached (/home/i12/mbuening/100_Dissertation/BMI160/BMI160_driver//home/i12/mbuening/100_Dissertation/BMI160/BMI160_driver/BMI160Stubs.c:25:3)</Annotation>
+        <Annotation>A loop bound was reached (/home/i12/mbuening/100_Dissertation/BMI160/BMI160_driver//home/i12/mbuening/100_Dissertation/BMI160/BMI160_driver/bmi160.c:4169:2)</Annotation>
+        <Annotation>A loop bound was reached (/home/i12/mbuening/100_Dissertation/BMI160/BMI160_driver//home/i12/mbuening/100_Dissertation/BMI160/BMI160_driver/BMI160Stubs.c:25:3)</Annotation>
+        <Annotation>A loop bound was reached (/home/i12/mbuening/100_Dissertation/BMI160/BMI160_driver//home/i12/mbuening/100_Dissertation/BMI160/BMI160_driver/bmi160.c:1764:3)</Annotation>
+        <Annotation>A function body is missing (/home/i12/mbuening/100_Dissertation/BMI160/BMI160_driver//home/i12/mbuening/100_Dissertation/BMI160/BMI160_driver/bmi160.c:1378:3)</Annotation>
+      </Annotations>
+      <EntryStatus>
+        <SingleEntryStatus>accel_self_test_negative_excitation, safe</SingleEntryStatus>
+        <SingleEntryStatus>accel_self_test_positive_excitation, safe</SingleEntryStatus>
+        <SingleEntryStatus>bmi160_aux_write, unknown</SingleEntryStatus>
+        <SingleEntryStatus>bmi160_config_aux_mode, safe</SingleEntryStatus>
+        <SingleEntryStatus>bmi160_set_aux_auto_mode, safe</SingleEntryStatus>
+        <SingleEntryStatus>bmi160_set_fifo_config, safe</SingleEntryStatus>
+        <SingleEntryStatus>bmi160_set_fifo_down, safe</SingleEntryStatus>
+        <SingleEntryStatus>bmi160_set_fifo_flush, safe</SingleEntryStatus>
+        <SingleEntryStatus>bmi160_set_fifo_wm, safe</SingleEntryStatus>
+        <SingleEntryStatus>bmi160_set_offsets, safe</SingleEntryStatus>
+        <SingleEntryStatus>bmi160_set_step_counter, safe</SingleEntryStatus>
+        <SingleEntryStatus>bmi160_soft_reset, safe</SingleEntryStatus>
+        <SingleEntryStatus>bmi160_start_foc, unknown</SingleEntryStatus>
+        <SingleEntryStatus>bmi160_update_nvm, safe</SingleEntryStatus>
+        <SingleEntryStatus>config_any_dur_threshold, safe</SingleEntryStatus>
+        <SingleEntryStatus>config_any_motion_src, safe</SingleEntryStatus>
+        <SingleEntryStatus>config_aux_odr, safe</SingleEntryStatus>
+        <SingleEntryStatus>config_flat_int_settg, safe</SingleEntryStatus>
+        <SingleEntryStatus>config_high_g_data_src, safe</SingleEntryStatus>
+        <SingleEntryStatus>config_high_g_int_settg, safe</SingleEntryStatus>
+        <SingleEntryStatus>config_int_latch, safe</SingleEntryStatus>
+        <SingleEntryStatus>config_int_out_ctrl, safe</SingleEntryStatus>
+        <SingleEntryStatus>config_low_g_data_src, safe</SingleEntryStatus>
+        <SingleEntryStatus>config_low_g_int_settg, safe</SingleEntryStatus>
+        <SingleEntryStatus>config_no_motion_data_src, safe</SingleEntryStatus>
+        <SingleEntryStatus>config_no_motion_dur_thr, safe</SingleEntryStatus>
+        <SingleEntryStatus>config_orient_int_settg, safe</SingleEntryStatus>
+        <SingleEntryStatus>config_sec_if, safe</SingleEntryStatus>
+        <SingleEntryStatus>config_sig_dur_threshold, safe</SingleEntryStatus>
+        <SingleEntryStatus>config_sig_motion_data_src, safe</SingleEntryStatus>
+        <SingleEntryStatus>config_step_detect, safe</SingleEntryStatus>
+        <SingleEntryStatus>config_tap_data_src, safe</SingleEntryStatus>
+        <SingleEntryStatus>config_tap_param, safe</SingleEntryStatus>
+        <SingleEntryStatus>configure_offset_enable, safe</SingleEntryStatus>
+        <SingleEntryStatus>disable_sig_motion_int, safe</SingleEntryStatus>
+        <SingleEntryStatus>enable_accel_any_motion_int, safe</SingleEntryStatus>
+        <SingleEntryStatus>enable_accel_self_test, safe</SingleEntryStatus>
+        <SingleEntryStatus>enable_data_ready_int, safe</SingleEntryStatus>
+        <SingleEntryStatus>enable_fifo_full_int, safe</SingleEntryStatus>
+        <SingleEntryStatus>enable_fifo_wtm_int, safe</SingleEntryStatus>
+        <SingleEntryStatus>enable_flat_int, safe</SingleEntryStatus>
+        <SingleEntryStatus>enable_gyro_self_test, safe</SingleEntryStatus>
+        <SingleEntryStatus>enable_high_g_int, safe</SingleEntryStatus>
+        <SingleEntryStatus>enable_low_g_int, safe</SingleEntryStatus>
+        <SingleEntryStatus>enable_no_motion_int, safe</SingleEntryStatus>
+        <SingleEntryStatus>enable_orient_int, safe</SingleEntryStatus>
+        <SingleEntryStatus>enable_sig_motion_int, safe</SingleEntryStatus>
+        <SingleEntryStatus>enable_step_detect_int, safe</SingleEntryStatus>
+        <SingleEntryStatus>enable_tap_int, safe</SingleEntryStatus>
+        <SingleEntryStatus>extract_aux_read, unknown</SingleEntryStatus>
+        <SingleEntryStatus>map_feature_interrupt, safe</SingleEntryStatus>
+        <SingleEntryStatus>map_hardware_interrupt, safe</SingleEntryStatus>
+        <SingleEntryStatus>process_under_sampling, unknown</SingleEntryStatus>
+        <SingleEntryStatus>set_accel_conf, safe</SingleEntryStatus>
+        <SingleEntryStatus>set_accel_pwr, safe</SingleEntryStatus>
+        <SingleEntryStatus>set_gyro_conf, safe</SingleEntryStatus>
+        <SingleEntryStatus>set_gyro_pwr, safe</SingleEntryStatus>
+        <SingleEntryStatus>trigger_foc, unknown</SingleEntryStatus>
+      </EntryStatus>
+    </Check>
+  </CheckList>
+  <Annotation>allunsafe</Annotation>
+  <Status>allsafe</Status>
+</VerificationJob>

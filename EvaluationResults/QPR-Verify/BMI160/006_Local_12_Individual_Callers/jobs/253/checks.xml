@@ -1,0 +1,33 @@
+<VerificationJob>
+  <Configuration>
+    <AnalyzeChecksIndividually value="true" />
+    <BitcodeTraces value="false" />
+    <CheckCallers value="true" />
+    <EnableSlicing value="false" />
+    <EntryPoint value="set_fifo_watermark_int" />
+    <FixPoint value="true" />
+    <IgnoreMissingFunctions value="false" />
+    <InitializedGlobals value="false" />
+    <LoopUnrollBound value="12" />
+    <PreconditionLocation value="jobs/253" />
+    <SourceDirectory value="/home/i12/mbuening/100_Dissertation/BMI160/BMI160_driver" />
+    <TimeOut value="300" />
+  </Configuration>
+  <CheckList>
+    <Check id="1172" location="1266" category="arrayindex" status="unsafe" scope="map_hardware_interrupt">
+      <Annotations>
+        <Annotation>An array can be indexed out of bounds.</Annotation>
+        <Annotation>An array can be indexed out of bounds.</Annotation>
+        <Annotation>An array can be indexed out of bounds.</Annotation>
+        <Annotation>An array can be indexed out of bounds.</Annotation>
+      </Annotations>
+      <EntryStatus>
+        <SingleEntryStatus>set_accel_gyro_data_ready_int, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>set_fifo_full_int, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>set_fifo_watermark_int, unsafe</SingleEntryStatus>
+      </EntryStatus>
+    </Check>
+  </CheckList>
+  <Annotation>allunsafe</Annotation>
+  <Status>allunsafe</Status>
+</VerificationJob>

@@ -1,0 +1,123 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 2993 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 1
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/2993
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : walRewriteChecksums
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "walRewriteChecksums" for 1 iterations succeeded.
+      Transformed "walRewriteChecksums" from 15 to 22 basic blocks and from 146 to 202 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...Current: walRewriteChecksums Havoced: sqlite3_malloc
+Current: walRewriteChecksums Havoced: sqlite3OsRead
+Current: walRewriteChecksums Havoced: sqlite3Get4byte
+Current: walRewriteChecksums Havoced: sqlite3Get4byte
+Current: walRewriteChecksums Havoced: sqlite3OsRead
+Current: walRewriteChecksums Havoced: sqlite3Get4byte
+Current: walRewriteChecksums Havoced: sqlite3Get4byte
+Current: walRewriteChecksums Havoced: walEncodeFrame
+Current: walRewriteChecksums Havoced: sqlite3OsWrite
+Current: walRewriteChecksums Havoced: sqlite3_free
+Current: walRewriteChecksums Havoced: sqlite3OsRead
+Current: walRewriteChecksums Havoced: sqlite3Get4byte
+Current: walRewriteChecksums Havoced: sqlite3Get4byte
+Current: walRewriteChecksums Havoced: walEncodeFrame
+Current: walRewriteChecksums Havoced: sqlite3OsWrite
+                      0 sec [DONE]
+        Number of expressions:                        155288
+        after encoding
+
+      3 assertions before transformations (1 no_back_edge, 2 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            3474
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72611
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               1
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               3
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             142
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      3 assertions remain after transformations (1 no_back_edge, 2 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...            0 sec [DONE]
+        
+                                                           0 sec [DONE]
+      after performing Check
+evaluateCheckerResultsViaRefinementLoop
+checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setCheckToUnsafe
+setCheckToUnsafe
+Check for floating point traces / abstractions currently deactivated
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+BranchInst - LoopBound
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      getCheckerResultAfterUpdatingMarker
+Result is NoTrace
+
+                                                           1 sec [DONE]
+    allunsafe
+    
+                                                           1 sec [DONE]
+  

@@ -1,0 +1,194 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 2770 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 2
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/2770
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : sqlite3PagerOpenSavepoint
+m_checker->run()
+
+    Performing bounded model checking ...
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...
+        Unrolling loop in function "pagerOpenSavepoint" for 1 iterations succeeded.
+        Transformed "pagerOpenSavepoint" from 16 to 17 basic blocks and from 125 to 128 instructionsCurrent: pagerOpenSavepoint Havoced: sqlite3Realloc
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %14, i8 0, i64 %17, i32 8, i1 false), !dbg !5634
+Current: pagerOpenSavepoint Havoced: sqlite3BitvecCreate
+Current: pagerOpenSavepoint Havoced: sqlite3WalSavepoint
+
+                                                           0 sec [DONE]
+        Number of expressions:                        155264
+        after encoding
+
+      2 assertions before transformations (1 no_back_edge, 1 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            3462
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72610
+        Memory Model Encoder
+          Number of moved ops                              0
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                               3
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             142
+        ToASC Analyser
+          Memcpy/memset found                            yes
+        Byte-Based Memory Creator
+          Number of rewrites                            8937
+        Instantiation-Based ToASC Simplifier
+          Number of rewrites                               1
+        Simplifier
+          Number of moved ops                            133
+          Number of rewrites                           23168
+        FP Abstraction
+          Number of rewrites                              22
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      2 assertions remain after transformations (1 no_back_edge, 1 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...or
+Current: sqlite3Realloc Havoced: re_space_char
+Current: sqlite3Realloc Havoced: re_digit_char
+Current: sqlite3Realloc Havoced: re_word_char
+Current: sqlite3Realloc Havoced: memtraceRoundup
+Current: sqlite3Realloc Havoced: explainIndexColumnName
+
+        Unrolling loop in function "llbmc.strrchr" for 0 iterations succeeded.
+        Unrolling loop in function "llbmc.strrchr" for 0 iterations succeeded.
+        Transformed "llbmc.strrchr" from 5 to 6 basic blocks and from 18 to 20 instructionsCurrent: sqlite3Realloc Havoced: sqlite3VListNumToName
+Current: sqlite3Realloc Havoced: sqlite3PagerFilename
+Current: sqlite3Realloc Havoced: sqlite3_uri_key
+Current: sqlite3Realloc Havoced: sqlite3_vtab_collation
+Current: sqlite3Realloc Havoced: sqlite3_get_auxdata
+Current: sqlite3Realloc Havoced: sqlite3_column_text16
+Current: sqlite3Realloc Havoced: sqlite3_column_text
+Current: sqlite3Realloc Havoced: sqlite3_column_name16
+Current: sqlite3Realloc Havoced: sqlite3_column_name
+Current: sqlite3Realloc Havoced: sqlite3_column_decltype16
+Current: sqlite3Realloc Havoced: sqlite3_column_decltype
+Current: sqlite3Realloc Havoced: sqlite3_column_blob
+Current: sqlite3Realloc Havoced: sqlite3_bind_parameter_name
+Current: sqlite3Realloc Havoced: createAggContext
+Current: sqlite3Realloc Havoced: sqlite3_aggregate_context
+Current: sqlite3Realloc Havoced: sqlite3MemRealloc
+Current: sqlite3Realloc Havoced: sqlite3_realloc
+
+        Unrolling loop in function "llbmc.strchr" for 0 iterations succeeded.Current: sqlite3Realloc Havoced: memtraceRealloc
+Current: sqlite3Realloc Havoced: idxMalloc
+Current: sqlite3Realloc Havoced: sqlite3_mutex_enter
+Current: sqlite3Realloc Havoced: sqlite3StatusHighwater
+Current: sqlite3Realloc Havoced: sqlite3StatusValue
+Current: sqlite3Realloc Havoced: sqlite3MallocAlarm
+Current: sqlite3Realloc Havoced: explainIndexColumnName
+Current: sqlite3Realloc Havoced: sqlite3VListNumToName
+Current: sqlite3Realloc Havoced: sqlite3PagerFilename
+Current: sqlite3Realloc Havoced: sqlite3_uri_key
+Current: sqlite3Realloc Havoced: sqlite3_vtab_collation
+Current: sqlite3Realloc Havoced: sqlite3_get_auxdata
+Current: sqlite3Realloc Havoced: sqlite3_column_text16
+Current: sqlite3Realloc Havoced: sqlite3_column_text
+Current: sqlite3Realloc Havoced: sqlite3_column_name16
+Current: sqlite3Realloc Havoced: sqlite3_column_name
+Current: sqlite3Realloc Havoced: sqlite3_column_decltype16
+Current: sqlite3Realloc Havoced: sqlite3_column_decltype
+Current: sqlite3Realloc Havoced: sqlite3_column_blob
+Current: sqlite3Realloc Havoced: sqlite3_bind_parameter_name
+Current: sqlite3Realloc Havoced: createAggContext
+Current: sqlite3Realloc Havoced: sqlite3_aggregate_context
+Current: sqlite3Realloc Havoced: sqlite3MemRealloc
+Current: sqlite3Realloc Havoced: sqlite3_realloc
+Current: sqlite3Realloc Havoced: memtraceRealloc
+Current: sqlite3Realloc Havoced: idxMalloc
+Current: sqlite3Realloc Havoced: sqlite3MallocSize
+Current: sqlite3Realloc Havoced: sqlite3StatusUp
+Current: sqlite3Realloc Havoced: sqlite3_mutex_leave
+Current: sqlite3Realloc Havoced: sqlite3_mutex_leave
+Current: sqlite3Realloc Havoced: sqlite3_free
+Current: sqlite3Realloc Havoced: sqlite3Malloc
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %12, i8 0, i64 %15, i32 8, i1 false), !dbg !5634
+Current: sqlite3BitvecCreate Havoced: sqlite3MallocZero
+
+                                                           0 sec [DONE]
+        Number of expressions:                        157092
+        after encoding
+
+      18 assertions before transformations (10 no_function_call, 7 no_back_edge, 1 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            4650
+        Fixed Memory Address Assigner
+          Number of moved ops                              8
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72647
+        Memory Model Encoder
+          Number of moved ops                              0
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                              66
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             142
+        ToASC Analyser
+          Memcpy/memset found                            yes
+        Byte-Based Memory Creator
+          Number of rewrites                            8961
+        Instantiation-Based ToASC Simplifier
+          Number of rewrites                               1
+        Simplifier
+          Number of moved ops                            133
+          Number of rewrites                           23295
+        FP Abstraction
+          Number of rewrites                              22
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      18 assertions remain after transformations (10 no_function_call, 7 no_back_edge, 1 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...

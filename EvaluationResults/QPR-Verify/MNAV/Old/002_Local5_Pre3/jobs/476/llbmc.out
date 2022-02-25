@@ -1,0 +1,173 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+handleJobInSeparateProcess0
+
+Checking job 476 ...about to run job:
+preconNumber: 3, 1
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 4
+    HavocLimit : 0
+    PreconditionNumber : 3
+    PreconditionLocation : jobs/476
+    TimeOut : 300
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : mat_mymul5
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "mat_mymul5" for 4 iterations succeeded.
+      Unrolling loop in function "mat_mymul5" for 4 iterations succeeded.
+      Unrolling loop in function "mat_mymul5" for 4 iterations succeeded.
+      Unrolling loop in function "mat_mymul5" for 4 iterations succeeded.
+      Unrolling loop in function "mat_mymul5" for 4 iterations succeeded.
+      Transformed "mat_mymul5" from 21 to 287 basic blocks and from 136 to 3132 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...size Alloca: 1
+size Alloca: 1
+size Alloca: 1
+                      0 sec [DONE]
+        Number of expressions:                         11808
+        after encoding
+
+      106 assertions before transformations (26 no_back_edge, 80 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            2879
+        Fixed Memory Address Assigner
+          Number of moved ops                              3
+          Number of rewrites                             367
+        Simplifier
+          Number of moved ops                              3
+          Number of rewrites                            5487
+        Memory Model Encoder
+          Number of moved ops                              0
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                              84
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                             241
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      106 assertions remain after transformations (26 no_back_edge, 80 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...           22 sec [DONE]
+        
+                                                          22 sec [DONE]
+      after performing Check
+evaluateCheckerResultsViaRefinementLoop
+checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+BranchInst - LoopBound
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...           24 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+BranchInst - LoopBound
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...           18 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+BranchInst - LoopBound
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...           17 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+BranchInst - LoopBound
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...           24 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+BranchInst - LoopBound
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...           52 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setCheckToUnsafe
+setCheckToUnsafe
+Check for floating point traces / abstractions currently deactivated
+getCheckerResultAfterUpdatingMarker
+failingInst:   call void @llbmc.assert(i1 %5, i32 %0)
+Preconditions internal: 
+i16 %arg3:11774; (i16 %arg3:11774)
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: i16 %arg3 = nondef() : 11774
+
+    Rerunning SMT solver (STP with MiniSat) ...           35 sec [DONE]
+      failingInst:   call void @llbmc.assert(i1 %5, i32 %0)
+Preconditions internal: 
+i16 %arg3:32767; (i16 %arg3:32767)
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: i16 %arg3 = nondef() : 32767
+
+    Rerunning SMT solver (STP with MiniSat) ...           23 sec [DONE]
+      failingInst:   call void @llbmc.assert(i1 %5, i32 %0)
+Preconditions internal: 
+i16 %arg3:14509; (i16 %arg3:14509)
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: i16 %arg3 = nondef() : 14509
+
+    Rerunning SMT solver (STP with MiniSat) ...           23 sec [DONE]
+      name of function arguments: Writing precondition at: jobs/476/precondition_mat_mymul5.txt
+
+Generated Preconditions:
+[underoverapprox]name of function arguments: 
+i16 %arg3:11774; 
+i16 %arg3:32767; 
+i16 %arg3:14509; 
+
+                                                         244 sec [DONE]
+    allunsafe
+    
+                                                         244 sec [DONE]
+  

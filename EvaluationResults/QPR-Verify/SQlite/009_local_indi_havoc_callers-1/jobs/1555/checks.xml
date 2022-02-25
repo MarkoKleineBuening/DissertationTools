@@ -1,0 +1,44 @@
+<VerificationJob>
+  <Configuration>
+    <AnalyzeChecksIndividually value="true" />
+    <BitcodeTraces value="false" />
+    <CheckCallers value="true" />
+    <DumpVerifierBitcodeFiles value="false" />
+    <EnableSlicing value="false" />
+    <EntryPoint value="addArgumentToVtab" />
+    <FixPoint value="true" />
+    <ForkJobs value="true" />
+    <HavocLimit value="2" />
+    <Hosted value="true" />
+    <IgnoreMissingFunctions value="false" />
+    <InitializedGlobals value="false" />
+    <LoopUnrollBound value="1" />
+    <PreconditionLocation value="jobs/1555" />
+    <SourceDirectory value="/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld" />
+    <TimeOut value="600" />
+    <XMLTraces value="false" />
+  </Configuration>
+  <CheckList>
+    <Check id="5161" location="5593" category="arithmetic.overflow.warning" status="safe" scope="sqlite3DbStrNDup">
+      <Annotations>
+        <Annotation>An unsigned arithmetic operation can overflow (wraparound).</Annotation>
+        <Annotation>An unsigned arithmetic operation can overflow (wraparound).</Annotation>
+      </Annotations>
+      <EntryStatus>
+        <SingleEntryStatus>addArgumentToVtab, safe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3AlterFinishAddColumn, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3DbSpanDup, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3ExprListSetName, safe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3FinishTrigger, safe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3NameFromToken, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3Prepare, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3VdbeSetSql, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3WindowAssemble, safe</SingleEntryStatus>
+        <SingleEntryStatus>vdbeChangeP4Full, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>yy_reduce, unsafe</SingleEntryStatus>
+      </EntryStatus>
+    </Check>
+  </CheckList>
+  <Annotation>allunsafe</Annotation>
+  <Status>allsafe</Status>
+</VerificationJob>

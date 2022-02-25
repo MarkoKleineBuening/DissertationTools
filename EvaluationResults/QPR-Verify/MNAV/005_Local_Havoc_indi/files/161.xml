@@ -1,0 +1,327 @@
+<SourceFile>
+  <Line number="1">/******************************************************************************</Line>
+  <Line number="2">* FILE: navmain.c</Line>
+  <Line number="3">* DESCRIPTION:</Line>
+  <Line number="4">*   </Line>
+  <Line number="5">*   </Line>
+  <Line number="6">*</Line>
+  <Line number="7">* SOURCE: </Line>
+  <Line number="8">* LAST REVISED: 8/31/06 Jung Soon Jang</Line>
+  <Line number="9">******************************************************************************/</Line>
+  <Line number="10">#include &lt;stdio.h&gt;</Line>
+  <Line number="11">#include &lt;math.h&gt;</Line>
+  <Line number="12">#include &lt;stdlib.h&gt;</Line>
+  <Line number="13">#include &lt;pthread.h&gt;</Line>
+  <Line number="14">#include &lt;time.h&gt;</Line>
+  <Line number="15">#include &lt;sys/time.h&gt;</Line>
+  <Line number="16">#include &lt;unistd.h&gt;</Line>
+  <Line number="17">#include &lt;signal.h&gt;</Line>
+  <Line number="18">#include &quot;matrix.h&quot;</Line>
+  <Line number="19">#include &quot;navfunc.h&quot;</Line>
+  <Line number="20">#include &quot;globaldefs.h&quot;</Line>
+  <Line number="21"></Line>
+  <Line number="22"></Line>
+  <Line number="23">//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</Line>
+  <Line number="24">//prototypes</Line>
+  <Line number="25">//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</Line>
+  <Line number="26">void 	      navigation_algorithm(struct imu *imudta,struct gps *gpsdta);</Line>
+  <Line number="27">extern void   snap_time_interval(char *threadname,int displaytime,short id);</Line>
+  <Line number="28">extern double get_time_interval(short id);</Line>
+  <Line number="29">extern double get_Time();</Line>
+  <Line number="30">//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</Line>
+  <Line number="31">//error characteristics of navigation parameters</Line>
+  <Line number="32">//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</Line>
+  <Line number="33">#define	    Vcov    		0.04                        // (0.2 m/s)^2 </Line>
+  <Line number="34">#define     Pcov    		(5.0e-5*D2R)*(5.0e-5*D2R)   // (5.0e-5*d2r)</Line>
+  <Line number="35">#define     Rew     		6.359058719353925e+006      //earth radius</Line>
+  <Line number="36">#define     Rns     		6.386034030458164e+006      //earth radius</Line>
+  <Line number="37">#define     DEFAULT_USECS	100000			    //10 Hz</Line>
+  <Line number="38">//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</Line>
+  <Line number="39">// global matrix variables</Line>
+  <Line number="40">//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</Line>
+  <Line number="41">MATRIX nxs,nF,nG,nGd,nu;</Line>
+  <Line number="42">MATRIX nPn,nQn,nRn,nKn,nRinv;</Line>
+  <Line number="43">MATRIX dcm;</Line>
+  <Line number="44">MATRIX euler,nIden;</Line>
+  <Line number="45">MATRIX ntmp99,ntmpr,ntmp91,ntmpr91,ntmprr;</Line>
+  <Line number="46">MATRIX ntmp66,ntmp96,ntmp33;</Line>
+  <Line number="47"></Line>
+  <Line number="48">extern short screen_on;</Line>
+  <Line number="49">short	     gps_init_count=0;</Line>
+  <Line number="50"></Line>
+  <Line number="51">void timer_intr(int sig)</Line>
+  <Line number="52">{</Line>
+  <Line number="53">   return;</Line>
+  <Line number="54">}</Line>
+  <Line number="55"></Line>
+  <Line number="56">//thread main</Line>
+  <Line number="57">void *navigation(void *thread_id)</Line>
+  <Line number="58">{</Line>
+  <Line number="59">   short  		i=<CheckRefs ids="1877">0</CheckRefs>,j=<CheckRefs ids="1878">0</CheckRefs>;</Line>
+  <Line number="60">   struct imu		imulocal;</Line>
+  <Line number="61">   struct gps		gpslocal;</Line>
+  <Line number="62">   int    		rc;</Line>
+  <Line number="63">   FILE			*fnav;</Line>
+  <Line number="64">   struct itimerval     it;</Line>
+  <Line number="65">   struct sigaction     sa;</Line>
+  <Line number="66">   sigset_t             allsigs;</Line>
+  <Line number="67">   </Line>
+  <Line number="68">  /*++++++++++++++++++++++++++++++++++++++++++++++++</Line>
+  <Line number="69">   *open file</Line>
+  <Line number="70">   *++++++++++++++++++++++++++++++++++++++++++++++++*/</Line>
+  <Line number="71">   if(screen_on) {</Line>
+  <Line number="72">	if((fnav = fopen(&quot;/mnt/cf1/nav.dat&quot;,&quot;w+b&quot;))==NULL) {</Line>
+  <Line number="73">            printf(&quot;nav.dat cannot be created in /mnt/cf1 directory...error!\n&quot;);</Line>
+  <Line number="74">            _exit(<CheckRefs ids="1879">-</CheckRefs>1);</Line>
+  <Line number="75">         }</Line>
+  <Line number="76">   }</Line>
+  <Line number="77"></Line>
+  <Line number="78">  /*++++++++++++++++++++++++++++++++++++++++++++++++</Line>
+  <Line number="79">   *matrix creation for navigation computation</Line>
+  <Line number="80">   *++++++++++++++++++++++++++++++++++++++++++++++++*/</Line>
+  <Line number="81">   nxs   = mat_creat(9,1,ZERO_MATRIX);   //state x=[lat lon alt ve vn vup bax bay baz]&apos;</Line>
+  <Line number="82">   nF    = mat_creat(9,9,ZERO_MATRIX);   //system matrix</Line>
+  <Line number="83">   nG    = mat_creat(9,6,ZERO_MATRIX);	 //input matrix</Line>
+  <Line number="84">   nGd   = mat_creat(9,6,ZERO_MATRIX);	 //input matrix in discrete time</Line>
+  <Line number="85">   nKn   = mat_creat(9,6,ZERO_MATRIX);   //gain matrix</Line>
+  <Line number="86">   nu    = mat_creat(6,1,ZERO_MATRIX); nu[5][0] <CheckRefs ids="1880">=</CheckRefs> GRAVITY_NOM;</Line>
+  <Line number="87">   dcm   = mat_creat(3,3,ZERO_MATRIX);   //directional cosine matrix</Line>
+  <Line number="88">   ntmp33= mat_creat(3,3,ZERO_MATRIX);    </Line>
+  <Line number="89">   euler = mat_creat(3,1,<CheckRefs ids="1881">UNDEFINED</CheckRefs>);     //euler angles</Line>
+  <Line number="90">   nIden = mat_creat(9,9,UNIT_MATRIX);   //identity matrix</Line>
+  <Line number="91">   nRinv = mat_creat(6,6,ZERO_MATRIX);   </Line>
+  <Line number="92">   ntmp99= mat_creat(9,9,ZERO_MATRIX);</Line>
+  <Line number="93">   ntmpr = mat_creat(9,9,ZERO_MATRIX);</Line>
+  <Line number="94">   ntmp91= mat_creat(9,1,ZERO_MATRIX);</Line>
+  <Line number="95">   ntmpr91=mat_creat(9,1,ZERO_MATRIX);</Line>
+  <Line number="96">   ntmp66 =mat_creat(6,6,ZERO_MATRIX);</Line>
+  <Line number="97">   ntmp96 =mat_creat(9,6,ZERO_MATRIX);</Line>
+  <Line number="98"></Line>
+  <Line number="99">   nPn    = mat_creat(9,9,UNIT_MATRIX);  //error covariance matrix</Line>
+  <Line number="100">   nQn    = mat_creat(9,9,ZERO_MATRIX);  //process noise error matrix</Line>
+  <Line number="101"></Line>
+  <Line number="102">   nQn[0][0] <CheckRefs ids="1882">=</CheckRefs> <CheckRefs ids="1883">0</CheckRefs>;       </Line>
+  <Line number="103">   nQn[1][1] <CheckRefs ids="1884">=</CheckRefs> nQn[0][0];</Line>
+  <Line number="104">   nQn[2][2] <CheckRefs ids="1885">=</CheckRefs> nQn[0][0];</Line>
+  <Line number="105">   nQn[3][3] <CheckRefs ids="1886">=</CheckRefs> 0.18<CheckRefs ids="1887">*</CheckRefs>0.18;     </Line>
+  <Line number="106">   nQn[4][4] <CheckRefs ids="1888">=</CheckRefs> nQn[3][3];     </Line>
+  <Line number="107">   nQn[5][5] <CheckRefs ids="1889">=</CheckRefs> nQn[3][3];     </Line>
+  <Line number="108">   nQn[6][6] <CheckRefs ids="1890">=</CheckRefs> 1.0e-8;</Line>
+  <Line number="109">   nQn[7][7] <CheckRefs ids="1891">=</CheckRefs> nQn[6][6]; </Line>
+  <Line number="110">   nQn[8][8] <CheckRefs ids="1892">=</CheckRefs> nQn[6][6]; </Line>
+  <Line number="111">   </Line>
+  <Line number="112">   nRn = mat_creat(6,6,ZERO_MATRIX);   //measurement noise error matrix</Line>
+  <Line number="113">   nRn[0][0] <CheckRefs ids="1893">=</CheckRefs> <CheckRefs ids="1894,1895,1896">Pcov</CheckRefs>; nRn[1][1] <CheckRefs ids="1897">=</CheckRefs> nRn[0][0]; nRn[2][2] <CheckRefs ids="1898">=</CheckRefs> 2.0<CheckRefs ids="1899">*</CheckRefs>2.0;  </Line>
+  <Line number="114">   nRn[3][3] <CheckRefs ids="1900">=</CheckRefs> 0.01; nRn[4][4] <CheckRefs ids="1901">=</CheckRefs> nRn[3][3]; nRn[5][5] <CheckRefs ids="1902">=</CheckRefs> 0.02; </Line>
+  <Line number="115">  </Line>
+  <Line number="116">   </Line>
+  <Line number="117"></Line>
+  <Line number="118">   //initialization of nav variables when gps is available, until then,   </Line>
+  <Line number="119">   //navigation solution is not available</Line>
+  <Line number="120">#ifndef NCURSE_DISPLAY_OPTION   </Line>
+  <Line number="121">   printf(&quot;[nav]:thread[2] initiated ...\n&quot;);</Line>
+  <Line number="122">#endif</Line>
+  <Line number="123">   </Line>
+  <Line number="124">   navpacket.err_type = <CheckRefs ids="1904,1903">FALSE</CheckRefs>;</Line>
+  <Line number="125">   </Line>
+  <Line number="126">   while (1)</Line>
+  <Line number="127">   {</Line>
+  <Line number="128">      sleep(<CheckRefs ids="1905">1</CheckRefs>);</Line>
+  <Line number="129">      pthread_mutex_lock(&amp;mutex_gps);</Line>
+  <Line number="130">         if (<CheckRefs ids="1906">gpspacket</CheckRefs>.err_type == TRUE &amp;&amp; <CheckRefs ids="1907,1908">++</CheckRefs>gps_init_count &gt; 20) {</Line>
+  <Line number="131">             pthread_mutex_unlock(&amp;mutex_gps);	</Line>
+  <Line number="132">	     break;	</Line>
+  <Line number="133">         }</Line>
+  <Line number="134">      pthread_mutex_unlock(&amp;mutex_gps);</Line>
+  <Line number="135">      //printf(&quot;[nav]:waiting for gps signal...\n&quot;);</Line>
+  <Line number="136">   }</Line>
+  <Line number="137">   navpacket.err_type = <CheckRefs ids="1909">TRUE</CheckRefs>;</Line>
+  <Line number="138">   </Line>
+  <Line number="139">   //initialize navigation state variables with GPS (Lat,Lon,Alt)</Line>
+  <Line number="140">   pthread_mutex_lock(&amp;mutex_gps);</Line>
+  <Line number="141">      nxs[0][0] <CheckRefs ids="1910">=</CheckRefs> gpspacket.lat<CheckRefs ids="1911">*</CheckRefs>D2R;</Line>
+  <Line number="142">      nxs[1][0] <CheckRefs ids="1912">=</CheckRefs> gpspacket.lon<CheckRefs ids="1913">*</CheckRefs>D2R;</Line>
+  <Line number="143">      nxs[2][0] <CheckRefs ids="1914">=</CheckRefs> gpspacket.alt;</Line>
+  <Line number="144">   pthread_mutex_unlock(&amp;mutex_gps);</Line>
+  <Line number="145">   </Line>
+  <Line number="146">   //specify timeout</Line>
+  <Line number="147">   it.it_interval.tv_sec = <CheckRefs ids="1915">0</CheckRefs>;</Line>
+  <Line number="148">   it.it_interval.tv_usec= <CheckRefs ids="1916">DEFAULT_USECS</CheckRefs>;</Line>
+  <Line number="149">   it.it_value           = it.it_interval;</Line>
+  <Line number="150"></Line>
+  <Line number="151">   sigemptyset(&amp;sa.sa_mask);</Line>
+  <Line number="152">   sa.sa_flags = 0;</Line>
+  <Line number="153">   sa.sa_handler = timer_intr;</Line>
+  <Line number="154"></Line>
+  <Line number="155">   sigaction(SIGALRM, &amp;sa, NULL);</Line>
+  <Line number="156">   setitimer(ITIMER_REAL, &amp;it, NULL);</Line>
+  <Line number="157">   sigemptyset(&amp;allsigs);</Line>
+  <Line number="158">   </Line>
+  <Line number="159">   //++++++++++++++++++++++++++++++++++++++++++++++++++++++++</Line>
+  <Line number="160">   //start main-loop</Line>
+  <Line number="161">   //++++++++++++++++++++++++++++++++++++++++++++++++++++++++</Line>
+  <Line number="162">   //printf(&quot;[nav]:navigation is enabled...\n&quot;);</Line>
+  <Line number="163">   while (1)</Line>
+  <Line number="164">   {</Line>
+  <Line number="165">      sigsuspend(&amp;allsigs); rc = 0;</Line>
+  <Line number="166">      if (rc == 0) //timout is expired ...</Line>
+  <Line number="167">      {</Line>
+  <Line number="168"></Line>
+  <Line number="169">           //copy information to loacal variables</Line>
+  <Line number="170">           pthread_mutex_lock(&amp;mutex_gps);</Line>
+  <Line number="171">              gpslocal = gpspacket;</Line>
+  <Line number="172">           pthread_mutex_unlock(&amp;mutex_gps);</Line>
+  <Line number="173">           pthread_mutex_lock(&amp;mutex_imu);</Line>
+  <Line number="174">              imulocal = imupacket;</Line>
+  <Line number="175">           pthread_mutex_unlock(&amp;mutex_imu);</Line>
+  <Line number="176"></Line>
+  <Line number="177">                   </Line>
+  <Line number="178">           //run navigation algorithm</Line>
+  <Line number="179">           navigation_algorithm(&amp;imulocal,&amp;gpslocal);</Line>
+  <Line number="180">           </Line>
+  <Line number="181">	   pthread_mutex_lock(&amp;mutex_nav);   </Line>
+  <Line number="182">              navpacket.lat <CheckRefs ids="1917">=</CheckRefs> nxs[0][0]<CheckRefs ids="1918">*</CheckRefs>R2D;</Line>
+  <Line number="183">              navpacket.lon <CheckRefs ids="1919">=</CheckRefs> nxs[1][0]<CheckRefs ids="1920">*</CheckRefs>R2D;</Line>
+  <Line number="184">              navpacket.alt <CheckRefs ids="1921">=</CheckRefs> nxs[2][0];</Line>
+  <Line number="185">              navpacket.vn  <CheckRefs ids="1922">=</CheckRefs> nxs[3][0];</Line>
+  <Line number="186">              navpacket.ve  <CheckRefs ids="1923">=</CheckRefs> nxs[4][0];</Line>
+  <Line number="187">              navpacket.vd  <CheckRefs ids="1924">=</CheckRefs> nxs[5][0];</Line>
+  <Line number="188">              navpacket.time<CheckRefs ids="1925">=</CheckRefs> get_Time();</Line>
+  <Line number="189">	      if(screen_on) fwrite(&amp;navpacket, sizeof(struct nav),<CheckRefs ids="1926">1</CheckRefs>,fnav);</Line>
+  <Line number="190">           pthread_mutex_unlock(&amp;mutex_nav);</Line>
+  <Line number="191"></Line>
+  <Line number="192">	   if(!screen_on) snap_time_interval(&quot;nav&quot;,20,<CheckRefs ids="1927">1</CheckRefs>);</Line>
+  <Line number="193"></Line>
+  <Line number="194">      }</Line>
+  <Line number="195">      else { }</Line>
+  <Line number="196">   }</Line>
+  <Line number="197"></Line>
+  <Line number="198"></Line>
+  <Line number="199">   //free memory space</Line>
+  <Line number="200">   mat_free(nxs);</Line>
+  <Line number="201">   mat_free(nF);</Line>
+  <Line number="202">   mat_free(nG);</Line>
+  <Line number="203">   mat_free(nPn);</Line>
+  <Line number="204">   mat_free(nQn);</Line>
+  <Line number="205">   mat_free(nRn);</Line>
+  <Line number="206">   mat_free(nRinv);</Line>
+  <Line number="207">   mat_free(nKn);</Line>
+  <Line number="208">   mat_free(euler);   </Line>
+  <Line number="209">   mat_free(nIden);</Line>
+  <Line number="210">   mat_free(ntmp99);</Line>
+  <Line number="211">   mat_free(ntmp91);</Line>
+  <Line number="212">   mat_free(ntmpr91);</Line>
+  <Line number="213">   mat_free(ntmpr);</Line>
+  <Line number="214">   mat_free(nGd);</Line>
+  <Line number="215">   mat_free(nu);</Line>
+  <Line number="216">   mat_free(ntmp66);</Line>
+  <Line number="217">   mat_free(ntmp96);</Line>
+  <Line number="218">   mat_free(ntmp33);</Line>
+  <Line number="219">   //file close</Line>
+  <Line number="220">   fclose(fnav);</Line>
+  <Line number="221">   pthread_exit(NULL);</Line>
+  <Line number="222">}</Line>
+  <Line number="223"></Line>
+  <Line number="224">//navigation algorithm</Line>
+  <Line number="225">void navigation_algorithm(struct imu *imudta,struct gps *gpsdta)</Line>
+  <Line number="226">{</Line>
+  <Line number="227">   double dt;       //sampling rate of navigation</Line>
+  <Line number="228">   short  i=<CheckRefs ids="1928">0</CheckRefs>,j=<CheckRefs ids="1929">0</CheckRefs>;</Line>
+  <Line number="229">   double yd[6];  </Line>
+  <Line number="230">   static double tnow,tprev=<CheckRefs ids="1930">0</CheckRefs>; </Line>
+  <Line number="231"></Line>
+  <Line number="232">   tnow <CheckRefs ids="1931">=</CheckRefs> get_Time();</Line>
+  <Line number="233">   dt   <CheckRefs ids="1932">=</CheckRefs> tnow <CheckRefs ids="1933">-</CheckRefs> tprev; tprev <CheckRefs ids="1934">=</CheckRefs> tnow;</Line>
+  <Line number="234">   if(dt==<CheckRefs ids="1935">0</CheckRefs>) dt <CheckRefs ids="1936">=</CheckRefs> 0.100;</Line>
+  <Line number="235">   //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</Line>
+  <Line number="236">   //matrix initialization</Line>
+  <Line number="237">   //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</Line>
+  <Line number="238">   euler[0][0] <CheckRefs ids="1937">=</CheckRefs> imudta-&gt;psi;</Line>
+  <Line number="239">   euler[1][0] <CheckRefs ids="1938">=</CheckRefs> imudta-&gt;the;</Line>
+  <Line number="240">   euler[2][0] <CheckRefs ids="1939">=</CheckRefs> imudta-&gt;phi;</Line>
+  <Line number="241"></Line>
+  <Line number="242">   //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</Line>
+  <Line number="243">   //fill out F and G</Line>
+  <Line number="244">   //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</Line>
+  <Line number="245">   EulerToDcm(euler,MAG_DEC,ntmp33);</Line>
+  <Line number="246">   mat_scalMul(ntmp33,dt,dcm);</Line>
+  <Line number="247">   </Line>
+  <Line number="248">   for(i=<CheckRefs ids="1940">0</CheckRefs>;<CheckRefs ids="1941">i</CheckRefs>&lt;9;i<CheckRefs ids="1942">++</CheckRefs>) nF[i][i]<CheckRefs ids="1943">=</CheckRefs><CheckRefs ids="1944">0</CheckRefs>;</Line>
+  <Line number="249">   nF[0][3] <CheckRefs ids="1945">=</CheckRefs> dt<CheckRefs ids="1946,1947">/</CheckRefs>(Rns <CheckRefs ids="1948">+</CheckRefs> nxs[2][0]);</Line>
+  <Line number="250">   nF[1][4] <CheckRefs ids="1949">=</CheckRefs> dt<CheckRefs ids="1950,1951">/</CheckRefs>((Rew <CheckRefs ids="1953">+</CheckRefs> nxs[2][0])<CheckRefs ids="1952">*</CheckRefs>cos(nxs[0][0]));</Line>
+  <Line number="251">   nF[2][5] <CheckRefs ids="1954">=</CheckRefs><CheckRefs ids="1955">-</CheckRefs>dt;</Line>
+  <Line number="252">   nF[3][6] <CheckRefs ids="1956">=</CheckRefs> <CheckRefs ids="1957">-</CheckRefs>dcm[0][0]; nF[3][7] <CheckRefs ids="1958">=</CheckRefs> <CheckRefs ids="1959">-</CheckRefs>dcm[0][1]; nF[3][8] <CheckRefs ids="1960">=</CheckRefs> <CheckRefs ids="1961">-</CheckRefs>dcm[0][2];</Line>
+  <Line number="253">   nF[4][6] <CheckRefs ids="1962">=</CheckRefs> <CheckRefs ids="1963">-</CheckRefs>dcm[1][0]; nF[4][7] <CheckRefs ids="1964">=</CheckRefs> <CheckRefs ids="1965">-</CheckRefs>dcm[1][1]; nF[4][8] <CheckRefs ids="1966">=</CheckRefs> <CheckRefs ids="1967">-</CheckRefs>dcm[1][2];</Line>
+  <Line number="254">   nF[5][6] <CheckRefs ids="1968">=</CheckRefs> <CheckRefs ids="1969">-</CheckRefs>dcm[2][0]; nF[5][7] <CheckRefs ids="1970">=</CheckRefs> <CheckRefs ids="1971">-</CheckRefs>dcm[2][1]; nF[5][8] <CheckRefs ids="1972">=</CheckRefs> <CheckRefs ids="1973">-</CheckRefs>dcm[2][2];</Line>
+  <Line number="255"></Line>
+  <Line number="256">   nG[3][0] <CheckRefs ids="1974">=</CheckRefs>  dcm[0][0]; nG[3][1] <CheckRefs ids="1975">=</CheckRefs>  dcm[0][1]; nG[3][2] <CheckRefs ids="1976">=</CheckRefs>  dcm[0][2]; nG[3][3] <CheckRefs ids="1977">=</CheckRefs> dt;</Line>
+  <Line number="257">   nG[4][0] <CheckRefs ids="1978">=</CheckRefs>  dcm[1][0]; nG[4][1] <CheckRefs ids="1979">=</CheckRefs>  dcm[1][1]; nG[4][2] <CheckRefs ids="1980">=</CheckRefs>  dcm[1][2]; nG[4][4] <CheckRefs ids="1981">=</CheckRefs> dt;</Line>
+  <Line number="258">   nG[5][0] <CheckRefs ids="1982">=</CheckRefs>  dcm[2][0]; nG[5][1] <CheckRefs ids="1983">=</CheckRefs>  dcm[2][1]; nG[5][2] <CheckRefs ids="1984">=</CheckRefs>  dcm[2][2]; nG[5][5] <CheckRefs ids="1985">=</CheckRefs> dt;</Line>
+  <Line number="259">   </Line>
+  <Line number="260">   //discretization of G</Line>
+  <Line number="261">   mat_scalMul(nF,0.5,ntmp99); for(i=<CheckRefs ids="1986">0</CheckRefs>;<CheckRefs ids="1987">i</CheckRefs>&lt;9;i<CheckRefs ids="1988">++</CheckRefs>) ntmp99[i][i]<CheckRefs ids="1989">+=</CheckRefs><CheckRefs ids="1990">1</CheckRefs>;</Line>
+  <Line number="262">   mat_mul(ntmp99,nG,nGd);</Line>
+  <Line number="263">   //discretization of F</Line>
+  <Line number="264">   for(i=<CheckRefs ids="1991">0</CheckRefs>;<CheckRefs ids="1992">i</CheckRefs>&lt;9;i<CheckRefs ids="1993">++</CheckRefs>) nF[i][i]<CheckRefs ids="1994">+=</CheckRefs><CheckRefs ids="1995">1</CheckRefs>;</Line>
+  <Line number="265">   </Line>
+  <Line number="266">   //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</Line>
+  <Line number="267">   //propagation of navigation equation</Line>
+  <Line number="268">   //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</Line>
+  <Line number="269">   nu[0][0] <CheckRefs ids="1996">=</CheckRefs> (imudta-&gt;ax);</Line>
+  <Line number="270">   nu[1][0] <CheckRefs ids="1997">=</CheckRefs> (imudta-&gt;ay);</Line>
+  <Line number="271">   nu[2][0] <CheckRefs ids="1998">=</CheckRefs> (imudta-&gt;az);</Line>
+  <Line number="272"></Line>
+  <Line number="273">   //nxs = nF*nxs + nGd*nu</Line>
+  <Line number="274">   mat_mul(nF,nxs,ntmp91);</Line>
+  <Line number="275">   mat_mul(nGd,nu,ntmpr91);</Line>
+  <Line number="276">   mat_add(ntmp91,ntmpr91,nxs); </Line>
+  <Line number="277"></Line>
+  <Line number="278">   //error covriance propagation: P = Fd*P*Fd&apos; + Q</Line>
+  <Line number="279">   mat_mul(nF,nPn,ntmp99);</Line>
+  <Line number="280">   mat_tran(nF,ntmpr);</Line>
+  <Line number="281">   mat_mul(ntmp99,ntmpr,nPn);</Line>
+  <Line number="282">   for(i=<CheckRefs ids="1999">0</CheckRefs>;<CheckRefs ids="2000">i</CheckRefs>&lt;9;i<CheckRefs ids="2001">++</CheckRefs>) nPn[i][i] <CheckRefs ids="2002">+=</CheckRefs> nQn[i][i];</Line>
+  <Line number="283"></Line>
+  <Line number="284">   //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</Line>
+  <Line number="285">   //update using GPS</Line>
+  <Line number="286">   //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</Line>
+  <Line number="287">   if(<CheckRefs ids="2003">gpsdta</CheckRefs>-&gt;err_type == TRUE) {</Line>
+  <Line number="288">       gpspacket.err_type = <CheckRefs ids="2004,2005">FALSE</CheckRefs>;</Line>
+  <Line number="289">       </Line>
+  <Line number="290">       //gain matrix Kn = P*H&apos;*(H*P*H&apos; + R)^-1</Line>
+  <Line number="291">       mat_subcopy(nPn, 6, 6, ntmp66);</Line>
+  <Line number="292">       for(i=<CheckRefs ids="2006">0</CheckRefs>;<CheckRefs ids="2007">i</CheckRefs>&lt;6;i<CheckRefs ids="2008">++</CheckRefs>) ntmp66[i][i] <CheckRefs ids="2009">+=</CheckRefs> nRn[i][i];</Line>
+  <Line number="293">       mat_inv(ntmp66,nRinv);</Line>
+  <Line number="294">       mat_subcopy(nPn, 9, 6, ntmp96);</Line>
+  <Line number="295">       mat_mul(ntmp96,nRinv,nKn);</Line>
+  <Line number="296">       </Line>
+  <Line number="297">       //error covariance matrix update</Line>
+  <Line number="298">       //P = (I - K*H)*P</Line>
+  <Line number="299">       mat_subcopy(nKn, 9, 6, ntmp99);</Line>
+  <Line number="300">       for(i=<CheckRefs ids="2010">1</CheckRefs>;<CheckRefs ids="2011">i</CheckRefs>&lt;9;i<CheckRefs ids="2012">++</CheckRefs>) { ntmp99[i][6]<CheckRefs ids="2013">=</CheckRefs>ntmp99[i][7]<CheckRefs ids="2014">=</CheckRefs>ntmp99[i][8]<CheckRefs ids="2015">=</CheckRefs><CheckRefs ids="2016">0</CheckRefs>; }</Line>
+  <Line number="301">       mat_sub(nIden,ntmp99,ntmpr);</Line>
+  <Line number="302">       mat_mul(ntmpr,nPn, ntmp99);</Line>
+  <Line number="303">       mat_copy(ntmp99,nPn);</Line>
+  <Line number="304">       </Line>
+  <Line number="305">       //state update</Line>
+  <Line number="306">       yd[0<CheckRefs ids="2018">]</CheckRefs> <CheckRefs ids="2017">=</CheckRefs> (gpsdta-&gt;lat<CheckRefs ids="2020">*</CheckRefs>D2R <CheckRefs ids="2019">-</CheckRefs> nxs[0][0]);</Line>
+  <Line number="307">       yd[1<CheckRefs ids="2022">]</CheckRefs> <CheckRefs ids="2021">=</CheckRefs> (gpsdta-&gt;lon<CheckRefs ids="2024">*</CheckRefs>D2R <CheckRefs ids="2023">-</CheckRefs> nxs[1][0]);</Line>
+  <Line number="308">       yd[2<CheckRefs ids="2026">]</CheckRefs> <CheckRefs ids="2025">=</CheckRefs> (gpsdta-&gt;alt     <CheckRefs ids="2027">-</CheckRefs> nxs[2][0]);</Line>
+  <Line number="309">       yd[3<CheckRefs ids="2029">]</CheckRefs> <CheckRefs ids="2028">=</CheckRefs> (gpsdta-&gt;vn      <CheckRefs ids="2030">-</CheckRefs> nxs[3][0]);</Line>
+  <Line number="310">       yd[4<CheckRefs ids="2032">]</CheckRefs> <CheckRefs ids="2031">=</CheckRefs> (gpsdta-&gt;ve      <CheckRefs ids="2033">-</CheckRefs> nxs[4][0]);</Line>
+  <Line number="311">       yd[5<CheckRefs ids="2035">]</CheckRefs> <CheckRefs ids="2034">=</CheckRefs> (gpsdta-&gt;vd      <CheckRefs ids="2036">-</CheckRefs> nxs[5][0]);</Line>
+  <Line number="312"></Line>
+  <Line number="313">	   </Line>
+  <Line number="314">       for(i=<CheckRefs ids="2037">0</CheckRefs>;<CheckRefs ids="2038">i</CheckRefs>&lt;9;i<CheckRefs ids="2039">++</CheckRefs>) {</Line>
+  <Line number="315">	   nxs[i][0] <CheckRefs ids="2040">+=</CheckRefs> nKn[i][0]<CheckRefs ids="2046">*</CheckRefs>yd[0<CheckRefs ids="2047">]</CheckRefs><CheckRefs ids="2045">+</CheckRefs>nKn[i][1]<CheckRefs ids="2048">*</CheckRefs>yd[1<CheckRefs ids="2049">]</CheckRefs><CheckRefs ids="2044">+</CheckRefs>nKn[i][2]<CheckRefs ids="2050">*</CheckRefs>yd[2<CheckRefs ids="2051">]</CheckRefs></Line>
+  <Line number="316">                       <CheckRefs ids="2043">+</CheckRefs>nKn[i][3]<CheckRefs ids="2052">*</CheckRefs>yd[3<CheckRefs ids="2053">]</CheckRefs><CheckRefs ids="2042">+</CheckRefs>nKn[i][4]<CheckRefs ids="2054">*</CheckRefs>yd[4<CheckRefs ids="2055">]</CheckRefs><CheckRefs ids="2041">+</CheckRefs>nKn[i][5]<CheckRefs ids="2056">*</CheckRefs>yd[5<CheckRefs ids="2057">]</CheckRefs>;</Line>
+  <Line number="317">       }</Line>
+  <Line number="318"></Line>
+  <Line number="319"></Line>
+  <Line number="320">   } //gps update</Line>
+  <Line number="321"></Line>
+  <Line number="322">   </Line>
+  <Line number="323"></Line>
+  <Line number="324"></Line>
+  <Line number="325">}</Line>
+</SourceFile>

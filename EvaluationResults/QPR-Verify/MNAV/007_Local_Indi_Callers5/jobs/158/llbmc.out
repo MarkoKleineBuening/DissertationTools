@@ -1,0 +1,301 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+handleJobInSeparateProcess0
+
+Checking job 158 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 3
+    HavocLimit : 0
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/158
+    TimeOut : 300
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : navigation
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "navigation" for 3 iterations succeeded.
+      Unrolling loop in function "navigation" for 3 iterations succeeded.
+      Transformed "navigation" from 19 to 52 basic blocks and from 342 to 609 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...
+        Unrolling loop in function "_mat_creat" for 3 iterations succeeded.
+        Transformed "_mat_creat" from 10 to 17 basic blocks and from 54 to 97 instructions
+        Transformed "mat_error" from 5 to 10 basic blocks and from 10 to 19 instructions
+        Unrolling loop in function "mat_fill" for 3 iterations succeeded.
+        Unrolling loop in function "mat_fill" for 3 iterations succeeded.
+        Transformed "mat_fill" from 18 to 98 basic blocks and from 67 to 408 instructionsisMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %208, i8* %209, i64 16, i32 8, i1 false), !dbg !1672
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %221, i8* bitcast (%struct.gps* @gpspacket to i8*), i64 64, i32 8, i1 false), !dbg !1691
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %224, i8* bitcast (%struct.imu* @imupacket to i8*), i64 128, i32 8, i1 false), !dbg !1694
+
+        Unrolling loop in function "navigation_algorithm" for 9 iterations succeeded.
+        Unrolling loop in function "navigation_algorithm" for 8 iterations succeeded.
+        Unrolling loop in function "navigation_algorithm" for 6 iterations succeeded.
+        Unrolling loop in function "navigation_algorithm" for 9 iterations succeeded.
+        Unrolling loop in function "navigation_algorithm" for 9 iterations succeeded.
+        Unrolling loop in function "navigation_algorithm" for 9 iterations succeeded.
+        Unrolling loop in function "navigation_algorithm" for 9 iterations succeeded.
+        Transformed "navigation_algorithm" from 33 to 130 basic blocks and from 696 to 2333 instructions
+        Unrolling loop in function "mat_mul" for 3 iterations succeeded.
+        Unrolling loop in function "mat_mul" for 3 iterations succeeded.
+        Unrolling loop in function "mat_mul" for 3 iterations succeeded.
+        Transformed "mat_mul" from 13 to 118 basic blocks and from 82 to 1112 instructions
+        Unrolling loop in function "mat_free" for 3 iterations succeeded.
+        Transformed "mat_free" from 8 to 13 basic blocks and from 33 to 65 instructions
+        Unrolling loop in function "mat_scalMul" for 3 iterations succeeded.
+        Unrolling loop in function "mat_scalMul" for 3 iterations succeeded.
+        Transformed "mat_scalMul" from 9 to 37 basic blocks and from 52 to 274 instructions
+        Unrolling loop in function "mat_add" for 3 iterations succeeded.
+        Unrolling loop in function "mat_add" for 3 iterations succeeded.
+        Transformed "mat_add" from 9 to 37 basic blocks and from 58 to 328 instructions
+        Unrolling loop in function "mat_tran" for 3 iterations succeeded.
+        Unrolling loop in function "mat_tran" for 3 iterations succeeded.
+        Transformed "mat_tran" from 9 to 37 basic blocks and from 49 to 263 instructions
+        Unrolling loop in function "mat_subcopy" for 3 iterations succeeded.
+        Unrolling loop in function "mat_subcopy" for 3 iterations succeeded.
+        Transformed "mat_subcopy" from 9 to 37 basic blocks and from 45 to 239 instructions
+        Unrolling loop in function "mat_inv" for 3 iterations succeeded.
+        Transformed "mat_inv" from 20 to 25 basic blocks and from 96 to 129 instructions
+        Unrolling loop in function "mat_copy" for 3 iterations succeeded.
+        Unrolling loop in function "mat_copy" for 3 iterations succeeded.
+        Transformed "mat_copy" from 9 to 37 basic blocks and from 49 to 263 instructions
+        Unrolling loop in function "mat_lu" for 3 iterations succeeded.
+        Unrolling loop in function "mat_lu" for 3 iterations succeeded.
+        Unrolling loop in function "mat_lu" for 3 iterations succeeded.
+        Unrolling loop in function "mat_lu" for 3 iterations succeeded.
+        Unrolling loop in function "mat_lu" for 3 iterations succeeded.
+        Transformed "mat_lu" from 28 to 183 basic blocks and from 239 to 2361 instructions
+        Unrolling loop in function "mat_backsubs1" for 3 iterations succeeded.
+        Unrolling loop in function "mat_backsubs1" for 3 iterations succeeded.
+        Unrolling loop in function "mat_backsubs1" for 3 iterations succeeded.
+        Unrolling loop in function "mat_backsubs1" for 3 iterations succeeded.
+        Transformed "mat_backsubs1" from 17 to 73 basic blocks and from 201 to 958 instructions
+        Unrolling loop in function "mat_sub" for 3 iterations succeeded.
+        Unrolling loop in function "mat_sub" for 3 iterations succeeded.
+        Transformed "mat_sub" from 9 to 37 basic blocks and from 58 to 328 instructionsisMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %25, i8* %26, i64 16, i32 8, i1 false), !dbg !1393
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %269, i8* bitcast (%struct.gps* @gpspacket to i8*), i64 64, i32 8, i1 false), !dbg !1691
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %272, i8* bitcast (%struct.imu* @imupacket to i8*), i64 128, i32 8, i1 false), !dbg !1694
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %25, i8* %26, i64 16, i32 8, i1 false), !dbg !1393
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %317, i8* bitcast (%struct.gps* @gpspacket to i8*), i64 64, i32 8, i1 false), !dbg !1691
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %320, i8* bitcast (%struct.imu* @imupacket to i8*), i64 128, i32 8, i1 false), !dbg !1694
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %25, i8* %26, i64 16, i32 8, i1 false), !dbg !1393
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %365, i8* bitcast (%struct.gps* @gpspacket to i8*), i64 64, i32 8, i1 false), !dbg !1691
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %368, i8* bitcast (%struct.imu* @imupacket to i8*), i64 128, i32 8, i1 false), !dbg !1694
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %25, i8* %26, i64 16, i32 8, i1 false), !dbg !1393
+
+                                                           0 sec [DONE]
+        Number of expressions:                        191285
+        after encoding
+
+      1634 assertions before transformations (415 no_function_call, 1058 no_back_edge, 156 custom, 5 no_unreachable_executed).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                          135694
+        Fixed Memory Address Assigner
+          Number of moved ops                             16
+          Number of rewrites                             684
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           20695
+        Memory Model Encoder
+          Number of moved ops                              1rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                              21
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                            1067
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           50293
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                            8335
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             105
+                                                           0 sec [DONE]
+        
+      1634 assertions remain after transformations (415 no_function_call, 1058 no_back_edge, 156 custom, 5 no_unreachable_executed).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...            0 sec [DONE]
+        
+                                                           0 sec [DONE]
+      after performing Check
+evaluateCheckerResultsViaRefinementLoop
+checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+BranchInst - LoopBound
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      getCheckerResultAfterUpdatingMarker
+Result is NoTrace
+
+                                                           0 sec [DONE]
+    allsafe
+    
+                                                           0 sec [DONE]
+  4 128, i32 8, i1 false), !dbg !1407
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* bitcast (%struct.gps* @gpsval to i8*), i8* bitcast (%struct.gps* @gpspacket to i8*), i64 64, i32 8, i1 false), !dbg !1408
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* bitcast (%struct.nav* @navval to i8*), i8* bitcast (%struct.nav* @navpacket to i8*), i64 64, i32 8, i1 false), !dbg !1409
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %2, i8 0, i64 24, i32 16, i1 false), !dbg !1378
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %5, i8 0, i64 24, i32 16, i1 false), !dbg !1391
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %6, i8 0, i64 24, i32 16, i1 false), !dbg !1393
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %7, i8 0, i64 16, i32 16, i1 false), !dbg !1395
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %8, i8 0, i64 32, i32 16, i1 false), !dbg !1398
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %25, i8* %26, i64 16, i32 8, i1 false), !dbg !1393
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %3, i8 0, i64 6, i32 2, i1 false), !dbg !1400
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* bitcast (%struct.servo* @servopos to i8*), i8* bitcast (%struct.servo* @servopacket to i8*), i64 18, i32 2, i1 false), !dbg !1405
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* bitcast (%struct.imu* @imuval to i8*), i8* bitcast (%struct.imu* @imupacket to i8*), i64 128, i32 8, i1 false), !dbg !1407
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* bitcast (%struct.gps* @gpsval to i8*), i8* bitcast (%struct.gps* @gpspacket to i8*), i64 64, i32 8, i1 false), !dbg !1408
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* bitcast (%struct.nav* @navval to i8*), i8* bitcast (%struct.nav* @navpacket to i8*), i64 64, i32 8, i1 false), !dbg !1409
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %2, i8 0, i64 24, i32 16, i1 false), !dbg !1378
+
+                                                           0 sec [DONE]
+        Number of expressions:                        192105
+        after encoding
+
+      1591 assertions before transformations (366 no_function_call, 1101 no_back_edge, 120 custom, 4 no_unreachable_executed).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                          131672
+        Fixed Memory Address Assigner
+          Number of moved ops                             61
+          Number of rewrites                             588
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           17807
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                              32
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                            4818
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                          157933
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                            9459
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             289
+                                                           0 sec [DONE]
+        
+      1591 assertions remain after transformations (366 no_function_call, 1101 no_back_edge, 120 custom, 4 no_unreachable_executed).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...            0 sec [DONE]
+        
+                                                           0 sec [DONE]
+      after performing Check
+evaluateCheckerResultsViaRefinementLoop
+checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      getCheckerResultAfterUpdatingMarker
+Result is NoTrace
+
+                                                           0 sec [DONE]
+    allsafe
+    
+                                                           0 sec [DONE]
+  

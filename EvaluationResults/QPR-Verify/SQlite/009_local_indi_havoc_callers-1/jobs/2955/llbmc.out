@@ -1,0 +1,258 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 2955 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 2
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/2955
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : walRestartLog
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "walRestartLog" for 1 iterations succeeded.
+      Transformed "walRestartLog" from 69 to 70 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...
+        Unrolling loop in function "sqlite3_randomness" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3_randomness" for 256 iterations succeeded.
+        Unrolling loop in function "sqlite3_randomness" for 256 iterations succeeded.
+        Transformed "sqlite3_randomness" from 23 to 1041 basic blocks and from 186 to 16251 instructionsCurrent: sqlite3_randomness Havoced: sqlite3_initialize
+Current: sqlite3_randomness Havoced: sqlite3MutexAlloc
+Current: sqlite3_randomness Havoced: sqlite3_mutex_enter
+Current: sqlite3_randomness Havoced: sqlite3_vfs_find
+Current: sqlite3_randomness Havoced: sqlite3OsRandomness
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %12, i8 0, i64 256, i32 16, i1 false), !dbg !5655
+Current: sqlite3_randomness Havoced: sqlite3_mutex_leave
+Current: sqlite3_randomness Havoced: sqlite3_mutex_leave
+Current: walLockExclusive Havoced: sqlite3OsShmLock
+
+        Unrolling loop in function "walRestartHdr" for 3 iterations succeeded.
+        Transformed "walRestartHdr" from 5 to 8 basic blocks and from 71 to 100 instructionsCurrent: walRestartHdr Havoced: walCkptInfo
+Current: walRestartHdr Havoced: sqlite3Get4byte
+Current: walRestartHdr Havoced: sqlite3Put4byte
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %22, i8* %23, i64 4, i32 4, i1 false), !dbg !5640
+Current: walRestartHdr Havoced: walIndexWriteHdr
+Current: walUnlockExclusive Havoced: sqlite3OsShmLock
+Current: walUnlockShared Havoced: sqlite3OsShmLock
+
+        Unrolling loop in function "walTryBeginRead" for 1 iterations succeeded.
+        Unrolling loop in function "walTryBeginRead" for 4 iterations succeeded.
+        Transformed "walTryBeginRead" from 68 to 82 basic blocks and from 299 to 400 instructionsCurrent: walTryBeginRead Havoced: sqlite3OsSleep
+Current: walTryBeginRead Havoced: walIndexReadHdr
+Current: walTryBeginRead Havoced: walLockShared
+Current: walTryBeginRead Havoced: walUnlockShared
+Current: walTryBeginRead Havoced: walBeginShmUnreliable
+Current: walTryBeginRead Havoced: walCkptInfo
+Current: walTryBeginRead Havoced: walLockShared
+Current: walTryBeginRead Havoced: walShmBarrier
+Current: walTryBeginRead Havoced: walIndexHdr
+
+        Unrolling loop in function "llbmc.memcmp" for 0 iterations succeeded.
+        Transformed "llbmc.memcmp" from 17 to 20 instructionsCurrent: walTryBeginRead Havoced: walUnlockShared
+Current: walTryBeginRead Havoced: walLockExclusive
+Current: walTryBeginRead Havoced: walUnlockExclusive
+Current: walTryBeginRead Havoced: walLockShared
+Current: walTryBeginRead Havoced: walShmBarrier
+Current: walTryBeginRead Havoced: walIndexHdr
+Current: walTryBeginRead Havoced: walUnlockShared
+
+                                                           0 sec [DONE]
+        Number of expressions:                        173835
+        after encoding
+
+      10 assertions before transformations (9 no_back_edge, 1 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                           15095
+        Fixed Memory Address Assigner
+          Number of moved ops                              4
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           75975
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               4
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             785
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             405
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      10 assertions remain after transformations (9 no_back_edge, 1 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ..._keyword_check
+Current: sqlite3OsSleep Havoced: sqlite3_wal_autocheckpoint
+Current: sqlite3OsSleep Havoced: sqlite3_backup_step
+Current: sqlite3OsSleep Havoced: sqlite3_extended_result_codes
+Current: sqlite3OsSleep Havoced: sqlite3_column_type
+Current: sqlite3OsSleep Havoced: sqlite3_column_int
+Current: sqlite3OsSleep Havoced: sqlite3_column_bytes16
+Current: sqlite3OsSleep Havoced: sqlite3_column_bytes
+Current: sqlite3OsSleep Havoced: sqlite3_busy_timeout
+Current: sqlite3OsSleep Havoced: sqlite3_bind_null
+Current: sqlite3OsSleep Havoced: apiHandleError
+Current: sqlite3OsSleep Havoced: sqlite3ApiExit
+Current: sqlite3OsSleep Havoced: isAllZero
+Current: sqlite3OsSleep Havoced: sqlite3Utf8CharLen
+Current: sqlite3OsSleep Havoced: unixUnlock
+Current: sqlite3OsSleep Havoced: unixLock
+Current: sqlite3OsSleep Havoced: nolockUnlock
+Current: sqlite3OsSleep Havoced: nolockLock
+Current: sqlite3OsSleep Havoced: unixShmUnmap
+Current: sqlite3OsSleep Havoced: dotlockUnlock
+Current: sqlite3OsSleep Havoced: dotlockLock
+Current: sqlite3OsSleep Havoced: unixSync
+Current: sqlite3OsSleep Havoced: unixSleep
+Current: sqlite3OsSleep Havoced: memdbLock
+Current: sqlite3OsSleep Havoced: memdbSync
+Current: sqlite3OsSleep Havoced: memdbSleep
+Current: sqlite3OsSleep Havoced: sqlite3_vfs_register
+Current: sqlite3OsSleep Havoced: rehash
+Current: sqlite3OsSleep Havoced: compare2pow63
+Current: sqlite3OsSleep Havoced: sqlite3VdbeMemClearAndResize
+Current: sqlite3OsSleep Havoced: sqlite3VdbeChangeEncoding
+Current: sqlite3OsSleep Havoced: sqlite3StrAccumEnlarge
+Current: sqlite3OsSleep Havoced: sqlite3ErrorToParser
+Current: sqlite3OsSleep Havoced: line_contains_semicolon
+Current: sqlite3OsSleep Havoced: line_is_complete
+Current: sqlite3OsSleep Havoced: idxHashString
+Current: sqlite3OsSleep Havoced: re_resize
+Current: sqlite3OsSleep Havoced: apndShmUnmap
+Current: sqlite3OsSleep Havoced: apndUnlock
+Current: sqlite3OsSleep Havoced: apndLock
+Current: sqlite3OsSleep Havoced: apndSync
+Current: sqlite3OsSleep Havoced: apndSleep
+Current: sqlite3OsSleep Havoced: deduceDatabaseType
+Current: walIndexReadHdr Havoced: walIndexPage
+Current: walIndexReadHdr Havoced: walIndexTryHdr
+Current: walIndexReadHdr Havoced: walLockExclusive
+Current: walIndexReadHdr Havoced: walIndexPage
+Current: walIndexReadHdr Havoced: walIndexTryHdr
+Current: walIndexReadHdr Havoced: walIndexRecover
+Current: walIndexReadHdr Havoced: walUnlockExclusive
+Current: walIndexReadHdr Havoced: walLockShared
+Current: walIndexReadHdr Havoced: walUnlockShared
+Current: walIndexReadHdr Havoced: sqlite3CantopenError
+Current: walIndexReadHdr Havoced: walIndexClose
+Current: walLockShared Havoced: sqlite3OsShmLock
+Current: walUnlockShared Havoced: sqlite3OsShmLock
+
+        Unrolling loop in function "walBeginShmUnreliable" for 1 iterations succeeded.
+        Unrolling loop in function "walBeginShmUnreliable" for 1 iterations succeeded.
+        Transformed "walBeginShmUnreliable" from 37 to 40 basic blocks and from 264 to 280 instructionsCurrent: walBeginShmUnreliable Havoced: walLockShared
+Current: walBeginShmUnreliable Havoced: sqlite3OsShmMap
+Current: walBeginShmUnreliable Havoced: walIndexHdr
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %20, i8* %22, i64 48, i32 1, i1 false), !dbg !5670
+Current: walBeginShmUnreliable Havoced: sqlite3OsFileSize
+Current: walBeginShmUnreliable Havoced: sqlite3OsRead
+
+        Unrolling loop in function "llbmc.memcmp" for 0 iterations succeeded.
+        Transformed "llbmc.memcmp" from 17 to 20 instructionsCurrent: walBeginShmUnreliable Havoced: sqlite3_malloc64
+Current: walBeginShmUnreliable Havoced: sqlite3OsRead
+Current: walBeginShmUnreliable Havoced: walDecodeFrame
+Current: walBeginShmUnreliable Havoced: sqlite3_free
+Current: walBeginShmUnreliable Havoced: sqlite3_free
+Current: walBeginShmUnreliable Havoced: sqlite3WalEndReadTransaction
+Current: walLockShared Havoced: sqlite3OsShmLock
+Current: walShmBarrier Havoced: sqlite3OsShmBarrier
+Current: walUnlockShared Havoced: sqlite3OsShmLock
+Current: walLockExclusive Havoced: sqlite3OsShmLock
+Current: walUnlockExclusive Havoced: sqlite3OsShmLock
+Current: walLockShared Havoced: sqlite3OsShmLock
+Current: walShmBarrier Havoced: sqlite3OsShmBarrier
+Current: walUnlockShared Havoced: sqlite3OsShmLock
+
+                                                           0 sec [DONE]
+        Number of expressions:                        159596
+        after encoding
+
+      14 assertions before transformations (6 no_function_call, 7 no_back_edge, 1 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            6176
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72722
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               7
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                              73
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             145
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      14 assertions remain after transformations (6 no_function_call, 7 no_back_edge, 1 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...

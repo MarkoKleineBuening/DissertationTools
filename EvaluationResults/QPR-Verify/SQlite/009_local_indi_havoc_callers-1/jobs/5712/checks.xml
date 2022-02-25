@@ -1,0 +1,44 @@
+<VerificationJob>
+  <Configuration>
+    <AnalyzeChecksIndividually value="true" />
+    <BitcodeTraces value="false" />
+    <CheckCallers value="true" />
+    <DumpVerifierBitcodeFiles value="false" />
+    <EnableSlicing value="false" />
+    <EntryPoint value="sqlite3FkCheck" />
+    <FixPoint value="true" />
+    <ForkJobs value="true" />
+    <HavocLimit value="2" />
+    <Hosted value="true" />
+    <IgnoreMissingFunctions value="false" />
+    <InitializedGlobals value="false" />
+    <LoopUnrollBound value="1" />
+    <PreconditionLocation value="jobs/5712" />
+    <SourceDirectory value="/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld" />
+    <TimeOut value="600" />
+    <XMLTraces value="false" />
+  </Configuration>
+  <CheckList>
+    <Check id="17735" location="19578" category="implicit.conversion.overflow" status="unsafe|loopboundreached" scope="sqlite3TableColumnToStorage">
+      <Annotations>
+        <Annotation>An implicit conversion operation can overflow.</Annotation>
+        <Annotation>A loop bound was reached (/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld//home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld/sqlite3.c:113507:3)</Annotation>
+      </Annotations>
+      <EntryStatus>
+        <SingleEntryStatus>codeDeferredSeek, todo</SingleEntryStatus>
+        <SingleEntryStatus>exprTableRegister, unknown</SingleEntryStatus>
+        <SingleEntryStatus>fkLookupParent, unknown</SingleEntryStatus>
+        <SingleEntryStatus>lookupName, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3ComputeGeneratedColumns, todo</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3ExprCodeGetColumnOfTable, todo</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3ExprCodeTarget, todo</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3FkCheck, unsafe|loopboundreached</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3GenerateConstraintChecks, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3GenerateRowDelete, todo</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3Update, unknown</SingleEntryStatus>
+      </EntryStatus>
+    </Check>
+  </CheckList>
+  <Annotation>allunsafe</Annotation>
+  <Status>allunsafe</Status>
+</VerificationJob>

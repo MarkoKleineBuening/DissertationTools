@@ -1,0 +1,267 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 3842 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 1
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/3842
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : balance_nonroot
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "balance_nonroot" for 1 iterations succeeded.
+      Unrolling loop in function "balance_nonroot" for 1 iterations succeeded.
+      Unrolling loop in function "balance_nonroot" for 1 iterations succeeded.
+      Unrolling loop in function "balance_nonroot" for 1 iterations succeeded.
+      Unrolling loop in function "balance_nonroot" for 1 iterations succeeded.
+      Unrolling loop in function "balance_nonroot" for 1 iterations succeeded.
+      Unrolling loop in function "balance_nonroot" for 1 iterations succeeded.
+      Unrolling loop in function "balance_nonroot" for 1 iterations succeeded.
+      Unrolling loop in function "balance_nonroot" for 1 iterations succeeded.
+      Unrolling loop in function "balance_nonroot" for 1 iterations succeeded.
+      Unrolling loop in function "balance_nonroot" for 1 iterations succeeded.
+      Unrolling loop in function "balance_nonroot" for 1 iterations succeeded.
+      Unrolling loop in function "balance_nonroot" for 1 iterations succeeded.
+      Unrolling loop in function "balance_nonroot" for 1 iterations succeeded.
+      Unrolling loop in function "balance_nonroot" for 1 iterations succeeded.
+      Unrolling loop in function "balance_nonroot" for 1 iterations succeeded.
+      Unrolling loop in function "balance_nonroot" for 1 iterations succeeded.
+      Unrolling loop in function "balance_nonroot" for 1 iterations succeeded.
+      Unrolling loop in function "balance_nonroot" for 1 iterations succeeded.
+      Unrolling loop in function "balance_nonroot" for 1 iterations succeeded.
+      Unrolling loop in function "balance_nonroot" for 1 iterations succeeded.
+      Unrolling loop in function "balance_nonroot" for 1 iterations succeeded.
+      Unrolling loop in function "balance_nonroot" for 1 iterations succeeded.
+      Unrolling loop in function "balance_nonroot" for 1 iterations succeeded.
+      Unrolling loop in function "balance_nonroot" for 1 iterations succeeded.
+      Unrolling loop in function "balance_nonroot" for 1 iterations succeeded.
+      Unrolling loop in function "balance_nonroot" for 1 iterations succeeded.getMatchingFunctions
+res.push_back: cellSizePtr
+res.push_back: cellSizePtrNoPayload
+getMatchingFunctions
+res.push_back: cellSizePtr
+res.push_back: cellSizePtrNoPayload
+getMatchingFunctions
+res.push_back: cellSizePtr
+res.push_back: cellSizePtrNoPayload
+getMatchingFunctions
+res.push_back: cellSizePtr
+res.push_back: cellSizePtrNoPayload
+getMatchingFunctions
+res.push_back: cellSizePtr
+res.push_back: cellSizePtrNoPayload
+getMatchingFunctions
+res.push_back: btreeParseCellPtr
+res.push_back: btreeParseCellPtrNoPayload
+res.push_back: btreeParseCellPtrIndex
+res.push_back: btreeParseCellAdjustSizeForOverflow
+getMatchingFunctions
+res.push_back: cellSizePtr
+res.push_back: cellSizePtrNoPayload
+
+      Transformed "balance_nonroot" from 276 to 459 basic blocks and from 2396 to 3221 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...isMemset:   call void @llvm.memset.p0i8.i64(i8* %15, i8 0, i64 5, i32 1, i1 false), !dbg !5807
+Current: balance_nonroot Havoced: sqlite3Get4byte
+Current: balance_nonroot Havoced: getAndInitPage
+Current: balance_nonroot Havoced: btreeComputeFreeSpace
+Current: balance_nonroot Havoced: sqlite3Get4byte
+Current: balance_nonroot Havoced: exprCommute
+Current: balance_nonroot Havoced: cellSizePtrNoPayload
+Current: balance_nonroot Havoced: cellSizePtr
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %250, i8* %253, i64 %257, i32 1, i1 false), !dbg !5976
+Current: balance_nonroot Havoced: dropCell
+Current: balance_nonroot Havoced: sqlite3Get4byte
+Current: balance_nonroot Havoced: exprCommute
+Current: balance_nonroot Havoced: cellSizePtrNoPayload
+Current: balance_nonroot Havoced: cellSizePtr
+Current: balance_nonroot Havoced: getAndInitPage
+Current: balance_nonroot Havoced: btreeComputeFreeSpace
+Current: balance_nonroot Havoced: sqlite3Get4byte
+Current: balance_nonroot Havoced: exprCommute
+Current: balance_nonroot Havoced: cellSizePtrNoPayload
+Current: balance_nonroot Havoced: cellSizePtr
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %423, i8* %426, i64 %430, i32 1, i1 false), !dbg !5976
+Current: balance_nonroot Havoced: dropCell
+Current: balance_nonroot Havoced: sqlite3Get4byte
+Current: balance_nonroot Havoced: exprCommute
+Current: balance_nonroot Havoced: cellSizePtrNoPayload
+Current: balance_nonroot Havoced: cellSizePtr
+Current: balance_nonroot Havoced: sqlite3DbMallocRaw
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %539, i8 0, i64 %545, i32 2, i1 false), !dbg !6069
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %667, i8* %672, i64 %673, i32 1, i1 false), !dbg !6188
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %709, i8* %712, i64 4, i32 1, i1 false), !dbg !6214
+Current: balance_nonroot Havoced: exprCommute
+Current: balance_nonroot Havoced: cellSizePtrNoPayload
+Current: balance_nonroot Havoced: cellSizePtr
+Current: balance_nonroot Havoced: cachedCellSize
+Current: balance_nonroot Havoced: cachedCellSize
+Current: balance_nonroot Havoced: cachedCellSize
+Current: balance_nonroot Havoced: cachedCellSize
+Current: balance_nonroot Havoced: sqlite3CorruptError
+Current: balance_nonroot Havoced: cachedCellSize
+Current: balance_nonroot Havoced: cachedCellSize
+Current: balance_nonroot Havoced: allocateBtreePage
+Current: balance_nonroot Havoced: zeroPage
+Current: balance_nonroot Havoced: ptrmapPut
+Current: balance_nonroot Havoced: sqlite3PagerWrite
+Current: balance_nonroot Havoced: sqlite3PagerPageRefcount
+Current: balance_nonroot Havoced: sqlite3CorruptError
+Current: balance_nonroot Havoced: sqlite3PagerRekey
+Current: balance_nonroot Havoced: sqlite3PagerRekey
+Current: balance_nonroot Havoced: sqlite3Put4byte
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %1235, i8* %1238, i64 4, i32 1, i1 false), !dbg !6798
+Current: balance_nonroot Havoced: sqlite3Get4byte
+Current: balance_nonroot Havoced: ptrmapPut
+Current: balance_nonroot Havoced: cachedCellSize
+Current: balance_nonroot Havoced: ptrmapPutOvflPtr
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %1368, i8* %1352, i64 4, i32 1, i1 false), !dbg !6928
+Current: balance_nonroot Havoced: exprCommute
+Current: balance_nonroot Havoced: cellSizePtrNoPayload
+Current: balance_nonroot Havoced: cellSizePtr
+Current: balance_nonroot Havoced: copyNodeContent
+Current: balance_nonroot Havoced: rowSetTreeToList
+Current: balance_nonroot Havoced: identPut
+Current: balance_nonroot Havoced: sqlite3FkDropTable
+Current: balance_nonroot Havoced: generateWithRecursiveQuery
+Current: balance_nonroot Havoced: innerLoopLoadRow
+Current: balance_nonroot Havoced: explainSimpleCount
+Current: balance_nonroot Havoced: sqlite3AuthContextPush
+Current: balance_nonroot Havoced: generateColumnTypes
+Current: balance_nonroot Havoced: whereLikeOptimizationStringFixup
+Current: balance_nonroot Havoced: sqlite3WhereTabFuncArgs
+Current: balance_nonroot Havoced: reindexTable
+Current: balance_nonroot Havoced: analyzeTable
+Current: balance_nonroot Havoced: sqlite3PagerSetBusyHandler
+Current: balance_nonroot Havoced: corruptSchema
+Current: balance_nonroot Havoced: sqlite3SetString
+Current: balance_nonroot Havoced: addModuleArgument
+Current: balance_nonroot Havoced: sqlite3ExprFunctionUsable
+Current: balance_nonroot Havoced: sqlite3ResolveSelectNames
+Current: balance_nonroot Havoced: sqlite3SelectPrep
+Current: balance_nonroot Havoced: sqlite3RenameTokenRemap
+Current: balance_nonroot Havoced: sqlite3WindowChain
+Current: balance_nonroot Havoced: sqlite3AlterDropColumn
+Current: balance_nonroot Havoced: sqlite3AlterRenameTable
+Current: balance_nonroot Havoced: sqlite3Analyze
+Current: balance_nonroot Havoced: sqlite3Reindex
+Current: balance_nonroot Havoced: sqlite3FinishTrigger
+Current: balance_nonroot Havoced: sqlite3Vacuum
+Current: balance_nonroot Havoced: sqlite3PExprAddSelect
+Current: balance_nonroot Havoced: sqlite3WindowAttach
+Current: balance_nonroot Havoced: sqlite3ExprListCheckLength
+Current: balance_nonroot Havoced: sqlite3SrcListFuncArgs
+Current: balance_nonroot Havoced: sqlite3SrcListIndexedBy
+Current: balance_nonroot Havoced: sqlite3AddGenerated
+Current: balance_nonroot Havoced: sqlite3AddColumn
+Current: balance_nonroot Havoced: btreeParseCellAdjustSizeForOverflow
+Current: balance_nonroot Havoced: btreeParseCellPtrIndex
+Current: balance_nonroot Havoced: btreeParseCellPtrNoPayload
+Current: balance_nonroot Havoced: btreeParseCellPtr
+Current: balance_nonroot Havoced: insertElement
+Current: balance_nonroot Havoced: sqlite3_str_vappendf
+Current: balance_nonroot Havoced: printSchemaLine
+Current: balance_nonroot Havoced: tryToCloneData
+Current: balance_nonroot Havoced: sqlite3PutVarint
+Current: balance_nonroot Havoced: insertCell
+Current: balance_nonroot Havoced: editPage
+Current: balance_nonroot Havoced: sqlite3Get4byte
+Current: balance_nonroot Havoced: ptrmapPut
+Current: balance_nonroot Havoced: defragmentPage
+Current: balance_nonroot Havoced: copyNodeContent
+Current: balance_nonroot Havoced: freePage
+Current: balance_nonroot Havoced: freePage
+Current: balance_nonroot Havoced: sqlite3CorruptError
+Current: balance_nonroot Havoced: sqlite3CorruptError
+Current: balance_nonroot Havoced: sqlite3CorruptError
+Current: balance_nonroot Havoced: sqlite3CorruptError
+Current: balance_nonroot Havoced: sqlite3CorruptError
+Current: balance_nonroot Havoced: sqlite3CorruptError
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %122, i8 0, i64 %124, i32 16, i1 false), !dbg !5909
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %105, i8 0, i64 %108, i32 16, i1 false), !dbg !5891
+Current: balance_nonroot Havoced: sqlite3DbFree
+Current: balance_nonroot Havoced: releasePage
+Current: balance_nonroot Havoced: releasePage
+                      0 sec [DONE]
+        Number of expressions:                        160341
+        after encoding
+
+      35 assertions before transformations (7 no_function_call, 27 no_back_edge, 1 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            6686
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72847
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                              15
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             211
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             157
+        ToASC Analyser
+          Memcpy/memset found                            yes
+        Byte-Based Memory Creator
+          Number of rewrites                            9398
+        Instantiation-Based ToASC Simplifier
+          Number of rewrites                               6
+        Simplifier
+          Number of moved ops                           2838
+          Number of rewrites                           26279
+        FP Abstraction
+          Number of rewrites                              22
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      35 assertions remain after transformations (7 no_function_call, 27 no_back_edge, 1 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...

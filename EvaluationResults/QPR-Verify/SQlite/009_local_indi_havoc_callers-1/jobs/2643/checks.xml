@@ -1,0 +1,35 @@
+<VerificationJob>
+  <Configuration>
+    <AnalyzeChecksIndividually value="true" />
+    <BitcodeTraces value="false" />
+    <CheckCallers value="true" />
+    <DumpVerifierBitcodeFiles value="false" />
+    <EnableSlicing value="false" />
+    <EntryPoint value="lockBtree" />
+    <FixPoint value="true" />
+    <ForkJobs value="true" />
+    <HavocLimit value="2" />
+    <Hosted value="true" />
+    <IgnoreMissingFunctions value="false" />
+    <InitializedGlobals value="false" />
+    <LoopUnrollBound value="1" />
+    <PreconditionLocation value="jobs/2643" />
+    <SourceDirectory value="/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld" />
+    <TimeOut value="600" />
+    <XMLTraces value="false" />
+  </Configuration>
+  <CheckList>
+    <Check id="8657" location="9412" category="arithmetic.overflow" status="safe" scope="sqlite3PagerSetPagesize">
+      <EntryStatus>
+        <SingleEntryStatus>lockBtree, safe</SingleEntryStatus>
+        <SingleEntryStatus>pager_playback, todo</SingleEntryStatus>
+        <SingleEntryStatus>readJournalHdr, safe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3BtreeOpen, todo</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3BtreeSetPageSize, safe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3PagerOpen, safe</SingleEntryStatus>
+      </EntryStatus>
+    </Check>
+  </CheckList>
+  <Annotation>allsafe</Annotation>
+  <Status>allsafe</Status>
+</VerificationJob>

@@ -1,0 +1,100 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 4277 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 1
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/4277
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : valueFromExpr
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "valueFromExpr" for 1 iterations succeeded.
+      Transformed "valueFromExpr" from 65 to 69 basic blocks and from 374 to 393 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...Current: valueFromExpr Havoced: valueNew
+Current: valueFromExpr Havoced: valueNew
+Current: valueFromExpr Havoced: sqlite3Strlen30
+Current: valueFromExpr Havoced: sqlite3HexToBlob
+Current: valueFromExpr Havoced: sqlite3VdbeMemSetStr
+Current: valueFromExpr Havoced: valueNew
+Current: valueFromExpr Havoced: sqlite3VdbeMemSetNull
+Current: valueFromExpr Havoced: sqlite3VdbeMemNumerify
+Current: valueFromExpr Havoced: sqlite3ValueApplyAffinity
+Current: valueFromExpr Havoced: valueNew
+Current: valueFromExpr Havoced: sqlite3MPrintf
+Current: valueFromExpr Havoced: sqlite3ValueSetStr
+Current: valueFromExpr Havoced: sqlite3VdbeMemSetInt64
+Current: valueFromExpr Havoced: sqlite3ValueApplyAffinity
+Current: valueFromExpr Havoced: sqlite3ValueApplyAffinity
+Current: valueFromExpr Havoced: sqlite3VdbeChangeEncoding
+Current: valueFromExpr Havoced: sqlite3OomFault
+Current: valueFromExpr Havoced: sqlite3DbFree
+Current: valueFromExpr Havoced: sqlite3ValueFree
+Current: valueFromExpr Havoced: sqlite3AffinityType
+Current: valueFromExpr Havoced: sqlite3VdbeMemCast
+Current: valueFromExpr Havoced: sqlite3ValueApplyAffinity
+                      0 sec [DONE]
+        Number of expressions:                        155763
+        after encoding
+
+      4 assertions before transformations (2 no_function_call, 1 no_back_edge, 1 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            3779
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72632
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               1
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                             142
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              49
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               2
+                                                           0 sec [DONE]
+        
+      4 assertions remain after transformations (2 no_function_call, 1 no_back_edge, 1 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...

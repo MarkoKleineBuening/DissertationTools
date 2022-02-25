@@ -1,0 +1,687 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 6025 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 2
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/6025
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : sqlite3CreateFunc
+m_checker->run()
+
+    Performing bounded model checking ...
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...
+        Unrolling loop in function "llbmc.strlen" for 0 iterations succeeded.
+        Transformed "llbmc.strlen" from 8 to 9 instructions
+        Unrolling loop in function "sqlite3FindFunction" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3FindFunction" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3FindFunction" for 1 iterations succeeded.
+        Transformed "sqlite3FindFunction" from 31 to 34 basic blocks and from 200 to 222 instructionsCurrent: sqlite3FindFunction Havoced: sqlite3Strlen30
+Current: sqlite3FindFunction Havoced: sqlite3HashFind
+Current: sqlite3FindFunction Havoced: matchQuality
+Current: sqlite3FindFunction Havoced: sqlite3FunctionSearch
+Current: sqlite3FindFunction Havoced: matchQuality
+Current: sqlite3FindFunction Havoced: sqlite3DbMallocZero
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %66, i8* %1, i64 %68, i32 1, i1 false), !dbg !5720
+Current: sqlite3FindFunction Havoced: sqlite3HashInsert
+Current: sqlite3FindFunction Havoced: sqlite3DbFree
+Current: sqlite3FindFunction Havoced: sqlite3OomFault
+
+        Unrolling loop in function "sqlite3ExpirePreparedStatements" for 1 iterations succeeded.
+        Transformed "sqlite3ExpirePreparedStatements" from 5 to 6 basic blocks and from 30 to 33 instructionsCurrent: sqlite3FindFunction Havoced: sqlite3Strlen30
+Current: sqlite3FindFunction Havoced: sqlite3HashFind
+Current: sqlite3FindFunction Havoced: matchQuality
+Current: sqlite3FindFunction Havoced: sqlite3FunctionSearch
+Current: sqlite3FindFunction Havoced: matchQuality
+Current: sqlite3FindFunction Havoced: sqlite3DbMallocZero
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %66, i8* %1, i64 %68, i32 1, i1 false), !dbg !5720
+Current: sqlite3FindFunction Havoced: sqlite3HashInsert
+Current: sqlite3FindFunction Havoced: sqlite3DbFree
+Current: sqlite3FindFunction Havoced: sqlite3OomFault
+getMatchingFunctions
+res.push_back: free
+res.push_back: printBold
+res.push_back: memtraceFree
+res.push_back: memtraceShutdown
+res.push_back: resolve_backslashes
+res.push_back: sqlite3_free
+res.push_back: sqlite3MemFree
+res.push_back: sqlite3MemShutdown
+res.push_back: pcache1Shutdown
+res.push_back: pcache1Free
+res.push_back: sqlite3_free_filename
+res.push_back: sqlite3NoopDestructor
+res.push_back: sqlite3SchemaClear
+res.push_back: sqlite3PageFree
+res.push_back: sqlite3ParserFinalize
+res.push_back: statAccumDestructor
+res.push_back: sqlite3Dequote
+res.push_back: logBadConnection
+res.push_back: sqlite3VdbeFrameMemDel
+res.push_back: sqlite3RowSetClear
+res.push_back: sqlite3RowSetDelete
+
+        Transformed "functionDestroy" from 5 to 547 basic blocks and from 31 to 1611 instructionsCurrent: functionDestroy Havoced: pthreadMutexLeave
+Current: functionDestroy Havoced: pthreadMutexEnter
+Current: functionDestroy Havoced: pthreadMutexFree
+Current: functionDestroy Havoced: noopMutexLeave
+Current: functionDestroy Havoced: noopMutexEnter
+Current: functionDestroy Havoced: noopMutexFree
+Current: functionDestroy Havoced: renameParseCleanup
+Current: functionDestroy Havoced: first_valueFinalizeFunc
+Current: functionDestroy Havoced: noopValueFunc
+Current: functionDestroy Havoced: nth_valueFinalizeFunc
+Current: functionDestroy Havoced: last_valueValueFunc
+Current: functionDestroy Havoced: last_valueFinalizeFunc
+Current: functionDestroy Havoced: ntileValueFunc
+Current: functionDestroy Havoced: cume_distValueFunc
+Current: functionDestroy Havoced: percent_rankValueFunc
+Current: functionDestroy Havoced: rankValueFunc
+Current: functionDestroy Havoced: dense_rankValueFunc
+Current: functionDestroy Havoced: row_numberValueFunc
+Current: functionDestroy Havoced: clearYMD_HMS_TZ
+Current: functionDestroy Havoced: datetimeError
+Current: functionDestroy Havoced: computeHMS
+Current: functionDestroy Havoced: computeYMD
+Current: functionDestroy Havoced: computeYMD_HMS
+Current: functionDestroy Havoced: computeJD
+Current: functionDestroy Havoced: columnMallocFailure
+Current: functionDestroy Havoced: sqlite3VdbeResetStepResult
+Current: functionDestroy Havoced: sqlite3BtreeLeaveCursor
+Current: functionDestroy Havoced: sqlite3BtreeEnterCursor
+Current: functionDestroy Havoced: sqlite3AutoLoadExtensions
+Current: functionDestroy Havoced: sqlite3RegisterPerConnectionBuiltinFunctions
+Current: functionDestroy Havoced: sqlite3ResultIntReal
+Current: functionDestroy Havoced: attachBackupObject
+Current: functionDestroy Havoced: sqlite3BtreeCursorZero
+Current: functionDestroy Havoced: allocateTempSpace
+Current: functionDestroy Havoced: vdbeIncrMergerSetThreads
+Current: functionDestroy Havoced: sqlite3PcacheRef
+Current: functionDestroy Havoced: sqlite3PagerDontWrite
+Current: functionDestroy Havoced: sqlite3PagerRef
+Current: functionDestroy Havoced: sqlite3RowSetDelete
+Current: functionDestroy Havoced: sqlite3RowSetClear
+Current: functionDestroy Havoced: sqlite3PagerClearCache
+Current: functionDestroy Havoced: sqlite3BtreeCursorUnpin
+Current: functionDestroy Havoced: sqlite3BtreeCursorPin
+Current: functionDestroy Havoced: sqlite3VdbeFrameMemDel
+Current: functionDestroy Havoced: sqlite3BtreeIncrblobCursor
+Current: functionDestroy Havoced: sqlite3CloseExtensions
+Current: functionDestroy Havoced: sqlite3LeaveMutexAndCloseZombie
+Current: functionDestroy Havoced: disconnectAllVtab
+Current: functionDestroy Havoced: sqlite3PcacheShrink
+Current: functionDestroy Havoced: sqlite3PagerShrink
+Current: functionDestroy Havoced: logBadConnection
+Current: functionDestroy Havoced: sqlite3VdbeRewind
+Current: functionDestroy Havoced: sqlite3AutoincrementBegin
+Current: functionDestroy Havoced: codeTableLocks
+Current: functionDestroy Havoced: estimateTableWidth
+Current: functionDestroy Havoced: recomputeColumnsNotIndexed
+Current: functionDestroy Havoced: estimateIndexWidth
+Current: functionDestroy Havoced: sqlite3StringToId
+Current: functionDestroy Havoced: windowFullScan
+Current: functionDestroy Havoced: windowReturnOneRow
+Current: functionDestroy Havoced: sqlite3DequoteExpr
+Current: functionDestroy Havoced: sqlite3AuthContextPop
+Current: functionDestroy Havoced: moveToParent
+Current: functionDestroy Havoced: sqlite3VdbeExplainPop
+Current: functionDestroy Havoced: whereLoopInit
+Current: functionDestroy Havoced: sqlite3WhereClauseClear
+Current: functionDestroy Havoced: whereUndoExprMods
+Current: functionDestroy Havoced: sqlite3WhereEnd
+Current: functionDestroy Havoced: autoIncrementEnd
+Current: functionDestroy Havoced: sqlite3AutoincrementEnd
+Current: functionDestroy Havoced: sqlite3VdbeCountChanges
+Current: functionDestroy Havoced: exprSetHeight
+Current: functionDestroy Havoced: sqlite3ForceNotReadOnly
+Current: functionDestroy Havoced: sqlite3VdbeReusable
+Current: functionDestroy Havoced: setAllPagerFlags
+Current: functionDestroy Havoced: sqlite3VdbeRunOnlyOnce
+Current: functionDestroy Havoced: sqlite3Dequote
+Current: functionDestroy Havoced: sqlite3MultiWrite
+Current: functionDestroy Havoced: statAccumDestructor
+Current: functionDestroy Havoced: pageReinit
+Current: functionDestroy Havoced: sqlite3ClearTempRegCache
+Current: functionDestroy Havoced: setDoNotMergeFlagOnCopy
+Current: functionDestroy Havoced: sqlite3MayAbort
+Current: functionDestroy Havoced: addArgumentToVtab
+Current: functionDestroy Havoced: sqlite3DefaultRowEst
+Current: functionDestroy Havoced: pragmaVtabCursorClear
+Current: functionDestroy Havoced: sqliteAuthBadReturnCode
+Current: functionDestroy Havoced: gatherSelectWindows
+Current: functionDestroy Havoced: sqlite3VtabArgInit
+Current: functionDestroy Havoced: sqlite3SrcListShiftJoinType
+Current: functionDestroy Havoced: disableLookaside
+Current: functionDestroy Havoced: sqlite3FinishCoding
+Current: functionDestroy Havoced: yy_accept
+Current: functionDestroy Havoced: yyStackOverflow
+Current: functionDestroy Havoced: yy_pop_parser_stack
+Current: functionDestroy Havoced: sqlite3ParserFinalize
+Current: functionDestroy Havoced: vdbeIncrFree
+Current: functionDestroy Havoced: vdbeMergeEngineFree
+Current: functionDestroy Havoced: vdbePmaReaderClear
+Current: functionDestroy Havoced: walIteratorFree
+Current: functionDestroy Havoced: sqlite3PcacheClose
+Current: functionDestroy Havoced: pagerFreeMapHdrs
+Current: functionDestroy Havoced: freeTempSpace
+Current: functionDestroy Havoced: sqlite3VdbeFrameDelete
+Current: functionDestroy Havoced: closeCursorsInFrame
+Current: functionDestroy Havoced: sqlite3BtreeClearCursor
+Current: functionDestroy Havoced: sqlite3CollapseDatabaseArray
+Current: functionDestroy Havoced: sqlite3ResetAllSchemasOfConnection
+Current: functionDestroy Havoced: vdbeLeave
+Current: functionDestroy Havoced: invalidateAllOverflowCache
+Current: functionDestroy Havoced: sqlite3OsShmBarrier
+Current: functionDestroy Havoced: walShmBarrier
+Current: functionDestroy Havoced: walIndexWriteHdr
+Current: functionDestroy Havoced: sqlite3PcacheClearSyncFlags
+Current: functionDestroy Havoced: pager_write_changecounter
+Current: functionDestroy Havoced: sqlite3PagerUnrefPageOne
+Current: functionDestroy Havoced: releasePageOne
+Current: functionDestroy Havoced: unlockBtreeIfUnused
+Current: functionDestroy Havoced: clearAllSharedCacheTableLocks
+Current: functionDestroy Havoced: downgradeAllSharedCacheTableLocks
+Current: functionDestroy Havoced: btreeEndTransaction
+Current: functionDestroy Havoced: btreeClearHasContent
+Current: functionDestroy Havoced: sqlite3OsCloseFree
+Current: functionDestroy Havoced: releasePage
+Current: functionDestroy Havoced: getCellInfo
+Current: functionDestroy Havoced: releasePageNotNull
+Current: functionDestroy Havoced: btreeReleaseAllCursorPages
+Current: functionDestroy Havoced: sqlite3PagerUnref
+Current: functionDestroy Havoced: sqlite3PcacheClear
+Current: functionDestroy Havoced: sqlite3BackupRestart
+Current: functionDestroy Havoced: setSectorSize
+Current: functionDestroy Havoced: sqlite3PcacheMakeClean
+Current: functionDestroy Havoced: sqlite3PcacheClearWritable
+Current: functionDestroy Havoced: sqlite3PcacheCleanAll
+Current: functionDestroy Havoced: sqlite3WalEndReadTransaction
+Current: functionDestroy Havoced: releaseAllSavepoints
+Current: functionDestroy Havoced: pager_unlock
+Current: functionDestroy Havoced: pagerUnlockAndRollback
+Current: functionDestroy Havoced: pagerUnlockIfUnused
+Current: functionDestroy Havoced: sqlite3PcacheDrop
+Current: functionDestroy Havoced: setGetterMethod
+Current: functionDestroy Havoced: pagerFixMaplimit
+Current: functionDestroy Havoced: sqlite3PageFree
+Current: functionDestroy Havoced: pager_reset
+Current: functionDestroy Havoced: walCleanupHash
+Current: functionDestroy Havoced: pcacheUnpin
+Current: functionDestroy Havoced: sqlite3PcacheRelease
+Current: functionDestroy Havoced: pagerReleaseMapPage
+Current: functionDestroy Havoced: sqlite3PagerUnrefNotNull
+Current: functionDestroy Havoced: sqlite3OsClose
+Current: functionDestroy Havoced: memjrnlFreeChunks
+Current: functionDestroy Havoced: sqlite3BitvecDestroy
+Current: functionDestroy Havoced: sqlite3MemJournalOpen
+Current: functionDestroy Havoced: sqlite3PcacheMakeDirty
+Current: functionDestroy Havoced: sqlite3VtabLock
+Current: functionDestroy Havoced: sqlite3CommitInternalChanges
+Current: functionDestroy Havoced: sqlite3VdbeLeave
+Current: functionDestroy Havoced: sqlite3CloseSavepoints
+Current: functionDestroy Havoced: sqlite3VdbeEnter
+Current: functionDestroy Havoced: closeAllCursors
+Current: functionDestroy Havoced: sqlite3VdbeDelete
+Current: functionDestroy Havoced: sqlite3ParserReset
+Current: functionDestroy Havoced: sqlite3ErrorClear
+Current: functionDestroy Havoced: schemaIsValid
+Current: functionDestroy Havoced: sqlite3VtabUnlockList
+Current: functionDestroy Havoced: sqlite3HashInit
+Current: functionDestroy Havoced: sqlite3SchemaClear
+Current: functionDestroy Havoced: sqlite3NoopDestructor
+Current: functionDestroy Havoced: sqlite3_free_filename
+Current: functionDestroy Havoced: sqlite3_interrupt
+Current: functionDestroy Havoced: sqlite3_free_table
+Current: functionDestroy Havoced: sqlite3ValueSetNull
+Current: functionDestroy Havoced: sqlite3OomClear
+Current: functionDestroy Havoced: sqlite3SkipAccumulatorLoad
+Current: functionDestroy Havoced: sqlite3_value_free
+Current: functionDestroy Havoced: sqlite3_result_null
+Current: functionDestroy Havoced: sqlite3_result_error_nomem
+Current: functionDestroy Havoced: sqlite3_result_error_toobig
+Current: functionDestroy Havoced: sqlite3VdbeIntegerAffinity
+Current: functionDestroy Havoced: groupConcatValue
+Current: functionDestroy Havoced: groupConcatFinalize
+Current: functionDestroy Havoced: countFinalize
+Current: functionDestroy Havoced: avgFinalize
+Current: functionDestroy Havoced: totalFinalize
+Current: functionDestroy Havoced: sumFinalize
+Current: functionDestroy Havoced: minMaxValue
+Current: functionDestroy Havoced: minMaxFinalize
+Current: functionDestroy Havoced: pcache1ResizeHash
+Current: functionDestroy Havoced: pcache1Free
+Current: functionDestroy Havoced: pcache1FreePage
+Current: functionDestroy Havoced: pcache1EnforceMaxPage
+Current: functionDestroy Havoced: pcache1Shrink
+Current: functionDestroy Havoced: pcache1Destroy
+Current: functionDestroy Havoced: pcache1Shutdown
+Current: functionDestroy Havoced: sqlite3MemShutdown
+Current: functionDestroy Havoced: sqlite3MemFree
+Current: functionDestroy Havoced: releaseInodeInfo
+Current: functionDestroy Havoced: setPendingFd
+Current: functionDestroy Havoced: closePendingFds
+Current: functionDestroy Havoced: verifyDbFile
+Current: functionDestroy Havoced: setDeviceCharacteristics
+Current: functionDestroy Havoced: unixShmPurge
+Current: functionDestroy Havoced: unixUnmapfile
+Current: functionDestroy Havoced: unixShmBarrier
+Current: functionDestroy Havoced: memdbLeave
+Current: functionDestroy Havoced: memdbEnter
+Current: functionDestroy Havoced: vfsUnlink
+Current: functionDestroy Havoced: sqlite3_mutex_free
+Current: functionDestroy Havoced: lockBtreeMutex
+Current: functionDestroy Havoced: btreeLockCarefully
+Current: functionDestroy Havoced: sqlite3BtreeEnter
+Current: functionDestroy Havoced: btreeEnterAll
+Current: functionDestroy Havoced: unlockBtreeMutex
+Current: functionDestroy Havoced: sqlite3BtreeLeave
+Current: functionDestroy Havoced: btreeLeaveAll
+Current: functionDestroy Havoced: sqlite3HashClear
+Current: functionDestroy Havoced: sqlite3WindowUnlinkFromSelect
+Current: functionDestroy Havoced: sqlite3VtabUnlock
+Current: functionDestroy Havoced: sqlite3ValueFree
+Current: functionDestroy Havoced: sqlite3KeyInfoUnref
+Current: functionDestroy Havoced: sqlite3BtreeLeaveAll
+Current: functionDestroy Havoced: sqlite3BtreeEnterAll
+Current: functionDestroy Havoced: vdbeMemClear
+Current: functionDestroy Havoced: sqlite3VdbeMemRelease
+Current: functionDestroy Havoced: vdbeMemClearExternAndSetNull
+Current: functionDestroy Havoced: sqlite3VdbeMemSetNull
+Current: functionDestroy Havoced: sqlite3OomFault
+Current: functionDestroy Havoced: sqlite3_free
+Current: functionDestroy Havoced: sqlite3_str_reset
+Current: functionDestroy Havoced: sqlite3_mutex_leave
+Current: functionDestroy Havoced: sqlite3_mutex_enter
+Current: functionDestroy Havoced: outputModePop
+Current: functionDestroy Havoced: eqp_reset
+Current: functionDestroy Havoced: explain_data_delete
+Current: functionDestroy Havoced: eqp_render
+Current: functionDestroy Havoced: displayLinuxIoStats
+Current: functionDestroy Havoced: toggleSelectOrder
+Current: functionDestroy Havoced: freeColumnList
+Current: functionDestroy Havoced: createSelftestTable
+Current: functionDestroy Havoced: bind_table_init
+Current: functionDestroy Havoced: outputModePush
+Current: functionDestroy Havoced: output_file_close
+Current: functionDestroy Havoced: import_cleanup
+Current: functionDestroy Havoced: resolve_backslashes
+Current: functionDestroy Havoced: freeText
+Current: functionDestroy Havoced: initText
+Current: functionDestroy Havoced: idxConstraintFree
+Current: functionDestroy Havoced: sqlite3re_free
+Current: functionDestroy Havoced: decimal_clear
+Current: functionDestroy Havoced: decimal_free
+Current: functionDestroy Havoced: memtraceShutdown
+Current: functionDestroy Havoced: memtraceFree
+Current: functionDestroy Havoced: apndShmBarrier
+Current: functionDestroy Havoced: completionCursorReset
+Current: functionDestroy Havoced: fsdirResetCursor
+Current: functionDestroy Havoced: KeccakF1600Step
+Current: functionDestroy Havoced: clearTempFile
+Current: functionDestroy Havoced: output_reset
+Current: functionDestroy Havoced: printBold
+Current: functionDestroy Havoced: main_init
+Current: functionDestroy Havoced: close_db
+Current: functionDestroy Havoced: idxWriteFree
+Current: functionDestroy Havoced: idxTableFree
+Current: functionDestroy Havoced: sqlite3_expert_destroy
+Current: functionDestroy Havoced: idxHashClear
+Current: functionDestroy Havoced: idxHashInit
+Current: functionDestroy Havoced: decimalSumValue
+Current: functionDestroy Havoced: decimalSumFinalize
+Current: functionDestroy Havoced: sqlite3DbFree
+Current: sqlite3ErrorWithMsg Havoced: sqlite3SystemError
+Current: sqlite3ErrorWithMsg Havoced: sqlite3ValueNew
+Current: sqlite3ErrorWithMsg Havoced: sqlite3VMPrintf
+Current: sqlite3ErrorWithMsg Havoced: sqlite3ValueSetStr
+Current: sqlite3ErrorWithMsg Havoced: sqlite3Error
+Current: sqlite3MisuseError Havoced: sqlite3ReportError
+
+                                                           0 sec [DONE]
+        Number of expressions:                        161772
+        after encoding
+
+      14 assertions before transformations (4 no_function_call, 8 no_back_edge, 2 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            7477
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72664
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               2
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                              15
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             142
+        ToASC Analyser
+          Memcpy/memset found                            yes
+        Byte-Based Memory Creator
+          Number of rewrites                            8984
+        Instantiation-Based ToASC Simplifier
+          Number of rewrites                               2
+        Simplifier
+          Number of moved ops                             84
+          Number of rewrites                           23401
+        FP Abstraction
+          Number of rewrites                              22
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      14 assertions remain after transformations (4 no_function_call, 8 no_back_edge, 2 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...e Havoced: sqlite3BtreeCursorPin
+Current: sqlite3_mutex_leave Havoced: sqlite3VdbeFrameMemDel
+Current: sqlite3_mutex_leave Havoced: sqlite3BtreeIncrblobCursor
+Current: sqlite3_mutex_leave Havoced: sqlite3CloseExtensions
+Current: sqlite3_mutex_leave Havoced: sqlite3LeaveMutexAndCloseZombie
+Current: sqlite3_mutex_leave Havoced: disconnectAllVtab
+Current: sqlite3_mutex_leave Havoced: sqlite3PcacheShrink
+Current: sqlite3_mutex_leave Havoced: sqlite3PagerShrink
+Current: sqlite3_mutex_leave Havoced: logBadConnection
+Current: sqlite3_mutex_leave Havoced: sqlite3VdbeRewind
+Current: sqlite3_mutex_leave Havoced: sqlite3AutoincrementBegin
+Current: sqlite3_mutex_leave Havoced: codeTableLocks
+Current: sqlite3_mutex_leave Havoced: estimateTableWidth
+Current: sqlite3_mutex_leave Havoced: recomputeColumnsNotIndexed
+Current: sqlite3_mutex_leave Havoced: estimateIndexWidth
+Current: sqlite3_mutex_leave Havoced: sqlite3StringToId
+Current: sqlite3_mutex_leave Havoced: windowFullScan
+Current: sqlite3_mutex_leave Havoced: windowReturnOneRow
+Current: sqlite3_mutex_leave Havoced: sqlite3DequoteExpr
+Current: sqlite3_mutex_leave Havoced: sqlite3AuthContextPop
+Current: sqlite3_mutex_leave Havoced: moveToParent
+Current: sqlite3_mutex_leave Havoced: sqlite3VdbeExplainPop
+Current: sqlite3_mutex_leave Havoced: whereLoopInit
+Current: sqlite3_mutex_leave Havoced: sqlite3WhereClauseClear
+Current: sqlite3_mutex_leave Havoced: whereUndoExprMods
+Current: sqlite3_mutex_leave Havoced: sqlite3WhereEnd
+Current: sqlite3_mutex_leave Havoced: autoIncrementEnd
+Current: sqlite3_mutex_leave Havoced: sqlite3AutoincrementEnd
+Current: sqlite3_mutex_leave Havoced: sqlite3VdbeCountChanges
+Current: sqlite3_mutex_leave Havoced: exprSetHeight
+Current: sqlite3_mutex_leave Havoced: sqlite3ForceNotReadOnly
+Current: sqlite3_mutex_leave Havoced: sqlite3VdbeReusable
+Current: sqlite3_mutex_leave Havoced: setAllPagerFlags
+Current: sqlite3_mutex_leave Havoced: sqlite3VdbeRunOnlyOnce
+Current: sqlite3_mutex_leave Havoced: sqlite3Dequote
+Current: sqlite3_mutex_leave Havoced: sqlite3MultiWrite
+Current: sqlite3_mutex_leave Havoced: statAccumDestructor
+Current: sqlite3_mutex_leave Havoced: pageReinit
+Current: sqlite3_mutex_leave Havoced: sqlite3ClearTempRegCache
+Current: sqlite3_mutex_leave Havoced: setDoNotMergeFlagOnCopy
+Current: sqlite3_mutex_leave Havoced: sqlite3MayAbort
+Current: sqlite3_mutex_leave Havoced: addArgumentToVtab
+Current: sqlite3_mutex_leave Havoced: sqlite3DefaultRowEst
+Current: sqlite3_mutex_leave Havoced: pragmaVtabCursorClear
+Current: sqlite3_mutex_leave Havoced: sqliteAuthBadReturnCode
+Current: sqlite3_mutex_leave Havoced: gatherSelectWindows
+Current: sqlite3_mutex_leave Havoced: sqlite3VtabArgInit
+Current: sqlite3_mutex_leave Havoced: sqlite3SrcListShiftJoinType
+Current: sqlite3_mutex_leave Havoced: disableLookaside
+Current: sqlite3_mutex_leave Havoced: sqlite3FinishCoding
+Current: sqlite3_mutex_leave Havoced: yy_accept
+Current: sqlite3_mutex_leave Havoced: yyStackOverflow
+Current: sqlite3_mutex_leave Havoced: yy_pop_parser_stack
+Current: sqlite3_mutex_leave Havoced: sqlite3ParserFinalize
+Current: sqlite3_mutex_leave Havoced: vdbeIncrFree
+Current: sqlite3_mutex_leave Havoced: vdbeMergeEngineFree
+Current: sqlite3_mutex_leave Havoced: vdbePmaReaderClear
+Current: sqlite3_mutex_leave Havoced: walIteratorFree
+Current: sqlite3_mutex_leave Havoced: sqlite3PcacheClose
+Current: sqlite3_mutex_leave Havoced: pagerFreeMapHdrs
+Current: sqlite3_mutex_leave Havoced: freeTempSpace
+Current: sqlite3_mutex_leave Havoced: sqlite3VdbeFrameDelete
+Current: sqlite3_mutex_leave Havoced: closeCursorsInFrame
+Current: sqlite3_mutex_leave Havoced: sqlite3BtreeClearCursor
+Current: sqlite3_mutex_leave Havoced: sqlite3CollapseDatabaseArray
+Current: sqlite3_mutex_leave Havoced: sqlite3ResetAllSchemasOfConnection
+Current: sqlite3_mutex_leave Havoced: vdbeLeave
+Current: sqlite3_mutex_leave Havoced: invalidateAllOverflowCache
+Current: sqlite3_mutex_leave Havoced: sqlite3OsShmBarrier
+Current: sqlite3_mutex_leave Havoced: walShmBarrier
+Current: sqlite3_mutex_leave Havoced: walIndexWriteHdr
+Current: sqlite3_mutex_leave Havoced: sqlite3PcacheClearSyncFlags
+Current: sqlite3_mutex_leave Havoced: pager_write_changecounter
+Current: sqlite3_mutex_leave Havoced: sqlite3PagerUnrefPageOne
+Current: sqlite3_mutex_leave Havoced: releasePageOne
+Current: sqlite3_mutex_leave Havoced: unlockBtreeIfUnused
+Current: sqlite3_mutex_leave Havoced: clearAllSharedCacheTableLocks
+Current: sqlite3_mutex_leave Havoced: downgradeAllSharedCacheTableLocks
+Current: sqlite3_mutex_leave Havoced: btreeEndTransaction
+Current: sqlite3_mutex_leave Havoced: btreeClearHasContent
+Current: sqlite3_mutex_leave Havoced: sqlite3OsCloseFree
+Current: sqlite3_mutex_leave Havoced: releasePage
+Current: sqlite3_mutex_leave Havoced: getCellInfo
+Current: sqlite3_mutex_leave Havoced: releasePageNotNull
+Current: sqlite3_mutex_leave Havoced: btreeReleaseAllCursorPages
+Current: sqlite3_mutex_leave Havoced: sqlite3PagerUnref
+Current: sqlite3_mutex_leave Havoced: sqlite3PcacheClear
+Current: sqlite3_mutex_leave Havoced: sqlite3BackupRestart
+Current: sqlite3_mutex_leave Havoced: setSectorSize
+Current: sqlite3_mutex_leave Havoced: sqlite3PcacheMakeClean
+Current: sqlite3_mutex_leave Havoced: sqlite3PcacheClearWritable
+Current: sqlite3_mutex_leave Havoced: sqlite3PcacheCleanAll
+Current: sqlite3_mutex_leave Havoced: sqlite3WalEndReadTransaction
+Current: sqlite3_mutex_leave Havoced: releaseAllSavepoints
+Current: sqlite3_mutex_leave Havoced: pager_unlock
+Current: sqlite3_mutex_leave Havoced: pagerUnlockAndRollback
+Current: sqlite3_mutex_leave Havoced: pagerUnlockIfUnused
+Current: sqlite3_mutex_leave Havoced: sqlite3PcacheDrop
+Current: sqlite3_mutex_leave Havoced: setGetterMethod
+Current: sqlite3_mutex_leave Havoced: pagerFixMaplimit
+Current: sqlite3_mutex_leave Havoced: sqlite3PageFree
+Current: sqlite3_mutex_leave Havoced: pager_reset
+Current: sqlite3_mutex_leave Havoced: walCleanupHash
+Current: sqlite3_mutex_leave Havoced: pcacheUnpin
+Current: sqlite3_mutex_leave Havoced: sqlite3PcacheRelease
+Current: sqlite3_mutex_leave Havoced: pagerReleaseMapPage
+Current: sqlite3_mutex_leave Havoced: sqlite3PagerUnrefNotNull
+Current: sqlite3_mutex_leave Havoced: sqlite3OsClose
+Current: sqlite3_mutex_leave Havoced: memjrnlFreeChunks
+Current: sqlite3_mutex_leave Havoced: sqlite3BitvecDestroy
+Current: sqlite3_mutex_leave Havoced: sqlite3MemJournalOpen
+Current: sqlite3_mutex_leave Havoced: sqlite3PcacheMakeDirty
+Current: sqlite3_mutex_leave Havoced: sqlite3VtabLock
+Current: sqlite3_mutex_leave Havoced: sqlite3CommitInternalChanges
+Current: sqlite3_mutex_leave Havoced: sqlite3VdbeLeave
+Current: sqlite3_mutex_leave Havoced: sqlite3CloseSavepoints
+Current: sqlite3_mutex_leave Havoced: sqlite3VdbeEnter
+Current: sqlite3_mutex_leave Havoced: closeAllCursors
+Current: sqlite3_mutex_leave Havoced: sqlite3VdbeDelete
+Current: sqlite3_mutex_leave Havoced: sqlite3ParserReset
+Current: sqlite3_mutex_leave Havoced: sqlite3ErrorClear
+Current: sqlite3_mutex_leave Havoced: schemaIsValid
+Current: sqlite3_mutex_leave Havoced: sqlite3VtabUnlockList
+Current: sqlite3_mutex_leave Havoced: sqlite3HashInit
+Current: sqlite3_mutex_leave Havoced: sqlite3SchemaClear
+Current: sqlite3_mutex_leave Havoced: sqlite3NoopDestructor
+Current: sqlite3_mutex_leave Havoced: sqlite3_free_filename
+Current: sqlite3_mutex_leave Havoced: sqlite3_interrupt
+Current: sqlite3_mutex_leave Havoced: sqlite3_free_table
+Current: sqlite3_mutex_leave Havoced: sqlite3ValueSetNull
+Current: sqlite3_mutex_leave Havoced: sqlite3OomClear
+Current: sqlite3_mutex_leave Havoced: sqlite3SkipAccumulatorLoad
+Current: sqlite3_mutex_leave Havoced: sqlite3_value_free
+Current: sqlite3_mutex_leave Havoced: sqlite3_result_null
+Current: sqlite3_mutex_leave Havoced: sqlite3_result_error_nomem
+Current: sqlite3_mutex_leave Havoced: sqlite3_result_error_toobig
+Current: sqlite3_mutex_leave Havoced: sqlite3VdbeIntegerAffinity
+Current: sqlite3_mutex_leave Havoced: groupConcatValue
+Current: sqlite3_mutex_leave Havoced: groupConcatFinalize
+Current: sqlite3_mutex_leave Havoced: countFinalize
+Current: sqlite3_mutex_leave Havoced: avgFinalize
+Current: sqlite3_mutex_leave Havoced: totalFinalize
+Current: sqlite3_mutex_leave Havoced: sumFinalize
+Current: sqlite3_mutex_leave Havoced: minMaxValue
+Current: sqlite3_mutex_leave Havoced: minMaxFinalize
+Current: sqlite3_mutex_leave Havoced: pcache1ResizeHash
+Current: sqlite3_mutex_leave Havoced: pcache1Free
+Current: sqlite3_mutex_leave Havoced: pcache1FreePage
+Current: sqlite3_mutex_leave Havoced: pcache1EnforceMaxPage
+Current: sqlite3_mutex_leave Havoced: pcache1Shrink
+Current: sqlite3_mutex_leave Havoced: pcache1Destroy
+Current: sqlite3_mutex_leave Havoced: pcache1Shutdown
+Current: sqlite3_mutex_leave Havoced: sqlite3MemShutdown
+Current: sqlite3_mutex_leave Havoced: sqlite3MemFree
+Current: sqlite3_mutex_leave Havoced: releaseInodeInfo
+Current: sqlite3_mutex_leave Havoced: setPendingFd
+Current: sqlite3_mutex_leave Havoced: closePendingFds
+Current: sqlite3_mutex_leave Havoced: verifyDbFile
+Current: sqlite3_mutex_leave Havoced: setDeviceCharacteristics
+Current: sqlite3_mutex_leave Havoced: unixShmPurge
+Current: sqlite3_mutex_leave Havoced: unixUnmapfile
+Current: sqlite3_mutex_leave Havoced: unixShmBarrier
+Current: sqlite3_mutex_leave Havoced: memdbLeave
+Current: sqlite3_mutex_leave Havoced: memdbEnter
+Current: sqlite3_mutex_leave Havoced: vfsUnlink
+Current: sqlite3_mutex_leave Havoced: sqlite3_mutex_free
+Current: sqlite3_mutex_leave Havoced: lockBtreeMutex
+Current: sqlite3_mutex_leave Havoced: btreeLockCarefully
+Current: sqlite3_mutex_leave Havoced: sqlite3BtreeEnter
+Current: sqlite3_mutex_leave Havoced: btreeEnterAll
+Current: sqlite3_mutex_leave Havoced: unlockBtreeMutex
+Current: sqlite3_mutex_leave Havoced: sqlite3BtreeLeave
+Current: sqlite3_mutex_leave Havoced: btreeLeaveAll
+Current: sqlite3_mutex_leave Havoced: sqlite3HashClear
+Current: sqlite3_mutex_leave Havoced: sqlite3WindowUnlinkFromSelect
+Current: sqlite3_mutex_leave Havoced: sqlite3VtabUnlock
+Current: sqlite3_mutex_leave Havoced: sqlite3ValueFree
+Current: sqlite3_mutex_leave Havoced: sqlite3KeyInfoUnref
+Current: sqlite3_mutex_leave Havoced: sqlite3BtreeLeaveAll
+Current: sqlite3_mutex_leave Havoced: sqlite3BtreeEnterAll
+Current: sqlite3_mutex_leave Havoced: vdbeMemClear
+Current: sqlite3_mutex_leave Havoced: sqlite3VdbeMemRelease
+Current: sqlite3_mutex_leave Havoced: vdbeMemClearExternAndSetNull
+Current: sqlite3_mutex_leave Havoced: sqlite3VdbeMemSetNull
+Current: sqlite3_mutex_leave Havoced: sqlite3OomFault
+Current: sqlite3_mutex_leave Havoced: sqlite3_free
+Current: sqlite3_mutex_leave Havoced: sqlite3_str_reset
+Current: sqlite3_mutex_leave Havoced: sqlite3_mutex_enter
+Current: sqlite3_mutex_leave Havoced: outputModePop
+Current: sqlite3_mutex_leave Havoced: eqp_reset
+Current: sqlite3_mutex_leave Havoced: explain_data_delete
+Current: sqlite3_mutex_leave Havoced: eqp_render
+Current: sqlite3_mutex_leave Havoced: displayLinuxIoStats
+Current: sqlite3_mutex_leave Havoced: toggleSelectOrder
+Current: sqlite3_mutex_leave Havoced: freeColumnList
+Current: sqlite3_mutex_leave Havoced: createSelftestTable
+Current: sqlite3_mutex_leave Havoced: bind_table_init
+Current: sqlite3_mutex_leave Havoced: outputModePush
+Current: sqlite3_mutex_leave Havoced: output_file_close
+Current: sqlite3_mutex_leave Havoced: import_cleanup
+Current: sqlite3_mutex_leave Havoced: resolve_backslashes
+Current: sqlite3_mutex_leave Havoced: freeText
+Current: sqlite3_mutex_leave Havoced: initText
+Current: sqlite3_mutex_leave Havoced: idxConstraintFree
+Current: sqlite3_mutex_leave Havoced: sqlite3re_free
+Current: sqlite3_mutex_leave Havoced: decimal_clear
+Current: sqlite3_mutex_leave Havoced: decimal_free
+Current: sqlite3_mutex_leave Havoced: memtraceShutdown
+Current: sqlite3_mutex_leave Havoced: memtraceFree
+Current: sqlite3_mutex_leave Havoced: apndShmBarrier
+Current: sqlite3_mutex_leave Havoced: completionCursorReset
+Current: sqlite3_mutex_leave Havoced: fsdirResetCursor
+Current: sqlite3_mutex_leave Havoced: KeccakF1600Step
+Current: sqlite3_mutex_leave Havoced: clearTempFile
+Current: sqlite3_mutex_leave Havoced: output_reset
+Current: sqlite3_mutex_leave Havoced: printBold
+Current: sqlite3_mutex_leave Havoced: main_init
+Current: sqlite3_mutex_leave Havoced: close_db
+Current: sqlite3_mutex_leave Havoced: idxWriteFree
+Current: sqlite3_mutex_leave Havoced: idxTableFree
+Current: sqlite3_mutex_leave Havoced: sqlite3_expert_destroy
+Current: sqlite3_mutex_leave Havoced: idxHashClear
+Current: sqlite3_mutex_leave Havoced: idxHashInit
+Current: sqlite3_mutex_leave Havoced: decimalSumValue
+Current: sqlite3_mutex_leave Havoced: decimalSumFinalize
+Current: sqlite3_mprintf Havoced: sqlite3_initialize
+Current: sqlite3_mprintf Havoced: sqlite3_vmprintf
+Current: sqlite3_create_function_v2 Havoced: createFunctionApi
+
+                                                           0 sec [DONE]
+        Number of expressions:                        166036
+        after encoding
+
+      10 assertions before transformations (6 no_function_call, 3 no_back_edge, 1 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                           10188
+        Fixed Memory Address Assigner
+          Number of moved ops                              4
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           73333
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               2
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               8
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           69268
+        ToASC Analyser
+          Memcpy/memset found                            yes
+        Byte-Based Memory Creator
+          Number of rewrites                            8935
+        Instantiation-Based ToASC Simplifier
+          Number of rewrites                               1
+        Simplifier
+          Number of moved ops                             42
+          Number of rewrites                           23625
+        FP Abstraction
+          Number of rewrites                              22
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           6 sec [DONE]
+        
+      10 assertions remain after transformations (6 no_function_call, 3 no_back_edge, 1 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...

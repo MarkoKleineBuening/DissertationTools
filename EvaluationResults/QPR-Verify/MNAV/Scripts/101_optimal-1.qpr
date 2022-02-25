@@ -1,0 +1,24 @@
+configure-project TimeOut:300
+configure-project LoopUnrollBound:3
+configure-project Hosted:true
+configure-project EnableSlicing:false
+find-source-files
+murphy
+compile
+optimize-bitcode mem2reg instnamer
+copy-source-files
+configure-project AnalyzeChecksIndividually:false
+check-all-functions-locally
+configure-project AnalyzeChecksIndividually:true
+configure-project HavocLimit:1
+check-all-functions-locally
+configure-project HavocLimit:0
+configure-project EnableSlicing:true
+check-all-functions-locally
+configure-project EnableSlicing:false
+check-all-functions-locally
+check-all-jobs-by-callers
+check-all-jobs-by-callers
+check-all-jobs-by-callers
+check-all-jobs-by-callers
+check-all-jobs-by-callers

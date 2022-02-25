@@ -1,0 +1,95 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+handleJobInSeparateProcess0
+
+Checking job 1948 ...about to run job:
+preconNumber: 5, 1
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 1
+    LoopUnrollBound : 1
+    HavocLimit : 0
+    PreconditionNumber : 5
+    PreconditionLocation : jobs/1948
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : true
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : sqlite3DecOrHexToI64
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "sqlite3DecOrHexToI64" for 1 iterations succeeded.
+      Unrolling loop in function "sqlite3DecOrHexToI64" for 1 iterations succeeded.
+      Transformed "sqlite3DecOrHexToI64" from 16 to 20 basic blocks and from 105 to 150 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...size Alloca: 1
+size Alloca: 1
+
+        Unrolling loop in function "llbmc.strlen" for 0 iterations succeeded.
+        Transformed "llbmc.strlen" from 8 to 9 instructions
+        Unrolling loop in function "sqlite3Atoi64" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3Atoi64" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3Atoi64" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3Atoi64" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3Atoi64" for 1 iterations succeeded.
+        Transformed "sqlite3Atoi64" from 67 to 87 basic blocks and from 330 to 431 instructions
+        Unrolling loop in function "compare2pow63" for 1 iterations succeeded.
+        Transformed "compare2pow63" from 9 to 14 basic blocks and from 59 to 92 instructions-----found check = true
+-----found check = true
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %64, i8* %65, i64 8, i32 8, i1 false), !dbg !5672
+
+                                                           0 sec [DONE]
+        Number of expressions:                        156172
+        after encoding
+
+      10 assertions before transformations (8 no_back_edge, 2 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            4311
+        Fixed Memory Address Assigner
+          Number of moved ops                              2
+          Number of rewrites                            5210
+        Simplifier
+          Number of moved ops                              2
+          Number of rewrites                         1048418
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               1
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                          557586
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             152
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           1 sec [DONE]
+        
+      10 assertions remain after transformations (8 no_back_edge, 2 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...

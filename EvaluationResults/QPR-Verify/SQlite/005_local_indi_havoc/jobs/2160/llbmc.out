@@ -1,0 +1,181 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 2160 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 1
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/2160
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [1] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : unixShmRegionPerMap
+m_checker->run()
+
+    Performing bounded model checking ...getMatchingFunctions
+res.push_back: sqlite3MemTraceDeactivate
+res.push_back: getpid
+res.push_back: getuid
+res.push_back: sqlite3_initialize
+res.push_back: sqlite3MutexInit
+res.push_back: sqlite3MallocInit
+res.push_back: sqlite3PcacheInitialize
+res.push_back: sqlite3OsInit
+res.push_back: sqlite3MemdbInit
+res.push_back: sqlite3_os_init
+res.push_back: geteuid
+res.push_back: unixGetpagesize
+res.push_back: unixShmRegionPerMap
+res.push_back: sqlite3HeaderSizeBtree
+res.push_back: sqlite3HeaderSizePcache
+res.push_back: sqlite3HeaderSizePcache1
+res.push_back: sqlite3HeapNearlyFull
+res.push_back: sqlite3_libversion_number
+res.push_back: sqlite3_threadsafe
+res.push_back: sqlite3_keyword_count
+res.push_back: sqlite3PcacheSize
+res.push_back: sqlite3BtreeCursorSize
+res.push_back: noopMutexInit
+res.push_back: noopMutexEnd
+res.push_back: pthreadMutexInit
+res.push_back: pthreadMutexEnd
+res.push_back: sqlite3_os_end
+res.push_back: sqlite3_shutdown
+res.push_back: sqlite3MutexEnd
+res.push_back: sqlite3_global_recover
+res.push_back: llbmc.nondef.1566
+
+      Transformed "unixShmRegionPerMap" from 4 to 68 basic blocks and from 18 to 145 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...Current: unixShmRegionPerMap Havoced: sqlite3_global_recover
+Current: unixShmRegionPerMap Havoced: sqlite3MutexEnd
+Current: unixShmRegionPerMap Havoced: sqlite3_shutdown
+Current: unixShmRegionPerMap Havoced: sqlite3_os_end
+Current: unixShmRegionPerMap Havoced: pthreadMutexEnd
+Current: unixShmRegionPerMap Havoced: pthreadMutexInit
+Current: unixShmRegionPerMap Havoced: noopMutexEnd
+Current: unixShmRegionPerMap Havoced: noopMutexInit
+Current: unixShmRegionPerMap Havoced: sqlite3BtreeCursorSize
+Current: unixShmRegionPerMap Havoced: sqlite3PcacheSize
+Current: unixShmRegionPerMap Havoced: sqlite3_keyword_count
+Current: unixShmRegionPerMap Havoced: sqlite3_threadsafe
+Current: unixShmRegionPerMap Havoced: sqlite3_libversion_number
+Current: unixShmRegionPerMap Havoced: sqlite3HeapNearlyFull
+Current: unixShmRegionPerMap Havoced: sqlite3HeaderSizePcache1
+Current: unixShmRegionPerMap Havoced: sqlite3HeaderSizePcache
+Current: unixShmRegionPerMap Havoced: sqlite3HeaderSizeBtree
+Current: unixShmRegionPerMap Havoced: unixGetpagesize
+Current: unixShmRegionPerMap Havoced: sqlite3_os_init
+Current: unixShmRegionPerMap Havoced: sqlite3MemdbInit
+Current: unixShmRegionPerMap Havoced: sqlite3OsInit
+Current: unixShmRegionPerMap Havoced: sqlite3PcacheInitialize
+Current: unixShmRegionPerMap Havoced: sqlite3MallocInit
+Current: unixShmRegionPerMap Havoced: sqlite3MutexInit
+Current: unixShmRegionPerMap Havoced: sqlite3_initialize
+Current: unixShmRegionPerMap Havoced: sqlite3MemTraceDeactivate
+                      0 sec [DONE]
+        Number of expressions:                        155611
+        after encoding
+
+      6 assertions before transformations (5 no_function_call, 1 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            3737
+        Fixed Memory Address Assigner
+          Number of moved ops                              2
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           73291
+        Memory Model Encoder
+          Number of moved ops                              0
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                               1
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           69268
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      6 assertions remain after transformations (5 no_function_call, 1 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...            0 sec [DONE]
+        
+                                                           0 sec [DONE]
+      after performing Check
+evaluateCheckerResultsViaRefinementLoop
+checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      getCheckerResultAfterUpdatingMarker
+Result is NoTrace
+
+                                                           1 sec [DONE]
+    allsafe
+    
+                                                           1 sec [DONE]
+  

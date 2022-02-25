@@ -1,0 +1,358 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 5286 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 2
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/5286
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : sqlite3SelectDup
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "sqlite3SelectDup" for 1 iterations succeeded.
+      Transformed "sqlite3SelectDup" from 12 to 14 basic blocks and from 146 to 153 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...Current: sqlite3DbMallocRawNN Havoced: dbMallocRawFinish
+Current: sqlite3DbMallocRawNN Havoced: dbMallocRawFinish
+
+        Unrolling loop in function "sqlite3ExprListDup" for 1 iterations succeeded.
+        Transformed "sqlite3ExprListDup" from 17 to 18 basic blocks and from 165 to 172 instructionsCurrent: sqlite3ExprListDup Havoced: sqlite3DbMallocSize
+Current: sqlite3ExprListDup Havoced: sqlite3DbMallocRawNN
+Current: sqlite3ExprListDup Havoced: sqlite3ExprDup
+Current: sqlite3ExprListDup Havoced: sqlite3DbStrDup
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %98, i8* %99, i64 4, i32 4, i1 false), !dbg !5720
+
+        Unrolling loop in function "sqlite3SrcListDup" for 1 iterations succeeded.
+        Transformed "sqlite3SrcListDup" from 21 to 22 basic blocks and from 202 to 206 instructionsCurrent: sqlite3SrcListDup Havoced: sqlite3DbMallocRawNN
+Current: sqlite3SrcListDup Havoced: sqlite3DbStrDup
+Current: sqlite3SrcListDup Havoced: sqlite3DbStrDup
+Current: sqlite3SrcListDup Havoced: sqlite3DbStrDup
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %50, i8* %51, i64 4, i32 4, i1 false), !dbg !5692
+Current: sqlite3SrcListDup Havoced: sqlite3DbStrDup
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %76, i8* %77, i64 8, i32 8, i1 false), !dbg !5716
+Current: sqlite3SrcListDup Havoced: sqlite3ExprListDup
+Current: sqlite3SrcListDup Havoced: sqlite3ExprDup
+Current: sqlite3SrcListDup Havoced: sqlite3IdListDup
+Current: sqlite3ExprDup Havoced: exprDup
+Current: sqlite3ExprListDup Havoced: sqlite3DbMallocSize
+Current: sqlite3ExprListDup Havoced: sqlite3DbMallocRawNN
+Current: sqlite3ExprListDup Havoced: sqlite3ExprDup
+Current: sqlite3ExprListDup Havoced: sqlite3DbStrDup
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %98, i8* %99, i64 4, i32 4, i1 false), !dbg !5720
+Current: sqlite3ExprDup Havoced: exprDup
+Current: sqlite3ExprListDup Havoced: sqlite3DbMallocSize
+Current: sqlite3ExprListDup Havoced: sqlite3DbMallocRawNN
+Current: sqlite3ExprListDup Havoced: sqlite3ExprDup
+Current: sqlite3ExprListDup Havoced: sqlite3DbStrDup
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %98, i8* %99, i64 4, i32 4, i1 false), !dbg !5720
+Current: sqlite3ExprDup Havoced: exprDup
+
+        Unrolling loop in function "sqlite3WithDup" for 1 iterations succeeded.
+        Transformed "sqlite3WithDup" from 9 to 10 basic blocks and from 89 to 93 instructionsCurrent: sqlite3WithDup Havoced: sqlite3DbMallocZero
+Current: sqlite3WithDup Havoced: sqlite3ExprListDup
+Current: sqlite3WithDup Havoced: sqlite3DbStrDup
+
+        Unrolling loop in function "sqlite3WindowListDup" for 1 iterations succeeded.
+        Transformed "sqlite3WindowListDup" from 7 to 9 basic blocks and from 34 to 39 instructionsCurrent: sqlite3WindowListDup Havoced: sqlite3WindowDup
+Current: gatherSelectWindows Havoced: sqlite3WalkSelect
+Current: sqlite3SelectDelete Havoced: clearSelect
+
+                                                           0 sec [DONE]
+        Number of expressions:                        156849
+        after encoding
+
+      10 assertions before transformations (2 no_function_call, 7 no_back_edge, 1 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            4287
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72666
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               3
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                              12
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             157
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      10 assertions remain after transformations (2 no_function_call, 7 no_back_edge, 1 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...ColumnIsBeingUpdated
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %107, i8 1, i64 %394, i32 1, i1 false), !dbg !6309
+Current: sqlite3Update Havoced: sqlite3VdbeCountChanges
+Current: sqlite3Update Havoced: sqlite3BeginWriteOperation
+Current: sqlite3Update Havoced: sqlite3AuthContextPush
+Current: sqlite3Update Havoced: sqlite3MaterializeView
+Current: sqlite3Update Havoced: sqlite3ResolveExprNames
+Current: sqlite3Update Havoced: sqlite3VdbeMakeLabel
+Current: sqlite3Update Havoced: sqlite3VdbeAddOp2
+Current: sqlite3Update Havoced: sqlite3VdbeAddOp3
+Current: sqlite3Update Havoced: sqlite3VdbeAddOp2
+Current: sqlite3Update Havoced: sqlite3KeyInfoOfIndex
+Current: sqlite3Update Havoced: sqlite3VdbeAppendP4
+Current: sqlite3Update Havoced: updateFromSelect
+Current: sqlite3Update Havoced: sqlite3VdbeAddOp3
+Current: sqlite3Update Havoced: sqlite3VdbeAddOp3
+Current: sqlite3Update Havoced: sqlite3WhereBegin
+Current: sqlite3Update Havoced: sqlite3WhereOkOnePass
+Current: sqlite3Update Havoced: sqlite3WhereUsesDeferredSeek
+Current: sqlite3Update Havoced: sqlite3MultiWrite
+Current: sqlite3Update Havoced: sqlite3ExprIfFalse
+Current: sqlite3Update Havoced: sqlite3ExprCodeGetColumnOfTable
+Current: sqlite3Update Havoced: sqlite3IndexAffinityStr
+Current: sqlite3Update Havoced: sqlite3VdbeAddOp4
+Current: sqlite3Update Havoced: sqlite3VdbeAddOp4Int
+Current: sqlite3Update Havoced: sqlite3VdbeChangeToNoop
+Current: sqlite3Update Havoced: sqlite3VdbeAddOp2
+Current: sqlite3Update Havoced: sqlite3VdbeChangeToNoop
+Current: sqlite3Update Havoced: sqlite3VdbeAddOp3
+Current: sqlite3Update Havoced: sqlite3MultiWrite
+Current: sqlite3Update Havoced: sqlite3WhereEnd
+Current: sqlite3Update Havoced: sqlite3VdbeAddOp0
+Current: sqlite3Update Havoced: sqlite3OpenTableAndIndices
+Current: sqlite3Update Havoced: sqlite3VdbeJumpHereOrPopInst
+Current: sqlite3Update Havoced: sqlite3VdbeAddOp2
+Current: sqlite3Update Havoced: sqlite3VdbeMakeLabel
+Current: sqlite3Update Havoced: sqlite3VdbeAddOp2
+Current: sqlite3Update Havoced: sqlite3VdbeAddOp3
+Current: sqlite3Update Havoced: sqlite3VdbeMakeLabel
+Current: sqlite3Update Havoced: sqlite3VdbeAddOp2
+Current: sqlite3Update Havoced: sqlite3VdbeCurrentAddr
+Current: sqlite3Update Havoced: sqlite3VdbeAddOp2
+Current: sqlite3Update Havoced: sqlite3VdbeAddOp4Int
+Current: sqlite3Update Havoced: sqlite3VdbeAddOp2
+Current: sqlite3Update Havoced: sqlite3VdbeAddOp3
+Current: sqlite3Update Havoced: sqlite3VdbeAddOp3
+Current: sqlite3Update Havoced: sqlite3VdbeAddOp4Int
+Current: sqlite3Update Havoced: sqlite3VdbeAddOp4Int
+Current: sqlite3Update Havoced: sqlite3VdbeMakeLabel
+Current: sqlite3Update Havoced: sqlite3VdbeAddOp2
+Current: sqlite3Update Havoced: sqlite3VdbeAddOp3
+Current: sqlite3Update Havoced: sqlite3ExprCode
+Current: sqlite3Update Havoced: sqlite3VdbeAddOp1
+Current: sqlite3Update Havoced: sqlite3FkOldmask
+Current: sqlite3Update Havoced: sqlite3TriggerColmask
+Current: sqlite3Update Havoced: sqlite3TableColumnToStorage
+Current: sqlite3Update Havoced: sqlite3VdbeAddOp2
+Current: sqlite3Update Havoced: sqlite3ExprCodeGetColumnOfTable
+Current: sqlite3Update Havoced: sqlite3VdbeAddOp2
+Current: sqlite3Update Havoced: sqlite3TriggerColmask
+Current: sqlite3Update Havoced: sqlite3VdbeAddOp2
+Current: sqlite3Update Havoced: sqlite3ExprCodeGetColumnOfTable
+Current: sqlite3Update Havoced: sqlite3ExprCode
+Current: sqlite3Update Havoced: sqlite3VdbeAddOp3
+Current: sqlite3Update Havoced: sqlite3VdbeAddOp2
+Current: sqlite3Update Havoced: sqlite3ComputeGeneratedColumns
+Current: sqlite3Update Havoced: sqlite3TableAffinity
+Current: sqlite3Update Havoced: sqlite3CodeRowTrigger
+Current: sqlite3Update Havoced: sqlite3VdbeAddOp3
+Current: sqlite3Update Havoced: sqlite3VdbeAddOp4Int
+Current: sqlite3Update Havoced: sqlite3ExprCodeGetColumnOfTable
+Current: sqlite3Update Havoced: sqlite3ComputeGeneratedColumns
+Current: sqlite3Update Havoced: sqlite3GenerateConstraintChecks
+Current: sqlite3Update Havoced: sqlite3VdbeAddOp3
+Current: sqlite3Update Havoced: sqlite3VdbeAddOp4Int
+Current: sqlite3Update Havoced: sqlite3FkCheck
+Current: sqlite3Update Havoced: sqlite3GenerateRowIndexDelete
+Current: sqlite3Update Havoced: sqlite3VdbeAddOp1
+Current: sqlite3Update Havoced: sqlite3VdbeAddOp2
+Current: sqlite3Update Havoced: sqlite3FkCheck
+Current: sqlite3Update Havoced: sqlite3CompleteInsertion
+Current: sqlite3Update Havoced: sqlite3FkActions
+Current: sqlite3Update Havoced: sqlite3VdbeAddOp2
+Current: sqlite3Update Havoced: sqlite3CodeRowTrigger
+Current: sqlite3Update Havoced: sqlite3VdbeResolveLabel
+Current: sqlite3Update Havoced: sqlite3VdbeAddOp2
+Current: sqlite3Update Havoced: sqlite3VdbeResolveLabel
+Current: sqlite3Update Havoced: sqlite3WhereEnd
+Current: sqlite3Update Havoced: sqlite3VdbeResolveLabel
+Current: sqlite3Update Havoced: sqlite3AutoincrementEnd
+Current: sqlite3Update Havoced: sqlite3VdbeAddOp2
+Current: sqlite3Update Havoced: sqlite3VdbeSetNumCols
+Current: sqlite3Update Havoced: sqlite3VdbeSetColName
+Current: sqlite3Update Havoced: updateVirtualTable
+Current: sqlite3Update Havoced: sqlite3AuthContextPop
+Current: sqlite3Update Havoced: sqlite3DbFree
+Current: sqlite3Update Havoced: sqlite3SrcListDelete
+Current: sqlite3Update Havoced: sqlite3ExprListDelete
+Current: sqlite3Update Havoced: sqlite3ExprDelete
+
+                                                           0 sec [DONE]
+        Number of expressions:                        160157
+        after encoding
+
+      21 assertions before transformations (20 no_back_edge, 1 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            6301
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72902
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               5
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                              51
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             233
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              1
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      21 assertions remain after transformations (20 no_back_edge, 1 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...ed: sqlite3VdbeGoto
+Current: sqlite3Select Havoced: sqlite3VdbeCurrentAddr
+Current: sqlite3Select Havoced: sqlite3VdbeAddOp2
+Current: sqlite3Select Havoced: sqlite3VdbeAddOp1
+Current: sqlite3Select Havoced: sqlite3VdbeResolveLabel
+Current: sqlite3Select Havoced: sqlite3VdbeCurrentAddr
+Current: sqlite3Select Havoced: sqlite3VdbeAddOp2
+Current: sqlite3Select Havoced: sqlite3VdbeAddOp1
+Current: sqlite3Select Havoced: finalizeAggFunctions
+Current: sqlite3Select Havoced: sqlite3ExprIfFalse
+Current: sqlite3Select Havoced: selectInnerLoop
+Current: sqlite3Select Havoced: sqlite3VdbeAddOp1
+Current: sqlite3Select Havoced: sqlite3VdbeResolveLabel
+Current: sqlite3Select Havoced: resetAccumulator
+Current: sqlite3Select Havoced: sqlite3VdbeAddOp2
+Current: sqlite3Select Havoced: sqlite3VdbeAddOp1
+Current: sqlite3Select Havoced: fixDistinctOpenEph
+Current: sqlite3Select Havoced: sqlite3VdbeResolveLabel
+Current: sqlite3Select Havoced: explainTempTable
+Current: sqlite3Select Havoced: explainTempTable
+Current: sqlite3Select Havoced: generateSortTail
+Current: sqlite3Select Havoced: sqlite3VdbeResolveLabel
+Current: sqlite3Select Havoced: sqlite3ExprListDelete
+Current: sqlite3Select Havoced: multiSelect
+Current: sqlite3Select Havoced: sqlite3VdbeExplainPop
+Current: sqlite3Select Havoced: sqlite3ExprImpliesNonNullRow
+Current: sqlite3Select Havoced: unsetJoinExpr
+Current: sqlite3Select Havoced: flattenSubquery
+Current: sqlite3Select Havoced: sqlite3ErrorMsg
+Current: sqlite3Select Havoced: sqlite3ErrorMsg
+Current: sqlite3Select Havoced: sqlite3ExprListDelete
+Current: sqlite3Select Havoced: sqlite3VdbeExplainPop
+Current: sqlite3SelectDelete Havoced: clearSelect
+
+                                                           0 sec [DONE]
+        Number of expressions:                        160448
+        after encoding
+
+      19 assertions before transformations (2 no_function_call, 16 no_back_edge, 1 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            6130
+        Fixed Memory Address Assigner
+          Number of moved ops                              1
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72880
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               7
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                              91
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             432
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      19 assertions remain after transformations (2 no_function_call, 16 no_back_edge, 1 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...

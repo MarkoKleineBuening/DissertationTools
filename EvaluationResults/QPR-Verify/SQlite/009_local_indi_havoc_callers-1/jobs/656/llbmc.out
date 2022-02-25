@@ -1,0 +1,131 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 656 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 2
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/656
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : expertHandleSQL
+m_checker->run()
+
+    Performing bounded model checking ...
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...
+        Unrolling loop in function "sqlite3_expert_sql" for 1 iterations succeeded.
+        Transformed "sqlite3_expert_sql" from 21 to 35 basic blocks and from 139 to 230 instructionsCurrent: sqlite3_expert_sql Havoced: sqlite3_prepare_v2
+Current: sqlite3_expert_sql Havoced: idxDatabaseError
+Current: sqlite3_expert_sql Havoced: sqlite3_sql
+
+        Unrolling loop in function "llbmc.strlen" for 0 iterations succeeded.
+        Transformed "llbmc.strlen" from 8 to 9 instructionsCurrent: sqlite3_expert_sql Havoced: idxMalloc
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %47, i8* %32, i64 %49, i32 1, i1 false), !dbg !5689
+Current: sqlite3_expert_sql Havoced: sqlite3_finalize
+Current: sqlite3_expert_sql Havoced: idxScanFree
+Current: sqlite3_expert_sql Havoced: idxStatementFree
+Current: sqlite3_expert_sql Havoced: sqlite3_prepare_v2
+Current: sqlite3_expert_sql Havoced: idxDatabaseError
+Current: sqlite3_expert_sql Havoced: sqlite3_sql
+Current: sqlite3_expert_sql Havoced: idxMalloc
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %101, i8* %86, i64 %103, i32 1, i1 false), !dbg !5689
+Current: sqlite3_expert_sql Havoced: sqlite3_finalize
+
+                                                           0 sec [DONE]
+        Number of expressions:                        155580
+        after encoding
+
+      9 assertions before transformations (3 no_back_edge, 4 custom, 2 no_unreachable_executed).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            3664
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72621
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               3
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                              20
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             148
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      9 assertions remain after transformations (3 no_back_edge, 4 custom, 2 no_unreachable_executed).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...r of moved ops                              0
+          Number of rewrites                           72637
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               3
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                              21
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             152
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      15 assertions remain after transformations (5 no_back_edge, 6 custom, 4 no_unreachable_executed).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...

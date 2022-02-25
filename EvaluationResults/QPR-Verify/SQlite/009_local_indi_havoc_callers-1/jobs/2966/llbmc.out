@@ -1,0 +1,114 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 2966 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 2
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/2966
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : readDbPage
+m_checker->run()
+
+    Performing bounded model checking ...
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...
+        Unrolling loop in function "sqlite3WalFindFrame" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3WalFindFrame" for 1 iterations succeeded.
+        Transformed "sqlite3WalFindFrame" from 23 to 26 basic blocks and from 127 to 152 instructionsCurrent: sqlite3WalFindFrame Havoced: walFramePage
+Current: sqlite3WalFindFrame Havoced: walFramePage
+Current: sqlite3WalFindFrame Havoced: walHashGet
+Current: sqlite3WalFindFrame Havoced: walHash
+Current: sqlite3WalFindFrame Havoced: walNextHash
+Current: sqlite3WalFindFrame Havoced: sqlite3CorruptError
+getMatchingFunctions
+res.push_back: apndRead
+res.push_back: apndWrite
+res.push_back: memdbRead
+res.push_back: memdbWrite
+res.push_back: unixRead
+res.push_back: unixWrite
+res.push_back: sqlite3OsWrite
+res.push_back: memjrnlRead
+res.push_back: memjrnlWrite
+res.push_back: sqlite3OsRead
+
+        Transformed "sqlite3OsRead" from 1 to 29 basic blocks and from 14 to 76 instructionsCurrent: sqlite3OsRead Havoced: walWriteToLog
+Current: sqlite3OsRead Havoced: walWriteOneFrame
+Current: sqlite3OsRead Havoced: memjrnlWrite
+Current: sqlite3OsRead Havoced: memjrnlRead
+Current: sqlite3OsRead Havoced: sqlite3OsWrite
+Current: sqlite3OsRead Havoced: unixWrite
+Current: sqlite3OsRead Havoced: unixRead
+Current: sqlite3OsRead Havoced: memdbWrite
+Current: sqlite3OsRead Havoced: memdbRead
+Current: sqlite3OsRead Havoced: apndWrite
+Current: sqlite3OsRead Havoced: apndRead
+Current: sqlite3WalReadFrame Havoced: sqlite3OsRead
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %50, i8* %48, i64 16, i32 1, i1 false), !dbg !5682
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %45, i8 -1, i64 16, i32 8, i1 false), !dbg !5677
+
+                                                           0 sec [DONE]
+        Number of expressions:                        155755
+        after encoding
+
+      6 assertions before transformations (3 no_function_call, 2 no_back_edge, 1 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            3783
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72623
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               2
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               6
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             147
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      6 assertions remain after transformations (3 no_function_call, 2 no_back_edge, 1 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...

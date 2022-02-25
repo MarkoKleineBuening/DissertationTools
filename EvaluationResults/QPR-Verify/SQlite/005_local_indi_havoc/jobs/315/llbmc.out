@@ -1,0 +1,136 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 315 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 1
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/315
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [1] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : ieee754func
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "ieee754func" for 1 iterations succeeded.
+      Unrolling loop in function "ieee754func" for 8 iterations succeeded.
+      Unrolling loop in function "ieee754func" for 1 iterations succeeded.
+      Unrolling loop in function "ieee754func" for 1 iterations succeeded.
+      Transformed "ieee754func" from 62 to 91 basic blocks and from 364 to 593 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...Current: ieee754func Havoced: sqlite3_value_int64
+Current: ieee754func Havoced: sqlite3_value_int64
+Current: ieee754func Havoced: sqlite3_result_double
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %226, i8* %227, i64 8, i32 8, i1 false), !dbg !5866
+Current: ieee754func Havoced: sqlite3_result_double
+Current: ieee754func Havoced: sqlite3_value_type
+Current: ieee754func Havoced: sqlite3_value_bytes
+Current: ieee754func Havoced: sqlite3_value_double
+Current: ieee754func Havoced: sqlite3_value_blob
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %107, i8* %108, i64 8, i32 8, i1 false), !dbg !5677
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %117, i8* %118, i64 8, i32 8, i1 false), !dbg !5695
+Current: ieee754func Havoced: sqlite3_user_data
+Current: ieee754func Havoced: sqlite3_result_int
+Current: ieee754func Havoced: sqlite3_result_int64
+Current: ieee754func Havoced: sqlite3_snprintf
+Current: ieee754func Havoced: sqlite3_result_text
+                      0 sec [DONE]
+        Number of expressions:                        155927
+        after encoding
+
+      5 assertions before transformations (4 no_back_edge, 1 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            3967
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72660
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               6
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                              15
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             193
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              50
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               2
+                                                           0 sec [DONE]
+        
+      5 assertions remain after transformations (4 no_back_edge, 1 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...            0 sec [DONE]
+        
+                                                           1 sec [DONE]
+      after performing Check
+evaluateCheckerResultsViaRefinementLoop
+checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+BranchInst - LoopBound
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+BranchInst - LoopBound
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+E [3] lib/ModelChecker/Verifier.cpp:515 | VerificationException due to Could not find the failing instruction. This is a bug that only  leads to CheckStatus::InternalError for robustness reasons. (Note that instructions optimized away are a different case, which does not yield a check ID at all)
+getCheckerResultAfterUpdatingMarker
+E [3] lib/ModelChecker/Verifier.cpp:299 | The Model checker terminated with an exception
+E [3] lib/Core/CheckStatusMarker.cpp:61 | A job finished with an internal error
+E [3] lib/Core/CheckStatusMarker.cpp:63 | The model checker terminated with an exception (job:315)
+
+                                                           3 sec [DONE]
+    The model checker terminated with an exception
+    
+                                                           3 sec [DONE]
+  

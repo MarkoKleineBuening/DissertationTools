@@ -1,0 +1,352 @@
+@font-face {
+    font-family: 'Inconsolata';
+    src: url('../fonts/Inconsolata/Inconsolata.otf') format('opentype');
+  }
+
+  @font-face {
+    font-family: 'Roboto';
+    src: url('../fonts/Roboto/Roboto-Regular.ttf') format('truetype');
+  }
+
+html, body {
+    height: 100%;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #333333;
+}
+
+h3 {
+    font-weight: 100;
+}
+
+.tracewidget {
+    position: fixed;
+    bottom: 3em;
+    top: 5em;
+    left: 3em;
+    right: 3em;
+
+    border: 1px solid #ddd;
+    border-radius: 0.3em;
+    /* box-shadow:0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); */
+    padding-bottom: 4.5em;
+
+    overflow: hidden;
+    background: white;
+}
+
+.twToplevelNav {
+    background: #f5f5f5;
+    z-index: 1000;
+    font-size: 1em;
+    position: relative;
+}
+
+.twStackTraceLabel {
+    margin-left: 0.6em;
+    
+}
+
+.twTopLevelNavCaption {
+    padding-left: 0.8em;
+    line-height: 2.4em;
+
+    font-family: inherit;
+    font-size: 12pt;
+}
+
+.twTopLevelNavCaptionBold {
+    font-weight: 500;
+}
+
+.twToplevelNavStacktrace {
+    position: relative;
+    display: inline-block;
+    /*height: 2em;*/
+    padding-left: 0.5em;
+    width: 100%;
+    background: white;
+    font-size: 10pt;
+    line-height: 20pt;
+    height: 20pt;
+    border-top: 0.1em solid #ddd;
+    border-bottom: 0.1em solid #ddd;
+
+    font-family: Roboto, Helvetica Neue, Helvetica;
+}
+
+.twTraceBody {
+    font-size: 9pt;
+    width: 100%;
+    padding-left: 1em;
+    padding-top: 0.5em;
+    background: #fff;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    position: absolute;
+    bottom: 0;
+    top: 2em;
+
+    color: black;
+
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    font-family: Roboto, Helvetica Neue, Helvetica;
+}
+
+.twTraceInnerBody {
+    position: absolute;
+    top: 0em;
+    bottom: 0;
+    
+    width: 100%;
+}
+
+.twLeftBodyPane {
+    margin: 0em !important;
+    padding: 0em !important;
+}
+
+.twRightBodyPane {
+    margin: 0em !important;
+    padding: 0em !important;
+}
+
+.twFileView {
+    background: #ddd;
+    height: 100%;
+}
+
+.twMenuButton {
+    background: rgba(245, 245, 245, 0);
+    border: none !important;
+    color: #333333 !important;
+}
+
+.twToolbar {
+    height: 2em;
+    background: #f5f5f5;
+    vertical-align: middle;
+    border-bottom: 0.1em solid #ddd;
+    height: 1.7em;
+}
+
+
+
+
+.twTraceItem {
+    margin-top: 0.1em;
+    margin-bottom: 0.1em;
+}
+
+.twEnterFunctionCheckpoint {
+    background: #ddd;
+    border-radius: 0.5em;
+    
+    clear:both;
+    float:left;
+
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    
+    height: 2em;
+    line-height: 2em;
+    cursor: pointer;
+}
+
+.twLeaveFunctionCheckpoint {
+    background: #ddd;
+    border-radius: 0.5em;
+    clear:both;
+    float:left;
+
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    padding-top: 0.25em;
+    padding-bottom: 0.25em;
+
+    cursor: default;
+}
+
+.twExpandButton {
+    margin-right: 0.2em;
+}
+
+.twNonNestedStep {
+    display: block;
+    
+    clear:both;
+    float:left;
+
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    margin-top: 0.25em;
+    margin-bottom: 0.25em;
+    height: 2em;
+
+    
+    height: auto;
+
+    background: #f8f8f8;
+    border-radius: 0.5em;
+    width: 97.5%;
+
+    cursor: default;
+}
+
+.twSelectableStep {
+    cursor: pointer;
+}
+
+.twSelectableStep:hover {
+    background: #f0f0f0;
+}
+
+.twSelectedStep {
+    background: #B3E5FC;
+}
+
+.twSelectedStep:hover {
+    background: #81D4FA;
+}
+
+.twFailedAssertion {
+    /* alt: background: #FF6961; */
+    background: #EF9A9A;
+}
+
+.twFailedAssertion:hover {
+    /* alt: background: #FF5951; */
+    background: #E57373;
+}
+
+
+.twSourceCodeLine {
+    font-family: Inconsolata, Monaco;
+    font-size: 1.2em;
+}
+
+
+.twToolbarButton {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    height: 2em;
+    margin-left: 0.2em;
+    margin-right: 0.2em;
+    border-radius: 0.2em;
+    background: #ddd;
+    font-size: 9pt;
+}
+
+.twToolbarButton:hover {
+    background: #eee;
+}
+
+
+
+.twStackHighlight {
+    color: #333333;
+    background: #f0f;
+}
+
+
+.fvFileContents {
+    background: #fff;
+    width: 100%;
+    overflow: scroll;
+    white-space: pre;
+    font-size: 1em;
+
+    position: absolute;
+    top: 1.7em;
+    bottom: 0em;
+
+    border-left: 0.1em solid #eee;
+}
+
+.fvCode {
+    font-family: Inconsolata, Monaco;
+    padding-left: 0.2em;
+    font-size: 1em;
+    color: black;
+}
+
+.fvLineNumber {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    text-align: right;
+    padding-right: 0.2em;
+    font-size: 9pt;
+}
+
+.fvHighlightedLine {
+    background: #B3E5FC;
+}
+
+.fvHighlightedLineFailure {
+    /* alt: background: #FF6961; */
+    background: #EF9A9A;
+}
+
+.breadcrumb {
+    background: rgba(245, 245, 245, 0);
+    border: 0px solid rgba(245, 245, 245, 1);
+    border-radius: 0px; display: block;
+    margin-top: 0em;
+    padding-top: 0em;
+    display: inline;
+}
+
+.breadcrumb a {color: #333333;}
+.breadcrumb a:hover {color: #777;}
+.breadcrumb>.active {color: #333333;}
+.breadcrumb>.active a {color: #333333;}
+.breadcrumb>.active a:hover {color: #333333;}
+.breadcrumb>li+li:before {color: #333333; content: "\003E\00a0";}
+
+.nav-tabs > li > a {
+    padding-top: 0em; 
+    padding-bottom: 0em;
+    height: 2em;
+    background: #ddd;
+    color: black;
+   /* opacity: 0.87; */
+    font-size: 9pt;
+    line-height: 2em;
+    cursor: pointer;
+}
+
+.nav-tabs {
+    background: #f5f5f5;
+}
+
+.nonselectable {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.notextcursor {
+    cursor: default;
+}
+
+.dropdown-menu > li > a,
+.dropdown-menu > li > a:active,
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus {
+display:        inline;                        
+font-family:    Roboto;
+font-size:      10pt;
+/* opacity: 0.87; */
+}

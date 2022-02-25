@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- <link rel="icon" href="lib/favicon.ico"> -->
+  <script type="text/javascript" src="js/deps/jquery.min.js"></script>
+  <script type="text/javascript" src="js/deps/jquery.flot.min.js"></script>
+  <script type="text/javascript" src="js/deps/jquery.flot.pie.min.js"></script>
+  <script type="text/javascript" src="js/deps/jquery.scrollTo.min-2.1.2.js"></script>
+  <script type="text/javascript" src="js/deps/bootstrap.min.js"></script>
+  <script type="text/javascript" data-main="js/app.js" src="js/deps/require.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/qpr.css">
+  <link rel="stylesheet" type="text/Css" href="css/bootstrap.min.css">
+  
+  <title>QPR Technologies</title>
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+  
+<!---->
+<!--  start of page content -->
+<!---->
+
+<body>
+
+  <!---->
+  <!--  navigation bar -->
+  <!---->
+        
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand logo" href="#"><img alt="QPR Technologies" height="32" src="img/qpr-logo.png" /></a>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li><a href="summary.html">Summary</a></li>
+          <li><a href="compiler.html">Compiler</a></li>
+          <li class="active"><a href="files.html">Files</a></li>
+          <li><a href="checks.html">Checks</a></li>
+          <li><a href="polyspace.html">Polyspace</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!---->
+  <!--  QPR result list / report -->
+  <!---->
+
+  <div id="report" class="anchor section-header">
+    <div class="panel-heading">
+      <h2 class="panel-title">Source Code View</h2>
+    </div>
+    <div class="panel-body">
+            
+      <div class="row">
+        <div class="col-md-12">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">Source Code</h3>
+            </div>
+            <div id="source-listing">
+            </div>
+          </div>
+        </div>
+      </div>            
+    </div>
+  </div>     
+
+  <!---->
+  <!--  modal dialog to be displayed on XML loading error -->
+  <!---->
+
+  <div class="modal fade" id="XML-error-alert" tabindex="-1" role="dialog" aria-labelledby="XML-error-alert">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Error loading XML data</h4>
+        </div>
+        <div class="modal-body">
+          <emph>The browser was not able to load XML data from local files.</emph>
+          <p>
+            This is caused by security restrictions, which can be avoided / bypassed as follows:
+          </p>
+            <ul style="margin-left:25px">
+              <li>Either start an HTTP server in the directory, where the XML files are located, e.g., using
+                <quote><code>python -m SimpleHTTPServer</code></quote>,
+                and use the URL
+                <quote>
+                  <a href="http://localhost:8000/html/report.html">
+                    <code>http://localhost:8000/html/report.html</code>
+                  </a>
+                </quote> (preferred solution), or
+              </li>
+              <li>Enable loading of local files. In Google Chrome, e.g., this can be accomplished by starting
+                the browser with the option <quote><code>--allow-file-access-from-files</code></quote>.
+              </li>
+            </ul>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- used by qpr.js to indicate that page is still loading -->
+  <div class="modal"></div>
+  
+</body>
+</html>

@@ -1,0 +1,105 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 178 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 1
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/178
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : apndReadMark
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "apndReadMark" for 7 iterations succeeded.getMatchingFunctions
+res.push_back: apndRead
+res.push_back: apndWrite
+res.push_back: memdbRead
+res.push_back: memdbWrite
+res.push_back: unixRead
+res.push_back: unixWrite
+res.push_back: sqlite3OsWrite
+res.push_back: memjrnlRead
+res.push_back: memjrnlWrite
+res.push_back: sqlite3OsRead
+
+      Transformed "apndReadMark" from 16 to 55 basic blocks and from 122 to 385 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...Current: apndReadMark Havoced: walWriteToLog
+Current: apndReadMark Havoced: walWriteOneFrame
+Current: apndReadMark Havoced: sqlite3OsRead
+Current: apndReadMark Havoced: memjrnlWrite
+Current: apndReadMark Havoced: memjrnlRead
+Current: apndReadMark Havoced: sqlite3OsWrite
+Current: apndReadMark Havoced: unixWrite
+Current: apndReadMark Havoced: unixRead
+Current: apndReadMark Havoced: memdbWrite
+Current: apndReadMark Havoced: memdbRead
+Current: apndReadMark Havoced: apndWrite
+Current: apndReadMark Havoced: apndRead
+
+        Unrolling loop in function "llbmc.memcmp" for 0 iterations succeeded.
+        Transformed "llbmc.memcmp" from 17 to 20 instructions
+                                                           0 sec [DONE]
+        Number of expressions:                        155716
+        after encoding
+
+      11 assertions before transformations (2 no_function_call, 2 no_back_edge, 7 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            3860
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72608
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               1
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                              14
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             142
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      11 assertions remain after transformations (2 no_function_call, 2 no_back_edge, 7 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...

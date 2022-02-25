@@ -1,0 +1,225 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 166 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 2
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/166
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : apndWrite
+m_checker->run()
+
+    Performing bounded model checking ...getMatchingFunctions
+res.push_back: apndRead
+res.push_back: apndWrite
+res.push_back: memdbRead
+res.push_back: memdbWrite
+res.push_back: unixRead
+res.push_back: unixWrite
+res.push_back: sqlite3OsWrite
+res.push_back: memjrnlRead
+res.push_back: memjrnlWrite
+res.push_back: sqlite3OsRead
+
+      Transformed "apndWrite" from 9 to 37 basic blocks and from 57 to 119 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...
+        Unrolling loop in function "apndWriteMark" for 8 iterations succeeded.getMatchingFunctions
+res.push_back: apndRead
+res.push_back: apndWrite
+res.push_back: memdbRead
+res.push_back: memdbWrite
+res.push_back: unixRead
+res.push_back: unixWrite
+res.push_back: sqlite3OsWrite
+res.push_back: memjrnlRead
+res.push_back: memjrnlWrite
+res.push_back: sqlite3OsRead
+
+        Transformed "apndWriteMark" from 9 to 43 basic blocks and from 71 to 304 instructionsisMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %9, i8* getelementptr inbounds ([18 x i8], [18 x i8]* @.str.35, i32 0, i32 0), i64 17, i32 1, i1 false), !dbg !5634
+Current: apndWriteMark Havoced: walWriteToLog
+Current: apndWriteMark Havoced: walWriteOneFrame
+Current: apndWriteMark Havoced: sqlite3OsRead
+Current: apndWriteMark Havoced: memjrnlWrite
+Current: apndWriteMark Havoced: memjrnlRead
+Current: apndWriteMark Havoced: sqlite3OsWrite
+Current: apndWriteMark Havoced: unixWrite
+Current: apndWriteMark Havoced: unixRead
+Current: apndWriteMark Havoced: memdbWrite
+Current: apndWriteMark Havoced: memdbRead
+Current: apndWriteMark Havoced: apndRead
+Current: walWriteToLog Havoced: sqlite3OsWrite
+Current: walWriteToLog Havoced: sqlite3OsSync
+Current: walWriteToLog Havoced: sqlite3OsWrite
+Current: walWriteOneFrame Havoced: walEncodeFrame
+Current: walWriteOneFrame Havoced: walWriteToLog
+Current: walWriteOneFrame Havoced: walWriteToLog
+getMatchingFunctions
+res.push_back: apndRead
+res.push_back: apndWrite
+res.push_back: memdbRead
+res.push_back: memdbWrite
+res.push_back: unixRead
+res.push_back: unixWrite
+res.push_back: sqlite3OsWrite
+res.push_back: memjrnlRead
+res.push_back: memjrnlWrite
+res.push_back: sqlite3OsRead
+
+        Transformed "sqlite3OsRead" from 1 to 29 basic blocks and from 14 to 76 instructionsCurrent: sqlite3OsRead Havoced: walWriteToLog
+Current: sqlite3OsRead Havoced: walWriteOneFrame
+Current: sqlite3OsRead Havoced: memjrnlWrite
+Current: sqlite3OsRead Havoced: memjrnlRead
+Current: sqlite3OsRead Havoced: sqlite3OsWrite
+Current: sqlite3OsRead Havoced: unixWrite
+Current: sqlite3OsRead Havoced: unixRead
+Current: sqlite3OsRead Havoced: memdbWrite
+Current: sqlite3OsRead Havoced: memdbRead
+Current: sqlite3OsRead Havoced: apndRead
+
+        Unrolling loop in function "memjrnlWrite" for 1 iterations succeeded.
+        Transformed "memjrnlWrite" from 21 to 22 basic blocks and from 146 to 150 instructionsCurrent: memjrnlWrite Havoced: sqlite3_malloc
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %62, i8* %20, i64 %63, i32 1, i1 false), !dbg !5712
+Current: memjrnlWrite Havoced: memjrnlCreateFile
+Current: memjrnlWrite Havoced: sqlite3OsWrite
+
+        Unrolling loop in function "memjrnlRead" for 1 iterations succeeded.
+        Unrolling loop in function "memjrnlRead" for 1 iterations succeeded.
+        Transformed "memjrnlRead" from 26 to 31 basic blocks and from 167 to 197 instructionsisMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %60, i8* %75, i64 %76, i32 1, i1 false), !dbg !5708
+getMatchingFunctions
+res.push_back: apndRead
+res.push_back: apndWrite
+res.push_back: memdbRead
+res.push_back: memdbWrite
+res.push_back: unixRead
+res.push_back: unixWrite
+res.push_back: sqlite3OsWrite
+res.push_back: memjrnlRead
+res.push_back: memjrnlWrite
+res.push_back: sqlite3OsRead
+
+        Transformed "sqlite3OsWrite" from 1 to 29 basic blocks and from 14 to 76 instructionsCurrent: sqlite3OsWrite Havoced: walWriteToLog
+Current: sqlite3OsWrite Havoced: walWriteOneFrame
+Current: sqlite3OsWrite Havoced: sqlite3OsRead
+Current: sqlite3OsWrite Havoced: memjrnlWrite
+Current: sqlite3OsWrite Havoced: memjrnlRead
+Current: sqlite3OsWrite Havoced: unixWrite
+Current: sqlite3OsWrite Havoced: unixRead
+Current: sqlite3OsWrite Havoced: memdbWrite
+Current: sqlite3OsWrite Havoced: memdbRead
+Current: sqlite3OsWrite Havoced: apndRead
+
+        Unrolling loop in function "unixWrite" for 1 iterations succeeded.
+        Transformed "unixWrite" from 12 to 16 basic blocks and from 57 to 85 instructionsCurrent: unixWrite Havoced: seekAndWrite
+Current: unixWrite Havoced: seekAndWrite
+Current: unixWrite Havoced: storeLastErrno
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %1, i8* %24, i64 %25, i32 1, i1 false), !dbg !5647
+Current: unixRead Havoced: seekAndRead
+Current: unixRead Havoced: storeLastErrno
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %38, i8 0, i64 %40, i32 1, i1 false), !dbg !5671
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %1, i8* %16, i64 %17, i32 1, i1 false), !dbg !5639
+Current: memdbWrite Havoced: memdbEnter
+Current: memdbWrite Havoced: memdbEnlarge
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %32, i8 0, i64 %35, i32 1, i1 false), !dbg !5664
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %41, i8* %1, i64 %42, i32 1, i1 false), !dbg !5674
+Current: memdbWrite Havoced: memdbLeave
+Current: memdbWrite Havoced: memdbLeave
+Current: memdbWrite Havoced: memdbLeave
+Current: memdbRead Havoced: memdbEnter
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %1, i8* %24, i64 %25, i32 1, i1 false), !dbg !5647
+Current: memdbRead Havoced: memdbLeave
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %1, i8 0, i64 %12, i32 1, i1 false), !dbg !5630
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %1, i8* %18, i64 %21, i32 1, i1 false), !dbg !5640
+Current: memdbRead Havoced: memdbLeave
+getMatchingFunctions
+res.push_back: apndRead
+res.push_back: apndWrite
+res.push_back: memdbRead
+res.push_back: memdbWrite
+res.push_back: unixRead
+res.push_back: unixWrite
+res.push_back: sqlite3OsWrite
+res.push_back: memjrnlRead
+res.push_back: memjrnlWrite
+res.push_back: sqlite3OsRead
+
+        Transformed "apndRead" from 1 to 29 basic blocks and from 25 to 87 instructionsCurrent: apndRead Havoced: walWriteToLog
+Current: apndRead Havoced: walWriteOneFrame
+Current: apndRead Havoced: sqlite3OsRead
+Current: apndRead Havoced: memjrnlWrite
+Current: apndRead Havoced: memjrnlRead
+Current: apndRead Havoced: sqlite3OsWrite
+Current: apndRead Havoced: unixWrite
+Current: apndRead Havoced: unixRead
+Current: apndRead Havoced: memdbWrite
+Current: apndRead Havoced: memdbRead
+
+                                                           0 sec [DONE]
+        Number of expressions:                        157779
+        after encoding
+
+      26 assertions before transformations (18 no_function_call, 5 no_back_edge, 2 custom, 1 no_unreachable_executed).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            5069
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72670
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               2
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                              39
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                         1177597
+        ToASC Analyser
+          Memcpy/memset found                            yes
+        Byte-Based Memory Creator
+          Number of rewrites                            9026
+        Instantiation-Based ToASC Simplifier
+          Number of rewrites                              10
+        Simplifier
+          Number of moved ops                             44
+          Number of rewrites                           23173
+        FP Abstraction
+          Number of rewrites                              22
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           1 sec [DONE]
+        
+      26 assertions remain after transformations (18 no_function_call, 5 no_back_edge, 2 custom, 1 no_unreachable_executed).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...

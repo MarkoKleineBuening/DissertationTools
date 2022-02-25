@@ -1,0 +1,15 @@
+configure-project TimeOut:300
+configure-project LoopUnrollBound:12
+configure-project Hosted:true
+configure-project AnalyzeChecksIndividually:true
+configure-project ForkJobs:true
+configure-project XMLTraces:false
+configure-project DumpVerifierBitcodeFiles:false
+configure-project EnableSlicing:false
+find-source-files
+murphy
+compile
+optimize-bitcode mem2reg instnamer
+copy-source-files
+configure-project PreconditionNumber:5
+check-all-functions-locally

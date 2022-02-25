@@ -1,0 +1,376 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 7259 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 2
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/7259
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : sqlite3_drop_modules
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "sqlite3_drop_modules" for 1 iterations succeeded.
+      Unrolling loop in function "sqlite3_drop_modules" for 1 iterations succeeded.
+      Transformed "sqlite3_drop_modules" from 15 to 21 basic blocks and from 64 to 90 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...
+        Unrolling loop in function "llbmc.strcmp" for 0 iterations succeeded.
+        Transformed "llbmc.strcmp" from 4 to 3 basic blocks and from 14 to 16 instructionsgetMatchingFunctions
+res.push_back: free
+res.push_back: printBold
+res.push_back: memtraceFree
+res.push_back: memtraceShutdown
+res.push_back: resolve_backslashes
+res.push_back: sqlite3_free
+res.push_back: sqlite3MemFree
+res.push_back: sqlite3MemShutdown
+res.push_back: pcache1Shutdown
+res.push_back: pcache1Free
+res.push_back: sqlite3_free_filename
+res.push_back: sqlite3NoopDestructor
+res.push_back: sqlite3SchemaClear
+res.push_back: sqlite3PageFree
+res.push_back: sqlite3ParserFinalize
+res.push_back: statAccumDestructor
+res.push_back: sqlite3Dequote
+res.push_back: logBadConnection
+res.push_back: sqlite3VdbeFrameMemDel
+res.push_back: sqlite3RowSetClear
+res.push_back: sqlite3RowSetDelete
+
+        Transformed "createModule" from 4 to 546 basic blocks and from 28 to 1608 instructionsCurrent: createModule Havoced: sqlite3_mutex_enter
+Current: createModule Havoced: sqlite3VtabCreateModule
+Current: createModule Havoced: sqlite3ApiExit
+Current: createModule Havoced: pthreadMutexLeave
+Current: createModule Havoced: pthreadMutexEnter
+Current: createModule Havoced: pthreadMutexFree
+Current: createModule Havoced: noopMutexLeave
+Current: createModule Havoced: noopMutexEnter
+Current: createModule Havoced: noopMutexFree
+Current: createModule Havoced: renameParseCleanup
+Current: createModule Havoced: first_valueFinalizeFunc
+Current: createModule Havoced: noopValueFunc
+Current: createModule Havoced: nth_valueFinalizeFunc
+Current: createModule Havoced: last_valueValueFunc
+Current: createModule Havoced: last_valueFinalizeFunc
+Current: createModule Havoced: ntileValueFunc
+Current: createModule Havoced: cume_distValueFunc
+Current: createModule Havoced: percent_rankValueFunc
+Current: createModule Havoced: rankValueFunc
+Current: createModule Havoced: dense_rankValueFunc
+Current: createModule Havoced: row_numberValueFunc
+Current: createModule Havoced: clearYMD_HMS_TZ
+Current: createModule Havoced: datetimeError
+Current: createModule Havoced: computeHMS
+Current: createModule Havoced: computeYMD
+Current: createModule Havoced: computeYMD_HMS
+Current: createModule Havoced: computeJD
+Current: createModule Havoced: columnMallocFailure
+Current: createModule Havoced: sqlite3VdbeResetStepResult
+Current: createModule Havoced: sqlite3BtreeLeaveCursor
+Current: createModule Havoced: sqlite3BtreeEnterCursor
+Current: createModule Havoced: sqlite3AutoLoadExtensions
+Current: createModule Havoced: sqlite3RegisterPerConnectionBuiltinFunctions
+Current: createModule Havoced: sqlite3ResultIntReal
+Current: createModule Havoced: attachBackupObject
+Current: createModule Havoced: sqlite3BtreeCursorZero
+Current: createModule Havoced: allocateTempSpace
+Current: createModule Havoced: vdbeIncrMergerSetThreads
+Current: createModule Havoced: sqlite3PcacheRef
+Current: createModule Havoced: sqlite3PagerDontWrite
+Current: createModule Havoced: sqlite3PagerRef
+Current: createModule Havoced: sqlite3RowSetDelete
+Current: createModule Havoced: sqlite3RowSetClear
+Current: createModule Havoced: sqlite3PagerClearCache
+Current: createModule Havoced: sqlite3BtreeCursorUnpin
+Current: createModule Havoced: sqlite3BtreeCursorPin
+Current: createModule Havoced: sqlite3VdbeFrameMemDel
+Current: createModule Havoced: sqlite3BtreeIncrblobCursor
+Current: createModule Havoced: sqlite3CloseExtensions
+Current: createModule Havoced: sqlite3LeaveMutexAndCloseZombie
+Current: createModule Havoced: disconnectAllVtab
+Current: createModule Havoced: sqlite3PcacheShrink
+Current: createModule Havoced: sqlite3PagerShrink
+Current: createModule Havoced: logBadConnection
+Current: createModule Havoced: sqlite3VdbeRewind
+Current: createModule Havoced: sqlite3AutoincrementBegin
+Current: createModule Havoced: codeTableLocks
+Current: createModule Havoced: estimateTableWidth
+Current: createModule Havoced: recomputeColumnsNotIndexed
+Current: createModule Havoced: estimateIndexWidth
+Current: createModule Havoced: sqlite3StringToId
+Current: createModule Havoced: windowFullScan
+Current: createModule Havoced: windowReturnOneRow
+Current: createModule Havoced: sqlite3DequoteExpr
+Current: createModule Havoced: sqlite3AuthContextPop
+Current: createModule Havoced: moveToParent
+Current: createModule Havoced: sqlite3VdbeExplainPop
+Current: createModule Havoced: whereLoopInit
+Current: createModule Havoced: sqlite3WhereClauseClear
+Current: createModule Havoced: whereUndoExprMods
+Current: createModule Havoced: sqlite3WhereEnd
+Current: createModule Havoced: autoIncrementEnd
+Current: createModule Havoced: sqlite3AutoincrementEnd
+Current: createModule Havoced: sqlite3VdbeCountChanges
+Current: createModule Havoced: exprSetHeight
+Current: createModule Havoced: sqlite3ForceNotReadOnly
+Current: createModule Havoced: sqlite3VdbeReusable
+Current: createModule Havoced: setAllPagerFlags
+Current: createModule Havoced: sqlite3VdbeRunOnlyOnce
+Current: createModule Havoced: sqlite3Dequote
+Current: createModule Havoced: sqlite3MultiWrite
+Current: createModule Havoced: statAccumDestructor
+Current: createModule Havoced: pageReinit
+Current: createModule Havoced: sqlite3ClearTempRegCache
+Current: createModule Havoced: setDoNotMergeFlagOnCopy
+Current: createModule Havoced: sqlite3MayAbort
+Current: createModule Havoced: addArgumentToVtab
+Current: createModule Havoced: sqlite3DefaultRowEst
+Current: createModule Havoced: pragmaVtabCursorClear
+Current: createModule Havoced: sqliteAuthBadReturnCode
+Current: createModule Havoced: gatherSelectWindows
+Current: createModule Havoced: sqlite3VtabArgInit
+Current: createModule Havoced: sqlite3SrcListShiftJoinType
+Current: createModule Havoced: disableLookaside
+Current: createModule Havoced: sqlite3FinishCoding
+Current: createModule Havoced: yy_accept
+Current: createModule Havoced: yyStackOverflow
+Current: createModule Havoced: yy_pop_parser_stack
+Current: createModule Havoced: sqlite3ParserFinalize
+Current: createModule Havoced: vdbeIncrFree
+Current: createModule Havoced: vdbeMergeEngineFree
+Current: createModule Havoced: vdbePmaReaderClear
+Current: createModule Havoced: walIteratorFree
+Current: createModule Havoced: sqlite3PcacheClose
+Current: createModule Havoced: pagerFreeMapHdrs
+Current: createModule Havoced: freeTempSpace
+Current: createModule Havoced: sqlite3VdbeFrameDelete
+Current: createModule Havoced: closeCursorsInFrame
+Current: createModule Havoced: sqlite3BtreeClearCursor
+Current: createModule Havoced: sqlite3CollapseDatabaseArray
+Current: createModule Havoced: sqlite3ResetAllSchemasOfConnection
+Current: createModule Havoced: vdbeLeave
+Current: createModule Havoced: invalidateAllOverflowCache
+Current: createModule Havoced: sqlite3OsShmBarrier
+Current: createModule Havoced: walShmBarrier
+Current: createModule Havoced: walIndexWriteHdr
+Current: createModule Havoced: sqlite3PcacheClearSyncFlags
+Current: createModule Havoced: pager_write_changecounter
+Current: createModule Havoced: sqlite3PagerUnrefPageOne
+Current: createModule Havoced: releasePageOne
+Current: createModule Havoced: unlockBtreeIfUnused
+Current: createModule Havoced: clearAllSharedCacheTableLocks
+Current: createModule Havoced: downgradeAllSharedCacheTableLocks
+Current: createModule Havoced: btreeEndTransaction
+Current: createModule Havoced: btreeClearHasContent
+Current: createModule Havoced: sqlite3OsCloseFree
+Current: createModule Havoced: releasePage
+Current: createModule Havoced: getCellInfo
+Current: createModule Havoced: releasePageNotNull
+Current: createModule Havoced: btreeReleaseAllCursorPages
+Current: createModule Havoced: sqlite3PagerUnref
+Current: createModule Havoced: sqlite3PcacheClear
+Current: createModule Havoced: sqlite3BackupRestart
+Current: createModule Havoced: setSectorSize
+Current: createModule Havoced: sqlite3PcacheMakeClean
+Current: createModule Havoced: sqlite3PcacheClearWritable
+Current: createModule Havoced: sqlite3PcacheCleanAll
+Current: createModule Havoced: sqlite3WalEndReadTransaction
+Current: createModule Havoced: releaseAllSavepoints
+Current: createModule Havoced: pager_unlock
+Current: createModule Havoced: pagerUnlockAndRollback
+Current: createModule Havoced: pagerUnlockIfUnused
+Current: createModule Havoced: sqlite3PcacheDrop
+Current: createModule Havoced: setGetterMethod
+Current: createModule Havoced: pagerFixMaplimit
+Current: createModule Havoced: sqlite3PageFree
+Current: createModule Havoced: pager_reset
+Current: createModule Havoced: walCleanupHash
+Current: createModule Havoced: pcacheUnpin
+Current: createModule Havoced: sqlite3PcacheRelease
+Current: createModule Havoced: pagerReleaseMapPage
+Current: createModule Havoced: sqlite3PagerUnrefNotNull
+Current: createModule Havoced: sqlite3OsClose
+Current: createModule Havoced: memjrnlFreeChunks
+Current: createModule Havoced: sqlite3BitvecDestroy
+Current: createModule Havoced: sqlite3MemJournalOpen
+Current: createModule Havoced: sqlite3PcacheMakeDirty
+Current: createModule Havoced: sqlite3VtabLock
+Current: createModule Havoced: sqlite3CommitInternalChanges
+Current: createModule Havoced: sqlite3VdbeLeave
+Current: createModule Havoced: sqlite3CloseSavepoints
+Current: createModule Havoced: sqlite3VdbeEnter
+Current: createModule Havoced: closeAllCursors
+Current: createModule Havoced: sqlite3VdbeDelete
+Current: createModule Havoced: sqlite3ParserReset
+Current: createModule Havoced: sqlite3ErrorClear
+Current: createModule Havoced: schemaIsValid
+Current: createModule Havoced: sqlite3VtabUnlockList
+Current: createModule Havoced: sqlite3HashInit
+Current: createModule Havoced: sqlite3SchemaClear
+Current: createModule Havoced: sqlite3NoopDestructor
+Current: createModule Havoced: sqlite3_free_filename
+Current: createModule Havoced: sqlite3_interrupt
+Current: createModule Havoced: sqlite3_free_table
+Current: createModule Havoced: sqlite3ValueSetNull
+Current: createModule Havoced: sqlite3OomClear
+Current: createModule Havoced: sqlite3SkipAccumulatorLoad
+Current: createModule Havoced: sqlite3_value_free
+Current: createModule Havoced: sqlite3_result_null
+Current: createModule Havoced: sqlite3_result_error_nomem
+Current: createModule Havoced: sqlite3_result_error_toobig
+Current: createModule Havoced: sqlite3VdbeIntegerAffinity
+Current: createModule Havoced: groupConcatValue
+Current: createModule Havoced: groupConcatFinalize
+Current: createModule Havoced: countFinalize
+Current: createModule Havoced: avgFinalize
+Current: createModule Havoced: totalFinalize
+Current: createModule Havoced: sumFinalize
+Current: createModule Havoced: minMaxValue
+Current: createModule Havoced: minMaxFinalize
+Current: createModule Havoced: pcache1ResizeHash
+Current: createModule Havoced: pcache1Free
+Current: createModule Havoced: pcache1FreePage
+Current: createModule Havoced: pcache1EnforceMaxPage
+Current: createModule Havoced: pcache1Shrink
+Current: createModule Havoced: pcache1Destroy
+Current: createModule Havoced: pcache1Shutdown
+Current: createModule Havoced: sqlite3MemShutdown
+Current: createModule Havoced: sqlite3MemFree
+Current: createModule Havoced: releaseInodeInfo
+Current: createModule Havoced: setPendingFd
+Current: createModule Havoced: closePendingFds
+Current: createModule Havoced: verifyDbFile
+Current: createModule Havoced: setDeviceCharacteristics
+Current: createModule Havoced: unixShmPurge
+Current: createModule Havoced: unixUnmapfile
+Current: createModule Havoced: unixShmBarrier
+Current: createModule Havoced: memdbLeave
+Current: createModule Havoced: memdbEnter
+Current: createModule Havoced: vfsUnlink
+Current: createModule Havoced: sqlite3_mutex_free
+Current: createModule Havoced: lockBtreeMutex
+Current: createModule Havoced: btreeLockCarefully
+Current: createModule Havoced: sqlite3BtreeEnter
+Current: createModule Havoced: btreeEnterAll
+Current: createModule Havoced: unlockBtreeMutex
+Current: createModule Havoced: sqlite3BtreeLeave
+Current: createModule Havoced: btreeLeaveAll
+Current: createModule Havoced: sqlite3HashClear
+Current: createModule Havoced: sqlite3WindowUnlinkFromSelect
+Current: createModule Havoced: sqlite3VtabUnlock
+Current: createModule Havoced: sqlite3ValueFree
+Current: createModule Havoced: sqlite3KeyInfoUnref
+Current: createModule Havoced: sqlite3BtreeLeaveAll
+Current: createModule Havoced: sqlite3BtreeEnterAll
+Current: createModule Havoced: vdbeMemClear
+Current: createModule Havoced: sqlite3VdbeMemRelease
+Current: createModule Havoced: vdbeMemClearExternAndSetNull
+Current: createModule Havoced: sqlite3VdbeMemSetNull
+Current: createModule Havoced: sqlite3OomFault
+Current: createModule Havoced: sqlite3_free
+Current: createModule Havoced: sqlite3_str_reset
+Current: createModule Havoced: sqlite3_mutex_leave
+Current: createModule Havoced: sqlite3_mutex_enter
+Current: createModule Havoced: outputModePop
+Current: createModule Havoced: eqp_reset
+Current: createModule Havoced: explain_data_delete
+Current: createModule Havoced: eqp_render
+Current: createModule Havoced: displayLinuxIoStats
+Current: createModule Havoced: toggleSelectOrder
+Current: createModule Havoced: freeColumnList
+Current: createModule Havoced: createSelftestTable
+Current: createModule Havoced: bind_table_init
+Current: createModule Havoced: outputModePush
+Current: createModule Havoced: output_file_close
+Current: createModule Havoced: import_cleanup
+Current: createModule Havoced: resolve_backslashes
+Current: createModule Havoced: freeText
+Current: createModule Havoced: initText
+Current: createModule Havoced: idxConstraintFree
+Current: createModule Havoced: sqlite3re_free
+Current: createModule Havoced: decimal_clear
+Current: createModule Havoced: decimal_free
+Current: createModule Havoced: memtraceShutdown
+Current: createModule Havoced: memtraceFree
+Current: createModule Havoced: apndShmBarrier
+Current: createModule Havoced: completionCursorReset
+Current: createModule Havoced: fsdirResetCursor
+Current: createModule Havoced: KeccakF1600Step
+Current: createModule Havoced: clearTempFile
+Current: createModule Havoced: output_reset
+Current: createModule Havoced: printBold
+Current: createModule Havoced: main_init
+Current: createModule Havoced: close_db
+Current: createModule Havoced: idxWriteFree
+Current: createModule Havoced: idxTableFree
+Current: createModule Havoced: sqlite3_expert_destroy
+Current: createModule Havoced: idxHashClear
+Current: createModule Havoced: idxHashInit
+Current: createModule Havoced: decimalSumValue
+Current: createModule Havoced: decimalSumFinalize
+Current: createModule Havoced: sqlite3_mutex_leave
+
+                                                           0 sec [DONE]
+        Number of expressions:                        160669
+        after encoding
+
+      8 assertions before transformations (2 no_function_call, 4 no_back_edge, 2 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            8112
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72611
+        Memory Model Encoder
+          Number of moved ops                              0
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                               6
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             142
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      8 assertions remain after transformations (2 no_function_call, 4 no_back_edge, 2 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...

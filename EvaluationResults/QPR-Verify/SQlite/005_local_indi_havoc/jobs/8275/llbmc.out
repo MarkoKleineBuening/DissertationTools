@@ -1,0 +1,218 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 8275 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 1
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/8275
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : sqlite3InvokeBusyHandler
+m_checker->run()
+
+    Performing bounded model checking ...getMatchingFunctions
+res.push_back: deduceDatabaseType
+res.push_back: access
+res.push_back: mkdir
+res.push_back: chmod
+res.push_back: idxHashString
+res.push_back: line_is_complete
+res.push_back: line_contains_semicolon
+res.push_back: compare2pow63
+res.push_back: sqlite3Utf8CharLen
+res.push_back: isAllZero
+res.push_back: sqlite3_keyword_check
+res.push_back: sqlite3KeywordCode
+res.push_back: sqlite3Utf16ByteLen
+res.push_back: pagerUndoCallback
+res.push_back: analyzeOverKeyword
+res.push_back: analyzeFilterKeyword
+res.push_back: sqliteDefaultBusyCallback
+
+      Transformed "sqlite3InvokeBusyHandler" from 8 to 266 basic blocks and from 36 to 773 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...Current: sqlite3InvokeBusyHandler Havoced: sqlite3_enable_load_extension
+Current: sqlite3InvokeBusyHandler Havoced: sqliteDefaultBusyCallback
+Current: sqlite3InvokeBusyHandler Havoced: defragmentPage
+Current: sqlite3InvokeBusyHandler Havoced: vdbePmaReaderIncrMergeInit
+Current: sqlite3InvokeBusyHandler Havoced: vdbePmaReaderIncrInit
+Current: sqlite3InvokeBusyHandler Havoced: btreeSetHasContent
+Current: sqlite3InvokeBusyHandler Havoced: checkRef
+Current: sqlite3InvokeBusyHandler Havoced: getPageReferenced
+Current: sqlite3InvokeBusyHandler Havoced: sqlite3PagerMaxPageCount
+Current: sqlite3InvokeBusyHandler Havoced: sqlite3BtreeMaxPageCount
+Current: sqlite3InvokeBusyHandler Havoced: sqlite3BtreeSetVersion
+Current: sqlite3InvokeBusyHandler Havoced: sqlite3PagerSetJournalMode
+Current: sqlite3InvokeBusyHandler Havoced: sqlite3BtreeCursorHasHint
+Current: sqlite3InvokeBusyHandler Havoced: sqlite3BtreeBeginStmt
+Current: sqlite3InvokeBusyHandler Havoced: sqlite3VdbeBooleanValue
+Current: sqlite3InvokeBusyHandler Havoced: sqlite3Close
+Current: sqlite3InvokeBusyHandler Havoced: moveToChild
+Current: sqlite3InvokeBusyHandler Havoced: sqlite3BtreePrevious
+Current: sqlite3InvokeBusyHandler Havoced: sqlite3BtreeNext
+Current: sqlite3InvokeBusyHandler Havoced: indexColumnNotNull
+Current: sqlite3InvokeBusyHandler Havoced: sqlite3ExprIsTableConstant
+Current: sqlite3InvokeBusyHandler Havoced: sqlite3PcacheSetSpillsize
+Current: sqlite3InvokeBusyHandler Havoced: sqlite3PagerSetSpillsize
+Current: sqlite3InvokeBusyHandler Havoced: sqlite3BtreeSetSpillSize
+Current: sqlite3InvokeBusyHandler Havoced: sqlite3BtreeSetAutoVacuum
+Current: sqlite3InvokeBusyHandler Havoced: sqlite3BtreeSetPagerFlags
+Current: sqlite3InvokeBusyHandler Havoced: sqlite3BtreeSecureDelete
+Current: sqlite3InvokeBusyHandler Havoced: sqlite3PagerLockingMode
+Current: sqlite3InvokeBusyHandler Havoced: sqlite3ExprImpliesNonNullRow
+Current: sqlite3InvokeBusyHandler Havoced: sqlite3VdbeChangeToNoop
+Current: sqlite3InvokeBusyHandler Havoced: sqlite3VdbeGoto
+Current: sqlite3InvokeBusyHandler Havoced: sqlite3GetTempRange
+Current: sqlite3InvokeBusyHandler Havoced: growOpArray
+Current: sqlite3InvokeBusyHandler Havoced: sqlite3VdbeAddOp0
+Current: sqlite3InvokeBusyHandler Havoced: sqlite3AnalysisLoad
+Current: sqlite3InvokeBusyHandler Havoced: sqlite3BtreeSetCacheSize
+Current: sqlite3InvokeBusyHandler Havoced: sqlite3ExprCheckHeight
+Current: sqlite3InvokeBusyHandler Havoced: dupedExprNodeSize
+Current: sqlite3InvokeBusyHandler Havoced: dupedExprStructSize
+Current: sqlite3InvokeBusyHandler Havoced: dupedExprSize
+Current: sqlite3InvokeBusyHandler Havoced: analyzeFilterKeyword
+Current: sqlite3InvokeBusyHandler Havoced: analyzeOverKeyword
+Current: sqlite3InvokeBusyHandler Havoced: pagerOpenSavepoint
+Current: sqlite3InvokeBusyHandler Havoced: sqlite3PagerOpenSavepoint
+Current: sqlite3InvokeBusyHandler Havoced: vdbeSorterJoinAll
+Current: sqlite3InvokeBusyHandler Havoced: sqlite3OsLock
+Current: sqlite3InvokeBusyHandler Havoced: pagerLockDb
+Current: sqlite3InvokeBusyHandler Havoced: pager_wait_on_lock
+Current: sqlite3InvokeBusyHandler Havoced: btreeGetHasContent
+Current: sqlite3InvokeBusyHandler Havoced: sqlite3OsShmUnmap
+Current: sqlite3InvokeBusyHandler Havoced: sqlite3OsSleep
+Current: sqlite3InvokeBusyHandler Havoced: walRewriteChecksums
+Current: sqlite3InvokeBusyHandler Havoced: syncJournal
+Current: sqlite3InvokeBusyHandler Havoced: pager_incr_changecounter
+Current: sqlite3InvokeBusyHandler Havoced: sqlite3BtreeCommitPhaseTwo
+Current: sqlite3InvokeBusyHandler Havoced: ptrmapPageno
+Current: sqlite3InvokeBusyHandler Havoced: walFramePgno
+Current: sqlite3InvokeBusyHandler Havoced: pagerUndoCallback
+Current: sqlite3InvokeBusyHandler Havoced: pager_error
+Current: sqlite3InvokeBusyHandler Havoced: pager_playback
+Current: sqlite3InvokeBusyHandler Havoced: walLockShared
+Current: sqlite3InvokeBusyHandler Havoced: sqlite3WalExclusiveMode
+Current: sqlite3InvokeBusyHandler Havoced: pager_truncate
+Current: sqlite3InvokeBusyHandler Havoced: pagerFlushOnCommit
+Current: sqlite3InvokeBusyHandler Havoced: zeroJournalHdr
+Current: sqlite3InvokeBusyHandler Havoced: sqlite3OsSync
+Current: sqlite3InvokeBusyHandler Havoced: sqlite3OsUnlock
+Current: sqlite3InvokeBusyHandler Havoced: pagerUnlockDb
+Current: sqlite3InvokeBusyHandler Havoced: sqlite3PcacheSetPageSize
+Current: sqlite3InvokeBusyHandler Havoced: sqlite3BitvecTest
+Current: sqlite3InvokeBusyHandler Havoced: memjrnlSync
+Current: sqlite3InvokeBusyHandler Havoced: addToSavepointBitvecs
+Current: sqlite3InvokeBusyHandler Havoced: sqlite3BitvecSet
+Current: sqlite3InvokeBusyHandler Havoced: sqlite3BitvecTestNotNull
+Current: sqlite3InvokeBusyHandler Havoced: decodeFlags
+Current: sqlite3InvokeBusyHandler Havoced: vdbeCloseStatement
+Current: sqlite3InvokeBusyHandler Havoced: sqlite3VdbeCloseStatement
+Current: sqlite3InvokeBusyHandler Havoced: sqlite3VdbeCheckFk
+Current: sqlite3InvokeBusyHandler Havoced: sqlite3Utf16ByteLen
+Current: sqlite3InvokeBusyHandler Havoced: vdbeUnbind
+Current: sqlite3InvokeBusyHandler Havoced: sqlite3KeywordCode
+Current: sqlite3InvokeBusyHandler Havoced: sqlite3_keyword_check
+Current: sqlite3InvokeBusyHandler Havoced: sqlite3_wal_autocheckpoint
+Current: sqlite3InvokeBusyHandler Havoced: sqlite3_backup_step
+Current: sqlite3InvokeBusyHandler Havoced: sqlite3_extended_result_codes
+Current: sqlite3InvokeBusyHandler Havoced: sqlite3_column_type
+Current: sqlite3InvokeBusyHandler Havoced: sqlite3_column_int
+Current: sqlite3InvokeBusyHandler Havoced: sqlite3_column_bytes16
+Current: sqlite3InvokeBusyHandler Havoced: sqlite3_column_bytes
+Current: sqlite3InvokeBusyHandler Havoced: sqlite3_busy_timeout
+Current: sqlite3InvokeBusyHandler Havoced: sqlite3_bind_null
+Current: sqlite3InvokeBusyHandler Havoced: apiHandleError
+Current: sqlite3InvokeBusyHandler Havoced: sqlite3ApiExit
+Current: sqlite3InvokeBusyHandler Havoced: isAllZero
+Current: sqlite3InvokeBusyHandler Havoced: sqlite3Utf8CharLen
+Current: sqlite3InvokeBusyHandler Havoced: unixUnlock
+Current: sqlite3InvokeBusyHandler Havoced: unixLock
+Current: sqlite3InvokeBusyHandler Havoced: nolockUnlock
+Current: sqlite3InvokeBusyHandler Havoced: nolockLock
+Current: sqlite3InvokeBusyHandler Havoced: unixShmUnmap
+Current: sqlite3InvokeBusyHandler Havoced: dotlockUnlock
+Current: sqlite3InvokeBusyHandler Havoced: dotlockLock
+Current: sqlite3InvokeBusyHandler Havoced: unixSync
+Current: sqlite3InvokeBusyHandler Havoced: unixSleep
+Current: sqlite3InvokeBusyHandler Havoced: memdbLock
+Current: sqlite3InvokeBusyHandler Havoced: memdbSync
+Current: sqlite3InvokeBusyHandler Havoced: memdbSleep
+Current: sqlite3InvokeBusyHandler Havoced: sqlite3_vfs_register
+Current: sqlite3InvokeBusyHandler Havoced: rehash
+Current: sqlite3InvokeBusyHandler Havoced: compare2pow63
+Current: sqlite3InvokeBusyHandler Havoced: sqlite3VdbeMemClearAndResize
+Current: sqlite3InvokeBusyHandler Havoced: sqlite3VdbeChangeEncoding
+Current: sqlite3InvokeBusyHandler Havoced: sqlite3StrAccumEnlarge
+Current: sqlite3InvokeBusyHandler Havoced: sqlite3ErrorToParser
+Current: sqlite3InvokeBusyHandler Havoced: line_contains_semicolon
+Current: sqlite3InvokeBusyHandler Havoced: line_is_complete
+Current: sqlite3InvokeBusyHandler Havoced: idxHashString
+Current: sqlite3InvokeBusyHandler Havoced: re_resize
+Current: sqlite3InvokeBusyHandler Havoced: apndShmUnmap
+Current: sqlite3InvokeBusyHandler Havoced: apndUnlock
+Current: sqlite3InvokeBusyHandler Havoced: apndLock
+Current: sqlite3InvokeBusyHandler Havoced: apndSync
+Current: sqlite3InvokeBusyHandler Havoced: apndSleep
+Current: sqlite3InvokeBusyHandler Havoced: deduceDatabaseType
+                      0 sec [DONE]
+        Number of expressions:                        157607
+        after encoding
+
+      6 assertions before transformations (5 no_function_call, 1 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            4929
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72605
+        Memory Model Encoder
+          Number of moved ops                              0
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                               2
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             142
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      6 assertions remain after transformations (5 no_function_call, 1 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...

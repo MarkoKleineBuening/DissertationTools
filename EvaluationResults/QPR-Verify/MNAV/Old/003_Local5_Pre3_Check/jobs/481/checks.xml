@@ -1,0 +1,35 @@
+<VerificationJob>
+  <Configuration>
+    <AnalyzeChecksIndividually value="true" />
+    <BitcodeTraces value="false" />
+    <CheckOnlyPrecondition value="true" />
+    <DumpVerifierBitcodeFiles value="false" />
+    <EnableSlicing value="false" />
+    <EntryPoint value="mat_lsolve" />
+    <FixPoint value="true" />
+    <ForkJobs value="true" />
+    <Hosted value="true" />
+    <IgnoreMissingFunctions value="false" />
+    <InitializedGlobals value="false" />
+    <LoopUnrollBound value="4" />
+    <PreconditionLocation value="jobs/481" />
+    <PreconditionNumber value="3" />
+    <SourceDirectory value="/home/marko/Examples/23_MNAV/MNAV1.5" />
+    <TimeOut value="300" />
+    <XMLTraces value="false" />
+  </Configuration>
+  <CheckList>
+    <Check id="1615" location="1702" category="arithmetic.overflow" status="unsafe" scope="mat_lu">
+      <Annotations>
+        <Annotation>The function body for fabs is missing (/home/marko/Examples/23_MNAV/MNAV1.5//home/marko/Examples/23_MNAV/MNAV1.5/matrix.c:845:14)</Annotation>
+      </Annotations>
+      <EntryStatus>
+        <SingleEntryStatus>mat_det, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>mat_inv, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>mat_lsolve, unsafe</SingleEntryStatus>
+      </EntryStatus>
+    </Check>
+  </CheckList>
+  <Annotation>allsafe</Annotation>
+  <Status>allunsafe</Status>
+</VerificationJob>

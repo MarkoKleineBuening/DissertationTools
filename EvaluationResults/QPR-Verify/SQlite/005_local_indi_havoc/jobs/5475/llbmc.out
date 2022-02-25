@@ -1,0 +1,102 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 5475 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 1
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/5475
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : sqlite3AlterRenameTable
+m_checker->run()
+
+    Performing bounded model checking ...
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...Current: sqlite3AlterRenameTable Havoced: sqlite3LocateTableItem
+Current: sqlite3AlterRenameTable Havoced: sqlite3SchemaToIndex
+Current: sqlite3AlterRenameTable Havoced: sqlite3NameFromToken
+Current: sqlite3AlterRenameTable Havoced: sqlite3FindTable
+Current: sqlite3AlterRenameTable Havoced: sqlite3FindIndex
+Current: sqlite3AlterRenameTable Havoced: sqlite3IsShadowTableOf
+Current: sqlite3AlterRenameTable Havoced: isAlterableTable
+Current: sqlite3AlterRenameTable Havoced: sqlite3CheckObjectName
+Current: sqlite3AlterRenameTable Havoced: sqlite3AuthCheck
+Current: sqlite3AlterRenameTable Havoced: sqlite3ViewGetColumnNames
+Current: sqlite3AlterRenameTable Havoced: sqlite3GetVTable
+Current: sqlite3AlterRenameTable Havoced: sqlite3GetVdbe
+Current: sqlite3AlterRenameTable Havoced: sqlite3MayAbort
+Current: sqlite3AlterRenameTable Havoced: sqlite3Utf8CharLen
+Current: sqlite3AlterRenameTable Havoced: sqlite3NestedParse
+Current: sqlite3AlterRenameTable Havoced: sqlite3NestedParse
+Current: sqlite3AlterRenameTable Havoced: sqlite3FindTable
+Current: sqlite3AlterRenameTable Havoced: sqlite3NestedParse
+Current: sqlite3AlterRenameTable Havoced: sqlite3NestedParse
+Current: sqlite3AlterRenameTable Havoced: sqlite3VdbeLoadString
+Current: sqlite3AlterRenameTable Havoced: sqlite3VdbeAddOp4
+Current: sqlite3AlterRenameTable Havoced: renameReloadSchema
+Current: sqlite3AlterRenameTable Havoced: renameTestSchema
+Current: sqlite3AlterRenameTable Havoced: sqlite3ErrorMsg
+Current: sqlite3AlterRenameTable Havoced: sqlite3ErrorMsg
+Current: sqlite3AlterRenameTable Havoced: sqlite3SrcListDelete
+Current: sqlite3AlterRenameTable Havoced: sqlite3DbFree
+                      0 sec [DONE]
+        Number of expressions:                        155380
+        after encoding
+
+      1 assertion before transformations (1 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            3538
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72619
+        Memory Model Encoder
+          Number of moved ops                              0
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                               2
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             142
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      1 assertion remains after transformations (1 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...

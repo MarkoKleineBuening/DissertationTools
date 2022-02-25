@@ -1,0 +1,118 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 4179 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 1
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/4179
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : sqlite3BtreeIntegrityCheck
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "sqlite3BtreeIntegrityCheck" for 1 iterations succeeded.
+      Unrolling loop in function "sqlite3BtreeIntegrityCheck" for 1 iterations succeeded.
+      Unrolling loop in function "sqlite3BtreeIntegrityCheck" for 1 iterations succeeded.
+      Transformed "sqlite3BtreeIntegrityCheck" from 63 to 88 basic blocks and from 381 to 485 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...Current: sqlite3BtreeIntegrityCheck Havoced: sqlite3BtreeEnter
+Current: sqlite3BtreeIntegrityCheck Havoced: btreePagecount
+Current: sqlite3BtreeIntegrityCheck Havoced: sqlite3StrAccumInit
+Current: sqlite3BtreeIntegrityCheck Havoced: sqlite3MallocZero
+Current: sqlite3BtreeIntegrityCheck Havoced: sqlite3PageMalloc
+Current: sqlite3BtreeIntegrityCheck Havoced: setPageReferenced
+Current: sqlite3BtreeIntegrityCheck Havoced: sqlite3Get4byte
+Current: sqlite3BtreeIntegrityCheck Havoced: sqlite3Get4byte
+Current: sqlite3BtreeIntegrityCheck Havoced: checkList
+Current: sqlite3BtreeIntegrityCheck Havoced: sqlite3Get4byte
+Current: sqlite3BtreeIntegrityCheck Havoced: checkAppendMsg
+Current: sqlite3BtreeIntegrityCheck Havoced: sqlite3Get4byte
+Current: sqlite3BtreeIntegrityCheck Havoced: checkAppendMsg
+Current: sqlite3BtreeIntegrityCheck Havoced: checkPtrmap
+Current: sqlite3BtreeIntegrityCheck Havoced: checkTreePage
+Current: sqlite3BtreeIntegrityCheck Havoced: getPageReferenced
+Current: sqlite3BtreeIntegrityCheck Havoced: ptrmapPageno
+Current: sqlite3BtreeIntegrityCheck Havoced: checkAppendMsg
+Current: sqlite3BtreeIntegrityCheck Havoced: getPageReferenced
+Current: sqlite3BtreeIntegrityCheck Havoced: ptrmapPageno
+Current: sqlite3BtreeIntegrityCheck Havoced: checkAppendMsg
+Current: sqlite3BtreeIntegrityCheck Havoced: getPageReferenced
+Current: sqlite3BtreeIntegrityCheck Havoced: ptrmapPageno
+Current: sqlite3BtreeIntegrityCheck Havoced: checkAppendMsg
+Current: sqlite3BtreeIntegrityCheck Havoced: getPageReferenced
+Current: sqlite3BtreeIntegrityCheck Havoced: ptrmapPageno
+Current: sqlite3BtreeIntegrityCheck Havoced: checkAppendMsg
+Current: sqlite3BtreeIntegrityCheck Havoced: checkPtrmap
+Current: sqlite3BtreeIntegrityCheck Havoced: checkTreePage
+Current: sqlite3BtreeIntegrityCheck Havoced: sqlite3PageFree
+Current: sqlite3BtreeIntegrityCheck Havoced: sqlite3_free
+Current: sqlite3BtreeIntegrityCheck Havoced: sqlite3_str_reset
+Current: sqlite3BtreeIntegrityCheck Havoced: sqlite3_str_reset
+Current: sqlite3BtreeIntegrityCheck Havoced: sqlite3BtreeLeave
+Current: sqlite3BtreeIntegrityCheck Havoced: sqlite3StrAccumFinish
+                      0 sec [DONE]
+        Number of expressions:                        155977
+        after encoding
+
+      4 assertions before transformations (3 no_back_edge, 1 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            3922
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72711
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               3
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                              52
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             142
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      4 assertions remain after transformations (3 no_back_edge, 1 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...

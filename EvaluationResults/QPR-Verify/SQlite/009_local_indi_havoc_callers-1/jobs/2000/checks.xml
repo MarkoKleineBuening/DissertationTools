@@ -1,0 +1,55 @@
+<VerificationJob>
+  <Configuration>
+    <AnalyzeChecksIndividually value="true" />
+    <BitcodeTraces value="false" />
+    <CheckCallers value="true" />
+    <DumpVerifierBitcodeFiles value="false" />
+    <EnableSlicing value="false" />
+    <EntryPoint value="fillInCell" />
+    <FixPoint value="true" />
+    <ForkJobs value="true" />
+    <HavocLimit value="2" />
+    <Hosted value="true" />
+    <IgnoreMissingFunctions value="false" />
+    <InitializedGlobals value="false" />
+    <LoopUnrollBound value="1" />
+    <PreconditionLocation value="jobs/2000" />
+    <SourceDirectory value="/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld" />
+    <TimeOut value="600" />
+    <XMLTraces value="false" />
+  </Configuration>
+  <CheckList>
+    <Check id="6586" location="7142" category="explicit.conversion.overflow" status="unsafe" scope="sqlite3Put4byte">
+      <Annotations>
+        <Annotation>An explicit conversion operation can overflow.</Annotation>
+      </Annotations>
+      <EntryStatus>
+        <SingleEntryStatus>allocateBtreePage, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>autoVacuumCommit, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>backupOnePage, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>balance_deeper, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>balance_nonroot, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>balance_quick, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>fillInCell, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>freePage2, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>insertCell, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>modifyPagePointer, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>newDatabase, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>pager_write_changecounter, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>ptrmapPut, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3BtreeBeginTrans, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3BtreeIncrVacuum, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3BtreeTransferRow, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3BtreeUpdateMeta, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3WalFrames, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>syncJournal, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>walEncodeFrame, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>walRestartHdr, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>write32bits, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>writeJournalHdr, unsafe</SingleEntryStatus>
+      </EntryStatus>
+    </Check>
+  </CheckList>
+  <Annotation>allunsafe</Annotation>
+  <Status>allunsafe</Status>
+</VerificationJob>

@@ -1,0 +1,149 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 1602 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 1
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/1602
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : sqlite3_str_vappendf
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+      Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+      Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+      Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+      Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+      Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+      Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+      Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+      Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+      Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+      Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+      Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+      Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+      Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+      Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+      Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+      Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+      Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+      Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+      Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+      Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+      Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+      Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+      Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+      Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+      Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+      Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+      Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+      Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+      Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+      Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+      Transformed "sqlite3_str_vappendf" from 467 to 567 basic blocks and from 2718 to 3228 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...Current: sqlite3_str_vappendf Havoced: sqlite3_str_append
+Current: sqlite3_str_vappendf Havoced: getIntArg
+Current: sqlite3_str_vappendf Havoced: getIntArg
+Current: sqlite3_str_vappendf Havoced: sqlite3_str_appendall
+Current: sqlite3_str_vappendf Havoced: sqlite3_str_appendf
+Current: sqlite3_str_vappendf Havoced: sqlite3_str_appendall
+Current: sqlite3_str_vappendf Havoced: sqlite3_str_appendall
+Current: sqlite3_str_vappendf Havoced: sqlite3_str_append
+Current: sqlite3_str_vappendf Havoced: sqlite3_str_appendall
+Current: sqlite3_str_vappendf Havoced: sqlite3_str_append
+Current: sqlite3_str_vappendf Havoced: getTextArg
+Current: sqlite3_str_vappendf Havoced: printfTempBuf
+Current: sqlite3_str_vappendf Havoced: getTextArg
+Current: sqlite3_str_vappendf Havoced: sqlite3_str_appendchar
+Current: sqlite3_str_vappendf Havoced: sqlite3_str_append
+Current: sqlite3_str_vappendf Havoced: getTextArg
+Current: sqlite3_str_vappendf Havoced: sqlite3DbMallocSize
+
+        Unrolling loop in function "llbmc.strlen" for 0 iterations succeeded.
+        Transformed "llbmc.strlen" from 8 to 9 instructionsCurrent: sqlite3_str_vappendf Havoced: getDoubleArg
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %551, i8* %552, i64 8, i32 8, i1 false), !dbg !6477
+Current: sqlite3_str_vappendf Havoced: sqlite3IsNaN
+Current: sqlite3_str_vappendf Havoced: printfTempBuf
+Current: sqlite3_str_vappendf Havoced: et_getdigit
+Current: sqlite3_str_vappendf Havoced: et_getdigit
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %657, i8* getelementptr inbounds ([4 x i8], [4 x i8]* @.str.2.1220, i32 0, i32 0), i64 4, i32 1, i1 false), !dbg !6589
+Current: sqlite3_str_vappendf Havoced: getIntArg
+Current: sqlite3_str_vappendf Havoced: getIntArg
+Current: sqlite3_str_vappendf Havoced: printfTempBuf
+Current: sqlite3_str_vappendf Havoced: sqlite3_str_append
+Current: sqlite3_str_vappendf Havoced: sqlite3_str_appendchar
+Current: sqlite3_str_vappendf Havoced: sqlite3_str_append
+Current: sqlite3_str_vappendf Havoced: sqlite3_str_appendchar
+Current: sqlite3_str_vappendf Havoced: sqlite3DbFree
+Current: sqlite3_str_vappendf Havoced: sqlite3_str_append
+
+                                                           0 sec [DONE]
+        Number of expressions:                        160647
+        after encoding
+
+      36 assertions before transformations (35 no_back_edge, 1 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            7562
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           73722
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               5
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                              31
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             169
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                             105
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                              27
+                                                           0 sec [DONE]
+        
+      36 assertions remain after transformations (35 no_back_edge, 1 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...

@@ -1,0 +1,132 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 4460 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 2
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/4460
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : sqlite3MemCompare
+m_checker->run()
+
+    Performing bounded model checking ...
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...
+        Unrolling loop in function "llbmc.memcmp" for 0 iterations succeeded.
+        Transformed "llbmc.memcmp" from 17 to 20 instructionsCurrent: sqlite3BlobCompare Havoced: isAllZero
+Current: sqlite3BlobCompare Havoced: isAllZero
+getMatchingFunctions
+res.push_back: uintCollFunc
+res.push_back: decimalCollFunc
+res.push_back: binCollFunc
+res.push_back: nocaseCollatingFunc
+res.push_back: rtrimCollFunc
+getMatchingFunctions
+res.push_back: uintCollFunc
+res.push_back: decimalCollFunc
+res.push_back: binCollFunc
+res.push_back: nocaseCollatingFunc
+res.push_back: rtrimCollFunc
+
+        Transformed "vdbeCompareMemString" from 10 to 70 basic blocks and from 86 to 260 instructionsCurrent: vdbeCompareMemString Havoced: sqlite3VdbeMemInit
+Current: vdbeCompareMemString Havoced: sqlite3VdbeMemInit
+Current: vdbeCompareMemString Havoced: sqlite3VdbeMemShallowCopy
+Current: vdbeCompareMemString Havoced: sqlite3VdbeMemShallowCopy
+Current: vdbeCompareMemString Havoced: sqlite3ValueText
+Current: vdbeCompareMemString Havoced: sqlite3ValueText
+Current: vdbeCompareMemString Havoced: rtrimCollFunc
+Current: vdbeCompareMemString Havoced: nocaseCollatingFunc
+Current: vdbeCompareMemString Havoced: binCollFunc
+Current: vdbeCompareMemString Havoced: whereRangeVectorLen
+Current: vdbeCompareMemString Havoced: pragmaVtabFilter
+Current: vdbeCompareMemString Havoced: sqlite3_bind_text16
+Current: vdbeCompareMemString Havoced: sqlite3_bind_text
+Current: vdbeCompareMemString Havoced: sqlite3_bind_blob
+Current: vdbeCompareMemString Havoced: expertFilter
+Current: vdbeCompareMemString Havoced: seriesFilter
+Current: vdbeCompareMemString Havoced: completionFilter
+Current: vdbeCompareMemString Havoced: fsdirFilter
+Current: vdbeCompareMemString Havoced: decimalCollFunc
+Current: vdbeCompareMemString Havoced: uintCollFunc
+Current: vdbeCompareMemString Havoced: sqlite3VdbeMemRelease
+Current: vdbeCompareMemString Havoced: sqlite3VdbeMemRelease
+Current: vdbeCompareMemString Havoced: rtrimCollFunc
+Current: vdbeCompareMemString Havoced: nocaseCollatingFunc
+Current: vdbeCompareMemString Havoced: binCollFunc
+Current: vdbeCompareMemString Havoced: whereRangeVectorLen
+Current: vdbeCompareMemString Havoced: pragmaVtabFilter
+Current: vdbeCompareMemString Havoced: sqlite3_bind_text16
+Current: vdbeCompareMemString Havoced: sqlite3_bind_text
+Current: vdbeCompareMemString Havoced: sqlite3_bind_blob
+Current: vdbeCompareMemString Havoced: expertFilter
+Current: vdbeCompareMemString Havoced: seriesFilter
+Current: vdbeCompareMemString Havoced: completionFilter
+Current: vdbeCompareMemString Havoced: fsdirFilter
+Current: vdbeCompareMemString Havoced: decimalCollFunc
+Current: vdbeCompareMemString Havoced: uintCollFunc
+
+                                                           0 sec [DONE]
+        Number of expressions:                        156403
+        after encoding
+
+      4 assertions before transformations (2 no_function_call, 1 no_back_edge, 1 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            4188
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72640
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               2
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                              19
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             142
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              56
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                              12
+                                                           0 sec [DONE]
+        
+      4 assertions remain after transformations (2 no_function_call, 1 no_back_edge, 1 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...

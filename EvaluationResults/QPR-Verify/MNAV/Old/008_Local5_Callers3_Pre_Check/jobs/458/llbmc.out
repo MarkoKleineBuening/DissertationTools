@@ -1,0 +1,198 @@
+runJobCommand
+precondition analysis with entry:AHRS_Algorithm
+arguents: child
+arguents: job
+arguents: mode
+arguents: precondition
+handleJobInSeparateProcess0
+
+Checking job 458 ...about to run job:
+preconNumber: 3, 1
+
+  Running Model Checker with 1 checks ...entry: AHRS_Algorithm, functionName: mat_mymul3
+  <badref> = call double** @qpr.precondition.mat_mymul3(double** %247, double** %248, double** %249, i16 3)
+entry: AHRS_Algorithm, functionName: AHRS_Algorithm
+entry: AHRS_Algorithm, functionName: mat_mymul3
+try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 4
+    HavocLimit : 0
+    PreconditionNumber : 3
+    PreconditionLocation : jobs/458
+    TimeOut : 300
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : AHRS_Algorithm
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "AHRS_Algorithm" for 4 iterations succeeded.
+      Unrolling loop in function "AHRS_Algorithm" for 7 iterations succeeded.
+      Unrolling loop in function "AHRS_Algorithm" for 4 iterations succeeded.
+      Unrolling loop in function "AHRS_Algorithm" for 7 iterations succeeded.
+      Unrolling loop in function "AHRS_Algorithm" for 3 iterations succeeded.
+      Unrolling loop in function "AHRS_Algorithm" for 7 iterations succeeded.
+      Unrolling loop in function "AHRS_Algorithm" for 4 iterations succeeded.
+      Transformed "AHRS_Algorithm" from 35 to 86 basic blocks and from 1180 to 2157 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...size Alloca: 1
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %4, i8 0, i64 24, i32 16, i1 false), !dbg !1399
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %5, i8 0, i64 24, i32 16, i1 false), !dbg !1401
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %6, i8 0, i64 16, i32 16, i1 false), !dbg !1403
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %7, i8 0, i64 32, i32 16, i1 false), !dbg !1406
+
+        Unrolling loop in function "mat_mymul2" for 7 iterations succeeded.
+        Unrolling loop in function "mat_mymul2" for 3 iterations succeeded.
+        Unrolling loop in function "mat_mymul2" for 4 iterations succeeded.
+        Unrolling loop in function "mat_mymul2" for 4 iterations succeeded.
+        Unrolling loop in function "mat_mymul2" for 4 iterations succeeded.
+        Transformed "mat_mymul2" from 21 to 284 basic blocks and from 122 to 2890 instructionsTODO MKB implement precondition handling: IE
+Reading in precondition at: jobs/458/precondition_mat_mymul3.txt
+preconFile: jobs/458/precondition_mat_mymul3.txt
+ref: [underoverapprox]name of function arguments, argValue:  
+ref: [underoverapprox]name of function arguments, argValue:  
+name of function arguments line
+param: i16 %arg3:-19163
+---name: i16 %arg3, value: -19163.
+integer, char or other simple types
+name: i16 %arg3
+assuming that there are not more then 10 arguments
+nameIndex: 3
+nameID: 3
+argument name: 
+value: -19163
+###new bool cond: bool % = compare(%i16__3, %i16__46373)
+pruneOrAssert -- adding line boolCond: bool % = compare(%i16__3, %i16__46373)
+param: i16 %arg3:-8704
+---name: i16 %arg3, value: -8704.
+integer, char or other simple types
+name: i16 %arg3
+assuming that there are not more then 10 arguments
+nameIndex: 3
+nameID: 3
+argument name: 
+value: -8704
+###new bool cond: bool % = compare(%i16__3, %i16__56832)
+pruneOrAssert -- adding line boolCond: bool % = compare(%i16__3, %i16__56832)
+param: i16 %arg3:24928
+---name: i16 %arg3, value: 24928.
+integer, char or other simple types
+name: i16 %arg3
+assuming that there are not more then 10 arguments
+nameIndex: 3
+nameID: 3
+argument name: 
+value: 24928
+###new bool cond: bool % = compare(%i16__3, %i16__24928)
+pruneOrAssert -- adding line boolCond: bool % = compare(%i16__3, %i16__24928)
+Writing precondition type at: jobs/458/precondition_type_AHRS_Algorithm.txt
+
+Type of Precondition:
+[underoverapprox]
+precondition found, end encoding
+
+                                                           0 sec [DONE]
+        Number of expressions:                         10712
+        after encoding
+
+      31 assertions before transformations (2 no_function_call, 26 no_back_edge, 3 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            3054
+        Fixed Memory Address Assigner
+          Number of moved ops                             10
+          Number of rewrites                             365
+        Simplifier
+          Number of moved ops                              1
+          Number of rewrites                            2775
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               5
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           12825
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           21252
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                             320
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               2
+                                                           0 sec [DONE]
+        
+      31 assertions remain after transformations (2 no_function_call, 26 no_back_edge, 3 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...            0 sec [DONE]
+        
+                                                           0 sec [DONE]
+      after performing Check
+evaluateCheckerResultsViaRefinementLoop
+checker.getResult() is Trace
+checkOnlyPrecon: 1, size:1
+setCheckToUnsafe for precondition Instruction
+checkID: 1579
+setCheckToUnsafe
+set check to unsafe
+getCheckerResultAfterUpdatingMarker
+failingInst:   %3 = call i32 @clock_gettime(i32 0, %struct.timeval.141* @get_Time.tset) #9, !dbg !1380
+Preconditions internal: 
+
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   %3 = call i32 @clock_gettime(i32 0, %struct.timeval.141* @get_Time.tset) #9, !dbg !1380
+Preconditions internal: 
+
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   %3 = call i32 @clock_gettime(i32 0, %struct.timeval.141* @get_Time.tset) #9, !dbg !1380
+Preconditions internal: 
+
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      name of function arguments: Writing precondition at: jobs/458/precondition_AHRS_Algorithm.txt
+
+Generated Preconditions:
+[underoverapprox]name of function arguments: 
+
+
+
+
+                                                           0 sec [DONE]
+    allunsafe
+    
+                                                           0 sec [DONE]
+  

@@ -1,0 +1,134 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 3670 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 2
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/3670
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : editPage
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "editPage" for 1 iterations succeeded.
+      Transformed "editPage" from 31 to 32 basic blocks and from 316 to 325 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...
+        Unrolling loop in function "pageFreeArray" for 1 iterations succeeded.
+        Transformed "pageFreeArray" from 18 to 19 basic blocks and from 143 to 155 instructionsCurrent: pageFreeArray Havoced: freeSpace
+Current: pageFreeArray Havoced: freeSpace
+isMemmove:   call void @llvm.memmove.p0i8.p0i8.i64(i8* %29, i8* %34, i64 %36, i32 1, i1 false), !dbg !5700
+Current: pageFreeArray Havoced: freeSpace
+Current: pageFreeArray Havoced: freeSpace
+isMemmove:   call void @llvm.memmove.p0i8.p0i8.i64(i8* %74, i8* %71, i64 %76, i32 1, i1 false), !dbg !5734
+
+        Unrolling loop in function "pageInsertArray" for 1 iterations succeeded.
+        Unrolling loop in function "pageInsertArray" for 1 iterations succeeded.
+        Transformed "pageInsertArray" from 25 to 41 basic blocks and from 198 to 346 instructionsCurrent: pageInsertArray Havoced: pageFindSlot
+isMemmove:   call void @llvm.memmove.p0i8.p0i8.i64(i8* %65, i8* %89, i64 %90, i32 1, i1 false), !dbg !5740
+Current: pageInsertArray Havoced: pageFindSlot
+isMemmove:   call void @llvm.memmove.p0i8.p0i8.i64(i8* %147, i8* %170, i64 %171, i32 1, i1 false), !dbg !5740
+Current: pageInsertArray Havoced: sqlite3CorruptError
+isMemmove:   call void @llvm.memmove.p0i8.p0i8.i64(i8* %102, i8* %100, i64 %105, i32 1, i1 false), !dbg !5772
+Current: cachedCellSize Havoced: computeCellSize
+Current: pageInsertArray Havoced: pageFindSlot
+isMemmove:   call void @llvm.memmove.p0i8.p0i8.i64(i8* %65, i8* %89, i64 %90, i32 1, i1 false), !dbg !5740
+Current: pageInsertArray Havoced: pageFindSlot
+isMemmove:   call void @llvm.memmove.p0i8.p0i8.i64(i8* %147, i8* %170, i64 %171, i32 1, i1 false), !dbg !5740
+Current: pageInsertArray Havoced: sqlite3CorruptError
+Current: pageInsertArray Havoced: pageFindSlot
+isMemmove:   call void @llvm.memmove.p0i8.p0i8.i64(i8* %65, i8* %89, i64 %90, i32 1, i1 false), !dbg !5740
+Current: pageInsertArray Havoced: pageFindSlot
+isMemmove:   call void @llvm.memmove.p0i8.p0i8.i64(i8* %147, i8* %170, i64 %171, i32 1, i1 false), !dbg !5740
+Current: pageInsertArray Havoced: sqlite3CorruptError
+
+        Unrolling loop in function "populateCellCache" for 1 iterations succeeded.getMatchingFunctions
+res.push_back: cellSizePtr
+res.push_back: cellSizePtrNoPayload
+
+        Transformed "populateCellCache" from 7 to 16 basic blocks and from 49 to 71 instructionsCurrent: populateCellCache Havoced: exprCommute
+Current: populateCellCache Havoced: cellSizePtrNoPayload
+Current: populateCellCache Havoced: cellSizePtr
+
+        Unrolling loop in function "rebuildPage" for 1 iterations succeeded.
+        Unrolling loop in function "rebuildPage" for 1 iterations succeeded.
+        Transformed "rebuildPage" from 27 to 44 basic blocks and from 333 to 473 instructionsCurrent: rebuildPage Havoced: sqlite3PagerTempSpace
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %40, i8* %42, i64 %44, i32 1, i1 false), !dbg !5685
+isMemmove:   call void @llvm.memmove.p0i8.p0i8.i64(i8* %115, i8* %111, i64 %130, i32 1, i1 false), !dbg !5765
+Current: rebuildPage Havoced: sqlite3CorruptError
+isMemmove:   call void @llvm.memmove.p0i8.p0i8.i64(i8* %191, i8* %187, i64 %205, i32 1, i1 false), !dbg !5765
+Current: rebuildPage Havoced: sqlite3CorruptError
+Current: rebuildPage Havoced: sqlite3CorruptError
+Current: sqlite3CorruptError Havoced: sqlite3ReportError
+
+                                                           0 sec [DONE]
+        Number of expressions:                        158204
+        after encoding
+
+      19 assertions before transformations (1 no_function_call, 12 no_back_edge, 6 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            5246
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72938
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               4
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                              44
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             142
+        ToASC Analyser
+          Memcpy/memset found                            yes
+        Byte-Based Memory Creator
+          Number of rewrites                            9155
+        Instantiation-Based ToASC Simplifier
+          Number of rewrites                              12
+        Simplifier
+          Number of moved ops                          92421
+          Number of rewrites                          122327
+        FP Abstraction
+          Number of rewrites                              22
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           2 sec [DONE]
+        
+      19 assertions remain after transformations (1 no_function_call, 12 no_back_edge, 6 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...

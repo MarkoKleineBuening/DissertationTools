@@ -1,0 +1,37 @@
+<VerificationJob>
+  <Configuration>
+    <AnalyzeChecksIndividually value="true" />
+    <BitcodeTraces value="false" />
+    <CheckCallers value="true" />
+    <DumpVerifierBitcodeFiles value="false" />
+    <EnableSlicing value="true" />
+    <EntryPoint value="computeNumericType" />
+    <FixPoint value="true" />
+    <ForkJobs value="true" />
+    <Hosted value="true" />
+    <IgnoreMissingFunctions value="false" />
+    <InitializedGlobals value="false" />
+    <LoopUnrollBound value="1" />
+    <PreconditionLocation value="jobs/1936" />
+    <SourceDirectory value="/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld" />
+    <TimeOut value="600" />
+    <XMLTraces value="false" />
+  </Configuration>
+  <CheckList>
+    <Check id="6309" location="6850" category="arithmetic.overflow.warning" status="safe|loopboundreached" scope="sqlite3Atoi64">
+      <Annotations>
+        <Annotation>A loop bound was reached (/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld//home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld/sqlite3.c:32438:3)</Annotation>
+      </Annotations>
+      <EntryStatus>
+        <SingleEntryStatus>alsoAnInt, unknown</SingleEntryStatus>
+        <SingleEntryStatus>computeNumericType, safe|loopboundreached</SingleEntryStatus>
+        <SingleEntryStatus>memIntValue, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3DecOrHexToI64, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3ExprAssignVarNumber, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3VdbeMemNumerify, unknown</SingleEntryStatus>
+      </EntryStatus>
+    </Check>
+  </CheckList>
+  <Annotation>allsafe</Annotation>
+  <Status>allsafe</Status>
+</VerificationJob>

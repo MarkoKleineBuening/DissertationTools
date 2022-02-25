@@ -1,0 +1,42 @@
+<VerificationJob>
+  <Configuration>
+    <AnalyzeChecksIndividually value="true" />
+    <BitcodeTraces value="false" />
+    <CheckOnlyPrecondition value="true" />
+    <DumpVerifierBitcodeFiles value="false" />
+    <EnableSlicing value="true" />
+    <EntryPoint value="incrVacuumStep" />
+    <FixPoint value="true" />
+    <ForkJobs value="true" />
+    <Hosted value="true" />
+    <IgnoreMissingFunctions value="false" />
+    <InitializedGlobals value="false" />
+    <LoopUnrollBound value="1" />
+    <PreconditionLocation value="jobs/3540" />
+    <PreconditionNumber value="5" />
+    <SourceDirectory value="/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld" />
+    <StopEncodingAfterCheck value="true" />
+    <StopEncodingAfterCheckLoop value="1" />
+    <TimeOut value="600" />
+    <XMLTraces value="false" />
+  </Configuration>
+  <CheckList>
+    <Check id="11291" location="12255" category="arithmetic.overflow.warning" status="safe" scope="allocateBtreePage">
+      <Annotations>
+        <Annotation>An unsigned arithmetic operation can overflow (wraparound).</Annotation>
+        <Annotation>Unreachable function / source code</Annotation>
+      </Annotations>
+      <EntryStatus>
+        <SingleEntryStatus>balance_deeper, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>balance_nonroot, safe</SingleEntryStatus>
+        <SingleEntryStatus>balance_quick, safe</SingleEntryStatus>
+        <SingleEntryStatus>btreeCreateTable, safe</SingleEntryStatus>
+        <SingleEntryStatus>fillInCell, safe</SingleEntryStatus>
+        <SingleEntryStatus>incrVacuumStep, safe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3BtreeTransferRow, unsafe</SingleEntryStatus>
+      </EntryStatus>
+    </Check>
+  </CheckList>
+  <Annotation>Could not find the Op representing the condition of an llvm::BranchInst!</Annotation>
+  <Status>allsafe</Status>
+</VerificationJob>

@@ -1,0 +1,178 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+handleJobInSeparateProcess0
+
+Checking job 35 ...about to run job:
+preconNumber: 5, 1
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 12
+    HavocLimit : 0
+    PreconditionNumber : 5
+    PreconditionLocation : jobs/35
+    TimeOut : 300
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : uplink_acq
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "uplink_acq" for 179 iterations succeeded.
+      Unrolling loop in function "uplink_acq" for 12 iterations succeeded.
+      Unrolling loop in function "uplink_acq" for 12 iterations succeeded.
+      Unrolling loop in function "uplink_acq" for 3 iterations succeeded.
+      Unrolling loop in function "uplink_acq" for 3 iterations succeeded.
+      Unrolling loop in function "uplink_acq" for 3 iterations succeeded.
+      Unrolling loop in function "uplink_acq" for 3 iterations succeeded.
+      Unrolling loop in function "uplink_acq" for 3 iterations succeeded.
+      Unrolling loop in function "uplink_acq" for 12 iterations succeeded.
+      Unrolling loop in function "uplink_acq" for 12 iterations succeeded.getMatchingFunctions
+getMatchingFunctions
+getMatchingFunctions
+getMatchingFunctions
+getMatchingFunctions
+getMatchingFunctions
+getMatchingFunctions
+getMatchingFunctions
+getMatchingFunctions
+getMatchingFunctions
+getMatchingFunctions
+getMatchingFunctions
+getMatchingFunctions
+getMatchingFunctions
+getMatchingFunctions
+getMatchingFunctions
+getMatchingFunctions
+getMatchingFunctions
+getMatchingFunctions
+getMatchingFunctions
+getMatchingFunctions
+getMatchingFunctions
+getMatchingFunctions
+getMatchingFunctions
+getMatchingFunctions
+
+      Transformed "uplink_acq" from 60 to 6308 basic blocks and from 318 to 59818 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...size Alloca: 1
+                      0 sec [DONE]
+        Number of expressions:                         82549
+        after encoding
+
+      899 assertions before transformations (754 no_function_call, 106 no_back_edge, 39 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                           61614
+        Fixed Memory Address Assigner
+          Number of moved ops                             10
+          Number of rewrites                             365
+        Simplifier
+          Number of moved ops                              1
+          Number of rewrites                           20545
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               3
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                         6591716
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                             741
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of rewrites                               0
+                                                           3 sec [DONE]
+        
+      899 assertions remain after transformations (754 no_function_call, 106 no_back_edge, 39 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...            0 sec [DONE]
+        
+                                                           3 sec [DONE]
+      after performing Check
+evaluateCheckerResultsViaRefinementLoop
+checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+getCheckerResultAfterUpdatingMarker
+failingInst:   %4 = call i32 (i8*, ...) @printf(i8* getelementptr inbounds ([39 x i8], [39 x i8]* @.str.4, i32 0, i32 0), i8* %arg0), !dbg !1387
+Preconditions internal: 
+
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   %4 = call i32 (i8*, ...) @printf(i8* getelementptr inbounds ([39 x i8], [39 x i8]* @.str.4, i32 0, i32 0), i8* %arg0), !dbg !1387
+Preconditions internal: 
+
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   %4 = call i32 (i8*, ...) @printf(i8* getelementptr inbounds ([39 x i8], [39 x i8]* @.str.4, i32 0, i32 0), i8* %arg0), !dbg !1387
+Preconditions internal: 
+
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   %4 = call i32 (i8*, ...) @printf(i8* getelementptr inbounds ([39 x i8], [39 x i8]* @.str.4, i32 0, i32 0), i8* %arg0), !dbg !1387
+Preconditions internal: 
+
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   %4 = call i32 (i8*, ...) @printf(i8* getelementptr inbounds ([39 x i8], [39 x i8]* @.str.4, i32 0, i32 0), i8* %arg0), !dbg !1387
+Preconditions internal: 
+
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      name of function arguments: Writing precondition at: jobs/35/precondition_uplink_acq.txt
+
+Generated Preconditions:
+[underoverapprox]name of function arguments: 
+
+
+
+
+
+
+                                                           4 sec [DONE]
+    allsafe
+    
+                                                           4 sec [DONE]
+  

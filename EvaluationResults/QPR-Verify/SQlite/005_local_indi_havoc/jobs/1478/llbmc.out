@@ -1,0 +1,120 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 1478 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 1
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/1478
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : parseModifier
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "parseModifier" for 1 iterations succeeded.
+      Unrolling loop in function "parseModifier" for 1 iterations succeeded.
+      Unrolling loop in function "parseModifier" for 1 iterations succeeded.
+      Transformed "parseModifier" from 88 to 111 basic blocks and from 592 to 669 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...Current: parseModifier Havoced: sqlite3_strnicmp
+Current: parseModifier Havoced: sqlite3Strlen30
+Current: parseModifier Havoced: sqlite3AtoF
+Current: parseModifier Havoced: computeYMD_HMS
+Current: parseModifier Havoced: computeJD
+Current: parseModifier Havoced: clearYMD_HMS_TZ
+Current: parseModifier Havoced: sqlite3_stricmp
+Current: parseModifier Havoced: sqlite3_stricmp
+Current: parseModifier Havoced: sqlite3NotPureFunc
+Current: parseModifier Havoced: computeJD
+Current: parseModifier Havoced: localtimeOffset
+Current: parseModifier Havoced: clearYMD_HMS_TZ
+Current: parseModifier Havoced: localtimeOffset
+Current: parseModifier Havoced: clearYMD_HMS_TZ
+Current: parseModifier Havoced: sqlite3_strnicmp
+Current: parseModifier Havoced: computeYMD
+Current: parseModifier Havoced: sqlite3_stricmp
+Current: parseModifier Havoced: sqlite3_stricmp
+Current: parseModifier Havoced: sqlite3_stricmp
+Current: parseModifier Havoced: sqlite3_stricmp
+Current: parseModifier Havoced: sqlite3NotPureFunc
+Current: parseModifier Havoced: computeJD
+Current: parseModifier Havoced: localtimeOffset
+Current: parseModifier Havoced: clearYMD_HMS_TZ
+Current: parseModifier Havoced: sqlite3AtoF
+Current: parseModifier Havoced: sqlite3Strlen30
+Current: parseModifier Havoced: computeJD
+Current: parseModifier Havoced: sqlite3_strnicmp
+Current: parseModifier Havoced: computeYMD_HMS
+Current: parseModifier Havoced: computeYMD_HMS
+Current: parseModifier Havoced: computeJD
+Current: parseModifier Havoced: clearYMD_HMS_TZ
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %183, i8 0, i64 48, i32 8, i1 false), !dbg !5930
+Current: parseModifier Havoced: parseHhMmSs
+Current: parseModifier Havoced: computeJD
+Current: parseModifier Havoced: computeJD
+Current: parseModifier Havoced: clearYMD_HMS_TZ
+                      0 sec [DONE]
+        Number of expressions:                        156298
+        after encoding
+
+      4 assertions before transformations (3 no_back_edge, 1 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            4039
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72643
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               3
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               9
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             191
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              79
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                              12
+                                                           0 sec [DONE]
+        
+      4 assertions remain after transformations (3 no_back_edge, 1 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...

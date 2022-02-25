@@ -1,0 +1,43 @@
+<VerificationJob>
+  <Configuration>
+    <AnalyzeChecksIndividually value="true" />
+    <BitcodeTraces value="false" />
+    <CheckCallers value="true" />
+    <DumpVerifierBitcodeFiles value="false" />
+    <EnableSlicing value="true" />
+    <EntryPoint value="quoteFunc" />
+    <FixPoint value="true" />
+    <ForkJobs value="true" />
+    <Hosted value="true" />
+    <IgnoreMissingFunctions value="false" />
+    <InitializedGlobals value="false" />
+    <LoopUnrollBound value="1" />
+    <PreconditionLocation value="jobs/1908" />
+    <SourceDirectory value="/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld" />
+    <TimeOut value="600" />
+    <XMLTraces value="false" />
+  </Configuration>
+  <CheckList>
+    <Check id="6185" location="6731" category="explicit.conversion.overflow" status="unsafe|loopboundreached" scope="sqlite3AtoF">
+      <Annotations>
+        <Annotation>An explicit conversion operation can overflow.</Annotation>
+        <Annotation>A loop bound was reached (/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld//home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld/sqlite3.c:32242:3)</Annotation>
+      </Annotations>
+      <EntryStatus>
+        <SingleEntryStatus>applyNumericAffinity, unknown</SingleEntryStatus>
+        <SingleEntryStatus>codeReal, unknown</SingleEntryStatus>
+        <SingleEntryStatus>computeNumericType, unknown</SingleEntryStatus>
+        <SingleEntryStatus>exprProbability, unknown</SingleEntryStatus>
+        <SingleEntryStatus>isLikeOrGlob, unknown</SingleEntryStatus>
+        <SingleEntryStatus>memRealValue, unknown</SingleEntryStatus>
+        <SingleEntryStatus>parseDateOrTime, unknown</SingleEntryStatus>
+        <SingleEntryStatus>parseModifier, unknown</SingleEntryStatus>
+        <SingleEntryStatus>quoteFunc, unsafe|loopboundreached</SingleEntryStatus>
+        <SingleEntryStatus>roundFunc, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3VdbeMemNumerify, unknown</SingleEntryStatus>
+      </EntryStatus>
+    </Check>
+  </CheckList>
+  <Annotation>allunsafe</Annotation>
+  <Status>allunsafe</Status>
+</VerificationJob>

@@ -1,0 +1,198 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 1521 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 2
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/1521
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : strftimeFunc
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "strftimeFunc" for 1 iterations succeeded.
+      Unrolling loop in function "strftimeFunc" for 1 iterations succeeded.
+      Transformed "strftimeFunc" from 54 to 106 basic blocks and from 422 to 534 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...Current: sqlite3_value_text Havoced: sqlite3ValueText
+
+        Unrolling loop in function "isDate" for 1 iterations succeeded.
+        Transformed "isDate" from 23 to 24 basic blocks and from 89 to 92 instructionsisMemset:   call void @llvm.memset.p0i8.i64(i8* %4, i8 0, i64 48, i32 8, i1 false), !dbg !5645
+Current: isDate Havoced: sqlite3_value_type
+Current: isDate Havoced: sqlite3_value_text
+Current: isDate Havoced: parseDateOrTime
+Current: isDate Havoced: sqlite3_value_double
+Current: isDate Havoced: setRawDateNumber
+Current: isDate Havoced: sqlite3_value_text
+Current: isDate Havoced: sqlite3_value_bytes
+Current: isDate Havoced: parseModifier
+Current: isDate Havoced: computeJD
+Current: isDate Havoced: validJulianDay
+Current: isDate Havoced: sqlite3NotPureFunc
+Current: isDate Havoced: setDateTimeToCurrent
+Current: sqlite3DbMallocRawNN Havoced: dbMallocRawFinish
+Current: sqlite3DbMallocRawNN Havoced: dbMallocRawFinish
+Current: sqlite3_result_error_nomem Havoced: sqlite3VdbeMemSetNull
+Current: sqlite3_result_error_nomem Havoced: sqlite3OomFault
+Current: sqlite3_result_error_toobig Havoced: sqlite3VdbeMemSetStr
+Current: computeJD Havoced: datetimeError
+Current: computeYMD_HMS Havoced: computeYMD
+Current: computeYMD_HMS Havoced: computeHMS
+
+        Unrolling loop in function "sqlite3Int64ToText" for 1 iterations succeeded.
+        Transformed "sqlite3Int64ToText" from 100 to 101 instructionsisMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %1, i8* %26, i64 %28, i32 1, i1 false), !dbg !5669
+
+        Unrolling loop in function "llbmc.strlen" for 0 iterations succeeded.
+        Transformed "llbmc.strlen" from 8 to 9 instructionsCurrent: sqlite3_snprintf Havoced: sqlite3_vsnprintf
+Current: sqlite3_snprintf Havoced: sqlite3_vsnprintf
+Current: sqlite3_snprintf Havoced: sqlite3_vsnprintf
+Current: sqlite3_snprintf Havoced: sqlite3_vsnprintf
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %88, i8* %89, i64 48, i32 8, i1 false), !dbg !5798
+Current: computeJD Havoced: datetimeError
+Current: sqlite3_snprintf Havoced: sqlite3_vsnprintf
+Current: sqlite3_snprintf Havoced: sqlite3_vsnprintf
+Current: sqlite3_snprintf Havoced: sqlite3_vsnprintf
+Current: sqlite3_snprintf Havoced: sqlite3_vsnprintf
+Current: sqlite3_snprintf Havoced: sqlite3_vsnprintf
+Current: sqlite3_snprintf Havoced: sqlite3_vsnprintf
+Current: sqlite3_result_text Havoced: setResultStrOrError
+
+                                                           0 sec [DONE]
+        Number of expressions:                        157663
+        after encoding
+
+      9 assertions before transformations (8 no_back_edge, 1 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            4895
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72665
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                              24
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             274
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             306
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              64
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               2
+                                                           0 sec [DONE]
+        
+      9 assertions remain after transformations (8 no_back_edge, 1 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...            0 sec [DONE]
+        
+                                                           1 sec [DONE]
+      after performing Check
+evaluateCheckerResultsViaRefinementLoop
+checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+BranchInst - LoopBound
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+BranchInst - LoopBound
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+BranchInst - LoopBound
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+BranchInst - LoopBound
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+BranchInst - LoopBound
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      getCheckerResultAfterUpdatingMarker
+Result is NoTrace
+
+                                                           2 sec [DONE]
+    allsafe
+    
+                                                           2 sec [DONE]
+  

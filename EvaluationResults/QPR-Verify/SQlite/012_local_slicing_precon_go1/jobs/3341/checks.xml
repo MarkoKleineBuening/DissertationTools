@@ -1,0 +1,42 @@
+<VerificationJob>
+  <Configuration>
+    <AnalyzeChecksIndividually value="true" />
+    <BitcodeTraces value="false" />
+    <CheckOnlyPrecondition value="true" />
+    <DumpVerifierBitcodeFiles value="false" />
+    <EnableSlicing value="true" />
+    <EntryPoint value="sqlite3Pragma" />
+    <FixPoint value="true" />
+    <ForkJobs value="true" />
+    <Hosted value="true" />
+    <IgnoreMissingFunctions value="false" />
+    <InitializedGlobals value="false" />
+    <LoopUnrollBound value="1" />
+    <PreconditionLocation value="jobs/3341" />
+    <PreconditionNumber value="5" />
+    <SourceDirectory value="/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld" />
+    <StopEncodingAfterCheck value="true" />
+    <StopEncodingAfterCheckLoop value="1" />
+    <TimeOut value="600" />
+    <XMLTraces value="false" />
+  </Configuration>
+  <CheckList>
+    <Check id="10669" location="11608" category="implicit.conversion.overflow" status="safe" scope="sqlite3BtreeGetPageSize">
+      <Annotations>
+        <Annotation>An implicit conversion operation can overflow.</Annotation>
+      </Annotations>
+      <EntryStatus>
+        <SingleEntryStatus>backupOnePage, safe</SingleEntryStatus>
+        <SingleEntryStatus>setDestPgsz, safe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3BtreeCopyFile, safe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3Pragma, safe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3RunVacuum, safe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3VdbeSorterInit, safe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3_backup_step, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3_serialize, safe</SingleEntryStatus>
+      </EntryStatus>
+    </Check>
+  </CheckList>
+  <Annotation>allunsafe</Annotation>
+  <Status>allsafe</Status>
+</VerificationJob>

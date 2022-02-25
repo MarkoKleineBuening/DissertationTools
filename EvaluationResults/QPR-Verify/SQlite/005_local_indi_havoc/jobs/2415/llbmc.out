@@ -1,0 +1,110 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 2415 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 1
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/2415
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : sqlite3PcacheDrop
+m_checker->run()
+
+    Performing bounded model checking ...getMatchingFunctions
+res.push_back: pcache1Unpin
+
+      Transformed "sqlite3PcacheDrop" from 3 to 69 basic blocks and from 29 to 252 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...Current: sqlite3PcacheDrop Havoced: pcacheManageDirtyList
+Current: sqlite3PcacheDrop Havoced: vdbePmaWriteBlob
+Current: sqlite3PcacheDrop Havoced: substSelect
+Current: sqlite3PcacheDrop Havoced: computeLimitRegisters
+Current: sqlite3PcacheDrop Havoced: exprAnalyzeOrTerm
+Current: sqlite3PcacheDrop Havoced: exprAnalyze
+Current: sqlite3PcacheDrop Havoced: sqlite3TableAffinity
+Current: sqlite3PcacheDrop Havoced: sqlite3RefillIndex
+Current: sqlite3PcacheDrop Havoced: sqlite3CodeRhsOfIN
+Current: sqlite3PcacheDrop Havoced: resizeResolveLabel
+Current: sqlite3PcacheDrop Havoced: sqlite3ExprCodeFactorable
+Current: sqlite3PcacheDrop Havoced: sqlite3ExprCode
+Current: sqlite3PcacheDrop Havoced: sqlite3ExprCodeCopy
+Current: sqlite3PcacheDrop Havoced: sqlite3VdbeAppendP4
+Current: sqlite3PcacheDrop Havoced: sqlite3ExprCodeGeneratedColumn
+Current: sqlite3PcacheDrop Havoced: renameFixQuotes
+Current: sqlite3PcacheDrop Havoced: sqlite3DropTrigger
+Current: sqlite3PcacheDrop Havoced: sqlite3DropIndex
+Current: sqlite3PcacheDrop Havoced: sqlite3ExprAssignVarNumber
+Current: sqlite3PcacheDrop Havoced: sqlite3_result_error16
+Current: sqlite3PcacheDrop Havoced: vdbeClrCopy
+Current: sqlite3PcacheDrop Havoced: sqlite3VdbeMemShallowCopy
+Current: sqlite3PcacheDrop Havoced: sqlite3_result_error
+Current: sqlite3PcacheDrop Havoced: pcache1Unpin
+Current: sqlite3PcacheDrop Havoced: removeElementGivenHash
+Current: sqlite3PcacheDrop Havoced: clearSelect
+Current: sqlite3PcacheDrop Havoced: vdbeFreeOpArray
+Current: sqlite3PcacheDrop Havoced: enlargeAndAppend
+Current: sqlite3PcacheDrop Havoced: sqlite3_str_append
+Current: sqlite3PcacheDrop Havoced: output_json_string
+Current: sqlite3PcacheDrop Havoced: output_hex_blob
+Current: sqlite3PcacheDrop Havoced: output_csv
+Current: sqlite3PcacheDrop Havoced: SHA3Update
+                      0 sec [DONE]
+        Number of expressions:                        155725
+        after encoding
+
+      2 assertions before transformations (1 no_function_call, 1 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            3758
+        Fixed Memory Address Assigner
+          Number of moved ops                              2
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72605
+        Memory Model Encoder
+          Number of moved ops                              0
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                             142
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      2 assertions remain after transformations (1 no_function_call, 1 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...

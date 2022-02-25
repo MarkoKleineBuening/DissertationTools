@@ -1,0 +1,50 @@
+<VerificationJob>
+  <Configuration>
+    <AnalyzeChecksIndividually value="true" />
+    <BitcodeTraces value="false" />
+    <CheckOnlyPrecondition value="true" />
+    <DumpVerifierBitcodeFiles value="false" />
+    <EnableSlicing value="true" />
+    <EntryPoint value="sqlite3UniqueConstraint" />
+    <FixPoint value="true" />
+    <ForkJobs value="true" />
+    <Hosted value="true" />
+    <IgnoreMissingFunctions value="false" />
+    <InitializedGlobals value="false" />
+    <LoopUnrollBound value="1" />
+    <PreconditionLocation value="jobs/1727" />
+    <PreconditionNumber value="5" />
+    <SourceDirectory value="/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld" />
+    <StopEncodingAfterCheck value="true" />
+    <StopEncodingAfterCheckLoop value="1" />
+    <TimeOut value="600" />
+    <XMLTraces value="false" />
+  </Configuration>
+  <CheckList>
+    <Check id="5662" location="6107" category="arithmetic.overflow.warning" status="safe" scope="sqlite3_str_append">
+      <Annotations>
+        <Annotation>An unsigned arithmetic operation can overflow (wraparound).</Annotation>
+        <Annotation>Unable to open precondition file!
+ (job:1727)</Annotation>
+        <Annotation>Unable to open precondition file!
+ (job:1727)</Annotation>
+      </Annotations>
+      <EntryStatus>
+        <SingleEntryStatus>checkAppendMsg, safe</SingleEntryStatus>
+        <SingleEntryStatus>explainAppendTerm, safe</SingleEntryStatus>
+        <SingleEntryStatus>explainIndexRange, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>groupConcatStep, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>pragmaVtabConnect, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3UniqueConstraint, safe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3VdbeDisplayP4, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3VdbeExpandSql, safe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3WhereExplainOneScan, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3_str_appendall, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3_str_vappendf, unsafe</SingleEntryStatus>
+      </EntryStatus>
+    </Check>
+  </CheckList>
+  <Annotation>Unable to open precondition file!
+</Annotation>
+  <Status>allsafe</Status>
+</VerificationJob>

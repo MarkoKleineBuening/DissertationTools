@@ -1,0 +1,931 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 8333 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 1
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/8333
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : openDatabase
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "openDatabase" for 1 iterations succeeded.getMatchingFunctions
+res.push_back: fsdirRegister
+res.push_back: sqlite3CompletionVtabInit
+res.push_back: shellDatabaseError
+res.push_back: sqlite3_total_changes
+res.push_back: sqlite3_changes
+res.push_back: sqlite3_close
+res.push_back: sqlite3_errcode
+res.push_back: sqlite3_get_autocommit
+res.push_back: sqlite3_extended_errcode
+res.push_back: sqlite3_vtab_on_conflict
+res.push_back: sqlite3_close_v2
+res.push_back: sqlite3_db_release_memory
+res.push_back: sqlite3_db_cacheflush
+res.push_back: sqlite3_system_errno
+res.push_back: sqlite3SafetyCheckOk
+res.push_back: sqlite3VtabCommit
+res.push_back: sqlite3VtabRollback
+res.push_back: sqlite3TempInMemory
+res.push_back: sqlite3WritableSchema
+res.push_back: sqlite3ReadOnlyShadowTables
+res.push_back: sqlite3SafetyCheckSickOrOk
+res.push_back: connectionIsBusy
+res.push_back: growVTrans
+res.push_back: sqlite3TestExtInit
+res.push_back: doWalCallbacks
+getMatchingFunctions
+res.push_back: fsdirRegister
+res.push_back: sqlite3CompletionVtabInit
+res.push_back: shellDatabaseError
+res.push_back: sqlite3_total_changes
+res.push_back: sqlite3_changes
+res.push_back: sqlite3_close
+res.push_back: sqlite3_errcode
+res.push_back: sqlite3_get_autocommit
+res.push_back: sqlite3_extended_errcode
+res.push_back: sqlite3_vtab_on_conflict
+res.push_back: sqlite3_close_v2
+res.push_back: sqlite3_db_release_memory
+res.push_back: sqlite3_db_cacheflush
+res.push_back: sqlite3_system_errno
+res.push_back: sqlite3SafetyCheckOk
+res.push_back: sqlite3VtabCommit
+res.push_back: sqlite3VtabRollback
+res.push_back: sqlite3TempInMemory
+res.push_back: sqlite3WritableSchema
+res.push_back: sqlite3ReadOnlyShadowTables
+res.push_back: sqlite3SafetyCheckSickOrOk
+res.push_back: connectionIsBusy
+res.push_back: growVTrans
+res.push_back: sqlite3TestExtInit
+res.push_back: doWalCallbacks
+
+      Transformed "openDatabase" from 63 to 1368 basic blocks and from 393 to 4211 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...Current: openDatabase Havoced: sqlite3_initialize
+Current: openDatabase Havoced: sqlite3MallocZero
+Current: openDatabase Havoced: sqlite3MutexAlloc
+Current: openDatabase Havoced: sqlite3_mutex_enter
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %55, i8* bitcast ([12 x i32]* @aHardLimit to i8*), i64 48, i32 8, i1 false), !dbg !5732
+Current: openDatabase Havoced: sqlite3HashInit
+Current: openDatabase Havoced: sqlite3HashInit
+Current: openDatabase Havoced: createCollation
+Current: openDatabase Havoced: createCollation
+Current: openDatabase Havoced: createCollation
+Current: openDatabase Havoced: createCollation
+Current: openDatabase Havoced: createCollation
+Current: openDatabase Havoced: sqlite3ParseUri
+Current: openDatabase Havoced: sqlite3MisuseError
+Current: openDatabase Havoced: sqlite3BtreeOpen
+Current: openDatabase Havoced: sqlite3BtreeEnter
+Current: openDatabase Havoced: sqlite3SchemaGet
+Current: openDatabase Havoced: sqlite3SetTextEncoding
+Current: openDatabase Havoced: sqlite3BtreeLeave
+Current: openDatabase Havoced: sqlite3SchemaGet
+Current: openDatabase Havoced: sqlite3Error
+Current: openDatabase Havoced: sqlite3RegisterPerConnectionBuiltinFunctions
+Current: openDatabase Havoced: sqlite3_errcode
+Current: openDatabase Havoced: pthreadMutexTry
+Current: openDatabase Havoced: noopMutexTry
+Current: openDatabase Havoced: renameResolveTrigger
+Current: openDatabase Havoced: sqlite3NotPureFunc
+Current: openDatabase Havoced: sqlite3WalCallback
+Current: openDatabase Havoced: sqlite3PagerWalCallback
+Current: openDatabase Havoced: doWalCallbacks
+Current: openDatabase Havoced: sqlite3VdbeList
+Current: openDatabase Havoced: sqlite3Reprepare
+Current: openDatabase Havoced: sqlite3Step
+Current: openDatabase Havoced: sqlite3TestExtInit
+Current: openDatabase Havoced: sqlite3BtreeNewDb
+Current: openDatabase Havoced: setDestPgsz
+Current: openDatabase Havoced: anotherValidCursor
+Current: openDatabase Havoced: balance
+Current: openDatabase Havoced: handleMovedCursor
+Current: openDatabase Havoced: sqlite3BtreeCursorHasMoved
+Current: openDatabase Havoced: vdbeSorterSetupMerge
+Current: openDatabase Havoced: vdbeIncrPopulate
+Current: openDatabase Havoced: vdbeIncrBgPopulate
+Current: openDatabase Havoced: vdbeIncrSwap
+Current: openDatabase Havoced: vdbePmaReaderNext
+Current: openDatabase Havoced: vdbeSortAllocUnpacked
+Current: openDatabase Havoced: vdbeSorterFlushPMA
+Current: openDatabase Havoced: btreeComputeFreeSpace
+Current: openDatabase Havoced: sqlite3BtreeGetReserveNoMutex
+Current: openDatabase Havoced: sqlite3BtreeGetRequestedReserve
+Current: openDatabase Havoced: growVTrans
+Current: openDatabase Havoced: sqlite3BtreeIncrVacuum
+Current: openDatabase Havoced: sqlite3PagerOkToChangeJournalMode
+Current: openDatabase Havoced: sqlite3VdbeMemSetRowSet
+Current: openDatabase Havoced: sqlite3BtreeClearTableOfCursor
+Current: openDatabase Havoced: sqlite3VdbeFinishMoveto
+Current: openDatabase Havoced: sqlite3VdbeCursorRestore
+Current: openDatabase Havoced: sqlite3BtreeCursorIsValidNN
+Current: openDatabase Havoced: sqlite3BtreeEof
+Current: openDatabase Havoced: sqlite3VdbeMemTooBig
+Current: openDatabase Havoced: sqlite3VdbeExec
+Current: openDatabase Havoced: connectionIsBusy
+Current: openDatabase Havoced: sqlite3PagerFlush
+Current: openDatabase Havoced: sqlite3SafetyCheckSickOrOk
+Current: openDatabase Havoced: getToken
+Current: openDatabase Havoced: identLength
+Current: openDatabase Havoced: sqlite3BtreeIsReadonly
+Current: openDatabase Havoced: hasAnchor
+Current: openDatabase Havoced: windowArgCount
+Current: openDatabase Havoced: windowCacheFrame
+Current: openDatabase Havoced: sqlite3WhereIsSorted
+Current: openDatabase Havoced: sqlite3WhereBreakLabel
+Current: openDatabase Havoced: sqlite3WhereContinueLabel
+Current: openDatabase Havoced: sqlite3WhereOrderByLimitOptLabel
+Current: openDatabase Havoced: sqlite3WhereIsOrdered
+Current: openDatabase Havoced: sqlite3WhereIsDistinct
+Current: openDatabase Havoced: sqlite3SelectExprHeight
+Current: openDatabase Havoced: moveToLeftmost
+Current: openDatabase Havoced: btreeNext
+Current: openDatabase Havoced: moveToRoot
+Current: openDatabase Havoced: moveToRightmost
+Current: openDatabase Havoced: btreeRestoreCursorPosition
+Current: openDatabase Havoced: btreePrevious
+Current: openDatabase Havoced: sqlite3UpsertNextIsIPK
+Current: openDatabase Havoced: sqlite3IsBinary
+Current: openDatabase Havoced: sqlite3VdbeExplainParent
+Current: openDatabase Havoced: sqlite3WhereUsesDeferredSeek
+Current: openDatabase Havoced: whereLoopAddAll
+Current: openDatabase Havoced: whereShortCut
+Current: openDatabase Havoced: exprIsDeterministic
+Current: openDatabase Havoced: sqlite3VdbeHasSubProgram
+Current: openDatabase Havoced: sqlite3ExprListFlags
+Current: openDatabase Havoced: getTempStore
+Current: openDatabase Havoced: integrityCheckResultRow
+Current: openDatabase Havoced: invalidateTempStorage
+Current: openDatabase Havoced: getAutoVacuum
+Current: openDatabase Havoced: sqlite3BtreeGetAutoVacuum
+Current: openDatabase Havoced: getLockingMode
+Current: openDatabase Havoced: sqlite3WalHeapMemory
+Current: openDatabase Havoced: sqlite3BtreeIsInBackup
+Current: openDatabase Havoced: sqlite3JournalSize
+Current: openDatabase Havoced: sqlite3OpenTempDatabase
+Current: openDatabase Havoced: sqlite3InRhsIsConstant
+Current: openDatabase Havoced: sqlite3GetTempReg
+Current: openDatabase Havoced: sqlite3VdbeMakeLabel
+Current: openDatabase Havoced: sqlite3ExprIsConstantNotJoin
+Current: openDatabase Havoced: sqlite3VdbeCurrentAddr
+Current: openDatabase Havoced: sqlite3ExprIsVector
+Current: openDatabase Havoced: sqlite3ExprTruthValue
+Current: openDatabase Havoced: sqlite3ReadOnlyShadowTables
+Current: openDatabase Havoced: sqlite3BtreeSharable
+Current: openDatabase Havoced: sqlite3IndexHasDuplicateRootPage
+Current: openDatabase Havoced: pragmaVtabEof
+Current: openDatabase Havoced: pragmaVtabNext
+Current: openDatabase Havoced: pragmaVtabClose
+Current: openDatabase Havoced: pragmaVtabDisconnect
+Current: openDatabase Havoced: sqlite3ReadSchema
+Current: openDatabase Havoced: sqlite3IsTrueOrFalse
+Current: openDatabase Havoced: sqlite3IsRowid
+Current: openDatabase Havoced: sqlite3ExprVectorSize
+Current: openDatabase Havoced: exprProbability
+Current: openDatabase Havoced: sqlite3ExprCanBeNull
+Current: openDatabase Havoced: exprStructSize
+Current: openDatabase Havoced: sqlite3VdbeMemRealify
+Current: openDatabase Havoced: sqlite3VdbeMemIntegerify
+Current: openDatabase Havoced: sqlite3VdbeMemNumerify
+Current: openDatabase Havoced: sqlite3ExprIsConstant
+Current: openDatabase Havoced: sqlite3ExprIdToTrueFalse
+Current: openDatabase Havoced: analyzeWindowKeyword
+Current: openDatabase Havoced: sqlite3WalDbsize
+Current: openDatabase Havoced: pagerBeginReadTransaction
+Current: openDatabase Havoced: pagerOpenWalIfPresent
+Current: openDatabase Havoced: pagerExclusiveLock
+Current: openDatabase Havoced: pagerOpenWal
+Current: openDatabase Havoced: sqlite3PagerWalSupported
+Current: openDatabase Havoced: sqlite3WritableSchema
+Current: openDatabase Havoced: sqlite3PagerSharedLock
+Current: openDatabase Havoced: sqlite3WalBeginWriteTransaction
+Current: openDatabase Havoced: sqlite3InvokeBusyHandler
+Current: openDatabase Havoced: btreeInvokeBusyHandler
+Current: openDatabase Havoced: sqlite3TempInMemory
+Current: openDatabase Havoced: lockBtree
+Current: openDatabase Havoced: sqlite3PagerDataVersion
+Current: openDatabase Havoced: sqlite3BtreeCommit
+Current: openDatabase Havoced: vdbeSorterJoinThread
+Current: openDatabase Havoced: walPagesize
+Current: openDatabase Havoced: pagerSyncHotJournal
+Current: openDatabase Havoced: removeFromSharingList
+Current: openDatabase Havoced: sqlite3BtreeClose
+Current: openDatabase Havoced: sqlite3BtreeCloseCursor
+Current: openDatabase Havoced: sqlite3VdbeFrameRestore
+Current: openDatabase Havoced: sqlite3VtabRollback
+Current: openDatabase Havoced: sqlite3PagerPageRefcount
+Current: openDatabase Havoced: sqlite3BitvecSize
+Current: openDatabase Havoced: btreeCellSizeCheck
+Current: openDatabase Havoced: btreeInitPage
+Current: openDatabase Havoced: setChildPtrmaps
+Current: openDatabase Havoced: walIndexRecover
+Current: openDatabase Havoced: walRestartLog
+Current: openDatabase Havoced: autoVacuumCommit
+Current: openDatabase Havoced: sqlite3PagerCommitPhaseTwo
+Current: openDatabase Havoced: sqlite3VtabCommit
+Current: openDatabase Havoced: sqlite3PagerExclusiveLock
+Current: openDatabase Havoced: sqlite3PagerGetJournalMode
+Current: openDatabase Havoced: sqlite3BtreePayloadSize
+Current: openDatabase Havoced: saveCursorKey
+Current: openDatabase Havoced: saveCursorPosition
+Current: openDatabase Havoced: sqlite3PcachePageRefcount
+Current: openDatabase Havoced: btreePagecount
+Current: openDatabase Havoced: sqlite3BtreeLastPage
+Current: openDatabase Havoced: sqlite3PagerIsMemdb
+Current: openDatabase Havoced: sqlite3BtreeGetPageSize
+Current: openDatabase Havoced: sqlite3OsSectorSize
+Current: openDatabase Havoced: sqlite3SectorSize
+Current: openDatabase Havoced: numberOfCachePages
+Current: openDatabase Havoced: sqlite3PCachePercentDirty
+Current: openDatabase Havoced: sqlite3WalEndWriteTransaction
+Current: openDatabase Havoced: sqlite3PagerRollback
+Current: openDatabase Havoced: readDbPage
+Current: openDatabase Havoced: sqlite3PcacheRefCount
+Current: openDatabase Havoced: pagerRollbackWal
+Current: openDatabase Havoced: sqlite3JournalIsInMemory
+Current: openDatabase Havoced: openSubJournal
+Current: openDatabase Havoced: subjournalPage
+Current: openDatabase Havoced: subjRequiresPage
+Current: openDatabase Havoced: memjrnlCreateFile
+Current: openDatabase Havoced: memjrnlClose
+Current: openDatabase Havoced: sqlite3OsDeviceCharacteristics
+Current: openDatabase Havoced: writeJournalHdr
+Current: openDatabase Havoced: databaseIsUnmoved
+Current: openDatabase Havoced: jrnlBufferSize
+Current: openDatabase Havoced: pagerAddPageToRollbackJournal
+Current: openDatabase Havoced: pager_open_journal
+Current: openDatabase Havoced: pager_write
+Current: openDatabase Havoced: pagerWriteLargeSector
+Current: openDatabase Havoced: subjournalPageIfRequired
+Current: openDatabase Havoced: sqlite3PagerWrite
+Current: openDatabase Havoced: sqlite3Get4byte
+Current: openDatabase Havoced: newDatabase
+Current: openDatabase Havoced: sqlite3VdbeTransferError
+Current: openDatabase Havoced: sqlite3VdbeHalt
+Current: openDatabase Havoced: sqlite3VdbeReset
+Current: openDatabase Havoced: sqlite3VdbeFinalize
+Current: openDatabase Havoced: sqlite3BtreeSchemaLocked
+Current: openDatabase Havoced: sqlite3SafetyCheckOk
+Current: openDatabase Havoced: vdbeSafety
+Current: openDatabase Havoced: vdbeSafetyNotNull
+Current: openDatabase Havoced: sqlite3BtreeTxnState
+Current: openDatabase Havoced: sqlite3_value_frombind
+Current: openDatabase Havoced: sqlite3_stmt_isexplain
+Current: openDatabase Havoced: sqlite3_str_length
+Current: openDatabase Havoced: sqlite3_str_errcode
+Current: openDatabase Havoced: sqlite3_value_nochange
+Current: openDatabase Havoced: sqlite3_vtab_nochange
+Current: openDatabase Havoced: sqlite3_system_errno
+Current: openDatabase Havoced: sqlite3_db_cacheflush
+Current: openDatabase Havoced: sqlite3_value_subtype
+Current: openDatabase Havoced: sqlite3_cancel_auto_extension
+Current: openDatabase Havoced: sqlite3_auto_extension
+Current: openDatabase Havoced: sqlite3_stmt_readonly
+Current: openDatabase Havoced: sqlite3_stmt_busy
+Current: openDatabase Havoced: sqlite3_db_release_memory
+Current: openDatabase Havoced: sqlite3_close_v2
+Current: openDatabase Havoced: sqlite3_vtab_on_conflict
+Current: openDatabase Havoced: sqlite3_extended_errcode
+Current: openDatabase Havoced: sqlite3_backup_remaining
+Current: openDatabase Havoced: sqlite3_backup_pagecount
+Current: openDatabase Havoced: sqlite3_backup_finish
+Current: openDatabase Havoced: sqlite3_vfs_unregister
+Current: openDatabase Havoced: sqlite3_blob_close
+Current: openDatabase Havoced: sqlite3_blob_bytes
+Current: openDatabase Havoced: sqlite3_clear_bindings
+Current: openDatabase Havoced: sqlite3_value_bytes16
+Current: openDatabase Havoced: sqlite3_step
+Current: openDatabase Havoced: sqlite3_reset
+Current: openDatabase Havoced: sqlite3_get_autocommit
+Current: openDatabase Havoced: sqlite3_finalize
+Current: openDatabase Havoced: sqlite3_expired
+Current: openDatabase Havoced: sqlite3_errcode
+Current: openDatabase Havoced: sqlite3_data_count
+Current: openDatabase Havoced: sqlite3_complete16
+Current: openDatabase Havoced: sqlite3_complete
+Current: openDatabase Havoced: sqlite3_column_count
+Current: openDatabase Havoced: sqlite3_close
+Current: openDatabase Havoced: sqlite3_bind_parameter_count
+Current: openDatabase Havoced: sqlite3_aggregate_count
+Current: openDatabase Havoced: sqlite3OsGetLastError
+Current: openDatabase Havoced: sqlite3_compileoption_used
+Current: openDatabase Havoced: sqlite3_changes
+Current: openDatabase Havoced: sqlite3_total_changes
+Current: openDatabase Havoced: sqlite3_value_int
+Current: openDatabase Havoced: sqlite3VdbeMemHandleBom
+Current: openDatabase Havoced: sqlite3Utf8Read
+Current: openDatabase Havoced: sqlite3_value_bytes
+Current: openDatabase Havoced: sqlite3_value_type
+Current: openDatabase Havoced: sqlite3_value_numeric_type
+Current: openDatabase Havoced: pcache1InitBulk
+Current: openDatabase Havoced: pcache1UnderMemoryPressure
+Current: openDatabase Havoced: pcache1Pagecount
+Current: openDatabase Havoced: pcache1Init
+Current: openDatabase Havoced: sqlite3MemInit
+Current: openDatabase Havoced: sqlite3MemSize
+Current: openDatabase Havoced: sqlite3Atoi
+Current: openDatabase Havoced: unixOpenSharedMemory
+Current: openDatabase Havoced: unixClose
+Current: openDatabase Havoced: nolockClose
+Current: openDatabase Havoced: closeUnixFile
+Current: openDatabase Havoced: fileHasMoved
+Current: openDatabase Havoced: unixDeviceCharacteristics
+Current: openDatabase Havoced: unixSectorSize
+Current: openDatabase Havoced: dotlockClose
+Current: openDatabase Havoced: memdbDeviceCharacteristics
+Current: openDatabase Havoced: memdbClose
+Current: openDatabase Havoced: countLookasideSlots
+Current: openDatabase Havoced: sqlite3_mutex_try
+Current: openDatabase Havoced: sqlite3PcachePagecount
+Current: openDatabase Havoced: strHash
+Current: openDatabase Havoced: sqlite3BtreeConnectionCount
+Current: openDatabase Havoced: sqlite3PagerMemUsed
+Current: openDatabase Havoced: vdbeMemAddTerminator
+Current: openDatabase Havoced: sqlite3VdbeMemNulTerminate
+Current: openDatabase Havoced: sqlite3VdbeMemMakeWriteable
+Current: openDatabase Havoced: sqlite3VdbeMemExpandBlob
+Current: openDatabase Havoced: sqlite3Strlen30
+Current: openDatabase Havoced: sqlite3MallocSize
+Current: openDatabase Havoced: line_is_command_terminator
+Current: openDatabase Havoced: _all_whitespace
+Current: openDatabase Havoced: wsToEol
+Current: openDatabase Havoced: strlenChar
+Current: openDatabase Havoced: get4byteInt
+Current: openDatabase Havoced: get2byteInt
+Current: openDatabase Havoced: shellDatabaseError
+Current: openDatabase Havoced: notNormalFile
+Current: openDatabase Havoced: progress_handler
+Current: openDatabase Havoced: booleanValue
+Current: openDatabase Havoced: idxIdentifierRequiresQuotes
+Current: openDatabase Havoced: expertEof
+Current: openDatabase Havoced: expertNext
+Current: openDatabase Havoced: expertClose
+Current: openDatabase Havoced: expertDisconnect
+Current: openDatabase Havoced: idxRegisterVtab
+Current: openDatabase Havoced: re_esc_char
+Current: openDatabase Havoced: re_next_char
+Current: openDatabase Havoced: re_next_char_nocase
+Current: openDatabase Havoced: seriesEof
+Current: openDatabase Havoced: seriesNext
+Current: openDatabase Havoced: seriesClose
+Current: openDatabase Havoced: seriesDisconnect
+Current: openDatabase Havoced: memtraceInit
+Current: openDatabase Havoced: memtraceSize
+Current: openDatabase Havoced: apndDeviceCharacteristics
+Current: openDatabase Havoced: apndSectorSize
+Current: openDatabase Havoced: apndClose
+Current: openDatabase Havoced: completionEof
+Current: openDatabase Havoced: completionNext
+Current: openDatabase Havoced: completionClose
+Current: openDatabase Havoced: completionDisconnect
+Current: openDatabase Havoced: fsdirEof
+Current: openDatabase Havoced: fsdirNext
+Current: openDatabase Havoced: fsdirClose
+Current: openDatabase Havoced: fsdirDisconnect
+Current: openDatabase Havoced: makeDirectory
+Current: openDatabase Havoced: process_input
+Current: openDatabase Havoced: strlen30
+Current: openDatabase Havoced: shellDeleteFile
+Current: openDatabase Havoced: sqlite3_expert_count
+Current: openDatabase Havoced: idxCreateCandidates
+Current: openDatabase Havoced: sqlite3MemTraceActivate
+Current: openDatabase Havoced: sqlite3CompletionVtabInit
+Current: openDatabase Havoced: fsdirRegister
+Current: openDatabase Havoced: sqlite3AutoLoadExtensions
+Current: openDatabase Havoced: sqlite3_errcode
+Current: openDatabase Havoced: sqlite3Error
+Current: openDatabase Havoced: setupLookaside
+Current: openDatabase Havoced: sqlite3_wal_autocheckpoint
+Current: openDatabase Havoced: pthreadMutexTry
+Current: openDatabase Havoced: noopMutexTry
+Current: openDatabase Havoced: renameResolveTrigger
+Current: openDatabase Havoced: sqlite3NotPureFunc
+Current: openDatabase Havoced: sqlite3WalCallback
+Current: openDatabase Havoced: sqlite3PagerWalCallback
+Current: openDatabase Havoced: doWalCallbacks
+Current: openDatabase Havoced: sqlite3VdbeList
+Current: openDatabase Havoced: sqlite3Reprepare
+Current: openDatabase Havoced: sqlite3Step
+Current: openDatabase Havoced: sqlite3TestExtInit
+Current: openDatabase Havoced: sqlite3BtreeNewDb
+Current: openDatabase Havoced: setDestPgsz
+Current: openDatabase Havoced: anotherValidCursor
+Current: openDatabase Havoced: balance
+Current: openDatabase Havoced: handleMovedCursor
+Current: openDatabase Havoced: sqlite3BtreeCursorHasMoved
+Current: openDatabase Havoced: vdbeSorterSetupMerge
+Current: openDatabase Havoced: vdbeIncrPopulate
+Current: openDatabase Havoced: vdbeIncrBgPopulate
+Current: openDatabase Havoced: vdbeIncrSwap
+Current: openDatabase Havoced: vdbePmaReaderNext
+Current: openDatabase Havoced: vdbeSortAllocUnpacked
+Current: openDatabase Havoced: vdbeSorterFlushPMA
+Current: openDatabase Havoced: btreeComputeFreeSpace
+Current: openDatabase Havoced: sqlite3BtreeGetReserveNoMutex
+Current: openDatabase Havoced: sqlite3BtreeGetRequestedReserve
+Current: openDatabase Havoced: growVTrans
+Current: openDatabase Havoced: sqlite3BtreeIncrVacuum
+Current: openDatabase Havoced: sqlite3PagerOkToChangeJournalMode
+Current: openDatabase Havoced: sqlite3VdbeMemSetRowSet
+Current: openDatabase Havoced: sqlite3BtreeClearTableOfCursor
+Current: openDatabase Havoced: sqlite3VdbeFinishMoveto
+Current: openDatabase Havoced: sqlite3VdbeCursorRestore
+Current: openDatabase Havoced: sqlite3BtreeCursorIsValidNN
+Current: openDatabase Havoced: sqlite3BtreeEof
+Current: openDatabase Havoced: sqlite3VdbeMemTooBig
+Current: openDatabase Havoced: sqlite3VdbeExec
+Current: openDatabase Havoced: connectionIsBusy
+Current: openDatabase Havoced: sqlite3PagerFlush
+Current: openDatabase Havoced: sqlite3SafetyCheckSickOrOk
+Current: openDatabase Havoced: getToken
+Current: openDatabase Havoced: identLength
+Current: openDatabase Havoced: sqlite3BtreeIsReadonly
+Current: openDatabase Havoced: hasAnchor
+Current: openDatabase Havoced: windowArgCount
+Current: openDatabase Havoced: windowCacheFrame
+Current: openDatabase Havoced: sqlite3WhereIsSorted
+Current: openDatabase Havoced: sqlite3WhereBreakLabel
+Current: openDatabase Havoced: sqlite3WhereContinueLabel
+Current: openDatabase Havoced: sqlite3WhereOrderByLimitOptLabel
+Current: openDatabase Havoced: sqlite3WhereIsOrdered
+Current: openDatabase Havoced: sqlite3WhereIsDistinct
+Current: openDatabase Havoced: sqlite3SelectExprHeight
+Current: openDatabase Havoced: moveToLeftmost
+Current: openDatabase Havoced: btreeNext
+Current: openDatabase Havoced: moveToRoot
+Current: openDatabase Havoced: moveToRightmost
+Current: openDatabase Havoced: btreeRestoreCursorPosition
+Current: openDatabase Havoced: btreePrevious
+Current: openDatabase Havoced: sqlite3UpsertNextIsIPK
+Current: openDatabase Havoced: sqlite3IsBinary
+Current: openDatabase Havoced: sqlite3VdbeExplainParent
+Current: openDatabase Havoced: sqlite3WhereUsesDeferredSeek
+Current: openDatabase Havoced: whereLoopAddAll
+Current: openDatabase Havoced: whereShortCut
+Current: openDatabase Havoced: exprIsDeterministic
+Current: openDatabase Havoced: sqlite3VdbeHasSubProgram
+Current: openDatabase Havoced: sqlite3ExprListFlags
+Current: openDatabase Havoced: getTempStore
+Current: openDatabase Havoced: integrityCheckResultRow
+Current: openDatabase Havoced: invalidateTempStorage
+Current: openDatabase Havoced: getAutoVacuum
+Current: openDatabase Havoced: sqlite3BtreeGetAutoVacuum
+Current: openDatabase Havoced: getLockingMode
+Current: openDatabase Havoced: sqlite3WalHeapMemory
+Current: openDatabase Havoced: sqlite3BtreeIsInBackup
+Current: openDatabase Havoced: sqlite3JournalSize
+Current: openDatabase Havoced: sqlite3OpenTempDatabase
+Current: openDatabase Havoced: sqlite3InRhsIsConstant
+Current: openDatabase Havoced: sqlite3GetTempReg
+Current: openDatabase Havoced: sqlite3VdbeMakeLabel
+Current: openDatabase Havoced: sqlite3ExprIsConstantNotJoin
+Current: openDatabase Havoced: sqlite3VdbeCurrentAddr
+Current: openDatabase Havoced: sqlite3ExprIsVector
+Current: openDatabase Havoced: sqlite3ExprTruthValue
+Current: openDatabase Havoced: sqlite3ReadOnlyShadowTables
+Current: openDatabase Havoced: sqlite3BtreeSharable
+Current: openDatabase Havoced: sqlite3IndexHasDuplicateRootPage
+Current: openDatabase Havoced: pragmaVtabEof
+Current: openDatabase Havoced: pragmaVtabNext
+Current: openDatabase Havoced: pragmaVtabClose
+Current: openDatabase Havoced: pragmaVtabDisconnect
+Current: openDatabase Havoced: sqlite3ReadSchema
+Current: openDatabase Havoced: sqlite3IsTrueOrFalse
+Current: openDatabase Havoced: sqlite3IsRowid
+Current: openDatabase Havoced: sqlite3ExprVectorSize
+Current: openDatabase Havoced: exprProbability
+Current: openDatabase Havoced: sqlite3ExprCanBeNull
+Current: openDatabase Havoced: exprStructSize
+Current: openDatabase Havoced: sqlite3VdbeMemRealify
+Current: openDatabase Havoced: sqlite3VdbeMemIntegerify
+Current: openDatabase Havoced: sqlite3VdbeMemNumerify
+Current: openDatabase Havoced: sqlite3ExprIsConstant
+Current: openDatabase Havoced: sqlite3ExprIdToTrueFalse
+Current: openDatabase Havoced: analyzeWindowKeyword
+Current: openDatabase Havoced: sqlite3WalDbsize
+Current: openDatabase Havoced: pagerBeginReadTransaction
+Current: openDatabase Havoced: pagerOpenWalIfPresent
+Current: openDatabase Havoced: pagerExclusiveLock
+Current: openDatabase Havoced: pagerOpenWal
+Current: openDatabase Havoced: sqlite3PagerWalSupported
+Current: openDatabase Havoced: sqlite3WritableSchema
+Current: openDatabase Havoced: sqlite3PagerSharedLock
+Current: openDatabase Havoced: sqlite3WalBeginWriteTransaction
+Current: openDatabase Havoced: sqlite3InvokeBusyHandler
+Current: openDatabase Havoced: btreeInvokeBusyHandler
+Current: openDatabase Havoced: sqlite3TempInMemory
+Current: openDatabase Havoced: lockBtree
+Current: openDatabase Havoced: sqlite3PagerDataVersion
+Current: openDatabase Havoced: sqlite3BtreeCommit
+Current: openDatabase Havoced: vdbeSorterJoinThread
+Current: openDatabase Havoced: walPagesize
+Current: openDatabase Havoced: pagerSyncHotJournal
+Current: openDatabase Havoced: removeFromSharingList
+Current: openDatabase Havoced: sqlite3BtreeClose
+Current: openDatabase Havoced: sqlite3BtreeCloseCursor
+Current: openDatabase Havoced: sqlite3VdbeFrameRestore
+Current: openDatabase Havoced: sqlite3VtabRollback
+Current: openDatabase Havoced: sqlite3PagerPageRefcount
+Current: openDatabase Havoced: sqlite3BitvecSize
+Current: openDatabase Havoced: btreeCellSizeCheck
+Current: openDatabase Havoced: btreeInitPage
+Current: openDatabase Havoced: setChildPtrmaps
+Current: openDatabase Havoced: walIndexRecover
+Current: openDatabase Havoced: walRestartLog
+Current: openDatabase Havoced: autoVacuumCommit
+Current: openDatabase Havoced: sqlite3PagerCommitPhaseTwo
+Current: openDatabase Havoced: sqlite3VtabCommit
+Current: openDatabase Havoced: sqlite3PagerExclusiveLock
+Current: openDatabase Havoced: sqlite3PagerGetJournalMode
+Current: openDatabase Havoced: sqlite3BtreePayloadSize
+Current: openDatabase Havoced: saveCursorKey
+Current: openDatabase Havoced: saveCursorPosition
+Current: openDatabase Havoced: sqlite3PcachePageRefcount
+Current: openDatabase Havoced: btreePagecount
+Current: openDatabase Havoced: sqlite3BtreeLastPage
+Current: openDatabase Havoced: sqlite3PagerIsMemdb
+Current: openDatabase Havoced: sqlite3BtreeGetPageSize
+Current: openDatabase Havoced: sqlite3OsSectorSize
+Current: openDatabase Havoced: sqlite3SectorSize
+Current: openDatabase Havoced: numberOfCachePages
+Current: openDatabase Havoced: sqlite3PCachePercentDirty
+Current: openDatabase Havoced: sqlite3WalEndWriteTransaction
+Current: openDatabase Havoced: sqlite3PagerRollback
+Current: openDatabase Havoced: readDbPage
+Current: openDatabase Havoced: sqlite3PcacheRefCount
+Current: openDatabase Havoced: pagerRollbackWal
+Current: openDatabase Havoced: sqlite3JournalIsInMemory
+Current: openDatabase Havoced: openSubJournal
+Current: openDatabase Havoced: subjournalPage
+Current: openDatabase Havoced: subjRequiresPage
+Current: openDatabase Havoced: memjrnlCreateFile
+Current: openDatabase Havoced: memjrnlClose
+Current: openDatabase Havoced: sqlite3OsDeviceCharacteristics
+Current: openDatabase Havoced: writeJournalHdr
+Current: openDatabase Havoced: databaseIsUnmoved
+Current: openDatabase Havoced: jrnlBufferSize
+Current: openDatabase Havoced: pagerAddPageToRollbackJournal
+Current: openDatabase Havoced: pager_open_journal
+Current: openDatabase Havoced: pager_write
+Current: openDatabase Havoced: pagerWriteLargeSector
+Current: openDatabase Havoced: subjournalPageIfRequired
+Current: openDatabase Havoced: sqlite3PagerWrite
+Current: openDatabase Havoced: sqlite3Get4byte
+Current: openDatabase Havoced: newDatabase
+Current: openDatabase Havoced: sqlite3VdbeTransferError
+Current: openDatabase Havoced: sqlite3VdbeHalt
+Current: openDatabase Havoced: sqlite3VdbeReset
+Current: openDatabase Havoced: sqlite3VdbeFinalize
+Current: openDatabase Havoced: sqlite3BtreeSchemaLocked
+Current: openDatabase Havoced: sqlite3SafetyCheckOk
+Current: openDatabase Havoced: vdbeSafety
+Current: openDatabase Havoced: vdbeSafetyNotNull
+Current: openDatabase Havoced: sqlite3BtreeTxnState
+Current: openDatabase Havoced: sqlite3_value_frombind
+Current: openDatabase Havoced: sqlite3_stmt_isexplain
+Current: openDatabase Havoced: sqlite3_str_length
+Current: openDatabase Havoced: sqlite3_str_errcode
+Current: openDatabase Havoced: sqlite3_value_nochange
+Current: openDatabase Havoced: sqlite3_vtab_nochange
+Current: openDatabase Havoced: sqlite3_system_errno
+Current: openDatabase Havoced: sqlite3_db_cacheflush
+Current: openDatabase Havoced: sqlite3_value_subtype
+Current: openDatabase Havoced: sqlite3_cancel_auto_extension
+Current: openDatabase Havoced: sqlite3_auto_extension
+Current: openDatabase Havoced: sqlite3_stmt_readonly
+Current: openDatabase Havoced: sqlite3_stmt_busy
+Current: openDatabase Havoced: sqlite3_db_release_memory
+Current: openDatabase Havoced: sqlite3_close_v2
+Current: openDatabase Havoced: sqlite3_vtab_on_conflict
+Current: openDatabase Havoced: sqlite3_extended_errcode
+Current: openDatabase Havoced: sqlite3_backup_remaining
+Current: openDatabase Havoced: sqlite3_backup_pagecount
+Current: openDatabase Havoced: sqlite3_backup_finish
+Current: openDatabase Havoced: sqlite3_vfs_unregister
+Current: openDatabase Havoced: sqlite3_blob_close
+Current: openDatabase Havoced: sqlite3_blob_bytes
+Current: openDatabase Havoced: sqlite3_clear_bindings
+Current: openDatabase Havoced: sqlite3_value_bytes16
+Current: openDatabase Havoced: sqlite3_step
+Current: openDatabase Havoced: sqlite3_reset
+Current: openDatabase Havoced: sqlite3_get_autocommit
+Current: openDatabase Havoced: sqlite3_finalize
+Current: openDatabase Havoced: sqlite3_expired
+Current: openDatabase Havoced: sqlite3_errcode
+Current: openDatabase Havoced: sqlite3_data_count
+Current: openDatabase Havoced: sqlite3_complete16
+Current: openDatabase Havoced: sqlite3_complete
+Current: openDatabase Havoced: sqlite3_column_count
+Current: openDatabase Havoced: sqlite3_close
+Current: openDatabase Havoced: sqlite3_bind_parameter_count
+Current: openDatabase Havoced: sqlite3_aggregate_count
+Current: openDatabase Havoced: sqlite3OsGetLastError
+Current: openDatabase Havoced: sqlite3_compileoption_used
+Current: openDatabase Havoced: sqlite3_changes
+Current: openDatabase Havoced: sqlite3_total_changes
+Current: openDatabase Havoced: sqlite3_value_int
+Current: openDatabase Havoced: sqlite3VdbeMemHandleBom
+Current: openDatabase Havoced: sqlite3Utf8Read
+Current: openDatabase Havoced: sqlite3_value_bytes
+Current: openDatabase Havoced: sqlite3_value_type
+Current: openDatabase Havoced: sqlite3_value_numeric_type
+Current: openDatabase Havoced: pcache1InitBulk
+Current: openDatabase Havoced: pcache1UnderMemoryPressure
+Current: openDatabase Havoced: pcache1Pagecount
+Current: openDatabase Havoced: pcache1Init
+Current: openDatabase Havoced: sqlite3MemInit
+Current: openDatabase Havoced: sqlite3MemSize
+Current: openDatabase Havoced: sqlite3Atoi
+Current: openDatabase Havoced: unixOpenSharedMemory
+Current: openDatabase Havoced: unixClose
+Current: openDatabase Havoced: nolockClose
+Current: openDatabase Havoced: closeUnixFile
+Current: openDatabase Havoced: fileHasMoved
+Current: openDatabase Havoced: unixDeviceCharacteristics
+Current: openDatabase Havoced: unixSectorSize
+Current: openDatabase Havoced: dotlockClose
+Current: openDatabase Havoced: memdbDeviceCharacteristics
+Current: openDatabase Havoced: memdbClose
+Current: openDatabase Havoced: countLookasideSlots
+Current: openDatabase Havoced: sqlite3_mutex_try
+Current: openDatabase Havoced: sqlite3PcachePagecount
+Current: openDatabase Havoced: strHash
+Current: openDatabase Havoced: sqlite3BtreeConnectionCount
+Current: openDatabase Havoced: sqlite3PagerMemUsed
+Current: openDatabase Havoced: vdbeMemAddTerminator
+Current: openDatabase Havoced: sqlite3VdbeMemNulTerminate
+Current: openDatabase Havoced: sqlite3VdbeMemMakeWriteable
+Current: openDatabase Havoced: sqlite3VdbeMemExpandBlob
+Current: openDatabase Havoced: sqlite3Strlen30
+Current: openDatabase Havoced: sqlite3MallocSize
+Current: openDatabase Havoced: line_is_command_terminator
+Current: openDatabase Havoced: _all_whitespace
+Current: openDatabase Havoced: wsToEol
+Current: openDatabase Havoced: strlenChar
+Current: openDatabase Havoced: get4byteInt
+Current: openDatabase Havoced: get2byteInt
+Current: openDatabase Havoced: shellDatabaseError
+Current: openDatabase Havoced: notNormalFile
+Current: openDatabase Havoced: progress_handler
+Current: openDatabase Havoced: booleanValue
+Current: openDatabase Havoced: idxIdentifierRequiresQuotes
+Current: openDatabase Havoced: expertEof
+Current: openDatabase Havoced: expertNext
+Current: openDatabase Havoced: expertClose
+Current: openDatabase Havoced: expertDisconnect
+Current: openDatabase Havoced: idxRegisterVtab
+Current: openDatabase Havoced: re_esc_char
+Current: openDatabase Havoced: re_next_char
+Current: openDatabase Havoced: re_next_char_nocase
+Current: openDatabase Havoced: seriesEof
+Current: openDatabase Havoced: seriesNext
+Current: openDatabase Havoced: seriesClose
+Current: openDatabase Havoced: seriesDisconnect
+Current: openDatabase Havoced: memtraceInit
+Current: openDatabase Havoced: memtraceSize
+Current: openDatabase Havoced: apndDeviceCharacteristics
+Current: openDatabase Havoced: apndSectorSize
+Current: openDatabase Havoced: apndClose
+Current: openDatabase Havoced: completionEof
+Current: openDatabase Havoced: completionNext
+Current: openDatabase Havoced: completionClose
+Current: openDatabase Havoced: completionDisconnect
+Current: openDatabase Havoced: fsdirEof
+Current: openDatabase Havoced: fsdirNext
+Current: openDatabase Havoced: fsdirClose
+Current: openDatabase Havoced: fsdirDisconnect
+Current: openDatabase Havoced: makeDirectory
+Current: openDatabase Havoced: process_input
+Current: openDatabase Havoced: strlen30
+Current: openDatabase Havoced: shellDeleteFile
+Current: openDatabase Havoced: sqlite3_expert_count
+Current: openDatabase Havoced: idxCreateCandidates
+Current: openDatabase Havoced: sqlite3MemTraceActivate
+Current: openDatabase Havoced: sqlite3CompletionVtabInit
+Current: openDatabase Havoced: fsdirRegister
+Current: openDatabase Havoced: sqlite3Error
+Current: openDatabase Havoced: sqlite3OomFault
+Current: openDatabase Havoced: sqlite3ErrorWithMsg
+Current: openDatabase Havoced: sqlite3_free
+Current: openDatabase Havoced: sqlite3_free
+Current: openDatabase Havoced: sqlite3_mutex_leave
+Current: openDatabase Havoced: sqlite3_errcode
+Current: openDatabase Havoced: sqlite3_close
+Current: openDatabase Havoced: sqlite3_free_filename
+                      0 sec [DONE]
+        Number of expressions:                        168374
+        after encoding
+
+      38 assertions before transformations (36 no_function_call, 1 no_back_edge, 1 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                           13177
+        Fixed Memory Address Assigner
+          Number of moved ops                              7
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72651
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               3
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               5
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             192
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      38 assertions remain after transformations (36 no_function_call, 1 no_back_edge, 1 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...            0 sec [DONE]
+        
+                                                           1 sec [DONE]
+      after performing Check
+evaluateCheckerResultsViaRefinementLoop
+checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setCheckToUnsafe
+setCheckToUnsafe
+Check for floating point traces / abstractions currently deactivated
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      getCheckerResultAfterUpdatingMarker
+Result is NoTrace
+
+                                                           6 sec [DONE]
+    allunsafe
+    
+                                                           6 sec [DONE]
+  

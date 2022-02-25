@@ -1,0 +1,127 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 6007 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 2
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/6007
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : yy_destructor
+m_checker->run()
+
+    Performing bounded model checking ...
+      Transformed "yy_destructor" from 14 to 76 basic blocks and from 83 to 211 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...Current: sqlite3ExprDelete Havoced: sqlite3ExprDeleteNN
+
+        Unrolling loop in function "sqlite3IdListDelete" for 1 iterations succeeded.
+        Transformed "sqlite3IdListDelete" from 8 to 9 basic blocks and from 36 to 40 instructionsCurrent: sqlite3IdListDelete Havoced: sqlite3DbFree
+Current: sqlite3IdListDelete Havoced: sqlite3DbFree
+Current: sqlite3IdListDelete Havoced: sqlite3DbFreeNN
+
+        Unrolling loop in function "sqlite3DeleteTriggerStep" for 1 iterations succeeded.
+        Transformed "sqlite3DeleteTriggerStep" from 4 to 5 basic blocks and from 39 to 42 instructionsCurrent: sqlite3DeleteTriggerStep Havoced: sqlite3ExprDelete
+Current: sqlite3DeleteTriggerStep Havoced: sqlite3ExprListDelete
+Current: sqlite3DeleteTriggerStep Havoced: sqlite3SelectDelete
+Current: sqlite3DeleteTriggerStep Havoced: sqlite3IdListDelete
+Current: sqlite3DeleteTriggerStep Havoced: sqlite3UpsertDelete
+Current: sqlite3DeleteTriggerStep Havoced: sqlite3SrcListDelete
+Current: sqlite3DeleteTriggerStep Havoced: sqlite3DbFree
+Current: sqlite3DeleteTriggerStep Havoced: sqlite3DbFree
+Current: sqlite3WindowDelete Havoced: sqlite3WindowUnlinkFromSelect
+Current: sqlite3WindowDelete Havoced: sqlite3ExprDelete
+Current: sqlite3WindowDelete Havoced: sqlite3ExprListDelete
+Current: sqlite3WindowDelete Havoced: sqlite3ExprListDelete
+Current: sqlite3WindowDelete Havoced: sqlite3ExprDelete
+Current: sqlite3WindowDelete Havoced: sqlite3ExprDelete
+Current: sqlite3WindowDelete Havoced: sqlite3DbFree
+Current: sqlite3WindowDelete Havoced: sqlite3DbFree
+Current: sqlite3WindowDelete Havoced: sqlite3DbFree
+Current: sqlite3IdListDelete Havoced: sqlite3DbFree
+Current: sqlite3IdListDelete Havoced: sqlite3DbFree
+Current: sqlite3IdListDelete Havoced: sqlite3DbFreeNN
+
+        Unrolling loop in function "sqlite3WindowListDelete" for 1 iterations succeeded.
+        Transformed "sqlite3WindowListDelete" from 4 to 5 basic blocks and from 17 to 20 instructionsCurrent: sqlite3WindowListDelete Havoced: sqlite3WindowDelete
+
+        Unrolling loop in function "sqlite3WithDelete" for 1 iterations succeeded.
+        Transformed "sqlite3WithDelete" from 7 to 8 basic blocks and from 29 to 33 instructionsCurrent: sqlite3WithDelete Havoced: cteClear
+Current: sqlite3WithDelete Havoced: sqlite3DbFree
+
+        Unrolling loop in function "sqlite3SrcListDelete" for 1 iterations succeeded.
+        Transformed "sqlite3SrcListDelete" from 22 to 23 basic blocks and from 105 to 110 instructionsCurrent: sqlite3SrcListDelete Havoced: sqlite3DbFreeNN
+Current: sqlite3SrcListDelete Havoced: sqlite3DbFree
+Current: sqlite3SrcListDelete Havoced: sqlite3DbFreeNN
+Current: sqlite3SrcListDelete Havoced: sqlite3DbFree
+Current: sqlite3SrcListDelete Havoced: sqlite3ExprListDelete
+Current: sqlite3SrcListDelete Havoced: sqlite3DeleteTable
+Current: sqlite3SrcListDelete Havoced: sqlite3SelectDelete
+Current: sqlite3SrcListDelete Havoced: sqlite3ExprDelete
+Current: sqlite3SrcListDelete Havoced: sqlite3IdListDelete
+Current: sqlite3SrcListDelete Havoced: sqlite3DbFreeNN
+Current: sqlite3ExprListDelete Havoced: exprListDeleteNN
+Current: sqlite3ExprDelete Havoced: sqlite3ExprDeleteNN
+Current: sqlite3SelectDelete Havoced: clearSelect
+
+                                                           0 sec [DONE]
+        Number of expressions:                        156590
+        after encoding
+
+      7 assertions before transformations (6 no_back_edge, 1 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            4247
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72624
+        Memory Model Encoder
+          Number of moved ops                              0
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                              13
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             142
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      7 assertions remain after transformations (6 no_back_edge, 1 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...

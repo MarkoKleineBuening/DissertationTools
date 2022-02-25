@@ -1,0 +1,39 @@
+<VerificationJob>
+  <Configuration>
+    <AnalyzeChecksIndividually value="true" />
+    <BitcodeTraces value="false" />
+    <CheckCallers value="true" />
+    <DumpVerifierBitcodeFiles value="false" />
+    <EnableSlicing value="true" />
+    <EntryPoint value="incrVacuumStep" />
+    <FixPoint value="true" />
+    <ForkJobs value="true" />
+    <Hosted value="true" />
+    <IgnoreMissingFunctions value="false" />
+    <InitializedGlobals value="false" />
+    <LoopUnrollBound value="1" />
+    <PreconditionLocation value="jobs/3513" />
+    <SourceDirectory value="/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld" />
+    <TimeOut value="600" />
+    <XMLTraces value="false" />
+  </Configuration>
+  <CheckList>
+    <Check id="11224" location="12188" category="arithmetic.overflow.warning" status="unsafe|loopboundreached" scope="allocateBtreePage">
+      <Annotations>
+        <Annotation>An unsigned arithmetic operation can overflow (wraparound).</Annotation>
+        <Annotation>A loop bound was reached (/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld//home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld/sqlite3.c:71697:5)</Annotation>
+      </Annotations>
+      <EntryStatus>
+        <SingleEntryStatus>balance_deeper, unknown</SingleEntryStatus>
+        <SingleEntryStatus>balance_nonroot, unknown</SingleEntryStatus>
+        <SingleEntryStatus>balance_quick, unknown</SingleEntryStatus>
+        <SingleEntryStatus>btreeCreateTable, unknown</SingleEntryStatus>
+        <SingleEntryStatus>fillInCell, unknown</SingleEntryStatus>
+        <SingleEntryStatus>incrVacuumStep, unsafe|loopboundreached</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3BtreeTransferRow, unknown</SingleEntryStatus>
+      </EntryStatus>
+    </Check>
+  </CheckList>
+  <Annotation>allunsafe</Annotation>
+  <Status>allunsafe</Status>
+</VerificationJob>

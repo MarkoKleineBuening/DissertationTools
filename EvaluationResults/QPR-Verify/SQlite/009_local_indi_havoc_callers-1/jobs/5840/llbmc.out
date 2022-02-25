@@ -1,0 +1,216 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 5840 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 2
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/5840
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : sqlite3DropIndex
+m_checker->run()
+
+    Performing bounded model checking ...
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...Current: sqlite3ReadSchema Havoced: sqlite3Init
+
+        Unrolling loop in function "sqlite3FindIndex" for 1 iterations succeeded.
+        Transformed "sqlite3FindIndex" from 13 to 15 basic blocks and from 58 to 67 instructionsCurrent: sqlite3FindIndex Havoced: sqlite3DbIsNamed
+Current: sqlite3FindIndex Havoced: sqlite3HashFind
+
+        Unrolling loop in function "sqlite3SchemaToIndex" for 1 iterations succeeded.
+        Transformed "sqlite3SchemaToIndex" from 32 to 36 instructionsgetMatchingFunctions
+res.push_back: idxAuthCallback
+res.push_back: shellAuth
+
+        Transformed "sqlite3AuthCheck" from 12 to 18 basic blocks and from 62 to 73 instructionsCurrent: sqlite3AuthCheck Havoced: shellAuth
+Current: sqlite3AuthCheck Havoced: idxAuthCallback
+Current: sqlite3AuthCheck Havoced: sqliteAuthBadReturnCode
+Current: sqlite3AuthCheck Havoced: sqlite3ErrorMsg
+Current: sqlite3AuthCheck Havoced: shellAuth
+Current: sqlite3AuthCheck Havoced: idxAuthCallback
+Current: sqlite3AuthCheck Havoced: sqliteAuthBadReturnCode
+Current: sqlite3AuthCheck Havoced: sqlite3ErrorMsg
+Current: sqlite3GetVdbe Havoced: sqlite3VdbeCreate
+Current: sqlite3BeginWriteOperation Havoced: sqlite3CodeVerifySchemaAtToplevel
+Current: sqlite3NestedParse Havoced: sqlite3VMPrintf
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %29, i8* %31, i64 152, i32 1, i1 false), !dbg !5661
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %33, i8 0, i64 152, i32 1, i1 false), !dbg !5664
+Current: sqlite3NestedParse Havoced: sqlite3RunParser
+Current: sqlite3NestedParse Havoced: sqlite3DbFree
+Current: sqlite3NestedParse Havoced: sqlite3DbFree
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %37, i8* %38, i64 152, i32 1, i1 false), !dbg !5670
+
+        Unrolling loop in function "sqlite3ClearStatTables" for 4 iterations succeeded.
+        Transformed "sqlite3ClearStatTables" from 7 to 18 basic blocks and from 45 to 108 instructionsCurrent: sqlite3ClearStatTables Havoced: sqlite3_snprintf
+Current: sqlite3ClearStatTables Havoced: sqlite3FindTable
+Current: sqlite3ClearStatTables Havoced: sqlite3NestedParse
+Current: sqlite3ClearStatTables Havoced: sqlite3_snprintf
+Current: sqlite3ClearStatTables Havoced: sqlite3FindTable
+Current: sqlite3ClearStatTables Havoced: sqlite3NestedParse
+Current: sqlite3ClearStatTables Havoced: sqlite3_snprintf
+Current: sqlite3ClearStatTables Havoced: sqlite3FindTable
+Current: sqlite3ClearStatTables Havoced: sqlite3NestedParse
+Current: sqlite3ClearStatTables Havoced: sqlite3_snprintf
+Current: sqlite3ClearStatTables Havoced: sqlite3FindTable
+Current: sqlite3ClearStatTables Havoced: sqlite3NestedParse
+Current: sqlite3ChangeCookie Havoced: sqlite3VdbeAddOp3
+Current: destroyRootPage Havoced: sqlite3GetVdbe
+Current: destroyRootPage Havoced: sqlite3GetTempReg
+Current: destroyRootPage Havoced: sqlite3ErrorMsg
+Current: destroyRootPage Havoced: sqlite3VdbeAddOp3
+Current: destroyRootPage Havoced: sqlite3MayAbort
+Current: destroyRootPage Havoced: sqlite3NestedParse
+Current: destroyRootPage Havoced: sqlite3ReleaseTempReg
+Current: sqlite3VdbeAddOp4 Havoced: sqlite3VdbeAddOp3
+Current: sqlite3VdbeAddOp4 Havoced: sqlite3VdbeChangeP4
+Current: sqlite3ErrorMsg Havoced: sqlite3VMPrintf
+Current: sqlite3ErrorMsg Havoced: sqlite3DbFree
+Current: sqlite3ErrorMsg Havoced: sqlite3DbFree
+Current: sqlite3ErrorMsg Havoced: sqlite3VMPrintf
+Current: sqlite3ErrorMsg Havoced: sqlite3DbFree
+Current: sqlite3ErrorMsg Havoced: sqlite3DbFree
+
+        Unrolling loop in function "sqlite3CodeVerifyNamedSchema" for 1 iterations succeeded.
+        Transformed "sqlite3CodeVerifyNamedSchema" from 9 to 10 basic blocks and from 42 to 46 instructionsCurrent: sqlite3CodeVerifyNamedSchema Havoced: sqlite3StrICmp
+Current: sqlite3CodeVerifyNamedSchema Havoced: sqlite3CodeVerifySchema
+Current: sqlite3ForceNotReadOnly Havoced: sqlite3GetVdbe
+Current: sqlite3ForceNotReadOnly Havoced: sqlite3VdbeAddOp3
+Current: sqlite3ForceNotReadOnly Havoced: sqlite3VdbeUsesBtree
+
+        Unrolling loop in function "sqlite3SrcListDelete" for 1 iterations succeeded.
+        Transformed "sqlite3SrcListDelete" from 22 to 23 basic blocks and from 105 to 110 instructionsCurrent: sqlite3SrcListDelete Havoced: sqlite3DbFreeNN
+Current: sqlite3SrcListDelete Havoced: sqlite3DbFree
+Current: sqlite3SrcListDelete Havoced: sqlite3DbFreeNN
+Current: sqlite3SrcListDelete Havoced: sqlite3DbFree
+Current: sqlite3SrcListDelete Havoced: sqlite3ExprListDelete
+Current: sqlite3SrcListDelete Havoced: sqlite3DeleteTable
+Current: sqlite3SrcListDelete Havoced: sqlite3SelectDelete
+Current: sqlite3SrcListDelete Havoced: sqlite3ExprDelete
+Current: sqlite3SrcListDelete Havoced: sqlite3IdListDelete
+Current: sqlite3SrcListDelete Havoced: sqlite3DbFreeNN
+
+                                                           0 sec [DONE]
+        Number of expressions:                        156906
+        after encoding
+
+      11 assertions before transformations (2 no_function_call, 5 no_back_edge, 4 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            4470
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72674
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               9
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                              33
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             452
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      11 assertions remain after transformations (2 no_function_call, 5 no_back_edge, 4 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...la transformations ...
+        Simplifier
+          Number of rewrites                            5112
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72747
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               7
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                              52
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             142
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      14 assertions remain after transformations (3 no_function_call, 7 no_back_edge, 4 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...r
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      13 assertions remain after transformations (9 no_back_edge, 4 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...

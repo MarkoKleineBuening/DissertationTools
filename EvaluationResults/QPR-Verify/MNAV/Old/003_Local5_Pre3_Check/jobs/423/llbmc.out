@@ -1,0 +1,158 @@
+runJobCommand
+precondition analysis with entry:mat_minor
+arguents: child
+arguents: job
+arguents: mode
+arguents: precondition
+handleJobInSeparateProcess0
+
+Checking job 423 ...about to run job:
+preconNumber: 3, 1
+
+  Running Model Checker with 1 checks ...entry: mat_minor, functionName: mat_det
+  <badref> = call double @qpr.precondition.mat_det(double** %14)
+entry: mat_minor, functionName: mat_det
+entry: mat_minor, functionName: mat_minor
+try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 4
+    HavocLimit : 0
+    PreconditionNumber : 3
+    PreconditionLocation : jobs/423
+    TimeOut : 300
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : mat_minor
+m_checker->run()
+
+    Performing bounded model checking ...
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...size Alloca: 1
+
+        Unrolling loop in function "_mat_creat" for 4 iterations succeeded.
+        Transformed "_mat_creat" from 10 to 20 basic blocks and from 54 to 117 instructions
+        Transformed "mat_error" from 5 to 10 basic blocks and from 10 to 19 instructions
+        Unrolling loop in function "mat_fill" for 4 iterations succeeded.
+        Unrolling loop in function "mat_fill" for 4 iterations succeeded.
+        Transformed "mat_fill" from 18 to 159 basic blocks and from 67 to 679 instructions
+        Unrolling loop in function "mat_submat" for 4 iterations succeeded.
+        Unrolling loop in function "mat_submat" for 4 iterations succeeded.
+        Transformed "mat_submat" from 17 to 100 basic blocks and from 106 to 674 instructionsTODO MKB implement precondition handling: IE
+Reading in precondition at: jobs/423/precondition_mat_det.txt
+preconFile: jobs/423/precondition_mat_det.txt
+ref: [underoverapprox]name of function arguments, argValue:  
+ref: [underoverapprox]name of function arguments, argValue:  
+name of function arguments line
+ERROR boolCond is nullptr
+ERROR boolCond is nullptr
+ERROR boolCond is nullptr
+Writing precondition type at: jobs/423/precondition_type_mat_minor.txt
+
+Type of Precondition:
+[underoverapprox]
+precondition found, end encoding
+
+                                                           0 sec [DONE]
+        Number of expressions:                          9176
+        after encoding
+
+      20 assertions before transformations (8 no_function_call, 11 no_back_edge, 1 no_unreachable_executed).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            2442
+        Fixed Memory Address Assigner
+          Number of moved ops                              1
+          Number of rewrites                             375
+        Simplifier
+          Number of moved ops                              1
+          Number of rewrites                            7964
+        Memory Model Encoder
+          Number of moved ops                              0
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                               2
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              66
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      20 assertions remain after transformations (8 no_function_call, 11 no_back_edge, 1 no_unreachable_executed).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...            3 sec [DONE]
+        
+                                                           3 sec [DONE]
+      after performing Check
+evaluateCheckerResultsViaRefinementLoop
+checker.getResult() is Trace
+checkOnlyPrecon: 1, size:1
+setCheckToUnsafe for precondition Instruction
+checkID: 1481
+setCheckToUnsafe
+set check to unsafe
+getCheckerResultAfterUpdatingMarker
+failingInst:   br i1 %54, label %bb3.0.3, label %bb2.bb7_crit_edge, !dbg !1397, !llvm.loop !1415
+Preconditions internal: 
+i32 %arg1:0; (i32 %arg1:0)i32 %arg2:0; (i32 %arg2:0)
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: i32 %arg1 = nondef() : 0
+assumePair: i32 %arg2 = nondef() : 0
+
+    Rerunning SMT solver (STP with MiniSat) ...            3 sec [DONE]
+      failingInst:   br i1 %54, label %bb3.0.3, label %bb2.bb7_crit_edge, !dbg !1397, !llvm.loop !1415
+Preconditions internal: 
+i32 %arg1:1; (i32 %arg1:1)i32 %arg2:0; (i32 %arg2:0)
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: i32 %arg1 = nondef() : 1
+assumePair: i32 %arg2 = nondef() : 0
+
+    Rerunning SMT solver (STP with MiniSat) ...            3 sec [DONE]
+      failingInst:   br i1 %54, label %bb3.0.3, label %bb2.bb7_crit_edge, !dbg !1397, !llvm.loop !1415
+Preconditions internal: 
+i32 %arg1:3; (i32 %arg1:3)i32 %arg2:0; (i32 %arg2:0)
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: i32 %arg1 = nondef() : 3
+assumePair: i32 %arg2 = nondef() : 0
+
+    Rerunning SMT solver (STP with MiniSat) ...            3 sec [DONE]
+      name of function arguments: Writing precondition at: jobs/423/precondition_mat_minor.txt
+
+Generated Preconditions:
+[underoverapprox]name of function arguments: 
+i32 %arg1:0; i32 %arg2:0; 
+i32 %arg1:1; i32 %arg2:0; 
+i32 %arg1:3; i32 %arg2:0; 
+
+                                                          13 sec [DONE]
+    allsafe
+    
+                                                          13 sec [DONE]
+  

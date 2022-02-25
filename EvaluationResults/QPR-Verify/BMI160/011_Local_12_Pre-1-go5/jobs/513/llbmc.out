@@ -1,0 +1,213 @@
+runJobCommand
+precondition analysis with entry:bmi160_extract_gyro
+arguents: child
+arguents: job
+arguents: mode
+arguents: precondition
+handleJobInSeparateProcess0
+
+Checking job 513 ...about to run job:
+preconNumber: 5, 1
+
+  Running Model Checker with 1 checks ...entry: bmi160_extract_gyro, functionName: unpack_gyro_frame
+  call void @qpr.precondition.unpack_gyro_frame(%struct.bmi160_sensor_data.8* %0, i16* %4, i8* %6, i8 %33, %struct.bmi160_dev.7* @configStub)
+entry: bmi160_extract_gyro, functionName: bmi160_extract_gyro
+entry: bmi160_extract_gyro, functionName: extract_gyro_header_mode
+  call void @qpr.precondition.extract_gyro_header_mode(%struct.bmi160_sensor_data.8* %0, i8* %1, %struct.bmi160_dev.7* @configStub)
+try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 12
+    HavocLimit : 0
+    PreconditionNumber : 5
+    PreconditionLocation : jobs/513
+    TimeOut : 300
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : bmi160_extract_gyro
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "bmi160_extract_gyro" for 12 iterations succeeded.
+      Transformed "bmi160_extract_gyro" from 11 to 23 basic blocks and from 78 to 251 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...size Alloca: 1
+size Alloca: 1
+size Alloca: 1
+TODO MKB implement precondition handling: IE
+Reading in precondition at: jobs/513/precondition_extract_gyro_header_mode.txt
+preconFile: jobs/513/precondition_extract_gyro_header_mode.txt
+ref: [underoverapprox]name of function arguments, argValue:  
+ref: [underoverapprox]name of function arguments, argValue:  
+name of function arguments line
+ERROR boolCond is nullptr
+ERROR boolCond is nullptr
+ERROR boolCond is nullptr
+ERROR boolCond is nullptr
+ERROR boolCond is nullptr
+Writing precondition type at: jobs/513/precondition_type_bmi160_extract_gyro.txt
+
+Type of Precondition:
+[underoverapprox]
+precondition found, end encoding
+                      0 sec [DONE]
+        Number of expressions:                           171
+        after encoding
+
+      0 assertions before transformations.
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                              28
+        Fixed Memory Address Assigner
+          Number of moved ops                              8
+          Number of rewrites                              11
+        Simplifier
+          Number of moved ops                              3
+          Number of rewrites                              35
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               3
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                              54
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      0 assertions remain after transformations.
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...            0 sec [DONE]
+        
+                                                           0 sec [DONE]
+      after performing Check
+evaluateCheckerResultsViaRefinementLoop
+getCheckerResultAfterUpdatingMarker
+Result is NoTrace
+
+                                                           0 sec [DONE]
+    allunsafe
+    
+                                                           0 sec [DONE]
+  ula
+
+      Running SMT solver (STP with MiniSat) ...            0 sec [DONE]
+        
+                                                           0 sec [DONE]
+      after performing Check
+evaluateCheckerResultsViaRefinementLoop
+checker.getResult() is Trace
+checkOnlyPrecon: 1, size:1
+setCheckToUnsafe for precondition Instruction
+checkID: 2288
+setCheckToUnsafe
+set check to unsafe
+getCheckerResultAfterUpdatingMarker
+failingInst is nullptr
+Preconditions internal: 
+
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst is nullptr
+Preconditions internal: 
+
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst is nullptr
+Preconditions internal: 
+
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst is nullptr
+Preconditions internal: 
+
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst is nullptr
+Preconditions internal: 
+
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      name of function arguments: Writing precondition at: jobs/513/precondition_extract_gyro_header_mode.txt
+
+Generated Preconditions:
+[underoverapprox]name of function arguments: 
+
+
+
+
+
+
+                                                           0 sec [DONE]
+    allunsafe
+    
+                                                           0 sec [DONE]
+  g SMT solver (STP with MiniSat) ...            9 sec [DONE]
+      failingInst:   call void @qpr.precondition.unpack_gyro_frame(%struct.bmi160_sensor_data.8* %arg0, i16* %0, i8* %2, i8 %23, %struct.bmi160_dev.7* @configStub), !dbg !239
+Preconditions internal: 
+
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+
+    Rerunning SMT solver (STP with MiniSat) ...            9 sec [DONE]
+      failingInst:   call void @qpr.precondition.unpack_gyro_frame(%struct.bmi160_sensor_data.8* %arg0, i16* %0, i8* %2, i8 %23, %struct.bmi160_dev.7* @configStub), !dbg !239
+Preconditions internal: 
+
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+
+    Rerunning SMT solver (STP with MiniSat) ...            9 sec [DONE]
+      name of function arguments: Writing precondition at: jobs/513/precondition_bmi160_extract_gyro.txt
+
+Generated Preconditions:
+[underoverapprox]name of function arguments: 
+
+
+
+
+
+
+                                                          55 sec [DONE]
+    allunsafe
+    
+                                                          55 sec [DONE]
+  

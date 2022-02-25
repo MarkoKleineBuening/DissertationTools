@@ -1,0 +1,175 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 6486 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 1
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/6486
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [1] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : sqlite3AutoLoadExtensions
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "sqlite3AutoLoadExtensions" for 1 iterations succeeded.getMatchingFunctions
+res.push_back: sqlite3_shathree_init
+res.push_back: sqlite3_fileio_init
+res.push_back: sqlite3_completion_init
+res.push_back: sqlite3_appendvfs_init
+res.push_back: sqlite3_uint_init
+res.push_back: sqlite3_decimal_init
+res.push_back: sqlite3_ieee_init
+res.push_back: sqlite3_series_init
+res.push_back: sqlite3_regexp_init
+
+      Transformed "sqlite3AutoLoadExtensions" from 13 to 123 basic blocks and from 68 to 458 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...Current: sqlite3AutoLoadExtensions Havoced: sqlite3MutexAlloc
+Current: sqlite3AutoLoadExtensions Havoced: sqlite3_mutex_enter
+Current: sqlite3AutoLoadExtensions Havoced: sqlite3_mutex_leave
+Current: sqlite3AutoLoadExtensions Havoced: parseDateOrTime
+Current: sqlite3AutoLoadExtensions Havoced: balance_quick
+Current: sqlite3AutoLoadExtensions Havoced: clearCellOverflow
+Current: sqlite3AutoLoadExtensions Havoced: vdbeIncrMergerNew
+Current: sqlite3AutoLoadExtensions Havoced: vdbeSorterMapFile
+Current: sqlite3AutoLoadExtensions Havoced: sqlite3ThreadCreate
+Current: sqlite3AutoLoadExtensions Havoced: vdbeSorterCreateThread
+Current: sqlite3AutoLoadExtensions Havoced: execSql
+Current: sqlite3AutoLoadExtensions Havoced: sqlite3VdbeMemAggValue
+Current: sqlite3AutoLoadExtensions Havoced: sqlite3VdbeIdxRowid
+Current: sqlite3AutoLoadExtensions Havoced: sqlite3BtreeCount
+Current: sqlite3AutoLoadExtensions Havoced: multiSelectOrderBy
+Current: sqlite3AutoLoadExtensions Havoced: multiSelectValues
+Current: sqlite3AutoLoadExtensions Havoced: pushDownWindowCheck
+Current: sqlite3AutoLoadExtensions Havoced: sqlite3ExprIsConstantOrGroupBy
+Current: sqlite3AutoLoadExtensions Havoced: multiSelect
+Current: sqlite3AutoLoadExtensions Havoced: sqlite3ExprCollSeqMatch
+Current: sqlite3AutoLoadExtensions Havoced: vtabBestIndex
+Current: sqlite3AutoLoadExtensions Havoced: whereLoopXfer
+Current: sqlite3AutoLoadExtensions Havoced: sqlite3UpsertAnalyzeTarget
+Current: sqlite3AutoLoadExtensions Havoced: sqlite3IsShadowTableOf
+Current: sqlite3AutoLoadExtensions Havoced: exprCodeVector
+Current: sqlite3AutoLoadExtensions Havoced: sqlite3ExprCodeTemp
+Current: sqlite3AutoLoadExtensions Havoced: resolveFromTermToCte
+Current: sqlite3AutoLoadExtensions Havoced: exprCompareVariable
+Current: sqlite3AutoLoadExtensions Havoced: resolveOrderByTermToExprList
+Current: sqlite3AutoLoadExtensions Havoced: resolveAsName
+Current: sqlite3AutoLoadExtensions Havoced: sqlite3Select
+Current: sqlite3AutoLoadExtensions Havoced: walIteratorNext
+Current: sqlite3AutoLoadExtensions Havoced: sqlite3WalUndo
+Current: sqlite3AutoLoadExtensions Havoced: sqlite3RunParser
+Current: sqlite3AutoLoadExtensions Havoced: sqlite3_set_authorizer
+Current: sqlite3AutoLoadExtensions Havoced: sqlite3_collation_needed16
+Current: sqlite3AutoLoadExtensions Havoced: sqlite3_collation_needed
+Current: sqlite3AutoLoadExtensions Havoced: sqlite3_busy_handler
+Current: sqlite3AutoLoadExtensions Havoced: sqlite3MemCompare
+Current: sqlite3AutoLoadExtensions Havoced: invokeValueDestructor
+Current: sqlite3AutoLoadExtensions Havoced: unixSetSystemCall
+Current: sqlite3AutoLoadExtensions Havoced: expertHandleSQL
+Current: sqlite3AutoLoadExtensions Havoced: idxLargestIndex
+Current: sqlite3AutoLoadExtensions Havoced: idxCreateFromWhere
+Current: sqlite3AutoLoadExtensions Havoced: idxProcessOneTrigger
+Current: sqlite3AutoLoadExtensions Havoced: apndSetSystemCall
+Current: sqlite3AutoLoadExtensions Havoced: shell_exec
+Current: sqlite3AutoLoadExtensions Havoced: sqlite3_expert_sql
+Current: sqlite3AutoLoadExtensions Havoced: sqlite3_regexp_init
+Current: sqlite3AutoLoadExtensions Havoced: sqlite3_series_init
+Current: sqlite3AutoLoadExtensions Havoced: sqlite3_ieee_init
+Current: sqlite3AutoLoadExtensions Havoced: sqlite3_decimal_init
+Current: sqlite3AutoLoadExtensions Havoced: sqlite3_uint_init
+Current: sqlite3AutoLoadExtensions Havoced: sqlite3_appendvfs_init
+Current: sqlite3AutoLoadExtensions Havoced: sqlite3_completion_init
+Current: sqlite3AutoLoadExtensions Havoced: sqlite3_fileio_init
+Current: sqlite3AutoLoadExtensions Havoced: sqlite3_shathree_init
+Current: sqlite3AutoLoadExtensions Havoced: sqlite3ErrorWithMsg
+Current: sqlite3AutoLoadExtensions Havoced: sqlite3_free
+                      0 sec [DONE]
+        Number of expressions:                        156279
+        after encoding
+
+      3 assertions before transformations (1 no_function_call, 1 no_back_edge, 1 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            4073
+        Fixed Memory Address Assigner
+          Number of moved ops                              2
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                          142351
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               1
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                              45
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             142
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      3 assertions remain after transformations (1 no_function_call, 1 no_back_edge, 1 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...            0 sec [DONE]
+        
+                                                           1 sec [DONE]
+      after performing Check
+evaluateCheckerResultsViaRefinementLoop
+checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+BranchInst - LoopBound
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      getCheckerResultAfterUpdatingMarker
+Result is NoTrace
+
+                                                           1 sec [DONE]
+    allsafe
+    
+                                                           1 sec [DONE]
+  

@@ -1,0 +1,40 @@
+<VerificationJob>
+  <Configuration>
+    <AnalyzeChecksIndividually value="true" />
+    <BitcodeTraces value="false" />
+    <CheckCallers value="true" />
+    <DumpVerifierBitcodeFiles value="false" />
+    <EnableSlicing value="false" />
+    <EntryPoint value="sqlite3ExprCodeIN" />
+    <FixPoint value="true" />
+    <ForkJobs value="true" />
+    <HavocLimit value="2" />
+    <Hosted value="true" />
+    <IgnoreMissingFunctions value="false" />
+    <InitializedGlobals value="false" />
+    <LoopUnrollBound value="1" />
+    <PreconditionLocation value="jobs/5229" />
+    <SourceDirectory value="/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld" />
+    <TimeOut value="600" />
+    <XMLTraces value="false" />
+  </Configuration>
+  <CheckList>
+    <Check id="16245" location="17788" category="arrayindex" status="safe|loopboundreached" scope="sqlite3VectorFieldSubexpr">
+      <Annotations>
+        <Annotation>An array can be indexed out of bounds.</Annotation>
+        <Annotation>A loop bound was reached (/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld//home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld/sqlite3.c:145499:3)</Annotation>
+        <Annotation>A loop bound was reached (/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld//home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld/sqlite3.c:103664:3)</Annotation>
+      </Annotations>
+      <EntryStatus>
+        <SingleEntryStatus>exprINAffinity, unknown</SingleEntryStatus>
+        <SingleEntryStatus>exprVectorRegister, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3CodeRhsOfIN, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3ExprCodeIN, safe|loopboundreached</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3FindInIndex, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>updateRangeAffinityStr, unknown</SingleEntryStatus>
+      </EntryStatus>
+    </Check>
+  </CheckList>
+  <Annotation>allunsafe</Annotation>
+  <Status>allsafe</Status>
+</VerificationJob>

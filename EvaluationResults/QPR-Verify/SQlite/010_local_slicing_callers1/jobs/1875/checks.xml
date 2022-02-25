@@ -1,0 +1,57 @@
+<VerificationJob>
+  <Configuration>
+    <AnalyzeChecksIndividually value="true" />
+    <BitcodeTraces value="false" />
+    <CheckCallers value="true" />
+    <DumpVerifierBitcodeFiles value="false" />
+    <EnableSlicing value="true" />
+    <EntryPoint value="tableMayNotBeDropped" />
+    <FixPoint value="true" />
+    <ForkJobs value="true" />
+    <Hosted value="true" />
+    <IgnoreMissingFunctions value="false" />
+    <InitializedGlobals value="false" />
+    <LoopUnrollBound value="1" />
+    <PreconditionLocation value="jobs/1875" />
+    <SourceDirectory value="/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld" />
+    <TimeOut value="600" />
+    <XMLTraces value="false" />
+  </Configuration>
+  <CheckList>
+    <Check id="6093" location="6634" category="arrayindex" status="safe|loopboundreached" scope="sqlite3_strnicmp">
+      <Annotations>
+        <Annotation>A loop bound was reached (/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld//home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld/sqlite3.c:32051:3)</Annotation>
+      </Annotations>
+      <EntryStatus>
+        <SingleEntryStatus>codeInteger, unknown</SingleEntryStatus>
+        <SingleEntryStatus>completionNext, unknown</SingleEntryStatus>
+        <SingleEntryStatus>do_meta_command, unknown</SingleEntryStatus>
+        <SingleEntryStatus>explain_data_prepare, unknown</SingleEntryStatus>
+        <SingleEntryStatus>getSafetyLevel, unknown</SingleEntryStatus>
+        <SingleEntryStatus>isAlterableTable, unknown</SingleEntryStatus>
+        <SingleEntryStatus>lintDotCommand, unknown</SingleEntryStatus>
+        <SingleEntryStatus>lintFkeyIndexes, unknown</SingleEntryStatus>
+        <SingleEntryStatus>nocaseCollatingFunc, unknown</SingleEntryStatus>
+        <SingleEntryStatus>parseModifier, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3AddGenerated, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3BeginTrigger, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3CheckObjectName, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3CreateIndex, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3FindTable, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3IsShadowTableOf, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3JoinType, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3LoadExtension, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3LocateTable, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3MatchEName, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3Pragma, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3_compileoption_used, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3_complete, unknown</SingleEntryStatus>
+        <SingleEntryStatus>tableMayNotBeDropped, safe|loopboundreached</SingleEntryStatus>
+        <SingleEntryStatus>vtabCallConstructor, unknown</SingleEntryStatus>
+        <SingleEntryStatus>yy_reduce, unknown</SingleEntryStatus>
+      </EntryStatus>
+    </Check>
+  </CheckList>
+  <Annotation>allsafe</Annotation>
+  <Status>allsafe</Status>
+</VerificationJob>

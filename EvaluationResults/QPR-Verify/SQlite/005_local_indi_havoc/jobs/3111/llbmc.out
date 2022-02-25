@@ -1,0 +1,123 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 3111 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 1
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/3111
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : btreeParseCell
+m_checker->run()
+
+    Performing bounded model checking ...getMatchingFunctions
+res.push_back: btreeParseCellPtr
+res.push_back: btreeParseCellPtrNoPayload
+res.push_back: btreeParseCellPtrIndex
+res.push_back: btreeParseCellAdjustSizeForOverflow
+
+      Transformed "btreeParseCell" from 1 to 89 basic blocks and from 44 to 370 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...Current: btreeParseCell Havoced: copyNodeContent
+Current: btreeParseCell Havoced: rowSetTreeToList
+Current: btreeParseCell Havoced: identPut
+Current: btreeParseCell Havoced: sqlite3FkDropTable
+Current: btreeParseCell Havoced: generateWithRecursiveQuery
+Current: btreeParseCell Havoced: innerLoopLoadRow
+Current: btreeParseCell Havoced: explainSimpleCount
+Current: btreeParseCell Havoced: sqlite3AuthContextPush
+Current: btreeParseCell Havoced: generateColumnTypes
+Current: btreeParseCell Havoced: whereLikeOptimizationStringFixup
+Current: btreeParseCell Havoced: sqlite3WhereTabFuncArgs
+Current: btreeParseCell Havoced: reindexTable
+Current: btreeParseCell Havoced: analyzeTable
+Current: btreeParseCell Havoced: sqlite3PagerSetBusyHandler
+Current: btreeParseCell Havoced: corruptSchema
+Current: btreeParseCell Havoced: sqlite3SetString
+Current: btreeParseCell Havoced: addModuleArgument
+Current: btreeParseCell Havoced: sqlite3ExprFunctionUsable
+Current: btreeParseCell Havoced: sqlite3ResolveSelectNames
+Current: btreeParseCell Havoced: sqlite3SelectPrep
+Current: btreeParseCell Havoced: sqlite3RenameTokenRemap
+Current: btreeParseCell Havoced: sqlite3WindowChain
+Current: btreeParseCell Havoced: sqlite3AlterDropColumn
+Current: btreeParseCell Havoced: sqlite3AlterRenameTable
+Current: btreeParseCell Havoced: sqlite3Analyze
+Current: btreeParseCell Havoced: sqlite3Reindex
+Current: btreeParseCell Havoced: sqlite3FinishTrigger
+Current: btreeParseCell Havoced: sqlite3Vacuum
+Current: btreeParseCell Havoced: sqlite3PExprAddSelect
+Current: btreeParseCell Havoced: sqlite3WindowAttach
+Current: btreeParseCell Havoced: sqlite3ExprListCheckLength
+Current: btreeParseCell Havoced: sqlite3SrcListFuncArgs
+Current: btreeParseCell Havoced: sqlite3SrcListIndexedBy
+Current: btreeParseCell Havoced: sqlite3AddGenerated
+Current: btreeParseCell Havoced: sqlite3AddColumn
+Current: btreeParseCell Havoced: btreeParseCellAdjustSizeForOverflow
+Current: btreeParseCell Havoced: btreeParseCellPtrIndex
+Current: btreeParseCell Havoced: btreeParseCellPtrNoPayload
+Current: btreeParseCell Havoced: btreeParseCellPtr
+Current: btreeParseCell Havoced: insertElement
+Current: btreeParseCell Havoced: sqlite3_str_vappendf
+Current: btreeParseCell Havoced: printSchemaLine
+Current: btreeParseCell Havoced: tryToCloneData
+                      0 sec [DONE]
+        Number of expressions:                        155979
+        after encoding
+
+      2 assertions before transformations (1 no_function_call, 1 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            3874
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72600
+        Memory Model Encoder
+          Number of moved ops                              0
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                             142
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      2 assertions remain after transformations (1 no_function_call, 1 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...

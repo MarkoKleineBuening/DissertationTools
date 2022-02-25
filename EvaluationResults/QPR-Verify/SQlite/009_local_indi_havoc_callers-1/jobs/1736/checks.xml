@@ -1,0 +1,56 @@
+<VerificationJob>
+  <Configuration>
+    <AnalyzeChecksIndividually value="true" />
+    <BitcodeTraces value="false" />
+    <CheckCallers value="true" />
+    <DumpVerifierBitcodeFiles value="false" />
+    <EnableSlicing value="false" />
+    <EntryPoint value="editFunc" />
+    <FixPoint value="true" />
+    <ForkJobs value="true" />
+    <HavocLimit value="2" />
+    <Hosted value="true" />
+    <IgnoreMissingFunctions value="false" />
+    <InitializedGlobals value="false" />
+    <LoopUnrollBound value="1" />
+    <PreconditionLocation value="jobs/1736" />
+    <SourceDirectory value="/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld" />
+    <TimeOut value="600" />
+    <XMLTraces value="false" />
+  </Configuration>
+  <CheckList>
+    <Check id="5703" location="6151" category="arithmetic.overflow" status="safe|loopboundreached|functionbodymissing" scope="sqlite3_randomness">
+      <Annotations>
+        <Annotation>The function body for getpid is missing (/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld//home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld/sqlite3.c:40226:22)</Annotation>
+        <Annotation>A loop bound was reached (/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld//home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld/sqlite3.c:30878:3)</Annotation>
+        <Annotation>A loop bound was reached (/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld//home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld/sqlite3.c:30878:3)</Annotation>
+        <Annotation>The function body for __assert_fail is missing (/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld//home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld/shell.c:10582:3)</Annotation>
+        <Annotation>A loop bound was reached (/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld//home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld/sqlite3.c:30878:3)</Annotation>
+        <Annotation>The function body for getenv is missing (/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld//home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld/shell.c:12285:15)</Annotation>
+        <Annotation>The function body for fopen64 is missing (/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld//home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld/shell.c:12310:7)</Annotation>
+        <Annotation>A loop bound was reached (/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld//home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld/sqlite3.c:30878:3)</Annotation>
+      </Annotations>
+      <EntryStatus>
+        <SingleEntryStatus>do_meta_command, unknown</SingleEntryStatus>
+        <SingleEntryStatus>editFunc, safe|loopboundreached|functionbodymissing</SingleEntryStatus>
+        <SingleEntryStatus>idxSampleFunc, unknown</SingleEntryStatus>
+        <SingleEntryStatus>newTempFile, todo</SingleEntryStatus>
+        <SingleEntryStatus>randomBlob, unknown</SingleEntryStatus>
+        <SingleEntryStatus>randomFunc, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3BitvecBuiltinTest, todo</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3ColumnsFromExprList, todo</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3VdbeExec, todo</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3WalFrames, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3_test_control, unknown</SingleEntryStatus>
+        <SingleEntryStatus>unixGetTempname, unknown</SingleEntryStatus>
+        <SingleEntryStatus>unixOpen, unknown</SingleEntryStatus>
+        <SingleEntryStatus>vdbeCommit, unknown</SingleEntryStatus>
+        <SingleEntryStatus>walCheckpoint, todo</SingleEntryStatus>
+        <SingleEntryStatus>walRestartLog, unknown</SingleEntryStatus>
+        <SingleEntryStatus>writeJournalHdr, todo</SingleEntryStatus>
+      </EntryStatus>
+    </Check>
+  </CheckList>
+  <Annotation>allsafe</Annotation>
+  <Status>allsafe</Status>
+</VerificationJob>

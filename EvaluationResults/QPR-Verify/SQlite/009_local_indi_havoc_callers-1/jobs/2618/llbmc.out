@@ -1,0 +1,173 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 2618 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 2
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/2618
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : pager_write_pagelist
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "pager_write_pagelist" for 1 iterations succeeded.
+      Transformed "pager_write_pagelist" from 23 to 37 basic blocks and from 155 to 244 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...Current: pagerOpentemp Havoced: sqlite3OsOpen
+getMatchingFunctions
+res.push_back: apndFileControl
+res.push_back: memdbFileControl
+res.push_back: unixFileControl
+res.push_back: sqlite3OsFileControl
+
+        Transformed "sqlite3OsFileControlHint" from 3 to 85 basic blocks and from 17 to 276 instructionsCurrent: sqlite3OsFileControlHint Havoced: allocateSpace
+Current: sqlite3OsFileControlHint Havoced: vdbePmaReadBlob
+Current: sqlite3OsFileControlHint Havoced: btreeDropTable
+Current: sqlite3OsFileControlHint Havoced: sqlite3VtabCallDestroy
+Current: sqlite3OsFileControlHint Havoced: sqlite3BtreeDropTable
+Current: sqlite3OsFileControlHint Havoced: sqlite3VdbeSorterInit
+Current: sqlite3OsFileControlHint Havoced: sqlite3BtreeClearTable
+Current: sqlite3OsFileControlHint Havoced: sqlite3VdbeMemFromBtreeZeroOffset
+Current: sqlite3OsFileControlHint Havoced: serialGet
+Current: sqlite3OsFileControlHint Havoced: sqlite3VdbeSerialGet
+Current: sqlite3OsFileControlHint Havoced: sqlite3ExprCoveredByIndex
+Current: sqlite3OsFileControlHint Havoced: readsTable
+Current: sqlite3OsFileControlHint Havoced: autoIncBegin
+Current: sqlite3OsFileControlHint Havoced: sqlite3PagerReadFileheader
+Current: sqlite3OsFileControlHint Havoced: sqlite3VdbeLoadString
+Current: sqlite3OsFileControlHint Havoced: sqlite3DbIsNamed
+Current: sqlite3OsFileControlHint Havoced: sqlite3BtreeBeginTrans
+Current: sqlite3OsFileControlHint Havoced: walIteratorInit
+Current: sqlite3OsFileControlHint Havoced: saveCursorsOnList
+Current: sqlite3OsFileControlHint Havoced: sqlite3WalFindFrame
+Current: sqlite3OsFileControlHint Havoced: sqlite3PcacheFetchStress
+Current: sqlite3OsFileControlHint Havoced: walIndexPageRealloc
+Current: sqlite3OsFileControlHint Havoced: walIndexPage
+Current: sqlite3OsFileControlHint Havoced: walHashGet
+Current: sqlite3OsFileControlHint Havoced: sqlite3OsFileControl
+Current: sqlite3OsFileControlHint Havoced: saveAllCursors
+Current: sqlite3OsFileControlHint Havoced: keywordCode
+Current: sqlite3OsFileControlHint Havoced: sqlite3_bind_value
+Current: sqlite3OsFileControlHint Havoced: sqlite3OsRandomness
+Current: sqlite3OsFileControlHint Havoced: unixFileControl
+Current: sqlite3OsFileControlHint Havoced: unixGetLastError
+Current: sqlite3OsFileControlHint Havoced: unixRandomness
+Current: sqlite3OsFileControlHint Havoced: memdbFileControl
+Current: sqlite3OsFileControlHint Havoced: memdbGetLastError
+Current: sqlite3OsFileControlHint Havoced: memdbRandomness
+Current: sqlite3OsFileControlHint Havoced: shell_dbinfo_command
+Current: sqlite3OsFileControlHint Havoced: expertFinish
+Current: sqlite3OsFileControlHint Havoced: apndFileControl
+Current: sqlite3OsFileControlHint Havoced: apndGetLastError
+Current: sqlite3OsFileControlHint Havoced: apndRandomness
+Current: pager_write_changecounter Havoced: sqlite3Get4byte
+Current: pager_write_changecounter Havoced: sqlite3Put4byte
+Current: pager_write_changecounter Havoced: sqlite3Put4byte
+Current: pager_write_changecounter Havoced: sqlite3Put4byte
+getMatchingFunctions
+res.push_back: apndRead
+res.push_back: apndWrite
+res.push_back: memdbRead
+res.push_back: memdbWrite
+res.push_back: unixRead
+res.push_back: unixWrite
+res.push_back: sqlite3OsWrite
+res.push_back: memjrnlRead
+res.push_back: memjrnlWrite
+res.push_back: sqlite3OsRead
+
+        Transformed "sqlite3OsWrite" from 1 to 29 basic blocks and from 14 to 76 instructionsCurrent: sqlite3OsWrite Havoced: walWriteToLog
+Current: sqlite3OsWrite Havoced: walWriteOneFrame
+Current: sqlite3OsWrite Havoced: sqlite3OsRead
+Current: sqlite3OsWrite Havoced: memjrnlWrite
+Current: sqlite3OsWrite Havoced: memjrnlRead
+Current: sqlite3OsWrite Havoced: unixWrite
+Current: sqlite3OsWrite Havoced: unixRead
+Current: sqlite3OsWrite Havoced: memdbWrite
+Current: sqlite3OsWrite Havoced: memdbRead
+Current: sqlite3OsWrite Havoced: apndWrite
+Current: sqlite3OsWrite Havoced: apndRead
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %72, i8* %73, i64 16, i32 1, i1 false), !dbg !5706
+Current: sqlite3BackupUpdate Havoced: backupUpdate
+Current: pager_write_changecounter Havoced: sqlite3Get4byte
+Current: pager_write_changecounter Havoced: sqlite3Put4byte
+Current: pager_write_changecounter Havoced: sqlite3Put4byte
+Current: pager_write_changecounter Havoced: sqlite3Put4byte
+Current: sqlite3OsWrite Havoced: walWriteToLog
+Current: sqlite3OsWrite Havoced: walWriteOneFrame
+Current: sqlite3OsWrite Havoced: sqlite3OsRead
+Current: sqlite3OsWrite Havoced: memjrnlWrite
+Current: sqlite3OsWrite Havoced: memjrnlRead
+Current: sqlite3OsWrite Havoced: unixWrite
+Current: sqlite3OsWrite Havoced: unixRead
+Current: sqlite3OsWrite Havoced: memdbWrite
+Current: sqlite3OsWrite Havoced: memdbRead
+Current: sqlite3OsWrite Havoced: apndWrite
+Current: sqlite3OsWrite Havoced: apndRead
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %123, i8* %124, i64 16, i32 1, i1 false), !dbg !5706
+Current: sqlite3BackupUpdate Havoced: backupUpdate
+
+                                                           0 sec [DONE]
+        Number of expressions:                        156946
+        after encoding
+
+      10 assertions before transformations (7 no_function_call, 1 no_back_edge, 2 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            4465
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72637
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               1
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                              19
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             148
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      10 assertions remain after transformations (7 no_function_call, 1 no_back_edge, 2 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...

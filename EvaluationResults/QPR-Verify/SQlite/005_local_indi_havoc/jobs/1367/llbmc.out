@@ -1,0 +1,275 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 1367 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 1
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/1367
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : sqlite3_db_status
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "sqlite3_db_status" for 1 iterations succeeded.
+      Unrolling loop in function "sqlite3_db_status" for 1 iterations succeeded.
+      Unrolling loop in function "sqlite3_db_status" for 1 iterations succeeded.
+      Unrolling loop in function "sqlite3_db_status" for 1 iterations succeeded.
+      Unrolling loop in function "sqlite3_db_status" for 1 iterations succeeded.
+      Unrolling loop in function "sqlite3_db_status" for 1 iterations succeeded.
+      Unrolling loop in function "sqlite3_db_status" for 1 iterations succeeded.
+      Unrolling loop in function "sqlite3_db_status" for 1 iterations succeeded.getMatchingFunctions
+res.push_back: isatty
+res.push_back: raise
+res.push_back: memtraceRoundup
+res.push_back: re_word_char
+res.push_back: re_digit_char
+res.push_back: re_space_char
+res.push_back: tolower
+res.push_back: sqlite3MisuseError
+res.push_back: sqlite3_release_memory
+res.push_back: close
+res.push_back: sqlite3CantopenError
+res.push_back: fsync
+res.push_back: sleep
+res.push_back: sqlite3MemRoundup
+res.push_back: sqlite3_enable_shared_cache
+res.push_back: sqlite3_sleep
+res.push_back: sqlite3CorruptError
+res.push_back: walFramePage
+res.push_back: sqlite3FaultSim
+res.push_back: walHash
+res.push_back: walNextHash
+res.push_back: isFatalError
+res.push_back: sqlite3AbsInt32
+res.push_back: allowedOp
+res.push_back: sqlite3VdbeSerialTypeLen
+res.push_back: sqlite3ParserFallback
+res.push_back: vdbeSorterTreeDepth
+
+      Transformed "sqlite3_db_status" from 59 to 134 basic blocks and from 418 to 588 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...Current: sqlite3_db_status Havoced: sqlite3_mutex_enter
+Current: sqlite3_db_status Havoced: sqlite3BtreePager
+Current: sqlite3_db_status Havoced: sqlite3PagerCacheStat
+Current: sqlite3_db_status Havoced: sqlite3VdbeClearObject
+Current: sqlite3_db_status Havoced: sqlite3DbFree
+Current: sqlite3_db_status Havoced: sqlite3BtreeEnterAll
+Current: sqlite3_db_status Havoced: vdbeSorterTreeDepth
+Current: sqlite3_db_status Havoced: sqlite3ParserFallback
+Current: sqlite3_db_status Havoced: sqlite3VdbeSerialTypeLen
+Current: sqlite3_db_status Havoced: allowedOp
+Current: sqlite3_db_status Havoced: sqlite3AbsInt32
+Current: sqlite3_db_status Havoced: isFatalError
+Current: sqlite3_db_status Havoced: walNextHash
+Current: sqlite3_db_status Havoced: walHash
+Current: sqlite3_db_status Havoced: sqlite3FaultSim
+Current: sqlite3_db_status Havoced: walFramePage
+Current: sqlite3_db_status Havoced: sqlite3CorruptError
+Current: sqlite3_db_status Havoced: sqlite3_sleep
+Current: sqlite3_db_status Havoced: sqlite3_enable_shared_cache
+Current: sqlite3_db_status Havoced: sqlite3MemRoundup
+Current: sqlite3_db_status Havoced: sqlite3CantopenError
+Current: sqlite3_db_status Havoced: sqlite3_release_memory
+Current: sqlite3_db_status Havoced: sqlite3MisuseError
+Current: sqlite3_db_status Havoced: re_space_char
+Current: sqlite3_db_status Havoced: re_digit_char
+Current: sqlite3_db_status Havoced: re_word_char
+Current: sqlite3_db_status Havoced: memtraceRoundup
+Current: sqlite3_db_status Havoced: sqlite3_msize
+Current: sqlite3_db_status Havoced: sqlite3_msize
+Current: sqlite3_db_status Havoced: sqlite3_msize
+Current: sqlite3_db_status Havoced: sqlite3_msize
+Current: sqlite3_db_status Havoced: sqlite3DeleteTrigger
+Current: sqlite3_db_status Havoced: sqlite3DeleteTable
+Current: sqlite3_db_status Havoced: sqlite3BtreeLeaveAll
+Current: sqlite3_db_status Havoced: sqlite3BtreeEnterAll
+Current: sqlite3_db_status Havoced: sqlite3BtreePager
+Current: sqlite3_db_status Havoced: sqlite3PagerMemUsed
+Current: sqlite3_db_status Havoced: sqlite3BtreeConnectionCount
+Current: sqlite3_db_status Havoced: sqlite3BtreeLeaveAll
+Current: sqlite3_db_status Havoced: sqlite3LookasideUsed
+Current: sqlite3_db_status Havoced: sqlite3_mutex_leave
+                      0 sec [DONE]
+        Number of expressions:                        156418
+        after encoding
+
+      15 assertions before transformations (6 no_function_call, 8 no_back_edge, 1 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            4135
+        Fixed Memory Address Assigner
+          Number of moved ops                              2
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72641
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               3
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                              28
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             142
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      15 assertions remain after transformations (6 no_function_call, 8 no_back_edge, 1 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...            0 sec [DONE]
+        
+                                                           1 sec [DONE]
+      after performing Check
+evaluateCheckerResultsViaRefinementLoop
+checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+BranchInst - LoopBound
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+BranchInst - LoopBound
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+BranchInst - LoopBound
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+BranchInst - LoopBound
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+BranchInst - LoopBound
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+BranchInst - LoopBound
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+BranchInst - LoopBound
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+BranchInst - LoopBound
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      getCheckerResultAfterUpdatingMarker
+Result is NoTrace
+
+                                                          12 sec [DONE]
+    allsafe
+    
+                                                          12 sec [DONE]
+  

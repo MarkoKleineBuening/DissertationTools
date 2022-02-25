@@ -1,0 +1,102 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 5871 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 1
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/5871
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : sqlite3CreateForeignKey
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "sqlite3CreateForeignKey" for 1 iterations succeeded.
+      Unrolling loop in function "sqlite3CreateForeignKey" for 1 iterations succeeded.
+      Unrolling loop in function "sqlite3CreateForeignKey" for 1 iterations succeeded.
+      Unrolling loop in function "sqlite3CreateForeignKey" for 1 iterations succeeded.
+      Transformed "sqlite3CreateForeignKey" from 56 to 61 basic blocks and from 398 to 424 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...Current: sqlite3CreateForeignKey Havoced: sqlite3ErrorMsg
+Current: sqlite3CreateForeignKey Havoced: sqlite3Strlen30
+Current: sqlite3CreateForeignKey Havoced: sqlite3DbMallocZero
+Current: sqlite3CreateForeignKey Havoced: sqlite3RenameTokenMap
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %73, i8* %81, i64 %84, i32 1, i1 false), !dbg !5771
+Current: sqlite3CreateForeignKey Havoced: sqlite3Dequote
+Current: sqlite3CreateForeignKey Havoced: sqlite3StrICmp
+Current: sqlite3CreateForeignKey Havoced: sqlite3RenameTokenRemap
+Current: sqlite3CreateForeignKey Havoced: sqlite3ErrorMsg
+Current: sqlite3CreateForeignKey Havoced: sqlite3Strlen30
+Current: sqlite3CreateForeignKey Havoced: sqlite3RenameTokenRemap
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %159, i8* %183, i64 %184, i32 1, i1 false), !dbg !5886
+Current: sqlite3CreateForeignKey Havoced: sqlite3HashInsert
+Current: sqlite3CreateForeignKey Havoced: sqlite3OomFault
+Current: sqlite3CreateForeignKey Havoced: sqlite3ErrorMsg
+Current: sqlite3CreateForeignKey Havoced: sqlite3DbFree
+Current: sqlite3CreateForeignKey Havoced: sqlite3ExprListDelete
+Current: sqlite3CreateForeignKey Havoced: sqlite3ExprListDelete
+                      0 sec [DONE]
+        Number of expressions:                        155700
+        after encoding
+
+      5 assertions before transformations (4 no_back_edge, 1 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            3722
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72627
+        Memory Model Encoder
+          Number of moved ops                              0
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                               2
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             142
+        ToASC Analyser
+          Memcpy/memset found                            yes
+        Byte-Based Memory Creator
+          Number of rewrites                            8973
+        Instantiation-Based ToASC Simplifier
+          Number of rewrites                               2
+        Simplifier
+          Number of moved ops                             28
+          Number of rewrites                           23211
+        FP Abstraction
+          Number of rewrites                              22
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      5 assertions remain after transformations (4 no_back_edge, 1 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...

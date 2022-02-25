@@ -1,0 +1,259 @@
+runJobCommand
+precondition analysis with entry:main
+arguents: child
+arguents: job
+arguents: mode
+arguents: precondition
+handleJobInSeparateProcess0
+
+Checking job 230 ...about to run job:
+preconNumber: 5, 1
+
+  Running Model Checker with 1 checks ...entry: main, functionName: display_message
+  call void @qpr.precondition.display_message(%struct.imu.131* @imupacket, %struct.gps.133* @gpspacket, %struct.nav.134* @navpacket, i32 5)
+entry: main, functionName: display_message
+entry: main, functionName: main
+try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 12
+    HavocLimit : 0
+    PreconditionNumber : 5
+    PreconditionLocation : jobs/230
+    TimeOut : 300
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : main
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "main" for 12 iterations succeeded.
+      Unrolling loop in function "main" for 12 iterations succeeded.
+      Unrolling loop in function "main" for 12 iterations succeeded.getMatchingFunctions
+res.push_back: sched_get_priority_max
+res.push_back: close
+res.push_back: abs
+getMatchingFunctions
+getMatchingFunctions
+getMatchingFunctions
+getMatchingFunctions
+getMatchingFunctions
+getMatchingFunctions
+getMatchingFunctions
+getMatchingFunctions
+getMatchingFunctions
+getMatchingFunctions
+getMatchingFunctions
+getMatchingFunctions
+getMatchingFunctions
+
+      Transformed "main" from 49 to 510 basic blocks and from 322 to 2306 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...
+        Unrolling loop in function "llbmc.strcmp" for 0 iterations succeeded.
+        Transformed "llbmc.strcmp" from 4 to 3 basic blocks and from 14 to 16 instructionsisMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %1022, i8* %1023, i64 16, i32 8, i1 false), !dbg !1705
+getMatchingFunctions
+res.push_back: printf
+
+        Transformed "open_client" from 4 to 8 basic blocks and from 31 to 38 instructionsisMemset:   call void @llvm.memset.p0i8.i64(i8* bitcast (%struct.sockaddr_in.140* @serv_addr to i8*), i8 0, i64 16, i32 4, i1 false), !dbg !1375
+isMemset:   call void @llvm.memset.p0i8.i64(i8* bitcast (%struct.sockaddr_in.140* @serv_addr to i8*), i8 0, i64 16, i32 4, i1 false), !dbg !1375
+
+        Unrolling loop in function "send_client" for 12 iterations succeeded.
+        Transformed "send_client" from 8 to 29 basic blocks and from 85 to 319 instructionsisMemset:   call void @llvm.memset.p0i8.i64(i8* %1, i8 0, i64 200, i32 16, i1 false), !dbg !1381
+TODO MKB implement precondition handling: IE
+Reading in precondition at: jobs/230/precondition_display_message.txt
+preconFile: jobs/230/precondition_display_message.txt
+ref: [underoverapprox]name of function arguments, argValue:  
+ref: [underoverapprox]name of function arguments, argValue:  
+name of function arguments line
+param: i32 %arg3:-2147483647
+---name: i32 %arg3, value: -2147483647.
+integer, char or other simple types
+name: i32 %arg3
+assuming that there are not more then 10 arguments
+nameIndex: 3
+nameID: 3
+argument name: 
+value: -2147483647
+###new bool cond: bool % = compare(%i32__5, %i32__2147483649)
+pruneOrAssert -- adding line boolCond: bool % = compare(%i32__5, %i32__2147483649)
+param: i32 %arg3:1
+---name: i32 %arg3, value: 1.
+integer, char or other simple types
+name: i32 %arg3
+assuming that there are not more then 10 arguments
+nameIndex: 3
+nameID: 3
+argument name: 
+value: 1
+###new bool cond: bool % = compare(%i32__5, %i32__1)
+pruneOrAssert -- adding line boolCond: bool % = compare(%i32__5, %i32__1)
+param: i32 %arg3:2
+---name: i32 %arg3, value: 2.
+integer, char or other simple types
+name: i32 %arg3
+assuming that there are not more then 10 arguments
+nameIndex: 3
+nameID: 3
+argument name: 
+value: 2
+###new bool cond: bool % = compare(%i32__5, %i32__2)
+pruneOrAssert -- adding line boolCond: bool % = compare(%i32__5, %i32__2)
+param: i32 %arg3:4
+---name: i32 %arg3, value: 4.
+integer, char or other simple types
+name: i32 %arg3
+assuming that there are not more then 10 arguments
+nameIndex: 3
+nameID: 3
+argument name: 
+value: 4
+###new bool cond: bool % = compare(%i32__5, %i32__4)
+pruneOrAssert -- adding line boolCond: bool % = compare(%i32__5, %i32__4)
+param: i32 %arg3:3
+---name: i32 %arg3, value: 3.
+integer, char or other simple types
+name: i32 %arg3
+assuming that there are not more then 10 arguments
+nameIndex: 3
+nameID: 3
+argument name: 
+value: 3
+###new bool cond: bool % = compare(%i32__5, %i32__3)
+pruneOrAssert -- adding line boolCond: bool % = compare(%i32__5, %i32__3)
+Writing precondition type at: jobs/230/precondition_type_main.txt
+
+Type of Precondition:
+[underoverapprox]
+precondition found, end encoding
+
+                                                           0 sec [DONE]
+        Number of expressions:                         15358
+        after encoding
+
+      288 assertions before transformations (136 no_function_call, 135 no_back_edge, 5 custom, 12 no_unreachable_executed).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            7611
+        Fixed Memory Address Assigner
+          Number of moved ops                             25
+          Number of rewrites                             364
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                            5147
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                              11
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                          412923
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           48637
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                               0
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      288 assertions remain after transformations (136 no_function_call, 135 no_back_edge, 5 custom, 12 no_unreachable_executed).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...            0 sec [DONE]
+        
+                                                           0 sec [DONE]
+      after performing Check
+evaluateCheckerResultsViaRefinementLoop
+checker.getResult() is Trace
+checkOnlyPrecon: 1, size:1
+setCheckToUnsafe for precondition Instruction
+checkID: 1838
+setCheckToUnsafe
+set check to unsafe
+getCheckerResultAfterUpdatingMarker
+failingInst:   %10 = call void (i32)* @signal(i32 2, void (i32)* @cleanup) #9, !dbg !1534
+Preconditions internal: 
+i32 %0:arbitrary; 
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: i32 %i32__1 = iconst() : 1
+error: No matching SMT expression for Op %i32__1 (iconst) found!
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   %10 = call void (i32)* @signal(i32 2, void (i32)* @cleanup) #9, !dbg !1534
+Preconditions internal: 
+i32 %0:arbitrary; 
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: i32 %i32__1 = iconst() : 1
+error: No matching SMT expression for Op %i32__1 (iconst) found!
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   %10 = call void (i32)* @signal(i32 2, void (i32)* @cleanup) #9, !dbg !1534
+Preconditions internal: 
+i32 %0:arbitrary; 
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: i32 %i32__1 = iconst() : 1
+error: No matching SMT expression for Op %i32__1 (iconst) found!
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   %10 = call void (i32)* @signal(i32 2, void (i32)* @cleanup) #9, !dbg !1534
+Preconditions internal: 
+i32 %0:arbitrary; 
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: i32 %i32__1 = iconst() : 1
+error: No matching SMT expression for Op %i32__1 (iconst) found!
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   %10 = call void (i32)* @signal(i32 2, void (i32)* @cleanup) #9, !dbg !1534
+Preconditions internal: 
+i32 %0:arbitrary; 
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: i32 %i32__1 = iconst() : 1
+error: No matching SMT expression for Op %i32__1 (iconst) found!
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      name of function arguments: Writing precondition at: jobs/230/precondition_main.txt
+
+Generated Preconditions:
+[underoverapprox]name of function arguments: 
+i32 %0:arbitrary; 
+i32 %0:arbitrary; 
+i32 %0:arbitrary; 
+i32 %0:arbitrary; 
+i32 %0:arbitrary; 
+
+                                                           0 sec [DONE]
+    allsafe
+    
+                                                           0 sec [DONE]
+  

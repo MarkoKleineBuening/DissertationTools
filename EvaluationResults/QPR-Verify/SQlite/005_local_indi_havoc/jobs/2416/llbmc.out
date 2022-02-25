@@ -1,0 +1,160 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 2416 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 1
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/2416
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : sqlite3PcacheTruncate
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "sqlite3PcacheTruncate" for 1 iterations succeeded.getMatchingFunctions
+res.push_back: pcache1Fetch
+getMatchingFunctions
+res.push_back: pcache1Cachesize
+res.push_back: pcache1Truncate
+
+      Transformed "sqlite3PcacheTruncate" from 14 to 165 basic blocks and from 70 to 510 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...Current: sqlite3PcacheTruncate Havoced: sqlite3PcacheMakeClean
+Current: sqlite3PcacheTruncate Havoced: sqlite3PcacheFetch
+Current: sqlite3PcacheTruncate Havoced: pcache1Fetch
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %30, i8 0, i64 %33, i32 1, i1 false), !dbg !5667
+Current: sqlite3PcacheTruncate Havoced: vdbeMergeEngineCompare
+Current: sqlite3PcacheTruncate Havoced: btreeHeapInsert
+Current: sqlite3PcacheTruncate Havoced: setPageReferenced
+Current: sqlite3PcacheTruncate Havoced: sqlite3BtreeCursorHintFlags
+Current: sqlite3PcacheTruncate Havoced: sqlite3OpenSchemaTable
+Current: sqlite3PcacheTruncate Havoced: sqliteViewResetAll
+Current: sqlite3PcacheTruncate Havoced: windowAggFinal
+Current: sqlite3PcacheTruncate Havoced: unsetJoinExpr
+Current: sqlite3PcacheTruncate Havoced: createMask
+Current: sqlite3PcacheTruncate Havoced: sqlite3VdbeJumpHereOrPopInst
+Current: sqlite3PcacheTruncate Havoced: sqlite3VdbeEndCoroutine
+Current: sqlite3PcacheTruncate Havoced: sqlite3RegisterLikeFunctions
+Current: sqlite3PcacheTruncate Havoced: sqlite3VdbeSetNumCols
+Current: sqlite3PcacheTruncate Havoced: sqlite3PagerSetFlags
+Current: sqlite3PcacheTruncate Havoced: sqlite3ResolvePartIdxLabel
+Current: sqlite3PcacheTruncate Havoced: loadAnalysis
+Current: sqlite3PcacheTruncate Havoced: analyzeDatabase
+Current: sqlite3PcacheTruncate Havoced: sqlite3CodeVerifySchemaAtToplevel
+Current: sqlite3PcacheTruncate Havoced: sqlite3CodeVerifySchema
+Current: sqlite3PcacheTruncate Havoced: sqlite3ReleaseTempReg
+Current: sqlite3PcacheTruncate Havoced: exprToRegister
+Current: sqlite3PcacheTruncate Havoced: sqlite3VdbeResolveLabel
+Current: sqlite3PcacheTruncate Havoced: sqlite3VdbeJumpHere
+Current: sqlite3PcacheTruncate Havoced: sqlite3VdbeUsesBtree
+Current: sqlite3PcacheTruncate Havoced: sqlite3ChangeCookie
+Current: sqlite3PcacheTruncate Havoced: sqlite3PcacheSetCachesize
+Current: sqlite3PcacheTruncate Havoced: sqlite3PagerSetCachesize
+Current: sqlite3PcacheTruncate Havoced: sqlite3SetJoinExpr
+Current: sqlite3PcacheTruncate Havoced: incrAggFunctionDepth
+Current: sqlite3PcacheTruncate Havoced: sqlite3VdbeSetVarmask
+Current: sqlite3PcacheTruncate Havoced: sqlite3DeferForeignKey
+Current: sqlite3PcacheTruncate Havoced: sqlite3AddNotNull
+Current: sqlite3PcacheTruncate Havoced: sqlite3EndTransaction
+Current: sqlite3PcacheTruncate Havoced: sqlite3BeginTransaction
+Current: sqlite3PcacheTruncate Havoced: sqlite3PcacheMove
+Current: sqlite3PcacheTruncate Havoced: walIndexClose
+Current: sqlite3PcacheTruncate Havoced: walRestartHdr
+Current: sqlite3PcacheTruncate Havoced: sqlite3PagerTruncateImage
+Current: sqlite3PcacheTruncate Havoced: callFinaliser
+Current: sqlite3PcacheTruncate Havoced: walUnlockShared
+Current: sqlite3PcacheTruncate Havoced: sqlite3Put4byte
+Current: sqlite3PcacheTruncate Havoced: zeroPage
+Current: sqlite3PcacheTruncate Havoced: sqlite3VdbeSetChanges
+Current: sqlite3PcacheTruncate Havoced: sqlite3RollbackAll
+Current: sqlite3PcacheTruncate Havoced: sqlite3ResetOneSchema
+Current: sqlite3PcacheTruncate Havoced: sqlite3ExpirePreparedStatements
+Current: sqlite3PcacheTruncate Havoced: sqlite3_result_subtype
+Current: sqlite3PcacheTruncate Havoced: sqlite3_result_zeroblob
+Current: sqlite3PcacheTruncate Havoced: sqlite3SystemError
+Current: sqlite3PcacheTruncate Havoced: sqlite3ErrorFinish
+Current: sqlite3PcacheTruncate Havoced: sqlite3Error
+Current: sqlite3PcacheTruncate Havoced: minMaxValueFinalize
+Current: sqlite3PcacheTruncate Havoced: sqlite3VdbeMemSetZeroBlob
+Current: sqlite3PcacheTruncate Havoced: sqlite3_result_error_code
+Current: sqlite3PcacheTruncate Havoced: applyNumericAffinity
+Current: sqlite3PcacheTruncate Havoced: sqlite3_result_int
+Current: sqlite3PcacheTruncate Havoced: sqlite3InsertBuiltinFuncs
+Current: sqlite3PcacheTruncate Havoced: pcache1TruncateUnsafe
+Current: sqlite3PcacheTruncate Havoced: pcache1RemoveFromHash
+Current: sqlite3PcacheTruncate Havoced: pcache1Truncate
+Current: sqlite3PcacheTruncate Havoced: pcache1Cachesize
+Current: sqlite3PcacheTruncate Havoced: storeLastErrno
+Current: sqlite3PcacheTruncate Havoced: releaseMemArray
+Current: sqlite3PcacheTruncate Havoced: print_box_line
+Current: sqlite3PcacheTruncate Havoced: eqp_render_level
+Current: sqlite3PcacheTruncate Havoced: print_dashes
+Current: sqlite3PcacheTruncate Havoced: import_append_char
+Current: sqlite3PcacheTruncate Havoced: re_add_state
+Current: sqlite3PcacheTruncate Havoced: SHA3Init
+Current: sqlite3PcacheTruncate Havoced: open_db
+                      0 sec [DONE]
+        Number of expressions:                        156635
+        after encoding
+
+      5 assertions before transformations (3 no_function_call, 1 no_back_edge, 1 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            4332
+        Fixed Memory Address Assigner
+          Number of moved ops                              4
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72615
+        Memory Model Encoder
+          Number of moved ops                              0
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                               1
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             142
+        ToASC Analyser
+          Memcpy/memset found                            yes
+        Byte-Based Memory Creator
+          Number of rewrites                            8926
+        Instantiation-Based ToASC Simplifier
+          Number of rewrites                               1
+        Simplifier
+          Number of moved ops                             19
+          Number of rewrites                           23148
+        FP Abstraction
+          Number of rewrites                              22
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      5 assertions remain after transformations (3 no_function_call, 1 no_back_edge, 1 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...

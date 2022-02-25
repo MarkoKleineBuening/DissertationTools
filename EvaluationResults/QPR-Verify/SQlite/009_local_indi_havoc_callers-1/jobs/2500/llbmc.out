@@ -1,0 +1,140 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 2500 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 2
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/2500
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : sqlite3RowSetTest
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "sqlite3RowSetTest" for 1 iterations succeeded.
+      Unrolling loop in function "sqlite3RowSetTest" for 1 iterations succeeded.
+      Unrolling loop in function "sqlite3RowSetTest" for 1 iterations succeeded.
+      Transformed "sqlite3RowSetTest" from 32 to 36 basic blocks and from 150 to 172 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...
+        Unrolling loop in function "rowSetEntrySort" for 39 iterations succeeded.
+        Unrolling loop in function "rowSetEntrySort" for 1 iterations succeeded.
+        Unrolling loop in function "rowSetEntrySort" for 1 iterations succeeded.
+        Transformed "rowSetEntrySort" from 17 to 284 basic blocks and from 99 to 1523 instructionsisMemset:   call void @llvm.memset.p0i8.i64(i8* %3, i8 0, i64 320, i32 16, i1 false), !dbg !5619
+Current: rowSetEntrySort Havoced: rowSetEntryMerge
+Current: rowSetEntrySort Havoced: rowSetEntryMerge
+Current: rowSetEntrySort Havoced: rowSetEntryMerge
+Current: rowSetEntrySort Havoced: rowSetEntryMerge
+Current: rowSetEntrySort Havoced: rowSetEntryMerge
+Current: rowSetEntrySort Havoced: rowSetEntryMerge
+Current: rowSetEntrySort Havoced: rowSetEntryMerge
+Current: rowSetEntrySort Havoced: rowSetEntryMerge
+Current: rowSetEntrySort Havoced: rowSetEntryMerge
+Current: rowSetEntrySort Havoced: rowSetEntryMerge
+Current: rowSetEntrySort Havoced: rowSetEntryMerge
+Current: rowSetEntrySort Havoced: rowSetEntryMerge
+Current: rowSetEntrySort Havoced: rowSetEntryMerge
+Current: rowSetEntrySort Havoced: rowSetEntryMerge
+Current: rowSetEntrySort Havoced: rowSetEntryMerge
+Current: rowSetEntrySort Havoced: rowSetEntryMerge
+Current: rowSetEntrySort Havoced: rowSetEntryMerge
+Current: rowSetEntrySort Havoced: rowSetEntryMerge
+Current: rowSetEntrySort Havoced: rowSetEntryMerge
+Current: rowSetEntrySort Havoced: rowSetEntryMerge
+Current: rowSetEntrySort Havoced: rowSetEntryMerge
+Current: rowSetEntrySort Havoced: rowSetEntryMerge
+Current: rowSetEntrySort Havoced: rowSetEntryMerge
+Current: rowSetEntrySort Havoced: rowSetEntryMerge
+Current: rowSetEntrySort Havoced: rowSetEntryMerge
+Current: rowSetEntrySort Havoced: rowSetEntryMerge
+Current: rowSetEntrySort Havoced: rowSetEntryMerge
+Current: rowSetEntrySort Havoced: rowSetEntryMerge
+Current: rowSetEntrySort Havoced: rowSetEntryMerge
+Current: rowSetEntrySort Havoced: rowSetEntryMerge
+Current: rowSetEntrySort Havoced: rowSetEntryMerge
+Current: rowSetEntrySort Havoced: rowSetEntryMerge
+Current: rowSetEntrySort Havoced: rowSetEntryMerge
+Current: rowSetEntrySort Havoced: rowSetEntryMerge
+Current: rowSetEntrySort Havoced: rowSetEntryMerge
+Current: rowSetEntrySort Havoced: rowSetEntryMerge
+Current: rowSetEntrySort Havoced: rowSetEntryMerge
+Current: rowSetEntrySort Havoced: rowSetEntryMerge
+Current: rowSetEntrySort Havoced: rowSetEntryMerge
+Current: rowSetEntrySort Havoced: rowSetEntryMerge
+
+        Unrolling loop in function "rowSetEntryMerge" for 1 iterations succeeded.
+        Transformed "rowSetEntryMerge" from 12 to 20 basic blocks and from 64 to 114 instructions
+        Unrolling loop in function "rowSetListToTree" for 1 iterations succeeded.
+        Transformed "rowSetListToTree" from 5 to 6 basic blocks and from 41 to 48 instructionsCurrent: rowSetListToTree Havoced: rowSetNDeepTree
+Current: rowSetEntryAlloc Havoced: sqlite3DbMallocRawNN
+Current: rowSetListToTree Havoced: rowSetNDeepTree
+
+                                                           0 sec [DONE]
+        Number of expressions:                        158521
+        after encoding
+
+      12 assertions before transformations (2 no_function_call, 9 no_back_edge, 1 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            5752
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72811
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               7
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             155
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             463
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      12 assertions remain after transformations (2 no_function_call, 9 no_back_edge, 1 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...

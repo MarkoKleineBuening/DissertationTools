@@ -1,0 +1,106 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 6936 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 1
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/6936
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : flattenSubquery
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "flattenSubquery" for 1 iterations succeeded.
+      Unrolling loop in function "flattenSubquery" for 1 iterations succeeded.
+      Unrolling loop in function "flattenSubquery" for 1 iterations succeeded.
+      Unrolling loop in function "flattenSubquery" for 1 iterations succeeded.
+      Unrolling loop in function "flattenSubquery" for 1 iterations succeeded.
+      Unrolling loop in function "flattenSubquery" for 1 iterations succeeded.
+      Unrolling loop in function "flattenSubquery" for 1 iterations succeeded.
+      Transformed "flattenSubquery" from 135 to 143 basic blocks and from 732 to 762 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...Current: flattenSubquery Havoced: sqlite3DbMallocZero
+Current: flattenSubquery Havoced: sqlite3AuthCheck
+Current: flattenSubquery Havoced: sqlite3DbFree
+Current: flattenSubquery Havoced: sqlite3DbFree
+Current: flattenSubquery Havoced: sqlite3DbFree
+Current: flattenSubquery Havoced: sqlite3SelectDup
+Current: flattenSubquery Havoced: renumberCursors
+Current: flattenSubquery Havoced: sqlite3DbFree
+Current: flattenSubquery Havoced: sqlite3ParserAddCleanup
+Current: flattenSubquery Havoced: sqlite3SrcListEnlarge
+Current: flattenSubquery Havoced: sqlite3IdListDelete
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %311, i8* %312, i64 112, i32 8, i1 false), !dbg !6255
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %321, i8 0, i64 112, i32 8, i1 false), !dbg !6262
+Current: flattenSubquery Havoced: sqlite3SetJoinExpr
+Current: flattenSubquery Havoced: sqlite3PExpr
+Current: flattenSubquery Havoced: substSelect
+Current: flattenSubquery Havoced: recomputeColumnsUsed
+Current: flattenSubquery Havoced: sqlite3AggInfoPersistWalkerInit
+Current: flattenSubquery Havoced: sqlite3WalkSelect
+Current: flattenSubquery Havoced: sqlite3SelectDelete
+                      0 sec [DONE]
+        Number of expressions:                        156551
+        after encoding
+
+      8 assertions before transformations (7 no_back_edge, 1 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            4227
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72720
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               2
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               9
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             147
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      8 assertions remain after transformations (7 no_back_edge, 1 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...

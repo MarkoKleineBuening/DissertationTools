@@ -1,0 +1,113 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 3582 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 1
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/3582
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : fillInCell
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "fillInCell" for 1 iterations succeeded.
+      Unrolling loop in function "fillInCell" for 1 iterations succeeded.
+      Transformed "fillInCell" from 45 to 70 basic blocks and from 371 to 533 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...Current: fillInCell Havoced: sqlite3PutVarint
+Current: fillInCell Havoced: sqlite3PutVarint
+Current: fillInCell Havoced: sqlite3PutVarint
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %94, i8 0, i64 %107, i32 1, i1 false), !dbg !5790
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %94, i8* %99, i64 %106, i32 1, i1 false), !dbg !5786
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %94, i8* %99, i64 %104, i32 1, i1 false), !dbg !5776
+Current: fillInCell Havoced: ptrmapPageno
+Current: fillInCell Havoced: allocateBtreePage
+Current: fillInCell Havoced: ptrmapPut
+Current: fillInCell Havoced: releasePage
+Current: fillInCell Havoced: sqlite3Put4byte
+Current: fillInCell Havoced: releasePage
+Current: fillInCell Havoced: sqlite3Put4byte
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %172, i8 0, i64 %185, i32 1, i1 false), !dbg !5790
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %172, i8* %177, i64 %184, i32 1, i1 false), !dbg !5786
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %172, i8* %177, i64 %182, i32 1, i1 false), !dbg !5776
+Current: fillInCell Havoced: ptrmapPageno
+Current: fillInCell Havoced: allocateBtreePage
+Current: fillInCell Havoced: ptrmapPut
+Current: fillInCell Havoced: releasePage
+Current: fillInCell Havoced: sqlite3Put4byte
+Current: fillInCell Havoced: releasePage
+Current: fillInCell Havoced: sqlite3Put4byte
+Current: fillInCell Havoced: releasePage
+Current: fillInCell Havoced: releasePage
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %58, i8* %55, i64 %66, i32 1, i1 false), !dbg !5728
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %68, i8 0, i64 %70, i32 1, i1 false), !dbg !5732
+                      0 sec [DONE]
+        Number of expressions:                        155811
+        after encoding
+
+      5 assertions before transformations (3 no_back_edge, 2 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            3746
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72650
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               3
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                              12
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             142
+        ToASC Analyser
+          Memcpy/memset found                            yes
+        Byte-Based Memory Creator
+          Number of rewrites                            8982
+        Instantiation-Based ToASC Simplifier
+          Number of rewrites                               8
+        Simplifier
+          Number of moved ops                            203
+          Number of rewrites                           23133
+        FP Abstraction
+          Number of rewrites                              22
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      5 assertions remain after transformations (3 no_back_edge, 2 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...

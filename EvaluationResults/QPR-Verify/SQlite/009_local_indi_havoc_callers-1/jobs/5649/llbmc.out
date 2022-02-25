@@ -1,0 +1,126 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 5649 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 2
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/5649
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : analysisLoader
+m_checker->run()
+
+    Performing bounded model checking ...
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...
+        Unrolling loop in function "sqlite3FindTable" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3FindTable" for 1 iterations succeeded.
+        Transformed "sqlite3FindTable" from 46 to 50 basic blocks and from 220 to 237 instructionsCurrent: sqlite3FindTable Havoced: sqlite3HashFind
+Current: sqlite3FindTable Havoced: sqlite3HashFind
+Current: sqlite3FindTable Havoced: sqlite3HashFind
+Current: sqlite3FindTable Havoced: sqlite3_strnicmp
+Current: sqlite3FindTable Havoced: sqlite3StrICmp
+Current: sqlite3FindTable Havoced: sqlite3StrICmp
+Current: sqlite3FindTable Havoced: sqlite3HashFind
+Current: sqlite3FindTable Havoced: sqlite3HashFind
+Current: sqlite3FindTable Havoced: sqlite3StrICmp
+Current: sqlite3FindTable Havoced: sqlite3StrICmp
+Current: sqlite3FindTable Havoced: sqlite3HashFind
+Current: sqlite3FindTable Havoced: sqlite3_strnicmp
+Current: sqlite3FindTable Havoced: sqlite3StrICmp
+Current: sqlite3FindTable Havoced: sqlite3HashFind
+Current: sqlite3FindTable Havoced: sqlite3StrICmp
+Current: sqlite3FindTable Havoced: sqlite3StrICmp
+Current: sqlite3FindTable Havoced: sqlite3StrICmp
+Current: sqlite3FindTable Havoced: sqlite3HashFind
+Current: sqlite3_stricmp Havoced: sqlite3StrICmp
+
+        Unrolling loop in function "sqlite3FindIndex" for 1 iterations succeeded.
+        Transformed "sqlite3FindIndex" from 13 to 15 basic blocks and from 58 to 67 instructionsCurrent: sqlite3FindIndex Havoced: sqlite3DbIsNamed
+Current: sqlite3FindIndex Havoced: sqlite3HashFind
+
+        Unrolling loop in function "sqlite3PrimaryKeyIndex" for 1 iterations succeeded.
+        Transformed "sqlite3PrimaryKeyIndex" from 7 to 12 basic blocks and from 27 to 47 instructions
+        Unrolling loop in function "decodeIntArray" for 1 iterations succeeded.
+        Unrolling loop in function "decodeIntArray" for 1 iterations succeeded.
+        Unrolling loop in function "decodeIntArray" for 1 iterations succeeded.
+        Unrolling loop in function "decodeIntArray" for 1 iterations succeeded.
+        Unrolling loop in function "decodeIntArray" for 1 iterations succeeded.
+        Transformed "decodeIntArray" from 35 to 54 basic blocks and from 174 to 304 instructionsCurrent: decodeIntArray Havoced: sqlite3LogEst
+Current: decodeIntArray Havoced: sqlite3_strglob
+Current: decodeIntArray Havoced: sqlite3_strglob
+Current: decodeIntArray Havoced: sqlite3_strglob
+Current: decodeIntArray Havoced: sqlite3Atoi
+Current: decodeIntArray Havoced: sqlite3LogEst
+Current: decodeIntArray Havoced: sqlite3LogEst
+Current: decodeIntArray Havoced: sqlite3LogEst
+Current: decodeIntArray Havoced: sqlite3_strglob
+Current: decodeIntArray Havoced: sqlite3_strglob
+Current: decodeIntArray Havoced: sqlite3_strglob
+Current: decodeIntArray Havoced: sqlite3Atoi
+Current: decodeIntArray Havoced: sqlite3LogEst
+Current: decodeIntArray Havoced: sqlite3LogEst
+
+                                                           0 sec [DONE]
+        Number of expressions:                        157101
+        after encoding
+
+      20 assertions before transformations (16 no_back_edge, 4 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            4615
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72702
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               1
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                              14
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             142
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      20 assertions remain after transformations (16 no_back_edge, 4 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...

@@ -1,0 +1,50 @@
+<SourceFile>
+  <Line number="1">#ifndef __sigevent_t_defined</Line>
+  <Line number="2">#define __sigevent_t_defined 1</Line>
+  <Line number="3"></Line>
+  <Line number="4">#include &lt;bits/wordsize.h&gt;</Line>
+  <Line number="5">#include &lt;bits/types.h&gt;</Line>
+  <Line number="6">#include &lt;bits/types/__sigval_t.h&gt;</Line>
+  <Line number="7"></Line>
+  <Line number="8">#define __SIGEV_MAX_SIZE	64</Line>
+  <Line number="9">#if __WORDSIZE == 64</Line>
+  <Line number="10"># define __SIGEV_PAD_SIZE	((__SIGEV_MAX_SIZE / sizeof (int)) - 4)</Line>
+  <Line number="11">#else</Line>
+  <Line number="12"># define __SIGEV_PAD_SIZE	((__SIGEV_MAX_SIZE / sizeof (int)) - 3)</Line>
+  <Line number="13">#endif</Line>
+  <Line number="14"></Line>
+  <Line number="15">/* Forward declaration.  */</Line>
+  <Line number="16">#ifndef __have_pthread_attr_t</Line>
+  <Line number="17">typedef union pthread_attr_t pthread_attr_t;</Line>
+  <Line number="18"># define __have_pthread_attr_t	1</Line>
+  <Line number="19">#endif</Line>
+  <Line number="20"></Line>
+  <Line number="21">/* Structure to transport application-defined values with signals.  */</Line>
+  <Line number="22">typedef struct sigevent</Line>
+  <Line number="23">  {</Line>
+  <Line number="24">    __sigval_t sigev_value;</Line>
+  <Line number="25">    int sigev_signo;</Line>
+  <Line number="26">    int sigev_notify;</Line>
+  <Line number="27"></Line>
+  <Line number="28">    union</Line>
+  <Line number="29">      {</Line>
+  <Line number="30">	int _pad[<CheckRefs ids="195,196,197,198">__SIGEV_PAD_SIZE</CheckRefs>];</Line>
+  <Line number="31"></Line>
+  <Line number="32">	/* When SIGEV_SIGNAL and SIGEV_THREAD_ID set, LWP ID of the</Line>
+  <Line number="33">	   thread to receive the signal.  */</Line>
+  <Line number="34">	__pid_t _tid;</Line>
+  <Line number="35"></Line>
+  <Line number="36">	struct</Line>
+  <Line number="37">	  {</Line>
+  <Line number="38">	    void (*_function) (__sigval_t);	/* Function to start.  */</Line>
+  <Line number="39">	    pthread_attr_t *_attribute;		/* Thread attributes.  */</Line>
+  <Line number="40">	  } _sigev_thread;</Line>
+  <Line number="41">      } _sigev_un;</Line>
+  <Line number="42">  } sigevent_t;</Line>
+  <Line number="43"></Line>
+  <Line number="44">/* POSIX names to access some of the members.  */</Line>
+  <Line number="45">#define sigev_notify_function   _sigev_un._sigev_thread._function</Line>
+  <Line number="46">#define sigev_notify_attributes _sigev_un._sigev_thread._attribute</Line>
+  <Line number="47"></Line>
+  <Line number="48">#endif</Line>
+</SourceFile>

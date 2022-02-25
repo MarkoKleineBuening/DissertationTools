@@ -1,0 +1,155 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+handleJobInSeparateProcess0
+
+Checking job 146 ...about to run job:
+preconNumber: 5, 1
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 0
+    PreconditionNumber : 5
+    PreconditionLocation : jobs/146
+    TimeOut : 300
+    InitializedGlobals : false
+    IgnoreMissingFunctions : true
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : AHRS_Algorithm
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "AHRS_Algorithm" for 4 iterations succeeded.
+      Unrolling loop in function "AHRS_Algorithm" for 7 iterations succeeded.
+      Unrolling loop in function "AHRS_Algorithm" for 4 iterations succeeded.
+      Unrolling loop in function "AHRS_Algorithm" for 7 iterations succeeded.
+      Unrolling loop in function "AHRS_Algorithm" for 3 iterations succeeded.
+      Unrolling loop in function "AHRS_Algorithm" for 7 iterations succeeded.
+      Unrolling loop in function "AHRS_Algorithm" for 4 iterations succeeded.
+      Transformed "AHRS_Algorithm" from 35 to 86 basic blocks and from 1166 to 2136 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...size Alloca: 1
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %4, i8 0, i64 24, i32 16, i1 false), !dbg !1391
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %5, i8 0, i64 24, i32 16, i1 false), !dbg !1393
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %6, i8 0, i64 16, i32 16, i1 false), !dbg !1395
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %7, i8 0, i64 32, i32 16, i1 false), !dbg !1398
+
+        Unrolling loop in function "mat_mymul2" for 7 iterations succeeded.
+        Unrolling loop in function "mat_mymul2" for 3 iterations succeeded.
+        Unrolling loop in function "mat_mymul2" for 1 iterations succeeded.
+        Unrolling loop in function "mat_mymul2" for 1 iterations succeeded.
+        Unrolling loop in function "mat_mymul2" for 1 iterations succeeded.
+        Transformed "mat_mymul2" from 21 to 68 basic blocks and from 122 to 559 instructions
+        Unrolling loop in function "mat_mymul3" for 3 iterations succeeded.
+        Unrolling loop in function "mat_mymul3" for 7 iterations succeeded.
+        Unrolling loop in function "mat_mymul3" for 1 iterations succeeded.
+        Unrolling loop in function "mat_mymul3" for 1 iterations succeeded.
+        Unrolling loop in function "mat_mymul3" for 1 iterations succeeded.
+        Transformed "mat_mymul3" from 21 to 80 basic blocks and from 122 to 603 instructions
+        Unrolling loop in function "mat_mymul4" for 1 iterations succeeded.
+        Unrolling loop in function "mat_mymul4" for 1 iterations succeeded.
+        Unrolling loop in function "mat_mymul4" for 1 iterations succeeded.
+        Transformed "mat_mymul4" from 13 to 16 basic blocks and from 88 to 103 instructions
+        Unrolling loop in function "mat_mymul" for 1 iterations succeeded.
+        Unrolling loop in function "mat_mymul" for 1 iterations succeeded.
+        Unrolling loop in function "mat_mymul" for 1 iterations succeeded.
+        Transformed "mat_mymul" from 13 to 16 basic blocks and from 88 to 103 instructions
+        Unrolling loop in function "mat_inv" for 1 iterations succeeded.
+        Transformed "mat_inv" from 20 to 21 basic blocks and from 96 to 99 instructions
+        Unrolling loop in function "_mat_creat" for 1 iterations succeeded.
+        Transformed "_mat_creat" from 10 to 11 basic blocks and from 54 to 57 instructions
+        Transformed "mat_error" from 5 to 10 basic blocks and from 10 to 19 instructions
+        Unrolling loop in function "mat_fill" for 1 iterations succeeded.
+        Unrolling loop in function "mat_fill" for 1 iterations succeeded.
+        Transformed "mat_fill" from 18 to 24 basic blocks and from 67 to 82 instructions
+        Unrolling loop in function "mat_copy" for 1 iterations succeeded.
+        Unrolling loop in function "mat_copy" for 1 iterations succeeded.
+        Transformed "mat_copy" from 9 to 11 basic blocks and from 49 to 57 instructions
+        Unrolling loop in function "mat_lu" for 1 iterations succeeded.
+        Unrolling loop in function "mat_lu" for 1 iterations succeeded.
+        Unrolling loop in function "mat_lu" for 1 iterations succeeded.
+        Unrolling loop in function "mat_lu" for 1 iterations succeeded.
+        Unrolling loop in function "mat_lu" for 1 iterations succeeded.
+        Transformed "mat_lu" from 28 to 33 basic blocks and from 239 to 261 instructions
+        Unrolling loop in function "mat_backsubs1" for 1 iterations succeeded.
+        Unrolling loop in function "mat_backsubs1" for 1 iterations succeeded.
+        Unrolling loop in function "mat_backsubs1" for 1 iterations succeeded.
+        Unrolling loop in function "mat_backsubs1" for 1 iterations succeeded.
+        Transformed "mat_backsubs1" from 17 to 21 basic blocks and from 201 to 216 instructions
+        Unrolling loop in function "mat_free" for 1 iterations succeeded.
+        Transformed "mat_free" from 8 to 9 basic blocks and from 33 to 37 instructions
+        Unrolling loop in function "mat_mul" for 1 iterations succeeded.
+        Unrolling loop in function "mat_mul" for 1 iterations succeeded.
+        Unrolling loop in function "mat_mul" for 1 iterations succeeded.
+        Transformed "mat_mul" from 13 to 16 basic blocks and from 82 to 94 instructions
+        Unrolling loop in function "mat_mymul1" for 1 iterations succeeded.
+        Unrolling loop in function "mat_mymul1" for 1 iterations succeeded.
+        Unrolling loop in function "mat_mymul1" for 1 iterations succeeded.
+        Transformed "mat_mymul1" from 13 to 16 basic blocks and from 88 to 103 instructions
+        Unrolling loop in function "mat_sub" for 1 iterations succeeded.
+        Unrolling loop in function "mat_sub" for 1 iterations succeeded.
+        Transformed "mat_sub" from 9 to 11 basic blocks and from 58 to 66 instructions
+        Unrolling loop in function "mat_mymul5" for 1 iterations succeeded.
+        Unrolling loop in function "mat_mymul5" for 1 iterations succeeded.
+        Unrolling loop in function "mat_mymul5" for 1 iterations succeeded.
+        Unrolling loop in function "mat_mymul5" for 1 iterations succeeded.
+        Unrolling loop in function "mat_mymul5" for 1 iterations succeeded.
+        Transformed "mat_mymul5" from 21 to 26 basic blocks and from 136 to 159 instructions
+                                                           0 sec [DONE]
+        Number of expressions:                         15808
+        after encoding
+
+      96 assertions before transformations (91 no_back_edge, 4 custom, 1 no_unreachable_executed).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            6261
+        Fixed Memory Address Assigner
+          Number of moved ops                             10
+          Number of rewrites                             377
+        Simplifier
+          Number of moved ops                              1
+          Number of rewrites                            3363
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               5
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           13017
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             100
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                             560
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                              34
+                                                           0 sec [DONE]
+        
+      96 assertions remain after transformations (91 no_back_edge, 4 custom, 1 no_unreachable_executed).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...

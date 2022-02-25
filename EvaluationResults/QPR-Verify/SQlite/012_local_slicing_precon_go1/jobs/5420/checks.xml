@@ -1,0 +1,41 @@
+<VerificationJob>
+  <Configuration>
+    <AnalyzeChecksIndividually value="true" />
+    <BitcodeTraces value="false" />
+    <CheckOnlyPrecondition value="true" />
+    <DumpVerifierBitcodeFiles value="false" />
+    <EnableSlicing value="true" />
+    <EntryPoint value="exprCodeBetween" />
+    <FixPoint value="true" />
+    <ForkJobs value="true" />
+    <Hosted value="true" />
+    <IgnoreMissingFunctions value="false" />
+    <InitializedGlobals value="false" />
+    <LoopUnrollBound value="1" />
+    <PreconditionLocation value="jobs/5420" />
+    <PreconditionNumber value="5" />
+    <SourceDirectory value="/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld" />
+    <StopEncodingAfterCheck value="true" />
+    <StopEncodingAfterCheckLoop value="1" />
+    <TimeOut value="600" />
+    <XMLTraces value="false" />
+  </Configuration>
+  <CheckList>
+    <Check id="16898" location="18598" category="arrayindex" status="safe" scope="sqlite3ExprCodeTarget">
+      <Annotations>
+        <Annotation>An array can be indexed out of bounds.</Annotation>
+      </Annotations>
+      <EntryStatus>
+        <SingleEntryStatus>codeEqualityTerm, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>exprCodeBetween, safe</SingleEntryStatus>
+        <SingleEntryStatus>exprCodeInlineFunction, safe</SingleEntryStatus>
+        <SingleEntryStatus>isLikeOrGlob, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3ExprCode, safe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3ExprCodeExprList, safe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3ExprCodeTemp, safe</SingleEntryStatus>
+      </EntryStatus>
+    </Check>
+  </CheckList>
+  <Annotation>allunsafe</Annotation>
+  <Status>allsafe</Status>
+</VerificationJob>

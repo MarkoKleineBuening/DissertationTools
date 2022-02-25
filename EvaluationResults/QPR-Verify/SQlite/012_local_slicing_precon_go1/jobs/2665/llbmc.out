@@ -1,0 +1,161 @@
+runJobCommand
+precondition analysis with entry:subjournalPageIfRequired
+arguents: child
+arguents: job
+arguents: mode
+arguents: precondition
+handleJobInSeparateProcess0
+
+Checking job 2665 ...about to run job:
+preconNumber: 5, 1
+
+  Running Model Checker with 1 checks ...entry: subjournalPageIfRequired, functionName: subjournalPage
+  <badref> = call i32 @qpr.precondition.subjournalPage(%struct.PgHdr.137* %0)
+entry: subjournalPageIfRequired, functionName: subjournalPage
+entry: subjournalPageIfRequired, functionName: subjournalPageIfRequired
+try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 1
+    LoopUnrollBound : 1
+    HavocLimit : 0
+    PreconditionNumber : 5
+    PreconditionLocation : jobs/2665
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : true
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : subjournalPageIfRequired
+m_checker->run()
+
+    Performing bounded model checking ...
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...size Alloca: 1
+
+        Unrolling loop in function "subjRequiresPage" for 1 iterations succeeded.
+        Unrolling loop in function "subjRequiresPage" for 1 iterations succeeded.
+        Transformed "subjRequiresPage" from 13 to 15 basic blocks and from 64 to 73 instructions
+        Unrolling loop in function "sqlite3BitvecTestNotNull" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3BitvecTestNotNull" for 1 iterations succeeded.
+        Transformed "sqlite3BitvecTestNotNull" from 16 to 18 basic blocks and from 142 to 161 instructionsTODO MKB implement precondition handling: IE
+Reading in precondition at: jobs/2665/precondition_subjournalPage.txt
+preconFile: jobs/2665/precondition_subjournalPage.txt
+ref: [underoverapprox], argValue: [underoverapprox]
+ERROR boolCond is nullptr
+Writing precondition type at: jobs/2665/precondition_type_subjournalPageIfRequired.txt
+
+Type of Precondition:
+[underoverapprox]
+precondition found, end encoding
+
+                                                           0 sec [DONE]
+        Number of expressions:                        155360
+        after encoding
+
+      4 assertions before transformations (4 no_back_edge).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            3562
+        Fixed Memory Address Assigner
+          Number of moved ops                              1
+          Number of rewrites                            5209
+        Simplifier
+          Number of moved ops                              1
+          Number of rewrites                          143009
+        Memory Model Encoder
+          Number of moved ops                              0
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                               3
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           69268
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      4 assertions remain after transformations (4 no_back_edge).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ... 130903
+        after encoding
+
+      1 assertion before transformations (1 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            2561
+        Fixed Memory Address Assigner
+          Number of moved ops                              1
+          Number of rewrites                            4897
+        Simplifier
+          Number of moved ops                              1
+          Number of rewrites                           61876
+        Memory Model Encoder
+          Number of moved ops                              0
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                              88
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                               0
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      1 assertion remains after transformations (1 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...          552 sec [DONE]
+        
+                                                         553 sec [DONE]
+      after performing Check
+evaluateCheckerResultsViaRefinementLoop
+getCheckerResultAfterUpdatingMarker
+I [554] lib/ModelChecker/Verifier.cpp:288 | The model checker timed out
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      Writing precondition at: jobs/2665/precondition_subjournalPage.txt
+
+Generated Preconditions:
+[underoverapprox]
+
+                                                         554 sec [DONE]
+    allsafe
+    
+                                                         554 sec [DONE]
+  

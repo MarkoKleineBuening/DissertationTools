@@ -1,0 +1,134 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+handleJobInSeparateProcess0
+
+Checking job 406 ...about to run job:
+preconNumber: 3, 1
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 4
+    HavocLimit : 0
+    PreconditionNumber : 3
+    PreconditionLocation : jobs/406
+    TimeOut : 300
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : _mat_creat
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "_mat_creat" for 4 iterations succeeded.
+      Transformed "_mat_creat" from 10 to 20 basic blocks and from 54 to 117 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...
+        Transformed "mat_error" from 5 to 10 basic blocks and from 10 to 19 instructions
+                                                           0 sec [DONE]
+        Number of expressions:                          6480
+        after encoding
+
+      11 assertions before transformations (6 no_function_call, 1 no_back_edge, 4 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                             393
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                             374
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                            2771
+        Memory Model Encoder
+          Number of moved ops                              0
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                               7
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      11 assertions remain after transformations (6 no_function_call, 1 no_back_edge, 4 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...            0 sec [DONE]
+        
+                                                           0 sec [DONE]
+      after performing Check
+evaluateCheckerResultsViaRefinementLoop
+checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+BranchInst - LoopBound
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+getCheckerResultAfterUpdatingMarker
+failingInst:   %1 = call i32 (i8*, ...) @printf(i8* getelementptr inbounds ([19 x i8], [19 x i8]* @.str.4.43, i32 0, i32 0)), !dbg !1375
+Preconditions internal: 
+i32 %arg0:2046164863; (i32 %arg0:2046164863)i32 %arg1:-2113929344; (i32 %arg1:2181037952)
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: i32 %arg0 = nondef() : 2046164863
+assumePair: i32 %arg1 = nondef() : -2113929344
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   %1 = call i32 (i8*, ...) @printf(i8* getelementptr inbounds ([19 x i8], [19 x i8]* @.str.4.43, i32 0, i32 0)), !dbg !1375
+Preconditions internal: 
+i32 %arg0:2029387647; (i32 %arg0:2029387647)i32 %arg1:-2097152128; (i32 %arg1:2197815168)
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: i32 %arg0 = nondef() : 2029387647
+assumePair: i32 %arg1 = nondef() : -2097152128
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   %1 = call i32 (i8*, ...) @printf(i8* getelementptr inbounds ([19 x i8], [19 x i8]* @.str.4.43, i32 0, i32 0)), !dbg !1375
+Preconditions internal: 
+i32 %arg0:2079719167; (i32 %arg0:2079719167)i32 %arg1:-2147483648; (i32 %arg1:2147483648)
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: i32 %arg0 = nondef() : 2079719167
+assumePair: i32 %arg1 = nondef() : -2147483648
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      name of function arguments: Writing precondition at: jobs/406/precondition__mat_creat.txt
+
+Generated Preconditions:
+[underoverapprox]name of function arguments: 
+i32 %arg0:2046164863; i32 %arg1:-2113929344; 
+i32 %arg0:2029387647; i32 %arg1:-2097152128; 
+i32 %arg0:2079719167; i32 %arg1:-2147483648; 
+
+                                                           0 sec [DONE]
+    allsafe
+    
+                                                           0 sec [DONE]
+  

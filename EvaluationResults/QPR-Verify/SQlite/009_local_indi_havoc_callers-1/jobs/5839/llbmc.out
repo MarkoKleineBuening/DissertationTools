@@ -1,0 +1,130 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 5839 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 2
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/5839
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : sqlite3CodeDropTable
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "sqlite3CodeDropTable" for 1 iterations succeeded.
+      Transformed "sqlite3CodeDropTable" from 13 to 14 basic blocks and from 81 to 84 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...Current: sqlite3GetVdbe Havoced: sqlite3VdbeCreate
+Current: sqlite3BeginWriteOperation Havoced: sqlite3CodeVerifySchemaAtToplevel
+Current: sqlite3VdbeAddOp0 Havoced: sqlite3VdbeAddOp3
+
+        Unrolling loop in function "sqlite3TriggerList" for 1 iterations succeeded.
+        Transformed "sqlite3TriggerList" from 16 to 17 basic blocks and from 100 to 106 instructionsCurrent: sqlite3TriggerList Havoced: sqlite3StrICmp
+Current: sqlite3DropTriggerPtr Havoced: sqlite3SchemaToIndex
+Current: sqlite3DropTriggerPtr Havoced: tableOfTrigger
+Current: sqlite3DropTriggerPtr Havoced: sqlite3AuthCheck
+Current: sqlite3DropTriggerPtr Havoced: sqlite3AuthCheck
+Current: sqlite3DropTriggerPtr Havoced: sqlite3GetVdbe
+Current: sqlite3DropTriggerPtr Havoced: sqlite3NestedParse
+Current: sqlite3DropTriggerPtr Havoced: sqlite3ChangeCookie
+Current: sqlite3DropTriggerPtr Havoced: sqlite3VdbeAddOp4
+Current: sqlite3NestedParse Havoced: sqlite3VMPrintf
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %29, i8* %31, i64 152, i32 1, i1 false), !dbg !5661
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %33, i8 0, i64 152, i32 1, i1 false), !dbg !5664
+Current: sqlite3NestedParse Havoced: sqlite3RunParser
+Current: sqlite3NestedParse Havoced: sqlite3DbFree
+Current: sqlite3NestedParse Havoced: sqlite3DbFree
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %37, i8* %38, i64 152, i32 1, i1 false), !dbg !5670
+Current: sqlite3NestedParse Havoced: sqlite3VMPrintf
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %29, i8* %31, i64 152, i32 1, i1 false), !dbg !5661
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %33, i8 0, i64 152, i32 1, i1 false), !dbg !5664
+Current: sqlite3NestedParse Havoced: sqlite3RunParser
+Current: sqlite3NestedParse Havoced: sqlite3DbFree
+Current: sqlite3NestedParse Havoced: sqlite3DbFree
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %37, i8* %38, i64 152, i32 1, i1 false), !dbg !5670
+
+        Unrolling loop in function "destroyTable" for 1 iterations succeeded.
+        Unrolling loop in function "destroyTable" for 1 iterations succeeded.
+        Transformed "destroyTable" from 16 to 32 basic blocks and from 73 to 141 instructionsCurrent: destroyTable Havoced: sqlite3SchemaToIndex
+Current: destroyTable Havoced: destroyRootPage
+Current: destroyTable Havoced: sqlite3SchemaToIndex
+Current: destroyTable Havoced: destroyRootPage
+Current: sqlite3VdbeAddOp4 Havoced: sqlite3VdbeAddOp3
+Current: sqlite3VdbeAddOp4 Havoced: sqlite3VdbeChangeP4
+Current: sqlite3VdbeAddOp4 Havoced: sqlite3VdbeAddOp3
+Current: sqlite3VdbeAddOp4 Havoced: sqlite3VdbeChangeP4
+Current: sqlite3ChangeCookie Havoced: sqlite3VdbeAddOp3
+
+        Unrolling loop in function "sqliteViewResetAll" for 1 iterations succeeded.
+        Transformed "sqliteViewResetAll" from 10 to 11 basic blocks and from 69 to 72 instructionsCurrent: sqliteViewResetAll Havoced: sqlite3DeleteColumnNames
+
+                                                           0 sec [DONE]
+        Number of expressions:                        156364
+        after encoding
+
+      8 assertions before transformations (6 no_back_edge, 2 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            4066
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72655
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               8
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                              76
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             762
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      8 assertions remain after transformations (6 no_back_edge, 2 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...

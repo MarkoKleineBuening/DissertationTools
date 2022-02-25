@@ -1,0 +1,41 @@
+<VerificationJob>
+  <Configuration>
+    <AnalyzeChecksIndividually value="false" />
+    <BitcodeTraces value="false" />
+    <EnableSlicing value="false" />
+    <EntryPoint value="unpack_aux_frame" />
+    <FixPoint value="true" />
+    <IgnoreMissingFunctions value="false" />
+    <InitializedGlobals value="false" />
+    <LoopUnrollBound value="12" />
+    <OverApproxVaArgs value="false" />
+    <PreconditionLocation value="jobs/180" />
+    <SourceDirectory value="/home/i12/mbuening/100_Dissertation/BMI160/BMI160_driver" />
+    <StopEncodingAfterCheck value="false" />
+    <StopEncodingAfterCheckLoop value="0" />
+    <TimeOut value="300" />
+  </Configuration>
+  <CheckList>
+    <Check id="2416" location="2568" category="implicit.conversion.overflow" status="safe" scope="unpack_aux_frame" />
+    <Check id="2419" location="2570" category="arithmetic.overflow.warning" status="unsafe" scope="unpack_aux_frame">
+      <Annotations>
+        <Annotation>An unsigned arithmetic operation can overflow (wraparound).</Annotation>
+      </Annotations>
+    </Check>
+    <Check id="2425" location="2578" category="implicit.conversion.overflow" status="safe" scope="unpack_aux_frame" />
+    <Check id="2428" location="2580" category="arithmetic.overflow.warning" status="safe" scope="unpack_aux_frame" />
+    <Check id="2434" location="2588" category="implicit.conversion.overflow" status="safe" scope="unpack_aux_frame" />
+    <Check id="2437" location="2590" category="arithmetic.overflow.warning" status="safe" scope="unpack_aux_frame" />
+    <Check id="2443" location="2598" category="implicit.conversion.overflow" status="safe" scope="unpack_aux_frame" />
+    <Check id="2446" location="2600" category="arithmetic.overflow.warning" status="safe" scope="unpack_aux_frame" />
+    <Check id="2449" location="2605" category="implicit.conversion.overflow" status="safe" scope="unpack_aux_frame" />
+    <Check id="2454" location="2611" category="implicit.conversion.overflow" status="unsafe" scope="unpack_aux_frame">
+      <Annotations>
+        <Annotation>An implicit conversion operation can overflow.</Annotation>
+      </Annotations>
+    </Check>
+    <Check id="2459" location="2617" category="implicit.conversion.overflow" status="safe" scope="unpack_aux_frame" />
+  </CheckList>
+  <Annotation>someunsafe</Annotation>
+  <Status>someunsafe</Status>
+</VerificationJob>

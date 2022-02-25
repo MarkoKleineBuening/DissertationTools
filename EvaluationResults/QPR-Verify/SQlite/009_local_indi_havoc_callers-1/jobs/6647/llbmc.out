@@ -1,0 +1,266 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 6647 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 2
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/6647
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : sqlite3InitOne
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "sqlite3InitOne" for 5 iterations succeeded.
+      Transformed "sqlite3InitOne" from 55 to 62 basic blocks and from 430 to 504 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...Current: sqlite3InitCallback Havoced: sqlite3FindIndex
+Current: sqlite3InitCallback Havoced: sqlite3GetUInt32
+Current: sqlite3InitCallback Havoced: sqlite3IndexHasDuplicateRootPage
+Current: sqlite3InitCallback Havoced: corruptSchema
+Current: sqlite3InitCallback Havoced: corruptSchema
+Current: sqlite3InitCallback Havoced: corruptSchema
+Current: sqlite3InitCallback Havoced: sqlite3GetUInt32
+Current: sqlite3InitCallback Havoced: corruptSchema
+Current: sqlite3InitCallback Havoced: sqlite3Prepare
+Current: sqlite3InitCallback Havoced: sqlite3_errmsg
+Current: sqlite3InitCallback Havoced: corruptSchema
+Current: sqlite3InitCallback Havoced: sqlite3OomFault
+Current: sqlite3InitCallback Havoced: sqlite3_finalize
+Current: sqlite3InitCallback Havoced: corruptSchema
+Current: sqlite3InitCallback Havoced: corruptSchema
+Current: sqlite3BtreeEnter Havoced: btreeLockCarefully
+
+        Unrolling loop in function "sqlite3BtreeBeginTrans" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3BtreeBeginTrans" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3BtreeBeginTrans" for 1 iterations succeeded.
+        Transformed "sqlite3BtreeBeginTrans" from 78 to 79 basic blocks and from 378 to 384 instructionsCurrent: sqlite3BtreeBeginTrans Havoced: sqlite3BtreeEnter
+Current: sqlite3BtreeBeginTrans Havoced: sqlite3PagerIsreadonly
+Current: sqlite3BtreeBeginTrans Havoced: querySharedCacheTableLock
+Current: sqlite3BtreeBeginTrans Havoced: lockBtree
+Current: sqlite3BtreeBeginTrans Havoced: sqlite3TempInMemory
+Current: sqlite3BtreeBeginTrans Havoced: sqlite3PagerBegin
+Current: sqlite3BtreeBeginTrans Havoced: newDatabase
+Current: sqlite3BtreeBeginTrans Havoced: unlockBtreeIfUnused
+Current: sqlite3BtreeBeginTrans Havoced: btreeInvokeBusyHandler
+Current: sqlite3BtreeBeginTrans Havoced: sqlite3Get4byte
+Current: sqlite3BtreeBeginTrans Havoced: sqlite3PagerWrite
+Current: sqlite3BtreeBeginTrans Havoced: sqlite3Put4byte
+Current: sqlite3BtreeBeginTrans Havoced: sqlite3Get4byte
+Current: sqlite3BtreeBeginTrans Havoced: sqlite3PagerOpenSavepoint
+Current: sqlite3BtreeBeginTrans Havoced: sqlite3BtreeLeave
+Current: sqlite3BtreeGetMeta Havoced: sqlite3BtreeEnter
+Current: sqlite3BtreeGetMeta Havoced: sqlite3Get4byte
+Current: sqlite3BtreeGetMeta Havoced: sqlite3PagerDataVersion
+Current: sqlite3BtreeGetMeta Havoced: sqlite3BtreeLeave
+Current: sqlite3BtreeGetMeta Havoced: sqlite3BtreeEnter
+Current: sqlite3BtreeGetMeta Havoced: sqlite3Get4byte
+Current: sqlite3BtreeGetMeta Havoced: sqlite3PagerDataVersion
+Current: sqlite3BtreeGetMeta Havoced: sqlite3BtreeLeave
+Current: sqlite3BtreeGetMeta Havoced: sqlite3BtreeEnter
+Current: sqlite3BtreeGetMeta Havoced: sqlite3Get4byte
+Current: sqlite3BtreeGetMeta Havoced: sqlite3PagerDataVersion
+Current: sqlite3BtreeGetMeta Havoced: sqlite3BtreeLeave
+Current: sqlite3BtreeGetMeta Havoced: sqlite3BtreeEnter
+Current: sqlite3BtreeGetMeta Havoced: sqlite3Get4byte
+Current: sqlite3BtreeGetMeta Havoced: sqlite3PagerDataVersion
+Current: sqlite3BtreeGetMeta Havoced: sqlite3BtreeLeave
+Current: sqlite3BtreeGetMeta Havoced: sqlite3BtreeEnter
+Current: sqlite3BtreeGetMeta Havoced: sqlite3Get4byte
+Current: sqlite3BtreeGetMeta Havoced: sqlite3PagerDataVersion
+Current: sqlite3BtreeGetMeta Havoced: sqlite3BtreeLeave
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %111, i8 0, i64 20, i32 16, i1 false), !dbg !5753
+Current: sqlite3SetString Havoced: sqlite3DbFree
+Current: sqlite3SetString Havoced: sqlite3DbStrDup
+Current: sqlite3SetTextEncoding Havoced: sqlite3FindCollSeq
+Current: sqlite3BtreeSetCacheSize Havoced: sqlite3BtreeEnter
+Current: sqlite3BtreeSetCacheSize Havoced: sqlite3PagerSetCachesize
+Current: sqlite3BtreeSetCacheSize Havoced: sqlite3BtreeLeave
+Current: sqlite3BtreeLastPage Havoced: btreePagecount
+Current: sqlite3MPrintf Havoced: sqlite3VMPrintf
+
+        Unrolling loop in function "sqlite3_exec" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3_exec" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3_exec" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3_exec" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3_exec" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3_exec" for 1 iterations succeeded.getMatchingFunctions
+res.push_back: callback
+res.push_back: captureOutputCallback
+res.push_back: dump_callback
+res.push_back: sqlite3InitCallback
+res.push_back: analysisLoader
+res.push_back: sqlite3_get_table_cb
+getMatchingFunctions
+res.push_back: callback
+res.push_back: captureOutputCallback
+res.push_back: dump_callback
+res.push_back: sqlite3InitCallback
+res.push_back: analysisLoader
+res.push_back: sqlite3_get_table_cb
+
+        Transformed "sqlite3_exec" from 58 to 161 basic blocks and from 275 to 684 instructionsCurrent: sqlite3_exec Havoced: sqlite3SafetyCheckOk
+Current: sqlite3_exec Havoced: sqlite3MisuseError
+Current: sqlite3_exec Havoced: sqlite3_mutex_enter
+Current: sqlite3_exec Havoced: sqlite3Error
+Current: sqlite3_exec Havoced: sqlite3_prepare_v2
+Current: sqlite3_exec Havoced: sqlite3_step
+Current: sqlite3_exec Havoced: sqlite3_column_count
+Current: sqlite3_exec Havoced: sqlite3DbMallocRaw
+Current: sqlite3_exec Havoced: sqlite3_column_name
+Current: sqlite3_exec Havoced: sqlite3_column_text
+Current: sqlite3_exec Havoced: sqlite3_column_type
+Current: sqlite3_exec Havoced: isDate
+Current: sqlite3_exec Havoced: sqlite3_get_table_cb
+Current: sqlite3_exec Havoced: vdbeMergeEngineLevel0
+Current: sqlite3_exec Havoced: sqlite3VtabCallCreate
+Current: sqlite3_exec Havoced: sqlite3BtreeCheckpoint
+Current: sqlite3_exec Havoced: analysisLoader
+Current: sqlite3_exec Havoced: sqlite3InitCallback
+Current: sqlite3_exec Havoced: ptrmapGet
+Current: sqlite3_exec Havoced: getOverflowPage
+Current: sqlite3_exec Havoced: pagerAcquireMapPage
+Current: sqlite3_exec Havoced: sqlite3_trace_v2
+Current: sqlite3_exec Havoced: dump_callback
+Current: sqlite3_exec Havoced: captureOutputCallback
+Current: sqlite3_exec Havoced: callback
+Current: sqlite3_exec Havoced: expertUpdate
+Current: sqlite3_exec Havoced: sqlite3VdbeFinalize
+Current: sqlite3_exec Havoced: sqlite3DbFree
+Current: sqlite3_exec Havoced: sqlite3_prepare_v2
+Current: sqlite3_exec Havoced: sqlite3_step
+Current: sqlite3_exec Havoced: sqlite3_column_count
+Current: sqlite3_exec Havoced: sqlite3DbMallocRaw
+Current: sqlite3_exec Havoced: sqlite3_column_name
+Current: sqlite3_exec Havoced: sqlite3_column_text
+Current: sqlite3_exec Havoced: sqlite3_column_type
+Current: sqlite3_exec Havoced: sqlite3OomFault
+Current: sqlite3_exec Havoced: isDate
+Current: sqlite3_exec Havoced: sqlite3_get_table_cb
+Current: sqlite3_exec Havoced: vdbeMergeEngineLevel0
+Current: sqlite3_exec Havoced: sqlite3VtabCallCreate
+Current: sqlite3_exec Havoced: sqlite3BtreeCheckpoint
+Current: sqlite3_exec Havoced: analysisLoader
+Current: sqlite3_exec Havoced: sqlite3InitCallback
+Current: sqlite3_exec Havoced: ptrmapGet
+Current: sqlite3_exec Havoced: getOverflowPage
+Current: sqlite3_exec Havoced: pagerAcquireMapPage
+Current: sqlite3_exec Havoced: sqlite3_trace_v2
+Current: sqlite3_exec Havoced: dump_callback
+Current: sqlite3_exec Havoced: captureOutputCallback
+Current: sqlite3_exec Havoced: callback
+Current: sqlite3_exec Havoced: expertUpdate
+Current: sqlite3_exec Havoced: sqlite3VdbeFinalize
+Current: sqlite3_exec Havoced: sqlite3DbFree
+Current: sqlite3_exec Havoced: sqlite3VdbeFinalize
+Current: sqlite3_exec Havoced: sqlite3Error
+Current: sqlite3_exec Havoced: sqlite3VdbeFinalize
+Current: sqlite3_exec Havoced: sqlite3DbFree
+Current: sqlite3_exec Havoced: sqlite3ApiExit
+Current: sqlite3_exec Havoced: sqlite3_errmsg
+Current: sqlite3_exec Havoced: sqlite3DbStrDup
+Current: sqlite3_exec Havoced: sqlite3Error
+Current: sqlite3_exec Havoced: sqlite3_mutex_leave
+Current: sqlite3DbFree Havoced: sqlite3DbFreeNN
+
+        Unrolling loop in function "sqlite3AnalysisLoad" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3AnalysisLoad" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3AnalysisLoad" for 1 iterations succeeded.
+        Transformed "sqlite3AnalysisLoad" from 22 to 25 basic blocks and from 132 to 141 instructionsCurrent: sqlite3AnalysisLoad Havoced: sqlite3FindTable
+Current: sqlite3AnalysisLoad Havoced: sqlite3MPrintf
+Current: sqlite3AnalysisLoad Havoced: sqlite3_exec
+Current: sqlite3AnalysisLoad Havoced: sqlite3DbFree
+Current: sqlite3AnalysisLoad Havoced: sqlite3DefaultRowEst
+Current: sqlite3AnalysisLoad Havoced: sqlite3OomFault
+
+        Unrolling loop in function "sqlite3ResetAllSchemasOfConnection" for 1 iterations succeeded.
+        Transformed "sqlite3ResetAllSchemasOfConnection" from 12 to 13 basic blocks and from 66 to 70 instructionsCurrent: sqlite3ResetAllSchemasOfConnection Havoced: sqlite3BtreeEnterAll
+Current: sqlite3ResetAllSchemasOfConnection Havoced: sqlite3SchemaClear
+Current: sqlite3ResetAllSchemasOfConnection Havoced: sqlite3VtabUnlockList
+Current: sqlite3ResetAllSchemasOfConnection Havoced: sqlite3BtreeLeaveAll
+Current: sqlite3ResetAllSchemasOfConnection Havoced: sqlite3CollapseDatabaseArray
+Current: sqlite3SetString Havoced: sqlite3DbFree
+Current: sqlite3SetString Havoced: sqlite3DbStrDup
+
+        Transformed "sqlite3ErrStr" from 10 to 16 basic blocks and from 37 to 48 instructionsCurrent: sqlite3SetString Havoced: sqlite3DbFree
+Current: sqlite3SetString Havoced: sqlite3DbStrDup
+Current: sqlite3BtreeCommit Havoced: sqlite3BtreeEnter
+Current: sqlite3BtreeCommit Havoced: sqlite3BtreeCommitPhaseOne
+Current: sqlite3BtreeCommit Havoced: sqlite3BtreeCommitPhaseTwo
+Current: sqlite3BtreeCommit Havoced: sqlite3BtreeLeave
+Current: sqlite3BtreeLeave Havoced: unlockBtreeMutex
+
+        Unrolling loop in function "sqlite3ResetOneSchema" for 1 iterations succeeded.
+        Transformed "sqlite3ResetOneSchema" from 11 to 12 basic blocks and from 78 to 82 instructionsCurrent: sqlite3ResetOneSchema Havoced: sqlite3SchemaClear
+
+                                                           0 sec [DONE]
+        Number of expressions:                        160069
+        after encoding
+
+      23 assertions before transformations (2 no_function_call, 20 no_back_edge, 1 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            6457
+        Fixed Memory Address Assigner
+          Number of moved ops                              1
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72778
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               9
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             150
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             163
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      23 assertions remain after transformations (2 no_function_call, 20 no_back_edge, 1 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...

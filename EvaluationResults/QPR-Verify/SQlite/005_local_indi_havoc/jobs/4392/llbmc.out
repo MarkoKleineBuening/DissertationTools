@@ -1,0 +1,661 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 4392 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 1
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/4392
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [1] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : vdbeCommit
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "vdbeCommit" for 1 iterations succeeded.
+      Unrolling loop in function "vdbeCommit" for 1 iterations succeeded.
+      Unrolling loop in function "vdbeCommit" for 1 iterations succeeded.
+      Unrolling loop in function "vdbeCommit" for 1 iterations succeeded.
+      Unrolling loop in function "vdbeCommit" for 1 iterations succeeded.
+      Unrolling loop in function "vdbeCommit" for 1 iterations succeeded.
+      Unrolling loop in function "vdbeCommit" for 1 iterations succeeded.getMatchingFunctions
+res.push_back: shellDeleteFile
+res.push_back: unlink
+res.push_back: strlen30
+res.push_back: makeDirectory
+res.push_back: memtraceSize
+res.push_back: memtraceInit
+res.push_back: idxIdentifierRequiresQuotes
+res.push_back: system
+res.push_back: booleanValue
+res.push_back: chdir
+res.push_back: atoi
+res.push_back: progress_handler
+res.push_back: notNormalFile
+res.push_back: get2byteInt
+res.push_back: get4byteInt
+res.push_back: strlenChar
+res.push_back: wsToEol
+res.push_back: _all_whitespace
+res.push_back: line_is_command_terminator
+res.push_back: sqlite3MallocSize
+res.push_back: sqlite3Strlen30
+res.push_back: strHash
+res.push_back: rmdir
+res.push_back: dlclose
+res.push_back: sqlite3Atoi
+res.push_back: sqlite3MemSize
+res.push_back: sqlite3MemInit
+res.push_back: pcache1Init
+res.push_back: sqlite3_compileoption_used
+res.push_back: sqlite3_complete
+res.push_back: sqlite3_complete16
+res.push_back: sqlite3Get4byte
+res.push_back: btreeInvokeBusyHandler
+res.push_back: analyzeWindowKeyword
+res.push_back: sqlite3IsRowid
+res.push_back: sqlite3IsTrueOrFalse
+res.push_back: getLockingMode
+res.push_back: getAutoVacuum
+res.push_back: getTempStore
+res.push_back: identLength
+
+      Transformed "vdbeCommit" from 92 to 777 basic blocks and from 459 to 2514 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...Current: vdbeCommit Havoced: sqlite3VtabSync
+Current: vdbeCommit Havoced: sqlite3BtreeTxnState
+Current: vdbeCommit Havoced: sqlite3BtreeEnter
+Current: vdbeCommit Havoced: sqlite3BtreePager
+Current: vdbeCommit Havoced: sqlite3PagerGetJournalMode
+Current: vdbeCommit Havoced: sqlite3PagerIsMemdb
+Current: vdbeCommit Havoced: sqlite3PagerExclusiveLock
+Current: vdbeCommit Havoced: sqlite3BtreeLeave
+Current: vdbeCommit Havoced: pthreadMutexTry
+Current: vdbeCommit Havoced: noopMutexTry
+Current: vdbeCommit Havoced: renameResolveTrigger
+Current: vdbeCommit Havoced: sqlite3NotPureFunc
+Current: vdbeCommit Havoced: sqlite3WalCallback
+Current: vdbeCommit Havoced: sqlite3PagerWalCallback
+Current: vdbeCommit Havoced: doWalCallbacks
+Current: vdbeCommit Havoced: sqlite3VdbeList
+Current: vdbeCommit Havoced: sqlite3Reprepare
+Current: vdbeCommit Havoced: sqlite3Step
+Current: vdbeCommit Havoced: sqlite3TestExtInit
+Current: vdbeCommit Havoced: sqlite3BtreeNewDb
+Current: vdbeCommit Havoced: setDestPgsz
+Current: vdbeCommit Havoced: anotherValidCursor
+Current: vdbeCommit Havoced: balance
+Current: vdbeCommit Havoced: handleMovedCursor
+Current: vdbeCommit Havoced: sqlite3BtreeCursorHasMoved
+Current: vdbeCommit Havoced: vdbeSorterSetupMerge
+Current: vdbeCommit Havoced: vdbeIncrPopulate
+Current: vdbeCommit Havoced: vdbeIncrBgPopulate
+Current: vdbeCommit Havoced: vdbeIncrSwap
+Current: vdbeCommit Havoced: vdbePmaReaderNext
+Current: vdbeCommit Havoced: vdbeSortAllocUnpacked
+Current: vdbeCommit Havoced: vdbeSorterFlushPMA
+Current: vdbeCommit Havoced: btreeComputeFreeSpace
+Current: vdbeCommit Havoced: sqlite3BtreeGetReserveNoMutex
+Current: vdbeCommit Havoced: sqlite3BtreeGetRequestedReserve
+Current: vdbeCommit Havoced: growVTrans
+Current: vdbeCommit Havoced: sqlite3BtreeIncrVacuum
+Current: vdbeCommit Havoced: sqlite3PagerOkToChangeJournalMode
+Current: vdbeCommit Havoced: sqlite3VdbeMemSetRowSet
+Current: vdbeCommit Havoced: sqlite3BtreeClearTableOfCursor
+Current: vdbeCommit Havoced: sqlite3VdbeFinishMoveto
+Current: vdbeCommit Havoced: sqlite3VdbeCursorRestore
+Current: vdbeCommit Havoced: sqlite3BtreeCursorIsValidNN
+Current: vdbeCommit Havoced: sqlite3BtreeEof
+Current: vdbeCommit Havoced: sqlite3VdbeMemTooBig
+Current: vdbeCommit Havoced: sqlite3VdbeExec
+Current: vdbeCommit Havoced: connectionIsBusy
+Current: vdbeCommit Havoced: sqlite3PagerFlush
+Current: vdbeCommit Havoced: sqlite3SafetyCheckSickOrOk
+Current: vdbeCommit Havoced: getToken
+Current: vdbeCommit Havoced: identLength
+Current: vdbeCommit Havoced: sqlite3BtreeIsReadonly
+Current: vdbeCommit Havoced: hasAnchor
+Current: vdbeCommit Havoced: windowArgCount
+Current: vdbeCommit Havoced: windowCacheFrame
+Current: vdbeCommit Havoced: sqlite3WhereIsSorted
+Current: vdbeCommit Havoced: sqlite3WhereBreakLabel
+Current: vdbeCommit Havoced: sqlite3WhereContinueLabel
+Current: vdbeCommit Havoced: sqlite3WhereOrderByLimitOptLabel
+Current: vdbeCommit Havoced: sqlite3WhereIsOrdered
+Current: vdbeCommit Havoced: sqlite3WhereIsDistinct
+Current: vdbeCommit Havoced: sqlite3SelectExprHeight
+Current: vdbeCommit Havoced: moveToLeftmost
+Current: vdbeCommit Havoced: btreeNext
+Current: vdbeCommit Havoced: moveToRoot
+Current: vdbeCommit Havoced: moveToRightmost
+Current: vdbeCommit Havoced: btreeRestoreCursorPosition
+Current: vdbeCommit Havoced: btreePrevious
+Current: vdbeCommit Havoced: sqlite3UpsertNextIsIPK
+Current: vdbeCommit Havoced: sqlite3IsBinary
+Current: vdbeCommit Havoced: sqlite3VdbeExplainParent
+Current: vdbeCommit Havoced: sqlite3WhereUsesDeferredSeek
+Current: vdbeCommit Havoced: whereLoopAddAll
+Current: vdbeCommit Havoced: whereShortCut
+Current: vdbeCommit Havoced: exprIsDeterministic
+Current: vdbeCommit Havoced: sqlite3VdbeHasSubProgram
+Current: vdbeCommit Havoced: sqlite3ExprListFlags
+Current: vdbeCommit Havoced: getTempStore
+Current: vdbeCommit Havoced: integrityCheckResultRow
+Current: vdbeCommit Havoced: invalidateTempStorage
+Current: vdbeCommit Havoced: getAutoVacuum
+Current: vdbeCommit Havoced: sqlite3BtreeGetAutoVacuum
+Current: vdbeCommit Havoced: getLockingMode
+Current: vdbeCommit Havoced: sqlite3WalHeapMemory
+Current: vdbeCommit Havoced: sqlite3BtreeIsInBackup
+Current: vdbeCommit Havoced: sqlite3JournalSize
+Current: vdbeCommit Havoced: sqlite3OpenTempDatabase
+Current: vdbeCommit Havoced: sqlite3InRhsIsConstant
+Current: vdbeCommit Havoced: sqlite3GetTempReg
+Current: vdbeCommit Havoced: sqlite3VdbeMakeLabel
+Current: vdbeCommit Havoced: sqlite3ExprIsConstantNotJoin
+Current: vdbeCommit Havoced: sqlite3VdbeCurrentAddr
+Current: vdbeCommit Havoced: sqlite3ExprIsVector
+Current: vdbeCommit Havoced: sqlite3ExprTruthValue
+Current: vdbeCommit Havoced: sqlite3ReadOnlyShadowTables
+Current: vdbeCommit Havoced: sqlite3BtreeSharable
+Current: vdbeCommit Havoced: sqlite3IndexHasDuplicateRootPage
+Current: vdbeCommit Havoced: pragmaVtabEof
+Current: vdbeCommit Havoced: pragmaVtabNext
+Current: vdbeCommit Havoced: pragmaVtabClose
+Current: vdbeCommit Havoced: pragmaVtabDisconnect
+Current: vdbeCommit Havoced: sqlite3ReadSchema
+Current: vdbeCommit Havoced: sqlite3IsTrueOrFalse
+Current: vdbeCommit Havoced: sqlite3IsRowid
+Current: vdbeCommit Havoced: sqlite3ExprVectorSize
+Current: vdbeCommit Havoced: exprProbability
+Current: vdbeCommit Havoced: sqlite3ExprCanBeNull
+Current: vdbeCommit Havoced: exprStructSize
+Current: vdbeCommit Havoced: sqlite3VdbeMemRealify
+Current: vdbeCommit Havoced: sqlite3VdbeMemIntegerify
+Current: vdbeCommit Havoced: sqlite3VdbeMemNumerify
+Current: vdbeCommit Havoced: sqlite3ExprIsConstant
+Current: vdbeCommit Havoced: sqlite3ExprIdToTrueFalse
+Current: vdbeCommit Havoced: analyzeWindowKeyword
+Current: vdbeCommit Havoced: sqlite3WalDbsize
+Current: vdbeCommit Havoced: pagerBeginReadTransaction
+Current: vdbeCommit Havoced: pagerOpenWalIfPresent
+Current: vdbeCommit Havoced: pagerExclusiveLock
+Current: vdbeCommit Havoced: pagerOpenWal
+Current: vdbeCommit Havoced: sqlite3PagerWalSupported
+Current: vdbeCommit Havoced: sqlite3WritableSchema
+Current: vdbeCommit Havoced: sqlite3PagerSharedLock
+Current: vdbeCommit Havoced: sqlite3WalBeginWriteTransaction
+Current: vdbeCommit Havoced: sqlite3InvokeBusyHandler
+Current: vdbeCommit Havoced: btreeInvokeBusyHandler
+Current: vdbeCommit Havoced: sqlite3TempInMemory
+Current: vdbeCommit Havoced: lockBtree
+Current: vdbeCommit Havoced: sqlite3PagerDataVersion
+Current: vdbeCommit Havoced: sqlite3BtreeCommit
+Current: vdbeCommit Havoced: vdbeSorterJoinThread
+Current: vdbeCommit Havoced: walPagesize
+Current: vdbeCommit Havoced: pagerSyncHotJournal
+Current: vdbeCommit Havoced: removeFromSharingList
+Current: vdbeCommit Havoced: sqlite3BtreeClose
+Current: vdbeCommit Havoced: sqlite3BtreeCloseCursor
+Current: vdbeCommit Havoced: sqlite3VdbeFrameRestore
+Current: vdbeCommit Havoced: sqlite3VtabRollback
+Current: vdbeCommit Havoced: sqlite3PagerPageRefcount
+Current: vdbeCommit Havoced: sqlite3BitvecSize
+Current: vdbeCommit Havoced: btreeCellSizeCheck
+Current: vdbeCommit Havoced: btreeInitPage
+Current: vdbeCommit Havoced: setChildPtrmaps
+Current: vdbeCommit Havoced: walIndexRecover
+Current: vdbeCommit Havoced: walRestartLog
+Current: vdbeCommit Havoced: autoVacuumCommit
+Current: vdbeCommit Havoced: sqlite3PagerCommitPhaseTwo
+Current: vdbeCommit Havoced: sqlite3VtabCommit
+Current: vdbeCommit Havoced: sqlite3PagerExclusiveLock
+Current: vdbeCommit Havoced: sqlite3PagerGetJournalMode
+Current: vdbeCommit Havoced: sqlite3BtreePayloadSize
+Current: vdbeCommit Havoced: saveCursorKey
+Current: vdbeCommit Havoced: saveCursorPosition
+Current: vdbeCommit Havoced: sqlite3PcachePageRefcount
+Current: vdbeCommit Havoced: btreePagecount
+Current: vdbeCommit Havoced: sqlite3BtreeLastPage
+Current: vdbeCommit Havoced: sqlite3PagerIsMemdb
+Current: vdbeCommit Havoced: sqlite3BtreeGetPageSize
+Current: vdbeCommit Havoced: sqlite3OsSectorSize
+Current: vdbeCommit Havoced: sqlite3SectorSize
+Current: vdbeCommit Havoced: numberOfCachePages
+Current: vdbeCommit Havoced: sqlite3PCachePercentDirty
+Current: vdbeCommit Havoced: sqlite3WalEndWriteTransaction
+Current: vdbeCommit Havoced: sqlite3PagerRollback
+Current: vdbeCommit Havoced: readDbPage
+Current: vdbeCommit Havoced: sqlite3PcacheRefCount
+Current: vdbeCommit Havoced: pagerRollbackWal
+Current: vdbeCommit Havoced: sqlite3JournalIsInMemory
+Current: vdbeCommit Havoced: openSubJournal
+Current: vdbeCommit Havoced: subjournalPage
+Current: vdbeCommit Havoced: subjRequiresPage
+Current: vdbeCommit Havoced: memjrnlCreateFile
+Current: vdbeCommit Havoced: memjrnlClose
+Current: vdbeCommit Havoced: sqlite3OsDeviceCharacteristics
+Current: vdbeCommit Havoced: writeJournalHdr
+Current: vdbeCommit Havoced: databaseIsUnmoved
+Current: vdbeCommit Havoced: jrnlBufferSize
+Current: vdbeCommit Havoced: pagerAddPageToRollbackJournal
+Current: vdbeCommit Havoced: pager_open_journal
+Current: vdbeCommit Havoced: pager_write
+Current: vdbeCommit Havoced: pagerWriteLargeSector
+Current: vdbeCommit Havoced: subjournalPageIfRequired
+Current: vdbeCommit Havoced: sqlite3PagerWrite
+Current: vdbeCommit Havoced: sqlite3Get4byte
+Current: vdbeCommit Havoced: newDatabase
+Current: vdbeCommit Havoced: sqlite3VdbeTransferError
+Current: vdbeCommit Havoced: sqlite3VdbeHalt
+Current: vdbeCommit Havoced: sqlite3VdbeReset
+Current: vdbeCommit Havoced: sqlite3VdbeFinalize
+Current: vdbeCommit Havoced: sqlite3BtreeSchemaLocked
+Current: vdbeCommit Havoced: sqlite3SafetyCheckOk
+Current: vdbeCommit Havoced: vdbeSafety
+Current: vdbeCommit Havoced: vdbeSafetyNotNull
+Current: vdbeCommit Havoced: sqlite3BtreeTxnState
+Current: vdbeCommit Havoced: sqlite3_value_frombind
+Current: vdbeCommit Havoced: sqlite3_stmt_isexplain
+Current: vdbeCommit Havoced: sqlite3_str_length
+Current: vdbeCommit Havoced: sqlite3_str_errcode
+Current: vdbeCommit Havoced: sqlite3_value_nochange
+Current: vdbeCommit Havoced: sqlite3_vtab_nochange
+Current: vdbeCommit Havoced: sqlite3_system_errno
+Current: vdbeCommit Havoced: sqlite3_db_cacheflush
+Current: vdbeCommit Havoced: sqlite3_value_subtype
+Current: vdbeCommit Havoced: sqlite3_cancel_auto_extension
+Current: vdbeCommit Havoced: sqlite3_auto_extension
+Current: vdbeCommit Havoced: sqlite3_stmt_readonly
+Current: vdbeCommit Havoced: sqlite3_stmt_busy
+Current: vdbeCommit Havoced: sqlite3_db_release_memory
+Current: vdbeCommit Havoced: sqlite3_close_v2
+Current: vdbeCommit Havoced: sqlite3_vtab_on_conflict
+Current: vdbeCommit Havoced: sqlite3_extended_errcode
+Current: vdbeCommit Havoced: sqlite3_backup_remaining
+Current: vdbeCommit Havoced: sqlite3_backup_pagecount
+Current: vdbeCommit Havoced: sqlite3_backup_finish
+Current: vdbeCommit Havoced: sqlite3_vfs_unregister
+Current: vdbeCommit Havoced: sqlite3_blob_close
+Current: vdbeCommit Havoced: sqlite3_blob_bytes
+Current: vdbeCommit Havoced: sqlite3_clear_bindings
+Current: vdbeCommit Havoced: sqlite3_value_bytes16
+Current: vdbeCommit Havoced: sqlite3_step
+Current: vdbeCommit Havoced: sqlite3_reset
+Current: vdbeCommit Havoced: sqlite3_get_autocommit
+Current: vdbeCommit Havoced: sqlite3_finalize
+Current: vdbeCommit Havoced: sqlite3_expired
+Current: vdbeCommit Havoced: sqlite3_errcode
+Current: vdbeCommit Havoced: sqlite3_data_count
+Current: vdbeCommit Havoced: sqlite3_complete16
+Current: vdbeCommit Havoced: sqlite3_complete
+Current: vdbeCommit Havoced: sqlite3_column_count
+Current: vdbeCommit Havoced: sqlite3_close
+Current: vdbeCommit Havoced: sqlite3_bind_parameter_count
+Current: vdbeCommit Havoced: sqlite3_aggregate_count
+Current: vdbeCommit Havoced: sqlite3OsGetLastError
+Current: vdbeCommit Havoced: sqlite3_compileoption_used
+Current: vdbeCommit Havoced: sqlite3_changes
+Current: vdbeCommit Havoced: sqlite3_total_changes
+Current: vdbeCommit Havoced: sqlite3_value_int
+Current: vdbeCommit Havoced: sqlite3VdbeMemHandleBom
+Current: vdbeCommit Havoced: sqlite3Utf8Read
+Current: vdbeCommit Havoced: sqlite3_value_bytes
+Current: vdbeCommit Havoced: sqlite3_value_type
+Current: vdbeCommit Havoced: sqlite3_value_numeric_type
+Current: vdbeCommit Havoced: pcache1InitBulk
+Current: vdbeCommit Havoced: pcache1UnderMemoryPressure
+Current: vdbeCommit Havoced: pcache1Pagecount
+Current: vdbeCommit Havoced: pcache1Init
+Current: vdbeCommit Havoced: sqlite3MemInit
+Current: vdbeCommit Havoced: sqlite3MemSize
+Current: vdbeCommit Havoced: sqlite3Atoi
+Current: vdbeCommit Havoced: unixOpenSharedMemory
+Current: vdbeCommit Havoced: unixClose
+Current: vdbeCommit Havoced: nolockClose
+Current: vdbeCommit Havoced: closeUnixFile
+Current: vdbeCommit Havoced: fileHasMoved
+Current: vdbeCommit Havoced: unixDeviceCharacteristics
+Current: vdbeCommit Havoced: unixSectorSize
+Current: vdbeCommit Havoced: dotlockClose
+Current: vdbeCommit Havoced: memdbDeviceCharacteristics
+Current: vdbeCommit Havoced: memdbClose
+Current: vdbeCommit Havoced: countLookasideSlots
+Current: vdbeCommit Havoced: sqlite3_mutex_try
+Current: vdbeCommit Havoced: sqlite3PcachePagecount
+Current: vdbeCommit Havoced: strHash
+Current: vdbeCommit Havoced: sqlite3BtreeConnectionCount
+Current: vdbeCommit Havoced: sqlite3PagerMemUsed
+Current: vdbeCommit Havoced: vdbeMemAddTerminator
+Current: vdbeCommit Havoced: sqlite3VdbeMemNulTerminate
+Current: vdbeCommit Havoced: sqlite3VdbeMemMakeWriteable
+Current: vdbeCommit Havoced: sqlite3VdbeMemExpandBlob
+Current: vdbeCommit Havoced: sqlite3Strlen30
+Current: vdbeCommit Havoced: sqlite3MallocSize
+Current: vdbeCommit Havoced: line_is_command_terminator
+Current: vdbeCommit Havoced: _all_whitespace
+Current: vdbeCommit Havoced: wsToEol
+Current: vdbeCommit Havoced: strlenChar
+Current: vdbeCommit Havoced: get4byteInt
+Current: vdbeCommit Havoced: get2byteInt
+Current: vdbeCommit Havoced: shellDatabaseError
+Current: vdbeCommit Havoced: notNormalFile
+Current: vdbeCommit Havoced: progress_handler
+Current: vdbeCommit Havoced: booleanValue
+Current: vdbeCommit Havoced: idxIdentifierRequiresQuotes
+Current: vdbeCommit Havoced: expertEof
+Current: vdbeCommit Havoced: expertNext
+Current: vdbeCommit Havoced: expertClose
+Current: vdbeCommit Havoced: expertDisconnect
+Current: vdbeCommit Havoced: idxRegisterVtab
+Current: vdbeCommit Havoced: re_esc_char
+Current: vdbeCommit Havoced: re_next_char
+Current: vdbeCommit Havoced: re_next_char_nocase
+Current: vdbeCommit Havoced: seriesEof
+Current: vdbeCommit Havoced: seriesNext
+Current: vdbeCommit Havoced: seriesClose
+Current: vdbeCommit Havoced: seriesDisconnect
+Current: vdbeCommit Havoced: memtraceInit
+Current: vdbeCommit Havoced: memtraceSize
+Current: vdbeCommit Havoced: apndDeviceCharacteristics
+Current: vdbeCommit Havoced: apndSectorSize
+Current: vdbeCommit Havoced: apndClose
+Current: vdbeCommit Havoced: completionEof
+Current: vdbeCommit Havoced: completionNext
+Current: vdbeCommit Havoced: completionClose
+Current: vdbeCommit Havoced: completionDisconnect
+Current: vdbeCommit Havoced: fsdirEof
+Current: vdbeCommit Havoced: fsdirNext
+Current: vdbeCommit Havoced: fsdirClose
+Current: vdbeCommit Havoced: fsdirDisconnect
+Current: vdbeCommit Havoced: makeDirectory
+Current: vdbeCommit Havoced: process_input
+Current: vdbeCommit Havoced: strlen30
+Current: vdbeCommit Havoced: shellDeleteFile
+Current: vdbeCommit Havoced: sqlite3_expert_count
+Current: vdbeCommit Havoced: idxCreateCandidates
+Current: vdbeCommit Havoced: sqlite3MemTraceActivate
+Current: vdbeCommit Havoced: sqlite3CompletionVtabInit
+Current: vdbeCommit Havoced: fsdirRegister
+Current: vdbeCommit Havoced: sqlite3BtreeGetFilename
+Current: vdbeCommit Havoced: sqlite3Strlen30
+Current: vdbeCommit Havoced: sqlite3BtreeGetFilename
+Current: vdbeCommit Havoced: sqlite3Strlen30
+Current: vdbeCommit Havoced: sqlite3MPrintf
+Current: vdbeCommit Havoced: sqlite3_log
+Current: vdbeCommit Havoced: sqlite3_randomness
+Current: vdbeCommit Havoced: sqlite3_snprintf
+Current: vdbeCommit Havoced: sqlite3OsAccess
+Current: vdbeCommit Havoced: sqlite3_log
+Current: vdbeCommit Havoced: sqlite3OsDelete
+Current: vdbeCommit Havoced: sqlite3OsOpenMalloc
+Current: vdbeCommit Havoced: sqlite3BtreeTxnState
+Current: vdbeCommit Havoced: sqlite3BtreeGetJournalname
+Current: vdbeCommit Havoced: sqlite3Strlen30
+Current: vdbeCommit Havoced: sqlite3OsWrite
+Current: vdbeCommit Havoced: sqlite3Strlen30
+Current: vdbeCommit Havoced: sqlite3OsCloseFree
+Current: vdbeCommit Havoced: sqlite3OsDelete
+Current: vdbeCommit Havoced: sqlite3DbFree
+Current: vdbeCommit Havoced: sqlite3OsDeviceCharacteristics
+Current: vdbeCommit Havoced: sqlite3OsSync
+Current: vdbeCommit Havoced: sqlite3BtreeCommitPhaseOne
+Current: vdbeCommit Havoced: sqlite3OsCloseFree
+Current: vdbeCommit Havoced: sqlite3OsDelete
+Current: vdbeCommit Havoced: sqlite3DbFree
+Current: vdbeCommit Havoced: sqlite3BeginBenignMalloc
+Current: vdbeCommit Havoced: sqlite3BtreeCommitPhaseTwo
+Current: vdbeCommit Havoced: sqlite3EndBenignMalloc
+Current: vdbeCommit Havoced: sqlite3VtabCommit
+Current: vdbeCommit Havoced: sqlite3DbFree
+Current: vdbeCommit Havoced: sqlite3BtreeCommitPhaseOne
+Current: vdbeCommit Havoced: sqlite3OsCloseFree
+Current: vdbeCommit Havoced: sqlite3OsDelete
+Current: vdbeCommit Havoced: sqlite3DbFree
+Current: vdbeCommit Havoced: sqlite3DbFree
+Current: vdbeCommit Havoced: sqlite3BtreeCommitPhaseOne
+Current: vdbeCommit Havoced: sqlite3BtreeCommitPhaseTwo
+Current: vdbeCommit Havoced: sqlite3VtabCommit
+Current: vdbeCommit Havoced: sqlite3BtreeCommitPhaseTwo
+Current: vdbeCommit Havoced: sqlite3BtreeCommitPhaseOne
+Current: vdbeCommit Havoced: sqlite3BtreeTxnState
+Current: vdbeCommit Havoced: sqlite3BtreeEnter
+Current: vdbeCommit Havoced: sqlite3BtreePager
+Current: vdbeCommit Havoced: sqlite3PagerGetJournalMode
+Current: vdbeCommit Havoced: sqlite3PagerIsMemdb
+Current: vdbeCommit Havoced: sqlite3PagerExclusiveLock
+Current: vdbeCommit Havoced: sqlite3BtreeLeave
+                      0 sec [DONE]
+        Number of expressions:                        162699
+        after encoding
+
+      26 assertions before transformations (18 no_function_call, 7 no_back_edge, 1 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            7997
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72680
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               3
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                              10
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             142
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      26 assertions remain after transformations (18 no_function_call, 7 no_back_edge, 1 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...            0 sec [DONE]
+        
+                                                           1 sec [DONE]
+      after performing Check
+evaluateCheckerResultsViaRefinementLoop
+checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+BranchInst - LoopBound
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+BranchInst - LoopBound
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+BranchInst - LoopBound
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            1 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+BranchInst - LoopBound
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      getCheckerResultAfterUpdatingMarker
+Result is NoTrace
+
+                                                          14 sec [DONE]
+    allsafe
+    
+                                                          14 sec [DONE]
+  

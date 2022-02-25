@@ -1,0 +1,238 @@
+<SourceFile>
+  <Line number="1">/******************************************************************************</Line>
+  <Line number="2">* FILE: misc.c</Line>
+  <Line number="3">* DESCRIPTION:</Line>
+  <Line number="4">*   </Line>
+  <Line number="5">*   </Line>
+  <Line number="6">*</Line>
+  <Line number="7">* SOURCE: </Line>
+  <Line number="8">* LAST REVISED: 5/11/05 Jung Soon Jang</Line>
+  <Line number="9">******************************************************************************/</Line>
+  <Line number="10">#include &lt;stdio.h&gt;</Line>
+  <Line number="11">#include &lt;unistd.h&gt;</Line>
+  <Line number="12">#include &lt;time.h&gt;</Line>
+  <Line number="13">#include &lt;pthread.h&gt;</Line>
+  <Line number="14">#include &quot;globaldefs.h&quot;</Line>
+  <Line number="15">#include &quot;matrix.h&quot;</Line>
+  <Line number="16"></Line>
+  <Line number="17">#ifdef NCURSE_DISPLAY_OPTION</Line>
+  <Line number="18">#include &lt;ncurses/ncurses.h&gt;</Line>
+  <Line number="19">extern WINDOW *win;</Line>
+  <Line number="20">#endif</Line>
+  <Line number="21"></Line>
+  <Line number="22">extern MATRIX nxs;</Line>
+  <Line number="23">extern double xs[7];</Line>
+  <Line number="24">extern char   *HOST_IP_ADDR;</Line>
+  <Line number="25">extern char   *cnt_status;</Line>
+  <Line number="26">extern short  gps_init_count;</Line>
+  <Line number="27">extern char   *buf_err[50];</Line>
+  <Line number="28">extern char   uplinkstr[80];</Line>
+  <Line number="29"></Line>
+  <Line number="30"></Line>
+  <Line number="31">//global variables</Line>
+  <Line number="32">double exe_rate[3];</Line>
+  <Line number="33">//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</Line>
+  <Line number="34">// snap time interval</Line>
+  <Line number="35">//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</Line>
+  <Line number="36">void snap_time_interval(char *threadname,int displaytime,short id)</Line>
+  <Line number="37">{</Line>
+  <Line number="38">	static int 		count[5]={0,};</Line>
+  <Line number="39">	struct timespec		ts;</Line>
+  <Line number="40">        static struct timespec  ts_p[5];</Line>
+  <Line number="41">        double 			sec,nsec,elapsed;</Line>
+  <Line number="42">        static double           sum[5]={0.,};</Line>
+  <Line number="43">    </Line>
+  <Line number="44">	clock_gettime(CLOCK_REALTIME, &amp;ts);</Line>
+  <Line number="45">        sec     <CheckRefs ids="2282">=</CheckRefs> ts.tv_sec <CheckRefs ids="2283,2284">-</CheckRefs> ts_p[id<CheckRefs ids="2285">]</CheckRefs>.tv_sec;</Line>
+  <Line number="46">        nsec    <CheckRefs ids="2286">=</CheckRefs> ts.tv_nsec<CheckRefs ids="2287,2288">-</CheckRefs> ts_p[id<CheckRefs ids="2289">]</CheckRefs>.tv_nsec;</Line>
+  <Line number="47">        elapsed <CheckRefs ids="2290">=</CheckRefs> sec <CheckRefs ids="2291">+</CheckRefs> nsec<CheckRefs ids="2292">*</CheckRefs>1.0e-9;</Line>
+  <Line number="48">        ts_p[id<CheckRefs ids="2293">]</CheckRefs>= ts;</Line>
+  <Line number="49">        sum[id<CheckRefs ids="2295">]</CheckRefs><CheckRefs ids="2294">+=</CheckRefs> elapsed;</Line>
+  <Line number="50">	</Line>
+  <Line number="51">   	if (<CheckRefs ids="2296">++</CheckRefs>count[id<CheckRefs ids="2297">]</CheckRefs> == displaytime)</Line>
+  <Line number="52">	{       elapsed <CheckRefs ids="2298">=</CheckRefs> sum[id<CheckRefs ids="2301">]</CheckRefs><CheckRefs ids="2299,2300">/</CheckRefs><CheckRefs ids="2302">displaytime</CheckRefs>; sum[id<CheckRefs ids="2304">]</CheckRefs> <CheckRefs ids="2303">=</CheckRefs> <CheckRefs ids="2305">0</CheckRefs>;</Line>
+  <Line number="53">	        exe_rate[id<CheckRefs ids="2307">]</CheckRefs><CheckRefs ids="2306">=</CheckRefs>elapsed;</Line>
+  <Line number="54">#ifndef NCURSE_DISPLAY_OPTION</Line>
+  <Line number="55">		printf(&quot;[%s]:The cycles in %5.2f (Hz):%5.2f (ms) \n&quot;, threadname, <CheckRefs ids="2310">1</CheckRefs><CheckRefs ids="2308,2309">/</CheckRefs>elapsed, elapsed<CheckRefs ids="2311">*</CheckRefs><CheckRefs ids="2312">1000</CheckRefs>);</Line>
+  <Line number="56">#endif		</Line>
+  <Line number="57">		count[id<CheckRefs ids="2313">]</CheckRefs> = 0;</Line>
+  <Line number="58">	}	</Line>
+  <Line number="59">}		</Line>
+  <Line number="60"></Line>
+  <Line number="61">double get_time_interval(short id)</Line>
+  <Line number="62">{</Line>
+  <Line number="63">	struct timespec		ts;</Line>
+  <Line number="64">        static struct timespec  ts_p[5];</Line>
+  <Line number="65">        double 			nsec,elapsed;</Line>
+  <Line number="66">        short i=<CheckRefs ids="2314">0</CheckRefs>;</Line>
+  <Line number="67"></Line>
+  <Line number="68">        clock_gettime(CLOCK_REALTIME, &amp;ts);</Line>
+  <Line number="69">        nsec    <CheckRefs ids="2315">=</CheckRefs> ts.tv_nsec<CheckRefs ids="2316,2317">-</CheckRefs> ts_p[id<CheckRefs ids="2318">]</CheckRefs>.tv_nsec;</Line>
+  <Line number="70">        elapsed <CheckRefs ids="2319">=</CheckRefs> nsec<CheckRefs ids="2320">*</CheckRefs>1.0e-9;</Line>
+  <Line number="71">        </Line>
+  <Line number="72">        if(elapsed &lt;=<CheckRefs ids="2321">0</CheckRefs>) elapsed <CheckRefs ids="2322">=</CheckRefs>0.0;        </Line>
+  <Line number="73">        ts_p[id<CheckRefs ids="2323">]</CheckRefs>= ts;</Line>
+  <Line number="74">       </Line>
+  <Line number="75">        return elapsed;	</Line>
+  <Line number="76">}	</Line>
+  <Line number="77"></Line>
+  <Line number="78">double get_Time()</Line>
+  <Line number="79">{</Line>
+  <Line number="80">  	struct timespec t;</Line>
+  <Line number="81">  	static struct timespec tset;</Line>
+  <Line number="82">        double tnow;</Line>
+  <Line number="83">        static init=0;</Line>
+  <Line number="84">   </Line>
+  <Line number="85">        if(init==0) {</Line>
+  <Line number="86">           init = 1;</Line>
+  <Line number="87">	   clock_gettime(CLOCK_REALTIME,&amp;tset);</Line>
+  <Line number="88">           return 0.0;</Line>
+  <Line number="89">        } </Line>
+  <Line number="90">	clock_gettime(CLOCK_REALTIME, &amp;t);</Line>
+  <Line number="91">        tnow <CheckRefs ids="2324">=</CheckRefs> <CheckRefs ids="2326">(</CheckRefs>t.tv_sec<CheckRefs ids="2327">-</CheckRefs>tset.tv_sec) <CheckRefs ids="2325">+</CheckRefs> 1.0e-9<CheckRefs ids="2328">*</CheckRefs><CheckRefs ids="2329">(</CheckRefs>double)(t.tv_nsec <CheckRefs ids="2330">-</CheckRefs> tset.tv_nsec);</Line>
+  <Line number="92">        return tnow;</Line>
+  <Line number="93">}</Line>
+  <Line number="94">//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</Line>
+  <Line number="95">// display: ncurses related functions</Line>
+  <Line number="96">//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</Line>
+  <Line number="97">#ifdef NCURSE_DISPLAY_OPTION</Line>
+  <Line number="98">static void set_colors(int pair, int foreground, int background)</Line>
+  <Line number="99">{</Line>
+  <Line number="100">   if (has_colors()) {</Line>
+  <Line number="101">   	if (pair &gt; COLOR_PAIRS)</Line>
+  <Line number="102">   	    pair = COLOR_PAIRS;</Line>
+  <Line number="103">   	init_pair(pair, foreground,background);</Line>
+  <Line number="104">   	wattrset(win, COLOR_PAIR(pair));</Line>
+  <Line number="105">   }		    </Line>
+  <Line number="106">}</Line>
+  <Line number="107">static chtype use_colors(int pairs, chtype attrs)</Line>
+  <Line number="108">{</Line>
+  <Line number="109">   if (has_colors()) {</Line>
+  <Line number="110">   	if (pairs &gt; COLOR_PAIRS)</Line>
+  <Line number="111">   	    pairs = COLOR_PAIRS;</Line>
+  <Line number="112">   	attrs |= COLOR_PAIR(pairs);</Line>
+  <Line number="113">   }</Line>
+  <Line number="114">   wattrset(win,attrs);</Line>
+  <Line number="115">   return attrs;	    	</Line>
+  <Line number="116">}		</Line>
+  <Line number="117">#endif</Line>
+  <Line number="118"></Line>
+  <Line number="119">void display_message(struct imu *data, struct gps *gdata, struct nav *ndata, int disptime)</Line>
+  <Line number="120">{</Line>
+  <Line number="121">   static int count=0;</Line>
+  <Line number="122">   static double r2d = 57.3;</Line>
+  <Line number="123">   char buf[100];</Line>
+  <Line number="124"></Line>
+  <Line number="125">#ifdef NCURSE_DISPLAY_OPTION   </Line>
+  <Line number="126">   if(++count == disptime) {</Line>
+  <Line number="127">   	set_colors(1,COLOR_RED,COLOR_BLACK);</Line>
+  <Line number="128">	box(win, ACS_VLINE, ACS_HLINE);</Line>
+  <Line number="129">	set_colors(2,COLOR_WHITE,COLOR_BLACK);</Line>
+  <Line number="130">        mvwaddstr(win, 0, 4,&quot; MNAV-100CA AHRS and INS Information &quot;);</Line>
+  <Line number="131">        set_colors(3,COLOR_GREEN,COLOR_BLACK);</Line>
+  <Line number="132">        mvwaddstr(win, 2, 4,&quot;&gt;&gt; Attitude Heading Reference System (AHRS):&quot;);    	</Line>
+  <Line number="133">        set_colors(2,COLOR_WHITE,COLOR_BLACK);</Line>
+  <Line number="134">	sprintf(buf,&quot;[deg  ]:phi = %6.2f    the = %6.2f    psi = %6.1f&quot;,data-&gt;phi*r2d,data-&gt;the*r2d,data-&gt;psi*r2d);</Line>
+  <Line number="135">   	mvwaddstr(win, 3, 4,buf);    	</Line>
+  <Line number="136">   	sprintf(buf,&quot;[deg/s]:p   = %6.2f    q   = %6.2f    r   = %6.2f    &quot;,data-&gt;p*r2d,data-&gt;q*r2d,data-&gt;r*r2d);</Line>
+  <Line number="137">   	mvwaddstr(win, 4, 4,buf);      	</Line>
+  <Line number="138">        sprintf(buf,&quot;[m/s^2]:ax  = %6.3f    ay  = %6.3f    az  = %6.3f&quot;,data-&gt;ax,data-&gt;ay,data-&gt;az);</Line>
+  <Line number="139">        mvwaddstr(win, 5, 4,buf);   	</Line>
+  <Line number="140">	sprintf(buf,&quot;[Gauss]:hx  = %6.3f    hy  = %6.3f    hz  = %6.3f&quot;,data-&gt;hx,data-&gt;hy,data-&gt;hz);</Line>
+  <Line number="141">        mvwaddstr(win, 6, 4,buf);</Line>
+  <Line number="142">        sprintf(buf,&quot;[Press]:Pt  = %6.1f    Pv  = %6.2f&quot;,data-&gt;Ps,data-&gt;Pt);</Line>
+  <Line number="143">        mvwaddstr(win, 7, 4,buf);</Line>
+  <Line number="144">        sprintf(buf,&quot;[bias ]:bp  = %6.3f    bq  = %6.3f    br  = %6.3f &quot;,xs[4]*r2d,xs[5]*r2d,xs[6]*r2d);</Line>
+  <Line number="145">        mvwaddstr(win, 8, 4,buf);</Line>
+  <Line number="146">        </Line>
+  <Line number="147">	if (ndata-&gt;err_type == TRUE) {</Line>
+  <Line number="148">	  set_colors(3,COLOR_GREEN,COLOR_BLACK);</Line>
+  <Line number="149">          mvwaddstr(win, 10, 4,&quot;&gt;&gt; Strapdown Inertial Navigation System (S-INS):&quot;);   </Line>
+  <Line number="150">          set_colors(2,COLOR_WHITE,COLOR_BLACK); 	</Line>
+  <Line number="151"> 	  sprintf(buf,&quot;[GPS  ]:lon = %f  lat = %f  alt = %6.2f&quot;,gdata-&gt;lon,gdata-&gt;lat,gdata-&gt;alt);</Line>
+  <Line number="152">          mvwaddstr(win, 11, 4,buf);</Line>
+  <Line number="153"> 	  sprintf(buf,&quot;[nav  ]:lon = %f  lat = %f  alt = %6.2f&quot;,ndata-&gt;lon,ndata-&gt;lat,ndata-&gt;alt);</Line>
+  <Line number="154">          mvwaddstr(win, 12, 4,buf);</Line>
+  <Line number="155">          sprintf(buf,&quot;[bias ]:bax = %6.3f       bay = %6.3f     baz = %6.3f&quot;,nxs[6][0],nxs[7][0],nxs[8][0]);</Line>
+  <Line number="156">          mvwaddstr(win, 13, 4,buf);</Line>
+  <Line number="157"></Line>
+  <Line number="158">          sprintf(buf,&quot;[MNAV-NAV]:The cycles in %5.2f (Hz):%6.2f (ms)\t\t&quot;,1/exe_rate[1], exe_rate[1]*1000);</Line>
+  <Line number="159">          mvwaddstr(win, 16, 4,buf);</Line>
+  <Line number="160">        }	 </Line>
+  <Line number="161">        else</Line>
+  <Line number="162">        {</Line>
+  <Line number="163">          set_colors(3,COLOR_GREEN,COLOR_BLACK);</Line>
+  <Line number="164">          mvwaddstr(win, 10, 4,&quot;&gt;&gt; Strapdown Inertial Navigation System (S-INS):&quot;); </Line>
+  <Line number="165">          </Line>
+  <Line number="166">          if (gps_init_count !=0)</Line>
+  <Line number="167">          { </Line>
+  <Line number="168">             sprintf(buf,&quot;GPS Acquisition for NAV Initialization (%d)    &quot;,20-gps_init_count);</Line>
+  <Line number="169">             mvwaddstr(win,11,4,buf);	</Line>
+  <Line number="170">          }</Line>
+  <Line number="171">          else</Line>
+  <Line number="172">          {	</Line>
+  <Line number="173">             set_colors(1,COLOR_RED,COLOR_BLACK);</Line>
+  <Line number="174">	     mvwaddstr(win, 11, 4,&quot;GPS is not available...&quot;);   	</Line>
+  <Line number="175">	  }   </Line>
+  <Line number="176">	}</Line>
+  <Line number="177">        set_colors(2,COLOR_WHITE,COLOR_BLACK);</Line>
+  <Line number="178">        sprintf(buf,&quot;[MNAV-ACQ]:The cycles in %5.2f (Hz):%6.2f (ms)\t\t&quot;,1/exe_rate[0], exe_rate[0]*1000);</Line>
+  <Line number="179">        mvwaddstr(win, 14, 4,buf);</Line>
+  <Line number="180">        sprintf(buf,&quot;[MNAV-TCP]:The cycles in %5.2f (Hz):%6.2f (ms)\t\t&quot;,1/exe_rate[2], exe_rate[2]*1000);</Line>
+  <Line number="181">        mvwaddstr(win, 15, 4,buf);</Line>
+  <Line number="182"></Line>
+  <Line number="183">        set_colors(4,COLOR_YELLOW,COLOR_BLACK);</Line>
+  <Line number="184">        mvwaddstr(win, 18, 4,uplinkstr);</Line>
+  <Line number="185"></Line>
+  <Line number="186">        set_colors(2,COLOR_WHITE,COLOR_BLACK);</Line>
+  <Line number="187">        sprintf(buf,&quot;[GND-BASE]:I.P. Address &gt;&gt; %s&quot;,HOST_IP_ADDR);</Line>
+  <Line number="188">        mvwaddstr(win, 19, 4,buf);</Line>
+  <Line number="189">        set_colors(4,COLOR_YELLOW,COLOR_BLACK);</Line>
+  <Line number="190">        sprintf(buf,&quot;[uNAV    ]:%s      &quot;,buf_err); </Line>
+  <Line number="191">        mvwaddstr(win, 20, 4,buf);</Line>
+  <Line number="192">        </Line>
+  <Line number="193">        set_colors(2,COLOR_WHITE,COLOR_BLACK);</Line>
+  <Line number="194">        sprintf(buf,&quot;[CONTROL ]:%s&quot;,cnt_status);</Line>
+  <Line number="195">        mvwaddstr(win, 21, 4,buf);</Line>
+  <Line number="196"></Line>
+  <Line number="197">        mvwaddstr(win, 22, 50,&quot; Ctrl+C to Quit &quot;);</Line>
+  <Line number="198">        wrefresh(win); </Line>
+  <Line number="199">        nodelay(win, TRUE);</Line>
+  <Line number="200">        count=0;</Line>
+  <Line number="201">   }</Line>
+  <Line number="202">#else  	</Line>
+  <Line number="203">   if (<CheckRefs ids="2331">++</CheckRefs>count == disptime)</Line>
+  <Line number="204">   {</Line>
+  <Line number="205">	printf(&quot;[m/s^2]:ax  = %6.3f ay  = %6.3f az  = %6.3f \n&quot;,data-&gt;ax,data-&gt;ay,data-&gt;az);</Line>
+  <Line number="206">	printf(&quot;[deg/s]:p   = %6.3f q   = %6.3f r   = %6.3f \n&quot;,data-&gt;p<CheckRefs ids="2332">*</CheckRefs>57.3, data-&gt;q<CheckRefs ids="2333">*</CheckRefs>57.3, data-&gt;r<CheckRefs ids="2334">*</CheckRefs>57.3);</Line>
+  <Line number="207">        printf(&quot;[deg  ]:phi = %6.2f the = %6.2f psi = %6.2f \n&quot;,data-&gt;phi<CheckRefs ids="2335">*</CheckRefs>57.3,data-&gt;the<CheckRefs ids="2336">*</CheckRefs>57.3,data-&gt;psi<CheckRefs ids="2337">*</CheckRefs>57.3);</Line>
+  <Line number="208">	printf(&quot;[Gauss]:hx  = %6.3f hy  = %6.3f hz  = %6.3f \n&quot;,data-&gt;hx,data-&gt;hy,data-&gt;hz);</Line>
+  <Line number="209">        printf(&quot;[     ]:Ps  = %6.3f Pt  = %6.3f             \n&quot;,data-&gt;Ps,data-&gt;Pt);</Line>
+  <Line number="210">        printf(&quot;[deg/s]:bp  = %6.3f,bq  = %6.3f,br  = %6.3f \n\n&quot;,xs[4<CheckRefs ids="2339">]</CheckRefs><CheckRefs ids="2338">*</CheckRefs>57.3,xs[5<CheckRefs ids="2341">]</CheckRefs><CheckRefs ids="2340">*</CheckRefs>57.3,xs[6<CheckRefs ids="2343">]</CheckRefs><CheckRefs ids="2342">*</CheckRefs>57.3);</Line>
+  <Line number="211">        if (<CheckRefs ids="2344">ndata</CheckRefs>-&gt;err_type == TRUE) {</Line>
+  <Line number="212">          printf(&quot;[GPS  ]:ITOW= %5d[ms], lon = %f[deg], lat = %f[deg], alt = %f[m]\n&quot;,<CheckRefs ids="2345">gdata</CheckRefs>-&gt;ITOW,gdata-&gt;lon,gdata-&gt;lat,gdata-&gt;alt);	</Line>
+  <Line number="213">          printf(&quot;[nav  ]:                 lon = %f[deg], lat = %f[deg], alt = %f[m]\n&quot;,ndata-&gt;lon,ndata-&gt;lat,ndata-&gt;alt);	</Line>
+  <Line number="214">	}</Line>
+  <Line number="215"></Line>
+  <Line number="216">	count = 0;</Line>
+  <Line number="217">   }	</Line>
+  <Line number="218">#endif</Line>
+  <Line number="219"></Line>
+  <Line number="220">}</Line>
+  <Line number="221"></Line>
+  <Line number="222">/*</Line>
+  <Line number="223">//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</Line>
+  <Line number="224">// get microsleep</Line>
+  <Line number="225">//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</Line>
+  <Line number="226">void microsleep(int interval)</Line>
+  <Line number="227">{</Line>
+  <Line number="228">	struct timespec naptime;</Line>
+  <Line number="229">	</Line>
+  <Line number="230">	naptime.tv_sec  = 0;</Line>
+  <Line number="231">	naptime.tv_nsec = NSECS_PER_SEC/interval;   // 0.1 msec</Line>
+  <Line number="232"></Line>
+  <Line number="233">	clock_nanosleep(CLOCK_REALTIME, TIMER_ABSTIME, &amp;naptime, NULL);</Line>
+  <Line number="234">}</Line>
+  <Line number="235">*/</Line>
+  <Line number="236"></Line>
+</SourceFile>

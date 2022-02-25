@@ -1,0 +1,51 @@
+<VerificationJob>
+  <Configuration>
+    <AnalyzeChecksIndividually value="true" />
+    <BitcodeTraces value="false" />
+    <CheckCallers value="true" />
+    <DumpVerifierBitcodeFiles value="false" />
+    <EnableSlicing value="false" />
+    <EntryPoint value="sqlite3CreateIndex" />
+    <FixPoint value="true" />
+    <ForkJobs value="true" />
+    <HavocLimit value="2" />
+    <Hosted value="true" />
+    <IgnoreMissingFunctions value="false" />
+    <InitializedGlobals value="false" />
+    <LoopUnrollBound value="1" />
+    <PreconditionLocation value="jobs/2073" />
+    <SourceDirectory value="/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld" />
+    <TimeOut value="600" />
+    <XMLTraces value="false" />
+  </Configuration>
+  <CheckList>
+    <Check id="6874" location="7403" category="arithmetic.overflow.warning" status="internalerror" scope="sqlite3HashInsert">
+      <Annotations>
+        <Annotation>An unsigned arithmetic operation can overflow (wraparound).</Annotation>
+        <Annotation>A loop bound was reached</Annotation>
+        <Annotation>A loop bound was reached (/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld//home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld/sqlite3.c:113032:7)</Annotation>
+        <Annotation>The model checker terminated with an exception (job:2073)</Annotation>
+      </Annotations>
+      <EntryStatus>
+        <SingleEntryStatus>deleteTable, unknown</SingleEntryStatus>
+        <SingleEntryStatus>findCollSeqEntry, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3AddReturning, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3ColumnsFromExprList, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3CreateForeignKey, todo</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3CreateIndex, internalerror</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3DeleteReturning, safe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3EndTable, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3FindFunction, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3FinishTrigger, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3FkDelete, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3UnlinkAndDeleteIndex, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3UnlinkAndDeleteTable, safe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3UnlinkAndDeleteTrigger, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3VtabCreateModule, todo</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3VtabFinishParse, unknown</SingleEntryStatus>
+      </EntryStatus>
+    </Check>
+  </CheckList>
+  <Annotation>The model checker terminated with an exception</Annotation>
+  <Status>internalerror</Status>
+</VerificationJob>

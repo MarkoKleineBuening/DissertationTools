@@ -1,0 +1,102 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 120 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 12 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 12
+    HavocLimit : 1
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/120
+    TimeOut : 300
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : map_feature_interrupt
+m_checker->run()
+
+    Performing bounded model checking ...
+      Transformed "map_feature_interrupt" from 11 to 17 basic blocks and from 194 to 205 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...Current: map_feature_interrupt Havoced: initStubs
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %2, i8 0, i64 3, i32 1, i1 false), !dbg !293
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %3, i8 0, i64 3, i32 1, i1 false), !dbg !295
+Current: map_feature_interrupt Havoced: bmi160_get_regs
+Current: map_feature_interrupt Havoced: bmi160_set_regs
+                      0 sec [DONE]
+        Number of expressions:                           496
+        after encoding
+
+      12 assertions before transformations (12 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                             182
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                               8
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                              30
+        Memory Model Encoder
+          Number of moved ops                              1rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               2
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                              31
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               8
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                               0
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      12 assertions remain after transformations (12 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...            0 sec [DONE]
+        
+                                                           0 sec [DONE]
+      after performing Check
+evaluateCheckerResultsViaRefinementLoop
+checker.getResult() is Trace
+checkOnlyPrecon: 0, size:12
+getFailingCheckFor
+setCheckToUnsafe
+setCheckToUnsafe
+Check for floating point traces / abstractions currently deactivated
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      getCheckerResultAfterUpdatingMarker
+Result is NoTrace
+
+                                                           0 sec [DONE]
+    someunsafe
+    
+                                                           0 sec [DONE]
+  

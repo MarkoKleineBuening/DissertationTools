@@ -1,0 +1,32 @@
+<VerificationJob>
+  <Configuration>
+    <AnalyzeChecksIndividually value="true" />
+    <BitcodeTraces value="false" />
+    <CheckOnlyPrecondition value="true" />
+    <EnableSlicing value="false" />
+    <EntryPoint value="accel_self_test_negative_excitation" />
+    <FixPoint value="true" />
+    <IgnoreMissingFunctions value="false" />
+    <InitializedGlobals value="false" />
+    <LoopUnrollBound value="12" />
+    <PreconditionCheckMemory value="false" />
+    <PreconditionLocation value="jobs/215" />
+    <PreconditionNumber value="5" />
+    <SourceDirectory value="/home/i12/mbuening/100_Dissertation/BMI160/BMI160_driver" />
+    <TimeOut value="300" />
+  </Configuration>
+  <CheckList>
+    <Check id="1024" location="1117" category="explicit.conversion.overflow" status="safe" scope="get_accel_gyro_data">
+      <Annotations>
+        <Annotation>An explicit conversion operation can overflow.</Annotation>
+        <Annotation>A loop bound was reached (/home/i12/mbuening/100_Dissertation/BMI160/BMI160_driver//home/i12/mbuening/100_Dissertation/BMI160/BMI160_driver/BMI160Stubs.c:25:3)</Annotation>
+      </Annotations>
+      <EntryStatus>
+        <SingleEntryStatus>accel_self_test_negative_excitation, safe</SingleEntryStatus>
+        <SingleEntryStatus>accel_self_test_positive_excitation, safe</SingleEntryStatus>
+      </EntryStatus>
+    </Check>
+  </CheckList>
+  <Annotation>allunsafe</Annotation>
+  <Status>allsafe</Status>
+</VerificationJob>

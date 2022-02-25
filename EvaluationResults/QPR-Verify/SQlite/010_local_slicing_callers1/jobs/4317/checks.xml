@@ -1,0 +1,48 @@
+<VerificationJob>
+  <Configuration>
+    <AnalyzeChecksIndividually value="true" />
+    <BitcodeTraces value="false" />
+    <CheckCallers value="true" />
+    <DumpVerifierBitcodeFiles value="false" />
+    <EnableSlicing value="true" />
+    <EntryPoint value="sqlite3Update" />
+    <FixPoint value="true" />
+    <ForkJobs value="true" />
+    <Hosted value="true" />
+    <IgnoreMissingFunctions value="false" />
+    <InitializedGlobals value="false" />
+    <LoopUnrollBound value="1" />
+    <PreconditionLocation value="jobs/4317" />
+    <SourceDirectory value="/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld" />
+    <TimeOut value="600" />
+    <XMLTraces value="false" />
+  </Configuration>
+  <CheckList>
+    <Check id="13100" location="14200" category="implicit.conversion.overflow" status="unsafe" scope="sqlite3VdbeAppendP4">
+      <Annotations>
+        <Annotation>An implicit conversion operation can overflow.</Annotation>
+      </Annotations>
+      <EntryStatus>
+        <SingleEntryStatus>finalizeAggFunctions, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3ColumnDefault, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3CompleteInsertion, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3ExprCodeTarget, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3GenerateConstraintChecks, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3GenerateRowDelete, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3Update, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3VdbeSetP4KeyInfo, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3WindowCodeInit, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3WindowCodeStep, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>updateAccumulator, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>windowAggFinal, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>windowAggStep, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>windowCheckValue, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>windowCodeRangeTest, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>windowFullScan, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>windowIfNewPeer, unsafe</SingleEntryStatus>
+      </EntryStatus>
+    </Check>
+  </CheckList>
+  <Annotation>allunsafe</Annotation>
+  <Status>allunsafe</Status>
+</VerificationJob>

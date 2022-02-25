@@ -1,0 +1,169 @@
+runJobCommand
+precondition analysis with entry:sqlite3ExprIsConstantNotJoin
+arguents: child
+arguents: job
+arguents: mode
+arguents: precondition
+handleJobInSeparateProcess0
+
+Checking job 5321 ...about to run job:
+preconNumber: 5, 1
+
+  Running Model Checker with 1 checks ...entry: sqlite3ExprIsConstantNotJoin, functionName: exprIsConst
+  <badref> = call i32 @qpr.precondition.exprIsConst(%struct.Expr.116* %0, i32 2, i32 0)
+entry: sqlite3ExprIsConstantNotJoin, functionName: exprIsConst
+entry: sqlite3ExprIsConstantNotJoin, functionName: sqlite3ExprIsConstantNotJoin
+try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 1
+    LoopUnrollBound : 1
+    HavocLimit : 0
+    PreconditionNumber : 5
+    PreconditionLocation : jobs/5321
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : true
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : sqlite3ExprIsConstantNotJoin
+m_checker->run()
+
+    Performing bounded model checking ...
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...size Alloca: 1
+TODO MKB implement precondition handling: IE
+Reading in precondition at: jobs/5321/precondition_exprIsConst.txt
+preconFile: jobs/5321/precondition_exprIsConst.txt
+ref: [underoverapprox]name of function arguments, argValue:  
+ref: [underoverapprox]name of function arguments, argValue:  
+name of function arguments line
+param: i32 %arg1:131068
+---name: i32 %arg1, value: 131068.
+integer, char or other simple types
+name: i32 %arg1
+assuming that there are not more then 10 arguments
+nameIndex: 1
+nameID: 1
+argument name: 
+value: 131068
+###new bool cond: bool % = compare(%i32__2, %i32__131068)
+param:  i32 %arg2:arbitrary
+---name:  i32 %arg2, value: arbitrary.
+pruneOrAssert -- adding line boolCond: bool % = compare(%i32__2, %i32__131068)
+param: i32 %arg1:131070
+---name: i32 %arg1, value: 131070.
+integer, char or other simple types
+name: i32 %arg1
+assuming that there are not more then 10 arguments
+nameIndex: 1
+nameID: 1
+argument name: 
+value: 131070
+###new bool cond: bool % = compare(%i32__2, %i32__131070)
+param:  i32 %arg2:arbitrary
+---name:  i32 %arg2, value: arbitrary.
+pruneOrAssert -- adding line boolCond: bool % = compare(%i32__2, %i32__131070)
+param: i32 %arg1:262140
+---name: i32 %arg1, value: 262140.
+integer, char or other simple types
+name: i32 %arg1
+assuming that there are not more then 10 arguments
+nameIndex: 1
+nameID: 1
+argument name: 
+value: 262140
+###new bool cond: bool % = compare(%i32__2, %i32__262140)
+param:  i32 %arg2:arbitrary
+---name:  i32 %arg2, value: arbitrary.
+pruneOrAssert -- adding line boolCond: bool % = compare(%i32__2, %i32__262140)
+param: i32 %arg1:131071
+---name: i32 %arg1, value: 131071.
+integer, char or other simple types
+name: i32 %arg1
+assuming that there are not more then 10 arguments
+nameIndex: 1
+nameID: 1
+argument name: 
+value: 131071
+###new bool cond: bool % = compare(%i32__2, %i32__131071)
+param:  i32 %arg2:arbitrary
+---name:  i32 %arg2, value: arbitrary.
+pruneOrAssert -- adding line boolCond: bool % = compare(%i32__2, %i32__131071)
+param: i32 %arg1:131069
+---name: i32 %arg1, value: 131069.
+integer, char or other simple types
+name: i32 %arg1
+assuming that there are not more then 10 arguments
+nameIndex: 1
+nameID: 1
+argument name: 
+value: 131069
+###new bool cond: bool % = compare(%i32__2, %i32__131069)
+param:  i32 %arg2:arbitrary
+---name:  i32 %arg2, value: arbitrary.
+pruneOrAssert -- adding line boolCond: bool % = compare(%i32__2, %i32__131069)
+Writing precondition type at: jobs/5321/precondition_type_sqlite3ExprIsConstantNotJoin.txt
+
+Type of Precondition:
+[underoverapprox]
+precondition found, end encoding
+                      0 sec [DONE]
+        Number of expressions:                        155028
+        after encoding
+
+      5 assertions before transformations (5 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            3356
+        Fixed Memory Address Assigner
+          Number of moved ops                              1
+          Number of rewrites                            5209
+        Simplifier
+          Number of moved ops                              1
+          Number of rewrites                           72601
+        Memory Model Encoder
+          Number of moved ops                              0
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                             142
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      5 assertions remain after transformations (5 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...            0 sec [DONE]
+        
+                                                           0 sec [DONE]
+      after performing Check
+evaluateCheckerResultsViaRefinementLoop
+getCheckerResultAfterUpdatingMarker
+Result is NoTrace
+
+                                                           1 sec [DONE]
+    allunsafe
+    
+                                                           1 sec [DONE]
+           1 sec [DONE]
+  

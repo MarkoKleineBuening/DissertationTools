@@ -1,0 +1,38 @@
+<VerificationJob>
+  <Configuration>
+    <AnalyzeChecksIndividually value="true" />
+    <BitcodeTraces value="false" />
+    <CheckOnlyPrecondition value="true" />
+    <EnableSlicing value="false" />
+    <EntryPoint value="set_accel_high_g_int" />
+    <FixPoint value="true" />
+    <IgnoreMissingFunctions value="false" />
+    <InitializedGlobals value="false" />
+    <LoopUnrollBound value="12" />
+    <PreconditionCheckMemory value="false" />
+    <PreconditionLocation value="jobs/241" />
+    <PreconditionNumber value="5" />
+    <SourceDirectory value="/home/i12/mbuening/100_Dissertation/BMI160/BMI160_driver" />
+    <TimeOut value="300" />
+  </Configuration>
+  <CheckList>
+    <Check id="1115" location="1206" category="arrayindex" status="safe" scope="map_feature_interrupt">
+      <Annotations>
+        <Annotation>An array can be indexed out of bounds.</Annotation>
+      </Annotations>
+      <EntryStatus>
+        <SingleEntryStatus>config_any_motion_int_settg, safe</SingleEntryStatus>
+        <SingleEntryStatus>config_no_motion_int_settg, safe</SingleEntryStatus>
+        <SingleEntryStatus>config_sig_motion_int_settg, safe</SingleEntryStatus>
+        <SingleEntryStatus>config_tap_int_settg, safe</SingleEntryStatus>
+        <SingleEntryStatus>set_accel_flat_detect_int, safe</SingleEntryStatus>
+        <SingleEntryStatus>set_accel_high_g_int, safe</SingleEntryStatus>
+        <SingleEntryStatus>set_accel_low_g_int, safe</SingleEntryStatus>
+        <SingleEntryStatus>set_accel_orientation_int, safe</SingleEntryStatus>
+        <SingleEntryStatus>set_accel_step_detect_int, safe</SingleEntryStatus>
+      </EntryStatus>
+    </Check>
+  </CheckList>
+  <Annotation>allunsafe</Annotation>
+  <Status>allsafe</Status>
+</VerificationJob>

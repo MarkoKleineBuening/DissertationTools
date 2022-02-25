@@ -1,0 +1,121 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 6111 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 1
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/6111
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : patternCompare
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "patternCompare" for 1 iterations succeeded.
+      Unrolling loop in function "patternCompare" for 1 iterations succeeded.
+      Unrolling loop in function "patternCompare" for 1 iterations succeeded.
+      Unrolling loop in function "patternCompare" for 1 iterations succeeded.
+      Unrolling loop in function "patternCompare" for 1 iterations succeeded.
+      Unrolling loop in function "patternCompare" for 1 iterations succeeded.
+      Unrolling loop in function "patternCompare" for 1 iterations succeeded.
+      Unrolling loop in function "patternCompare" for 1 iterations succeeded.
+      Transformed "patternCompare" from 113 to 221 basic blocks and from 472 to 912 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...Current: patternCompare Havoced: sqlite3Utf8Read
+Current: patternCompare Havoced: sqlite3Utf8Read
+Current: patternCompare Havoced: sqlite3Utf8Read
+Current: patternCompare Havoced: sqlite3Utf8Read
+Current: patternCompare Havoced: sqlite3Utf8Read
+Current: patternCompare Havoced: sqlite3Utf8Read
+Current: patternCompare Havoced: sqlite3Utf8Read
+Current: patternCompare Havoced: sqlite3Utf8Read
+Current: patternCompare Havoced: sqlite3Utf8Read
+Current: patternCompare Havoced: sqlite3Utf8Read
+Current: patternCompare Havoced: sqlite3Utf8Read
+Current: patternCompare Havoced: sqlite3Utf8Read
+Current: patternCompare Havoced: sqlite3Utf8Read
+Current: patternCompare Havoced: sqlite3Utf8Read
+Current: patternCompare Havoced: sqlite3Utf8Read
+Current: patternCompare Havoced: sqlite3Utf8Read
+Current: patternCompare Havoced: sqlite3Utf8Read
+Current: patternCompare Havoced: sqlite3Utf8Read
+Current: patternCompare Havoced: sqlite3Utf8Read
+Current: patternCompare Havoced: sqlite3Utf8Read
+Current: patternCompare Havoced: sqlite3Utf8Read
+Current: patternCompare Havoced: sqlite3Utf8Read
+Current: patternCompare Havoced: sqlite3Utf8Read
+Current: patternCompare Havoced: sqlite3Utf8Read
+Current: patternCompare Havoced: sqlite3Utf8Read
+Current: patternCompare Havoced: sqlite3Utf8Read
+Current: patternCompare Havoced: sqlite3Utf8Read
+Current: patternCompare Havoced: sqlite3Utf8Read
+
+        Unrolling loop in function "llbmc.strcspn" for 0 iterations succeeded.
+        Unrolling loop in function "llbmc.strcspn" for 0 iterations succeeded.
+        Transformed "llbmc.strcspn" from 5 to 10 basic blocks and from 16 to 29 instructionsCurrent: patternCompare Havoced: sqlite3Utf8Read
+
+                                                           0 sec [DONE]
+        Number of expressions:                        157277
+        after encoding
+
+      19 assertions before transformations (4 no_function_call, 14 no_back_edge, 1 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            4829
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72695
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               3
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                              18
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             142
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      19 assertions remain after transformations (4 no_function_call, 14 no_back_edge, 1 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...

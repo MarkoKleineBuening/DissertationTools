@@ -1,0 +1,46 @@
+<SourceFile>
+  <Line number="1">/* Definition of struct __locale_struct and __locale_t.</Line>
+  <Line number="2">   Copyright (C) 1997-2020 Free Software Foundation, Inc.</Line>
+  <Line number="3">   This file is part of the GNU C Library.</Line>
+  <Line number="4">   Contributed by Ulrich Drepper &lt;drepper@cygnus.com&gt;, 1997.</Line>
+  <Line number="5"></Line>
+  <Line number="6">   The GNU C Library is free software; you can redistribute it and/or</Line>
+  <Line number="7">   modify it under the terms of the GNU Lesser General Public</Line>
+  <Line number="8">   License as published by the Free Software Foundation; either</Line>
+  <Line number="9">   version 2.1 of the License, or (at your option) any later version.</Line>
+  <Line number="10"></Line>
+  <Line number="11">   The GNU C Library is distributed in the hope that it will be useful,</Line>
+  <Line number="12">   but WITHOUT ANY WARRANTY; without even the implied warranty of</Line>
+  <Line number="13">   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU</Line>
+  <Line number="14">   Lesser General Public License for more details.</Line>
+  <Line number="15"></Line>
+  <Line number="16">   You should have received a copy of the GNU Lesser General Public</Line>
+  <Line number="17">   License along with the GNU C Library; if not, see</Line>
+  <Line number="18">   &lt;https://www.gnu.org/licenses/&gt;.  */</Line>
+  <Line number="19"></Line>
+  <Line number="20">#ifndef _BITS_TYPES___LOCALE_T_H</Line>
+  <Line number="21">#define _BITS_TYPES___LOCALE_T_H 1</Line>
+  <Line number="22"></Line>
+  <Line number="23">/* POSIX.1-2008: the locale_t type, representing a locale context</Line>
+  <Line number="24">   (implementation-namespace version).  This type should be treated</Line>
+  <Line number="25">   as opaque by applications; some details are exposed for the sake of</Line>
+  <Line number="26">   efficiency in e.g. ctype functions.  */</Line>
+  <Line number="27"></Line>
+  <Line number="28">struct __locale_struct</Line>
+  <Line number="29">{</Line>
+  <Line number="30">  /* Note: LC_ALL is not a valid index into this array.  */</Line>
+  <Line number="31">  struct __locale_data *__locales[13]; /* 13 = __LC_LAST. */</Line>
+  <Line number="32"></Line>
+  <Line number="33">  /* To increase the speed of this solution we add some special members.  */</Line>
+  <Line number="34">  const unsigned short int *__ctype_b;</Line>
+  <Line number="35">  const int *__ctype_tolower;</Line>
+  <Line number="36">  const int *__ctype_toupper;</Line>
+  <Line number="37"></Line>
+  <Line number="38">  /* Note: LC_ALL is not a valid index into this array.  */</Line>
+  <Line number="39">  const char *__names[13];</Line>
+  <Line number="40">};</Line>
+  <Line number="41"></Line>
+  <Line number="42">typedef struct __locale_struct *__locale_t;</Line>
+  <Line number="43"></Line>
+  <Line number="44">#endif /* bits/types/__locale_t.h */</Line>
+</SourceFile>

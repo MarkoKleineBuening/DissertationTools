@@ -1,0 +1,54 @@
+<SourceFile>
+  <Line number="1">/*===---- stdarg.h - Variable argument handling ----------------------------===</Line>
+  <Line number="2"> *</Line>
+  <Line number="3"> * Copyright (c) 2008 Eli Friedman</Line>
+  <Line number="4"> *</Line>
+  <Line number="5"> * Permission is hereby granted, free of charge, to any person obtaining a copy</Line>
+  <Line number="6"> * of this software and associated documentation files (the &quot;Software&quot;), to deal</Line>
+  <Line number="7"> * in the Software without restriction, including without limitation the rights</Line>
+  <Line number="8"> * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell</Line>
+  <Line number="9"> * copies of the Software, and to permit persons to whom the Software is</Line>
+  <Line number="10"> * furnished to do so, subject to the following conditions:</Line>
+  <Line number="11"> *</Line>
+  <Line number="12"> * The above copyright notice and this permission notice shall be included in</Line>
+  <Line number="13"> * all copies or substantial portions of the Software.</Line>
+  <Line number="14"> *</Line>
+  <Line number="15"> * THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR</Line>
+  <Line number="16"> * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,</Line>
+  <Line number="17"> * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE</Line>
+  <Line number="18"> * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER</Line>
+  <Line number="19"> * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,</Line>
+  <Line number="20"> * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN</Line>
+  <Line number="21"> * THE SOFTWARE.</Line>
+  <Line number="22"> *</Line>
+  <Line number="23"> *===-----------------------------------------------------------------------===</Line>
+  <Line number="24"> */</Line>
+  <Line number="25"></Line>
+  <Line number="26">#ifndef __STDARG_H</Line>
+  <Line number="27">#define __STDARG_H</Line>
+  <Line number="28"></Line>
+  <Line number="29">#ifndef _VA_LIST</Line>
+  <Line number="30">typedef __builtin_va_list va_list;</Line>
+  <Line number="31">#define _VA_LIST</Line>
+  <Line number="32">#endif</Line>
+  <Line number="33">#define va_start(ap, param) __builtin_va_start(ap, param)</Line>
+  <Line number="34">#define va_end(ap)          __builtin_va_end(ap)</Line>
+  <Line number="35">#define va_arg(ap, type)    __builtin_va_arg(ap, type)</Line>
+  <Line number="36"></Line>
+  <Line number="37">/* GCC always defines __va_copy, but does not define va_copy unless in c99 mode</Line>
+  <Line number="38"> * or -ansi is not specified, since it was not part of C90.</Line>
+  <Line number="39"> */</Line>
+  <Line number="40">#define __va_copy(d,s) __builtin_va_copy(d,s)</Line>
+  <Line number="41"></Line>
+  <Line number="42">#if __STDC_VERSION__ &gt;= 199901L || __cplusplus &gt;= 201103L || !defined(__STRICT_ANSI__)</Line>
+  <Line number="43">#define va_copy(dest, src)  __builtin_va_copy(dest, src)</Line>
+  <Line number="44">#endif</Line>
+  <Line number="45"></Line>
+  <Line number="46">/* Hack required to make standard headers work, at least on Ubuntu */</Line>
+  <Line number="47">#ifndef __GNUC_VA_LIST</Line>
+  <Line number="48">#define __GNUC_VA_LIST 1</Line>
+  <Line number="49">#endif</Line>
+  <Line number="50">typedef __builtin_va_list __gnuc_va_list;</Line>
+  <Line number="51"></Line>
+  <Line number="52">#endif /* __STDARG_H */</Line>
+</SourceFile>

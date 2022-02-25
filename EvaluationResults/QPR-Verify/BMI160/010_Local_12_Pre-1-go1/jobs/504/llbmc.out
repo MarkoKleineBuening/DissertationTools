@@ -1,0 +1,158 @@
+runJobCommand
+precondition analysis with entry:unpack_accel_frame
+arguents: child
+arguents: job
+arguents: mode
+arguents: precondition
+handleJobInSeparateProcess0
+
+Checking job 504 ...about to run job:
+preconNumber: 5, 1
+
+  Running Model Checker with 1 checks ...entry: unpack_accel_frame, functionName: unpack_accel_data
+  call void @qpr.precondition.unpack_accel_data(%struct.bmi160_sensor_data.8* %25, i16 %26, %struct.bmi160_dev.7* @configStub)
+entry: unpack_accel_frame, functionName: unpack_accel_data
+entry: unpack_accel_frame, functionName: unpack_accel_frame
+try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 12
+    HavocLimit : 0
+    PreconditionNumber : 5
+    PreconditionLocation : jobs/504
+    TimeOut : 300
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : unpack_accel_frame
+m_checker->run()
+
+    Performing bounded model checking ...
+      Transformed "unpack_accel_frame" from 18 to 46 basic blocks and from 214 to 269 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...size Alloca: 1
+size Alloca: 1
+size Alloca: 1
+size Alloca: 1
+TODO MKB implement precondition handling: IE
+Reading in precondition at: jobs/504/precondition_unpack_accel_data.txt
+preconFile: jobs/504/precondition_unpack_accel_data.txt
+ref: [underoverapprox]name of function arguments, argValue:  
+ref: [underoverapprox]name of function arguments, argValue:  
+name of function arguments line
+param: i16 %arg1:2119
+---name: i16 %arg1, value: 2119.
+integer, char or other simple types
+name: i16 %arg1
+assuming that there are not more then 10 arguments
+nameIndex: 1
+nameID: 1
+argument name: 
+value: 2119
+###new bool cond: bool % = compare(%, %i16__2119)
+pruneOrAssert -- adding line boolCond: bool % = compare(%, %i16__2119)
+param: i16 %arg1:2118
+---name: i16 %arg1, value: 2118.
+integer, char or other simple types
+name: i16 %arg1
+assuming that there are not more then 10 arguments
+nameIndex: 1
+nameID: 1
+argument name: 
+value: 2118
+###new bool cond: bool % = compare(%, %i16__2118)
+pruneOrAssert -- adding line boolCond: bool % = compare(%, %i16__2118)
+param: i16 %arg1:2117
+---name: i16 %arg1, value: 2117.
+integer, char or other simple types
+name: i16 %arg1
+assuming that there are not more then 10 arguments
+nameIndex: 1
+nameID: 1
+argument name: 
+value: 2117
+###new bool cond: bool % = compare(%, %i16__2117)
+pruneOrAssert -- adding line boolCond: bool % = compare(%, %i16__2117)
+param: i16 %arg1:1061
+---name: i16 %arg1, value: 1061.
+integer, char or other simple types
+name: i16 %arg1
+assuming that there are not more then 10 arguments
+nameIndex: 1
+nameID: 1
+argument name: 
+value: 1061
+###new bool cond: bool % = compare(%, %i16__1061)
+pruneOrAssert -- adding line boolCond: bool % = compare(%, %i16__1061)
+param: i16 %arg1:1062
+---name: i16 %arg1, value: 1062.
+integer, char or other simple types
+name: i16 %arg1
+assuming that there are not more then 10 arguments
+nameIndex: 1
+nameID: 1
+argument name: 
+value: 1062
+###new bool cond: bool % = compare(%, %i16__1062)
+pruneOrAssert -- adding line boolCond: bool % = compare(%, %i16__1062)
+Writing precondition type at: jobs/504/precondition_type_unpack_accel_frame.txt
+
+Type of Precondition:
+[underoverapprox]
+precondition found, end encoding
+                      0 sec [DONE]
+        Number of expressions:                           268
+        after encoding
+
+      5 assertions before transformations (5 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                              70
+        Fixed Memory Address Assigner
+          Number of moved ops                              9
+          Number of rewrites                              12
+        Simplifier
+          Number of moved ops                              4
+          Number of rewrites                              44
+        Memory Model Encoder
+          Number of moved ops                              0
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                               0
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      5 assertions remain after transformations (5 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...            0 sec [DONE]
+        
+                                                           0 sec [DONE]
+      after performing Check
+evaluateCheckerResultsViaRefinementLoop
+getCheckerResultAfterUpdatingMarker
+Result is NoTrace
+
+                                                           0 sec [DONE]
+    allunsafe
+    
+                                                           0 sec [DONE]
+  

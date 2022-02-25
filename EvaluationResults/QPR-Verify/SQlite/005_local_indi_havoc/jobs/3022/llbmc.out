@@ -1,0 +1,150 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 3022 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 1
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/3022
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [1] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : sqlite3WalFrames
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "sqlite3WalFrames" for 1 iterations succeeded.
+      Unrolling loop in function "sqlite3WalFrames" for 1 iterations succeeded.
+      Unrolling loop in function "sqlite3WalFrames" for 1 iterations succeeded.
+      Unrolling loop in function "sqlite3WalFrames" for 1 iterations succeeded.
+      Transformed "sqlite3WalFrames" from 79 to 92 basic blocks and from 612 to 703 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...Current: sqlite3WalFrames Havoced: walIndexHdr
+
+        Unrolling loop in function "llbmc.memcmp" for 0 iterations succeeded.
+        Transformed "llbmc.memcmp" from 17 to 20 instructionsCurrent: sqlite3WalFrames Havoced: walRestartLog
+Current: sqlite3WalFrames Havoced: sqlite3Put4byte
+Current: sqlite3WalFrames Havoced: sqlite3Put4byte
+Current: sqlite3WalFrames Havoced: sqlite3Put4byte
+Current: sqlite3WalFrames Havoced: sqlite3Put4byte
+Current: sqlite3WalFrames Havoced: sqlite3_randomness
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %33, i8* %37, i64 8, i32 8, i1 false), !dbg !5729
+Current: sqlite3WalFrames Havoced: walChecksumBytes
+Current: sqlite3WalFrames Havoced: sqlite3Put4byte
+Current: sqlite3WalFrames Havoced: sqlite3Put4byte
+Current: sqlite3WalFrames Havoced: sqlite3OsWrite
+Current: sqlite3WalFrames Havoced: sqlite3OsSync
+Current: sqlite3WalFrames Havoced: sqlite3WalFindFrame
+Current: sqlite3WalFrames Havoced: walWriteOneFrame
+Current: sqlite3WalFrames Havoced: sqlite3OsWrite
+Current: sqlite3WalFrames Havoced: walRewriteChecksums
+Current: sqlite3WalFrames Havoced: sqlite3SectorSize
+Current: sqlite3WalFrames Havoced: walWriteOneFrame
+Current: sqlite3WalFrames Havoced: sqlite3OsSync
+Current: sqlite3WalFrames Havoced: walLimitSize
+Current: sqlite3WalFrames Havoced: walIndexAppend
+Current: sqlite3WalFrames Havoced: walIndexAppend
+Current: sqlite3WalFrames Havoced: walIndexWriteHdr
+Current: sqlite3WalFrames Havoced: walIndexAppend
+Current: sqlite3WalFrames Havoced: walIndexAppend
+
+                                                           0 sec [DONE]
+        Number of expressions:                        156136
+        after encoding
+
+      6 assertions before transformations (5 no_back_edge, 1 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            3925
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72675
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               4
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                              21
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             152
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      6 assertions remain after transformations (5 no_back_edge, 1 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...            0 sec [DONE]
+        
+                                                           1 sec [DONE]
+      after performing Check
+evaluateCheckerResultsViaRefinementLoop
+checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+BranchInst - LoopBound
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+BranchInst - LoopBound
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+BranchInst - LoopBound
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+BranchInst - LoopBound
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...

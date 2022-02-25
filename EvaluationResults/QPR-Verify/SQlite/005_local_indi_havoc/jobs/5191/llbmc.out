@@ -1,0 +1,105 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 5191 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 1
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/5191
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : resolveCompoundOrderBy
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "resolveCompoundOrderBy" for 1 iterations succeeded.
+      Unrolling loop in function "resolveCompoundOrderBy" for 1 iterations succeeded.
+      Unrolling loop in function "resolveCompoundOrderBy" for 1 iterations succeeded.
+      Unrolling loop in function "resolveCompoundOrderBy" for 1 iterations succeeded.
+      Unrolling loop in function "resolveCompoundOrderBy" for 1 iterations succeeded.
+      Unrolling loop in function "resolveCompoundOrderBy" for 1 iterations succeeded.
+      Transformed "resolveCompoundOrderBy" from 58 to 101 basic blocks and from 284 to 510 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...Current: resolveCompoundOrderBy Havoced: sqlite3ExprSkipCollateAndLikely
+Current: resolveCompoundOrderBy Havoced: sqlite3ExprIsInteger
+Current: resolveCompoundOrderBy Havoced: resolveAsName
+Current: resolveCompoundOrderBy Havoced: sqlite3ExprDup
+Current: resolveCompoundOrderBy Havoced: resolveOrderByTermToExprList
+Current: resolveCompoundOrderBy Havoced: resolveOrderByTermToExprList
+Current: resolveCompoundOrderBy Havoced: sqlite3ExprDelete
+Current: resolveCompoundOrderBy Havoced: sqlite3Expr
+Current: resolveCompoundOrderBy Havoced: sqlite3ExprDelete
+Current: resolveCompoundOrderBy Havoced: sqlite3ErrorMsg
+Current: resolveCompoundOrderBy Havoced: sqlite3ExprSkipCollateAndLikely
+Current: resolveCompoundOrderBy Havoced: sqlite3ExprIsInteger
+Current: resolveCompoundOrderBy Havoced: resolveAsName
+Current: resolveCompoundOrderBy Havoced: sqlite3ExprDup
+Current: resolveCompoundOrderBy Havoced: resolveOrderByTermToExprList
+Current: resolveCompoundOrderBy Havoced: resolveOrderByTermToExprList
+Current: resolveCompoundOrderBy Havoced: sqlite3ExprDelete
+Current: resolveCompoundOrderBy Havoced: sqlite3Expr
+Current: resolveCompoundOrderBy Havoced: sqlite3ExprDelete
+Current: resolveCompoundOrderBy Havoced: resolveOutOfRangeError
+Current: resolveCompoundOrderBy Havoced: sqlite3ErrorMsg
+                      0 sec [DONE]
+        Number of expressions:                        156053
+        after encoding
+
+      9 assertions before transformations (8 no_back_edge, 1 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            3970
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72659
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               1
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               3
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             142
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      9 assertions remain after transformations (8 no_back_edge, 1 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...

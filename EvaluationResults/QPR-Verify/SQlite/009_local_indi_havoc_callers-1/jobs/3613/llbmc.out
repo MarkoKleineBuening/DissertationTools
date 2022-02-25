@@ -1,0 +1,1291 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 3613 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 2
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/3613
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : sqlite3BtreeDelete
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "sqlite3BtreeDelete" for 1 iterations succeeded.getMatchingFunctions
+res.push_back: btreeParseCellPtr
+res.push_back: btreeParseCellPtrNoPayload
+res.push_back: btreeParseCellPtrIndex
+res.push_back: btreeParseCellAdjustSizeForOverflow
+getMatchingFunctions
+res.push_back: cellSizePtr
+res.push_back: cellSizePtrNoPayload
+
+      Transformed "sqlite3BtreeDelete" from 70 to 167 basic blocks and from 475 to 824 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...Current: btreeRestoreCursorPosition Havoced: sqlite3FaultSim
+Current: btreeRestoreCursorPosition Havoced: btreeMoveto
+Current: btreeRestoreCursorPosition Havoced: sqlite3_free
+
+        Unrolling loop in function "btreeComputeFreeSpace" for 1 iterations succeeded.
+        Transformed "btreeComputeFreeSpace" from 19 to 20 basic blocks and from 222 to 230 instructionsCurrent: btreeComputeFreeSpace Havoced: sqlite3CorruptError
+Current: btreeComputeFreeSpace Havoced: sqlite3CorruptError
+Current: btreeComputeFreeSpace Havoced: sqlite3CorruptError
+Current: btreeComputeFreeSpace Havoced: sqlite3CorruptError
+Current: btreeComputeFreeSpace Havoced: sqlite3CorruptError
+
+        Unrolling loop in function "cellSizePtr" for 1 iterations succeeded.
+        Unrolling loop in function "cellSizePtr" for 1 iterations succeeded.
+        Transformed "cellSizePtr" from 22 to 21 basic blocks and from 159 to 161 instructionsCurrent: saveCursorKey Havoced: sqlite3BtreePayloadSize
+Current: saveCursorKey Havoced: sqlite3Malloc
+Current: saveCursorKey Havoced: sqlite3BtreePayload
+Current: saveCursorKey Havoced: sqlite3_free
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %22, i8 0, i64 17, i32 1, i1 false), !dbg !5648
+Current: saveCursorKey Havoced: sqlite3BtreeIntegerKey
+Current: sqlite3BtreePrevious Havoced: btreePrevious
+
+        Unrolling loop in function "saveAllCursors" for 1 iterations succeeded.
+        Transformed "saveAllCursors" from 14 to 16 basic blocks and from 46 to 54 instructionsCurrent: saveAllCursors Havoced: saveCursorsOnList
+
+        Unrolling loop in function "invalidateIncrblobCursors" for 1 iterations succeeded.
+        Transformed "invalidateIncrblobCursors" from 11 to 12 basic blocks and from 54 to 57 instructionsCurrent: sqlite3PagerWrite Havoced: pager_write
+Current: sqlite3PagerWrite Havoced: pagerWriteLargeSector
+Current: sqlite3PagerWrite Havoced: subjournalPageIfRequired
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %33, i8* %35, i64 %39, i32 1, i1 false), !dbg !5652
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %41, i8* %43, i64 %52, i32 1, i1 false), !dbg !5661
+Current: copyNodeContent Havoced: btreeInitPage
+Current: copyNodeContent Havoced: btreeComputeFreeSpace
+Current: copyNodeContent Havoced: setChildPtrmaps
+
+        Unrolling loop in function "identPut" for 1 iterations succeeded.
+        Unrolling loop in function "identPut" for 1 iterations succeeded.
+        Transformed "identPut" from 22 to 25 basic blocks and from 146 to 162 instructionsCurrent: identPut Havoced: sqlite3KeywordCode
+
+        Unrolling loop in function "sqlite3FkDropTable" for 1 iterations succeeded.
+        Transformed "sqlite3FkDropTable" from 19 to 21 basic blocks and from 97 to 105 instructionsCurrent: sqlite3FkDropTable Havoced: sqlite3GetVdbe
+Current: sqlite3FkDropTable Havoced: sqlite3FkReferences
+Current: sqlite3FkDropTable Havoced: sqlite3VdbeMakeLabel
+Current: sqlite3FkDropTable Havoced: sqlite3VdbeAddOp2
+Current: sqlite3FkDropTable Havoced: sqlite3SrcListDup
+Current: sqlite3FkDropTable Havoced: sqlite3DeleteFrom
+Current: sqlite3FkDropTable Havoced: sqlite3VdbeCurrentAddr
+Current: sqlite3FkDropTable Havoced: sqlite3VdbeAddOp2
+Current: sqlite3FkDropTable Havoced: sqlite3HaltConstraint
+Current: sqlite3FkDropTable Havoced: sqlite3VdbeResolveLabel
+
+        Unrolling loop in function "generateWithRecursiveQuery" for 1 iterations succeeded.
+        Unrolling loop in function "generateWithRecursiveQuery" for 1 iterations succeeded.
+        Transformed "generateWithRecursiveQuery" from 36 to 40 basic blocks and from 276 to 290 instructionsCurrent: generateWithRecursiveQuery Havoced: sqlite3AuthCheck
+Current: generateWithRecursiveQuery Havoced: sqlite3VdbeMakeLabel
+Current: generateWithRecursiveQuery Havoced: computeLimitRegisters
+Current: generateWithRecursiveQuery Havoced: sqlite3SelectDestInit
+Current: generateWithRecursiveQuery Havoced: sqlite3VdbeAddOp3
+Current: generateWithRecursiveQuery Havoced: sqlite3VdbeAddOp2
+Current: generateWithRecursiveQuery Havoced: multiSelectOrderByKeyInfo
+Current: generateWithRecursiveQuery Havoced: sqlite3VdbeAddOp4
+Current: generateWithRecursiveQuery Havoced: sqlite3VdbeAddOp2
+Current: generateWithRecursiveQuery Havoced: sqlite3VdbeExplain
+Current: generateWithRecursiveQuery Havoced: sqlite3Select
+Current: generateWithRecursiveQuery Havoced: sqlite3VdbeAddOp2
+Current: generateWithRecursiveQuery Havoced: sqlite3VdbeAddOp1
+Current: generateWithRecursiveQuery Havoced: sqlite3VdbeAddOp2
+Current: generateWithRecursiveQuery Havoced: sqlite3VdbeAddOp3
+Current: generateWithRecursiveQuery Havoced: sqlite3VdbeAddOp1
+Current: generateWithRecursiveQuery Havoced: sqlite3VdbeMakeLabel
+Current: generateWithRecursiveQuery Havoced: codeOffset
+Current: generateWithRecursiveQuery Havoced: selectInnerLoop
+Current: generateWithRecursiveQuery Havoced: sqlite3VdbeAddOp2
+Current: generateWithRecursiveQuery Havoced: sqlite3VdbeResolveLabel
+Current: generateWithRecursiveQuery Havoced: sqlite3VdbeExplain
+Current: generateWithRecursiveQuery Havoced: sqlite3Select
+Current: generateWithRecursiveQuery Havoced: sqlite3VdbeGoto
+Current: generateWithRecursiveQuery Havoced: sqlite3VdbeResolveLabel
+Current: generateWithRecursiveQuery Havoced: sqlite3ErrorMsg
+Current: generateWithRecursiveQuery Havoced: sqlite3ExprListDelete
+Current: generateWithRecursiveQuery Havoced: sqlite3ErrorMsg
+Current: innerLoopLoadRow Havoced: sqlite3ExprCodeExprList
+Current: explainSimpleCount Havoced: sqlite3VdbeExplain
+
+        Unrolling loop in function "generateColumnTypes" for 1 iterations succeeded.
+        Transformed "generateColumnTypes" from 5 to 6 basic blocks and from 46 to 50 instructionsCurrent: generateColumnTypes Havoced: columnTypeImpl
+Current: generateColumnTypes Havoced: sqlite3VdbeSetColName
+Current: whereLikeOptimizationStringFixup Havoced: sqlite3VdbeGetOp
+
+        Unrolling loop in function "sqlite3WhereTabFuncArgs" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3WhereTabFuncArgs" for 1 iterations succeeded.
+        Transformed "sqlite3WhereTabFuncArgs" from 20 to 26 basic blocks and from 134 to 167 instructionsCurrent: sqlite3WhereTabFuncArgs Havoced: sqlite3ExprAlloc
+Current: sqlite3WhereTabFuncArgs Havoced: sqlite3ExprDup
+Current: sqlite3WhereTabFuncArgs Havoced: sqlite3PExpr
+Current: sqlite3WhereTabFuncArgs Havoced: sqlite3PExpr
+Current: sqlite3WhereTabFuncArgs Havoced: sqlite3SetJoinExpr
+Current: sqlite3WhereTabFuncArgs Havoced: whereClauseInsert
+Current: sqlite3WhereTabFuncArgs Havoced: sqlite3ErrorMsg
+
+        Unrolling loop in function "reindexTable" for 1 iterations succeeded.
+        Transformed "reindexTable" from 10 to 11 basic blocks and from 42 to 45 instructionsCurrent: reindexTable Havoced: collationMatch
+Current: reindexTable Havoced: sqlite3SchemaToIndex
+Current: reindexTable Havoced: sqlite3BeginWriteOperation
+Current: reindexTable Havoced: sqlite3RefillIndex
+Current: analyzeTable Havoced: sqlite3SchemaToIndex
+Current: analyzeTable Havoced: sqlite3BeginWriteOperation
+Current: analyzeTable Havoced: openStatTable
+Current: analyzeTable Havoced: openStatTable
+Current: analyzeTable Havoced: analyzeOneTable
+Current: analyzeTable Havoced: loadAnalysis
+Current: sqlite3PagerSetBusyHandler Havoced: sqlite3OsFileControlHint
+Current: corruptSchema Havoced: sqlite3MPrintf
+Current: corruptSchema Havoced: sqlite3MPrintf
+Current: corruptSchema Havoced: sqlite3CorruptError
+Current: corruptSchema Havoced: sqlite3CorruptError
+Current: corruptSchema Havoced: sqlite3MPrintf
+Current: sqlite3SetString Havoced: sqlite3DbFree
+Current: sqlite3SetString Havoced: sqlite3DbStrDup
+Current: addModuleArgument Havoced: sqlite3ErrorMsg
+Current: addModuleArgument Havoced: sqlite3DbRealloc
+Current: addModuleArgument Havoced: sqlite3DbFree
+Current: sqlite3ExprFunctionUsable Havoced: sqlite3ErrorMsg
+Current: sqlite3ResolveSelectNames Havoced: sqlite3WalkSelect
+Current: sqlite3SelectPrep Havoced: sqlite3SelectExpand
+Current: sqlite3SelectPrep Havoced: sqlite3ResolveSelectNames
+Current: sqlite3SelectPrep Havoced: sqlite3SelectAddTypeInfo
+
+        Unrolling loop in function "sqlite3RenameTokenRemap" for 1 iterations succeeded.
+        Transformed "sqlite3RenameTokenRemap" from 7 to 9 basic blocks and from 28 to 33 instructionsCurrent: sqlite3WindowChain Havoced: windowFind
+Current: sqlite3WindowChain Havoced: sqlite3ExprListDup
+Current: sqlite3WindowChain Havoced: sqlite3ExprListDup
+Current: sqlite3WindowChain Havoced: sqlite3DbFree
+Current: sqlite3WindowChain Havoced: sqlite3ErrorMsg
+
+        Unrolling loop in function "sqlite3AlterDropColumn" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3AlterDropColumn" for 1 iterations succeeded.
+        Transformed "sqlite3AlterDropColumn" from 46 to 48 basic blocks and from 336 to 351 instructionsCurrent: sqlite3AlterDropColumn Havoced: sqlite3LocateTableItem
+Current: sqlite3AlterDropColumn Havoced: isAlterableTable
+Current: sqlite3AlterDropColumn Havoced: isRealTable
+Current: sqlite3AlterDropColumn Havoced: sqlite3NameFromToken
+Current: sqlite3AlterDropColumn Havoced: sqlite3ColumnIndex
+Current: sqlite3AlterDropColumn Havoced: sqlite3SchemaToIndex
+Current: sqlite3AlterDropColumn Havoced: renameTestSchema
+Current: sqlite3AlterDropColumn Havoced: renameFixQuotes
+Current: sqlite3AlterDropColumn Havoced: sqlite3NestedParse
+Current: sqlite3AlterDropColumn Havoced: renameReloadSchema
+Current: sqlite3AlterDropColumn Havoced: renameTestSchema
+Current: sqlite3AlterDropColumn Havoced: sqlite3GetVdbe
+Current: sqlite3AlterDropColumn Havoced: sqlite3OpenTable
+Current: sqlite3AlterDropColumn Havoced: sqlite3VdbeAddOp1
+Current: sqlite3AlterDropColumn Havoced: sqlite3PrimaryKeyIndex
+Current: sqlite3AlterDropColumn Havoced: sqlite3VdbeAddOp3
+Current: sqlite3AlterDropColumn Havoced: sqlite3VdbeAddOp2
+Current: sqlite3AlterDropColumn Havoced: sqlite3TableColumnToIndex
+Current: sqlite3AlterDropColumn Havoced: sqlite3TableColumnToIndex
+Current: sqlite3AlterDropColumn Havoced: sqlite3ExprCodeGetColumnOfTable
+Current: sqlite3AlterDropColumn Havoced: sqlite3VdbeAddOp2
+Current: sqlite3AlterDropColumn Havoced: sqlite3VdbeAddOp3
+Current: sqlite3AlterDropColumn Havoced: sqlite3VdbeAddOp3
+Current: sqlite3AlterDropColumn Havoced: sqlite3VdbeAddOp4Int
+Current: sqlite3AlterDropColumn Havoced: sqlite3VdbeChangeP5
+Current: sqlite3AlterDropColumn Havoced: sqlite3VdbeAddOp2
+Current: sqlite3AlterDropColumn Havoced: sqlite3VdbeJumpHere
+Current: sqlite3AlterDropColumn Havoced: sqlite3ErrorMsg
+Current: sqlite3AlterDropColumn Havoced: sqlite3ErrorMsg
+Current: sqlite3AlterDropColumn Havoced: sqlite3ErrorMsg
+Current: sqlite3AlterDropColumn Havoced: sqlite3DbFree
+Current: sqlite3AlterDropColumn Havoced: sqlite3SrcListDelete
+Current: sqlite3AlterRenameTable Havoced: sqlite3LocateTableItem
+Current: sqlite3AlterRenameTable Havoced: sqlite3SchemaToIndex
+Current: sqlite3AlterRenameTable Havoced: sqlite3NameFromToken
+Current: sqlite3AlterRenameTable Havoced: sqlite3FindTable
+Current: sqlite3AlterRenameTable Havoced: sqlite3FindIndex
+Current: sqlite3AlterRenameTable Havoced: sqlite3IsShadowTableOf
+Current: sqlite3AlterRenameTable Havoced: isAlterableTable
+Current: sqlite3AlterRenameTable Havoced: sqlite3CheckObjectName
+Current: sqlite3AlterRenameTable Havoced: sqlite3AuthCheck
+Current: sqlite3AlterRenameTable Havoced: sqlite3ViewGetColumnNames
+Current: sqlite3AlterRenameTable Havoced: sqlite3GetVTable
+Current: sqlite3AlterRenameTable Havoced: sqlite3GetVdbe
+Current: sqlite3AlterRenameTable Havoced: sqlite3MayAbort
+Current: sqlite3AlterRenameTable Havoced: sqlite3Utf8CharLen
+Current: sqlite3AlterRenameTable Havoced: sqlite3NestedParse
+Current: sqlite3AlterRenameTable Havoced: sqlite3NestedParse
+Current: sqlite3AlterRenameTable Havoced: sqlite3FindTable
+Current: sqlite3AlterRenameTable Havoced: sqlite3NestedParse
+Current: sqlite3AlterRenameTable Havoced: sqlite3NestedParse
+Current: sqlite3AlterRenameTable Havoced: sqlite3VdbeLoadString
+Current: sqlite3AlterRenameTable Havoced: sqlite3VdbeAddOp4
+Current: sqlite3AlterRenameTable Havoced: renameReloadSchema
+Current: sqlite3AlterRenameTable Havoced: renameTestSchema
+Current: sqlite3AlterRenameTable Havoced: sqlite3ErrorMsg
+Current: sqlite3AlterRenameTable Havoced: sqlite3ErrorMsg
+Current: sqlite3AlterRenameTable Havoced: sqlite3SrcListDelete
+Current: sqlite3AlterRenameTable Havoced: sqlite3DbFree
+
+        Unrolling loop in function "sqlite3Analyze" for 1 iterations succeeded.
+        Transformed "sqlite3Analyze" from 31 to 32 basic blocks and from 111 to 115 instructionsCurrent: sqlite3Analyze Havoced: sqlite3ReadSchema
+Current: sqlite3Analyze Havoced: sqlite3FindDb
+Current: sqlite3Analyze Havoced: sqlite3TwoPartName
+Current: sqlite3Analyze Havoced: sqlite3NameFromToken
+Current: sqlite3Analyze Havoced: sqlite3FindIndex
+Current: sqlite3Analyze Havoced: sqlite3LocateTable
+Current: sqlite3Analyze Havoced: analyzeTable
+Current: sqlite3Analyze Havoced: analyzeTable
+Current: sqlite3Analyze Havoced: sqlite3DbFree
+Current: sqlite3Analyze Havoced: analyzeDatabase
+Current: sqlite3Analyze Havoced: analyzeDatabase
+Current: sqlite3Analyze Havoced: sqlite3GetVdbe
+Current: sqlite3Analyze Havoced: sqlite3VdbeAddOp0
+Current: sqlite3Reindex Havoced: sqlite3ReadSchema
+Current: sqlite3Reindex Havoced: sqlite3NameFromToken
+Current: sqlite3Reindex Havoced: sqlite3FindCollSeq
+Current: sqlite3Reindex Havoced: sqlite3DbFree
+Current: sqlite3Reindex Havoced: sqlite3TwoPartName
+Current: sqlite3Reindex Havoced: sqlite3NameFromToken
+Current: sqlite3Reindex Havoced: sqlite3FindTable
+Current: sqlite3Reindex Havoced: sqlite3FindIndex
+Current: sqlite3Reindex Havoced: sqlite3DbFree
+Current: sqlite3Reindex Havoced: sqlite3ErrorMsg
+Current: sqlite3Reindex Havoced: sqlite3BeginWriteOperation
+Current: sqlite3Reindex Havoced: sqlite3RefillIndex
+Current: sqlite3Reindex Havoced: reindexTable
+Current: sqlite3Reindex Havoced: sqlite3DbFree
+Current: sqlite3Reindex Havoced: reindexDatabases
+Current: sqlite3Reindex Havoced: sqlite3DbFree
+Current: sqlite3Reindex Havoced: reindexDatabases
+
+        Unrolling loop in function "sqlite3FinishTrigger" for 1 iterations succeeded.
+        Transformed "sqlite3FinishTrigger" from 25 to 26 basic blocks and from 173 to 178 instructionsCurrent: sqlite3FinishTrigger Havoced: sqlite3SchemaToIndex
+Current: sqlite3FinishTrigger Havoced: sqlite3TokenInit
+Current: sqlite3FinishTrigger Havoced: sqlite3FixInit
+Current: sqlite3FinishTrigger Havoced: sqlite3FixTriggerStep
+Current: sqlite3FinishTrigger Havoced: sqlite3FixExpr
+Current: sqlite3FinishTrigger Havoced: sqlite3GetVdbe
+Current: sqlite3FinishTrigger Havoced: sqlite3BeginWriteOperation
+Current: sqlite3FinishTrigger Havoced: sqlite3DbStrNDup
+Current: sqlite3FinishTrigger Havoced: sqlite3NestedParse
+Current: sqlite3FinishTrigger Havoced: sqlite3DbFree
+Current: sqlite3FinishTrigger Havoced: sqlite3ChangeCookie
+Current: sqlite3FinishTrigger Havoced: sqlite3MPrintf
+Current: sqlite3FinishTrigger Havoced: sqlite3VdbeAddParseSchemaOp
+Current: sqlite3FinishTrigger Havoced: sqlite3HashInsert
+Current: sqlite3FinishTrigger Havoced: sqlite3HashFind
+Current: sqlite3FinishTrigger Havoced: sqlite3OomFault
+Current: sqlite3FinishTrigger Havoced: sqlite3DeleteTrigger
+Current: sqlite3FinishTrigger Havoced: sqlite3DeleteTriggerStep
+Current: sqlite3Vacuum Havoced: sqlite3GetVdbe
+Current: sqlite3Vacuum Havoced: sqlite3TwoPartName
+Current: sqlite3Vacuum Havoced: sqlite3ResolveSelfReference
+Current: sqlite3Vacuum Havoced: sqlite3ExprCode
+Current: sqlite3Vacuum Havoced: sqlite3VdbeAddOp2
+Current: sqlite3Vacuum Havoced: sqlite3VdbeUsesBtree
+Current: sqlite3Vacuum Havoced: sqlite3ExprDelete
+Current: sqlite3PExprAddSelect Havoced: sqlite3SelectDelete
+Current: sqlite3PExprAddSelect Havoced: sqlite3ExprSetHeightAndFlags
+Current: sqlite3WindowAttach Havoced: sqlite3WindowDelete
+Current: sqlite3WindowAttach Havoced: sqlite3ErrorMsg
+Current: sqlite3ExprListCheckLength Havoced: sqlite3ErrorMsg
+Current: sqlite3SrcListFuncArgs Havoced: sqlite3ExprListDelete
+Current: sqlite3SrcListIndexedBy Havoced: sqlite3NameFromToken
+Current: sqlite3AddGenerated Havoced: sqlite3_strnicmp
+Current: sqlite3AddGenerated Havoced: sqlite3_strnicmp
+Current: sqlite3AddGenerated Havoced: makeColumnPartOfPrimaryKey
+Current: sqlite3AddGenerated Havoced: sqlite3ErrorMsg
+Current: sqlite3AddGenerated Havoced: sqlite3ErrorMsg
+Current: sqlite3AddGenerated Havoced: sqlite3ExprDelete
+
+        Unrolling loop in function "sqlite3AddColumn" for 1 iterations succeeded.
+        Transformed "sqlite3AddColumn" from 24 to 25 basic blocks and from 221 to 227 instructionsCurrent: sqlite3AddColumn Havoced: sqlite3DbMallocRaw
+Current: sqlite3AddColumn Havoced: sqlite3RenameTokenMap
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %25, i8* %33, i64 %36, i32 1, i1 false), !dbg !5674
+Current: sqlite3AddColumn Havoced: sqlite3Dequote
+Current: sqlite3AddColumn Havoced: sqlite3StrIHash
+Current: sqlite3AddColumn Havoced: sqlite3StrICmp
+Current: sqlite3AddColumn Havoced: sqlite3DbRealloc
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %92, i8 0, i64 32, i32 8, i1 false), !dbg !5743
+Current: sqlite3AddColumn Havoced: sqlite3Strlen30
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %103, i8* %105, i64 %108, i32 1, i1 false), !dbg !5766
+Current: sqlite3AddColumn Havoced: sqlite3Dequote
+Current: sqlite3AddColumn Havoced: sqlite3AffinityType
+Current: sqlite3AddColumn Havoced: sqlite3DbFree
+Current: sqlite3AddColumn Havoced: sqlite3ErrorMsg
+Current: sqlite3AddColumn Havoced: sqlite3DbFree
+Current: sqlite3AddColumn Havoced: sqlite3ErrorMsg
+
+        Unrolling loop in function "btreeParseCellPtrIndex" for 1 iterations succeeded.
+        Transformed "btreeParseCellPtrIndex" from 106 to 108 instructionsCurrent: btreeParseCellPtrIndex Havoced: btreeParseCellAdjustSizeForOverflow
+Current: btreeParseCellPtrNoPayload Havoced: sqlite3GetVarint
+
+        Unrolling loop in function "btreeParseCellPtr" for 1 iterations succeeded.
+        Unrolling loop in function "btreeParseCellPtr" for 1 iterations succeeded.
+        Transformed "btreeParseCellPtr" from 21 to 20 basic blocks and from 159 to 164 instructionsCurrent: btreeParseCellPtr Havoced: btreeParseCellAdjustSizeForOverflow
+
+        Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+        Transformed "sqlite3_str_vappendf" from 467 to 567 basic blocks and from 2718 to 3228 instructionsCurrent: sqlite3_str_vappendf Havoced: sqlite3_str_append
+Current: sqlite3_str_vappendf Havoced: getIntArg
+Current: sqlite3_str_vappendf Havoced: getIntArg
+Current: sqlite3_str_vappendf Havoced: sqlite3_str_appendall
+Current: sqlite3_str_vappendf Havoced: sqlite3_str_appendf
+Current: sqlite3_str_vappendf Havoced: sqlite3_str_appendall
+Current: sqlite3_str_vappendf Havoced: sqlite3_str_appendall
+Current: sqlite3_str_vappendf Havoced: sqlite3_str_append
+Current: sqlite3_str_vappendf Havoced: sqlite3_str_appendall
+Current: sqlite3_str_vappendf Havoced: sqlite3_str_append
+Current: sqlite3_str_vappendf Havoced: getTextArg
+Current: sqlite3_str_vappendf Havoced: printfTempBuf
+Current: sqlite3_str_vappendf Havoced: getTextArg
+Current: sqlite3_str_vappendf Havoced: sqlite3_str_appendchar
+Current: sqlite3_str_vappendf Havoced: sqlite3_str_append
+Current: sqlite3_str_vappendf Havoced: getTextArg
+Current: sqlite3_str_vappendf Havoced: sqlite3DbMallocSize
+
+        Unrolling loop in function "llbmc.strlen" for 0 iterations succeeded.
+        Transformed "llbmc.strlen" from 8 to 9 instructionsCurrent: sqlite3_str_vappendf Havoced: getDoubleArg
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %554, i8* %555, i64 8, i32 8, i1 false), !dbg !6477
+Current: sqlite3_str_vappendf Havoced: sqlite3IsNaN
+Current: sqlite3_str_vappendf Havoced: printfTempBuf
+Current: sqlite3_str_vappendf Havoced: et_getdigit
+Current: sqlite3_str_vappendf Havoced: et_getdigit
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %660, i8* getelementptr inbounds ([4 x i8], [4 x i8]* @.str.2.1220, i32 0, i32 0), i64 4, i32 1, i1 false), !dbg !6589
+Current: sqlite3_str_vappendf Havoced: getIntArg
+Current: sqlite3_str_vappendf Havoced: getIntArg
+Current: sqlite3_str_vappendf Havoced: printfTempBuf
+Current: sqlite3_str_vappendf Havoced: sqlite3_str_append
+Current: sqlite3_str_vappendf Havoced: sqlite3_str_appendchar
+Current: sqlite3_str_vappendf Havoced: sqlite3_str_append
+Current: sqlite3_str_vappendf Havoced: sqlite3_str_appendchar
+Current: sqlite3_str_vappendf Havoced: sqlite3DbFree
+Current: sqlite3_str_vappendf Havoced: sqlite3_str_append
+Current: printSchemaLine Havoced: sqlite3_strglob
+
+        Unrolling loop in function "tryToCloneData" for 1 iterations succeeded.
+        Unrolling loop in function "tryToCloneData" for 1 iterations succeeded.
+        Unrolling loop in function "tryToCloneData" for 1 iterations succeeded.
+        Unrolling loop in function "tryToCloneData" for 1 iterations succeeded.
+        Transformed "tryToCloneData" from 39 to 49 basic blocks and from 247 to 285 instructionsCurrent: tryToCloneData Havoced: strlen30
+Current: tryToCloneData Havoced: sqlite3_mprintf
+Current: tryToCloneData Havoced: sqlite3_prepare_v2
+Current: tryToCloneData Havoced: sqlite3_column_count
+Current: tryToCloneData Havoced: sqlite3_malloc64
+Current: tryToCloneData Havoced: shell_out_of_memory
+Current: tryToCloneData Havoced: sqlite3_snprintf
+Current: tryToCloneData Havoced: strlen30
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %34, i8* getelementptr inbounds ([3 x i8], [3 x i8]* @.str.785, i32 0, i32 0), i64 2, i32 1, i1 false), !dbg !5685
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %39, i8* getelementptr inbounds ([3 x i8], [3 x i8]* @.str.786, i32 0, i32 0), i64 3, i32 1, i1 false), !dbg !5694
+Current: tryToCloneData Havoced: sqlite3_prepare_v2
+Current: tryToCloneData Havoced: sqlite3_step
+Current: tryToCloneData Havoced: sqlite3_column_type
+Current: tryToCloneData Havoced: sqlite3_bind_null
+Current: tryToCloneData Havoced: sqlite3_column_blob
+Current: tryToCloneData Havoced: sqlite3_column_bytes
+Current: tryToCloneData Havoced: sqlite3_bind_blob
+Current: tryToCloneData Havoced: sqlite3_column_text
+Current: tryToCloneData Havoced: sqlite3_bind_text
+Current: tryToCloneData Havoced: sqlite3_column_double
+Current: tryToCloneData Havoced: sqlite3_bind_double
+Current: tryToCloneData Havoced: sqlite3_column_int64
+Current: tryToCloneData Havoced: sqlite3_bind_int64
+Current: tryToCloneData Havoced: sqlite3_step
+Current: tryToCloneData Havoced: sqlite3_extended_errcode
+Current: tryToCloneData Havoced: sqlite3_errmsg
+Current: tryToCloneData Havoced: sqlite3_reset
+Current: tryToCloneData Havoced: sqlite3_step
+Current: tryToCloneData Havoced: sqlite3_finalize
+Current: tryToCloneData Havoced: sqlite3_free
+Current: tryToCloneData Havoced: sqlite3_mprintf
+Current: tryToCloneData Havoced: sqlite3_prepare_v2
+Current: tryToCloneData Havoced: sqlite3_extended_errcode
+Current: tryToCloneData Havoced: sqlite3_errmsg
+Current: tryToCloneData Havoced: sqlite3_extended_errcode
+Current: tryToCloneData Havoced: sqlite3_errmsg
+Current: tryToCloneData Havoced: sqlite3_finalize
+Current: tryToCloneData Havoced: sqlite3_finalize
+Current: tryToCloneData Havoced: sqlite3_free
+Current: tryToCloneData Havoced: sqlite3_free
+
+        Unrolling loop in function "clearCellOverflow" for 1 iterations succeeded.
+        Transformed "clearCellOverflow" from 23 to 24 basic blocks and from 130 to 139 instructionsCurrent: clearCellOverflow Havoced: sqlite3Get4byte
+Current: clearCellOverflow Havoced: btreePagecount
+Current: clearCellOverflow Havoced: getOverflowPage
+Current: clearCellOverflow Havoced: btreePageLookup
+Current: clearCellOverflow Havoced: sqlite3PagerPageRefcount
+Current: clearCellOverflow Havoced: freePage2
+Current: clearCellOverflow Havoced: sqlite3CorruptError
+Current: clearCellOverflow Havoced: sqlite3PagerUnref
+Current: clearCellOverflow Havoced: sqlite3CorruptError
+Current: clearCellOverflow Havoced: sqlite3CorruptError
+Current: dropCell Havoced: freeSpace
+isMemmove:   call void @llvm.memmove.p0i8.p0i8.i64(i8* %12, i8* %82, i64 %88, i32 1, i1 false), !dbg !5698
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %45, i8 0, i64 4, i32 1, i1 false), !dbg !5674
+Current: dropCell Havoced: sqlite3CorruptError
+Current: btreeComputeFreeSpace Havoced: sqlite3CorruptError
+Current: btreeComputeFreeSpace Havoced: sqlite3CorruptError
+Current: btreeComputeFreeSpace Havoced: sqlite3CorruptError
+Current: btreeComputeFreeSpace Havoced: sqlite3CorruptError
+Current: btreeComputeFreeSpace Havoced: sqlite3CorruptError
+Current: exprCommute Havoced: sqlite3BinaryCompareCollSeq
+Current: exprCommute Havoced: sqlite3BinaryCompareCollSeq
+
+        Unrolling loop in function "cellSizePtrNoPayload" for 1 iterations succeeded.
+        Transformed "cellSizePtrNoPayload" from 6 to 5 basic blocksCurrent: sqlite3PagerWrite Havoced: pager_write
+Current: sqlite3PagerWrite Havoced: pagerWriteLargeSector
+Current: sqlite3PagerWrite Havoced: subjournalPageIfRequired
+Current: insertCell Havoced: sqlite3PagerWrite
+Current: insertCell Havoced: allocateSpace
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %60, i8* %2, i64 %61, i32 1, i1 false), !dbg !5714
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %51, i8* %52, i64 %54, i32 1, i1 false), !dbg !5705
+Current: insertCell Havoced: sqlite3Put4byte
+isMemmove:   call void @llvm.memmove.p0i8.p0i8.i64(i8* %67, i8* %66, i64 %73, i32 1, i1 false), !dbg !5725
+Current: insertCell Havoced: ptrmapPutOvflPtr
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %4, i8* %2, i64 %17, i32 1, i1 false), !dbg !5651
+Current: insertCell Havoced: sqlite3Put4byte
+Current: dropCell Havoced: freeSpace
+isMemmove:   call void @llvm.memmove.p0i8.p0i8.i64(i8* %12, i8* %82, i64 %88, i32 1, i1 false), !dbg !5698
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %45, i8 0, i64 4, i32 1, i1 false), !dbg !5674
+Current: dropCell Havoced: sqlite3CorruptError
+Current: sqlite3CorruptError Havoced: sqlite3ReportError
+
+        Unrolling loop in function "balance" for 1 iterations succeeded.
+        Transformed "balance" from 36 to 37 basic blocks and from 246 to 254 instructionsCurrent: balance Havoced: btreeComputeFreeSpace
+Current: balance Havoced: sqlite3PagerWrite
+Current: balance Havoced: btreeComputeFreeSpace
+Current: balance Havoced: sqlite3PageMalloc
+Current: balance Havoced: balance_nonroot
+Current: balance Havoced: sqlite3PageFree
+Current: balance Havoced: balance_quick
+Current: balance Havoced: releasePage
+Current: balance Havoced: anotherValidCursor
+Current: balance Havoced: balance_deeper
+Current: balance Havoced: sqlite3PageFree
+Current: releasePageNotNull Havoced: sqlite3PagerUnrefNotNull
+Current: releasePage Havoced: releasePageNotNull
+Current: balance Havoced: btreeComputeFreeSpace
+Current: balance Havoced: sqlite3PagerWrite
+Current: balance Havoced: btreeComputeFreeSpace
+Current: balance Havoced: sqlite3PageMalloc
+Current: balance Havoced: balance_nonroot
+Current: balance Havoced: sqlite3PageFree
+Current: balance Havoced: balance_quick
+Current: balance Havoced: releasePage
+Current: balance Havoced: anotherValidCursor
+Current: balance Havoced: balance_deeper
+Current: balance Havoced: sqlite3PageFree
+
+        Unrolling loop in function "moveToRoot" for 1 iterations succeeded.
+        Transformed "moveToRoot" from 31 to 32 basic blocks and from 195 to 202 instructionsCurrent: moveToRoot Havoced: sqlite3BtreeClearCursor
+Current: moveToRoot Havoced: getAndInitPage
+Current: moveToRoot Havoced: sqlite3CorruptError
+Current: moveToRoot Havoced: releasePageNotNull
+Current: moveToRoot Havoced: releasePageNotNull
+Current: moveToRoot Havoced: sqlite3Get4byte
+Current: moveToRoot Havoced: moveToChild
+Current: moveToRoot Havoced: sqlite3CorruptError
+
+        Unrolling loop in function "btreeReleaseAllCursorPages" for 1 iterations succeeded.
+        Transformed "btreeReleaseAllCursorPages" from 7 to 8 basic blocks and from 39 to 45 instructionsCurrent: btreeReleaseAllCursorPages Havoced: releasePageNotNull
+Current: btreeReleaseAllCursorPages Havoced: releasePageNotNull
+
+                                                           0 sec [DONE]
+        Number of expressions:                        173060
+        after encoding
+
+      86 assertions before transformations (12 no_function_call, 72 no_back_edge, 2 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                           14059
+        Fixed Memory Address Assigner
+          Number of moved ops                              1
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           74103
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                              24
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             430
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             186
+        ToASC Analyser
+          Memcpy/memset found                            yes
+        Byte-Based Memory Creator
+          Number of rewrites                           10292
+        Instantiation-Based ToASC Simplifier
+          Number of rewrites                              10
+        Simplifier
+          Number of moved ops                           5272
+          Number of rewrites                           26304
+        FP Abstraction
+          Number of rewrites                             100
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              4
+          Number of rewrites                              26
+                                                           0 sec [DONE]
+        
+      86 assertions remain after transformations (12 no_function_call, 72 no_back_edge, 2 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...atabases
+Current: sqlite3Reindex Havoced: sqlite3DbFree
+Current: sqlite3Reindex Havoced: reindexDatabases
+
+        Unrolling loop in function "sqlite3FinishTrigger" for 1 iterations succeeded.
+        Transformed "sqlite3FinishTrigger" from 25 to 26 basic blocks and from 173 to 178 instructionsCurrent: sqlite3FinishTrigger Havoced: sqlite3SchemaToIndex
+Current: sqlite3FinishTrigger Havoced: sqlite3TokenInit
+Current: sqlite3FinishTrigger Havoced: sqlite3FixInit
+Current: sqlite3FinishTrigger Havoced: sqlite3FixTriggerStep
+Current: sqlite3FinishTrigger Havoced: sqlite3FixExpr
+Current: sqlite3FinishTrigger Havoced: sqlite3GetVdbe
+Current: sqlite3FinishTrigger Havoced: sqlite3BeginWriteOperation
+Current: sqlite3FinishTrigger Havoced: sqlite3DbStrNDup
+Current: sqlite3FinishTrigger Havoced: sqlite3NestedParse
+Current: sqlite3FinishTrigger Havoced: sqlite3DbFree
+Current: sqlite3FinishTrigger Havoced: sqlite3ChangeCookie
+Current: sqlite3FinishTrigger Havoced: sqlite3MPrintf
+Current: sqlite3FinishTrigger Havoced: sqlite3VdbeAddParseSchemaOp
+Current: sqlite3FinishTrigger Havoced: sqlite3HashInsert
+Current: sqlite3FinishTrigger Havoced: sqlite3HashFind
+Current: sqlite3FinishTrigger Havoced: sqlite3OomFault
+Current: sqlite3FinishTrigger Havoced: sqlite3DeleteTrigger
+Current: sqlite3FinishTrigger Havoced: sqlite3DeleteTriggerStep
+Current: sqlite3Vacuum Havoced: sqlite3GetVdbe
+Current: sqlite3Vacuum Havoced: sqlite3TwoPartName
+Current: sqlite3Vacuum Havoced: sqlite3ResolveSelfReference
+Current: sqlite3Vacuum Havoced: sqlite3ExprCode
+Current: sqlite3Vacuum Havoced: sqlite3VdbeAddOp2
+Current: sqlite3Vacuum Havoced: sqlite3VdbeUsesBtree
+Current: sqlite3Vacuum Havoced: sqlite3ExprDelete
+Current: sqlite3PExprAddSelect Havoced: sqlite3SelectDelete
+Current: sqlite3PExprAddSelect Havoced: sqlite3ExprSetHeightAndFlags
+Current: sqlite3WindowAttach Havoced: sqlite3WindowDelete
+Current: sqlite3WindowAttach Havoced: sqlite3ErrorMsg
+Current: sqlite3ExprListCheckLength Havoced: sqlite3ErrorMsg
+Current: sqlite3SrcListFuncArgs Havoced: sqlite3ExprListDelete
+Current: sqlite3SrcListIndexedBy Havoced: sqlite3NameFromToken
+Current: sqlite3AddGenerated Havoced: sqlite3_strnicmp
+Current: sqlite3AddGenerated Havoced: sqlite3_strnicmp
+Current: sqlite3AddGenerated Havoced: makeColumnPartOfPrimaryKey
+Current: sqlite3AddGenerated Havoced: sqlite3ErrorMsg
+Current: sqlite3AddGenerated Havoced: sqlite3ErrorMsg
+Current: sqlite3AddGenerated Havoced: sqlite3ExprDelete
+
+        Unrolling loop in function "sqlite3AddColumn" for 1 iterations succeeded.
+        Transformed "sqlite3AddColumn" from 24 to 25 basic blocks and from 221 to 227 instructionsCurrent: sqlite3AddColumn Havoced: sqlite3DbMallocRaw
+Current: sqlite3AddColumn Havoced: sqlite3RenameTokenMap
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %25, i8* %33, i64 %36, i32 1, i1 false), !dbg !5674
+Current: sqlite3AddColumn Havoced: sqlite3Dequote
+Current: sqlite3AddColumn Havoced: sqlite3StrIHash
+Current: sqlite3AddColumn Havoced: sqlite3StrICmp
+Current: sqlite3AddColumn Havoced: sqlite3DbRealloc
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %92, i8 0, i64 32, i32 8, i1 false), !dbg !5743
+Current: sqlite3AddColumn Havoced: sqlite3Strlen30
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %103, i8* %105, i64 %108, i32 1, i1 false), !dbg !5766
+Current: sqlite3AddColumn Havoced: sqlite3Dequote
+Current: sqlite3AddColumn Havoced: sqlite3AffinityType
+Current: sqlite3AddColumn Havoced: sqlite3DbFree
+Current: sqlite3AddColumn Havoced: sqlite3ErrorMsg
+Current: sqlite3AddColumn Havoced: sqlite3DbFree
+Current: sqlite3AddColumn Havoced: sqlite3ErrorMsg
+
+        Unrolling loop in function "btreeParseCellPtrIndex" for 1 iterations succeeded.
+        Transformed "btreeParseCellPtrIndex" from 106 to 108 instructionsCurrent: btreeParseCellPtrIndex Havoced: btreeParseCellAdjustSizeForOverflow
+Current: btreeParseCellPtrNoPayload Havoced: sqlite3GetVarint
+
+        Unrolling loop in function "btreeParseCellPtr" for 1 iterations succeeded.
+        Unrolling loop in function "btreeParseCellPtr" for 1 iterations succeeded.
+        Transformed "btreeParseCellPtr" from 21 to 20 basic blocks and from 159 to 164 instructionsCurrent: btreeParseCellPtr Havoced: btreeParseCellAdjustSizeForOverflow
+
+        Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+        Transformed "sqlite3_str_vappendf" from 467 to 567 basic blocks and from 2718 to 3228 instructionsCurrent: sqlite3_str_vappendf Havoced: sqlite3_str_append
+Current: sqlite3_str_vappendf Havoced: getIntArg
+Current: sqlite3_str_vappendf Havoced: getIntArg
+Current: sqlite3_str_vappendf Havoced: sqlite3_str_appendall
+Current: sqlite3_str_vappendf Havoced: sqlite3_str_appendf
+Current: sqlite3_str_vappendf Havoced: sqlite3_str_appendall
+Current: sqlite3_str_vappendf Havoced: sqlite3_str_appendall
+Current: sqlite3_str_vappendf Havoced: sqlite3_str_append
+Current: sqlite3_str_vappendf Havoced: sqlite3_str_appendall
+Current: sqlite3_str_vappendf Havoced: sqlite3_str_append
+Current: sqlite3_str_vappendf Havoced: getTextArg
+Current: sqlite3_str_vappendf Havoced: printfTempBuf
+Current: sqlite3_str_vappendf Havoced: getTextArg
+Current: sqlite3_str_vappendf Havoced: sqlite3_str_appendchar
+Current: sqlite3_str_vappendf Havoced: sqlite3_str_append
+Current: sqlite3_str_vappendf Havoced: getTextArg
+Current: sqlite3_str_vappendf Havoced: sqlite3DbMallocSize
+
+        Unrolling loop in function "llbmc.strlen" for 0 iterations succeeded.
+        Transformed "llbmc.strlen" from 8 to 9 instructionsCurrent: sqlite3_str_vappendf Havoced: getDoubleArg
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %554, i8* %555, i64 8, i32 8, i1 false), !dbg !6477
+Current: sqlite3_str_vappendf Havoced: sqlite3IsNaN
+Current: sqlite3_str_vappendf Havoced: printfTempBuf
+Current: sqlite3_str_vappendf Havoced: et_getdigit
+Current: sqlite3_str_vappendf Havoced: et_getdigit
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %660, i8* getelementptr inbounds ([4 x i8], [4 x i8]* @.str.2.1220, i32 0, i32 0), i64 4, i32 1, i1 false), !dbg !6589
+Current: sqlite3_str_vappendf Havoced: getIntArg
+Current: sqlite3_str_vappendf Havoced: getIntArg
+Current: sqlite3_str_vappendf Havoced: printfTempBuf
+Current: sqlite3_str_vappendf Havoced: sqlite3_str_append
+Current: sqlite3_str_vappendf Havoced: sqlite3_str_appendchar
+Current: sqlite3_str_vappendf Havoced: sqlite3_str_append
+Current: sqlite3_str_vappendf Havoced: sqlite3_str_appendchar
+Current: sqlite3_str_vappendf Havoced: sqlite3DbFree
+Current: sqlite3_str_vappendf Havoced: sqlite3_str_append
+Current: printSchemaLine Havoced: sqlite3_strglob
+
+        Unrolling loop in function "tryToCloneData" for 1 iterations succeeded.
+        Unrolling loop in function "tryToCloneData" for 1 iterations succeeded.
+        Unrolling loop in function "tryToCloneData" for 1 iterations succeeded.
+        Unrolling loop in function "tryToCloneData" for 1 iterations succeeded.
+        Transformed "tryToCloneData" from 39 to 49 basic blocks and from 247 to 285 instructionsCurrent: tryToCloneData Havoced: strlen30
+Current: tryToCloneData Havoced: sqlite3_mprintf
+Current: tryToCloneData Havoced: sqlite3_prepare_v2
+Current: tryToCloneData Havoced: sqlite3_column_count
+Current: tryToCloneData Havoced: sqlite3_malloc64
+Current: tryToCloneData Havoced: shell_out_of_memory
+Current: tryToCloneData Havoced: sqlite3_snprintf
+Current: tryToCloneData Havoced: strlen30
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %34, i8* getelementptr inbounds ([3 x i8], [3 x i8]* @.str.785, i32 0, i32 0), i64 2, i32 1, i1 false), !dbg !5685
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %39, i8* getelementptr inbounds ([3 x i8], [3 x i8]* @.str.786, i32 0, i32 0), i64 3, i32 1, i1 false), !dbg !5694
+Current: tryToCloneData Havoced: sqlite3_prepare_v2
+Current: tryToCloneData Havoced: sqlite3_step
+Current: tryToCloneData Havoced: sqlite3_column_type
+Current: tryToCloneData Havoced: sqlite3_bind_null
+Current: tryToCloneData Havoced: sqlite3_column_blob
+Current: tryToCloneData Havoced: sqlite3_column_bytes
+Current: tryToCloneData Havoced: sqlite3_bind_blob
+Current: tryToCloneData Havoced: sqlite3_column_text
+Current: tryToCloneData Havoced: sqlite3_bind_text
+Current: tryToCloneData Havoced: sqlite3_column_double
+Current: tryToCloneData Havoced: sqlite3_bind_double
+Current: tryToCloneData Havoced: sqlite3_column_int64
+Current: tryToCloneData Havoced: sqlite3_bind_int64
+Current: tryToCloneData Havoced: sqlite3_step
+Current: tryToCloneData Havoced: sqlite3_extended_errcode
+Current: tryToCloneData Havoced: sqlite3_errmsg
+Current: tryToCloneData Havoced: sqlite3_reset
+Current: tryToCloneData Havoced: sqlite3_step
+Current: tryToCloneData Havoced: sqlite3_finalize
+Current: tryToCloneData Havoced: sqlite3_free
+Current: tryToCloneData Havoced: sqlite3_mprintf
+Current: tryToCloneData Havoced: sqlite3_prepare_v2
+Current: tryToCloneData Havoced: sqlite3_extended_errcode
+Current: tryToCloneData Havoced: sqlite3_errmsg
+Current: tryToCloneData Havoced: sqlite3_extended_errcode
+Current: tryToCloneData Havoced: sqlite3_errmsg
+Current: tryToCloneData Havoced: sqlite3_finalize
+Current: tryToCloneData Havoced: sqlite3_finalize
+Current: tryToCloneData Havoced: sqlite3_free
+Current: tryToCloneData Havoced: sqlite3_free
+Current: ptrmapPut Havoced: ptrmapPageno
+Current: ptrmapPut Havoced: sqlite3PagerGet
+Current: ptrmapPut Havoced: sqlite3PagerGetExtra
+Current: ptrmapPut Havoced: sqlite3PagerGetData
+Current: ptrmapPut Havoced: sqlite3Get4byte
+Current: ptrmapPut Havoced: sqlite3PagerWrite
+Current: ptrmapPut Havoced: sqlite3Put4byte
+Current: ptrmapPut Havoced: sqlite3CorruptError
+Current: ptrmapPut Havoced: sqlite3CorruptError
+Current: ptrmapPut Havoced: sqlite3PagerUnref
+Current: ptrmapPut Havoced: sqlite3CorruptError
+Current: sqlite3PagerWrite Havoced: pager_write
+Current: sqlite3PagerWrite Havoced: pagerWriteLargeSector
+Current: sqlite3PagerWrite Havoced: subjournalPageIfRequired
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %147, i8* %411, i64 4, i32 1, i1 false), !dbg !5937
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %33, i8* %35, i64 %39, i32 1, i1 false), !dbg !5652
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %41, i8* %43, i64 %52, i32 1, i1 false), !dbg !5661
+Current: copyNodeContent Havoced: btreeInitPage
+Current: copyNodeContent Havoced: btreeComputeFreeSpace
+Current: copyNodeContent Havoced: setChildPtrmaps
+Current: identPut Havoced: sqlite3KeywordCode
+Current: sqlite3FkDropTable Havoced: sqlite3GetVdbe
+Current: sqlite3FkDropTable Havoced: sqlite3FkReferences
+Current: sqlite3FkDropTable Havoced: sqlite3VdbeMakeLabel
+Current: sqlite3FkDropTable Havoced: sqlite3VdbeAddOp2
+Current: sqlite3FkDropTable Havoced: sqlite3SrcListDup
+Current: sqlite3FkDropTable Havoced: sqlite3DeleteFrom
+Current: sqlite3FkDropTable Havoced: sqlite3VdbeCurrentAddr
+Current: sqlite3FkDropTable Havoced: sqlite3VdbeAddOp2
+Current: sqlite3FkDropTable Havoced: sqlite3HaltConstraint
+Current: sqlite3FkDropTable Havoced: sqlite3VdbeResolveLabel
+Current: generateWithRecursiveQuery Havoced: sqlite3AuthCheck
+Current: generateWithRecursiveQuery Havoced: sqlite3VdbeMakeLabel
+Current: generateWithRecursiveQuery Havoced: computeLimitRegisters
+Current: generateWithRecursiveQuery Havoced: sqlite3SelectDestInit
+Current: generateWithRecursiveQuery Havoced: sqlite3VdbeAddOp3
+Current: generateWithRecursiveQuery Havoced: sqlite3VdbeAddOp2
+Current: generateWithRecursiveQuery Havoced: multiSelectOrderByKeyInfo
+Current: generateWithRecursiveQuery Havoced: sqlite3VdbeAddOp4
+Current: generateWithRecursiveQuery Havoced: sqlite3VdbeAddOp2
+Current: generateWithRecursiveQuery Havoced: sqlite3VdbeExplain
+Current: generateWithRecursiveQuery Havoced: sqlite3Select
+Current: generateWithRecursiveQuery Havoced: sqlite3VdbeAddOp2
+Current: generateWithRecursiveQuery Havoced: sqlite3VdbeAddOp1
+Current: generateWithRecursiveQuery Havoced: sqlite3VdbeAddOp2
+Current: generateWithRecursiveQuery Havoced: sqlite3VdbeAddOp3
+Current: generateWithRecursiveQuery Havoced: sqlite3VdbeAddOp1
+Current: generateWithRecursiveQuery Havoced: sqlite3VdbeMakeLabel
+Current: generateWithRecursiveQuery Havoced: codeOffset
+Current: generateWithRecursiveQuery Havoced: selectInnerLoop
+Current: generateWithRecursiveQuery Havoced: sqlite3VdbeAddOp2
+Current: generateWithRecursiveQuery Havoced: sqlite3VdbeResolveLabel
+Current: generateWithRecursiveQuery Havoced: sqlite3VdbeExplain
+Current: generateWithRecursiveQuery Havoced: sqlite3Select
+Current: generateWithRecursiveQuery Havoced: sqlite3VdbeGoto
+Current: generateWithRecursiveQuery Havoced: sqlite3VdbeResolveLabel
+Current: generateWithRecursiveQuery Havoced: sqlite3ErrorMsg
+Current: generateWithRecursiveQuery Havoced: sqlite3ExprListDelete
+Current: generateWithRecursiveQuery Havoced: sqlite3ErrorMsg
+Current: innerLoopLoadRow Havoced: sqlite3ExprCodeExprList
+Current: explainSimpleCount Havoced: sqlite3VdbeExplain
+Current: generateColumnTypes Havoced: columnTypeImpl
+Current: generateColumnTypes Havoced: sqlite3VdbeSetColName
+Current: whereLikeOptimizationStringFixup Havoced: sqlite3VdbeGetOp
+Current: sqlite3WhereTabFuncArgs Havoced: sqlite3ExprAlloc
+Current: sqlite3WhereTabFuncArgs Havoced: sqlite3ExprDup
+Current: sqlite3WhereTabFuncArgs Havoced: sqlite3PExpr
+Current: sqlite3WhereTabFuncArgs Havoced: sqlite3PExpr
+Current: sqlite3WhereTabFuncArgs Havoced: sqlite3SetJoinExpr
+Current: sqlite3WhereTabFuncArgs Havoced: whereClauseInsert
+Current: sqlite3WhereTabFuncArgs Havoced: sqlite3ErrorMsg
+Current: reindexTable Havoced: collationMatch
+Current: reindexTable Havoced: sqlite3SchemaToIndex
+Current: reindexTable Havoced: sqlite3BeginWriteOperation
+Current: reindexTable Havoced: sqlite3RefillIndex
+Current: analyzeTable Havoced: sqlite3SchemaToIndex
+Current: analyzeTable Havoced: sqlite3BeginWriteOperation
+Current: analyzeTable Havoced: openStatTable
+Current: analyzeTable Havoced: openStatTable
+Current: analyzeTable Havoced: analyzeOneTable
+Current: analyzeTable Havoced: loadAnalysis
+Current: sqlite3PagerSetBusyHandler Havoced: sqlite3OsFileControlHint
+Current: corruptSchema Havoced: sqlite3MPrintf
+Current: corruptSchema Havoced: sqlite3MPrintf
+Current: corruptSchema Havoced: sqlite3CorruptError
+Current: corruptSchema Havoced: sqlite3CorruptError
+Current: corruptSchema Havoced: sqlite3MPrintf
+Current: sqlite3SetString Havoced: sqlite3DbFree
+Current: sqlite3SetString Havoced: sqlite3DbStrDup
+Current: addModuleArgument Havoced: sqlite3ErrorMsg
+Current: addModuleArgument Havoced: sqlite3DbRealloc
+Current: addModuleArgument Havoced: sqlite3DbFree
+Current: sqlite3ExprFunctionUsable Havoced: sqlite3ErrorMsg
+Current: sqlite3ResolveSelectNames Havoced: sqlite3WalkSelect
+Current: sqlite3SelectPrep Havoced: sqlite3SelectExpand
+Current: sqlite3SelectPrep Havoced: sqlite3ResolveSelectNames
+Current: sqlite3SelectPrep Havoced: sqlite3SelectAddTypeInfo
+Current: sqlite3WindowChain Havoced: windowFind
+Current: sqlite3WindowChain Havoced: sqlite3ExprListDup
+Current: sqlite3WindowChain Havoced: sqlite3ExprListDup
+Current: sqlite3WindowChain Havoced: sqlite3DbFree
+Current: sqlite3WindowChain Havoced: sqlite3ErrorMsg
+Current: sqlite3AlterDropColumn Havoced: sqlite3LocateTableItem
+Current: sqlite3AlterDropColumn Havoced: isAlterableTable
+Current: sqlite3AlterDropColumn Havoced: isRealTable
+Current: sqlite3AlterDropColumn Havoced: sqlite3NameFromToken
+Current: sqlite3AlterDropColumn Havoced: sqlite3ColumnIndex
+Current: sqlite3AlterDropColumn Havoced: sqlite3SchemaToIndex
+Current: sqlite3AlterDropColumn Havoced: renameTestSchema
+Current: sqlite3AlterDropColumn Havoced: renameFixQuotes
+Current: sqlite3AlterDropColumn Havoced: sqlite3NestedParse
+Current: sqlite3AlterDropColumn Havoced: renameReloadSchema
+Current: sqlite3AlterDropColumn Havoced: renameTestSchema
+Current: sqlite3AlterDropColumn Havoced: sqlite3GetVdbe
+Current: sqlite3AlterDropColumn Havoced: sqlite3OpenTable
+Current: sqlite3AlterDropColumn Havoced: sqlite3VdbeAddOp1
+Current: sqlite3AlterDropColumn Havoced: sqlite3PrimaryKeyIndex
+Current: sqlite3AlterDropColumn Havoced: sqlite3VdbeAddOp3
+Current: sqlite3AlterDropColumn Havoced: sqlite3VdbeAddOp2
+Current: sqlite3AlterDropColumn Havoced: sqlite3TableColumnToIndex
+Current: sqlite3AlterDropColumn Havoced: sqlite3TableColumnToIndex
+Current: sqlite3AlterDropColumn Havoced: sqlite3ExprCodeGetColumnOfTable
+Current: sqlite3AlterDropColumn Havoced: sqlite3VdbeAddOp2
+Current: sqlite3AlterDropColumn Havoced: sqlite3VdbeAddOp3
+Current: sqlite3AlterDropColumn Havoced: sqlite3VdbeAddOp3
+Current: sqlite3AlterDropColumn Havoced: sqlite3VdbeAddOp4Int
+Current: sqlite3AlterDropColumn Havoced: sqlite3VdbeChangeP5
+Current: sqlite3AlterDropColumn Havoced: sqlite3VdbeAddOp2
+Current: sqlite3AlterDropColumn Havoced: sqlite3VdbeJumpHere
+Current: sqlite3AlterDropColumn Havoced: sqlite3ErrorMsg
+Current: sqlite3AlterDropColumn Havoced: sqlite3ErrorMsg
+Current: sqlite3AlterDropColumn Havoced: sqlite3ErrorMsg
+Current: sqlite3AlterDropColumn Havoced: sqlite3DbFree
+Current: sqlite3AlterDropColumn Havoced: sqlite3SrcListDelete
+Current: sqlite3AlterRenameTable Havoced: sqlite3LocateTableItem
+Current: sqlite3AlterRenameTable Havoced: sqlite3SchemaToIndex
+Current: sqlite3AlterRenameTable Havoced: sqlite3NameFromToken
+Current: sqlite3AlterRenameTable Havoced: sqlite3FindTable
+Current: sqlite3AlterRenameTable Havoced: sqlite3FindIndex
+Current: sqlite3AlterRenameTable Havoced: sqlite3IsShadowTableOf
+Current: sqlite3AlterRenameTable Havoced: isAlterableTable
+Current: sqlite3AlterRenameTable Havoced: sqlite3CheckObjectName
+Current: sqlite3AlterRenameTable Havoced: sqlite3AuthCheck
+Current: sqlite3AlterRenameTable Havoced: sqlite3ViewGetColumnNames
+Current: sqlite3AlterRenameTable Havoced: sqlite3GetVTable
+Current: sqlite3AlterRenameTable Havoced: sqlite3GetVdbe
+Current: sqlite3AlterRenameTable Havoced: sqlite3MayAbort
+Current: sqlite3AlterRenameTable Havoced: sqlite3Utf8CharLen
+Current: sqlite3AlterRenameTable Havoced: sqlite3NestedParse
+Current: sqlite3AlterRenameTable Havoced: sqlite3NestedParse
+Current: sqlite3AlterRenameTable Havoced: sqlite3FindTable
+Current: sqlite3AlterRenameTable Havoced: sqlite3NestedParse
+Current: sqlite3AlterRenameTable Havoced: sqlite3NestedParse
+Current: sqlite3AlterRenameTable Havoced: sqlite3VdbeLoadString
+Current: sqlite3AlterRenameTable Havoced: sqlite3VdbeAddOp4
+Current: sqlite3AlterRenameTable Havoced: renameReloadSchema
+Current: sqlite3AlterRenameTable Havoced: renameTestSchema
+Current: sqlite3AlterRenameTable Havoced: sqlite3ErrorMsg
+Current: sqlite3AlterRenameTable Havoced: sqlite3ErrorMsg
+Current: sqlite3AlterRenameTable Havoced: sqlite3SrcListDelete
+Current: sqlite3AlterRenameTable Havoced: sqlite3DbFree
+Current: sqlite3Analyze Havoced: sqlite3ReadSchema
+Current: sqlite3Analyze Havoced: sqlite3FindDb
+Current: sqlite3Analyze Havoced: sqlite3TwoPartName
+Current: sqlite3Analyze Havoced: sqlite3NameFromToken
+Current: sqlite3Analyze Havoced: sqlite3FindIndex
+Current: sqlite3Analyze Havoced: sqlite3LocateTable
+Current: sqlite3Analyze Havoced: analyzeTable
+Current: sqlite3Analyze Havoced: analyzeTable
+Current: sqlite3Analyze Havoced: sqlite3DbFree
+Current: sqlite3Analyze Havoced: analyzeDatabase
+Current: sqlite3Analyze Havoced: analyzeDatabase
+Current: sqlite3Analyze Havoced: sqlite3GetVdbe
+Current: sqlite3Analyze Havoced: sqlite3VdbeAddOp0
+Current: sqlite3Reindex Havoced: sqlite3ReadSchema
+Current: sqlite3Reindex Havoced: sqlite3NameFromToken
+Current: sqlite3Reindex Havoced: sqlite3FindCollSeq
+Current: sqlite3Reindex Havoced: sqlite3DbFree
+Current: sqlite3Reindex Havoced: sqlite3TwoPartName
+Current: sqlite3Reindex Havoced: sqlite3NameFromToken
+Current: sqlite3Reindex Havoced: sqlite3FindTable
+Current: sqlite3Reindex Havoced: sqlite3FindIndex
+Current: sqlite3Reindex Havoced: sqlite3DbFree
+Current: sqlite3Reindex Havoced: sqlite3ErrorMsg
+Current: sqlite3Reindex Havoced: sqlite3BeginWriteOperation
+Current: sqlite3Reindex Havoced: sqlite3RefillIndex
+Current: sqlite3Reindex Havoced: reindexTable
+Current: sqlite3Reindex Havoced: sqlite3DbFree
+Current: sqlite3Reindex Havoced: reindexDatabases
+Current: sqlite3Reindex Havoced: sqlite3DbFree
+Current: sqlite3Reindex Havoced: reindexDatabases
+Current: sqlite3FinishTrigger Havoced: sqlite3SchemaToIndex
+Current: sqlite3FinishTrigger Havoced: sqlite3TokenInit
+Current: sqlite3FinishTrigger Havoced: sqlite3FixInit
+Current: sqlite3FinishTrigger Havoced: sqlite3FixTriggerStep
+Current: sqlite3FinishTrigger Havoced: sqlite3FixExpr
+Current: sqlite3FinishTrigger Havoced: sqlite3GetVdbe
+Current: sqlite3FinishTrigger Havoced: sqlite3BeginWriteOperation
+Current: sqlite3FinishTrigger Havoced: sqlite3DbStrNDup
+Current: sqlite3FinishTrigger Havoced: sqlite3NestedParse
+Current: sqlite3FinishTrigger Havoced: sqlite3DbFree
+Current: sqlite3FinishTrigger Havoced: sqlite3ChangeCookie
+Current: sqlite3FinishTrigger Havoced: sqlite3MPrintf
+Current: sqlite3FinishTrigger Havoced: sqlite3VdbeAddParseSchemaOp
+Current: sqlite3FinishTrigger Havoced: sqlite3HashInsert
+Current: sqlite3FinishTrigger Havoced: sqlite3HashFind
+Current: sqlite3FinishTrigger Havoced: sqlite3OomFault
+Current: sqlite3FinishTrigger Havoced: sqlite3DeleteTrigger
+Current: sqlite3FinishTrigger Havoced: sqlite3DeleteTriggerStep
+Current: sqlite3Vacuum Havoced: sqlite3GetVdbe
+Current: sqlite3Vacuum Havoced: sqlite3TwoPartName
+Current: sqlite3Vacuum Havoced: sqlite3ResolveSelfReference
+Current: sqlite3Vacuum Havoced: sqlite3ExprCode
+Current: sqlite3Vacuum Havoced: sqlite3VdbeAddOp2
+Current: sqlite3Vacuum Havoced: sqlite3VdbeUsesBtree
+Current: sqlite3Vacuum Havoced: sqlite3ExprDelete
+Current: sqlite3PExprAddSelect Havoced: sqlite3SelectDelete
+Current: sqlite3PExprAddSelect Havoced: sqlite3ExprSetHeightAndFlags
+Current: sqlite3WindowAttach Havoced: sqlite3WindowDelete
+Current: sqlite3WindowAttach Havoced: sqlite3ErrorMsg
+Current: sqlite3ExprListCheckLength Havoced: sqlite3ErrorMsg
+Current: sqlite3SrcListFuncArgs Havoced: sqlite3ExprListDelete
+Current: sqlite3SrcListIndexedBy Havoced: sqlite3NameFromToken
+Current: sqlite3AddGenerated Havoced: sqlite3_strnicmp
+Current: sqlite3AddGenerated Havoced: sqlite3_strnicmp
+Current: sqlite3AddGenerated Havoced: makeColumnPartOfPrimaryKey
+Current: sqlite3AddGenerated Havoced: sqlite3ErrorMsg
+Current: sqlite3AddGenerated Havoced: sqlite3ErrorMsg
+Current: sqlite3AddGenerated Havoced: sqlite3ExprDelete
+Current: sqlite3AddColumn Havoced: sqlite3DbMallocRaw
+Current: sqlite3AddColumn Havoced: sqlite3RenameTokenMap
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %25, i8* %33, i64 %36, i32 1, i1 false), !dbg !5674
+Current: sqlite3AddColumn Havoced: sqlite3Dequote
+Current: sqlite3AddColumn Havoced: sqlite3StrIHash
+Current: sqlite3AddColumn Havoced: sqlite3StrICmp
+Current: sqlite3AddColumn Havoced: sqlite3DbRealloc
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %92, i8 0, i64 32, i32 8, i1 false), !dbg !5743
+Current: sqlite3AddColumn Havoced: sqlite3Strlen30
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %103, i8* %105, i64 %108, i32 1, i1 false), !dbg !5766
+Current: sqlite3AddColumn Havoced: sqlite3Dequote
+Current: sqlite3AddColumn Havoced: sqlite3AffinityType
+Current: sqlite3AddColumn Havoced: sqlite3DbFree
+Current: sqlite3AddColumn Havoced: sqlite3ErrorMsg
+Current: sqlite3AddColumn Havoced: sqlite3DbFree
+Current: sqlite3AddColumn Havoced: sqlite3ErrorMsg
+Current: btreeParseCellPtrIndex Havoced: btreeParseCellAdjustSizeForOverflow
+Current: btreeParseCellPtrNoPayload Havoced: sqlite3GetVarint
+Current: btreeParseCellPtr Havoced: btreeParseCellAdjustSizeForOverflow
+Current: sqlite3_str_vappendf Havoced: sqlite3_str_append
+Current: sqlite3_str_vappendf Havoced: getIntArg
+Current: sqlite3_str_vappendf Havoced: getIntArg
+Current: sqlite3_str_vappendf Havoced: sqlite3_str_appendall
+Current: sqlite3_str_vappendf Havoced: sqlite3_str_appendf
+Current: sqlite3_str_vappendf Havoced: sqlite3_str_appendall
+Current: sqlite3_str_vappendf Havoced: sqlite3_str_appendall
+Current: sqlite3_str_vappendf Havoced: sqlite3_str_append
+Current: sqlite3_str_vappendf Havoced: sqlite3_str_appendall
+Current: sqlite3_str_vappendf Havoced: sqlite3_str_append
+Current: sqlite3_str_vappendf Havoced: getTextArg
+Current: sqlite3_str_vappendf Havoced: printfTempBuf
+Current: sqlite3_str_vappendf Havoced: getTextArg
+Current: sqlite3_str_vappendf Havoced: sqlite3_str_appendchar
+Current: sqlite3_str_vappendf Havoced: sqlite3_str_append
+Current: sqlite3_str_vappendf Havoced: getTextArg
+Current: sqlite3_str_vappendf Havoced: sqlite3DbMallocSize
+Current: sqlite3_str_vappendf Havoced: getDoubleArg
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %554, i8* %555, i64 8, i32 8, i1 false), !dbg !6477
+Current: sqlite3_str_vappendf Havoced: sqlite3IsNaN
+Current: sqlite3_str_vappendf Havoced: printfTempBuf
+Current: sqlite3_str_vappendf Havoced: et_getdigit
+Current: sqlite3_str_vappendf Havoced: et_getdigit
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %660, i8* getelementptr inbounds ([4 x i8], [4 x i8]* @.str.2.1220, i32 0, i32 0), i64 4, i32 1, i1 false), !dbg !6589
+Current: sqlite3_str_vappendf Havoced: getIntArg
+Current: sqlite3_str_vappendf Havoced: getIntArg
+Current: sqlite3_str_vappendf Havoced: printfTempBuf
+Current: sqlite3_str_vappendf Havoced: sqlite3_str_append
+Current: sqlite3_str_vappendf Havoced: sqlite3_str_appendchar
+Current: sqlite3_str_vappendf Havoced: sqlite3_str_append
+Current: sqlite3_str_vappendf Havoced: sqlite3_str_appendchar
+Current: sqlite3_str_vappendf Havoced: sqlite3DbFree
+Current: sqlite3_str_vappendf Havoced: sqlite3_str_append
+Current: printSchemaLine Havoced: sqlite3_strglob
+Current: tryToCloneData Havoced: strlen30
+Current: tryToCloneData Havoced: sqlite3_mprintf
+Current: tryToCloneData Havoced: sqlite3_prepare_v2
+Current: tryToCloneData Havoced: sqlite3_column_count
+Current: tryToCloneData Havoced: sqlite3_malloc64
+Current: tryToCloneData Havoced: shell_out_of_memory
+Current: tryToCloneData Havoced: sqlite3_snprintf
+Current: tryToCloneData Havoced: strlen30
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %34, i8* getelementptr inbounds ([3 x i8], [3 x i8]* @.str.785, i32 0, i32 0), i64 2, i32 1, i1 false), !dbg !5685
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %39, i8* getelementptr inbounds ([3 x i8], [3 x i8]* @.str.786, i32 0, i32 0), i64 3, i32 1, i1 false), !dbg !5694
+Current: tryToCloneData Havoced: sqlite3_prepare_v2
+Current: tryToCloneData Havoced: sqlite3_step
+Current: tryToCloneData Havoced: sqlite3_column_type
+Current: tryToCloneData Havoced: sqlite3_bind_null
+Current: tryToCloneData Havoced: sqlite3_column_blob
+Current: tryToCloneData Havoced: sqlite3_column_bytes
+Current: tryToCloneData Havoced: sqlite3_bind_blob
+Current: tryToCloneData Havoced: sqlite3_column_text
+Current: tryToCloneData Havoced: sqlite3_bind_text
+Current: tryToCloneData Havoced: sqlite3_column_double
+Current: tryToCloneData Havoced: sqlite3_bind_double
+Current: tryToCloneData Havoced: sqlite3_column_int64
+Current: tryToCloneData Havoced: sqlite3_bind_int64
+Current: tryToCloneData Havoced: sqlite3_step
+Current: tryToCloneData Havoced: sqlite3_extended_errcode
+Current: tryToCloneData Havoced: sqlite3_errmsg
+Current: tryToCloneData Havoced: sqlite3_reset
+Current: tryToCloneData Havoced: sqlite3_step
+Current: tryToCloneData Havoced: sqlite3_finalize
+Current: tryToCloneData Havoced: sqlite3_free
+Current: tryToCloneData Havoced: sqlite3_mprintf
+Current: tryToCloneData Havoced: sqlite3_prepare_v2
+Current: tryToCloneData Havoced: sqlite3_extended_errcode
+Current: tryToCloneData Havoced: sqlite3_errmsg
+Current: tryToCloneData Havoced: sqlite3_extended_errcode
+Current: tryToCloneData Havoced: sqlite3_errmsg
+Current: tryToCloneData Havoced: sqlite3_finalize
+Current: tryToCloneData Havoced: sqlite3_finalize
+Current: tryToCloneData Havoced: sqlite3_free
+Current: tryToCloneData Havoced: sqlite3_free
+
+        Unrolling loop in function "clearCellOverflow" for 1 iterations succeeded.
+        Transformed "clearCellOverflow" from 23 to 24 basic blocks and from 130 to 139 instructionsCurrent: clearCellOverflow Havoced: sqlite3Get4byte
+Current: clearCellOverflow Havoced: btreePagecount
+Current: clearCellOverflow Havoced: getOverflowPage
+Current: clearCellOverflow Havoced: btreePageLookup
+Current: clearCellOverflow Havoced: sqlite3PagerPageRefcount
+Current: clearCellOverflow Havoced: freePage2
+Current: clearCellOverflow Havoced: sqlite3CorruptError
+Current: clearCellOverflow Havoced: sqlite3PagerUnref
+Current: clearCellOverflow Havoced: sqlite3CorruptError
+Current: clearCellOverflow Havoced: sqlite3CorruptError
+Current: dropCell Havoced: freeSpace
+isMemmove:   call void @llvm.memmove.p0i8.p0i8.i64(i8* %12, i8* %82, i64 %88, i32 1, i1 false), !dbg !5698
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %45, i8 0, i64 4, i32 1, i1 false), !dbg !5674
+Current: dropCell Havoced: sqlite3CorruptError
+Current: insertCell Havoced: sqlite3PagerWrite
+Current: insertCell Havoced: allocateSpace
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %60, i8* %2, i64 %61, i32 1, i1 false), !dbg !5714
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %51, i8* %52, i64 %54, i32 1, i1 false), !dbg !5705
+Current: insertCell Havoced: sqlite3Put4byte
+isMemmove:   call void @llvm.memmove.p0i8.p0i8.i64(i8* %67, i8* %66, i64 %73, i32 1, i1 false), !dbg !5725
+Current: insertCell Havoced: ptrmapPutOvflPtr
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %4, i8* %2, i64 %17, i32 1, i1 false), !dbg !5651
+Current: insertCell Havoced: sqlite3Put4byte
+
+        Unrolling loop in function "balance" for 1 iterations succeeded.
+        Transformed "balance" from 36 to 37 basic blocks and from 246 to 254 instructionsCurrent: balance Havoced: btreeComputeFreeSpace
+Current: balance Havoced: sqlite3PagerWrite
+Current: balance Havoced: btreeComputeFreeSpace
+Current: balance Havoced: sqlite3PageMalloc
+Current: balance Havoced: balance_nonroot
+Current: balance Havoced: sqlite3PageFree
+Current: balance Havoced: balance_quick
+Current: balance Havoced: releasePage
+Current: balance Havoced: anotherValidCursor
+Current: balance Havoced: balance_deeper
+Current: balance Havoced: sqlite3PageFree
+
+        Unrolling loop in function "btreeReleaseAllCursorPages" for 1 iterations succeeded.
+        Transformed "btreeReleaseAllCursorPages" from 7 to 8 basic blocks and from 39 to 45 instructionsCurrent: btreeReleaseAllCursorPages Havoced: releasePageNotNull
+Current: btreeReleaseAllCursorPages Havoced: releasePageNotNull
+getMatchingFunctions
+res.push_back: find_home_dir
+res.push_back: memtraceMalloc
+res.push_back: sqlite3_malloc
+res.push_back: sqlite3MemMalloc
+res.push_back: pcache1Alloc
+res.push_back: sqlite3ErrStr
+res.push_back: sqlite3_compileoption_get
+res.push_back: sqlite3_errstr
+res.push_back: sqlite3PageMalloc
+res.push_back: sqlite3SelectOpName
+res.push_back: sqlite3JournalModename
+res.push_back: sqlite3OpcodeName
+
+        Transformed "sqlite3Malloc" from 8 to 34 basic blocks and from 32 to 83 instructionsCurrent: sqlite3Malloc Havoced: sqlite3OpcodeName
+Current: sqlite3Malloc Havoced: sqlite3JournalModename
+Current: sqlite3Malloc Havoced: sqlite3SelectOpName
+Current: sqlite3Malloc Havoced: sqlite3PageMalloc
+Current: sqlite3Malloc Havoced: sqlite3_errstr
+Current: sqlite3Malloc Havoced: sqlite3_compileoption_get
+Current: sqlite3Malloc Havoced: sqlite3ErrStr
+Current: sqlite3Malloc Havoced: pcache1Alloc
+Current: sqlite3Malloc Havoced: sqlite3MemMalloc
+Current: sqlite3Malloc Havoced: sqlite3_malloc
+Current: sqlite3Malloc Havoced: memtraceMalloc
+Current: sqlite3Malloc Havoced: find_home_dir
+Current: sqlite3Malloc Havoced: sqlite3_mutex_enter
+Current: sqlite3Malloc Havoced: mallocWithAlarm
+Current: sqlite3Malloc Havoced: sqlite3_mutex_leave
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %716, i8* %718, i64 %720, i32 1, i1 false), !dbg !6071
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %411, i8* %147, i64 %661, i32 1, i1 false), !dbg !5993
+Current: sqlite3CorruptError Havoced: sqlite3ReportError
+Current: sqlite3CorruptError Havoced: sqlite3ReportError
+Current: btreeOverwriteCell Havoced: btreeOverwriteContent
+Current: btreeOverwriteCell Havoced: sqlite3Get4byte
+Current: btreeOverwriteCell Havoced: btreeGetPage
+Current: btreeOverwriteCell Havoced: sqlite3PagerPageRefcount
+Current: btreeOverwriteCell Havoced: sqlite3Get4byte
+Current: btreeOverwriteCell Havoced: btreeOverwriteContent
+Current: btreeOverwriteCell Havoced: sqlite3CorruptError
+Current: btreeOverwriteCell Havoced: sqlite3PagerUnref
+Current: btreeOverwriteCell Havoced: sqlite3CorruptError
+Current: sqlite3CorruptError Havoced: sqlite3ReportError
+
+                                                           1 sec [DONE]
+        Number of expressions:                        192823
+        after encoding
+
+      171 assertions before transformations (35 no_function_call, 135 no_back_edge, 1 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                           26624
+        Fixed Memory Address Assigner
+          Number of moved ops                              6
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           75534
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                              52
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             860
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             231
+        ToASC Analyser
+          Memcpy/memset found                            yes
+        Byte-Based Memory Creator
+          Number of rewrites                           11553
+        Instantiation-Based ToASC Simplifier
+          Number of rewrites                              23
+        Simplifier
+          Number of moved ops                          20928
+          Number of rewrites                           28768
+        FP Abstraction
+          Number of rewrites                             166
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              8
+          Number of rewrites                              52
+                                                           1 sec [DONE]
+        
+      171 assertions remain after transformations (35 no_function_call, 135 no_back_edge, 1 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...

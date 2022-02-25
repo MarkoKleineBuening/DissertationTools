@@ -1,0 +1,249 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+handleJobInSeparateProcess0
+
+Checking job 15 ...about to run job:
+preconNumber: 5, 1
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 12
+    HavocLimit : 0
+    PreconditionNumber : 5
+    PreconditionLocation : jobs/15
+    TimeOut : 300
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : bmi160_aux_write
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "bmi160_aux_write" for 12 iterations succeeded.getMatchingFunctions
+res.push_back: stubDelay
+getMatchingFunctions
+res.push_back: stubDelay
+getMatchingFunctions
+res.push_back: stubDelay
+getMatchingFunctions
+res.push_back: stubDelay
+getMatchingFunctions
+res.push_back: stubDelay
+getMatchingFunctions
+res.push_back: stubDelay
+getMatchingFunctions
+res.push_back: stubDelay
+getMatchingFunctions
+res.push_back: stubDelay
+getMatchingFunctions
+res.push_back: stubDelay
+getMatchingFunctions
+res.push_back: stubDelay
+getMatchingFunctions
+res.push_back: stubDelay
+getMatchingFunctions
+res.push_back: stubDelay
+getMatchingFunctions
+res.push_back: stubDelay
+getMatchingFunctions
+res.push_back: stubDelay
+getMatchingFunctions
+res.push_back: stubDelay
+getMatchingFunctions
+res.push_back: stubDelay
+getMatchingFunctions
+res.push_back: stubDelay
+getMatchingFunctions
+res.push_back: stubDelay
+getMatchingFunctions
+res.push_back: stubDelay
+getMatchingFunctions
+res.push_back: stubDelay
+getMatchingFunctions
+res.push_back: stubDelay
+getMatchingFunctions
+res.push_back: stubDelay
+getMatchingFunctions
+res.push_back: stubDelay
+getMatchingFunctions
+res.push_back: stubDelay
+
+      Transformed "bmi160_aux_write" from 14 to 188 basic blocks and from 94 to 895 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...size Alloca: 1
+size Alloca: 1
+
+        Unrolling loop in function "bmi160_set_regs" for 12 iterations succeeded.getMatchingFunctions
+res.push_back: stubRead
+res.push_back: stubWrite
+getMatchingFunctions
+res.push_back: stubRead
+res.push_back: stubWrite
+getMatchingFunctions
+res.push_back: stubRead
+res.push_back: stubWrite
+getMatchingFunctions
+res.push_back: stubRead
+res.push_back: stubWrite
+getMatchingFunctions
+res.push_back: stubRead
+res.push_back: stubWrite
+getMatchingFunctions
+res.push_back: stubRead
+res.push_back: stubWrite
+getMatchingFunctions
+res.push_back: stubRead
+res.push_back: stubWrite
+getMatchingFunctions
+res.push_back: stubRead
+res.push_back: stubWrite
+getMatchingFunctions
+res.push_back: stubRead
+res.push_back: stubWrite
+getMatchingFunctions
+res.push_back: stubRead
+res.push_back: stubWrite
+getMatchingFunctions
+res.push_back: stubRead
+res.push_back: stubWrite
+getMatchingFunctions
+res.push_back: stubRead
+res.push_back: stubWrite
+
+        Transformed "bmi160_set_regs" from 5 to 100 basic blocks and from 47 to 473 instructions
+        Unrolling loop in function "stubRead" for 12 iterations succeeded.
+        Transformed "stubRead" from 7 to 30 basic blocks and from 43 to 190 instructions
+                                                           0 sec [DONE]
+        Number of expressions:                        113512
+        after encoding
+
+      637 assertions before transformations (312 no_function_call, 313 no_back_edge, 12 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                           96070
+        Fixed Memory Address Assigner
+          Number of moved ops                              7
+          Number of rewrites                              10
+        Simplifier
+          Number of moved ops                              2
+          Number of rewrites                            6533
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               1
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                            2068
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      637 assertions remain after transformations (312 no_function_call, 313 no_back_edge, 12 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...            0 sec [DONE]
+        
+                                                           0 sec [DONE]
+      after performing Check
+evaluateCheckerResultsViaRefinementLoop
+checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+BranchInst - LoopBound
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setCheckToUnsafe
+setCheckToUnsafe
+Check for floating point traces / abstractions currently deactivated
+getCheckerResultAfterUpdatingMarker
+failingInst:   call void @llbmc.assert(i1 %2, i32 %0)
+Preconditions internal: 
+i8 %arg0:-9; (i8 %arg0:247)i16 %arg2:14; (i16 %arg2:14)
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: i16 %arg2 = nondef() : 14
+assumePair: i8 %arg0 = nondef() : -9
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   call void @llbmc.assert(i1 %2, i32 %0)
+Preconditions internal: 
+i8 %arg0:-3; (i8 %arg0:253)i16 %arg2:-32768; (i16 %arg2:32768)
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: i16 %arg2 = nondef() : -32768
+assumePair: i8 %arg0 = nondef() : -3
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   call void @llbmc.assert(i1 %2, i32 %0)
+Preconditions internal: 
+i8 %arg0:-3; (i8 %arg0:253)i16 %arg2:8; (i16 %arg2:8)
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: i16 %arg2 = nondef() : 8
+assumePair: i8 %arg0 = nondef() : -3
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   call void @llbmc.assert(i1 %2, i32 %0)
+Preconditions internal: 
+i8 %arg0:-1; (i8 %arg0:255)i16 %arg2:-32764; (i16 %arg2:32772)
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: i16 %arg2 = nondef() : -32764
+assumePair: i8 %arg0 = nondef() : -1
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   call void @llbmc.assert(i1 %2, i32 %0)
+Preconditions internal: 
+i8 %arg0:-9; (i8 %arg0:247)i16 %arg2:21; (i16 %arg2:21)
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: i16 %arg2 = nondef() : 21
+assumePair: i8 %arg0 = nondef() : -9
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      name of function arguments: Writing precondition at: jobs/15/precondition_bmi160_aux_write.txt
+
+Generated Preconditions:
+[underoverapprox]name of function arguments: 
+i8 %arg0:-9; i16 %arg2:14; 
+i8 %arg0:-3; i16 %arg2:-32768; 
+i8 %arg0:-3; i16 %arg2:8; 
+i8 %arg0:-1; i16 %arg2:-32764; 
+i8 %arg0:-9; i16 %arg2:21; 
+
+                                                           0 sec [DONE]
+    allunsafe
+    
+                                                           0 sec [DONE]
+  

@@ -1,0 +1,162 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 1973 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 2
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/1973
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : sqlite3InitCallback
+m_checker->run()
+
+    Performing bounded model checking ...
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...
+        Unrolling loop in function "sqlite3FindIndex" for 1 iterations succeeded.
+        Transformed "sqlite3FindIndex" from 13 to 15 basic blocks and from 58 to 67 instructionsCurrent: sqlite3FindIndex Havoced: sqlite3DbIsNamed
+Current: sqlite3FindIndex Havoced: sqlite3HashFind
+
+        Unrolling loop in function "sqlite3GetUInt32" for 1 iterations succeeded.
+        Transformed "sqlite3GetUInt32" from 11 to 15 basic blocks and from 70 to 111 instructions
+        Unrolling loop in function "sqlite3IndexHasDuplicateRootPage" for 1 iterations succeeded.
+        Transformed "sqlite3IndexHasDuplicateRootPage" from 9 to 10 basic blocks and from 30 to 33 instructionsCurrent: corruptSchema Havoced: sqlite3MPrintf
+Current: corruptSchema Havoced: sqlite3MPrintf
+Current: corruptSchema Havoced: sqlite3CorruptError
+Current: corruptSchema Havoced: sqlite3CorruptError
+Current: corruptSchema Havoced: sqlite3MPrintf
+Current: corruptSchema Havoced: sqlite3MPrintf
+Current: corruptSchema Havoced: sqlite3MPrintf
+Current: corruptSchema Havoced: sqlite3CorruptError
+Current: corruptSchema Havoced: sqlite3CorruptError
+Current: corruptSchema Havoced: sqlite3MPrintf
+Current: corruptSchema Havoced: sqlite3MPrintf
+Current: corruptSchema Havoced: sqlite3MPrintf
+Current: corruptSchema Havoced: sqlite3CorruptError
+Current: corruptSchema Havoced: sqlite3CorruptError
+Current: corruptSchema Havoced: sqlite3MPrintf
+Current: corruptSchema Havoced: sqlite3MPrintf
+Current: corruptSchema Havoced: sqlite3MPrintf
+Current: corruptSchema Havoced: sqlite3CorruptError
+Current: corruptSchema Havoced: sqlite3CorruptError
+Current: corruptSchema Havoced: sqlite3MPrintf
+
+        Unrolling loop in function "sqlite3Prepare" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3Prepare" for 1 iterations succeeded.
+        Transformed "sqlite3Prepare" from 44 to 46 basic blocks and from 260 to 269 instructionsisMemset:   call void @llvm.memset.p0i8.i64(i8* %9, i8 0, i64 208, i32 8, i1 false), !dbg !5654
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %11, i8 0, i64 152, i32 1, i1 false), !dbg !5656
+Current: sqlite3Prepare Havoced: sqlite3BtreeSchemaLocked
+Current: sqlite3Prepare Havoced: sqlite3ErrorWithMsg
+Current: sqlite3Prepare Havoced: sqlite3VtabUnlockList
+Current: sqlite3Prepare Havoced: sqlite3RunParser
+Current: sqlite3Prepare Havoced: sqlite3DbStrNDup
+Current: sqlite3Prepare Havoced: sqlite3RunParser
+Current: sqlite3Prepare Havoced: sqlite3DbFree
+Current: sqlite3Prepare Havoced: sqlite3VdbeSetSql
+Current: sqlite3Prepare Havoced: sqlite3ErrorClear
+Current: sqlite3Prepare Havoced: schemaIsValid
+Current: sqlite3Prepare Havoced: sqlite3VdbeFinalize
+Current: sqlite3Prepare Havoced: sqlite3Error
+Current: sqlite3Prepare Havoced: sqlite3ErrorWithMsg
+Current: sqlite3Prepare Havoced: sqlite3DbFree
+Current: sqlite3Prepare Havoced: sqlite3DbFree
+Current: sqlite3Prepare Havoced: sqlite3ErrorWithMsg
+Current: sqlite3Prepare Havoced: sqlite3ApiExit
+Current: sqlite3Prepare Havoced: sqlite3ParserReset
+Current: sqlite3_errmsg Havoced: sqlite3ErrStr
+Current: sqlite3_errmsg Havoced: sqlite3SafetyCheckSickOrOk
+Current: sqlite3_errmsg Havoced: sqlite3MisuseError
+Current: sqlite3_errmsg Havoced: sqlite3ErrStr
+Current: sqlite3_errmsg Havoced: sqlite3_mutex_enter
+Current: sqlite3_errmsg Havoced: sqlite3_value_text
+Current: sqlite3_errmsg Havoced: sqlite3ErrStr
+Current: sqlite3_errmsg Havoced: sqlite3ErrStr
+Current: sqlite3_errmsg Havoced: sqlite3_mutex_leave
+Current: corruptSchema Havoced: sqlite3MPrintf
+Current: corruptSchema Havoced: sqlite3MPrintf
+Current: corruptSchema Havoced: sqlite3CorruptError
+Current: corruptSchema Havoced: sqlite3CorruptError
+Current: corruptSchema Havoced: sqlite3MPrintf
+Current: sqlite3_finalize Havoced: vdbeSafety
+Current: sqlite3_finalize Havoced: sqlite3_mutex_enter
+Current: sqlite3_finalize Havoced: invokeProfileCallback
+Current: sqlite3_finalize Havoced: sqlite3VdbeFinalize
+Current: sqlite3_finalize Havoced: sqlite3ApiExit
+Current: sqlite3_finalize Havoced: sqlite3LeaveMutexAndCloseZombie
+Current: sqlite3_finalize Havoced: sqlite3MisuseError
+Current: corruptSchema Havoced: sqlite3MPrintf
+Current: corruptSchema Havoced: sqlite3MPrintf
+Current: corruptSchema Havoced: sqlite3CorruptError
+Current: corruptSchema Havoced: sqlite3CorruptError
+Current: corruptSchema Havoced: sqlite3MPrintf
+Current: corruptSchema Havoced: sqlite3MPrintf
+Current: corruptSchema Havoced: sqlite3MPrintf
+Current: corruptSchema Havoced: sqlite3CorruptError
+Current: corruptSchema Havoced: sqlite3CorruptError
+Current: corruptSchema Havoced: sqlite3MPrintf
+
+                                                           0 sec [DONE]
+        Number of expressions:                        158170
+        after encoding
+
+      10 assertions before transformations (6 no_back_edge, 4 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            5269
+        Fixed Memory Address Assigner
+          Number of moved ops                              1
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72843
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               3
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                              68
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             504
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      10 assertions remain after transformations (6 no_back_edge, 4 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...

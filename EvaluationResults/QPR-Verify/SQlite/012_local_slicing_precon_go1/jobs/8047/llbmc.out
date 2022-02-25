@@ -1,0 +1,712 @@
+runJobCommand
+precondition analysis with entry:sqlite3Select
+arguents: child
+arguents: job
+arguents: mode
+arguents: precondition
+handleJobInSeparateProcess0
+
+Checking job 8047 ...about to run job:
+preconNumber: 5, 1
+
+  Running Model Checker with 1 checks ...entry: sqlite3Select, functionName: sqlite3WindowCodeStep
+  call void @qpr.precondition.sqlite3WindowCodeStep(%struct.Parse.129* %0, %struct.Select.102* %1, %struct.WhereInfo.313* %737, i32 %802, i32 %796)
+entry: sqlite3Select, functionName: sqlite3Select
+  <badref> = call i32 @qpr.precondition.sqlite3Select(%struct.Parse.129* %0, %struct.Select.102* %324, %struct.SelectDest.292* %7)
+entry: sqlite3Select, functionName: sqlite3WindowCodeStep
+try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 1
+    LoopUnrollBound : 1
+    HavocLimit : 0
+    PreconditionNumber : 5
+    PreconditionLocation : jobs/8047
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : true
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [1] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : sqlite3Select
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "sqlite3Select" for 1 iterations succeeded.
+      Unrolling loop in function "sqlite3Select" for 1 iterations succeeded.
+      Unrolling loop in function "sqlite3Select" for 1 iterations succeeded.
+      Unrolling loop in function "sqlite3Select" for 1 iterations succeeded.
+      Unrolling loop in function "sqlite3Select" for 1 iterations succeeded.
+      Unrolling loop in function "sqlite3Select" for 1 iterations succeeded.
+      Unrolling loop in function "sqlite3Select" for 1 iterations succeeded.
+      Unrolling loop in function "sqlite3Select" for 1 iterations succeeded.
+      Unrolling loop in function "sqlite3Select" for 1 iterations succeeded.
+      Unrolling loop in function "sqlite3Select" for 1 iterations succeeded.
+      Unrolling loop in function "sqlite3Select" for 1 iterations succeeded.
+      Unrolling loop in function "sqlite3Select" for 1 iterations succeeded.
+      Transformed "sqlite3Select" from 295 to 333 basic blocks and from 2183 to 2393 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...size Alloca: 1
+size Alloca: 1
+size Alloca: 1
+getMatchingFunctions
+res.push_back: find_home_dir
+res.push_back: memtraceMalloc
+res.push_back: sqlite3_malloc
+res.push_back: sqlite3MemMalloc
+res.push_back: pcache1Alloc
+res.push_back: sqlite3ErrStr
+res.push_back: sqlite3_compileoption_get
+res.push_back: sqlite3_errstr
+res.push_back: sqlite3PageMalloc
+res.push_back: sqlite3SelectOpName
+res.push_back: sqlite3JournalModename
+res.push_back: sqlite3OpcodeName
+
+        Transformed "sqlite3Malloc" from 8 to 34 basic blocks and from 32 to 83 instructions
+        Transformed "sqlite3SelectOpName" from 6 to 11 basic blocks and from 15 to 24 instructionsgetMatchingFunctions
+res.push_back: sqlite3_mutex_enter
+res.push_back: sqlite3_mutex_leave
+res.push_back: sqlite3_mutex_free
+res.push_back: noopMutexFree
+res.push_back: noopMutexEnter
+res.push_back: noopMutexLeave
+res.push_back: pthreadMutexFree
+res.push_back: pthreadMutexEnter
+res.push_back: pthreadMutexLeave
+
+        Transformed "sqlite3_mutex_enter" from 3 to 545 basic blocks and from 8 to 1612 instructionsgetMatchingFunctions
+res.push_back: free
+res.push_back: printBold
+res.push_back: memtraceFree
+res.push_back: memtraceShutdown
+res.push_back: resolve_backslashes
+res.push_back: sqlite3_free
+res.push_back: sqlite3MemFree
+res.push_back: sqlite3MemShutdown
+res.push_back: pcache1Shutdown
+res.push_back: pcache1Free
+res.push_back: sqlite3_free_filename
+res.push_back: sqlite3NoopDestructor
+res.push_back: sqlite3SchemaClear
+res.push_back: sqlite3PageFree
+res.push_back: sqlite3ParserFinalize
+res.push_back: statAccumDestructor
+res.push_back: sqlite3Dequote
+res.push_back: logBadConnection
+res.push_back: sqlite3VdbeFrameMemDel
+res.push_back: sqlite3RowSetClear
+res.push_back: sqlite3RowSetDelete
+getMatchingFunctions
+res.push_back: free
+res.push_back: printBold
+res.push_back: memtraceFree
+res.push_back: memtraceShutdown
+res.push_back: resolve_backslashes
+res.push_back: sqlite3_free
+res.push_back: sqlite3MemFree
+res.push_back: sqlite3MemShutdown
+res.push_back: pcache1Shutdown
+res.push_back: pcache1Free
+res.push_back: sqlite3_free_filename
+res.push_back: sqlite3NoopDestructor
+res.push_back: sqlite3SchemaClear
+res.push_back: sqlite3PageFree
+res.push_back: sqlite3ParserFinalize
+res.push_back: statAccumDestructor
+res.push_back: sqlite3Dequote
+res.push_back: logBadConnection
+res.push_back: sqlite3VdbeFrameMemDel
+res.push_back: sqlite3RowSetClear
+res.push_back: sqlite3RowSetDelete
+
+        Transformed "sqlite3_free" from 6 to 1090 basic blocks and from 22 to 3182 instructions
+        Unrolling loop in function "renameParseCleanup" for 1 iterations succeeded.
+        Transformed "renameParseCleanup" from 6 to 7 basic blocks and from 41 to 46 instructions
+        Unrolling loop in function "closeAllCursors" for 1 iterations succeeded.
+        Unrolling loop in function "closeAllCursors" for 1 iterations succeeded.
+        Transformed "closeAllCursors" from 14 to 16 basic blocks and from 65 to 75 instructions
+        Unrolling loop in function "closeCursorsInFrame" for 1 iterations succeeded.
+        Transformed "closeCursorsInFrame" from 9 to 10 basic blocks and from 38 to 42 instructionsgetMatchingFunctions
+res.push_back: fsdirClose
+res.push_back: fsdirNext
+res.push_back: fsdirEof
+res.push_back: completionClose
+res.push_back: completionNext
+res.push_back: completionEof
+res.push_back: seriesClose
+res.push_back: seriesNext
+res.push_back: seriesEof
+res.push_back: expertClose
+res.push_back: expertNext
+res.push_back: expertEof
+res.push_back: pragmaVtabClose
+res.push_back: pragmaVtabNext
+res.push_back: pragmaVtabEof
+
+        Transformed "sqlite3VdbeFreeCursor" from 7 to 662 basic blocks and from 45 to 1970 instructions
+        Unrolling loop in function "renameResolveTrigger" for 1 iterations succeeded.
+        Unrolling loop in function "renameResolveTrigger" for 1 iterations succeeded.
+        Transformed "renameResolveTrigger" from 48 to 111 basic blocks and from 284 to 656 instructionsisMemset:   call void @llvm.memset.p0i8.i64(i8* %6, i8 0, i64 56, i32 8, i1 false), !dbg !5665
+
+        Unrolling loop in function "sqlite3SchemaToIndex" for 1 iterations succeeded.
+        Transformed "sqlite3SchemaToIndex" from 32 to 36 instructions
+        Unrolling loop in function "sqlite3FindTable" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3FindTable" for 1 iterations succeeded.
+        Transformed "sqlite3FindTable" from 46 to 50 basic blocks and from 220 to 237 instructions
+        Unrolling loop in function "findElementWithHash" for 1 iterations succeeded.
+        Transformed "findElementWithHash" from 12 to 13 basic blocks and from 74 to 82 instructions
+        Unrolling loop in function "strHash" for 1 iterations succeeded.
+        Transformed "strHash" from 4 to 5 basic blocks and from 34 to 48 instructions
+        Unrolling loop in function "sqlite3StrICmp" for 1 iterations succeeded.
+        Transformed "sqlite3StrICmp" from 10 to 16 basic blocks and from 56 to 98 instructions
+        Unrolling loop in function "sqlite3_strnicmp" for 1 iterations succeeded.
+        Transformed "sqlite3_strnicmp" from 16 to 21 basic blocks and from 84 to 126 instructions
+        Unrolling loop in function "sqlite3GetVTable" for 1 iterations succeeded.
+        Transformed "sqlite3GetVTable" from 7 to 12 basic blocks and from 25 to 41 instructions
+        Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3_str_vappendf" for 1 iterations succeeded.
+        Transformed "sqlite3_str_vappendf" from 467 to 567 basic blocks and from 2718 to 3228 instructionsisMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %20, i8* %1, i64 %21, i32 1, i1 false), !dbg !5636
+getMatchingFunctions
+res.push_back: isatty
+res.push_back: raise
+res.push_back: memtraceRoundup
+res.push_back: re_word_char
+res.push_back: re_digit_char
+res.push_back: re_space_char
+res.push_back: llbmc.tolower
+res.push_back: sqlite3MisuseError
+res.push_back: sqlite3_release_memory
+res.push_back: close
+res.push_back: sqlite3CantopenError
+res.push_back: fsync
+res.push_back: sleep
+res.push_back: sqlite3MemRoundup
+res.push_back: sqlite3_enable_shared_cache
+res.push_back: sqlite3_sleep
+res.push_back: sqlite3CorruptError
+res.push_back: walFramePage
+res.push_back: sqlite3FaultSim
+res.push_back: walHash
+res.push_back: walNextHash
+res.push_back: isFatalError
+res.push_back: sqlite3AbsInt32
+res.push_back: allowedOp
+res.push_back: sqlite3VdbeSerialTypeLen
+res.push_back: sqlite3ParserFallback
+res.push_back: vdbeSorterTreeDepth
+getMatchingFunctions
+res.push_back: memtraceRealloc
+res.push_back: llbmc.strchr
+res.push_back: dlopen
+res.push_back: sqlite3_realloc
+res.push_back: sqlite3MemRealloc
+res.push_back: sqlite3_uri_key
+res.push_back: llbmc.strrchr
+getMatchingFunctions
+res.push_back: memtraceRealloc
+res.push_back: llbmc.strchr
+res.push_back: dlopen
+res.push_back: sqlite3_realloc
+res.push_back: sqlite3MemRealloc
+res.push_back: sqlite3_uri_key
+res.push_back: llbmc.strrchr
+
+        Transformed "sqlite3Realloc" from 22 to 174 basic blocks and from 97 to 462 instructionsgetMatchingFunctions
+res.push_back: shellDeleteFile
+res.push_back: unlink
+res.push_back: strlen30
+res.push_back: makeDirectory
+res.push_back: memtraceSize
+res.push_back: memtraceInit
+res.push_back: idxIdentifierRequiresQuotes
+res.push_back: system
+res.push_back: booleanValue
+res.push_back: chdir
+res.push_back: atoi
+res.push_back: progress_handler
+res.push_back: notNormalFile
+res.push_back: get2byteInt
+res.push_back: get4byteInt
+res.push_back: strlenChar
+res.push_back: wsToEol
+res.push_back: _all_whitespace
+res.push_back: line_is_command_terminator
+res.push_back: sqlite3MallocSize
+res.push_back: sqlite3Strlen30
+res.push_back: strHash
+res.push_back: rmdir
+res.push_back: dlclose
+res.push_back: sqlite3Atoi
+res.push_back: sqlite3MemSize
+res.push_back: sqlite3MemInit
+res.push_back: pcache1Init
+res.push_back: sqlite3_compileoption_used
+res.push_back: sqlite3_complete
+res.push_back: sqlite3_complete16
+res.push_back: sqlite3Get4byte
+res.push_back: btreeInvokeBusyHandler
+res.push_back: analyzeWindowKeyword
+res.push_back: sqlite3IsRowid
+res.push_back: sqlite3IsTrueOrFalse
+res.push_back: getLockingMode
+res.push_back: getAutoVacuum
+res.push_back: getTempStore
+res.push_back: identLength
+
+        Transformed "sqlite3MallocSize" from 1 to 651 basic blocks and from 5 to 1872 instructionsgetMatchingFunctions
+res.push_back: sqlite3MemTraceDeactivate
+res.push_back: getpid
+res.push_back: getuid
+res.push_back: sqlite3_initialize
+res.push_back: sqlite3MutexInit
+res.push_back: sqlite3MallocInit
+res.push_back: sqlite3PcacheInitialize
+res.push_back: sqlite3OsInit
+res.push_back: sqlite3MemdbInit
+res.push_back: sqlite3_os_init
+res.push_back: geteuid
+res.push_back: unixGetpagesize
+res.push_back: unixShmRegionPerMap
+res.push_back: sqlite3HeaderSizeBtree
+res.push_back: sqlite3HeaderSizePcache
+res.push_back: sqlite3HeaderSizePcache1
+res.push_back: sqlite3HeapNearlyFull
+res.push_back: sqlite3_libversion_number
+res.push_back: sqlite3_threadsafe
+res.push_back: sqlite3_keyword_count
+res.push_back: sqlite3PcacheSize
+res.push_back: sqlite3BtreeCursorSize
+res.push_back: noopMutexInit
+res.push_back: noopMutexEnd
+res.push_back: pthreadMutexInit
+res.push_back: pthreadMutexEnd
+res.push_back: sqlite3_os_end
+res.push_back: sqlite3_shutdown
+res.push_back: sqlite3MutexEnd
+res.push_back: sqlite3_global_recover
+res.push_back: llbmc.nondef.1566
+
+        Transformed "sqlite3MutexInit" from 6 to 70 basic blocks and from 62 to 189 instructionsgetMatchingFunctions
+res.push_back: sqlite3MemTraceDeactivate
+res.push_back: getpid
+res.push_back: getuid
+res.push_back: sqlite3_initialize
+res.push_back: sqlite3MutexInit
+res.push_back: sqlite3MallocInit
+res.push_back: sqlite3PcacheInitialize
+res.push_back: sqlite3OsInit
+res.push_back: sqlite3MemdbInit
+res.push_back: sqlite3_os_init
+res.push_back: geteuid
+res.push_back: unixGetpagesize
+res.push_back: unixShmRegionPerMap
+res.push_back: sqlite3HeaderSizeBtree
+res.push_back: sqlite3HeaderSizePcache
+res.push_back: sqlite3HeaderSizePcache1
+res.push_back: sqlite3HeapNearlyFull
+res.push_back: sqlite3_libversion_number
+res.push_back: sqlite3_threadsafe
+res.push_back: sqlite3_keyword_count
+res.push_back: sqlite3PcacheSize
+res.push_back: sqlite3BtreeCursorSize
+res.push_back: noopMutexInit
+res.push_back: noopMutexEnd
+res.push_back: pthreadMutexInit
+res.push_back: pthreadMutexEnd
+res.push_back: sqlite3_os_end
+res.push_back: sqlite3_shutdown
+res.push_back: sqlite3MutexEnd
+res.push_back: sqlite3_global_recover
+res.push_back: llbmc.nondef.1566
+
+        Transformed "sqlite3MutexEnd" from 3 to 67 basic blocks and from 12 to 139 instructionsgetMatchingFunctions
+res.push_back: sqlite3MutexAlloc
+res.push_back: sqlite3_mutex_alloc
+res.push_back: noopMutexAlloc
+res.push_back: pthreadMutexAlloc
+
+        Transformed "sqlite3MutexAlloc" from 4 to 14 basic blocks and from 11 to 30 instructions
+        Transformed "pthreadMutexAlloc" from 9 to 13 basic blocks and from 39 to 46 instructionsisMemset:   call void @llvm.memset.p0i8.i64(i8* %1, i8 0, i64 %0, i32 1, i1 false), !dbg !5618
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %1, i8 0, i64 %0, i32 1, i1 false), !dbg !5618
+getMatchingFunctions
+res.push_back: sqlite3MutexAlloc
+res.push_back: sqlite3_mutex_alloc
+res.push_back: noopMutexAlloc
+res.push_back: pthreadMutexAlloc
+
+        Transformed "sqlite3_mutex_alloc" from 8 to 18 basic blocks and from 19 to 38 instructionsisMemset:   call void @llvm.memset.p0i8.i64(i8* %1, i8 0, i64 %0, i32 1, i1 false), !dbg !5618
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %1, i8 0, i64 %0, i32 1, i1 false), !dbg !5618
+getMatchingFunctions
+res.push_back: sqlite3_mutex_enter
+res.push_back: sqlite3_mutex_leave
+res.push_back: sqlite3_mutex_free
+res.push_back: noopMutexFree
+res.push_back: noopMutexEnter
+res.push_back: noopMutexLeave
+res.push_back: pthreadMutexFree
+res.push_back: pthreadMutexEnter
+res.push_back: pthreadMutexLeave
+
+        Transformed "sqlite3_mutex_leave" from 3 to 545 basic blocks and from 8 to 1612 instructionsgetMatchingFunctions
+res.push_back: free
+res.push_back: printBold
+res.push_back: memtraceFree
+res.push_back: memtraceShutdown
+res.push_back: resolve_backslashes
+res.push_back: sqlite3_free
+res.push_back: sqlite3MemFree
+res.push_back: sqlite3MemShutdown
+res.push_back: pcache1Shutdown
+res.push_back: pcache1Free
+res.push_back: sqlite3_free_filename
+res.push_back: sqlite3NoopDestructor
+res.push_back: sqlite3SchemaClear
+res.push_back: sqlite3PageFree
+res.push_back: sqlite3ParserFinalize
+res.push_back: statAccumDestructor
+res.push_back: sqlite3Dequote
+res.push_back: logBadConnection
+res.push_back: sqlite3VdbeFrameMemDel
+res.push_back: sqlite3RowSetClear
+res.push_back: sqlite3RowSetDelete
+
+        Transformed "sqlite3VdbeMemGrow" from 22 to 564 basic blocks and from 136 to 1716 instructionsgetMatchingFunctions
+res.push_back: shellDeleteFile
+res.push_back: unlink
+res.push_back: strlen30
+res.push_back: makeDirectory
+res.push_back: memtraceSize
+res.push_back: memtraceInit
+res.push_back: idxIdentifierRequiresQuotes
+res.push_back: system
+res.push_back: booleanValue
+res.push_back: chdir
+res.push_back: atoi
+res.push_back: progress_handler
+res.push_back: notNormalFile
+res.push_back: get2byteInt
+res.push_back: get4byteInt
+res.push_back: strlenChar
+res.push_back: wsToEol
+res.push_back: _all_whitespace
+res.push_back: line_is_command_terminator
+res.push_back: sqlite3MallocSize
+res.push_back: sqlite3Strlen30
+res.push_back: strHash
+res.push_back: rmdir
+res.push_back: dlclose
+res.push_back: sqlite3Atoi
+res.push_back: sqlite3MemSize
+res.push_back: sqlite3MemInit
+res.push_back: pcache1Init
+res.push_back: sqlite3_compileoption_used
+res.push_back: sqlite3_complete
+res.push_back: sqlite3_complete16
+res.push_back: sqlite3Get4byte
+res.push_back: btreeInvokeBusyHandler
+res.push_back: analyzeWindowKeyword
+res.push_back: sqlite3IsRowid
+res.push_back: sqlite3IsTrueOrFalse
+res.push_back: getLockingMode
+res.push_back: getAutoVacuum
+res.push_back: getTempStore
+res.push_back: identLength
+
+        Transformed "sqlite3DbMallocSize" from 10 to 660 basic blocks and from 41 to 1908 instructions
+        Unrolling loop in function "doWalCallbacks" for 1 iterations succeeded.getMatchingFunctions
+res.push_back: sqlite3WalDefaultHook
+
+        Transformed "doWalCallbacks" from 11 to 34 basic blocks and from 63 to 147 instructions
+        Unrolling loop in function "btreeLockCarefully" for 1 iterations succeeded.
+        Unrolling loop in function "btreeLockCarefully" for 1 iterations succeeded.
+        Transformed "btreeLockCarefully" from 15 to 18 basic blocks and from 60 to 67 instructionsgetMatchingFunctions
+res.push_back: sqlite3_mutex_try
+res.push_back: noopMutexTry
+res.push_back: pthreadMutexTry
+
+        Transformed "sqlite3_mutex_try" from 4 to 654 basic blocks and from 12 to 1953 instructions
+        Unrolling loop in function "releaseMemArray" for 1 iterations succeeded.
+        Unrolling loop in function "releaseMemArray" for 1 iterations succeeded.getMatchingFunctions
+res.push_back: free
+res.push_back: printBold
+res.push_back: memtraceFree
+res.push_back: memtraceShutdown
+res.push_back: resolve_backslashes
+res.push_back: sqlite3_free
+res.push_back: sqlite3MemFree
+res.push_back: sqlite3MemShutdown
+res.push_back: pcache1Shutdown
+res.push_back: pcache1Free
+res.push_back: sqlite3_free_filename
+res.push_back: sqlite3NoopDestructor
+res.push_back: sqlite3SchemaClear
+res.push_back: sqlite3PageFree
+res.push_back: sqlite3ParserFinalize
+res.push_back: statAccumDestructor
+res.push_back: sqlite3Dequote
+res.push_back: logBadConnection
+res.push_back: sqlite3VdbeFrameMemDel
+res.push_back: sqlite3RowSetClear
+res.push_back: sqlite3RowSetDelete
+
+        Transformed "vdbeMemClearExternAndSetNull" from 5 to 547 basic blocks and from 31 to 1611 instructionsgetMatchingFunctions
+res.push_back: decimalSumFinalize
+res.push_back: decimalSumValue
+res.push_back: minMaxFinalize
+res.push_back: minMaxValue
+res.push_back: sumFinalize
+res.push_back: totalFinalize
+res.push_back: avgFinalize
+res.push_back: countFinalize
+res.push_back: groupConcatFinalize
+res.push_back: groupConcatValue
+res.push_back: sqlite3_result_error_toobig
+res.push_back: sqlite3_result_error_nomem
+res.push_back: sqlite3_result_null
+res.push_back: sqlite3SkipAccumulatorLoad
+res.push_back: sqlite3ResultIntReal
+res.push_back: row_numberValueFunc
+res.push_back: dense_rankValueFunc
+res.push_back: rankValueFunc
+res.push_back: percent_rankValueFunc
+res.push_back: cume_distValueFunc
+res.push_back: ntileValueFunc
+res.push_back: last_valueFinalizeFunc
+res.push_back: last_valueValueFunc
+res.push_back: nth_valueFinalizeFunc
+res.push_back: noopValueFunc
+res.push_back: first_valueFinalizeFunc
+
+        Transformed "sqlite3VdbeMemFinalize" from 3 to 545 basic blocks and from 44 to 1614 instructionsisMemset:   call void @llvm.memset.p0i8.i64(i8* %4, i8 0, i64 56, i32 8, i1 false), !dbg !5618
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %5, i8 0, i64 56, i32 8, i1 false), !dbg !5619
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %7, i8* %8, i64 24, i32 8, i1 false), !dbg !5621
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %21, i8 0, i64 %25, i32 1, i1 false), !dbg !5644
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %7, i8* %8, i64 24, i32 8, i1 false), !dbg !5621
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %21, i8 0, i64 %25, i32 1, i1 false), !dbg !5644
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %7, i8* %8, i64 24, i32 8, i1 false), !dbg !5621
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %21, i8 0, i64 %25, i32 1, i1 false), !dbg !5644
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %3, i8* %4, i64 8, i32 8, i1 false), !dbg !5614
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %3, i8* %4, i64 8, i32 8, i1 false), !dbg !5614
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %3, i8* %4, i64 8, i32 8, i1 false), !dbg !5614
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %1, i8 0, i64 48, i32 8, i1 false), !dbg !5631
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %1, i8 0, i64 48, i32 8, i1 false), !dbg !5631
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %1, i8 0, i64 48, i32 8, i1 false), !dbg !5631
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %1, i8 0, i64 48, i32 8, i1 false), !dbg !5631
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %1, i8 0, i64 48, i32 8, i1 false), !dbg !5631
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %1, i8 0, i64 48, i32 8, i1 false), !dbg !5631
+getMatchingFunctions
+res.push_back: apndRandomness
+res.push_back: apndGetLastError
+res.push_back: memdbRandomness
+res.push_back: memdbGetLastError
+res.push_back: unixRandomness
+res.push_back: unixGetLastError
+res.push_back: sqlite3OsRandomness
+
+        Transformed "sqlite3OsGetLastError" from 4 to 86 basic blocks and from 13 to 267 instructionsgetMatchingFunctions
+res.push_back: shellLog
+
+        Transformed "renderLogMsg" from 1 to 249 basic blocks and from 19 to 862 instructionsisMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %7, i8* %10, i64 %14, i32 1, i1 false), !dbg !5628
+
+        Unrolling loop in function "renameQuotefixFunc" for 1 iterations succeeded.
+        Transformed "renameQuotefixFunc" from 30 to 31 basic blocks and from 179 to 187 instructions
+        Unrolling loop in function "sqlite3Int64ToText" for 1 iterations succeeded.
+        Transformed "sqlite3Int64ToText" from 100 to 101 instructionsisMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %1, i8* %26, i64 %28, i32 1, i1 false), !dbg !5669
+
+        Unrolling loop in function "llbmc.strlen" for 0 iterations succeeded.
+        Transformed "llbmc.strlen" from 8 to 9 instructions
+        Unrolling loop in function "sqlite3VdbeMemTranslate" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3VdbeMemTranslate" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3VdbeMemTranslate" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3VdbeMemTranslate" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3VdbeMemTranslate" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3VdbeMemTranslate" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3VdbeMemTranslate" for 1 iterations succeeded.
+        Transformed "sqlite3VdbeMemTranslate" from 93 to 106 basic blocks and from 966 to 1051 instructionsisMemset:   call void @llvm.memset.p0i8.i64(i8* %21, i8 0, i64 %25, i32 1, i1 false), !dbg !5644
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %21, i8 0, i64 %25, i32 1, i1 false), !dbg !5644
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %21, i8 0, i64 %25, i32 1, i1 false), !dbg !5644
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %21, i8 0, i64 %25, i32 1, i1 false), !dbg !5644
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %1, i8* %26, i64 %28, i32 1, i1 false), !dbg !5669
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %21, i8 0, i64 %25, i32 1, i1 false), !dbg !5644
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %21, i8 0, i64 %25, i32 1, i1 false), !dbg !5644
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %21, i8 0, i64 %25, i32 1, i1 false), !dbg !5644
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %21, i8 0, i64 %25, i32 1, i1 false), !dbg !5644
+
+        Unrolling loop in function "btreeEnterAll" for 1 iterations succeeded.
+        Transformed "btreeEnterAll" from 8 to 9 basic blocks and from 46 to 53 instructions
+        Unrolling loop in function "sqlite3FindDbName" for 1 iterations succeeded.
+        Transformed "sqlite3FindDbName" from 12 to 14 basic blocks and from 50 to 60 instructionsisMemset:   call void @llvm.memset.p0i8.i64(i8* %12, i8 0, i64 408, i32 8, i1 false), !dbg !5635
+
+        Unrolling loop in function "sqlite3RunParser" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3RunParser" for 1 iterations succeeded.
+        Transformed "sqlite3RunParser" from 51 to 56 basic blocks and from 281 to 328 instructions
+        Unrolling loop in function "sqlite3GetToken" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3GetToken" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3GetToken" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3GetToken" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3GetToken" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3GetToken" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3GetToken" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3GetToken" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3GetToken" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3GetToken" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3GetToken" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3GetToken" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3GetToken" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3GetToken" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3GetToken" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3GetToken" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3GetToken" for 1 iterations succeeded.
+        Transformed "sqlite3GetToken" from 180 to 246 basic blocks and from 827 to 1172 instructions
+        Unrolling loop in function "keywordCode" for 1 iterations succeeded.
+        Unrolling loop in function "keywordCode" for 1 iterations succeeded.
+        Transformed "keywordCode" from 20 to 26 basic blocks and from 146 to 176 instructions
+        Unrolling loop in function "getToken" for 1 iterations succeeded.
+        Transformed "getToken" from 42 to 43 instructions
+        Unrolling loop in function "sqlite3Parser" for 1 iterations succeeded.
+        Transformed "sqlite3Parser" from 15 to 16 basic blocks and from 109 to 119 instructions
+        Unrolling loop in function "yy_find_shift_action" for 1 iterations succeeded.
+        Transformed "yy_find_shift_action" from 13 to 14 basic blocks and from 86 to 90 instructions
+        Transformed "yy_reduce" from 439 to 768 basic blocks and from 5442 to 6099 instructionsisMemset:   call void @llvm.memset.p0i8.i64(i8* %2, i8 0, i64 %1, i32 1, i1 false), !dbg !5621
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %6, i8* %1, i64 %2, i32 1, i1 false), !dbg !5631
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %2, i8 0, i64 %1, i32 1, i1 false), !dbg !5621
+
+        Unrolling loop in function "exprListDeleteNN" for 1 iterations succeeded.
+        Unrolling loop in function "clearSelect" for 1 iterations succeeded.
+        Unrolling loop in function "clearSelect" for 1 iterations succeeded.
+        Transformed "clearSelect" from 13 to 15 basic blocks and from 72 to 79 instructions
+        Unrolling loop in function "sqlite3SrcListDelete" for 1 iterations succeeded.
+        Transformed "sqlite3SrcListDelete" from 22 to 23 basic blocks and from 105 to 110 instructions
+        Unrolling loop in function "deleteTable" for 1 iterations succeeded.
+        Transformed "deleteTable" from 9 to 10 basic blocks and from 58 to 61 instructions
+        Unrolling loop in function "rehash" for 1 iterations succeeded.
+        Transformed "rehash" from 12 to 13 basic blocks and from 91 to 94 instructionsgetMatchingFunctions
+res.push_back: verify_uninitialized
+res.push_back: shell_out_of_memory
+res.push_back: test_breakpoint
+res.push_back: disable_debug_trace_modes
+res.push_back: restore_debug_trace_modes
+res.push_back: beginTimer
+res.push_back: endTimer
+res.push_back: sqlite3BeginBenignMalloc
+res.push_back: sqlite3EndBenignMalloc
+res.push_back: sqlite3MemoryBarrier
+res.push_back: sqlite3RegisterBuiltinFunctions
+res.push_back: unixEnterMutex
+res.push_back: unixLeaveMutex
+res.push_back: sqlite3PCacheSetDefault
+res.push_back: sqlite3MemSetDefault
+res.push_back: sqlite3AlterFunctions
+res.push_back: sqlite3WindowFunctions
+res.push_back: sqlite3RegisterDateTimeFunctions
+res.push_back: sqlite3_thread_cleanup
+res.push_back: sqlite3_reset_auto_extension
+res.push_back: sqlite3PrngSaveState
+res.push_back: sqlite3PrngRestoreState
+res.push_back: sqlite3PcacheShutdown
+res.push_back: sqlite3MallocEnd
+
+        Transformed "sqlite3BeginBenignMalloc" from 3 to 53 basic blocks and from 7 to 105 instructionsgetMatchingFunctions
+res.push_back: free
+res.push_back: printBold
+res.push_back: memtraceFree
+res.push_back: memtraceShutdown
+res.push_back: resolve_backslashes
+res.push_back: sqlite3_free
+res.push_back: sqlite3MemFree
+res.push_back: sqlite3MemShutdown
+res.push_back: pcache1Shutdown
+res.push_back: pcache1Free
+res.push_back: sqlite3_free_filename
+res.push_back: sqlite3NoopDestructor
+res.push_back: sqlite3SchemaClear
+res.push_back: sqlite3PageFree
+res.push_back: sqlite3ParserFinalize
+res.push_back: statAccumDestructor
+res.push_back: sqlite3Dequote
+res.push_back: logBadConnection
+res.push_back: sqlite3VdbeFrameMemDel
+res.push_back: sqlite3RowSetClear
+res.push_back: sqlite3RowSetDelete
+
+        Transformed "sqlite3MallocEnd" from 3 to 545 basic blocks and from 9 to 1589 instructionsisMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %7, i8* %8, i64 24, i32 8, i1 false), !dbg !5621
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %21, i8 0, i64 %25, i32 1, i1 false), !dbg !5644
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %7, i8* %8, i64 24, i32 8, i1 false), !dbg !5621
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %21, i8 0, i64 %25, i32 1, i1 false), !dbg !5644
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %7, i8* %8, i64 24, i32 8, i1 false), !dbg !5621
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %21, i8 0, i64 %25, i32 1, i1 false), !dbg !5644
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %3, i8* %4, i64 8, i32 8, i1 false), !dbg !5614
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %3, i8* %4, i64 8, i32 8, i1 false), !dbg !5614
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %3, i8* %4, i64 8, i32 8, i1 false), !dbg !5614
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %1, i8 0, i64 48, i32 8, i1 false), !dbg !5631
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %1, i8 0, i64 48, i32 8, i1 false), !dbg !5631
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %1, i8 0, i64 48, i32 8, i1 false), !dbg !5631
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %1, i8 0, i64 48, i32 8, i1 false), !dbg !5631
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %1, i8 0, i64 48, i32 8, i1 false), !dbg !5631
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %1, i8 0, i64 48, i32 8, i1 false), !dbg !5631
+
+        Unrolling loop in function "sqlite3AutoLoadExtensions" for 1 iterations succeeded.getMatchingFunctions
+res.push_back: sqlite3_shathree_init
+res.push_back: sqlite3_fileio_init
+res.push_back: sqlite3_completion_init
+res.push_back: sqlite3_appendvfs_init
+res.push_back: sqlite3_uint_init
+res.push_back: sqlite3_decimal_init
+res.push_back: sqlite3_ieee_init
+res.push_back: sqlite3_series_init
+res.push_back: sqlite3_regexp_init
+
+        Transformed "sqlite3AutoLoadExtensions" from 13 to 125 basic blocks and from 68 to 466 instructionsisMemset:   call void @llvm.memset.p0i8.i64(i8* %1, i8 0, i64 %0, i32 1, i1 false), !dbg !5618
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %1, i8 0, i64 %0, i32 1, i1 false), !dbg !5618
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %1, i8 0, i64 %0, i32 1, i1 false), !dbg !5618
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %1, i8 0, i64 %0, i32 1, i1 false), !dbg !5618
+TODO MKB implement precondition handling: IE
+Reading in precondition at: jobs/8047/precondition_sqlite3Select.txt
+preconFile: jobs/8047/precondition_sqlite3Select.txt
+
+                                                           1 sec [DONE]
+        
+                                                           1 sec [DONE]
+      E [2] lib/Core/CheckStatusMarker.cpp:61 | A job finished with an internal error
+E [2] lib/Core/CheckStatusMarker.cpp:63 | Unable to open precondition file!
+E [2] |  (job:8047)
+
+                                                           2 sec [DONE]
+    Unable to open precondition file!
+
+    
+                                                           2 sec [DONE]
+  

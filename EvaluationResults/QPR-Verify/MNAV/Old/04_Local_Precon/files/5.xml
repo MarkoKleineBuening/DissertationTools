@@ -1,0 +1,61 @@
+<SourceFile>
+  <Line number="1">/* Definitions of status bits for `wait&apos; et al.</Line>
+  <Line number="2">   Copyright (C) 1992-2020 Free Software Foundation, Inc.</Line>
+  <Line number="3">   This file is part of the GNU C Library.</Line>
+  <Line number="4"></Line>
+  <Line number="5">   The GNU C Library is free software; you can redistribute it and/or</Line>
+  <Line number="6">   modify it under the terms of the GNU Lesser General Public</Line>
+  <Line number="7">   License as published by the Free Software Foundation; either</Line>
+  <Line number="8">   version 2.1 of the License, or (at your option) any later version.</Line>
+  <Line number="9"></Line>
+  <Line number="10">   The GNU C Library is distributed in the hope that it will be useful,</Line>
+  <Line number="11">   but WITHOUT ANY WARRANTY; without even the implied warranty of</Line>
+  <Line number="12">   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU</Line>
+  <Line number="13">   Lesser General Public License for more details.</Line>
+  <Line number="14"></Line>
+  <Line number="15">   You should have received a copy of the GNU Lesser General Public</Line>
+  <Line number="16">   License along with the GNU C Library; if not, see</Line>
+  <Line number="17">   &lt;https://www.gnu.org/licenses/&gt;.  */</Line>
+  <Line number="18"></Line>
+  <Line number="19">#if !defined _SYS_WAIT_H &amp;&amp; !defined _STDLIB_H</Line>
+  <Line number="20"># error &quot;Never include &lt;bits/waitstatus.h&gt; directly; use &lt;sys/wait.h&gt; instead.&quot;</Line>
+  <Line number="21">#endif</Line>
+  <Line number="22"></Line>
+  <Line number="23"></Line>
+  <Line number="24">/* Everything extant so far uses these same bits.  */</Line>
+  <Line number="25"></Line>
+  <Line number="26"></Line>
+  <Line number="27">/* If WIFEXITED(STATUS), the low-order 8 bits of the status.  */</Line>
+  <Line number="28">#define	__WEXITSTATUS(status)	(((status) &amp; 0xff00) &gt;&gt; 8)</Line>
+  <Line number="29"></Line>
+  <Line number="30">/* If WIFSIGNALED(STATUS), the terminating signal.  */</Line>
+  <Line number="31">#define	__WTERMSIG(status)	((status) &amp; 0x7f)</Line>
+  <Line number="32"></Line>
+  <Line number="33">/* If WIFSTOPPED(STATUS), the signal that stopped the child.  */</Line>
+  <Line number="34">#define	__WSTOPSIG(status)	__WEXITSTATUS(status)</Line>
+  <Line number="35"></Line>
+  <Line number="36">/* Nonzero if STATUS indicates normal termination.  */</Line>
+  <Line number="37">#define	__WIFEXITED(status)	(__WTERMSIG(status) == 0)</Line>
+  <Line number="38"></Line>
+  <Line number="39">/* Nonzero if STATUS indicates termination by a signal.  */</Line>
+  <Line number="40">#define __WIFSIGNALED(status) \</Line>
+  <Line number="41">  (((signed char) (((status) &amp; 0x7f) + 1) &gt;&gt; 1) &gt; 0)</Line>
+  <Line number="42"></Line>
+  <Line number="43">/* Nonzero if STATUS indicates the child is stopped.  */</Line>
+  <Line number="44">#define	__WIFSTOPPED(status)	(((status) &amp; 0xff) == 0x7f)</Line>
+  <Line number="45"></Line>
+  <Line number="46">/* Nonzero if STATUS indicates the child continued after a stop.  We only</Line>
+  <Line number="47">   define this if &lt;bits/waitflags.h&gt; provides the WCONTINUED flag bit.  */</Line>
+  <Line number="48">#ifdef WCONTINUED</Line>
+  <Line number="49"># define __WIFCONTINUED(status)	((status) == __W_CONTINUED)</Line>
+  <Line number="50">#endif</Line>
+  <Line number="51"></Line>
+  <Line number="52">/* Nonzero if STATUS indicates the child dumped core.  */</Line>
+  <Line number="53">#define	__WCOREDUMP(status)	((status) &amp; __WCOREFLAG)</Line>
+  <Line number="54"></Line>
+  <Line number="55">/* Macros for constructing status values.  */</Line>
+  <Line number="56">#define	__W_EXITCODE(ret, sig)	((ret) &lt;&lt; 8 | (sig))</Line>
+  <Line number="57">#define	__W_STOPCODE(sig)	((sig) &lt;&lt; 8 | 0x7f)</Line>
+  <Line number="58">#define __W_CONTINUED		0xffff</Line>
+  <Line number="59">#define	__WCOREFLAG		0x80</Line>
+</SourceFile>

@@ -1,0 +1,225 @@
+<SourceFile>
+  <Line number="1">/* Bit values &amp; structures for resource limits.  Linux version.</Line>
+  <Line number="2">   Copyright (C) 1994-2020 Free Software Foundation, Inc.</Line>
+  <Line number="3">   This file is part of the GNU C Library.</Line>
+  <Line number="4"></Line>
+  <Line number="5">   The GNU C Library is free software; you can redistribute it and/or</Line>
+  <Line number="6">   modify it under the terms of the GNU Lesser General Public</Line>
+  <Line number="7">   License as published by the Free Software Foundation; either</Line>
+  <Line number="8">   version 2.1 of the License, or (at your option) any later version.</Line>
+  <Line number="9"></Line>
+  <Line number="10">   The GNU C Library is distributed in the hope that it will be useful,</Line>
+  <Line number="11">   but WITHOUT ANY WARRANTY; without even the implied warranty of</Line>
+  <Line number="12">   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU</Line>
+  <Line number="13">   Lesser General Public License for more details.</Line>
+  <Line number="14"></Line>
+  <Line number="15">   You should have received a copy of the GNU Lesser General Public</Line>
+  <Line number="16">   License along with the GNU C Library; if not, see</Line>
+  <Line number="17">   &lt;https://www.gnu.org/licenses/&gt;.  */</Line>
+  <Line number="18"></Line>
+  <Line number="19">#ifndef _SYS_RESOURCE_H</Line>
+  <Line number="20"># error &quot;Never use &lt;bits/resource.h&gt; directly; include &lt;sys/resource.h&gt; instead.&quot;</Line>
+  <Line number="21">#endif</Line>
+  <Line number="22"></Line>
+  <Line number="23">#include &lt;bits/types.h&gt;</Line>
+  <Line number="24"></Line>
+  <Line number="25">/* Transmute defines to enumerations.  The macro re-definitions are</Line>
+  <Line number="26">   necessary because some programs want to test for operating system</Line>
+  <Line number="27">   features with #ifdef RUSAGE_SELF.  In ISO C the reflexive</Line>
+  <Line number="28">   definition is a no-op.  */</Line>
+  <Line number="29"></Line>
+  <Line number="30">/* Kinds of resource limit.  */</Line>
+  <Line number="31">enum __rlimit_resource</Line>
+  <Line number="32">{</Line>
+  <Line number="33">  /* Per-process CPU limit, in seconds.  */</Line>
+  <Line number="34">  RLIMIT_CPU = 0,</Line>
+  <Line number="35">#define RLIMIT_CPU RLIMIT_CPU</Line>
+  <Line number="36"></Line>
+  <Line number="37">  /* Largest file that can be created, in bytes.  */</Line>
+  <Line number="38">  RLIMIT_FSIZE = 1,</Line>
+  <Line number="39">#define	RLIMIT_FSIZE RLIMIT_FSIZE</Line>
+  <Line number="40"></Line>
+  <Line number="41">  /* Maximum size of data segment, in bytes.  */</Line>
+  <Line number="42">  RLIMIT_DATA = 2,</Line>
+  <Line number="43">#define	RLIMIT_DATA RLIMIT_DATA</Line>
+  <Line number="44"></Line>
+  <Line number="45">  /* Maximum size of stack segment, in bytes.  */</Line>
+  <Line number="46">  RLIMIT_STACK = 3,</Line>
+  <Line number="47">#define	RLIMIT_STACK RLIMIT_STACK</Line>
+  <Line number="48"></Line>
+  <Line number="49">  /* Largest core file that can be created, in bytes.  */</Line>
+  <Line number="50">  RLIMIT_CORE = 4,</Line>
+  <Line number="51">#define	RLIMIT_CORE RLIMIT_CORE</Line>
+  <Line number="52"></Line>
+  <Line number="53">  /* Largest resident set size, in bytes.</Line>
+  <Line number="54">     This affects swapping; processes that are exceeding their</Line>
+  <Line number="55">     resident set size will be more likely to have physical memory</Line>
+  <Line number="56">     taken from them.  */</Line>
+  <Line number="57">  __RLIMIT_RSS = 5,</Line>
+  <Line number="58">#define	RLIMIT_RSS __RLIMIT_RSS</Line>
+  <Line number="59"></Line>
+  <Line number="60">  /* Number of open files.  */</Line>
+  <Line number="61">  RLIMIT_NOFILE = 7,</Line>
+  <Line number="62">  __RLIMIT_OFILE = RLIMIT_NOFILE, /* BSD name for same.  */</Line>
+  <Line number="63">#define RLIMIT_NOFILE RLIMIT_NOFILE</Line>
+  <Line number="64">#define RLIMIT_OFILE __RLIMIT_OFILE</Line>
+  <Line number="65"></Line>
+  <Line number="66">  /* Address space limit.  */</Line>
+  <Line number="67">  RLIMIT_AS = 9,</Line>
+  <Line number="68">#define RLIMIT_AS RLIMIT_AS</Line>
+  <Line number="69"></Line>
+  <Line number="70">  /* Number of processes.  */</Line>
+  <Line number="71">  __RLIMIT_NPROC = 6,</Line>
+  <Line number="72">#define RLIMIT_NPROC __RLIMIT_NPROC</Line>
+  <Line number="73"></Line>
+  <Line number="74">  /* Locked-in-memory address space.  */</Line>
+  <Line number="75">  __RLIMIT_MEMLOCK = 8,</Line>
+  <Line number="76">#define RLIMIT_MEMLOCK __RLIMIT_MEMLOCK</Line>
+  <Line number="77"></Line>
+  <Line number="78">  /* Maximum number of file locks.  */</Line>
+  <Line number="79">  __RLIMIT_LOCKS = 10,</Line>
+  <Line number="80">#define RLIMIT_LOCKS __RLIMIT_LOCKS</Line>
+  <Line number="81"></Line>
+  <Line number="82">  /* Maximum number of pending signals.  */</Line>
+  <Line number="83">  __RLIMIT_SIGPENDING = 11,</Line>
+  <Line number="84">#define RLIMIT_SIGPENDING __RLIMIT_SIGPENDING</Line>
+  <Line number="85"></Line>
+  <Line number="86">  /* Maximum bytes in POSIX message queues.  */</Line>
+  <Line number="87">  __RLIMIT_MSGQUEUE = 12,</Line>
+  <Line number="88">#define RLIMIT_MSGQUEUE __RLIMIT_MSGQUEUE</Line>
+  <Line number="89"></Line>
+  <Line number="90">  /* Maximum nice priority allowed to raise to.</Line>
+  <Line number="91">     Nice levels 19 .. -20 correspond to 0 .. 39</Line>
+  <Line number="92">     values of this resource limit.  */</Line>
+  <Line number="93">  __RLIMIT_NICE = 13,</Line>
+  <Line number="94">#define RLIMIT_NICE __RLIMIT_NICE</Line>
+  <Line number="95"></Line>
+  <Line number="96">  /* Maximum realtime priority allowed for non-priviledged</Line>
+  <Line number="97">     processes.  */</Line>
+  <Line number="98">  __RLIMIT_RTPRIO = 14,</Line>
+  <Line number="99">#define RLIMIT_RTPRIO __RLIMIT_RTPRIO</Line>
+  <Line number="100"></Line>
+  <Line number="101">  /* Maximum CPU time in µs that a process scheduled under a real-time</Line>
+  <Line number="102">     scheduling policy may consume without making a blocking system</Line>
+  <Line number="103">     call before being forcibly descheduled.  */</Line>
+  <Line number="104">  __RLIMIT_RTTIME = 15,</Line>
+  <Line number="105">#define RLIMIT_RTTIME __RLIMIT_RTTIME</Line>
+  <Line number="106"></Line>
+  <Line number="107">  __RLIMIT_NLIMITS = 16,</Line>
+  <Line number="108">  __RLIM_NLIMITS = __RLIMIT_NLIMITS</Line>
+  <Line number="109">#define RLIMIT_NLIMITS __RLIMIT_NLIMITS</Line>
+  <Line number="110">#define RLIM_NLIMITS __RLIM_NLIMITS</Line>
+  <Line number="111">};</Line>
+  <Line number="112"></Line>
+  <Line number="113">/* Value to indicate that there is no limit.  */</Line>
+  <Line number="114">#ifndef __USE_FILE_OFFSET64</Line>
+  <Line number="115"># define RLIM_INFINITY ((__rlim_t) -1)</Line>
+  <Line number="116">#else</Line>
+  <Line number="117"># define RLIM_INFINITY 0xffffffffffffffffuLL</Line>
+  <Line number="118">#endif</Line>
+  <Line number="119"></Line>
+  <Line number="120">#ifdef __USE_LARGEFILE64</Line>
+  <Line number="121"># define RLIM64_INFINITY 0xffffffffffffffffuLL</Line>
+  <Line number="122">#endif</Line>
+  <Line number="123"></Line>
+  <Line number="124">/* We can represent all limits.  */</Line>
+  <Line number="125">#define RLIM_SAVED_MAX	RLIM_INFINITY</Line>
+  <Line number="126">#define RLIM_SAVED_CUR	RLIM_INFINITY</Line>
+  <Line number="127"></Line>
+  <Line number="128"></Line>
+  <Line number="129">/* Type for resource quantity measurement.  */</Line>
+  <Line number="130">#ifndef __USE_FILE_OFFSET64</Line>
+  <Line number="131">typedef __rlim_t rlim_t;</Line>
+  <Line number="132">#else</Line>
+  <Line number="133">typedef __rlim64_t rlim_t;</Line>
+  <Line number="134">#endif</Line>
+  <Line number="135">#ifdef __USE_LARGEFILE64</Line>
+  <Line number="136">typedef __rlim64_t rlim64_t;</Line>
+  <Line number="137">#endif</Line>
+  <Line number="138"></Line>
+  <Line number="139">struct rlimit</Line>
+  <Line number="140">  {</Line>
+  <Line number="141">    /* The current (soft) limit.  */</Line>
+  <Line number="142">    rlim_t rlim_cur;</Line>
+  <Line number="143">    /* The hard limit.  */</Line>
+  <Line number="144">    rlim_t rlim_max;</Line>
+  <Line number="145">  };</Line>
+  <Line number="146"></Line>
+  <Line number="147">#ifdef __USE_LARGEFILE64</Line>
+  <Line number="148">struct rlimit64</Line>
+  <Line number="149">  {</Line>
+  <Line number="150">    /* The current (soft) limit.  */</Line>
+  <Line number="151">    rlim64_t rlim_cur;</Line>
+  <Line number="152">    /* The hard limit.  */</Line>
+  <Line number="153">    rlim64_t rlim_max;</Line>
+  <Line number="154"> };</Line>
+  <Line number="155">#endif</Line>
+  <Line number="156"></Line>
+  <Line number="157">/* Whose usage statistics do you want?  */</Line>
+  <Line number="158">enum __rusage_who</Line>
+  <Line number="159">{</Line>
+  <Line number="160">  /* The calling process.  */</Line>
+  <Line number="161">  RUSAGE_SELF = 0,</Line>
+  <Line number="162">#define RUSAGE_SELF RUSAGE_SELF</Line>
+  <Line number="163"></Line>
+  <Line number="164">  /* All of its terminated child processes.  */</Line>
+  <Line number="165">  RUSAGE_CHILDREN = <CheckRefs ids="70">-</CheckRefs>1</Line>
+  <Line number="166">#define RUSAGE_CHILDREN RUSAGE_CHILDREN</Line>
+  <Line number="167"></Line>
+  <Line number="168">#ifdef __USE_GNU</Line>
+  <Line number="169">  ,</Line>
+  <Line number="170">  /* The calling thread.  */</Line>
+  <Line number="171">  RUSAGE_THREAD = 1</Line>
+  <Line number="172"># define RUSAGE_THREAD RUSAGE_THREAD</Line>
+  <Line number="173">  /* Name for the same functionality on Solaris.  */</Line>
+  <Line number="174"># define RUSAGE_LWP RUSAGE_THREAD</Line>
+  <Line number="175">#endif</Line>
+  <Line number="176">};</Line>
+  <Line number="177"></Line>
+  <Line number="178">#include &lt;bits/types/struct_timeval.h&gt;</Line>
+  <Line number="179">#include &lt;bits/types/struct_rusage.h&gt;</Line>
+  <Line number="180"></Line>
+  <Line number="181">/* Priority limits.  */</Line>
+  <Line number="182">#define PRIO_MIN	-20	/* Minimum priority a process can have.  */</Line>
+  <Line number="183">#define PRIO_MAX	20	/* Maximum priority a process can have.  */</Line>
+  <Line number="184"></Line>
+  <Line number="185">/* The type of the WHICH argument to `getpriority&apos; and `setpriority&apos;,</Line>
+  <Line number="186">   indicating what flavor of entity the WHO argument specifies.  */</Line>
+  <Line number="187">enum __priority_which</Line>
+  <Line number="188">{</Line>
+  <Line number="189">  PRIO_PROCESS = 0,		/* WHO is a process ID.  */</Line>
+  <Line number="190">#define PRIO_PROCESS PRIO_PROCESS</Line>
+  <Line number="191">  PRIO_PGRP = 1,		/* WHO is a process group ID.  */</Line>
+  <Line number="192">#define PRIO_PGRP PRIO_PGRP</Line>
+  <Line number="193">  PRIO_USER = 2			/* WHO is a user ID.  */</Line>
+  <Line number="194">#define PRIO_USER PRIO_USER</Line>
+  <Line number="195">};</Line>
+  <Line number="196"></Line>
+  <Line number="197"></Line>
+  <Line number="198">__BEGIN_DECLS</Line>
+  <Line number="199"></Line>
+  <Line number="200">#ifdef __USE_GNU</Line>
+  <Line number="201">/* Modify and return resource limits of a process atomically.  */</Line>
+  <Line number="202"># ifndef __USE_FILE_OFFSET64</Line>
+  <Line number="203">extern int prlimit (__pid_t __pid, enum __rlimit_resource __resource,</Line>
+  <Line number="204">		    const struct rlimit *__new_limit,</Line>
+  <Line number="205">		    struct rlimit *__old_limit) __THROW;</Line>
+  <Line number="206"># else</Line>
+  <Line number="207">#  ifdef __REDIRECT_NTH</Line>
+  <Line number="208">extern int __REDIRECT_NTH (prlimit, (__pid_t __pid,</Line>
+  <Line number="209">				     enum __rlimit_resource __resource,</Line>
+  <Line number="210">				     const struct rlimit *__new_limit,</Line>
+  <Line number="211">				     struct rlimit *__old_limit), prlimit64);</Line>
+  <Line number="212">#  else</Line>
+  <Line number="213">#   define prlimit prlimit64</Line>
+  <Line number="214">#  endif</Line>
+  <Line number="215"># endif</Line>
+  <Line number="216"># ifdef __USE_LARGEFILE64</Line>
+  <Line number="217">extern int prlimit64 (__pid_t __pid, enum __rlimit_resource __resource,</Line>
+  <Line number="218">		      const struct rlimit64 *__new_limit,</Line>
+  <Line number="219">		      struct rlimit64 *__old_limit) __THROW;</Line>
+  <Line number="220"># endif</Line>
+  <Line number="221">#endif</Line>
+  <Line number="222"></Line>
+  <Line number="223">__END_DECLS</Line>
+</SourceFile>

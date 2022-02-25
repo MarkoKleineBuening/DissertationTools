@@ -1,0 +1,91 @@
+#ifndef __QPR_STDLIB_STDLIB_H
+#define __QPR_STDLIB_STDLIB_H
+
+// Types
+
+// 7.20 (2)
+
+typedef __SIZE_TYPE__ size_t;
+
+#ifndef __cplusplus
+#ifndef wchar_t
+#define wchar_t __WCHAR_TYPE__
+#endif
+#endif
+
+typedef struct {
+    int quot;
+    int rem;
+} div_t;
+
+typedef struct {
+    long quot;
+    long rem;
+} ldiv_t;
+
+typedef struct {
+    long long quot;
+    long long rem;
+} lldiv_t;
+
+// Macros
+
+// 7.20 (3)
+#ifndef NULL
+#define NULL ((void *)0)
+#endif
+
+#define EXIT_FAILURE 1
+#define EXIT_SUCCESS 0
+
+#define RAND_MAX 0x7fffffff
+
+#ifndef MB_CUR_MAX
+extern int __mb_cur_max;
+#define MB_CUR_MAX __mb_cur_max
+#endif
+
+// Functions
+
+// 7.20.1 Numeric conversion functions
+
+/* oldTODO */
+
+// 7.20.2 Pseudo-random sequence generation functions
+
+/* oldTODO */
+
+// 7.20.3 Memory management functions
+
+void *calloc(size_t nmemb, size_t size);
+void free(void *ptr);
+void *malloc(size_t size);
+void *realloc(void *ptr, size_t size);
+
+// 7.20.4 Communication with the environment
+
+/* oldTODO */
+
+// 7.20.5 Searching and sorting utilities
+
+/* oldTODO */
+
+// 7.20.6 Integer arithmetic functions
+
+// 7.20.6.2 Integer division functions
+
+div_t div(int x, int y);
+ldiv_t ldiv(long int x, long int y);
+lldiv_t lldiv(long long int x, long long int y);
+
+/* oldTODO */
+
+// 7.20.7 Multibyte/wide character conversion functions
+
+/* oldTODO */
+
+// 7.20.8 Multibyte/wide string conversion functions
+
+/* oldTODO */
+
+#endif

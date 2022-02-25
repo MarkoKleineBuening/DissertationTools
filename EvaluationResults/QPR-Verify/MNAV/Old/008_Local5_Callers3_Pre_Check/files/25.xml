@@ -1,0 +1,19 @@
+<SourceFile>
+  <Line number="1">/* Determine the wordsize from the preprocessor defines.  */</Line>
+  <Line number="2"></Line>
+  <Line number="3">#if defined __x86_64__ &amp;&amp; !defined __ILP32__</Line>
+  <Line number="4"># define __WORDSIZE	64</Line>
+  <Line number="5">#else</Line>
+  <Line number="6"># define __WORDSIZE	32</Line>
+  <Line number="7">#define __WORDSIZE32_SIZE_ULONG		0</Line>
+  <Line number="8">#define __WORDSIZE32_PTRDIFF_LONG	0</Line>
+  <Line number="9">#endif</Line>
+  <Line number="10"></Line>
+  <Line number="11">#ifdef __x86_64__</Line>
+  <Line number="12"># define __WORDSIZE_TIME64_COMPAT32	1</Line>
+  <Line number="13">/* Both x86-64 and x32 use the 64-bit system call interface.  */</Line>
+  <Line number="14"># define __SYSCALL_WORDSIZE		64</Line>
+  <Line number="15">#else</Line>
+  <Line number="16"># define __WORDSIZE_TIME64_COMPAT32	0</Line>
+  <Line number="17">#endif</Line>
+</SourceFile>

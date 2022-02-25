@@ -1,0 +1,42 @@
+<VerificationJob>
+  <Configuration>
+    <AnalyzeChecksIndividually value="true" />
+    <BitcodeTraces value="false" />
+    <CheckCallers value="true" />
+    <DumpVerifierBitcodeFiles value="false" />
+    <EnableSlicing value="false" />
+    <EntryPoint value="sqlite3AlterFinishAddColumn" />
+    <FixPoint value="true" />
+    <ForkJobs value="true" />
+    <HavocLimit value="2" />
+    <Hosted value="true" />
+    <IgnoreMissingFunctions value="false" />
+    <InitializedGlobals value="false" />
+    <LoopUnrollBound value="1" />
+    <PreconditionLocation value="jobs/4323" />
+    <SourceDirectory value="/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld" />
+    <TimeOut value="600" />
+    <XMLTraces value="false" />
+  </Configuration>
+  <CheckList>
+    <Check id="13136" location="14256" category="shift.by.amount" status="safe|loopboundreached" scope="sqlite3VdbeUsesBtree">
+      <Annotations>
+        <Annotation>Shift operation can be by more than bitwidth.</Annotation>
+        <Annotation>A loop bound was reached (/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld//home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld/sqlite3.c:79433:3)</Annotation>
+      </Annotations>
+      <EntryStatus>
+        <SingleEntryStatus>sqlite3AlterFinishAddColumn, safe|loopboundreached</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3BeginTransaction, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3FinishCoding, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3ForceNotReadOnly, safe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3Pragma, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3StartTable, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3Vacuum, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3VdbeAddParseSchemaOp, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3_blob_open, unknown</SingleEntryStatus>
+      </EntryStatus>
+    </Check>
+  </CheckList>
+  <Annotation>allunsafe</Annotation>
+  <Status>allsafe</Status>
+</VerificationJob>

@@ -1,0 +1,98 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 659 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 2
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/659
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : expertFinish
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "expertFinish" for 1 iterations succeeded.
+      Transformed "expertFinish" from 23 to 24 basic blocks and from 101 to 104 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...
+        Unrolling loop in function "sqlite3_expert_analyze" for 1 iterations succeeded.
+        Transformed "sqlite3_expert_analyze" from 13 to 14 basic blocks and from 62 to 65 instructionsCurrent: sqlite3_expert_analyze Havoced: idxProcessTriggers
+Current: sqlite3_expert_analyze Havoced: idxCreateCandidates
+Current: sqlite3_expert_analyze Havoced: idxPopulateStat1
+Current: sqlite3_expert_analyze Havoced: idxAppendText
+Current: sqlite3_expert_analyze Havoced: idxFindIndexes
+
+        Unrolling loop in function "sqlite3_expert_report" for 1 iterations succeeded.
+        Transformed "sqlite3_expert_report" from 21 to 32 basic blocks and from 70 to 97 instructionsCurrent: sqlite3_expert_destroy Havoced: sqlite3_close
+Current: sqlite3_expert_destroy Havoced: sqlite3_close
+Current: sqlite3_expert_destroy Havoced: idxScanFree
+Current: sqlite3_expert_destroy Havoced: idxStatementFree
+Current: sqlite3_expert_destroy Havoced: idxTableFree
+Current: sqlite3_expert_destroy Havoced: idxWriteFree
+Current: sqlite3_expert_destroy Havoced: idxHashClear
+Current: sqlite3_expert_destroy Havoced: sqlite3_free
+Current: sqlite3_expert_destroy Havoced: sqlite3_free
+
+                                                           0 sec [DONE]
+        Number of expressions:                        156511
+        after encoding
+
+      17 assertions before transformations (6 no_function_call, 6 no_back_edge, 3 custom, 2 no_unreachable_executed).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            4434
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72631
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               1
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               3
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             142
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      17 assertions remain after transformations (6 no_function_call, 6 no_back_edge, 3 custom, 2 no_unreachable_executed).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...

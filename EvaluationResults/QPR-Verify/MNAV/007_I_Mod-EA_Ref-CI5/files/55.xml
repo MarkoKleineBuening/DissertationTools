@@ -1,0 +1,191 @@
+<SourceFile>
+  <Line number="1">/* Copyright (C) 1991-2020 Free Software Foundation, Inc.</Line>
+  <Line number="2">   This file is part of the GNU C Library.</Line>
+  <Line number="3"></Line>
+  <Line number="4">   The GNU C Library is free software; you can redistribute it and/or</Line>
+  <Line number="5">   modify it under the terms of the GNU Lesser General Public</Line>
+  <Line number="6">   License as published by the Free Software Foundation; either</Line>
+  <Line number="7">   version 2.1 of the License, or (at your option) any later version.</Line>
+  <Line number="8"></Line>
+  <Line number="9">   The GNU C Library is distributed in the hope that it will be useful,</Line>
+  <Line number="10">   but WITHOUT ANY WARRANTY; without even the implied warranty of</Line>
+  <Line number="11">   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU</Line>
+  <Line number="12">   Lesser General Public License for more details.</Line>
+  <Line number="13"></Line>
+  <Line number="14">   You should have received a copy of the GNU Lesser General Public</Line>
+  <Line number="15">   License along with the GNU C Library; if not, see</Line>
+  <Line number="16">   &lt;https://www.gnu.org/licenses/&gt;.  */</Line>
+  <Line number="17"></Line>
+  <Line number="18">#ifndef _SYS_TIME_H</Line>
+  <Line number="19">#define _SYS_TIME_H	1</Line>
+  <Line number="20"></Line>
+  <Line number="21">#include &lt;features.h&gt;</Line>
+  <Line number="22"></Line>
+  <Line number="23">#include &lt;bits/types.h&gt;</Line>
+  <Line number="24">#include &lt;bits/types/time_t.h&gt;</Line>
+  <Line number="25">#include &lt;bits/types/struct_timeval.h&gt;</Line>
+  <Line number="26"></Line>
+  <Line number="27">#ifndef __suseconds_t_defined</Line>
+  <Line number="28">typedef __suseconds_t suseconds_t;</Line>
+  <Line number="29"># define __suseconds_t_defined</Line>
+  <Line number="30">#endif</Line>
+  <Line number="31"></Line>
+  <Line number="32">#include &lt;sys/select.h&gt;</Line>
+  <Line number="33"></Line>
+  <Line number="34">__BEGIN_DECLS</Line>
+  <Line number="35"></Line>
+  <Line number="36">#ifdef __USE_GNU</Line>
+  <Line number="37">/* Macros for converting between `struct timeval&apos; and `struct timespec&apos;.  */</Line>
+  <Line number="38"># define TIMEVAL_TO_TIMESPEC(tv, ts) {                                   \</Line>
+  <Line number="39">	(ts)-&gt;tv_sec = (tv)-&gt;tv_sec;                                    \</Line>
+  <Line number="40">	(ts)-&gt;tv_nsec = (tv)-&gt;tv_usec * 1000;                           \</Line>
+  <Line number="41">}</Line>
+  <Line number="42"># define TIMESPEC_TO_TIMEVAL(tv, ts) {                                   \</Line>
+  <Line number="43">	(tv)-&gt;tv_sec = (ts)-&gt;tv_sec;                                    \</Line>
+  <Line number="44">	(tv)-&gt;tv_usec = (ts)-&gt;tv_nsec / 1000;                           \</Line>
+  <Line number="45">}</Line>
+  <Line number="46">#endif</Line>
+  <Line number="47"></Line>
+  <Line number="48"></Line>
+  <Line number="49">#ifdef __USE_MISC</Line>
+  <Line number="50">/* Structure crudely representing a timezone.</Line>
+  <Line number="51">   This is obsolete and should never be used.  */</Line>
+  <Line number="52">struct timezone</Line>
+  <Line number="53">  {</Line>
+  <Line number="54">    int tz_minuteswest;		/* Minutes west of GMT.  */</Line>
+  <Line number="55">    int tz_dsttime;		/* Nonzero if DST is ever in effect.  */</Line>
+  <Line number="56">  };</Line>
+  <Line number="57">#endif</Line>
+  <Line number="58"></Line>
+  <Line number="59">/* Get the current time of day, putting it into *TV.</Line>
+  <Line number="60">   If TZ is not null, *TZ must be a struct timezone, and both fields</Line>
+  <Line number="61">   will be set to zero.</Line>
+  <Line number="62">   Calling this function with a non-null TZ is obsolete;</Line>
+  <Line number="63">   use localtime etc. instead.</Line>
+  <Line number="64">   This function itself is semi-obsolete;</Line>
+  <Line number="65">   most callers should use time or clock_gettime instead. */</Line>
+  <Line number="66">extern int gettimeofday (struct timeval *__restrict __tv,</Line>
+  <Line number="67">			 void *__restrict __tz) __THROW __nonnull ((1));</Line>
+  <Line number="68"></Line>
+  <Line number="69">#ifdef __USE_MISC</Line>
+  <Line number="70">/* Set the current time of day and timezone information.</Line>
+  <Line number="71">   This call is restricted to the super-user.</Line>
+  <Line number="72">   Setting the timezone in this way is obsolete, but we don&apos;t yet</Line>
+  <Line number="73">   warn about it because it still has some uses for which there is</Line>
+  <Line number="74">   no alternative.  */</Line>
+  <Line number="75">extern int settimeofday (const struct timeval *__tv,</Line>
+  <Line number="76">			 const struct timezone *__tz)</Line>
+  <Line number="77">     __THROW;</Line>
+  <Line number="78"></Line>
+  <Line number="79">/* Adjust the current time of day by the amount in DELTA.</Line>
+  <Line number="80">   If OLDDELTA is not NULL, it is filled in with the amount</Line>
+  <Line number="81">   of time adjustment remaining to be done from the last `adjtime&apos; call.</Line>
+  <Line number="82">   This call is restricted to the super-user.  */</Line>
+  <Line number="83">extern int adjtime (const struct timeval *__delta,</Line>
+  <Line number="84">		    struct timeval *__olddelta) __THROW;</Line>
+  <Line number="85">#endif</Line>
+  <Line number="86"></Line>
+  <Line number="87"></Line>
+  <Line number="88">/* Values for the first argument to `getitimer&apos; and `setitimer&apos;.  */</Line>
+  <Line number="89">enum __itimer_which</Line>
+  <Line number="90">  {</Line>
+  <Line number="91">    /* Timers run in real time.  */</Line>
+  <Line number="92">    ITIMER_REAL = 0,</Line>
+  <Line number="93">#define ITIMER_REAL ITIMER_REAL</Line>
+  <Line number="94">    /* Timers run only when the process is executing.  */</Line>
+  <Line number="95">    ITIMER_VIRTUAL = 1,</Line>
+  <Line number="96">#define ITIMER_VIRTUAL ITIMER_VIRTUAL</Line>
+  <Line number="97">    /* Timers run when the process is executing and when</Line>
+  <Line number="98">       the system is executing on behalf of the process.  */</Line>
+  <Line number="99">    ITIMER_PROF = 2</Line>
+  <Line number="100">#define ITIMER_PROF ITIMER_PROF</Line>
+  <Line number="101">  };</Line>
+  <Line number="102"></Line>
+  <Line number="103">/* Type of the second argument to `getitimer&apos; and</Line>
+  <Line number="104">   the second and third arguments `setitimer&apos;.  */</Line>
+  <Line number="105">struct itimerval</Line>
+  <Line number="106">  {</Line>
+  <Line number="107">    /* Value to put into `it_value&apos; when the timer expires.  */</Line>
+  <Line number="108">    struct timeval it_interval;</Line>
+  <Line number="109">    /* Time to the next timer expiration.  */</Line>
+  <Line number="110">    struct timeval it_value;</Line>
+  <Line number="111">  };</Line>
+  <Line number="112"></Line>
+  <Line number="113">#if defined __USE_GNU &amp;&amp; !defined __cplusplus</Line>
+  <Line number="114">/* Use the nicer parameter type only in GNU mode and not for C++ since the</Line>
+  <Line number="115">   strict C++ rules prevent the automatic promotion.  */</Line>
+  <Line number="116">typedef enum __itimer_which __itimer_which_t;</Line>
+  <Line number="117">#else</Line>
+  <Line number="118">typedef int __itimer_which_t;</Line>
+  <Line number="119">#endif</Line>
+  <Line number="120"></Line>
+  <Line number="121">/* Set *VALUE to the current setting of timer WHICH.</Line>
+  <Line number="122">   Return 0 on success, -1 on errors.  */</Line>
+  <Line number="123">extern int getitimer (__itimer_which_t __which,</Line>
+  <Line number="124">		      struct itimerval *__value) __THROW;</Line>
+  <Line number="125"></Line>
+  <Line number="126">/* Set the timer WHICH to *NEW.  If OLD is not NULL,</Line>
+  <Line number="127">   set *OLD to the old value of timer WHICH.</Line>
+  <Line number="128">   Returns 0 on success, -1 on errors.  */</Line>
+  <Line number="129">extern int setitimer (__itimer_which_t __which,</Line>
+  <Line number="130">		      const struct itimerval *__restrict __new,</Line>
+  <Line number="131">		      struct itimerval *__restrict __old) __THROW;</Line>
+  <Line number="132"></Line>
+  <Line number="133">/* Change the access time of FILE to TVP[0] and the modification time of</Line>
+  <Line number="134">   FILE to TVP[1].  If TVP is a null pointer, use the current time instead.</Line>
+  <Line number="135">   Returns 0 on success, -1 on errors.  */</Line>
+  <Line number="136">extern int utimes (const char *__file, const struct timeval __tvp[2])</Line>
+  <Line number="137">     __THROW __nonnull ((1));</Line>
+  <Line number="138"></Line>
+  <Line number="139">#ifdef __USE_MISC</Line>
+  <Line number="140">/* Same as `utimes&apos;, but does not follow symbolic links.  */</Line>
+  <Line number="141">extern int lutimes (const char *__file, const struct timeval __tvp[2])</Line>
+  <Line number="142">     __THROW __nonnull ((1));</Line>
+  <Line number="143"></Line>
+  <Line number="144">/* Same as `utimes&apos;, but takes an open file descriptor instead of a name.  */</Line>
+  <Line number="145">extern int futimes (int __fd, const struct timeval __tvp[2]) __THROW;</Line>
+  <Line number="146">#endif</Line>
+  <Line number="147"></Line>
+  <Line number="148">#ifdef __USE_GNU</Line>
+  <Line number="149">/* Change the access time of FILE relative to FD to TVP[0] and the</Line>
+  <Line number="150">   modification time of FILE to TVP[1].  If TVP is a null pointer, use</Line>
+  <Line number="151">   the current time instead.  Returns 0 on success, -1 on errors.  */</Line>
+  <Line number="152">extern int futimesat (int __fd, const char *__file,</Line>
+  <Line number="153">		      const struct timeval __tvp[2]) __THROW;</Line>
+  <Line number="154">#endif</Line>
+  <Line number="155"></Line>
+  <Line number="156"></Line>
+  <Line number="157">#ifdef __USE_MISC</Line>
+  <Line number="158">/* Convenience macros for operations on timevals.</Line>
+  <Line number="159">   NOTE: `timercmp&apos; does not work for &gt;= or &lt;=.  */</Line>
+  <Line number="160"># define timerisset(tvp)	((tvp)-&gt;tv_sec || (tvp)-&gt;tv_usec)</Line>
+  <Line number="161"># define timerclear(tvp)	((tvp)-&gt;tv_sec = (tvp)-&gt;tv_usec = 0)</Line>
+  <Line number="162"># define timercmp(a, b, CMP) 						      \</Line>
+  <Line number="163">  (((a)-&gt;tv_sec == (b)-&gt;tv_sec) 					      \</Line>
+  <Line number="164">   ? ((a)-&gt;tv_usec CMP (b)-&gt;tv_usec) 					      \</Line>
+  <Line number="165">   : ((a)-&gt;tv_sec CMP (b)-&gt;tv_sec))</Line>
+  <Line number="166"># define timeradd(a, b, result)						      \</Line>
+  <Line number="167">  do {									      \</Line>
+  <Line number="168">    (result)-&gt;tv_sec = (a)-&gt;tv_sec + (b)-&gt;tv_sec;			      \</Line>
+  <Line number="169">    (result)-&gt;tv_usec = (a)-&gt;tv_usec + (b)-&gt;tv_usec;			      \</Line>
+  <Line number="170">    if ((result)-&gt;tv_usec &gt;= 1000000)					      \</Line>
+  <Line number="171">      {									      \</Line>
+  <Line number="172">	++(result)-&gt;tv_sec;						      \</Line>
+  <Line number="173">	(result)-&gt;tv_usec -= 1000000;					      \</Line>
+  <Line number="174">      }									      \</Line>
+  <Line number="175">  } while (0)</Line>
+  <Line number="176"># define timersub(a, b, result)						      \</Line>
+  <Line number="177">  do {									      \</Line>
+  <Line number="178">    (result)-&gt;tv_sec = (a)-&gt;tv_sec - (b)-&gt;tv_sec;			      \</Line>
+  <Line number="179">    (result)-&gt;tv_usec = (a)-&gt;tv_usec - (b)-&gt;tv_usec;			      \</Line>
+  <Line number="180">    if ((result)-&gt;tv_usec &lt; 0) {					      \</Line>
+  <Line number="181">      --(result)-&gt;tv_sec;						      \</Line>
+  <Line number="182">      (result)-&gt;tv_usec += 1000000;					      \</Line>
+  <Line number="183">    }									      \</Line>
+  <Line number="184">  } while (0)</Line>
+  <Line number="185">#endif	/* Misc.  */</Line>
+  <Line number="186"></Line>
+  <Line number="187">__END_DECLS</Line>
+  <Line number="188"></Line>
+  <Line number="189">#endif /* sys/time.h */</Line>
+</SourceFile>

@@ -1,0 +1,336 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 2257 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 1
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/2257
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : unixFullPathname
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "unixFullPathname" for 1 iterations succeeded.
+      Unrolling loop in function "unixFullPathname" for 1 iterations succeeded.getMatchingFunctions
+res.push_back: fileStat
+res.push_back: stat64
+res.push_back: fileLinkStat
+res.push_back: lstat64
+getMatchingFunctions
+res.push_back: readlink
+res.push_back: sqlite3_uri_int64
+
+      Transformed "unixFullPathname" from 42 to 528 basic blocks and from 218 to 1877 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...Current: unixFullPathname Havoced: renameColumnExprCb
+Current: unixFullPathname Havoced: renameTableSelectCb
+Current: unixFullPathname Havoced: renameTableExprCb
+Current: unixFullPathname Havoced: renameColumnSelectCb
+Current: unixFullPathname Havoced: renameQuotefixExprCb
+Current: unixFullPathname Havoced: parseYyyyMmDd
+Current: unixFullPathname Havoced: osLocaltime
+Current: unixFullPathname Havoced: parseTimezone
+Current: unixFullPathname Havoced: parseHhMmSs
+Current: unixFullPathname Havoced: setDateTimeToCurrent
+Current: unixFullPathname Havoced: sqlite3OsCurrentTimeInt64
+Current: unixFullPathname Havoced: sqlite3TransferBindings
+Current: unixFullPathname Havoced: checkReadTransaction
+Current: unixFullPathname Havoced: btreeOverwriteCell
+Current: unixFullPathname Havoced: balance_deeper
+Current: unixFullPathname Havoced: sqlite3BtreeCursorRestore
+Current: unixFullPathname Havoced: vdbeSorterMergeTreeBuild
+Current: unixFullPathname Havoced: vdbePmaReadVarint
+Current: unixFullPathname Havoced: vdbeMergeEngineStep
+Current: unixFullPathname Havoced: vdbePmaWriterFinish
+Current: unixFullPathname Havoced: vdbeSorterSort
+Current: unixFullPathname Havoced: vdbeSorterListToPMA
+Current: unixFullPathname Havoced: btreeHeapPull
+Current: unixFullPathname Havoced: sqlite3BtreeCopyFile
+Current: unixFullPathname Havoced: sqlite3VtabBegin
+Current: unixFullPathname Havoced: sqlite3PagerCloseWal
+Current: unixFullPathname Havoced: sqlite3RowSetNext
+Current: unixFullPathname Havoced: sqlite3VdbeSorterWrite
+Current: unixFullPathname Havoced: sqlite3VdbeSorterNext
+Current: unixFullPathname Havoced: sqlite3VdbeSorterRewind
+Current: unixFullPathname Havoced: sqlite3BtreeFirst
+Current: unixFullPathname Havoced: sqlite3VdbeSorterRowkey
+Current: unixFullPathname Havoced: sqlite3BtreeLast
+Current: unixFullPathname Havoced: sqlite3VdbeCursorMoveto
+Current: unixFullPathname Havoced: findNextHostParameter
+Current: unixFullPathname Havoced: tableMayNotBeDropped
+Current: unixFullPathname Havoced: sqlite3FixSelect
+Current: unixFullPathname Havoced: selectWindowRewriteSelectCb
+Current: unixFullPathname Havoced: selectWindowRewriteExprCb
+Current: unixFullPathname Havoced: sqlite3WindowExtraAggFuncDepth
+Current: unixFullPathname Havoced: disallowAggregatesInOrderByCb
+Current: unixFullPathname Havoced: renumberCursorsCb
+Current: unixFullPathname Havoced: recomputeColumnsUsedExpr
+Current: unixFullPathname Havoced: agginfoPersistExprCb
+Current: unixFullPathname Havoced: propagateConstantExprRewrite
+Current: unixFullPathname Havoced: windowInitAccum
+Current: unixFullPathname Havoced: windowExprGtZero
+Current: unixFullPathname Havoced: exprNodeIsConstantOrGroupBy
+Current: unixFullPathname Havoced: havingToWhereExprCb
+Current: unixFullPathname Havoced: addAggInfoFunc
+Current: unixFullPathname Havoced: addAggInfoColumn
+Current: unixFullPathname Havoced: sqlite3WalkerDepthIncrease
+Current: unixFullPathname Havoced: analyzeAggregate
+Current: unixFullPathname Havoced: propagateConstants
+Current: unixFullPathname Havoced: sqlite3WindowRewrite
+Current: unixFullPathname Havoced: sqlite3WhereOkOnePass
+Current: unixFullPathname Havoced: tabIsReadOnly
+Current: unixFullPathname Havoced: xferCompatibleIndex
+Current: unixFullPathname Havoced: exprColumnFlagUnion
+Current: unixFullPathname Havoced: isAsteriskTerm
+Current: unixFullPathname Havoced: checkConstraintExprNode
+Current: unixFullPathname Havoced: checkColumnOverlap
+Current: unixFullPathname Havoced: sqlite3FkOldmask
+Current: unixFullPathname Havoced: termIsEquivalence
+Current: unixFullPathname Havoced: exprNodeIsDeterministic
+Current: unixFullPathname Havoced: whereLoopCheaperProperSubset
+Current: unixFullPathname Havoced: whereLoopInsert
+Current: unixFullPathname Havoced: whereIndexExprTransColumn
+Current: unixFullPathname Havoced: whereIndexExprTransNode
+Current: unixFullPathname Havoced: exprIdxCover
+Current: unixFullPathname Havoced: isSetNullAction
+Current: unixFullPathname Havoced: changeTempStorage
+Current: unixFullPathname Havoced: sqlite3FixExpr
+Current: unixFullPathname Havoced: sqlite3FixTriggerStep
+Current: unixFullPathname Havoced: fixSelectCb
+Current: unixFullPathname Havoced: fixExprCb
+Current: unixFullPathname Havoced: sqlite3FixSrcList
+Current: unixFullPathname Havoced: sqlite3HasExplicitNulls
+Current: unixFullPathname Havoced: resolveAttachExpr
+Current: unixFullPathname Havoced: collationMatch
+Current: unixFullPathname Havoced: sqlite3FindDb
+Current: unixFullPathname Havoced: sqlite3ShadowTableName
+Current: unixFullPathname Havoced: sqlite3DecOrHexToI64
+Current: unixFullPathname Havoced: exprCodeSubselect
+Current: unixFullPathname Havoced: sqlite3SelectWalkFail
+Current: unixFullPathname Havoced: exprNodeIsConstant
+Current: unixFullPathname Havoced: impliesNotNullRow
+Current: unixFullPathname Havoced: pagerStress
+Current: unixFullPathname Havoced: sqlite3ExprCheckIN
+Current: unixFullPathname Havoced: sqlite3CodeSubselect
+Current: unixFullPathname Havoced: isAlterableTable
+Current: unixFullPathname Havoced: sqlite3GetUInt32
+Current: unixFullPathname Havoced: sqlite3Init
+Current: unixFullPathname Havoced: pragmaVtabRowid
+Current: unixFullPathname Havoced: pragmaVtabOpen
+Current: unixFullPathname Havoced: pragmaVtabBestIndex
+Current: unixFullPathname Havoced: sqlite3VtabEponymousTableInit
+Current: unixFullPathname Havoced: sqlite3VtabCallConnect
+Current: unixFullPathname Havoced: sqlite3ColumnIndex
+Current: unixFullPathname Havoced: sqlite3IdListIndex
+Current: unixFullPathname Havoced: sqliteProcessJoin
+Current: unixFullPathname Havoced: sqlite3IndexedByLookup
+Current: unixFullPathname Havoced: sqlite3ViewGetColumnNames
+Current: unixFullPathname Havoced: cannotBeFunction
+Current: unixFullPathname Havoced: sqlite3ExpandSubquery
+Current: unixFullPathname Havoced: selectExpander
+Current: unixFullPathname Havoced: convertCompoundSelectToSubquery
+Current: unixFullPathname Havoced: sqlite3SchemaToIndex
+Current: unixFullPathname Havoced: areDoubleQuotedStringsEnabled
+Current: unixFullPathname Havoced: nameInUsingClause
+Current: unixFullPathname Havoced: selectSrcCount
+Current: unixFullPathname Havoced: exprSrcCount
+Current: unixFullPathname Havoced: sqlite3FunctionUsesThisSrc
+Current: unixFullPathname Havoced: resolveRemoveWindowsCb
+Current: unixFullPathname Havoced: incrAggDepth
+Current: unixFullPathname Havoced: gatherSelectWindowsSelectCallback
+Current: unixFullPathname Havoced: gatherSelectWindowsCallback
+Current: unixFullPathname Havoced: sqlite3ExprIsInteger
+Current: unixFullPathname Havoced: resolveCompoundOrderBy
+Current: unixFullPathname Havoced: sqlite3ResolveExprListNames
+Current: unixFullPathname Havoced: sqlite3ResolveExprNames
+Current: unixFullPathname Havoced: resolveSelectStep
+Current: unixFullPathname Havoced: resolveExprStep
+Current: unixFullPathname Havoced: sqlite3ExprWalkNoop
+Current: unixFullPathname Havoced: sqlite3SelectWalkNoop
+Current: unixFullPathname Havoced: sqlite3WalkSelectFrom
+Current: unixFullPathname Havoced: sqlite3WalkSelectExpr
+Current: unixFullPathname Havoced: sqlite3WalkExprList
+Current: unixFullPathname Havoced: sqlite3WalkSelect
+Current: unixFullPathname Havoced: walkExpr
+Current: unixFullPathname Havoced: sqlite3WalkExpr
+Current: unixFullPathname Havoced: renameUnmapSelectCb
+Current: unixFullPathname Havoced: renameUnmapExprCb
+Current: unixFullPathname Havoced: sqlite3GetToken
+Current: unixFullPathname Havoced: sqlite3OsCheckReservedLock
+Current: unixFullPathname Havoced: sqlite3WalBeginReadTransaction
+Current: unixFullPathname Havoced: pagerPagecount
+Current: unixFullPathname Havoced: hasHotJournal
+Current: unixFullPathname Havoced: sqlite3PagerOpenWal
+Current: unixFullPathname Havoced: sqlite3ThreadJoin
+Current: unixFullPathname Havoced: sqlite3PagerClose
+Current: unixFullPathname Havoced: walIndexTryHdr
+Current: unixFullPathname Havoced: walBeginShmUnreliable
+Current: unixFullPathname Havoced: walIndexReadHdr
+Current: unixFullPathname Havoced: pager_write_pagelist
+Current: unixFullPathname Havoced: writeSuperJournal
+Current: unixFullPathname Havoced: sqlite3BtreeCommitPhaseOne
+Current: unixFullPathname Havoced: sqlite3VtabSync
+Current: unixFullPathname Havoced: pager_delsuper
+Current: unixFullPathname Havoced: sqlite3PagerSync
+Current: unixFullPathname Havoced: sqlite3OsFileSize
+Current: unixFullPathname Havoced: sqlite3WalSavepointUndo
+Current: unixFullPathname Havoced: pagerPlaybackSavepoint
+Current: unixFullPathname Havoced: memjrnlFileSize
+Current: unixFullPathname Havoced: pager_cksum
+Current: unixFullPathname Havoced: vdbeCommit
+Current: unixFullPathname Havoced: synthCollSeq
+Current: unixFullPathname Havoced: sqlite3CheckCollSeq
+Current: unixFullPathname Havoced: sqlite3FindDbName
+Current: unixFullPathname Havoced: sqlite3_txn_state
+Current: unixFullPathname Havoced: sqlite3_drop_modules
+Current: unixFullPathname Havoced: sqlite3_strglob
+Current: unixFullPathname Havoced: sqlite3_stricmp
+Current: unixFullPathname Havoced: sqlite3_db_readonly
+Current: unixFullPathname Havoced: sqlite3_wal_checkpoint
+Current: unixFullPathname Havoced: sqlite3_transfer_bindings
+Current: unixFullPathname Havoced: sqlite3_open16
+Current: unixFullPathname Havoced: sqlite3_open
+Current: unixFullPathname Havoced: sqlite3_declare_vtab
+Current: unixFullPathname Havoced: sqlite3_bind_parameter_index
+Current: unixFullPathname Havoced: sqlite3BlobCompare
+Current: unixFullPathname Havoced: sqlite3VdbeMemCopy
+Current: unixFullPathname Havoced: sqlite3GetInt32
+Current: unixFullPathname Havoced: unixFileLock
+Current: unixFullPathname Havoced: unixLockSharedMemory
+Current: unixFullPathname Havoced: unixCheckReservedLock
+Current: unixFullPathname Havoced: findInodeInfo
+Current: unixFullPathname Havoced: unixBackupDir
+Current: unixFullPathname Havoced: nolockCheckReservedLock
+Current: unixFullPathname Havoced: unixFcntlExternalReader
+Current: unixFullPathname Havoced: openDirectory
+Current: unixFullPathname Havoced: dotlockCheckReservedLock
+Current: unixFullPathname Havoced: unixFileSize
+Current: unixFullPathname Havoced: unixCurrentTimeInt64
+Current: unixFullPathname Havoced: unixCurrentTime
+Current: unixFullPathname Havoced: memdbFileSize
+Current: unixFullPathname Havoced: memdbCurrentTimeInt64
+Current: unixFullPathname Havoced: sqlite3StrICmp
+Current: unixFullPathname Havoced: sqlite3LookasideUsed
+Current: unixFullPathname Havoced: sqlite3VdbeMemFinalize
+Current: unixFullPathname Havoced: lookasideMallocSize
+Current: unixFullPathname Havoced: isLookaside
+Current: unixFullPathname Havoced: sqlite3DbMallocSize
+Current: unixFullPathname Havoced: str_in_array
+Current: unixFullPathname Havoced: isNumber
+Current: unixFullPathname Havoced: db_int
+Current: unixFullPathname Havoced: showHelp
+Current: unixFullPathname Havoced: optionMatch
+Current: unixFullPathname Havoced: run_table_dump_query
+Current: unixFullPathname Havoced: run_schema_dump_query
+Current: unixFullPathname Havoced: testcase_glob
+Current: unixFullPathname Havoced: idxBuildSampleTable
+Current: unixFullPathname Havoced: idxFindConstraint
+Current: unixFullPathname Havoced: expertRowid
+Current: unixFullPathname Havoced: expertOpen
+Current: unixFullPathname Havoced: expertBestIndex
+Current: unixFullPathname Havoced: seriesRowid
+Current: unixFullPathname Havoced: seriesOpen
+Current: unixFullPathname Havoced: seriesBestIndex
+Current: unixFullPathname Havoced: decimal_cmp
+Current: unixFullPathname Havoced: apndCheckReservedLock
+Current: unixFullPathname Havoced: apndFileSize
+Current: unixFullPathname Havoced: apndCurrentTimeInt64
+Current: unixFullPathname Havoced: apndCurrentTime
+Current: unixFullPathname Havoced: completionRowid
+Current: unixFullPathname Havoced: completionOpen
+Current: unixFullPathname Havoced: completionBestIndex
+Current: unixFullPathname Havoced: fileLinkStat
+Current: unixFullPathname Havoced: fsdirRowid
+Current: unixFullPathname Havoced: fsdirOpen
+Current: unixFullPathname Havoced: fsdirBestIndex
+Current: unixFullPathname Havoced: fileStat
+Current: unixFullPathname Havoced: do_meta_command
+
+        Unrolling loop in function "llbmc.strcmp" for 0 iterations succeeded.
+        Transformed "llbmc.strcmp" from 4 to 3 basic blocks and from 14 to 16 instructionsCurrent: unixFullPathname Havoced: idxPopulateStat1
+Current: unixFullPathname Havoced: idxProcessTriggers
+Current: unixFullPathname Havoced: sqlite3_expert_analyze
+Current: unixFullPathname Havoced: idxCreateVtabSchema
+Current: unixFullPathname Havoced: idxFindIndexes
+Current: unixFullPathname Havoced: sqlite3CantopenError
+Current: unixFullPathname Havoced: unixLogErrorAtLine
+Current: unixFullPathname Havoced: sqlite3CantopenError
+Current: unixFullPathname Havoced: sqlite3_malloc
+Current: unixFullPathname Havoced: sqlite3_uri_int64
+Current: unixFullPathname Havoced: sqlite3Strlen30
+isMemmove:   call void @llvm.memmove.p0i8.p0i8.i64(i8* %1221, i8* %1174, i64 %1223, i32 1, i1 false), !dbg !5740
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %1174, i8* %2, i64 %1224, i32 1, i1 false), !dbg !5742
+Current: unixFullPathname Havoced: sqlite3CantopenError
+Current: unixFullPathname Havoced: sqlite3CantopenError
+Current: unixFullPathname Havoced: unixLogErrorAtLine
+Current: unixFullPathname Havoced: mkFullPathname
+Current: unixFullPathname Havoced: sqlite3_free
+
+                                                           0 sec [DONE]
+        Number of expressions:                        160483
+        after encoding
+
+      15 assertions before transformations (11 no_function_call, 3 no_back_edge, 1 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            6595
+        Fixed Memory Address Assigner
+          Number of moved ops                              4
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           73353
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               1
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           70156
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           69268
+        ToASC Analyser
+          Memcpy/memset found                            yes
+        Byte-Based Memory Creator
+          Number of rewrites                            8913
+        Instantiation-Based ToASC Simplifier
+          Number of rewrites                               2
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           23067
+        FP Abstraction
+          Number of rewrites                              22
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           1 sec [DONE]
+        
+      15 assertions remain after transformations (11 no_function_call, 3 no_back_edge, 1 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...

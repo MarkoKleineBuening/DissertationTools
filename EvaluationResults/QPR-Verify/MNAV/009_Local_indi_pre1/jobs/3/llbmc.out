@@ -1,0 +1,184 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+handleJobInSeparateProcess0
+
+Checking job 3 ...about to run job:
+preconNumber: 5, 1
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 3
+    HavocLimit : 0
+    PreconditionNumber : 5
+    PreconditionLocation : jobs/3
+    TimeOut : 300
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : main
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "main" for 3 iterations succeeded.
+      Unrolling loop in function "main" for 3 iterations succeeded.
+      Unrolling loop in function "main" for 3 iterations succeeded.getMatchingFunctions
+getMatchingFunctions
+getMatchingFunctions
+getMatchingFunctions
+
+      Transformed "main" from 49 to 142 basic blocks and from 323 to 720 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...
+        Unrolling loop in function "llbmc.strcmp" for 0 iterations succeeded.
+        Transformed "llbmc.strcmp" from 4 to 3 basic blocks and from 14 to 16 instructionsisMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %305, i8* %306, i64 16, i32 8, i1 false), !dbg !1697
+getMatchingFunctions
+res.push_back: printf
+
+        Transformed "open_client" from 4 to 8 basic blocks and from 31 to 38 instructionsisMemset:   call void @llvm.memset.p0i8.i64(i8* bitcast (%struct.sockaddr_in* @serv_addr to i8*), i8 0, i64 16, i32 4, i1 false), !dbg !1367
+isMemset:   call void @llvm.memset.p0i8.i64(i8* bitcast (%struct.sockaddr_in* @serv_addr to i8*), i8 0, i64 16, i32 4, i1 false), !dbg !1367
+
+        Unrolling loop in function "send_client" for 3 iterations succeeded.
+        Transformed "send_client" from 8 to 11 basic blocks and from 85 to 130 instructionsisMemset:   call void @llvm.memset.p0i8.i64(i8* %1, i8 0, i64 200, i32 16, i1 false), !dbg !1373
+isMemset:   call void @llvm.memset.p0i8.i64(i8* bitcast (%struct.sockaddr_in* @serv_addr to i8*), i8 0, i64 16, i32 4, i1 false), !dbg !1367
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %1, i8 0, i64 200, i32 16, i1 false), !dbg !1373
+isMemset:   call void @llvm.memset.p0i8.i64(i8* bitcast (%struct.sockaddr_in* @serv_addr to i8*), i8 0, i64 16, i32 4, i1 false), !dbg !1367
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %1, i8 0, i64 200, i32 16, i1 false), !dbg !1373
+isMemset:   call void @llvm.memset.p0i8.i64(i8* bitcast (%struct.sockaddr_in* @serv_addr to i8*), i8 0, i64 16, i32 4, i1 false), !dbg !1367
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %1, i8 0, i64 200, i32 16, i1 false), !dbg !1373
+
+                                                           0 sec [DONE]
+        Number of expressions:                         10621
+        after encoding
+
+      194 assertions before transformations (147 no_function_call, 40 no_back_edge, 3 custom, 4 no_unreachable_executed).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            3398
+        Fixed Memory Address Assigner
+          Number of moved ops                             28
+          Number of rewrites                             364
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                            3936
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                              14
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                          148610
+        Simplifier
+          Number of moved ops                              1
+          Number of rewrites                          434176
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              37
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      194 assertions remain after transformations (147 no_function_call, 40 no_back_edge, 3 custom, 4 no_unreachable_executed).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...            0 sec [DONE]
+        
+                                                           0 sec [DONE]
+      after performing Check
+evaluateCheckerResultsViaRefinementLoop
+checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+getCheckerResultAfterUpdatingMarker
+failingInst:   %10 = call void (i32)* @signal(i32 2, void (i32)* @cleanup) #9, !dbg !1526
+Preconditions internal: 
+i32 %0:arbitrary; 
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: i32 %i32__1 = iconst() : 1
+error: No matching SMT expression for Op %i32__1 (iconst) found!
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   %10 = call void (i32)* @signal(i32 2, void (i32)* @cleanup) #9, !dbg !1526
+Preconditions internal: 
+i32 %0:arbitrary; 
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: i32 %i32__1 = iconst() : 1
+error: No matching SMT expression for Op %i32__1 (iconst) found!
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   %10 = call void (i32)* @signal(i32 2, void (i32)* @cleanup) #9, !dbg !1526
+Preconditions internal: 
+i32 %0:arbitrary; 
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: i32 %i32__1 = iconst() : 1
+error: No matching SMT expression for Op %i32__1 (iconst) found!
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   %10 = call void (i32)* @signal(i32 2, void (i32)* @cleanup) #9, !dbg !1526
+Preconditions internal: 
+i32 %0:arbitrary; 
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: i32 %i32__1 = iconst() : 1
+error: No matching SMT expression for Op %i32__1 (iconst) found!
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   %10 = call void (i32)* @signal(i32 2, void (i32)* @cleanup) #9, !dbg !1526
+Preconditions internal: 
+i32 %0:arbitrary; 
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: i32 %i32__1 = iconst() : 1
+error: No matching SMT expression for Op %i32__1 (iconst) found!
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      name of function arguments: Writing precondition at: jobs/3/precondition_main.txt
+
+Generated Preconditions:
+[underoverapprox]name of function arguments: 
+i32 %0:arbitrary; 
+i32 %0:arbitrary; 
+i32 %0:arbitrary; 
+i32 %0:arbitrary; 
+i32 %0:arbitrary; 
+
+                                                           0 sec [DONE]
+    allsafe
+    
+                                                           0 sec [DONE]
+  

@@ -1,0 +1,184 @@
+runJobCommand
+precondition analysis with entry:re_subcompile_string
+arguents: child
+arguents: job
+arguents: mode
+arguents: precondition
+handleJobInSeparateProcess0
+
+Checking job 451 ...about to run job:
+preconNumber: 5, 1
+
+  Running Model Checker with 1 checks ...entry: re_subcompile_string, functionName: re_esc_char
+  <badref> = call i32 @qpr.precondition.re_esc_char(%struct.ReCompiled.262* %0)
+entry: re_subcompile_string, functionName: re_esc_char
+entry: re_subcompile_string, functionName: re_subcompile_string
+try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 1
+    LoopUnrollBound : 1
+    HavocLimit : 0
+    PreconditionNumber : 5
+    PreconditionLocation : jobs/451
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : true
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : re_subcompile_string
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "re_subcompile_string" for 1 iterations succeeded.
+      Unrolling loop in function "re_subcompile_string" for 1 iterations succeeded.
+      Unrolling loop in function "re_subcompile_string" for 1 iterations succeeded.
+      Unrolling loop in function "re_subcompile_string" for 1 iterations succeeded.
+      Unrolling loop in function "re_subcompile_string" for 1 iterations succeeded.
+      Unrolling loop in function "re_subcompile_string" for 1 iterations succeeded.getMatchingFunctions
+res.push_back: re_next_char_nocase
+res.push_back: re_next_char
+getMatchingFunctions
+res.push_back: re_next_char_nocase
+res.push_back: re_next_char
+getMatchingFunctions
+res.push_back: re_next_char_nocase
+res.push_back: re_next_char
+getMatchingFunctions
+res.push_back: re_next_char_nocase
+res.push_back: re_next_char
+getMatchingFunctions
+res.push_back: re_next_char_nocase
+res.push_back: re_next_char
+
+      Transformed "re_subcompile_string" from 95 to 3399 basic blocks and from 444 to 10343 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...size Alloca: 1
+TODO MKB implement precondition handling: IE
+Reading in precondition at: jobs/451/precondition_re_esc_char.txt
+preconFile: jobs/451/precondition_re_esc_char.txt
+ref: [underoverapprox]name of function arguments, argValue:  
+ref: [underoverapprox]name of function arguments, argValue:  
+name of function arguments line
+ERROR boolCond is nullptr
+ERROR boolCond is nullptr
+ERROR boolCond is nullptr
+ERROR boolCond is nullptr
+ERROR boolCond is nullptr
+Writing precondition type at: jobs/451/precondition_type_re_subcompile_string.txt
+
+Type of Precondition:
+[underoverapprox]
+precondition found, end encoding
+                      0 sec [DONE]
+        Number of expressions:                        158197
+        after encoding
+
+      1 assertion before transformations (1 no_function_call).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            5627
+        Fixed Memory Address Assigner
+          Number of moved ops                              1
+          Number of rewrites                            5209
+        Simplifier
+          Number of moved ops                              1
+          Number of rewrites                           73286
+        Memory Model Encoder
+          Number of moved ops                              0
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                           69268
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           7 sec [DONE]
+        
+      1 assertion remains after transformations (1 no_function_call).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...            0 sec [DONE]
+        
+                                                           8 sec [DONE]
+      after performing Check
+evaluateCheckerResultsViaRefinementLoop
+checker.getResult() is Trace
+checkOnlyPrecon: 1, size:1
+setCheckToUnsafe for precondition Instruction
+checkID: 2039
+setCheckToUnsafe
+set check to unsafe
+getCheckerResultAfterUpdatingMarker
+failingInst:   %1299 = call i32 %1(%struct.ReInput.261* %2), !dbg !5640
+Preconditions internal: 
+
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   %1299 = call i32 %1(%struct.ReInput.261* %2), !dbg !5640
+Preconditions internal: 
+
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   %1299 = call i32 %1(%struct.ReInput.261* %2), !dbg !5640
+Preconditions internal: 
+
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   %1299 = call i32 %1(%struct.ReInput.261* %2), !dbg !5640
+Preconditions internal: 
+
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   %1299 = call i32 %1(%struct.ReInput.261* %2), !dbg !5640
+Preconditions internal: 
+
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      name of function arguments: Writing precondition at: jobs/451/precondition_re_subcompile_string.txt
+
+Generated Preconditions:
+[underoverapprox]name of function arguments: 
+
+
+
+
+
+
+                                                           9 sec [DONE]
+    allunsafe
+    
+                                                           9 sec [DONE]
+  

@@ -1,0 +1,116 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 173 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 2
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/173
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : apndUnfetch
+m_checker->run()
+
+    Performing bounded model checking ...getMatchingFunctions
+res.push_back: apndUnfetch
+res.push_back: memdbUnfetch
+res.push_back: unixUnfetch
+res.push_back: sqlite3OsUnfetch
+
+      Transformed "apndUnfetch" from 1 to 17 basic blocks and from 23 to 62 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...Current: vdbeSorterOpenTempFile Havoced: sqlite3FaultSim
+Current: vdbeSorterOpenTempFile Havoced: sqlite3OsOpenMalloc
+Current: vdbeSorterOpenTempFile Havoced: sqlite3OsFileControlHint
+Current: vdbeSorterOpenTempFile Havoced: vdbeSorterExtendFile
+Current: blobSeekToRow Havoced: sqlite3_step
+Current: blobSeekToRow Havoced: sqlite3VdbeExec
+Current: blobSeekToRow Havoced: sqlite3VdbeSerialTypeLen
+Current: blobSeekToRow Havoced: sqlite3BtreeIncrblobCursor
+Current: blobSeekToRow Havoced: sqlite3MPrintf
+Current: blobSeekToRow Havoced: sqlite3_finalize
+Current: blobSeekToRow Havoced: sqlite3_finalize
+Current: blobSeekToRow Havoced: sqlite3_errmsg
+Current: blobSeekToRow Havoced: sqlite3MPrintf
+Current: blobSeekToRow Havoced: sqlite3MPrintf
+Current: read32bits Havoced: sqlite3OsRead
+Current: read32bits Havoced: sqlite3Get4byte
+getMatchingFunctions
+res.push_back: apndUnfetch
+res.push_back: memdbUnfetch
+res.push_back: unixUnfetch
+res.push_back: sqlite3OsUnfetch
+
+        Transformed "sqlite3OsUnfetch" from 1 to 17 basic blocks and from 12 to 51 instructionsCurrent: sqlite3OsUnfetch Havoced: vdbeSorterOpenTempFile
+Current: sqlite3OsUnfetch Havoced: blobSeekToRow
+Current: sqlite3OsUnfetch Havoced: read32bits
+Current: sqlite3OsUnfetch Havoced: unixUnfetch
+Current: sqlite3OsUnfetch Havoced: memdbUnfetch
+Current: unixUnfetch Havoced: unixUnmapfile
+Current: memdbUnfetch Havoced: memdbEnter
+Current: memdbUnfetch Havoced: memdbLeave
+
+                                                           0 sec [DONE]
+        Number of expressions:                        155759
+        after encoding
+
+      6 assertions before transformations (5 no_function_call, 1 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            3777
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72630
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               3
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               7
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             142
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      6 assertions remain after transformations (5 no_function_call, 1 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...

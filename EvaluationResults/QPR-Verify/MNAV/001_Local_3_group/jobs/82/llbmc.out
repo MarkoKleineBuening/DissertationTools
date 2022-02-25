@@ -1,0 +1,170 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+handleJobInSeparateProcess0
+
+Checking job 82 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 2 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 0
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/82
+    TimeOut : 300
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : mat_minor
+m_checker->run()
+
+    Performing bounded model checking ...
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...
+        Unrolling loop in function "_mat_creat" for 1 iterations succeeded.
+        Transformed "_mat_creat" from 10 to 11 basic blocks and from 54 to 57 instructions
+        Transformed "mat_error" from 5 to 10 basic blocks and from 10 to 19 instructions
+        Unrolling loop in function "mat_fill" for 1 iterations succeeded.
+        Unrolling loop in function "mat_fill" for 1 iterations succeeded.
+        Transformed "mat_fill" from 18 to 24 basic blocks and from 67 to 82 instructions
+        Unrolling loop in function "mat_submat" for 1 iterations succeeded.
+        Unrolling loop in function "mat_submat" for 1 iterations succeeded.
+        Transformed "mat_submat" from 17 to 19 basic blocks and from 106 to 116 instructions
+        Unrolling loop in function "mat_det" for 1 iterations succeeded.
+        Transformed "mat_det" from 13 to 16 basic blocks and from 79 to 89 instructions
+        Unrolling loop in function "mat_copy" for 1 iterations succeeded.
+        Unrolling loop in function "mat_copy" for 1 iterations succeeded.
+        Transformed "mat_copy" from 9 to 11 basic blocks and from 49 to 57 instructions
+        Unrolling loop in function "mat_lu" for 1 iterations succeeded.
+        Unrolling loop in function "mat_lu" for 1 iterations succeeded.
+        Unrolling loop in function "mat_lu" for 1 iterations succeeded.
+        Unrolling loop in function "mat_lu" for 1 iterations succeeded.
+        Unrolling loop in function "mat_lu" for 1 iterations succeeded.
+        Transformed "mat_lu" from 28 to 33 basic blocks and from 239 to 261 instructions
+        Unrolling loop in function "mat_free" for 1 iterations succeeded.
+        Transformed "mat_free" from 8 to 9 basic blocks and from 33 to 37 instructions
+                                                           0 sec [DONE]
+        Number of expressions:                          8822
+        after encoding
+
+      46 assertions before transformations (21 no_function_call, 22 no_back_edge, 2 custom, 1 no_unreachable_executed).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            2172
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                             376
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                            2969
+        Memory Model Encoder
+          Number of moved ops                              0
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                               8
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              33
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of rewrites                               4
+                                                           0 sec [DONE]
+        
+      46 assertions remain after transformations (21 no_function_call, 22 no_back_edge, 2 custom, 1 no_unreachable_executed).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...            4 sec [DONE]
+        
+                                                           4 sec [DONE]
+      after performing Check
+evaluateCheckerResultsViaRefinementLoop
+checker.getResult() is Trace
+checkOnlyPrecon: 0, size:2
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+BranchInst - LoopBound
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            4 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:2
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            4 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:2
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            4 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:2
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+BranchInst - LoopBound
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            4 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:2
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            4 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:2
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+BranchInst - LoopBound
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            4 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:2
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+BranchInst - LoopBound
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            4 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:2
+getFailingCheckFor
+setCheckToUnsafe
+setCheckToUnsafe
+Check for floating point traces / abstractions currently deactivated
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            4 sec [DONE]
+      getCheckerResultAfterUpdatingMarker
+Result is NoTrace
+
+                                                          43 sec [DONE]
+    someunsafe
+    
+                                                          43 sec [DONE]
+  

@@ -1,0 +1,45 @@
+<VerificationJob>
+  <Configuration>
+    <AnalyzeChecksIndividually value="true" />
+    <BitcodeTraces value="false" />
+    <CheckCallers value="true" />
+    <DumpVerifierBitcodeFiles value="false" />
+    <EnableSlicing value="true" />
+    <EntryPoint value="sqlite3DropTable" />
+    <FixPoint value="true" />
+    <ForkJobs value="true" />
+    <Hosted value="true" />
+    <IgnoreMissingFunctions value="false" />
+    <InitializedGlobals value="false" />
+    <LoopUnrollBound value="1" />
+    <PreconditionLocation value="jobs/5991" />
+    <SourceDirectory value="/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld" />
+    <TimeOut value="600" />
+    <XMLTraces value="false" />
+  </Configuration>
+  <CheckList>
+    <Check id="18622" location="20564" category="shift.by.amount" status="unsafe" scope="sqlite3BeginWriteOperation">
+      <Annotations>
+        <Annotation>Shift operation can be by more than bitwidth.</Annotation>
+      </Annotations>
+      <EntryStatus>
+        <SingleEntryStatus>analyzeDatabase, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>analyzeTable, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>reindexTable, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3CodeDropTable, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3CreateIndex, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3DeleteFrom, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3DropIndex, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3DropTable, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3FinishTrigger, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3Insert, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3Pragma, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3Reindex, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3StartTable, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3Update, unsafe</SingleEntryStatus>
+      </EntryStatus>
+    </Check>
+  </CheckList>
+  <Annotation>allunsafe</Annotation>
+  <Status>allunsafe</Status>
+</VerificationJob>

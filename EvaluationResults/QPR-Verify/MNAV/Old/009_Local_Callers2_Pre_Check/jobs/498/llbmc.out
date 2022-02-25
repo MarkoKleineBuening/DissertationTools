@@ -1,0 +1,227 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+handleJobInSeparateProcess0
+
+Checking job 498 ...about to run job:
+preconNumber: 3, 1
+
+  Running Model Checker with 1 checks ...entry: mat_cofact, functionName: mat_submat
+entry: mat_cofact, functionName: mat_cofact
+entry: mat_cofact, functionName: mat_minor
+  <badref> = call double @qpr.precondition.mat_minor(double** %0, i32 %1, i32 %2)
+try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 4
+    HavocLimit : 0
+    PreconditionNumber : 3
+    PreconditionLocation : jobs/498
+    TimeOut : 300
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : mat_cofact
+m_checker->run()
+
+    Performing bounded model checking ...
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...size Alloca: 1
+TODO MKB implement precondition handling: IE
+Reading in precondition at: jobs/498/precondition_mat_minor.txt
+preconFile: jobs/498/precondition_mat_minor.txt
+ref: [underoverapprox]name of function arguments, argValue:  
+ref: [underoverapprox]name of function arguments, argValue:  
+name of function arguments line
+param: i32 %arg1:2
+---name: i32 %arg1, value: 2.
+integer, char or other simple types
+name: i32 %arg1
+assuming that there are not more then 10 arguments
+nameIndex: 1
+nameID: 1
+argument name: arg1
+value: 2
+###new bool cond: bool % = compare(%arg1, %i32__2)
+param:  i32 %arg2:0
+---name:  i32 %arg2, value: 0.
+integer, char or other simple types
+name:  i32 %arg2
+assuming that there are not more then 10 arguments
+nameIndex: 2
+nameID: 2
+argument name: arg2
+value: 0
+###added bool cond: bool % = or(%, %)
+pruneOrAssert -- adding line boolCond: bool % = or(%, %)
+param: i32 %arg1:2
+---name: i32 %arg1, value: 2.
+integer, char or other simple types
+name: i32 %arg1
+assuming that there are not more then 10 arguments
+nameIndex: 1
+nameID: 1
+argument name: arg1
+value: 2
+###new bool cond: bool % = compare(%arg1, %i32__2)
+param:  i32 %arg2:1
+---name:  i32 %arg2, value: 1.
+integer, char or other simple types
+name:  i32 %arg2
+assuming that there are not more then 10 arguments
+nameIndex: 2
+nameID: 2
+argument name: arg2
+value: 1
+###added bool cond: bool % = or(%, %)
+pruneOrAssert -- adding line boolCond: bool % = or(%, %)
+param: i32 %arg1:2
+---name: i32 %arg1, value: 2.
+integer, char or other simple types
+name: i32 %arg1
+assuming that there are not more then 10 arguments
+nameIndex: 1
+nameID: 1
+argument name: arg1
+value: 2
+###new bool cond: bool % = compare(%arg1, %i32__2)
+param:  i32 %arg2:3
+---name:  i32 %arg2, value: 3.
+integer, char or other simple types
+name:  i32 %arg2
+assuming that there are not more then 10 arguments
+nameIndex: 2
+nameID: 2
+argument name: arg2
+value: 3
+###added bool cond: bool % = or(%, %)
+pruneOrAssert -- adding line boolCond: bool % = or(%, %)
+Writing precondition type at: jobs/498/precondition_type_mat_cofact.txt
+
+Type of Precondition:
+[underoverapprox]
+precondition found, end encoding
+                      0 sec [DONE]
+        Number of expressions:                          6069
+        after encoding
+
+      3 assertions before transformations (3 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                              83
+        Fixed Memory Address Assigner
+          Number of moved ops                              4
+          Number of rewrites                             365
+        Simplifier
+          Number of moved ops                              1
+          Number of rewrites                            2732
+        Memory Model Encoder
+          Number of moved ops                              0
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                               0
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                               1
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      3 assertions remain after transformations (3 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...            0 sec [DONE]
+        
+                                                           0 sec [DONE]
+      after performing Check
+evaluateCheckerResultsViaRefinementLoop
+checker.getResult() is Trace
+checkOnlyPrecon: 1, size:1
+setCheckToUnsafe for precondition Instruction
+checkID: 1692
+setCheckToUnsafe
+set check to unsafe
+getCheckerResultAfterUpdatingMarker
+failingInst:   %12 = call double @qpr.precondition.mat_minor(double** %arg0, i32 %arg1, i32 %arg2), !dbg !1386
+Preconditions internal: 
+i32 %arg1:2; (i32 %arg1:2)i32 %arg2:0; (i32 %arg2:0)
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: i32 %arg1 = nondef() : 2
+assumePair: i32 %arg2 = nondef() : 0
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst is nullptr
+Preconditions internal: 
+i32 %arg1:2; (i32 %arg1:2)i32 %arg2:1; (i32 %arg2:1)
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: i32 %arg1 = nondef() : 2
+assumePair: i32 %arg2 = nondef() : 1
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst is nullptr
+Preconditions internal: 
+i32 %arg1:2; (i32 %arg1:2)i32 %arg2:3; (i32 %arg2:3)
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: i32 %arg1 = nondef() : 2
+assumePair: i32 %arg2 = nondef() : 3
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      name of function arguments: Writing precondition at: jobs/498/precondition_mat_cofact.txt
+
+Generated Preconditions:
+[underoverapprox]name of function arguments: 
+i32 %arg1:2; i32 %arg2:0; 
+i32 %arg1:2; i32 %arg2:1; 
+i32 %arg1:2; i32 %arg2:3; 
+
+                                                           0 sec [DONE]
+    allsafe
+    
+                                                           0 sec [DONE]
+       failingInst is nullptr
+Preconditions internal: 
+i32 %arg1:2; (i32 %arg1:2)i32 %arg2:3; (i32 %arg2:3)
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: i32 %arg1 = nondef() : 2
+assumePair: i32 %arg2 = nondef() : 3
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      name of function arguments: Writing precondition at: jobs/498/precondition_mat_minor.txt
+
+Generated Preconditions:
+[underoverapprox]name of function arguments: 
+i32 %arg1:2; i32 %arg2:0; 
+i32 %arg1:2; i32 %arg2:1; 
+i32 %arg1:2; i32 %arg2:3; 
+
+                                                           0 sec [DONE]
+    allsafe
+    
+                                                           0 sec [DONE]
+  

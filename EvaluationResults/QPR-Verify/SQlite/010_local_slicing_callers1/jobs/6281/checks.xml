@@ -1,0 +1,42 @@
+<VerificationJob>
+  <Configuration>
+    <AnalyzeChecksIndividually value="true" />
+    <BitcodeTraces value="false" />
+    <CheckCallers value="true" />
+    <DumpVerifierBitcodeFiles value="false" />
+    <EnableSlicing value="true" />
+    <EntryPoint value="analyzeOneTable" />
+    <FixPoint value="true" />
+    <ForkJobs value="true" />
+    <Hosted value="true" />
+    <IgnoreMissingFunctions value="false" />
+    <InitializedGlobals value="false" />
+    <LoopUnrollBound value="1" />
+    <PreconditionLocation value="jobs/6281" />
+    <SourceDirectory value="/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld" />
+    <TimeOut value="600" />
+    <XMLTraces value="false" />
+  </Configuration>
+  <CheckList>
+    <Check id="19823" location="22003" category="implicit.conversion.overflow" status="unsafe" scope="sqlite3OpenTable">
+      <Annotations>
+        <Annotation>An implicit conversion operation can overflow.</Annotation>
+      </Annotations>
+      <EntryStatus>
+        <SingleEntryStatus>analyzeOneTable, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>autoIncrementEnd, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>fkLookupParent, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3AlterDropColumn, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3AutoincrementBegin, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3FindInIndex, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3OpenTableAndIndices, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3Pragma, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3RefillIndex, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3WhereBegin, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>xferOptimization, unsafe</SingleEntryStatus>
+      </EntryStatus>
+    </Check>
+  </CheckList>
+  <Annotation>allunsafe</Annotation>
+  <Status>allunsafe</Status>
+</VerificationJob>

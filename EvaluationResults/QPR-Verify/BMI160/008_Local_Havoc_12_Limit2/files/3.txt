@@ -1,0 +1,47 @@
+#include "bmi160_defs.h"
+#include <stdint.h>
+
+#ifndef STUB_FIFO_SIZE_BYTES
+#error "STUB_FIFO_SIZE_BYTES (the size of the stubbed FIFO passed to the driver) must be defined."
+#endif
+
+uint8_t __llbmc_nondef_uint8_t(void);
+uint16_t __llbmc_nondef_uint16_t(void);
+int8_t __llbmc_nondef_int8_t(void);
+void __llbmc_assume(int);
+
+// The "main" configuration stub
+struct bmi160_dev configStub;
+
+// The FIFO buffer stub (configStub has a pointer to this structure)
+uint8_t fifoDataStub[STUB_FIFO_SIZE_BYTES];
+struct bmi160_fifo_frame fifoFrameStub;
+
+void stubDelay(uint32_t unused) {
+}
+
+int8_t stubRead(uint8_t unused1, uint8_t unused2, uint8_t* data, uint16_t len) {
+  unsigned int i = 0;
+  for(; i < len; ++i) {
+    data[i] = __llbmc_nondef_uint8_t();
+  }
+  int8_t x = __llbmc_nondef_int8_t();
+  __llbmc_assume(x == 0 || x == -2);
+  return x;
+}
+
+int8_t stubWrite(uint8_t unused1, uint8_t unused2, uint8_t* unused3, uint16_t unused4) {
+  return __llbmc_nondef_int8_t();
+}
+
+void initStubs(void) {
+  // Fields not set here are treated as nondef in LLBMC, which is sound
+
+  configStub.fifo = &fifoFrameStub;
+  configStub.fifo->data = fifoDataStub;
+  configStub.fifo->length = STUB_FIFO_SIZE_BYTES;
+
+  configStub.read = stubRead;
+  configStub.write = stubWrite;
+  configStub.delay_ms = stubDelay;
+}

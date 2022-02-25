@@ -1,0 +1,39 @@
+<VerificationJob>
+  <Configuration>
+    <AnalyzeChecksIndividually value="false" />
+    <BitcodeTraces value="false" />
+    <EnableSlicing value="false" />
+    <EntryPoint value="map_feature_interrupt" />
+    <FixPoint value="true" />
+    <HavocLimit value="1" />
+    <IgnoreMissingFunctions value="false" />
+    <InitializedGlobals value="false" />
+    <LoopUnrollBound value="12" />
+    <OverApproxVaArgs value="false" />
+    <PreconditionLocation value="jobs/120" />
+    <SourceDirectory value="/home/i12/mbuening/100_Dissertation/BMI160/BMI160_driver" />
+    <StopEncodingAfterCheck value="false" />
+    <StopEncodingAfterCheckLoop value="0" />
+    <TimeOut value="300" />
+  </Configuration>
+  <CheckList>
+    <Check id="1111" location="1202" category="implicit.conversion.overflow" status="safe" scope="map_feature_interrupt" />
+    <Check id="1115" location="1206" category="arrayindex" status="unsafe" scope="map_feature_interrupt">
+      <Annotations>
+        <Annotation>An array can be indexed out of bounds.</Annotation>
+      </Annotations>
+    </Check>
+    <Check id="1117" location="1208" category="implicit.conversion.overflow" status="safe" scope="map_feature_interrupt" />
+    <Check id="1121" location="1212" category="arrayindex" status="safe" scope="map_feature_interrupt" />
+    <Check id="1130" location="1221" category="implicit.conversion.overflow" status="safe" scope="map_feature_interrupt" />
+    <Check id="1134" location="1225" category="arrayindex" status="safe" scope="map_feature_interrupt" />
+    <Check id="1139" location="1230" category="implicit.conversion.overflow" status="safe" scope="map_feature_interrupt" />
+    <Check id="1143" location="1234" category="arrayindex" status="safe" scope="map_feature_interrupt" />
+    <Check id="1148" location="1239" category="implicit.conversion.overflow" status="safe" scope="map_feature_interrupt" />
+    <Check id="1152" location="1243" category="arrayindex" status="safe" scope="map_feature_interrupt" />
+    <Check id="1154" location="1245" category="implicit.conversion.overflow" status="safe" scope="map_feature_interrupt" />
+    <Check id="1158" location="1249" category="arrayindex" status="safe" scope="map_feature_interrupt" />
+  </CheckList>
+  <Annotation>someunsafe</Annotation>
+  <Status>someunsafe</Status>
+</VerificationJob>

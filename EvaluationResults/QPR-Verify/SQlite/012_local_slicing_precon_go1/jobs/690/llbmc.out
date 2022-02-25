@@ -1,0 +1,254 @@
+runJobCommand
+precondition analysis with entry:shell_callback
+arguents: child
+arguents: job
+arguents: mode
+arguents: precondition
+handleJobInSeparateProcess0
+
+Checking job 690 ...about to run job:
+preconNumber: 5, 1
+
+  Running Model Checker with 1 checks ...entry: shell_callback, functionName: output_json_string
+  call void @qpr.precondition.output_json_string(%struct._IO_FILE.177* %1071, i8* %1074, i32 -1)
+entry: shell_callback, functionName: output_json_string
+entry: shell_callback, functionName: shell_callback
+try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 1
+    LoopUnrollBound : 1
+    HavocLimit : 0
+    PreconditionNumber : 5
+    PreconditionLocation : jobs/690
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : true
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : shell_callback
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "shell_callback" for 1 iterations succeeded.
+      Unrolling loop in function "shell_callback" for 1 iterations succeeded.
+      Unrolling loop in function "shell_callback" for 1 iterations succeeded.
+      Unrolling loop in function "shell_callback" for 1 iterations succeeded.
+      Unrolling loop in function "shell_callback" for 1 iterations succeeded.
+      Unrolling loop in function "shell_callback" for 1 iterations succeeded.
+      Unrolling loop in function "shell_callback" for 1 iterations succeeded.
+      Unrolling loop in function "shell_callback" for 1 iterations succeeded.
+      Unrolling loop in function "shell_callback" for 1 iterations succeeded.
+      Unrolling loop in function "shell_callback" for 1 iterations succeeded.
+      Unrolling loop in function "shell_callback" for 1 iterations succeeded.
+      Unrolling loop in function "shell_callback" for 1 iterations succeeded.
+      Unrolling loop in function "shell_callback" for 1 iterations succeeded.
+      Unrolling loop in function "shell_callback" for 1 iterations succeeded.
+      Unrolling loop in function "shell_callback" for 1 iterations succeeded.
+      Unrolling loop in function "shell_callback" for 1 iterations succeeded.
+      Unrolling loop in function "shell_callback" for 1 iterations succeeded.
+      Unrolling loop in function "shell_callback" for 1 iterations succeeded.
+      Unrolling loop in function "shell_callback" for 1 iterations succeeded.
+      Unrolling loop in function "shell_callback" for 1 iterations succeeded.
+      Unrolling loop in function "shell_callback" for 1 iterations succeeded.
+      Unrolling loop in function "shell_callback" for 1 iterations succeeded.
+      Unrolling loop in function "shell_callback" for 1 iterations succeeded.
+      Unrolling loop in function "shell_callback" for 1 iterations succeeded.
+      Unrolling loop in function "shell_callback" for 1 iterations succeeded.
+      Transformed "shell_callback" from 376 to 422 basic blocks and from 1817 to 2020 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...size Alloca: 1
+size Alloca: 1
+size Alloca: 1
+size Alloca: 1
+TODO MKB implement precondition handling: IE
+Reading in precondition at: jobs/690/precondition_output_json_string.txt
+preconFile: jobs/690/precondition_output_json_string.txt
+ref: [underoverapprox]name of function arguments, argValue:  
+ref: [underoverapprox]name of function arguments, argValue:  
+name of function arguments line
+param: i32 %arg2:-2080374784
+---name: i32 %arg2, value: -2080374784.
+integer, char or other simple types
+name: i32 %arg2
+assuming that there are not more then 10 arguments
+nameIndex: 2
+nameID: 2
+argument name: 
+value: -2080374784
+###new bool cond: bool % = compare(%i32__4294967295, %i32__2214592512)
+pruneOrAssert -- adding line boolCond: bool % = compare(%i32__4294967295, %i32__2214592512)
+param: i32 %arg2:-1073741824
+---name: i32 %arg2, value: -1073741824.
+integer, char or other simple types
+name: i32 %arg2
+assuming that there are not more then 10 arguments
+nameIndex: 2
+nameID: 2
+argument name: 
+value: -1073741824
+###new bool cond: bool % = compare(%i32__4294967295, %i32__3221225472)
+pruneOrAssert -- adding line boolCond: bool % = compare(%i32__4294967295, %i32__3221225472)
+param: i32 %arg2:-2126249984
+---name: i32 %arg2, value: -2126249984.
+integer, char or other simple types
+name: i32 %arg2
+assuming that there are not more then 10 arguments
+nameIndex: 2
+nameID: 2
+argument name: 
+value: -2126249984
+###new bool cond: bool % = compare(%i32__4294967295, %i32__2168717312)
+pruneOrAssert -- adding line boolCond: bool % = compare(%i32__4294967295, %i32__2168717312)
+param: i32 %arg2:-2147483648
+---name: i32 %arg2, value: -2147483648.
+integer, char or other simple types
+name: i32 %arg2
+assuming that there are not more then 10 arguments
+nameIndex: 2
+nameID: 2
+argument name: 
+value: -2147483648
+###new bool cond: bool % = compare(%i32__4294967295, %i32__2147483648)
+pruneOrAssert -- adding line boolCond: bool % = compare(%i32__4294967295, %i32__2147483648)
+param: i32 %arg2:-2139095040
+---name: i32 %arg2, value: -2139095040.
+integer, char or other simple types
+name: i32 %arg2
+assuming that there are not more then 10 arguments
+nameIndex: 2
+nameID: 2
+argument name: 
+value: -2139095040
+###new bool cond: bool % = compare(%i32__4294967295, %i32__2155872256)
+pruneOrAssert -- adding line boolCond: bool % = compare(%i32__4294967295, %i32__2155872256)
+Writing precondition type at: jobs/690/precondition_type_shell_callback.txt
+
+Type of Precondition:
+[underoverapprox]
+precondition found, end encoding
+                      0 sec [DONE]
+        Number of expressions:                        155180
+        after encoding
+
+      7 assertions before transformations (2 no_function_call, 5 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            3439
+        Fixed Memory Address Assigner
+          Number of moved ops                              4
+          Number of rewrites                            5212
+        Simplifier
+          Number of moved ops                              4
+          Number of rewrites                          353460
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               7
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                           69268
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      7 assertions remain after transformations (2 no_function_call, 5 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...            0 sec [DONE]
+        
+                                                           1 sec [DONE]
+      after performing Check
+evaluateCheckerResultsViaRefinementLoop
+checker.getResult() is Trace
+checkOnlyPrecon: 1, size:1
+setCheckToUnsafe for precondition Instruction
+checkID: 2520
+setCheckToUnsafe
+set check to unsafe
+getCheckerResultAfterUpdatingMarker
+failingInst:   %851 = call i32 @fputs(i8* getelementptr inbounds ([4 x i8], [4 x i8]* @.str.880, i32 0, i32 0), %struct._IO_FILE.177* %850), !dbg !6770
+Preconditions internal: 
+i32 %arg1:arbitrary; 
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: i32 %arg1 = nondef() : 0
+error: No matching SMT expression for Op %arg1 (nondef) found!
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   %851 = call i32 @fputs(i8* getelementptr inbounds ([4 x i8], [4 x i8]* @.str.880, i32 0, i32 0), %struct._IO_FILE.177* %850), !dbg !6770
+Preconditions internal: 
+i32 %arg1:arbitrary; 
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: i32 %arg1 = nondef() : 0
+error: No matching SMT expression for Op %arg1 (nondef) found!
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   %851 = call i32 @fputs(i8* getelementptr inbounds ([4 x i8], [4 x i8]* @.str.880, i32 0, i32 0), %struct._IO_FILE.177* %850), !dbg !6770
+Preconditions internal: 
+i32 %arg1:arbitrary; 
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: i32 %arg1 = nondef() : 0
+error: No matching SMT expression for Op %arg1 (nondef) found!
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   %851 = call i32 @fputs(i8* getelementptr inbounds ([4 x i8], [4 x i8]* @.str.880, i32 0, i32 0), %struct._IO_FILE.177* %850), !dbg !6770
+Preconditions internal: 
+i32 %arg1:arbitrary; 
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: i32 %arg1 = nondef() : 0
+error: No matching SMT expression for Op %arg1 (nondef) found!
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   %851 = call i32 @fputs(i8* getelementptr inbounds ([4 x i8], [4 x i8]* @.str.880, i32 0, i32 0), %struct._IO_FILE.177* %850), !dbg !6770
+Preconditions internal: 
+i32 %arg1:arbitrary; 
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: i32 %arg1 = nondef() : 0
+error: No matching SMT expression for Op %arg1 (nondef) found!
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      name of function arguments: Writing precondition at: jobs/690/precondition_shell_callback.txt
+
+Generated Preconditions:
+[underoverapprox]name of function arguments: 
+i32 %arg1:arbitrary; 
+i32 %arg1:arbitrary; 
+i32 %arg1:arbitrary; 
+i32 %arg1:arbitrary; 
+i32 %arg1:arbitrary; 
+
+                                                           2 sec [DONE]
+    allunsafe
+    
+                                                           2 sec [DONE]
+  

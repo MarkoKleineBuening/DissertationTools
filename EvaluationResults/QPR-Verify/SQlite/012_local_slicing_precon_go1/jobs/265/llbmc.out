@@ -1,0 +1,200 @@
+runJobCommand
+precondition analysis with entry:decimal_add
+arguents: child
+arguents: job
+arguents: mode
+arguents: precondition
+handleJobInSeparateProcess0
+
+Checking job 265 ...about to run job:
+preconNumber: 5, 1
+
+  Running Model Checker with 1 checks ...entry: decimal_add, functionName: decimal_expand
+  call void @qpr.precondition.decimal_expand(%struct.Decimal.260* %0, i32 %74, i32 %72)
+entry: decimal_add, functionName: decimal_add
+entry: decimal_add, functionName: decimal_expand
+try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 1
+    LoopUnrollBound : 1
+    HavocLimit : 0
+    PreconditionNumber : 5
+    PreconditionLocation : jobs/265
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : true
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : decimal_add
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "decimal_add" for 1 iterations succeeded.
+      Unrolling loop in function "decimal_add" for 1 iterations succeeded.
+      Transformed "decimal_add" from 41 to 43 basic blocks and from 294 to 302 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...size Alloca: 1
+size Alloca: 1
+TODO MKB implement precondition handling: IE
+Reading in precondition at: jobs/265/precondition_decimal_expand.txt
+preconFile: jobs/265/precondition_decimal_expand.txt
+ref: [underoverapprox]name of function arguments, argValue:  
+ref: [underoverapprox]name of function arguments, argValue:  
+name of function arguments line
+param: i32 %arg1:-2147483648
+---name: i32 %arg1, value: -2147483648.
+integer, char or other simple types
+name: i32 %arg1
+assuming that there are not more then 10 arguments
+nameIndex: 1
+nameID: 1
+argument name: 
+value: -2147483648
+###new bool cond: bool % = compare(%, %i32__2147483648)
+param:  i32 %arg2:1
+---name:  i32 %arg2, value: 1.
+integer, char or other simple types
+name:  i32 %arg2
+assuming that there are not more then 10 arguments
+nameIndex: 2
+nameID: 2
+argument name: 
+value: 1
+###added bool cond: bool % = or(%, %)
+pruneOrAssert -- adding line boolCond: bool % = or(%, %)
+param: i32 %arg1:-2147483647
+---name: i32 %arg1, value: -2147483647.
+integer, char or other simple types
+name: i32 %arg1
+assuming that there are not more then 10 arguments
+nameIndex: 1
+nameID: 1
+argument name: 
+value: -2147483647
+###new bool cond: bool % = compare(%, %i32__2147483649)
+param:  i32 %arg2:2
+---name:  i32 %arg2, value: 2.
+integer, char or other simple types
+name:  i32 %arg2
+assuming that there are not more then 10 arguments
+nameIndex: 2
+nameID: 2
+argument name: 
+value: 2
+###added bool cond: bool % = or(%, %)
+pruneOrAssert -- adding line boolCond: bool % = or(%, %)
+param: i32 %arg1:69277720
+---name: i32 %arg1, value: 69277720.
+integer, char or other simple types
+name: i32 %arg1
+assuming that there are not more then 10 arguments
+nameIndex: 1
+nameID: 1
+argument name: 
+value: 69277720
+###new bool cond: bool % = compare(%, %i32__69277720)
+param:  i32 %arg2:1115756568
+---name:  i32 %arg2, value: 1115756568.
+integer, char or other simple types
+name:  i32 %arg2
+assuming that there are not more then 10 arguments
+nameIndex: 2
+nameID: 2
+argument name: 
+value: 1115756568
+###added bool cond: bool % = or(%, %)
+pruneOrAssert -- adding line boolCond: bool % = or(%, %)
+param: i32 %arg1:310657344
+---name: i32 %arg1, value: 310657344.
+integer, char or other simple types
+name: i32 %arg1
+assuming that there are not more then 10 arguments
+nameIndex: 1
+nameID: 1
+argument name: 
+value: 310657344
+###new bool cond: bool % = compare(%, %i32__310657344)
+param:  i32 %arg2:-2079176444
+---name:  i32 %arg2, value: -2079176444.
+integer, char or other simple types
+name:  i32 %arg2
+assuming that there are not more then 10 arguments
+nameIndex: 2
+nameID: 2
+argument name: 
+value: -2079176444
+###added bool cond: bool % = or(%, %)
+pruneOrAssert -- adding line boolCond: bool % = or(%, %)
+param: i32 %arg1:1502239312
+---name: i32 %arg1, value: 1502239312.
+integer, char or other simple types
+name: i32 %arg1
+assuming that there are not more then 10 arguments
+nameIndex: 1
+nameID: 1
+argument name: 
+value: 1502239312
+###new bool cond: bool % = compare(%, %i32__1502239312)
+param:  i32 %arg2:692363562
+---name:  i32 %arg2, value: 692363562.
+integer, char or other simple types
+name:  i32 %arg2
+assuming that there are not more then 10 arguments
+nameIndex: 2
+nameID: 2
+argument name: 
+value: 692363562
+###added bool cond: bool % = or(%, %)
+pruneOrAssert -- adding line boolCond: bool % = or(%, %)
+Writing precondition type at: jobs/265/precondition_type_decimal_add.txt
+
+Type of Precondition:
+[underoverapprox]
+precondition found, end encoding
+                      0 sec [DONE]
+        Number of expressions:                        155190
+        after encoding
+
+      5 assertions before transformations (5 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            3422
+        Fixed Memory Address Assigner
+          Number of moved ops                              7
+          Number of rewrites                            5210
+        Simplifier
+          Number of moved ops                              2
+          Number of rewrites                          421785
+        Memory Model Encoder
+          Number of moved ops                              0
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                           69268
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      5 assertions remain after transformations (5 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...

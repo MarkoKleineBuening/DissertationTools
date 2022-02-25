@@ -1,0 +1,989 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 188 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 1
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/188
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [1] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : apndOpen
+m_checker->run()
+
+    Performing bounded model checking ...getMatchingFunctions
+res.push_back: apndOpen
+res.push_back: memdbOpen
+res.push_back: unixOpen
+res.push_back: sqlite3OsOpen
+getMatchingFunctions
+res.push_back: apndOpen
+res.push_back: memdbOpen
+res.push_back: unixOpen
+res.push_back: sqlite3OsOpen
+getMatchingFunctions
+res.push_back: apndFileSize
+res.push_back: memdbFileSize
+res.push_back: unixFileSize
+res.push_back: memjrnlFileSize
+res.push_back: sqlite3OsFileSize
+getMatchingFunctions
+res.push_back: apndClose
+res.push_back: apndSectorSize
+res.push_back: apndDeviceCharacteristics
+res.push_back: memdbClose
+res.push_back: memdbDeviceCharacteristics
+res.push_back: dotlockClose
+res.push_back: unixSectorSize
+res.push_back: unixDeviceCharacteristics
+res.push_back: closeUnixFile
+res.push_back: nolockClose
+res.push_back: unixClose
+res.push_back: sqlite3OsDeviceCharacteristics
+res.push_back: memjrnlClose
+res.push_back: sqlite3JournalIsInMemory
+res.push_back: sqlite3SectorSize
+res.push_back: sqlite3OsSectorSize
+getMatchingFunctions
+res.push_back: apndClose
+res.push_back: apndSectorSize
+res.push_back: apndDeviceCharacteristics
+res.push_back: memdbClose
+res.push_back: memdbDeviceCharacteristics
+res.push_back: dotlockClose
+res.push_back: unixSectorSize
+res.push_back: unixDeviceCharacteristics
+res.push_back: closeUnixFile
+res.push_back: nolockClose
+res.push_back: unixClose
+res.push_back: sqlite3OsDeviceCharacteristics
+res.push_back: memjrnlClose
+res.push_back: sqlite3JournalIsInMemory
+res.push_back: sqlite3SectorSize
+res.push_back: sqlite3OsSectorSize
+
+      Transformed "apndOpen" from 17 to 1815 basic blocks and from 128 to 5628 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...isMemset:   call void @llvm.memset.p0i8.i64(i8* %26, i8 0, i64 24, i32 8, i1 false), !dbg !5639
+Current: apndOpen Havoced: sqlite3OsOpenMalloc
+Current: apndOpen Havoced: sqlite3OsOpen
+Current: apndOpen Havoced: unixOpen
+Current: apndOpen Havoced: memdbOpen
+Current: apndOpen Havoced: renameColumnExprCb
+Current: apndOpen Havoced: renameTableSelectCb
+Current: apndOpen Havoced: renameTableExprCb
+Current: apndOpen Havoced: renameColumnSelectCb
+Current: apndOpen Havoced: renameQuotefixExprCb
+Current: apndOpen Havoced: parseYyyyMmDd
+Current: apndOpen Havoced: osLocaltime
+Current: apndOpen Havoced: parseTimezone
+Current: apndOpen Havoced: parseHhMmSs
+Current: apndOpen Havoced: setDateTimeToCurrent
+Current: apndOpen Havoced: sqlite3OsCurrentTimeInt64
+Current: apndOpen Havoced: sqlite3TransferBindings
+Current: apndOpen Havoced: checkReadTransaction
+Current: apndOpen Havoced: btreeOverwriteCell
+Current: apndOpen Havoced: balance_deeper
+Current: apndOpen Havoced: sqlite3BtreeCursorRestore
+Current: apndOpen Havoced: vdbeSorterMergeTreeBuild
+Current: apndOpen Havoced: vdbePmaReadVarint
+Current: apndOpen Havoced: vdbeMergeEngineStep
+Current: apndOpen Havoced: vdbePmaWriterFinish
+Current: apndOpen Havoced: vdbeSorterSort
+Current: apndOpen Havoced: vdbeSorterListToPMA
+Current: apndOpen Havoced: btreeHeapPull
+Current: apndOpen Havoced: sqlite3BtreeCopyFile
+Current: apndOpen Havoced: sqlite3VtabBegin
+Current: apndOpen Havoced: sqlite3PagerCloseWal
+Current: apndOpen Havoced: sqlite3RowSetNext
+Current: apndOpen Havoced: sqlite3VdbeSorterWrite
+Current: apndOpen Havoced: sqlite3VdbeSorterNext
+Current: apndOpen Havoced: sqlite3VdbeSorterRewind
+Current: apndOpen Havoced: sqlite3BtreeFirst
+Current: apndOpen Havoced: sqlite3VdbeSorterRowkey
+Current: apndOpen Havoced: sqlite3BtreeLast
+Current: apndOpen Havoced: sqlite3VdbeCursorMoveto
+Current: apndOpen Havoced: findNextHostParameter
+Current: apndOpen Havoced: tableMayNotBeDropped
+Current: apndOpen Havoced: sqlite3FixSelect
+Current: apndOpen Havoced: selectWindowRewriteSelectCb
+Current: apndOpen Havoced: selectWindowRewriteExprCb
+Current: apndOpen Havoced: sqlite3WindowExtraAggFuncDepth
+Current: apndOpen Havoced: disallowAggregatesInOrderByCb
+Current: apndOpen Havoced: renumberCursorsCb
+Current: apndOpen Havoced: recomputeColumnsUsedExpr
+Current: apndOpen Havoced: agginfoPersistExprCb
+Current: apndOpen Havoced: propagateConstantExprRewrite
+Current: apndOpen Havoced: windowInitAccum
+Current: apndOpen Havoced: windowExprGtZero
+Current: apndOpen Havoced: exprNodeIsConstantOrGroupBy
+Current: apndOpen Havoced: havingToWhereExprCb
+Current: apndOpen Havoced: addAggInfoFunc
+Current: apndOpen Havoced: addAggInfoColumn
+Current: apndOpen Havoced: sqlite3WalkerDepthIncrease
+Current: apndOpen Havoced: analyzeAggregate
+Current: apndOpen Havoced: propagateConstants
+Current: apndOpen Havoced: sqlite3WindowRewrite
+Current: apndOpen Havoced: sqlite3WhereOkOnePass
+Current: apndOpen Havoced: tabIsReadOnly
+Current: apndOpen Havoced: xferCompatibleIndex
+Current: apndOpen Havoced: exprColumnFlagUnion
+Current: apndOpen Havoced: isAsteriskTerm
+Current: apndOpen Havoced: checkConstraintExprNode
+Current: apndOpen Havoced: checkColumnOverlap
+Current: apndOpen Havoced: sqlite3FkOldmask
+Current: apndOpen Havoced: termIsEquivalence
+Current: apndOpen Havoced: exprNodeIsDeterministic
+Current: apndOpen Havoced: whereLoopCheaperProperSubset
+Current: apndOpen Havoced: whereLoopInsert
+Current: apndOpen Havoced: whereIndexExprTransColumn
+Current: apndOpen Havoced: whereIndexExprTransNode
+Current: apndOpen Havoced: exprIdxCover
+Current: apndOpen Havoced: isSetNullAction
+Current: apndOpen Havoced: changeTempStorage
+Current: apndOpen Havoced: sqlite3FixExpr
+Current: apndOpen Havoced: sqlite3FixTriggerStep
+Current: apndOpen Havoced: fixSelectCb
+Current: apndOpen Havoced: fixExprCb
+Current: apndOpen Havoced: sqlite3FixSrcList
+Current: apndOpen Havoced: sqlite3HasExplicitNulls
+Current: apndOpen Havoced: resolveAttachExpr
+Current: apndOpen Havoced: collationMatch
+Current: apndOpen Havoced: sqlite3FindDb
+Current: apndOpen Havoced: sqlite3ShadowTableName
+Current: apndOpen Havoced: sqlite3DecOrHexToI64
+Current: apndOpen Havoced: exprCodeSubselect
+Current: apndOpen Havoced: sqlite3SelectWalkFail
+Current: apndOpen Havoced: exprNodeIsConstant
+Current: apndOpen Havoced: impliesNotNullRow
+Current: apndOpen Havoced: pagerStress
+Current: apndOpen Havoced: sqlite3ExprCheckIN
+Current: apndOpen Havoced: sqlite3CodeSubselect
+Current: apndOpen Havoced: isAlterableTable
+Current: apndOpen Havoced: sqlite3GetUInt32
+Current: apndOpen Havoced: sqlite3Init
+Current: apndOpen Havoced: pragmaVtabRowid
+Current: apndOpen Havoced: pragmaVtabOpen
+Current: apndOpen Havoced: pragmaVtabBestIndex
+Current: apndOpen Havoced: sqlite3VtabEponymousTableInit
+Current: apndOpen Havoced: sqlite3VtabCallConnect
+Current: apndOpen Havoced: sqlite3ColumnIndex
+Current: apndOpen Havoced: sqlite3IdListIndex
+Current: apndOpen Havoced: sqliteProcessJoin
+Current: apndOpen Havoced: sqlite3IndexedByLookup
+Current: apndOpen Havoced: sqlite3ViewGetColumnNames
+Current: apndOpen Havoced: cannotBeFunction
+Current: apndOpen Havoced: sqlite3ExpandSubquery
+Current: apndOpen Havoced: selectExpander
+Current: apndOpen Havoced: convertCompoundSelectToSubquery
+Current: apndOpen Havoced: sqlite3SchemaToIndex
+Current: apndOpen Havoced: areDoubleQuotedStringsEnabled
+Current: apndOpen Havoced: nameInUsingClause
+Current: apndOpen Havoced: selectSrcCount
+Current: apndOpen Havoced: exprSrcCount
+Current: apndOpen Havoced: sqlite3FunctionUsesThisSrc
+Current: apndOpen Havoced: resolveRemoveWindowsCb
+Current: apndOpen Havoced: incrAggDepth
+Current: apndOpen Havoced: gatherSelectWindowsSelectCallback
+Current: apndOpen Havoced: gatherSelectWindowsCallback
+Current: apndOpen Havoced: sqlite3ExprIsInteger
+Current: apndOpen Havoced: resolveCompoundOrderBy
+Current: apndOpen Havoced: sqlite3ResolveExprListNames
+Current: apndOpen Havoced: sqlite3ResolveExprNames
+Current: apndOpen Havoced: resolveSelectStep
+Current: apndOpen Havoced: resolveExprStep
+Current: apndOpen Havoced: sqlite3ExprWalkNoop
+Current: apndOpen Havoced: sqlite3SelectWalkNoop
+Current: apndOpen Havoced: sqlite3WalkSelectFrom
+Current: apndOpen Havoced: sqlite3WalkSelectExpr
+Current: apndOpen Havoced: sqlite3WalkExprList
+Current: apndOpen Havoced: sqlite3WalkSelect
+Current: apndOpen Havoced: walkExpr
+Current: apndOpen Havoced: sqlite3WalkExpr
+Current: apndOpen Havoced: renameUnmapSelectCb
+Current: apndOpen Havoced: renameUnmapExprCb
+Current: apndOpen Havoced: sqlite3GetToken
+Current: apndOpen Havoced: sqlite3OsCheckReservedLock
+Current: apndOpen Havoced: sqlite3WalBeginReadTransaction
+Current: apndOpen Havoced: pagerPagecount
+Current: apndOpen Havoced: hasHotJournal
+Current: apndOpen Havoced: sqlite3PagerOpenWal
+Current: apndOpen Havoced: sqlite3ThreadJoin
+Current: apndOpen Havoced: sqlite3PagerClose
+Current: apndOpen Havoced: walIndexTryHdr
+Current: apndOpen Havoced: walBeginShmUnreliable
+Current: apndOpen Havoced: walIndexReadHdr
+Current: apndOpen Havoced: pager_write_pagelist
+Current: apndOpen Havoced: writeSuperJournal
+Current: apndOpen Havoced: sqlite3BtreeCommitPhaseOne
+Current: apndOpen Havoced: sqlite3VtabSync
+Current: apndOpen Havoced: pager_delsuper
+Current: apndOpen Havoced: sqlite3PagerSync
+Current: apndOpen Havoced: sqlite3OsFileSize
+Current: apndOpen Havoced: sqlite3WalSavepointUndo
+Current: apndOpen Havoced: pagerPlaybackSavepoint
+Current: apndOpen Havoced: memjrnlFileSize
+Current: apndOpen Havoced: pager_cksum
+Current: apndOpen Havoced: vdbeCommit
+Current: apndOpen Havoced: synthCollSeq
+Current: apndOpen Havoced: sqlite3CheckCollSeq
+Current: apndOpen Havoced: sqlite3FindDbName
+Current: apndOpen Havoced: sqlite3_txn_state
+Current: apndOpen Havoced: sqlite3_drop_modules
+Current: apndOpen Havoced: sqlite3_strglob
+Current: apndOpen Havoced: sqlite3_stricmp
+Current: apndOpen Havoced: sqlite3_db_readonly
+Current: apndOpen Havoced: sqlite3_wal_checkpoint
+Current: apndOpen Havoced: sqlite3_transfer_bindings
+Current: apndOpen Havoced: sqlite3_open16
+Current: apndOpen Havoced: sqlite3_open
+Current: apndOpen Havoced: sqlite3_declare_vtab
+Current: apndOpen Havoced: sqlite3_bind_parameter_index
+Current: apndOpen Havoced: sqlite3BlobCompare
+Current: apndOpen Havoced: sqlite3VdbeMemCopy
+Current: apndOpen Havoced: sqlite3GetInt32
+Current: apndOpen Havoced: unixFileLock
+Current: apndOpen Havoced: unixLockSharedMemory
+Current: apndOpen Havoced: unixCheckReservedLock
+Current: apndOpen Havoced: findInodeInfo
+Current: apndOpen Havoced: unixBackupDir
+Current: apndOpen Havoced: nolockCheckReservedLock
+Current: apndOpen Havoced: unixFcntlExternalReader
+Current: apndOpen Havoced: openDirectory
+Current: apndOpen Havoced: dotlockCheckReservedLock
+Current: apndOpen Havoced: unixFileSize
+Current: apndOpen Havoced: unixCurrentTimeInt64
+Current: apndOpen Havoced: unixCurrentTime
+Current: apndOpen Havoced: memdbFileSize
+Current: apndOpen Havoced: memdbCurrentTimeInt64
+Current: apndOpen Havoced: sqlite3StrICmp
+Current: apndOpen Havoced: sqlite3LookasideUsed
+Current: apndOpen Havoced: sqlite3VdbeMemFinalize
+Current: apndOpen Havoced: lookasideMallocSize
+Current: apndOpen Havoced: isLookaside
+Current: apndOpen Havoced: sqlite3DbMallocSize
+Current: apndOpen Havoced: str_in_array
+Current: apndOpen Havoced: isNumber
+Current: apndOpen Havoced: db_int
+Current: apndOpen Havoced: showHelp
+Current: apndOpen Havoced: optionMatch
+Current: apndOpen Havoced: run_table_dump_query
+Current: apndOpen Havoced: run_schema_dump_query
+Current: apndOpen Havoced: testcase_glob
+Current: apndOpen Havoced: idxBuildSampleTable
+Current: apndOpen Havoced: idxFindConstraint
+Current: apndOpen Havoced: expertRowid
+Current: apndOpen Havoced: expertOpen
+Current: apndOpen Havoced: expertBestIndex
+Current: apndOpen Havoced: seriesRowid
+Current: apndOpen Havoced: seriesOpen
+Current: apndOpen Havoced: seriesBestIndex
+Current: apndOpen Havoced: decimal_cmp
+Current: apndOpen Havoced: apndCheckReservedLock
+Current: apndOpen Havoced: apndFileSize
+Current: apndOpen Havoced: apndCurrentTimeInt64
+Current: apndOpen Havoced: apndCurrentTime
+Current: apndOpen Havoced: completionRowid
+Current: apndOpen Havoced: completionOpen
+Current: apndOpen Havoced: completionBestIndex
+Current: apndOpen Havoced: fileLinkStat
+Current: apndOpen Havoced: fsdirRowid
+Current: apndOpen Havoced: fsdirOpen
+Current: apndOpen Havoced: fsdirBestIndex
+Current: apndOpen Havoced: fileStat
+Current: apndOpen Havoced: do_meta_command
+
+        Unrolling loop in function "llbmc.strcmp" for 0 iterations succeeded.
+        Transformed "llbmc.strcmp" from 4 to 3 basic blocks and from 14 to 16 instructionsCurrent: apndOpen Havoced: idxPopulateStat1
+Current: apndOpen Havoced: idxProcessTriggers
+Current: apndOpen Havoced: sqlite3_expert_analyze
+Current: apndOpen Havoced: idxCreateVtabSchema
+Current: apndOpen Havoced: idxFindIndexes
+Current: apndOpen Havoced: pthreadMutexTry
+Current: apndOpen Havoced: noopMutexTry
+Current: apndOpen Havoced: renameResolveTrigger
+Current: apndOpen Havoced: sqlite3NotPureFunc
+Current: apndOpen Havoced: sqlite3WalCallback
+Current: apndOpen Havoced: sqlite3PagerWalCallback
+Current: apndOpen Havoced: doWalCallbacks
+Current: apndOpen Havoced: sqlite3VdbeList
+Current: apndOpen Havoced: sqlite3Reprepare
+Current: apndOpen Havoced: sqlite3Step
+Current: apndOpen Havoced: sqlite3TestExtInit
+Current: apndOpen Havoced: sqlite3BtreeNewDb
+Current: apndOpen Havoced: setDestPgsz
+Current: apndOpen Havoced: anotherValidCursor
+Current: apndOpen Havoced: balance
+Current: apndOpen Havoced: handleMovedCursor
+Current: apndOpen Havoced: sqlite3BtreeCursorHasMoved
+Current: apndOpen Havoced: vdbeSorterSetupMerge
+Current: apndOpen Havoced: vdbeIncrPopulate
+Current: apndOpen Havoced: vdbeIncrBgPopulate
+Current: apndOpen Havoced: vdbeIncrSwap
+Current: apndOpen Havoced: vdbePmaReaderNext
+Current: apndOpen Havoced: vdbeSortAllocUnpacked
+Current: apndOpen Havoced: vdbeSorterFlushPMA
+Current: apndOpen Havoced: btreeComputeFreeSpace
+Current: apndOpen Havoced: sqlite3BtreeGetReserveNoMutex
+Current: apndOpen Havoced: sqlite3BtreeGetRequestedReserve
+Current: apndOpen Havoced: growVTrans
+Current: apndOpen Havoced: sqlite3BtreeIncrVacuum
+Current: apndOpen Havoced: sqlite3PagerOkToChangeJournalMode
+Current: apndOpen Havoced: sqlite3VdbeMemSetRowSet
+Current: apndOpen Havoced: sqlite3BtreeClearTableOfCursor
+Current: apndOpen Havoced: sqlite3VdbeFinishMoveto
+Current: apndOpen Havoced: sqlite3VdbeCursorRestore
+Current: apndOpen Havoced: sqlite3BtreeCursorIsValidNN
+Current: apndOpen Havoced: sqlite3BtreeEof
+Current: apndOpen Havoced: sqlite3VdbeMemTooBig
+Current: apndOpen Havoced: sqlite3VdbeExec
+Current: apndOpen Havoced: connectionIsBusy
+Current: apndOpen Havoced: sqlite3PagerFlush
+Current: apndOpen Havoced: sqlite3SafetyCheckSickOrOk
+Current: apndOpen Havoced: getToken
+Current: apndOpen Havoced: identLength
+Current: apndOpen Havoced: sqlite3BtreeIsReadonly
+Current: apndOpen Havoced: hasAnchor
+Current: apndOpen Havoced: windowArgCount
+Current: apndOpen Havoced: windowCacheFrame
+Current: apndOpen Havoced: sqlite3WhereIsSorted
+Current: apndOpen Havoced: sqlite3WhereBreakLabel
+Current: apndOpen Havoced: sqlite3WhereContinueLabel
+Current: apndOpen Havoced: sqlite3WhereOrderByLimitOptLabel
+Current: apndOpen Havoced: sqlite3WhereIsOrdered
+Current: apndOpen Havoced: sqlite3WhereIsDistinct
+Current: apndOpen Havoced: sqlite3SelectExprHeight
+Current: apndOpen Havoced: moveToLeftmost
+Current: apndOpen Havoced: btreeNext
+Current: apndOpen Havoced: moveToRoot
+Current: apndOpen Havoced: moveToRightmost
+Current: apndOpen Havoced: btreeRestoreCursorPosition
+Current: apndOpen Havoced: btreePrevious
+Current: apndOpen Havoced: sqlite3UpsertNextIsIPK
+Current: apndOpen Havoced: sqlite3IsBinary
+Current: apndOpen Havoced: sqlite3VdbeExplainParent
+Current: apndOpen Havoced: sqlite3WhereUsesDeferredSeek
+Current: apndOpen Havoced: whereLoopAddAll
+Current: apndOpen Havoced: whereShortCut
+Current: apndOpen Havoced: exprIsDeterministic
+Current: apndOpen Havoced: sqlite3VdbeHasSubProgram
+Current: apndOpen Havoced: sqlite3ExprListFlags
+Current: apndOpen Havoced: getTempStore
+Current: apndOpen Havoced: integrityCheckResultRow
+Current: apndOpen Havoced: invalidateTempStorage
+Current: apndOpen Havoced: getAutoVacuum
+Current: apndOpen Havoced: sqlite3BtreeGetAutoVacuum
+Current: apndOpen Havoced: getLockingMode
+Current: apndOpen Havoced: sqlite3WalHeapMemory
+Current: apndOpen Havoced: sqlite3BtreeIsInBackup
+Current: apndOpen Havoced: sqlite3JournalSize
+Current: apndOpen Havoced: sqlite3OpenTempDatabase
+Current: apndOpen Havoced: sqlite3InRhsIsConstant
+Current: apndOpen Havoced: sqlite3GetTempReg
+Current: apndOpen Havoced: sqlite3VdbeMakeLabel
+Current: apndOpen Havoced: sqlite3ExprIsConstantNotJoin
+Current: apndOpen Havoced: sqlite3VdbeCurrentAddr
+Current: apndOpen Havoced: sqlite3ExprIsVector
+Current: apndOpen Havoced: sqlite3ExprTruthValue
+Current: apndOpen Havoced: sqlite3ReadOnlyShadowTables
+Current: apndOpen Havoced: sqlite3BtreeSharable
+Current: apndOpen Havoced: sqlite3IndexHasDuplicateRootPage
+Current: apndOpen Havoced: pragmaVtabEof
+Current: apndOpen Havoced: pragmaVtabNext
+Current: apndOpen Havoced: pragmaVtabClose
+Current: apndOpen Havoced: pragmaVtabDisconnect
+Current: apndOpen Havoced: sqlite3ReadSchema
+Current: apndOpen Havoced: sqlite3IsTrueOrFalse
+Current: apndOpen Havoced: sqlite3IsRowid
+Current: apndOpen Havoced: sqlite3ExprVectorSize
+Current: apndOpen Havoced: exprProbability
+Current: apndOpen Havoced: sqlite3ExprCanBeNull
+Current: apndOpen Havoced: exprStructSize
+Current: apndOpen Havoced: sqlite3VdbeMemRealify
+Current: apndOpen Havoced: sqlite3VdbeMemIntegerify
+Current: apndOpen Havoced: sqlite3VdbeMemNumerify
+Current: apndOpen Havoced: sqlite3ExprIsConstant
+Current: apndOpen Havoced: sqlite3ExprIdToTrueFalse
+Current: apndOpen Havoced: analyzeWindowKeyword
+Current: apndOpen Havoced: sqlite3WalDbsize
+Current: apndOpen Havoced: pagerBeginReadTransaction
+Current: apndOpen Havoced: pagerOpenWalIfPresent
+Current: apndOpen Havoced: pagerExclusiveLock
+Current: apndOpen Havoced: pagerOpenWal
+Current: apndOpen Havoced: sqlite3PagerWalSupported
+Current: apndOpen Havoced: sqlite3WritableSchema
+Current: apndOpen Havoced: sqlite3PagerSharedLock
+Current: apndOpen Havoced: sqlite3WalBeginWriteTransaction
+Current: apndOpen Havoced: sqlite3InvokeBusyHandler
+Current: apndOpen Havoced: btreeInvokeBusyHandler
+Current: apndOpen Havoced: sqlite3TempInMemory
+Current: apndOpen Havoced: lockBtree
+Current: apndOpen Havoced: sqlite3PagerDataVersion
+Current: apndOpen Havoced: sqlite3BtreeCommit
+Current: apndOpen Havoced: vdbeSorterJoinThread
+Current: apndOpen Havoced: walPagesize
+Current: apndOpen Havoced: pagerSyncHotJournal
+Current: apndOpen Havoced: removeFromSharingList
+Current: apndOpen Havoced: sqlite3BtreeClose
+Current: apndOpen Havoced: sqlite3BtreeCloseCursor
+Current: apndOpen Havoced: sqlite3VdbeFrameRestore
+Current: apndOpen Havoced: sqlite3VtabRollback
+Current: apndOpen Havoced: sqlite3PagerPageRefcount
+Current: apndOpen Havoced: sqlite3BitvecSize
+Current: apndOpen Havoced: btreeCellSizeCheck
+Current: apndOpen Havoced: btreeInitPage
+Current: apndOpen Havoced: setChildPtrmaps
+Current: apndOpen Havoced: walIndexRecover
+Current: apndOpen Havoced: walRestartLog
+Current: apndOpen Havoced: autoVacuumCommit
+Current: apndOpen Havoced: sqlite3PagerCommitPhaseTwo
+Current: apndOpen Havoced: sqlite3VtabCommit
+Current: apndOpen Havoced: sqlite3PagerExclusiveLock
+Current: apndOpen Havoced: sqlite3PagerGetJournalMode
+Current: apndOpen Havoced: sqlite3BtreePayloadSize
+Current: apndOpen Havoced: saveCursorKey
+Current: apndOpen Havoced: saveCursorPosition
+Current: apndOpen Havoced: sqlite3PcachePageRefcount
+Current: apndOpen Havoced: btreePagecount
+Current: apndOpen Havoced: sqlite3BtreeLastPage
+Current: apndOpen Havoced: sqlite3PagerIsMemdb
+Current: apndOpen Havoced: sqlite3BtreeGetPageSize
+Current: apndOpen Havoced: sqlite3OsSectorSize
+Current: apndOpen Havoced: sqlite3SectorSize
+Current: apndOpen Havoced: numberOfCachePages
+Current: apndOpen Havoced: sqlite3PCachePercentDirty
+Current: apndOpen Havoced: sqlite3WalEndWriteTransaction
+Current: apndOpen Havoced: sqlite3PagerRollback
+Current: apndOpen Havoced: readDbPage
+Current: apndOpen Havoced: sqlite3PcacheRefCount
+Current: apndOpen Havoced: pagerRollbackWal
+Current: apndOpen Havoced: sqlite3JournalIsInMemory
+Current: apndOpen Havoced: openSubJournal
+Current: apndOpen Havoced: subjournalPage
+Current: apndOpen Havoced: subjRequiresPage
+Current: apndOpen Havoced: memjrnlCreateFile
+Current: apndOpen Havoced: memjrnlClose
+Current: apndOpen Havoced: sqlite3OsDeviceCharacteristics
+Current: apndOpen Havoced: writeJournalHdr
+Current: apndOpen Havoced: databaseIsUnmoved
+Current: apndOpen Havoced: jrnlBufferSize
+Current: apndOpen Havoced: pagerAddPageToRollbackJournal
+Current: apndOpen Havoced: pager_open_journal
+Current: apndOpen Havoced: pager_write
+Current: apndOpen Havoced: pagerWriteLargeSector
+Current: apndOpen Havoced: subjournalPageIfRequired
+Current: apndOpen Havoced: sqlite3PagerWrite
+Current: apndOpen Havoced: sqlite3Get4byte
+Current: apndOpen Havoced: newDatabase
+Current: apndOpen Havoced: sqlite3VdbeTransferError
+Current: apndOpen Havoced: sqlite3VdbeHalt
+Current: apndOpen Havoced: sqlite3VdbeReset
+Current: apndOpen Havoced: sqlite3VdbeFinalize
+Current: apndOpen Havoced: sqlite3BtreeSchemaLocked
+Current: apndOpen Havoced: sqlite3SafetyCheckOk
+Current: apndOpen Havoced: vdbeSafety
+Current: apndOpen Havoced: vdbeSafetyNotNull
+Current: apndOpen Havoced: sqlite3BtreeTxnState
+Current: apndOpen Havoced: sqlite3_value_frombind
+Current: apndOpen Havoced: sqlite3_stmt_isexplain
+Current: apndOpen Havoced: sqlite3_str_length
+Current: apndOpen Havoced: sqlite3_str_errcode
+Current: apndOpen Havoced: sqlite3_value_nochange
+Current: apndOpen Havoced: sqlite3_vtab_nochange
+Current: apndOpen Havoced: sqlite3_system_errno
+Current: apndOpen Havoced: sqlite3_db_cacheflush
+Current: apndOpen Havoced: sqlite3_value_subtype
+Current: apndOpen Havoced: sqlite3_cancel_auto_extension
+Current: apndOpen Havoced: sqlite3_auto_extension
+Current: apndOpen Havoced: sqlite3_stmt_readonly
+Current: apndOpen Havoced: sqlite3_stmt_busy
+Current: apndOpen Havoced: sqlite3_db_release_memory
+Current: apndOpen Havoced: sqlite3_close_v2
+Current: apndOpen Havoced: sqlite3_vtab_on_conflict
+Current: apndOpen Havoced: sqlite3_extended_errcode
+Current: apndOpen Havoced: sqlite3_backup_remaining
+Current: apndOpen Havoced: sqlite3_backup_pagecount
+Current: apndOpen Havoced: sqlite3_backup_finish
+Current: apndOpen Havoced: sqlite3_vfs_unregister
+Current: apndOpen Havoced: sqlite3_blob_close
+Current: apndOpen Havoced: sqlite3_blob_bytes
+Current: apndOpen Havoced: sqlite3_clear_bindings
+Current: apndOpen Havoced: sqlite3_value_bytes16
+Current: apndOpen Havoced: sqlite3_step
+Current: apndOpen Havoced: sqlite3_reset
+Current: apndOpen Havoced: sqlite3_get_autocommit
+Current: apndOpen Havoced: sqlite3_finalize
+Current: apndOpen Havoced: sqlite3_expired
+Current: apndOpen Havoced: sqlite3_errcode
+Current: apndOpen Havoced: sqlite3_data_count
+Current: apndOpen Havoced: sqlite3_complete16
+Current: apndOpen Havoced: sqlite3_complete
+Current: apndOpen Havoced: sqlite3_column_count
+Current: apndOpen Havoced: sqlite3_close
+Current: apndOpen Havoced: sqlite3_bind_parameter_count
+Current: apndOpen Havoced: sqlite3_aggregate_count
+Current: apndOpen Havoced: sqlite3OsGetLastError
+Current: apndOpen Havoced: sqlite3_compileoption_used
+Current: apndOpen Havoced: sqlite3_changes
+Current: apndOpen Havoced: sqlite3_total_changes
+Current: apndOpen Havoced: sqlite3_value_int
+Current: apndOpen Havoced: sqlite3VdbeMemHandleBom
+Current: apndOpen Havoced: sqlite3Utf8Read
+Current: apndOpen Havoced: sqlite3_value_bytes
+Current: apndOpen Havoced: sqlite3_value_type
+Current: apndOpen Havoced: sqlite3_value_numeric_type
+Current: apndOpen Havoced: pcache1InitBulk
+Current: apndOpen Havoced: pcache1UnderMemoryPressure
+Current: apndOpen Havoced: pcache1Pagecount
+Current: apndOpen Havoced: pcache1Init
+Current: apndOpen Havoced: sqlite3MemInit
+Current: apndOpen Havoced: sqlite3MemSize
+Current: apndOpen Havoced: sqlite3Atoi
+Current: apndOpen Havoced: unixOpenSharedMemory
+Current: apndOpen Havoced: unixClose
+Current: apndOpen Havoced: nolockClose
+Current: apndOpen Havoced: closeUnixFile
+Current: apndOpen Havoced: fileHasMoved
+Current: apndOpen Havoced: unixDeviceCharacteristics
+Current: apndOpen Havoced: unixSectorSize
+Current: apndOpen Havoced: dotlockClose
+Current: apndOpen Havoced: memdbDeviceCharacteristics
+Current: apndOpen Havoced: memdbClose
+Current: apndOpen Havoced: countLookasideSlots
+Current: apndOpen Havoced: sqlite3_mutex_try
+Current: apndOpen Havoced: sqlite3PcachePagecount
+Current: apndOpen Havoced: strHash
+Current: apndOpen Havoced: sqlite3BtreeConnectionCount
+Current: apndOpen Havoced: sqlite3PagerMemUsed
+Current: apndOpen Havoced: vdbeMemAddTerminator
+Current: apndOpen Havoced: sqlite3VdbeMemNulTerminate
+Current: apndOpen Havoced: sqlite3VdbeMemMakeWriteable
+Current: apndOpen Havoced: sqlite3VdbeMemExpandBlob
+Current: apndOpen Havoced: sqlite3Strlen30
+Current: apndOpen Havoced: sqlite3MallocSize
+Current: apndOpen Havoced: line_is_command_terminator
+Current: apndOpen Havoced: _all_whitespace
+Current: apndOpen Havoced: wsToEol
+Current: apndOpen Havoced: strlenChar
+Current: apndOpen Havoced: get4byteInt
+Current: apndOpen Havoced: get2byteInt
+Current: apndOpen Havoced: shellDatabaseError
+Current: apndOpen Havoced: notNormalFile
+Current: apndOpen Havoced: progress_handler
+Current: apndOpen Havoced: booleanValue
+Current: apndOpen Havoced: idxIdentifierRequiresQuotes
+Current: apndOpen Havoced: expertEof
+Current: apndOpen Havoced: expertNext
+Current: apndOpen Havoced: expertClose
+Current: apndOpen Havoced: expertDisconnect
+Current: apndOpen Havoced: idxRegisterVtab
+Current: apndOpen Havoced: re_esc_char
+Current: apndOpen Havoced: re_next_char
+Current: apndOpen Havoced: re_next_char_nocase
+Current: apndOpen Havoced: seriesEof
+Current: apndOpen Havoced: seriesNext
+Current: apndOpen Havoced: seriesClose
+Current: apndOpen Havoced: seriesDisconnect
+Current: apndOpen Havoced: memtraceInit
+Current: apndOpen Havoced: memtraceSize
+Current: apndOpen Havoced: apndDeviceCharacteristics
+Current: apndOpen Havoced: apndSectorSize
+Current: apndOpen Havoced: apndClose
+Current: apndOpen Havoced: completionEof
+Current: apndOpen Havoced: completionNext
+Current: apndOpen Havoced: completionClose
+Current: apndOpen Havoced: completionDisconnect
+Current: apndOpen Havoced: fsdirEof
+Current: apndOpen Havoced: fsdirNext
+Current: apndOpen Havoced: fsdirClose
+Current: apndOpen Havoced: fsdirDisconnect
+Current: apndOpen Havoced: makeDirectory
+Current: apndOpen Havoced: process_input
+Current: apndOpen Havoced: strlen30
+Current: apndOpen Havoced: shellDeleteFile
+Current: apndOpen Havoced: sqlite3_expert_count
+Current: apndOpen Havoced: idxCreateCandidates
+Current: apndOpen Havoced: sqlite3MemTraceActivate
+Current: apndOpen Havoced: sqlite3CompletionVtabInit
+Current: apndOpen Havoced: fsdirRegister
+Current: apndOpen Havoced: apndIsOrdinaryDatabaseFile
+Current: apndOpen Havoced: apndReadMark
+Current: apndOpen Havoced: pthreadMutexTry
+Current: apndOpen Havoced: noopMutexTry
+Current: apndOpen Havoced: renameResolveTrigger
+Current: apndOpen Havoced: sqlite3NotPureFunc
+Current: apndOpen Havoced: sqlite3WalCallback
+Current: apndOpen Havoced: sqlite3PagerWalCallback
+Current: apndOpen Havoced: doWalCallbacks
+Current: apndOpen Havoced: sqlite3VdbeList
+Current: apndOpen Havoced: sqlite3Reprepare
+Current: apndOpen Havoced: sqlite3Step
+Current: apndOpen Havoced: sqlite3TestExtInit
+Current: apndOpen Havoced: sqlite3BtreeNewDb
+Current: apndOpen Havoced: setDestPgsz
+Current: apndOpen Havoced: anotherValidCursor
+Current: apndOpen Havoced: balance
+Current: apndOpen Havoced: handleMovedCursor
+Current: apndOpen Havoced: sqlite3BtreeCursorHasMoved
+Current: apndOpen Havoced: vdbeSorterSetupMerge
+Current: apndOpen Havoced: vdbeIncrPopulate
+Current: apndOpen Havoced: vdbeIncrBgPopulate
+Current: apndOpen Havoced: vdbeIncrSwap
+Current: apndOpen Havoced: vdbePmaReaderNext
+Current: apndOpen Havoced: vdbeSortAllocUnpacked
+Current: apndOpen Havoced: vdbeSorterFlushPMA
+Current: apndOpen Havoced: btreeComputeFreeSpace
+Current: apndOpen Havoced: sqlite3BtreeGetReserveNoMutex
+Current: apndOpen Havoced: sqlite3BtreeGetRequestedReserve
+Current: apndOpen Havoced: growVTrans
+Current: apndOpen Havoced: sqlite3BtreeIncrVacuum
+Current: apndOpen Havoced: sqlite3PagerOkToChangeJournalMode
+Current: apndOpen Havoced: sqlite3VdbeMemSetRowSet
+Current: apndOpen Havoced: sqlite3BtreeClearTableOfCursor
+Current: apndOpen Havoced: sqlite3VdbeFinishMoveto
+Current: apndOpen Havoced: sqlite3VdbeCursorRestore
+Current: apndOpen Havoced: sqlite3BtreeCursorIsValidNN
+Current: apndOpen Havoced: sqlite3BtreeEof
+Current: apndOpen Havoced: sqlite3VdbeMemTooBig
+Current: apndOpen Havoced: sqlite3VdbeExec
+Current: apndOpen Havoced: connectionIsBusy
+Current: apndOpen Havoced: sqlite3PagerFlush
+Current: apndOpen Havoced: sqlite3SafetyCheckSickOrOk
+Current: apndOpen Havoced: getToken
+Current: apndOpen Havoced: identLength
+Current: apndOpen Havoced: sqlite3BtreeIsReadonly
+Current: apndOpen Havoced: hasAnchor
+Current: apndOpen Havoced: windowArgCount
+Current: apndOpen Havoced: windowCacheFrame
+Current: apndOpen Havoced: sqlite3WhereIsSorted
+Current: apndOpen Havoced: sqlite3WhereBreakLabel
+Current: apndOpen Havoced: sqlite3WhereContinueLabel
+Current: apndOpen Havoced: sqlite3WhereOrderByLimitOptLabel
+Current: apndOpen Havoced: sqlite3WhereIsOrdered
+Current: apndOpen Havoced: sqlite3WhereIsDistinct
+Current: apndOpen Havoced: sqlite3SelectExprHeight
+Current: apndOpen Havoced: moveToLeftmost
+Current: apndOpen Havoced: btreeNext
+Current: apndOpen Havoced: moveToRoot
+Current: apndOpen Havoced: moveToRightmost
+Current: apndOpen Havoced: btreeRestoreCursorPosition
+Current: apndOpen Havoced: btreePrevious
+Current: apndOpen Havoced: sqlite3UpsertNextIsIPK
+Current: apndOpen Havoced: sqlite3IsBinary
+Current: apndOpen Havoced: sqlite3VdbeExplainParent
+Current: apndOpen Havoced: sqlite3WhereUsesDeferredSeek
+Current: apndOpen Havoced: whereLoopAddAll
+Current: apndOpen Havoced: whereShortCut
+Current: apndOpen Havoced: exprIsDeterministic
+Current: apndOpen Havoced: sqlite3VdbeHasSubProgram
+Current: apndOpen Havoced: sqlite3ExprListFlags
+Current: apndOpen Havoced: getTempStore
+Current: apndOpen Havoced: integrityCheckResultRow
+Current: apndOpen Havoced: invalidateTempStorage
+Current: apndOpen Havoced: getAutoVacuum
+Current: apndOpen Havoced: sqlite3BtreeGetAutoVacuum
+Current: apndOpen Havoced: getLockingMode
+Current: apndOpen Havoced: sqlite3WalHeapMemory
+Current: apndOpen Havoced: sqlite3BtreeIsInBackup
+Current: apndOpen Havoced: sqlite3JournalSize
+Current: apndOpen Havoced: sqlite3OpenTempDatabase
+Current: apndOpen Havoced: sqlite3InRhsIsConstant
+Current: apndOpen Havoced: sqlite3GetTempReg
+Current: apndOpen Havoced: sqlite3VdbeMakeLabel
+Current: apndOpen Havoced: sqlite3ExprIsConstantNotJoin
+Current: apndOpen Havoced: sqlite3VdbeCurrentAddr
+Current: apndOpen Havoced: sqlite3ExprIsVector
+Current: apndOpen Havoced: sqlite3ExprTruthValue
+Current: apndOpen Havoced: sqlite3ReadOnlyShadowTables
+Current: apndOpen Havoced: sqlite3BtreeSharable
+Current: apndOpen Havoced: sqlite3IndexHasDuplicateRootPage
+Current: apndOpen Havoced: pragmaVtabEof
+Current: apndOpen Havoced: pragmaVtabNext
+Current: apndOpen Havoced: pragmaVtabClose
+Current: apndOpen Havoced: pragmaVtabDisconnect
+Current: apndOpen Havoced: sqlite3ReadSchema
+Current: apndOpen Havoced: sqlite3IsTrueOrFalse
+Current: apndOpen Havoced: sqlite3IsRowid
+Current: apndOpen Havoced: sqlite3ExprVectorSize
+Current: apndOpen Havoced: exprProbability
+Current: apndOpen Havoced: sqlite3ExprCanBeNull
+Current: apndOpen Havoced: exprStructSize
+Current: apndOpen Havoced: sqlite3VdbeMemRealify
+Current: apndOpen Havoced: sqlite3VdbeMemIntegerify
+Current: apndOpen Havoced: sqlite3VdbeMemNumerify
+Current: apndOpen Havoced: sqlite3ExprIsConstant
+Current: apndOpen Havoced: sqlite3ExprIdToTrueFalse
+Current: apndOpen Havoced: analyzeWindowKeyword
+Current: apndOpen Havoced: sqlite3WalDbsize
+Current: apndOpen Havoced: pagerBeginReadTransaction
+Current: apndOpen Havoced: pagerOpenWalIfPresent
+Current: apndOpen Havoced: pagerExclusiveLock
+Current: apndOpen Havoced: pagerOpenWal
+Current: apndOpen Havoced: sqlite3PagerWalSupported
+Current: apndOpen Havoced: sqlite3WritableSchema
+Current: apndOpen Havoced: sqlite3PagerSharedLock
+Current: apndOpen Havoced: sqlite3WalBeginWriteTransaction
+Current: apndOpen Havoced: sqlite3InvokeBusyHandler
+Current: apndOpen Havoced: btreeInvokeBusyHandler
+Current: apndOpen Havoced: sqlite3TempInMemory
+Current: apndOpen Havoced: lockBtree
+Current: apndOpen Havoced: sqlite3PagerDataVersion
+Current: apndOpen Havoced: sqlite3BtreeCommit
+Current: apndOpen Havoced: vdbeSorterJoinThread
+Current: apndOpen Havoced: walPagesize
+Current: apndOpen Havoced: pagerSyncHotJournal
+Current: apndOpen Havoced: removeFromSharingList
+Current: apndOpen Havoced: sqlite3BtreeClose
+Current: apndOpen Havoced: sqlite3BtreeCloseCursor
+Current: apndOpen Havoced: sqlite3VdbeFrameRestore
+Current: apndOpen Havoced: sqlite3VtabRollback
+Current: apndOpen Havoced: sqlite3PagerPageRefcount
+Current: apndOpen Havoced: sqlite3BitvecSize
+Current: apndOpen Havoced: btreeCellSizeCheck
+Current: apndOpen Havoced: btreeInitPage
+Current: apndOpen Havoced: setChildPtrmaps
+Current: apndOpen Havoced: walIndexRecover
+Current: apndOpen Havoced: walRestartLog
+Current: apndOpen Havoced: autoVacuumCommit
+Current: apndOpen Havoced: sqlite3PagerCommitPhaseTwo
+Current: apndOpen Havoced: sqlite3VtabCommit
+Current: apndOpen Havoced: sqlite3PagerExclusiveLock
+Current: apndOpen Havoced: sqlite3PagerGetJournalMode
+Current: apndOpen Havoced: sqlite3BtreePayloadSize
+Current: apndOpen Havoced: saveCursorKey
+Current: apndOpen Havoced: saveCursorPosition
+Current: apndOpen Havoced: sqlite3PcachePageRefcount
+Current: apndOpen Havoced: btreePagecount
+Current: apndOpen Havoced: sqlite3BtreeLastPage
+Current: apndOpen Havoced: sqlite3PagerIsMemdb
+Current: apndOpen Havoced: sqlite3BtreeGetPageSize
+Current: apndOpen Havoced: sqlite3OsSectorSize
+Current: apndOpen Havoced: sqlite3SectorSize
+Current: apndOpen Havoced: numberOfCachePages
+Current: apndOpen Havoced: sqlite3PCachePercentDirty
+Current: apndOpen Havoced: sqlite3WalEndWriteTransaction
+Current: apndOpen Havoced: sqlite3PagerRollback
+Current: apndOpen Havoced: readDbPage
+Current: apndOpen Havoced: sqlite3PcacheRefCount
+Current: apndOpen Havoced: pagerRollbackWal
+Current: apndOpen Havoced: sqlite3JournalIsInMemory
+Current: apndOpen Havoced: openSubJournal
+Current: apndOpen Havoced: subjournalPage
+Current: apndOpen Havoced: subjRequiresPage
+Current: apndOpen Havoced: memjrnlCreateFile
+Current: apndOpen Havoced: memjrnlClose
+Current: apndOpen Havoced: sqlite3OsDeviceCharacteristics
+Current: apndOpen Havoced: writeJournalHdr
+Current: apndOpen Havoced: databaseIsUnmoved
+Current: apndOpen Havoced: jrnlBufferSize
+Current: apndOpen Havoced: pagerAddPageToRollbackJournal
+Current: apndOpen Havoced: pager_open_journal
+Current: apndOpen Havoced: pager_write
+Current: apndOpen Havoced: pagerWriteLargeSector
+Current: apndOpen Havoced: subjournalPageIfRequired
+Current: apndOpen Havoced: sqlite3PagerWrite
+Current: apndOpen Havoced: sqlite3Get4byte
+Current: apndOpen Havoced: newDatabase
+Current: apndOpen Havoced: sqlite3VdbeTransferError
+Current: apndOpen Havoced: sqlite3VdbeHalt
+Current: apndOpen Havoced: sqlite3VdbeReset
+Current: apndOpen Havoced: sqlite3VdbeFinalize
+Current: apndOpen Havoced: sqlite3BtreeSchemaLocked
+Current: apndOpen Havoced: sqlite3SafetyCheckOk
+Current: apndOpen Havoced: vdbeSafety
+Current: apndOpen Havoced: vdbeSafetyNotNull
+Current: apndOpen Havoced: sqlite3BtreeTxnState
+Current: apndOpen Havoced: sqlite3_value_frombind
+Current: apndOpen Havoced: sqlite3_stmt_isexplain
+Current: apndOpen Havoced: sqlite3_str_length
+Current: apndOpen Havoced: sqlite3_str_errcode
+Current: apndOpen Havoced: sqlite3_value_nochange
+Current: apndOpen Havoced: sqlite3_vtab_nochange
+Current: apndOpen Havoced: sqlite3_system_errno
+Current: apndOpen Havoced: sqlite3_db_cacheflush
+Current: apndOpen Havoced: sqlite3_value_subtype
+Current: apndOpen Havoced: sqlite3_cancel_auto_extension
+Current: apndOpen Havoced: sqlite3_auto_extension
+Current: apndOpen Havoced: sqlite3_stmt_readonly
+Current: apndOpen Havoced: sqlite3_stmt_busy
+Current: apndOpen Havoced: sqlite3_db_release_memory
+Current: apndOpen Havoced: sqlite3_close_v2
+Current: apndOpen Havoced: sqlite3_vtab_on_conflict
+Current: apndOpen Havoced: sqlite3_extended_errcode
+Current: apndOpen Havoced: sqlite3_backup_remaining
+Current: apndOpen Havoced: sqlite3_backup_pagecount
+Current: apndOpen Havoced: sqlite3_backup_finish
+Current: apndOpen Havoced: sqlite3_vfs_unregister
+Current: apndOpen Havoced: sqlite3_blob_close
+Current: apndOpen Havoced: sqlite3_blob_bytes
+Current: apndOpen Havoced: sqlite3_clear_bindings
+Current: apndOpen Havoced: sqlite3_value_bytes16
+Current: apndOpen Havoced: sqlite3_step
+Current: apndOpen Havoced: sqlite3_reset
+Current: apndOpen Havoced: sqlite3_get_autocommit
+Current: apndOpen Havoced: sqlite3_finalize
+Current: apndOpen Havoced: sqlite3_expired
+Current: apndOpen Havoced: sqlite3_errcode
+Current: apndOpen Havoced: sqlite3_data_count
+Current: apndOpen Havoced: sqlite3_complete16
+Current: apndOpen Havoced: sqlite3_complete
+Current: apndOpen Havoced: sqlite3_column_count
+Current: apndOpen Havoced: sqlite3_close
+Current: apndOpen Havoced: sqlite3_bind_parameter_count
+Current: apndOpen Havoced: sqlite3_aggregate_count
+Current: apndOpen Havoced: sqlite3OsGetLastError
+Current: apndOpen Havoced: sqlite3_compileoption_used
+Current: apndOpen Havoced: sqlite3_changes
+Current: apndOpen Havoced: sqlite3_total_changes
+Current: apndOpen Havoced: sqlite3_value_int
+Current: apndOpen Havoced: sqlite3VdbeMemHandleBom
+Current: apndOpen Havoced: sqlite3Utf8Read
+Current: apndOpen Havoced: sqlite3_value_bytes
+Current: apndOpen Havoced: sqlite3_value_type
+Current: apndOpen Havoced: sqlite3_value_numeric_type
+Current: apndOpen Havoced: pcache1InitBulk
+Current: apndOpen Havoced: pcache1UnderMemoryPressure
+Current: apndOpen Havoced: pcache1Pagecount
+Current: apndOpen Havoced: pcache1Init
+Current: apndOpen Havoced: sqlite3MemInit
+Current: apndOpen Havoced: sqlite3MemSize
+Current: apndOpen Havoced: sqlite3Atoi
+Current: apndOpen Havoced: unixOpenSharedMemory
+Current: apndOpen Havoced: unixClose
+Current: apndOpen Havoced: nolockClose
+Current: apndOpen Havoced: closeUnixFile
+Current: apndOpen Havoced: fileHasMoved
+Current: apndOpen Havoced: unixDeviceCharacteristics
+Current: apndOpen Havoced: unixSectorSize
+Current: apndOpen Havoced: dotlockClose
+Current: apndOpen Havoced: memdbDeviceCharacteristics
+Current: apndOpen Havoced: memdbClose
+Current: apndOpen Havoced: countLookasideSlots
+Current: apndOpen Havoced: sqlite3_mutex_try
+Current: apndOpen Havoced: sqlite3PcachePagecount
+Current: apndOpen Havoced: strHash
+Current: apndOpen Havoced: sqlite3BtreeConnectionCount
+Current: apndOpen Havoced: sqlite3PagerMemUsed
+Current: apndOpen Havoced: vdbeMemAddTerminator
+Current: apndOpen Havoced: sqlite3VdbeMemNulTerminate
+Current: apndOpen Havoced: sqlite3VdbeMemMakeWriteable
+Current: apndOpen Havoced: sqlite3VdbeMemExpandBlob
+Current: apndOpen Havoced: sqlite3Strlen30
+Current: apndOpen Havoced: sqlite3MallocSize
+Current: apndOpen Havoced: line_is_command_terminator
+Current: apndOpen Havoced: _all_whitespace
+Current: apndOpen Havoced: wsToEol
+Current: apndOpen Havoced: strlenChar
+Current: apndOpen Havoced: get4byteInt
+Current: apndOpen Havoced: get2byteInt
+Current: apndOpen Havoced: shellDatabaseError
+Current: apndOpen Havoced: notNormalFile
+Current: apndOpen Havoced: progress_handler
+Current: apndOpen Havoced: booleanValue
+Current: apndOpen Havoced: idxIdentifierRequiresQuotes
+Current: apndOpen Havoced: expertEof
+Current: apndOpen Havoced: expertNext
+Current: apndOpen Havoced: expertClose
+Current: apndOpen Havoced: expertDisconnect
+Current: apndOpen Havoced: idxRegisterVtab
+Current: apndOpen Havoced: re_esc_char
+Current: apndOpen Havoced: re_next_char
+Current: apndOpen Havoced: re_next_char_nocase
+Current: apndOpen Havoced: seriesEof
+Current: apndOpen Havoced: seriesNext
+Current: apndOpen Havoced: seriesClose
+Current: apndOpen Havoced: seriesDisconnect
+Current: apndOpen Havoced: memtraceInit
+Current: apndOpen Havoced: memtraceSize
+Current: apndOpen Havoced: apndDeviceCharacteristics
+Current: apndOpen Havoced: apndSectorSize
+Current: apndOpen Havoced: apndClose
+Current: apndOpen Havoced: completionEof
+Current: apndOpen Havoced: completionNext
+Current: apndOpen Havoced: completionClose
+Current: apndOpen Havoced: completionDisconnect
+Current: apndOpen Havoced: fsdirEof
+Current: apndOpen Havoced: fsdirNext
+Current: apndOpen Havoced: fsdirClose
+Current: apndOpen Havoced: fsdirDisconnect
+Current: apndOpen Havoced: makeDirectory
+Current: apndOpen Havoced: process_input
+Current: apndOpen Havoced: strlen30
+Current: apndOpen Havoced: shellDeleteFile
+Current: apndOpen Havoced: sqlite3_expert_count
+Current: apndOpen Havoced: idxCreateCandidates
+Current: apndOpen Havoced: sqlite3MemTraceActivate
+Current: apndOpen Havoced: sqlite3CompletionVtabInit
+Current: apndOpen Havoced: fsdirRegister
+isMemmove:   call void @llvm.memmove.p0i8.p0i8.i64(i8* %2475, i8* %2476, i64 %2479, i32 8, i1 false), !dbg !5675
+Current: apndOpen Havoced: sqlite3OsOpenMalloc
+Current: apndOpen Havoced: sqlite3OsOpen
+Current: apndOpen Havoced: unixOpen
+Current: apndOpen Havoced: memdbOpen
+
+                                                           0 sec [DONE]
+        Number of expressions:                        173021
+        after encoding
+
+      50 assertions before transformations (48 no_function_call, 1 no_back_edge, 1 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                           15183
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72621
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               1
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             448
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             144
+        ToASC Analyser
+          Memcpy/memset found                            yes
+        Byte-Based Memory Creator
+          Number of rewrites                            8941
+        Instantiation-Based ToASC Simplifier
+          Number of rewrites                               1
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           23076
+        FP Abstraction
+          Number of rewrites                              22
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              1
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      50 assertions remain after transformations (48 no_function_call, 1 no_back_edge, 1 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...

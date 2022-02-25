@@ -1,0 +1,219 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 832 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 1
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/832
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [1] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : exec_prepared_stmt_columnar
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "exec_prepared_stmt_columnar" for 1 iterations succeeded.
+      Unrolling loop in function "exec_prepared_stmt_columnar" for 1 iterations succeeded.
+      Unrolling loop in function "exec_prepared_stmt_columnar" for 1 iterations succeeded.
+      Unrolling loop in function "exec_prepared_stmt_columnar" for 1 iterations succeeded.
+      Unrolling loop in function "exec_prepared_stmt_columnar" for 1 iterations succeeded.
+      Unrolling loop in function "exec_prepared_stmt_columnar" for 1 iterations succeeded.
+      Unrolling loop in function "exec_prepared_stmt_columnar" for 1 iterations succeeded.
+      Unrolling loop in function "exec_prepared_stmt_columnar" for 1 iterations succeeded.
+      Unrolling loop in function "exec_prepared_stmt_columnar" for 1 iterations succeeded.
+      Unrolling loop in function "exec_prepared_stmt_columnar" for 1 iterations succeeded.
+      Unrolling loop in function "exec_prepared_stmt_columnar" for 1 iterations succeeded.
+      Unrolling loop in function "exec_prepared_stmt_columnar" for 1 iterations succeeded.
+      Unrolling loop in function "exec_prepared_stmt_columnar" for 1 iterations succeeded.
+      Transformed "exec_prepared_stmt_columnar" from 109 to 127 basic blocks and from 703 to 764 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...Current: exec_prepared_stmt_columnar Havoced: sqlite3_step
+Current: exec_prepared_stmt_columnar Havoced: sqlite3_column_count
+Current: exec_prepared_stmt_columnar Havoced: sqlite3_malloc64
+Current: exec_prepared_stmt_columnar Havoced: shell_out_of_memory
+Current: exec_prepared_stmt_columnar Havoced: sqlite3_column_name
+
+        Unrolling loop in function "llbmc.strdup" for 0 iterations succeeded.
+        Unrolling loop in function "llbmc.strdup" for 0 iterations succeeded.
+        Transformed "llbmc.strdup" from 5 to 7 basic blocks and from 20 to 23 instructionsCurrent: exec_prepared_stmt_columnar Havoced: sqlite3_realloc64
+Current: exec_prepared_stmt_columnar Havoced: shell_out_of_memory
+Current: exec_prepared_stmt_columnar Havoced: sqlite3_column_text
+Current: exec_prepared_stmt_columnar Havoced: sqlite3_step
+isMemmove:   call void @memmove(i8* %r, i8* %ptr, i64 %cpysize)
+Current: exec_prepared_stmt_columnar Havoced: shell_out_of_memory
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %86, i8 0, i64 %88, i32 4, i1 false), !dbg !5794
+Current: exec_prepared_stmt_columnar Havoced: strlenChar
+Current: exec_prepared_stmt_columnar Havoced: print_box_row_separator
+Current: exec_prepared_stmt_columnar Havoced: strlenChar
+Current: exec_prepared_stmt_columnar Havoced: print_box_row_separator
+Current: exec_prepared_stmt_columnar Havoced: print_row_separator
+Current: exec_prepared_stmt_columnar Havoced: strlenChar
+Current: exec_prepared_stmt_columnar Havoced: print_row_separator
+Current: exec_prepared_stmt_columnar Havoced: strlenChar
+Current: exec_prepared_stmt_columnar Havoced: print_row_separator
+Current: exec_prepared_stmt_columnar Havoced: utf8_width_print
+Current: exec_prepared_stmt_columnar Havoced: print_dashes
+Current: exec_prepared_stmt_columnar Havoced: utf8_width_print
+Current: exec_prepared_stmt_columnar Havoced: print_box_row_separator
+Current: exec_prepared_stmt_columnar Havoced: print_row_separator
+Current: exec_prepared_stmt_columnar Havoced: sqlite3_free
+
+                                                           0 sec [DONE]
+        Number of expressions:                        156568
+        after encoding
+
+      32 assertions before transformations (14 no_function_call, 17 no_back_edge, 1 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            4319
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5214
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72670
+        Memory Model Encoder
+          Number of moved ops                              0
+          Number of rewrites                               7
+        Simplifier
+          Number of moved ops                              3
+          Number of rewrites                               7
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             142
+        ToASC Analyser
+          Memcpy/memset found                            yes
+        Byte-Based Memory Creator
+          Number of rewrites                            9025
+        Instantiation-Based ToASC Simplifier
+          Number of rewrites                               2
+        Simplifier
+          Number of moved ops                            613
+          Number of rewrites                           23214
+        FP Abstraction
+          Number of rewrites                              22
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              1
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      32 assertions remain after transformations (14 no_function_call, 17 no_back_edge, 1 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...            1 sec [DONE]
+        
+                                                           2 sec [DONE]
+      after performing Check
+evaluateCheckerResultsViaRefinementLoop
+checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            1 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+BranchInst - LoopBound
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            1 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+BranchInst - LoopBound
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            1 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            1 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            1 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+BranchInst - LoopBound
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            1 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            1 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+BranchInst - LoopBound
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            1 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+BranchInst - LoopBound
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            1 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            1 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      getCheckerResultAfterUpdatingMarker
+Result is NoTrace
+
+                                                          15 sec [DONE]
+    allsafe
+    
+                                                          15 sec [DONE]
+  

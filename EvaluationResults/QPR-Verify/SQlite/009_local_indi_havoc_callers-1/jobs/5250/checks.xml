@@ -1,0 +1,41 @@
+<VerificationJob>
+  <Configuration>
+    <AnalyzeChecksIndividually value="true" />
+    <BitcodeTraces value="false" />
+    <CheckCallers value="true" />
+    <DumpVerifierBitcodeFiles value="false" />
+    <EnableSlicing value="false" />
+    <EntryPoint value="yy_reduce" />
+    <FixPoint value="true" />
+    <ForkJobs value="true" />
+    <HavocLimit value="2" />
+    <Hosted value="true" />
+    <IgnoreMissingFunctions value="false" />
+    <InitializedGlobals value="false" />
+    <LoopUnrollBound value="1" />
+    <PreconditionLocation value="jobs/5250" />
+    <SourceDirectory value="/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld" />
+    <TimeOut value="600" />
+    <XMLTraces value="false" />
+  </Configuration>
+  <CheckList>
+    <Check id="16299" location="17850" category="explicit.conversion.overflow" status="safe" scope="sqlite3ExprAlloc">
+      <EntryStatus>
+        <SingleEntryStatus>convertToWithoutRowidTable, safe</SingleEntryStatus>
+        <SingleEntryStatus>exprAnalyze, safe</SingleEntryStatus>
+        <SingleEntryStatus>fkActionTrigger, safe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3CreateColumnExpr, safe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3CreateIndex, safe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3EndTable, safe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3Expr, safe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3ExprAddCollateToken, safe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3ExprFunction, safe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3WhereTabFuncArgs, todo</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3WindowOffsetExpr, safe</SingleEntryStatus>
+        <SingleEntryStatus>yy_reduce, safe</SingleEntryStatus>
+      </EntryStatus>
+    </Check>
+  </CheckList>
+  <Annotation>allsafe</Annotation>
+  <Status>allsafe</Status>
+</VerificationJob>

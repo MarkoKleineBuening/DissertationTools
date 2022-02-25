@@ -1,0 +1,156 @@
+runJobCommand
+precondition analysis with entry:walWriteOneFrame
+arguents: child
+arguents: job
+arguents: mode
+arguents: precondition
+handleJobInSeparateProcess0
+
+Checking job 2974 ...about to run job:
+preconNumber: 5, 1
+
+  Running Model Checker with 1 checks ...entry: walWriteOneFrame, functionName: walWriteToLog
+  <badref> = call i32 @qpr.precondition.walWriteToLog(%struct.WalWriter.274* %0, i8* %13, i32 24, i64 %3)
+entry: walWriteOneFrame, functionName: walWriteOneFrame
+entry: walWriteOneFrame, functionName: walWriteToLog
+try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 1
+    LoopUnrollBound : 1
+    HavocLimit : 0
+    PreconditionNumber : 5
+    PreconditionLocation : jobs/2974
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : true
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : walWriteOneFrame
+m_checker->run()
+
+    Performing bounded model checking ...
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...size Alloca: 1
+size Alloca: 1
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %32, i8 0, i64 16, i32 1, i1 false), !dbg !5657
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %13, i8* %17, i64 8, i32 1, i1 false), !dbg !5639
+
+        Unrolling loop in function "walChecksumBytes" for 1 iterations succeeded.
+        Unrolling loop in function "walChecksumBytes" for 1 iterations succeeded.
+        Transformed "walChecksumBytes" from 156 to 160 instructionsTODO MKB implement precondition handling: IE
+Reading in precondition at: jobs/2974/precondition_walWriteToLog.txt
+preconFile: jobs/2974/precondition_walWriteToLog.txt
+ref: [underoverapprox]name of function arguments, argValue:  
+ref: [underoverapprox]name of function arguments, argValue:  
+name of function arguments line
+param: i32 %arg2:0
+---name: i32 %arg2, value: 0.
+integer, char or other simple types
+name: i32 %arg2
+assuming that there are not more then 10 arguments
+nameIndex: 2
+nameID: 2
+argument name: 
+value: 0
+###new bool cond: bool % = compare(%i32__24, %i32__0)
+param:  i64 %arg3:-9223372036854775808
+---name:  i64 %arg3, value: -9223372036854775808.
+integer, char or other simple types
+name:  i64 %arg3
+assuming that there are not more then 10 arguments
+nameIndex: 3
+nameID: 3
+argument name: arg3
+
+                                                           0 sec [DONE]
+        
+                                                           0 sec [DONE]
+      E [1] lib/Core/CheckStatusMarker.cpp:49 | CheckStatusMarker finished but CheckStatus is still Todo
+
+                                                           1 sec [DONE]
+    
+                                                           1 sec [DONE]
+   sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...            0 sec [DONE]
+        
+                                                           0 sec [DONE]
+      after performing Check
+evaluateCheckerResultsViaRefinementLoop
+checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setCheckToUnsafe
+setCheckToUnsafe
+Check for floating point traces / abstractions currently deactivated
+getCheckerResultAfterUpdatingMarker
+failingInst:   call void @llbmc.assert(i1 %4, i32 %0)
+Preconditions internal: 
+i32 %arg2:0; (i32 %arg2:0)i64 %arg3:-9223372036854775808; (i64 %arg3:9223372036854775808)
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: i32 %arg2 = nondef() : 0
+assumePair: i64 %arg3 = nondef() : -9223372036854775808
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   call void @llbmc.assert(i1 %4, i32 %0)
+Preconditions internal: 
+i32 %arg2:1; (i32 %arg2:1)i64 %arg3:-9223372036854775808; (i64 %arg3:9223372036854775808)
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: i32 %arg2 = nondef() : 1
+assumePair: i64 %arg3 = nondef() : -9223372036854775808
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   call void @llbmc.assert(i1 %4, i32 %0)
+Preconditions internal: 
+i32 %arg2:0; (i32 %arg2:0)i64 %arg3:0; (i64 %arg3:0)
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: i32 %arg2 = nondef() : 0
+assumePair: i64 %arg3 = nondef() : 0
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   call void @llbmc.assert(i1 %4, i32 %0)
+Preconditions internal: 
+i32 %arg2:1; (i32 %arg2:1)i64 %arg3:0; (i64 %arg3:0)
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: i32 %arg2 = nondef() : 1
+assumePair: i64 %arg3 = nondef() : 0
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   call void @llbmc.assert(i1 %4, i32 %0)
+Preconditions internal: 
+i32 %arg2:256; (i32 %arg2:256)i64 %arg3:0; (i64 %arg3:0)
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: i32 %arg2 = nondef() : 256
+assumePair: i64 %arg3 = nondef() : 0
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      name of function arguments: Writing precondition at: jobs/2974/precondition_walWriteToLog.txt
+
+Generated Preconditions:
+[underoverapprox]name of function arguments: 
+i32 %arg2:0; i64 %arg3:-9223372036854775808; 
+i32 %arg2:1; i64 %arg3:-9223372036854775808; 
+i32 %arg2:0; i64 %arg3:0; 
+i32 %arg2:1; i64 %arg3:0; 
+i32 %arg2:256; i64 %arg3:0; 
+
+                                                           1 sec [DONE]
+    allunsafe
+    
+                                                           1 sec [DONE]
+  

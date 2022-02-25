@@ -1,0 +1,93 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 7591 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 2
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/7591
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : isDistinctRedundant
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "isDistinctRedundant" for 1 iterations succeeded.
+      Unrolling loop in function "isDistinctRedundant" for 1 iterations succeeded.
+      Unrolling loop in function "isDistinctRedundant" for 1 iterations succeeded.
+      Transformed "isDistinctRedundant" from 36 to 40 basic blocks and from 142 to 161 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...
+        Unrolling loop in function "sqlite3ExprSkipCollateAndLikely" for 1 iterations succeeded.
+        Transformed "sqlite3ExprSkipCollateAndLikely" from 9 to 16 basic blocks and from 41 to 79 instructions
+        Unrolling loop in function "sqlite3WhereFindTerm" for 1 iterations succeeded.
+        Transformed "sqlite3WhereFindTerm" from 12 to 13 basic blocks and from 64 to 71 instructionsCurrent: sqlite3WhereFindTerm Havoced: whereScanInit
+Current: sqlite3WhereFindTerm Havoced: whereScanNext
+
+        Unrolling loop in function "findIndexCol" for 1 iterations succeeded.
+        Transformed "findIndexCol" from 14 to 15 basic blocks and from 91 to 97 instructionsCurrent: findIndexCol Havoced: sqlite3ExprSkipCollateAndLikely
+Current: findIndexCol Havoced: sqlite3ExprNNCollSeq
+Current: findIndexCol Havoced: sqlite3StrICmp
+
+                                                           0 sec [DONE]
+        Number of expressions:                        155874
+        after encoding
+
+      7 assertions before transformations (6 no_back_edge, 1 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            3897
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72654
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               1
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                              19
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             142
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      7 assertions remain after transformations (6 no_back_edge, 1 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...

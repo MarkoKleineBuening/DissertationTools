@@ -1,0 +1,132 @@
+<VerificationJob>
+  <Configuration>
+    <AnalyzeChecksIndividually value="true" />
+    <BitcodeTraces value="false" />
+    <CheckCallers value="true" />
+    <DumpVerifierBitcodeFiles value="false" />
+    <EnableSlicing value="true" />
+    <EntryPoint value="destroyRootPage" />
+    <FixPoint value="true" />
+    <ForkJobs value="true" />
+    <Hosted value="true" />
+    <IgnoreMissingFunctions value="false" />
+    <InitializedGlobals value="false" />
+    <LoopUnrollBound value="1" />
+    <PreconditionLocation value="jobs/1859" />
+    <SourceDirectory value="/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld" />
+    <TimeOut value="600" />
+    <XMLTraces value="false" />
+  </Configuration>
+  <CheckList>
+    <Check id="6057" location="6590" category="arithmetic.overflow" status="unsafe" scope="sqlite3ErrorMsg">
+      <Annotations>
+        <Annotation>A signed arithmetic operation can overflow.</Annotation>
+      </Annotations>
+      <EntryStatus>
+        <SingleEntryStatus>addModuleArgument, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>allocateIndexInfo, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>cannotBeFunction, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>codeInteger, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>codeVectorCompare, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>destroyRootPage, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>disallowAggregatesInOrderByCb, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>exprAnalyze, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>fixExprCb, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>fixSelectCb, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>generateWithRecursiveQuery, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>invalidateTempStorage, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>isAlterableTable, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>isAsteriskTerm, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>isRealTable, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>lookupName, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>makeColumnPartOfPrimaryKey, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>notValidImpl, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>parserAddExprIdListTerm, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>parserDoubleLinkSelect, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>resetAccumulator, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>resolveCompoundOrderBy, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>resolveExprStep, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>resolveFromTermToCte, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>resolveOutOfRangeError, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>resolveSelectStep, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>selectExpander, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3AddColumn, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3AddDefaultValue, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3AddGenerated, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3AddPrimaryKey, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3AddReturning, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3AlterBeginAddColumn, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3AlterDropColumn, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3AlterFinishAddColumn, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3AlterRenameColumn, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3AlterRenameTable, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3AuthCheck, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3AuthReadCol, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3BeginTrigger, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3CheckObjectName, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3ComputeGeneratedColumns, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3CreateForeignKey, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3CreateIndex, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3CreateView, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3DropIndex, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3DropTable, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3DropTrigger, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3EndTable, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3ExprAssignVarNumber, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3ExprCheckHeight, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3ExprCodeGetColumnOfTable, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3ExprCodeTarget, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3ExprFunction, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3ExprFunctionUsable, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3ExprListAppendVector, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3ExprListCheckLength, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3FkLocateIndex, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3GetCollSeq, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3HasExplicitNulls, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3IndexedByLookup, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3Insert, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3IsReadOnly, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3JoinType, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3LocateTable, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3OpenTempDatabase, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3Pragma, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3Reindex, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3ResolveOrderGroupBy, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3RunParser, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3Select, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3SelectWrongNumTermsError, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3SrcListAppendFromTerm, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3SrcListEnlarge, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3StartTable, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3SubselectError, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3TriggersExist, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3TwoPartName, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3Update, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3UpsertAnalyzeTarget, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3VectorErrorMsg, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3ViewGetColumnNames, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3VtabCallConnect, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3VtabEponymousTableInit, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3WhereBegin, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3WhereTabFuncArgs, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3WindowAlloc, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3WindowAttach, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3WindowChain, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3WindowUpdate, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3WithAdd, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3_blob_open, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqliteAuthBadReturnCode, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqliteProcessJoin, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>vtabBestIndex, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>whereLoopAddVirtualOne, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>wherePathSolver, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>windowFind, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>yyStackOverflow, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>yy_reduce, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>yy_syntax_error, unsafe</SingleEntryStatus>
+      </EntryStatus>
+    </Check>
+  </CheckList>
+  <Annotation>allunsafe</Annotation>
+  <Status>allunsafe</Status>
+</VerificationJob>

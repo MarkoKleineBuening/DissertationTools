@@ -1,0 +1,184 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 4214 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 1
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/4214
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : sqlite3_backup_step
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "sqlite3_backup_step" for 1 iterations succeeded.
+      Unrolling loop in function "sqlite3_backup_step" for 1 iterations succeeded.
+      Unrolling loop in function "sqlite3_backup_step" for 1 iterations succeeded.
+      Transformed "sqlite3_backup_step" from 102 to 129 basic blocks and from 579 to 738 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...Current: sqlite3_backup_step Havoced: sqlite3_mutex_enter
+Current: sqlite3_backup_step Havoced: sqlite3BtreeEnter
+Current: sqlite3_backup_step Havoced: sqlite3_mutex_enter
+Current: sqlite3_backup_step Havoced: isFatalError
+Current: sqlite3_backup_step Havoced: sqlite3BtreePager
+Current: sqlite3_backup_step Havoced: sqlite3BtreePager
+Current: sqlite3_backup_step Havoced: sqlite3BtreeTxnState
+Current: sqlite3_backup_step Havoced: sqlite3BtreeBeginTrans
+Current: sqlite3_backup_step Havoced: setDestPgsz
+Current: sqlite3_backup_step Havoced: sqlite3BtreeBeginTrans
+Current: sqlite3_backup_step Havoced: sqlite3BtreeGetPageSize
+Current: sqlite3_backup_step Havoced: sqlite3BtreeGetPageSize
+Current: sqlite3_backup_step Havoced: sqlite3BtreePager
+Current: sqlite3_backup_step Havoced: sqlite3PagerGetJournalMode
+Current: sqlite3_backup_step Havoced: sqlite3BtreeLastPage
+Current: sqlite3_backup_step Havoced: sqlite3PagerGet
+Current: sqlite3_backup_step Havoced: sqlite3PagerGetData
+Current: sqlite3_backup_step Havoced: backupOnePage
+Current: sqlite3_backup_step Havoced: sqlite3PagerUnref
+Current: sqlite3_backup_step Havoced: attachBackupObject
+Current: sqlite3_backup_step Havoced: sqlite3BtreeNewDb
+Current: sqlite3_backup_step Havoced: sqlite3BtreeUpdateMeta
+Current: sqlite3_backup_step Havoced: sqlite3ResetAllSchemasOfConnection
+Current: sqlite3_backup_step Havoced: sqlite3BtreeSetVersion
+Current: sqlite3_backup_step Havoced: sqlite3PagerTruncateImage
+Current: sqlite3_backup_step Havoced: sqlite3PagerCommitPhaseOne
+Current: sqlite3_backup_step Havoced: sqlite3PagerFile
+Current: sqlite3_backup_step Havoced: sqlite3PagerPagecount
+Current: sqlite3_backup_step Havoced: sqlite3PagerGet
+Current: sqlite3_backup_step Havoced: sqlite3PagerWrite
+Current: sqlite3_backup_step Havoced: sqlite3PagerUnref
+Current: sqlite3_backup_step Havoced: sqlite3PagerCommitPhaseOne
+Current: sqlite3_backup_step Havoced: sqlite3PagerGet
+Current: sqlite3_backup_step Havoced: sqlite3PagerGetData
+Current: sqlite3_backup_step Havoced: sqlite3OsWrite
+Current: sqlite3_backup_step Havoced: sqlite3PagerUnref
+Current: sqlite3_backup_step Havoced: backupTruncateFile
+Current: sqlite3_backup_step Havoced: sqlite3PagerSync
+Current: sqlite3_backup_step Havoced: sqlite3BtreeCommitPhaseTwo
+Current: sqlite3_backup_step Havoced: sqlite3BtreeCommitPhaseOne
+Current: sqlite3_backup_step Havoced: sqlite3BtreeCommitPhaseTwo
+Current: sqlite3_backup_step Havoced: sqlite3PagerGet
+Current: sqlite3_backup_step Havoced: sqlite3PagerGetData
+Current: sqlite3_backup_step Havoced: sqlite3OsWrite
+Current: sqlite3_backup_step Havoced: sqlite3PagerUnref
+Current: sqlite3_backup_step Havoced: sqlite3PagerGet
+Current: sqlite3_backup_step Havoced: sqlite3PagerWrite
+Current: sqlite3_backup_step Havoced: sqlite3PagerUnref
+Current: sqlite3_backup_step Havoced: sqlite3PagerGet
+Current: sqlite3_backup_step Havoced: sqlite3PagerGetData
+Current: sqlite3_backup_step Havoced: backupOnePage
+Current: sqlite3_backup_step Havoced: sqlite3PagerUnref
+Current: sqlite3_backup_step Havoced: sqlite3_mutex_leave
+Current: sqlite3_backup_step Havoced: sqlite3BtreeLeave
+Current: sqlite3_backup_step Havoced: sqlite3_mutex_leave
+                      0 sec [DONE]
+        Number of expressions:                        156370
+        after encoding
+
+      4 assertions before transformations (3 no_back_edge, 1 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            4112
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72728
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               4
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               2
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             142
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      4 assertions remain after transformations (3 no_back_edge, 1 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...            0 sec [DONE]
+        
+                                                           1 sec [DONE]
+      after performing Check
+evaluateCheckerResultsViaRefinementLoop
+checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+BranchInst - LoopBound
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+BranchInst - LoopBound
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setCheckToUnsafe
+setCheckToUnsafe
+Check for floating point traces / abstractions currently deactivated
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+BranchInst - LoopBound
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      getCheckerResultAfterUpdatingMarker
+Result is NoTrace
+
+                                                           4 sec [DONE]
+    allunsafe
+    
+                                                           4 sec [DONE]
+  

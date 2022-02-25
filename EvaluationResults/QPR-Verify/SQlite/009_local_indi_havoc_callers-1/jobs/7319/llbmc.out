@@ -1,0 +1,610 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 7319 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 2
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/7319
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : codeEqualityTerm
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "codeEqualityTerm" for 1 iterations succeeded.
+      Unrolling loop in function "codeEqualityTerm" for 1 iterations succeeded.
+      Unrolling loop in function "codeEqualityTerm" for 1 iterations succeeded.
+      Transformed "codeEqualityTerm" from 66 to 69 basic blocks and from 459 to 479 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...
+        Unrolling loop in function "removeUnindexableInClauseTerms" for 1 iterations succeeded.
+        Unrolling loop in function "removeUnindexableInClauseTerms" for 1 iterations succeeded.
+        Transformed "removeUnindexableInClauseTerms" from 20 to 22 basic blocks and from 201 to 217 instructionsCurrent: removeUnindexableInClauseTerms Havoced: sqlite3ExprDup
+Current: removeUnindexableInClauseTerms Havoced: sqlite3ExprListAppend
+Current: removeUnindexableInClauseTerms Havoced: sqlite3ExprListAppend
+Current: removeUnindexableInClauseTerms Havoced: sqlite3ExprListDelete
+Current: removeUnindexableInClauseTerms Havoced: sqlite3ExprListDelete
+Current: removeUnindexableInClauseTerms Havoced: sqlite3ExprDelete
+Current: sqlite3DbMallocZero Havoced: sqlite3DbMallocRaw
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %2, i8 0, i64 %1, i32 1, i1 false), !dbg !5621
+
+        Unrolling loop in function "sqlite3FindInIndex" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3FindInIndex" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3FindInIndex" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3FindInIndex" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3FindInIndex" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3FindInIndex" for 1 iterations succeeded.
+        Transformed "sqlite3FindInIndex" from 97 to 167 basic blocks and from 524 to 833 instructionsCurrent: sqlite3FindInIndex Havoced: sqlite3GetVdbe
+Current: sqlite3FindInIndex Havoced: sqlite3ExprCanBeNull
+Current: sqlite3FindInIndex Havoced: isCandidateForInOpt
+Current: sqlite3FindInIndex Havoced: sqlite3SchemaToIndex
+Current: sqlite3FindInIndex Havoced: sqlite3CodeVerifySchema
+Current: sqlite3FindInIndex Havoced: sqlite3TableLock
+Current: sqlite3FindInIndex Havoced: sqlite3VectorFieldSubexpr
+Current: sqlite3FindInIndex Havoced: sqlite3TableColumnAffinity
+Current: sqlite3FindInIndex Havoced: sqlite3CompareAffinity
+Current: sqlite3FindInIndex Havoced: sqlite3VectorFieldSubexpr
+Current: sqlite3FindInIndex Havoced: sqlite3BinaryCompareCollSeq
+Current: sqlite3FindInIndex Havoced: sqlite3StrICmp
+Current: sqlite3FindInIndex Havoced: sqlite3VdbeAddOp0
+Current: sqlite3FindInIndex Havoced: sqlite3VdbeExplain
+Current: sqlite3FindInIndex Havoced: sqlite3VdbeAddOp3
+Current: sqlite3FindInIndex Havoced: sqlite3VdbeSetP4KeyInfo
+Current: sqlite3FindInIndex Havoced: sqlite3SetHasNullFlag
+Current: sqlite3FindInIndex Havoced: sqlite3VdbeJumpHere
+Current: sqlite3FindInIndex Havoced: sqlite3VectorFieldSubexpr
+Current: sqlite3FindInIndex Havoced: sqlite3BinaryCompareCollSeq
+Current: sqlite3FindInIndex Havoced: sqlite3StrICmp
+Current: sqlite3FindInIndex Havoced: sqlite3VdbeAddOp0
+Current: sqlite3FindInIndex Havoced: sqlite3VdbeExplain
+Current: sqlite3FindInIndex Havoced: sqlite3VdbeAddOp3
+Current: sqlite3FindInIndex Havoced: sqlite3VdbeSetP4KeyInfo
+Current: sqlite3FindInIndex Havoced: sqlite3SetHasNullFlag
+Current: sqlite3FindInIndex Havoced: sqlite3VdbeJumpHere
+Current: sqlite3FindInIndex Havoced: sqlite3VectorFieldSubexpr
+Current: sqlite3FindInIndex Havoced: sqlite3TableColumnAffinity
+Current: sqlite3FindInIndex Havoced: sqlite3CompareAffinity
+Current: sqlite3FindInIndex Havoced: sqlite3VdbeAddOp0
+Current: sqlite3FindInIndex Havoced: sqlite3OpenTable
+Current: sqlite3FindInIndex Havoced: sqlite3VdbeExplain
+Current: sqlite3FindInIndex Havoced: sqlite3VdbeJumpHere
+Current: sqlite3FindInIndex Havoced: sqlite3InRhsIsConstant
+Current: sqlite3FindInIndex Havoced: sqlite3CodeRhsOfIN
+Current: sqlite3FindInIndex Havoced: sqlite3SetHasNullFlag
+Current: sqlite3FindInIndex Havoced: sqlite3ExprVectorSize
+Current: sqlite3ExprDelete Havoced: sqlite3ExprDeleteNN
+Current: sqlite3FindInIndex Havoced: sqlite3GetVdbe
+Current: sqlite3FindInIndex Havoced: sqlite3ExprCanBeNull
+Current: sqlite3FindInIndex Havoced: isCandidateForInOpt
+Current: sqlite3FindInIndex Havoced: sqlite3SchemaToIndex
+Current: sqlite3FindInIndex Havoced: sqlite3CodeVerifySchema
+Current: sqlite3FindInIndex Havoced: sqlite3TableLock
+Current: sqlite3FindInIndex Havoced: sqlite3VectorFieldSubexpr
+Current: sqlite3FindInIndex Havoced: sqlite3TableColumnAffinity
+Current: sqlite3FindInIndex Havoced: sqlite3CompareAffinity
+Current: sqlite3FindInIndex Havoced: sqlite3VectorFieldSubexpr
+Current: sqlite3FindInIndex Havoced: sqlite3BinaryCompareCollSeq
+Current: sqlite3FindInIndex Havoced: sqlite3StrICmp
+Current: sqlite3FindInIndex Havoced: sqlite3VdbeAddOp0
+Current: sqlite3FindInIndex Havoced: sqlite3VdbeExplain
+Current: sqlite3FindInIndex Havoced: sqlite3VdbeAddOp3
+Current: sqlite3FindInIndex Havoced: sqlite3VdbeSetP4KeyInfo
+Current: sqlite3FindInIndex Havoced: sqlite3SetHasNullFlag
+Current: sqlite3FindInIndex Havoced: sqlite3VdbeJumpHere
+Current: sqlite3FindInIndex Havoced: sqlite3VectorFieldSubexpr
+Current: sqlite3FindInIndex Havoced: sqlite3BinaryCompareCollSeq
+Current: sqlite3FindInIndex Havoced: sqlite3StrICmp
+Current: sqlite3FindInIndex Havoced: sqlite3VdbeAddOp0
+Current: sqlite3FindInIndex Havoced: sqlite3VdbeExplain
+Current: sqlite3FindInIndex Havoced: sqlite3VdbeAddOp3
+Current: sqlite3FindInIndex Havoced: sqlite3VdbeSetP4KeyInfo
+Current: sqlite3FindInIndex Havoced: sqlite3SetHasNullFlag
+Current: sqlite3FindInIndex Havoced: sqlite3VdbeJumpHere
+Current: sqlite3FindInIndex Havoced: sqlite3VectorFieldSubexpr
+Current: sqlite3FindInIndex Havoced: sqlite3TableColumnAffinity
+Current: sqlite3FindInIndex Havoced: sqlite3CompareAffinity
+Current: sqlite3FindInIndex Havoced: sqlite3VdbeAddOp0
+Current: sqlite3FindInIndex Havoced: sqlite3OpenTable
+Current: sqlite3FindInIndex Havoced: sqlite3VdbeExplain
+Current: sqlite3FindInIndex Havoced: sqlite3VdbeJumpHere
+Current: sqlite3FindInIndex Havoced: sqlite3InRhsIsConstant
+Current: sqlite3FindInIndex Havoced: sqlite3CodeRhsOfIN
+Current: sqlite3FindInIndex Havoced: sqlite3SetHasNullFlag
+Current: sqlite3FindInIndex Havoced: sqlite3ExprVectorSize
+Current: sqlite3VdbeAddOp2 Havoced: sqlite3VdbeAddOp3
+Current: sqlite3DbReallocOrFree Havoced: sqlite3DbRealloc
+Current: sqlite3DbReallocOrFree Havoced: sqlite3DbFree
+Current: sqlite3VdbeAddOp3 Havoced: growOp3
+Current: sqlite3VdbeAddOp2 Havoced: sqlite3VdbeAddOp3
+Current: sqlite3VdbeAddOp1 Havoced: sqlite3VdbeAddOp3
+Current: sqlite3VdbeAddOp3 Havoced: growOp3
+Current: sqlite3DbFree Havoced: sqlite3DbFreeNN
+
+        Unrolling loop in function "disableTerm" for 1 iterations succeeded.
+        Transformed "disableTerm" from 16 to 29 basic blocks and from 96 to 183 instructionsCurrent: sqlite3VdbeAddOp2 Havoced: sqlite3VdbeAddOp3
+
+        Unrolling loop in function "sqlite3ExprCodeTarget" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3ExprCodeTarget" for 1 iterations succeeded.
+        Unrolling loop in function "sqlite3ExprCodeTarget" for 1 iterations succeeded.
+        Transformed "sqlite3ExprCodeTarget" from 182 to 253 basic blocks and from 1164 to 1373 instructionsCurrent: sqlite3ExprCodeTarget Havoced: sqlite3VdbeAddOp1
+Current: sqlite3ExprCodeTarget Havoced: sqlite3VdbeJumpHere
+Current: sqlite3ExprCodeTarget Havoced: sqlite3VdbeChangeP3
+Current: sqlite3ExprCodeTarget Havoced: sqlite3CodeSubselect
+Current: sqlite3ExprCodeTarget Havoced: sqlite3ExprVectorSize
+Current: sqlite3ExprCodeTarget Havoced: sqlite3ErrorMsg
+Current: sqlite3ExprCodeTarget Havoced: sqlite3ErrorMsg
+Current: sqlite3ExprCodeTarget Havoced: sqlite3ExprCodeTemp
+Current: sqlite3ExprCodeTarget Havoced: sqlite3ExprTruthValue
+Current: sqlite3ExprCodeTarget Havoced: sqlite3VdbeAddOp4Int
+Current: sqlite3ExprCodeTarget Havoced: sqlite3ExprCodeTemp
+Current: sqlite3ExprCodeTarget Havoced: sqlite3ExprCodeTemp
+Current: sqlite3ExprCodeTarget Havoced: sqlite3VdbeAddOp3
+Current: sqlite3ExprCodeTarget Havoced: codeReal
+Current: sqlite3ExprCodeTarget Havoced: codeInteger
+Current: sqlite3ExprCodeTarget Havoced: sqlite3ExprIsConstantNotJoin
+Current: sqlite3ExprCodeTarget Havoced: sqlite3FindFunction
+Current: sqlite3ExprCodeTarget Havoced: sqlite3ExprFunctionUsable
+Current: sqlite3ExprCodeTarget Havoced: sqlite3ExprIsConstant
+Current: sqlite3ExprCodeTarget Havoced: sqlite3ExprCollSeq
+Current: sqlite3ExprCodeTarget Havoced: sqlite3GetTempRange
+Current: sqlite3ExprCodeTarget Havoced: sqlite3ExprCodeExprList
+Current: sqlite3ExprCodeTarget Havoced: sqlite3VtabOverloadFunction
+Current: sqlite3ExprCodeTarget Havoced: sqlite3VtabOverloadFunction
+Current: sqlite3ExprCodeTarget Havoced: sqlite3VdbeAddOp4
+Current: sqlite3ExprCodeTarget Havoced: sqlite3VdbeAddFunctionCall
+Current: sqlite3ExprCodeTarget Havoced: sqlite3ReleaseTempRange
+Current: sqlite3ExprCodeTarget Havoced: exprCodeInlineFunction
+Current: sqlite3ExprCodeTarget Havoced: sqlite3ErrorMsg
+Current: sqlite3ExprCodeTarget Havoced: sqlite3ExprCodeRunJustOnce
+Current: sqlite3ExprCodeTarget Havoced: sqlite3ExprTruthValue
+Current: sqlite3ExprCodeTarget Havoced: sqlite3VdbeAddOp2
+Current: sqlite3ExprCodeTarget Havoced: sqlite3VdbeAddOp3
+Current: sqlite3ExprCodeTarget Havoced: sqlite3VdbeAddOp1
+Current: sqlite3ExprCodeTarget Havoced: sqlite3ErrorMsg
+Current: sqlite3ExprCodeTarget Havoced: sqlite3ExprCodeGetColumn
+Current: sqlite3ExprCodeTarget Havoced: sqlite3VdbeAddOp1
+Current: sqlite3ExprCodeTarget Havoced: sqlite3TableColumnToStorage
+Current: sqlite3ExprCodeTarget Havoced: sqlite3VdbeAddOp2
+Current: sqlite3ExprCodeTarget Havoced: sqlite3VdbeAddOp1
+Current: sqlite3ExprCodeTarget Havoced: sqlite3ExprCodeGeneratedColumn
+Current: sqlite3ExprCodeTarget Havoced: sqlite3ErrorMsg
+Current: sqlite3ExprCodeTarget Havoced: sqlite3TableColumnAffinity
+Current: sqlite3ExprCodeTarget Havoced: sqlite3VdbeAddOp4
+Current: sqlite3ExprCodeTarget Havoced: sqlite3VdbeMakeLabel
+Current: sqlite3ExprCodeTarget Havoced: sqlite3ExprDup
+Current: sqlite3ExprCodeTarget Havoced: exprCodeVector
+Current: sqlite3ExprCodeTarget Havoced: exprToRegister
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %591, i8 0, i64 72, i32 8, i1 false), !dbg !6496
+Current: sqlite3ExprCodeTarget Havoced: sqlite3VdbeMakeLabel
+Current: sqlite3ExprCodeTarget Havoced: sqlite3ExprIfFalse
+Current: sqlite3ExprCodeTarget Havoced: sqlite3ExprCode
+Current: sqlite3ExprCodeTarget Havoced: sqlite3VdbeGoto
+Current: sqlite3ExprCodeTarget Havoced: sqlite3VdbeResolveLabel
+Current: sqlite3ExprCodeTarget Havoced: sqlite3VdbeAddOp2
+Current: sqlite3ExprCodeTarget Havoced: sqlite3ExprCode
+Current: sqlite3ExprCodeTarget Havoced: sqlite3ExprDelete
+Current: sqlite3ExprCodeTarget Havoced: setDoNotMergeFlagOnCopy
+Current: sqlite3ExprCodeTarget Havoced: sqlite3VdbeResolveLabel
+Current: sqlite3ExprCodeTarget Havoced: sqlite3ExprDelete
+Current: sqlite3ExprCodeTarget Havoced: sqlite3VdbeAddOp2
+Current: sqlite3ExprCodeTarget Havoced: sqlite3VListNumToName
+Current: sqlite3ExprCodeTarget Havoced: sqlite3VdbeAppendP4
+Current: sqlite3ExprCodeTarget Havoced: codeInteger
+Current: sqlite3ExprCodeTarget Havoced: sqlite3Strlen30
+Current: sqlite3ExprCodeTarget Havoced: sqlite3VdbeDb
+Current: sqlite3ExprCodeTarget Havoced: sqlite3HexToBlob
+Current: sqlite3ExprCodeTarget Havoced: sqlite3VdbeAddOp4
+Current: sqlite3ExprCodeTarget Havoced: codeReal
+Current: sqlite3ExprCodeTarget Havoced: sqlite3VdbeLoadString
+Current: sqlite3ExprCodeTarget Havoced: sqlite3TableColumnToStorage
+Current: sqlite3ExprCodeTarget Havoced: sqlite3VdbeAddOp2
+Current: sqlite3ExprCodeTarget Havoced: sqlite3VdbeAddOp1
+Current: sqlite3ExprCodeTarget Havoced: sqlite3ErrorMsg
+Current: sqlite3ExprCodeTarget Havoced: sqlite3MayAbort
+Current: sqlite3ExprCodeTarget Havoced: sqlite3HaltConstraint
+Current: sqlite3ExprCodeTarget Havoced: sqlite3VdbeAddOp4
+Current: sqlite3ExprCodeTarget Havoced: sqlite3VdbeAddOp2
+Current: sqlite3ExprCodeTarget Havoced: sqlite3ExprCodeTemp
+Current: sqlite3ExprCodeTarget Havoced: sqlite3VdbeAddOp1
+Current: sqlite3ExprCodeTarget Havoced: sqlite3VdbeAddOp2
+Current: sqlite3ExprCodeTarget Havoced: sqlite3VdbeJumpHere
+Current: sqlite3ExprCodeTarget Havoced: sqlite3VdbeMakeLabel
+Current: sqlite3ExprCodeTarget Havoced: sqlite3VdbeMakeLabel
+Current: sqlite3ExprCodeTarget Havoced: sqlite3VdbeAddOp2
+Current: sqlite3ExprCodeTarget Havoced: sqlite3ExprCodeIN
+Current: sqlite3ExprCodeTarget Havoced: sqlite3VdbeAddOp2
+Current: sqlite3ExprCodeTarget Havoced: sqlite3VdbeResolveLabel
+Current: sqlite3ExprCodeTarget Havoced: sqlite3VdbeAddOp2
+Current: sqlite3ExprCodeTarget Havoced: sqlite3VdbeResolveLabel
+Current: sqlite3ExprCodeTarget Havoced: exprCodeBetween
+Current: sqlite3ExprCodeTarget Havoced: sqlite3ExprIsVector
+Current: sqlite3ExprCodeTarget Havoced: sqlite3ExprCodeTemp
+Current: sqlite3ExprCodeTarget Havoced: sqlite3ExprCodeTemp
+Current: sqlite3ExprCodeTarget Havoced: sqlite3VdbeAddOp2
+Current: sqlite3ExprCodeTarget Havoced: sqlite3VdbeCurrentAddr
+Current: sqlite3ExprCodeTarget Havoced: codeCompare
+Current: sqlite3ExprCodeTarget Havoced: sqlite3VdbeAddOp3
+Current: sqlite3ExprCodeTarget Havoced: sqlite3VdbeAddOp2
+Current: sqlite3ExprCodeTarget Havoced: codeVectorCompare
+Current: sqlite3ExprCodeTarget Havoced: sqlite3ExprCodeTemp
+Current: sqlite3ExprCodeTarget Havoced: sqlite3ExprCodeTemp
+Current: sqlite3ExprCodeTarget Havoced: sqlite3VdbeAddOp3
+Current: sqlite3ExprCodeTarget Havoced: sqlite3VdbeAddOp2
+Current: sqlite3ExprCodeTarget Havoced: sqlite3AffinityType
+Current: sqlite3ExprCodeTarget Havoced: sqlite3VdbeAddOp2
+Current: sqlite3ExprCodeTarget Havoced: sqlite3CodeSubselect
+Current: sqlite3ExprCodeTarget Havoced: sqlite3SubselectError
+Current: sqlite3ExprCodeTarget Havoced: sqlite3VdbeAddOp2
+Current: sqlite3ExprCodeTarget Havoced: sqlite3ExprCodeTemp
+Current: sqlite3ExprCodeTarget Havoced: sqlite3VdbeAddOp2
+Current: sqlite3ExprCodeTarget Havoced: sqlite3ReleaseTempReg
+Current: sqlite3ExprCodeTarget Havoced: sqlite3ReleaseTempReg
+
+                                                           0 sec [DONE]
+        Number of expressions:                        163162
+        after encoding
+
+      33 assertions before transformations (3 no_function_call, 26 no_back_edge, 4 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            8221
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72969
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               5
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                              29
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             215
+        ToASC Analyser
+          Memcpy/memset found                            yes
+        Byte-Based Memory Creator
+          Number of rewrites                            9624
+        Instantiation-Based ToASC Simplifier
+          Number of rewrites                               1
+        Simplifier
+          Number of moved ops                              7
+          Number of rewrites                           24020
+        FP Abstraction
+          Number of rewrites                              22
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      33 assertions remain after transformations (3 no_function_call, 26 no_back_edge, 4 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...AffinityStr Havoced: sqlite3VectorFieldSubexpr
+Current: updateRangeAffinityStr Havoced: sqlite3CompareAffinity
+Current: updateRangeAffinityStr Havoced: sqlite3ExprNeedsNoAffinityChange
+Current: codeApplyAffinity Havoced: sqlite3VdbeAddOp4
+Current: sqlite3ExprIsVector Havoced: sqlite3ExprVectorSize
+Current: sqlite3DbFree Havoced: sqlite3DbFreeNN
+Current: sqlite3DbFree Havoced: sqlite3DbFreeNN
+Current: sqlite3VdbeAddOp2 Havoced: sqlite3VdbeAddOp3
+Current: sqlite3VdbeAddOp4Int Havoced: sqlite3VdbeAddOp3
+Current: sqlite3VdbeJumpHere Havoced: sqlite3VdbeChangeP2
+Current: sqlite3VdbeAddOp2 Havoced: sqlite3VdbeAddOp3
+Current: sqlite3VdbeAddOp4Int Havoced: sqlite3VdbeAddOp3
+Current: sqlite3VdbeAddOp3 Havoced: growOp3
+Current: sqlite3GetTempRange Havoced: sqlite3GetTempReg
+
+        Unrolling loop in function "sqlite3TableColumnToIndex" for 1 iterations succeeded.
+        Transformed "sqlite3TableColumnToIndex" from 8 to 9 basic blocks and from 39 to 46 instructionsCurrent: sqlite3VdbeAddOp3 Havoced: growOp3
+Current: sqlite3VdbeAddOp4Int Havoced: sqlite3VdbeAddOp3
+
+        Unrolling loop in function "codeDeferredSeek" for 1 iterations succeeded.
+        Transformed "codeDeferredSeek" from 15 to 16 basic blocks and from 125 to 133 instructionsCurrent: codeDeferredSeek Havoced: sqlite3VdbeAddOp3
+Current: codeDeferredSeek Havoced: sqlite3DbMallocZero
+Current: codeDeferredSeek Havoced: sqlite3TableColumnToStorage
+Current: codeDeferredSeek Havoced: sqlite3VdbeChangeP4
+
+        Unrolling loop in function "whereIndexExprTrans" for 1 iterations succeeded.
+        Transformed "whereIndexExprTrans" from 19 to 21 basic blocks and from 145 to 152 instructionsisMemset:   call void @llvm.memset.p0i8.i64(i8* %17, i8 0, i64 48, i32 8, i1 false), !dbg !5769
+Current: whereIndexExprTrans Havoced: sqlite3StrICmp
+Current: whereIndexExprTrans Havoced: sqlite3ExprIsConstant
+Current: whereIndexExprTrans Havoced: sqlite3WalkExpr
+Current: whereIndexExprTrans Havoced: sqlite3WalkExprList
+Current: whereIndexExprTrans Havoced: sqlite3WalkExprList
+
+        Unrolling loop in function "whereApplyPartialIndexConstraints" for 1 iterations succeeded.
+        Unrolling loop in function "whereApplyPartialIndexConstraints" for 1 iterations succeeded.
+        Transformed "whereApplyPartialIndexConstraints" from 12 to 14 basic blocks and from 67 to 81 instructionsCurrent: whereApplyPartialIndexConstraints Havoced: sqlite3ExprCompare
+Current: sqlite3VdbeAddOp2 Havoced: sqlite3VdbeAddOp3
+Current: sqlite3ExprIsVector Havoced: sqlite3ExprVectorSize
+Current: sqlite3ExprCodeTemp Havoced: sqlite3ExprSkipCollateAndLikely
+Current: sqlite3ExprCodeTemp Havoced: sqlite3ExprIsConstantNotJoin
+Current: sqlite3ExprCodeTemp Havoced: sqlite3GetTempReg
+Current: sqlite3ExprCodeTemp Havoced: sqlite3ExprCodeTarget
+Current: sqlite3ExprCodeTemp Havoced: sqlite3ReleaseTempReg
+Current: sqlite3ExprCodeTemp Havoced: sqlite3ExprCodeRunJustOnce
+Current: codeExprOrVector Havoced: sqlite3ExprIsVector
+Current: codeExprOrVector Havoced: sqlite3ExprCode
+Current: codeExprOrVector Havoced: sqlite3ExprCode
+Current: codeExprOrVector Havoced: sqlite3CodeSubselect
+Current: codeExprOrVector Havoced: sqlite3VdbeAddOp3
+Current: sqlite3VdbeAddOp3 Havoced: growOp3
+Current: codeExprOrVector Havoced: sqlite3ExprIsVector
+Current: codeExprOrVector Havoced: sqlite3ExprCode
+Current: codeExprOrVector Havoced: sqlite3ExprCode
+Current: codeExprOrVector Havoced: sqlite3CodeSubselect
+Current: codeExprOrVector Havoced: sqlite3VdbeAddOp3
+Current: sqlite3ExprIsVector Havoced: sqlite3ExprVectorSize
+Current: sqlite3ExprIsVector Havoced: sqlite3ExprVectorSize
+Current: sqlite3VdbeAddOp2 Havoced: sqlite3VdbeAddOp3
+Current: sqlite3VdbeAddOp3 Havoced: growOp3
+
+        Unrolling loop in function "codeEqualityTerm" for 1 iterations succeeded.
+        Unrolling loop in function "codeEqualityTerm" for 1 iterations succeeded.
+        Unrolling loop in function "codeEqualityTerm" for 1 iterations succeeded.
+        Transformed "codeEqualityTerm" from 66 to 69 basic blocks and from 459 to 479 instructionsCurrent: codeEqualityTerm Havoced: removeUnindexableInClauseTerms
+Current: codeEqualityTerm Havoced: sqlite3DbMallocZero
+Current: codeEqualityTerm Havoced: sqlite3FindInIndex
+Current: codeEqualityTerm Havoced: sqlite3ExprDelete
+Current: codeEqualityTerm Havoced: sqlite3FindInIndex
+Current: codeEqualityTerm Havoced: sqlite3VdbeAddOp2
+Current: codeEqualityTerm Havoced: sqlite3VdbeMakeLabel
+Current: codeEqualityTerm Havoced: sqlite3DbReallocOrFree
+Current: codeEqualityTerm Havoced: sqlite3VdbeAddOp3
+Current: codeEqualityTerm Havoced: sqlite3VdbeAddOp2
+Current: codeEqualityTerm Havoced: sqlite3VdbeAddOp1
+Current: codeEqualityTerm Havoced: sqlite3VdbeAddOp3
+Current: codeEqualityTerm Havoced: sqlite3DbFree
+Current: codeEqualityTerm Havoced: disableTerm
+Current: codeEqualityTerm Havoced: sqlite3VdbeAddOp2
+Current: codeEqualityTerm Havoced: sqlite3ExprCodeTarget
+Current: codeEqualityTerm Havoced: disableTerm
+Current: sqlite3VdbeAddOp3 Havoced: growOp3
+Current: sqlite3GetTempRange Havoced: sqlite3GetTempReg
+Current: codeExprOrVector Havoced: sqlite3ExprIsVector
+Current: codeExprOrVector Havoced: sqlite3ExprCode
+Current: codeExprOrVector Havoced: sqlite3ExprCode
+Current: codeExprOrVector Havoced: sqlite3CodeSubselect
+Current: codeExprOrVector Havoced: sqlite3VdbeAddOp3
+Current: codeEqualityTerm Havoced: removeUnindexableInClauseTerms
+Current: codeEqualityTerm Havoced: sqlite3DbMallocZero
+Current: codeEqualityTerm Havoced: sqlite3FindInIndex
+Current: codeEqualityTerm Havoced: sqlite3ExprDelete
+Current: codeEqualityTerm Havoced: sqlite3FindInIndex
+Current: codeEqualityTerm Havoced: sqlite3VdbeAddOp2
+Current: codeEqualityTerm Havoced: sqlite3VdbeMakeLabel
+Current: codeEqualityTerm Havoced: sqlite3DbReallocOrFree
+Current: codeEqualityTerm Havoced: sqlite3VdbeAddOp3
+Current: codeEqualityTerm Havoced: sqlite3VdbeAddOp2
+Current: codeEqualityTerm Havoced: sqlite3VdbeAddOp1
+Current: codeEqualityTerm Havoced: sqlite3VdbeAddOp3
+Current: codeEqualityTerm Havoced: sqlite3DbFree
+Current: codeEqualityTerm Havoced: disableTerm
+Current: codeEqualityTerm Havoced: sqlite3VdbeAddOp2
+Current: codeEqualityTerm Havoced: sqlite3ExprCodeTarget
+Current: codeEqualityTerm Havoced: disableTerm
+Current: sqlite3VdbeAddOp2 Havoced: sqlite3VdbeAddOp3
+Current: sqlite3VdbeAddOp2 Havoced: sqlite3VdbeAddOp3
+Current: sqlite3VdbeAddOp4 Havoced: sqlite3VdbeAddOp3
+Current: sqlite3VdbeAddOp4 Havoced: sqlite3VdbeChangeP4
+Current: sqlite3VdbeAddOp3 Havoced: growOp3
+Current: sqlite3PExpr Havoced: sqlite3DbMallocRawNN
+Current: sqlite3PExpr Havoced: sqlite3ExprDelete
+Current: sqlite3PExpr Havoced: sqlite3ExprDelete
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %9, i8 0, i64 72, i32 8, i1 false), !dbg !5626
+Current: sqlite3PExpr Havoced: sqlite3ExprAttachSubtrees
+Current: sqlite3PExpr Havoced: sqlite3ExprCheckHeight
+Current: sqlite3Expr Havoced: sqlite3Strlen30
+Current: sqlite3Expr Havoced: sqlite3ExprAlloc
+
+        Transformed "sqlite3ExprIfFalse" from 37 to 51 basic blocks and from 203 to 231 instructionsCurrent: sqlite3ExprIfFalse Havoced: sqlite3ExprTruthValue
+Current: sqlite3ExprIfFalse Havoced: sqlite3ExprIfTrue
+Current: sqlite3ExprIfFalse Havoced: sqlite3ExprCodeTemp
+Current: sqlite3ExprIfFalse Havoced: sqlite3VdbeAddOp2
+Current: sqlite3ExprIfFalse Havoced: sqlite3VdbeMakeLabel
+Current: sqlite3ExprIfFalse Havoced: sqlite3ExprCodeIN
+Current: sqlite3ExprIfFalse Havoced: sqlite3VdbeResolveLabel
+Current: sqlite3ExprIfFalse Havoced: sqlite3ExprCodeIN
+Current: sqlite3ExprIfFalse Havoced: exprCodeBetween
+Current: sqlite3ExprIfFalse Havoced: sqlite3ExprIsVector
+Current: sqlite3ExprIfFalse Havoced: sqlite3ExprCodeTemp
+Current: sqlite3ExprIfFalse Havoced: sqlite3ExprCodeTemp
+Current: sqlite3ExprIfFalse Havoced: codeCompare
+Current: sqlite3ExprIfFalse Havoced: sqlite3ExprSimplifiedAndOr
+Current: sqlite3ExprIfFalse Havoced: sqlite3VdbeMakeLabel
+Current: sqlite3ExprIfFalse Havoced: sqlite3ExprIfTrue
+Current: sqlite3ExprIfFalse Havoced: sqlite3VdbeResolveLabel
+Current: sqlite3ExprIfFalse Havoced: sqlite3ExprCodeTemp
+Current: sqlite3ExprIfFalse Havoced: sqlite3VdbeAddOp3
+Current: sqlite3ExprIfFalse Havoced: sqlite3VdbeGoto
+Current: sqlite3ExprIfFalse Havoced: sqlite3ExprIfTrue
+Current: sqlite3ExprIfFalse Havoced: sqlite3ReleaseTempReg
+Current: sqlite3ExprIfFalse Havoced: sqlite3ReleaseTempReg
+Current: sqlite3ExprDelete Havoced: sqlite3ExprDeleteNN
+Current: sqlite3VdbeAddOp3 Havoced: growOp3
+Current: sqlite3VdbeAddOp2 Havoced: sqlite3VdbeAddOp3
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %5, i8 0, i64 48, i32 8, i1 false), !dbg !5741
+Current: sqlite3ExprCoveredByIndex Havoced: sqlite3WalkExpr
+Current: sqlite3VdbeAddOp1 Havoced: sqlite3VdbeAddOp3
+Current: sqlite3ExprIfFalse Havoced: sqlite3ExprTruthValue
+Current: sqlite3ExprIfFalse Havoced: sqlite3ExprIfTrue
+Current: sqlite3ExprIfFalse Havoced: sqlite3ExprCodeTemp
+Current: sqlite3ExprIfFalse Havoced: sqlite3VdbeAddOp2
+Current: sqlite3ExprIfFalse Havoced: sqlite3VdbeMakeLabel
+Current: sqlite3ExprIfFalse Havoced: sqlite3ExprCodeIN
+Current: sqlite3ExprIfFalse Havoced: sqlite3VdbeResolveLabel
+Current: sqlite3ExprIfFalse Havoced: sqlite3ExprCodeIN
+Current: sqlite3ExprIfFalse Havoced: exprCodeBetween
+Current: sqlite3ExprIfFalse Havoced: sqlite3ExprIsVector
+Current: sqlite3ExprIfFalse Havoced: sqlite3ExprCodeTemp
+Current: sqlite3ExprIfFalse Havoced: sqlite3ExprCodeTemp
+Current: sqlite3ExprIfFalse Havoced: codeCompare
+Current: sqlite3ExprIfFalse Havoced: sqlite3ExprSimplifiedAndOr
+Current: sqlite3ExprIfFalse Havoced: sqlite3VdbeMakeLabel
+Current: sqlite3ExprIfFalse Havoced: sqlite3ExprIfTrue
+Current: sqlite3ExprIfFalse Havoced: sqlite3VdbeResolveLabel
+Current: sqlite3ExprIfFalse Havoced: sqlite3ExprCodeTemp
+Current: sqlite3ExprIfFalse Havoced: sqlite3VdbeAddOp3
+Current: sqlite3ExprIfFalse Havoced: sqlite3VdbeGoto
+Current: sqlite3ExprIfFalse Havoced: sqlite3ExprIfTrue
+Current: sqlite3ExprIfFalse Havoced: sqlite3ReleaseTempReg
+Current: sqlite3ExprIfFalse Havoced: sqlite3ReleaseTempReg
+Current: sqlite3VdbeJumpHere Havoced: sqlite3VdbeChangeP2
+
+        Unrolling loop in function "sqlite3WhereFindTerm" for 1 iterations succeeded.
+        Transformed "sqlite3WhereFindTerm" from 12 to 13 basic blocks and from 64 to 71 instructionsCurrent: sqlite3WhereFindTerm Havoced: whereScanInit
+Current: sqlite3WhereFindTerm Havoced: whereScanNext
+isMemcpy:   call void @llvm.memcpy.p0i8.p0i8.i64(i8* %1341, i8* %1342, i64 72, i32 8, i1 false), !dbg !7526
+Current: sqlite3ExprIfFalse Havoced: sqlite3ExprTruthValue
+Current: sqlite3ExprIfFalse Havoced: sqlite3ExprIfTrue
+Current: sqlite3ExprIfFalse Havoced: sqlite3ExprCodeTemp
+Current: sqlite3ExprIfFalse Havoced: sqlite3VdbeAddOp2
+Current: sqlite3ExprIfFalse Havoced: sqlite3VdbeMakeLabel
+Current: sqlite3ExprIfFalse Havoced: sqlite3ExprCodeIN
+Current: sqlite3ExprIfFalse Havoced: sqlite3VdbeResolveLabel
+Current: sqlite3ExprIfFalse Havoced: sqlite3ExprCodeIN
+Current: sqlite3ExprIfFalse Havoced: exprCodeBetween
+Current: sqlite3ExprIfFalse Havoced: sqlite3ExprIsVector
+Current: sqlite3ExprIfFalse Havoced: sqlite3ExprCodeTemp
+Current: sqlite3ExprIfFalse Havoced: sqlite3ExprCodeTemp
+Current: sqlite3ExprIfFalse Havoced: codeCompare
+Current: sqlite3ExprIfFalse Havoced: sqlite3ExprSimplifiedAndOr
+Current: sqlite3ExprIfFalse Havoced: sqlite3VdbeMakeLabel
+Current: sqlite3ExprIfFalse Havoced: sqlite3ExprIfTrue
+Current: sqlite3ExprIfFalse Havoced: sqlite3VdbeResolveLabel
+Current: sqlite3ExprIfFalse Havoced: sqlite3ExprCodeTemp
+Current: sqlite3ExprIfFalse Havoced: sqlite3VdbeAddOp3
+Current: sqlite3ExprIfFalse Havoced: sqlite3VdbeGoto
+Current: sqlite3ExprIfFalse Havoced: sqlite3ExprIfTrue
+Current: sqlite3ExprIfFalse Havoced: sqlite3ReleaseTempReg
+Current: sqlite3ExprIfFalse Havoced: sqlite3ReleaseTempReg
+Current: sqlite3VdbeAddOp2 Havoced: sqlite3VdbeAddOp3
+Current: sqlite3ExprIfFalse Havoced: sqlite3ExprTruthValue
+Current: sqlite3ExprIfFalse Havoced: sqlite3ExprIfTrue
+Current: sqlite3ExprIfFalse Havoced: sqlite3ExprCodeTemp
+Current: sqlite3ExprIfFalse Havoced: sqlite3VdbeAddOp2
+Current: sqlite3ExprIfFalse Havoced: sqlite3VdbeMakeLabel
+Current: sqlite3ExprIfFalse Havoced: sqlite3ExprCodeIN
+Current: sqlite3ExprIfFalse Havoced: sqlite3VdbeResolveLabel
+Current: sqlite3ExprIfFalse Havoced: sqlite3ExprCodeIN
+Current: sqlite3ExprIfFalse Havoced: exprCodeBetween
+Current: sqlite3ExprIfFalse Havoced: sqlite3ExprIsVector
+Current: sqlite3ExprIfFalse Havoced: sqlite3ExprCodeTemp
+Current: sqlite3ExprIfFalse Havoced: sqlite3ExprCodeTemp
+Current: sqlite3ExprIfFalse Havoced: codeCompare
+Current: sqlite3ExprIfFalse Havoced: sqlite3ExprSimplifiedAndOr
+Current: sqlite3ExprIfFalse Havoced: sqlite3VdbeMakeLabel
+Current: sqlite3ExprIfFalse Havoced: sqlite3ExprIfTrue
+Current: sqlite3ExprIfFalse Havoced: sqlite3VdbeResolveLabel
+Current: sqlite3ExprIfFalse Havoced: sqlite3ExprCodeTemp
+Current: sqlite3ExprIfFalse Havoced: sqlite3VdbeAddOp3
+Current: sqlite3ExprIfFalse Havoced: sqlite3VdbeGoto
+Current: sqlite3ExprIfFalse Havoced: sqlite3ExprIfTrue
+Current: sqlite3ExprIfFalse Havoced: sqlite3ReleaseTempReg
+Current: sqlite3ExprIfFalse Havoced: sqlite3ReleaseTempReg
+
+                                                           0 sec [DONE]
+        Number of expressions:                        175224
+        after encoding
+
+      98 assertions before transformations (22 no_function_call, 64 no_back_edge, 12 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                           15074
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           73283
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                              26
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             349
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             562
+        ToASC Analyser
+          Memcpy/memset found                            yes
+        Byte-Based Memory Creator
+          Number of rewrites                           10736
+        Instantiation-Based ToASC Simplifier
+          Number of rewrites                               1
+        Simplifier
+          Number of moved ops                              3
+          Number of rewrites                           25551
+        FP Abstraction
+          Number of rewrites                              22
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              1
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      98 assertions remain after transformations (22 no_function_call, 64 no_back_edge, 12 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...

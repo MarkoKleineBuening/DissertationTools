@@ -1,0 +1,121 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 170 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 1
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/170
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : apndFileControl
+m_checker->run()
+
+    Performing bounded model checking ...getMatchingFunctions
+res.push_back: apndFileControl
+res.push_back: memdbFileControl
+res.push_back: unixFileControl
+res.push_back: sqlite3OsFileControl
+
+      Transformed "apndFileControl" from 6 to 88 basic blocks and from 44 to 304 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...Current: apndFileControl Havoced: allocateSpace
+Current: apndFileControl Havoced: vdbePmaReadBlob
+Current: apndFileControl Havoced: btreeDropTable
+Current: apndFileControl Havoced: sqlite3VtabCallDestroy
+Current: apndFileControl Havoced: sqlite3BtreeDropTable
+Current: apndFileControl Havoced: sqlite3VdbeSorterInit
+Current: apndFileControl Havoced: sqlite3BtreeClearTable
+Current: apndFileControl Havoced: sqlite3VdbeMemFromBtreeZeroOffset
+Current: apndFileControl Havoced: serialGet
+Current: apndFileControl Havoced: sqlite3VdbeSerialGet
+Current: apndFileControl Havoced: sqlite3ExprCoveredByIndex
+Current: apndFileControl Havoced: readsTable
+Current: apndFileControl Havoced: autoIncBegin
+Current: apndFileControl Havoced: sqlite3PagerReadFileheader
+Current: apndFileControl Havoced: sqlite3VdbeLoadString
+Current: apndFileControl Havoced: sqlite3DbIsNamed
+Current: apndFileControl Havoced: sqlite3BtreeBeginTrans
+Current: apndFileControl Havoced: walIteratorInit
+Current: apndFileControl Havoced: saveCursorsOnList
+Current: apndFileControl Havoced: sqlite3WalFindFrame
+Current: apndFileControl Havoced: sqlite3PcacheFetchStress
+Current: apndFileControl Havoced: walIndexPageRealloc
+Current: apndFileControl Havoced: walIndexPage
+Current: apndFileControl Havoced: walHashGet
+Current: apndFileControl Havoced: sqlite3OsFileControl
+Current: apndFileControl Havoced: saveAllCursors
+Current: apndFileControl Havoced: keywordCode
+Current: apndFileControl Havoced: sqlite3_bind_value
+Current: apndFileControl Havoced: sqlite3OsRandomness
+Current: apndFileControl Havoced: unixFileControl
+Current: apndFileControl Havoced: unixGetLastError
+Current: apndFileControl Havoced: unixRandomness
+Current: apndFileControl Havoced: memdbFileControl
+Current: apndFileControl Havoced: memdbGetLastError
+Current: apndFileControl Havoced: memdbRandomness
+Current: apndFileControl Havoced: shell_dbinfo_command
+Current: apndFileControl Havoced: expertFinish
+Current: apndFileControl Havoced: apndGetLastError
+Current: apndFileControl Havoced: apndRandomness
+Current: apndFileControl Havoced: sqlite3_mprintf
+                      0 sec [DONE]
+        Number of expressions:                        155914
+        after encoding
+
+      3 assertions before transformations (2 no_function_call, 1 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            3910
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72605
+        Memory Model Encoder
+          Number of moved ops                              1
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                               1
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             142
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      3 assertions remain after transformations (2 no_function_call, 1 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...

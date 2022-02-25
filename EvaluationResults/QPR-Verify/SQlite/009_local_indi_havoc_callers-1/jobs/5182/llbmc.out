@@ -1,0 +1,135 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 5182 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 2
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/5182
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : resolveCompoundOrderBy
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "resolveCompoundOrderBy" for 1 iterations succeeded.
+      Unrolling loop in function "resolveCompoundOrderBy" for 1 iterations succeeded.
+      Unrolling loop in function "resolveCompoundOrderBy" for 1 iterations succeeded.
+      Unrolling loop in function "resolveCompoundOrderBy" for 1 iterations succeeded.
+      Unrolling loop in function "resolveCompoundOrderBy" for 1 iterations succeeded.
+      Unrolling loop in function "resolveCompoundOrderBy" for 1 iterations succeeded.
+      Transformed "resolveCompoundOrderBy" from 58 to 101 basic blocks and from 284 to 510 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...
+        Unrolling loop in function "sqlite3ExprSkipCollateAndLikely" for 1 iterations succeeded.
+        Transformed "sqlite3ExprSkipCollateAndLikely" from 9 to 16 basic blocks and from 41 to 79 instructions
+        Transformed "sqlite3ExprIsInteger" from 12 to 16 basic blocks and from 52 to 59 instructions
+        Unrolling loop in function "resolveAsName" for 1 iterations succeeded.
+        Transformed "resolveAsName" from 11 to 12 basic blocks and from 58 to 63 instructionsCurrent: resolveAsName Havoced: sqlite3_stricmp
+Current: sqlite3ExprDup Havoced: exprDup
+
+        Unrolling loop in function "resolveOrderByTermToExprList" for 1 iterations succeeded.
+        Transformed "resolveOrderByTermToExprList" from 10 to 11 basic blocks and from 76 to 81 instructionsisMemset:   call void @llvm.memset.p0i8.i64(i8* %6, i8 0, i64 56, i32 8, i1 false), !dbg !5648
+Current: resolveOrderByTermToExprList Havoced: sqlite3ResolveExprNames
+Current: resolveOrderByTermToExprList Havoced: sqlite3ExprCompare
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %6, i8 0, i64 56, i32 8, i1 false), !dbg !5648
+Current: resolveOrderByTermToExprList Havoced: sqlite3ResolveExprNames
+Current: resolveOrderByTermToExprList Havoced: sqlite3ExprCompare
+Current: sqlite3ExprDelete Havoced: sqlite3ExprDeleteNN
+Current: sqlite3Expr Havoced: sqlite3Strlen30
+Current: sqlite3Expr Havoced: sqlite3ExprAlloc
+Current: sqlite3ExprDelete Havoced: sqlite3ExprDeleteNN
+Current: sqlite3ErrorMsg Havoced: sqlite3VMPrintf
+Current: sqlite3ErrorMsg Havoced: sqlite3DbFree
+Current: sqlite3ErrorMsg Havoced: sqlite3DbFree
+Current: resolveAsName Havoced: sqlite3_stricmp
+Current: sqlite3ExprDup Havoced: exprDup
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %6, i8 0, i64 56, i32 8, i1 false), !dbg !5648
+Current: resolveOrderByTermToExprList Havoced: sqlite3ResolveExprNames
+Current: resolveOrderByTermToExprList Havoced: sqlite3ExprCompare
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %6, i8 0, i64 56, i32 8, i1 false), !dbg !5648
+Current: resolveOrderByTermToExprList Havoced: sqlite3ResolveExprNames
+Current: resolveOrderByTermToExprList Havoced: sqlite3ExprCompare
+Current: sqlite3ExprDelete Havoced: sqlite3ExprDeleteNN
+Current: sqlite3Expr Havoced: sqlite3Strlen30
+Current: sqlite3Expr Havoced: sqlite3ExprAlloc
+Current: sqlite3ExprDelete Havoced: sqlite3ExprDeleteNN
+Current: resolveOutOfRangeError Havoced: sqlite3ErrorMsg
+Current: sqlite3ErrorMsg Havoced: sqlite3VMPrintf
+Current: sqlite3ErrorMsg Havoced: sqlite3DbFree
+Current: sqlite3ErrorMsg Havoced: sqlite3DbFree
+
+                                                           0 sec [DONE]
+        Number of expressions:                        157683
+        after encoding
+
+      24 assertions before transformations (4 no_function_call, 16 no_back_edge, 4 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            4959
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72777
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                              13
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             122
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             370
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      24 assertions remain after transformations (4 no_function_call, 16 no_back_edge, 4 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...

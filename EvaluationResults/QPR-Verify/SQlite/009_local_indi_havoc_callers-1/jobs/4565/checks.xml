@@ -1,0 +1,72 @@
+<VerificationJob>
+  <Configuration>
+    <AnalyzeChecksIndividually value="true" />
+    <BitcodeTraces value="false" />
+    <CheckCallers value="true" />
+    <DumpVerifierBitcodeFiles value="false" />
+    <EnableSlicing value="false" />
+    <EntryPoint value="quoteFunc" />
+    <FixPoint value="true" />
+    <ForkJobs value="true" />
+    <HavocLimit value="2" />
+    <Hosted value="true" />
+    <IgnoreMissingFunctions value="false" />
+    <InitializedGlobals value="false" />
+    <LoopUnrollBound value="1" />
+    <PreconditionLocation value="jobs/4565" />
+    <SourceDirectory value="/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld" />
+    <TimeOut value="600" />
+    <XMLTraces value="false" />
+  </Configuration>
+  <CheckList>
+    <Check id="14064" location="15309" category="arrayindex" status="safe|loopboundreached|functionbodymissing" scope="sqlite3_value_type">
+      <Annotations>
+        <Annotation>A function body is missing (/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld//home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld/sqlite3.c:28219:5)</Annotation>
+        <Annotation>The function body for __ctype_b_loc is missing (/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld//home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld/shell.c:4630:12)</Annotation>
+        <Annotation>The function body for rewind is missing (/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld//home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld/sqlite3.c:28219:5)</Annotation>
+        <Annotation>A function body is missing (/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld//home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld/sqlite3.c:28216:5)</Annotation>
+        <Annotation>A call stack bound was reached calling sqlite3_free (/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld//home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld/sqlite3.c:28219:5)</Annotation>
+        <Annotation>The function body for rewind is missing (/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld//home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld/sqlite3.c:28216:5)</Annotation>
+        <Annotation>A call stack bound was reached calling sqlite3_free (/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld//home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld/sqlite3.c:28216:5)</Annotation>
+        <Annotation>The function body for getenv is missing (/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld//home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld/shell.c:12285:15)</Annotation>
+        <Annotation>The function body for fopen64 is missing (/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld//home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld/shell.c:12310:7)</Annotation>
+        <Annotation>A loop bound was reached (/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld//home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld/sqlite3.c:30878:3)</Annotation>
+      </Annotations>
+      <EntryStatus>
+        <SingleEntryStatus>absFunc, safe</SingleEntryStatus>
+        <SingleEntryStatus>countInverse, unknown</SingleEntryStatus>
+        <SingleEntryStatus>countStep, todo</SingleEntryStatus>
+        <SingleEntryStatus>decimalSumInverse, todo</SingleEntryStatus>
+        <SingleEntryStatus>decimalSumStep, todo</SingleEntryStatus>
+        <SingleEntryStatus>decimal_new, unknown</SingleEntryStatus>
+        <SingleEntryStatus>editFunc, unknown</SingleEntryStatus>
+        <SingleEntryStatus>exprCompareVariable, safe</SingleEntryStatus>
+        <SingleEntryStatus>groupConcatInverse, todo</SingleEntryStatus>
+        <SingleEntryStatus>groupConcatStep, todo</SingleEntryStatus>
+        <SingleEntryStatus>idxRemFunc, todo</SingleEntryStatus>
+        <SingleEntryStatus>ieee754func, safe</SingleEntryStatus>
+        <SingleEntryStatus>ieee754func_from_blob, todo</SingleEntryStatus>
+        <SingleEntryStatus>ieee754func_to_blob, todo</SingleEntryStatus>
+        <SingleEntryStatus>instrFunc, unknown</SingleEntryStatus>
+        <SingleEntryStatus>isDate, unknown</SingleEntryStatus>
+        <SingleEntryStatus>isLikeOrGlob, safe</SingleEntryStatus>
+        <SingleEntryStatus>lengthFunc, unknown</SingleEntryStatus>
+        <SingleEntryStatus>minmaxFunc, todo</SingleEntryStatus>
+        <SingleEntryStatus>minmaxStep, safe</SingleEntryStatus>
+        <SingleEntryStatus>quoteFunc, safe|loopboundreached|functionbodymissing</SingleEntryStatus>
+        <SingleEntryStatus>roundFunc, unknown</SingleEntryStatus>
+        <SingleEntryStatus>seriesFilter, todo</SingleEntryStatus>
+        <SingleEntryStatus>sha3Func, todo</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3RunVacuum, todo</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3_bind_value, todo</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3_column_type, safe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3_value_numeric_type, unknown</SingleEntryStatus>
+        <SingleEntryStatus>substrFunc, safe</SingleEntryStatus>
+        <SingleEntryStatus>trimFunc, todo</SingleEntryStatus>
+        <SingleEntryStatus>typeofFunc, safe</SingleEntryStatus>
+      </EntryStatus>
+    </Check>
+  </CheckList>
+  <Annotation>allsafe</Annotation>
+  <Status>allsafe</Status>
+</VerificationJob>

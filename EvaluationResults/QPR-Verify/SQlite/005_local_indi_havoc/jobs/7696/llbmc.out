@@ -1,0 +1,109 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 7696 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 1
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/7696
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : whereLoopAddBtreeIndex
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "whereLoopAddBtreeIndex" for 1 iterations succeeded.
+      Unrolling loop in function "whereLoopAddBtreeIndex" for 1 iterations succeeded.
+      Transformed "whereLoopAddBtreeIndex" from 117 to 216 basic blocks and from 1164 to 1991 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...Current: whereLoopAddBtreeIndex Havoced: whereScanInit
+Current: whereLoopAddBtreeIndex Havoced: estLog
+Current: whereLoopAddBtreeIndex Havoced: indexColumnNotNull
+Current: whereLoopAddBtreeIndex Havoced: whereLoopResize
+Current: whereLoopAddBtreeIndex Havoced: whereRangeVectorLen
+Current: whereLoopAddBtreeIndex Havoced: whereRangeVectorLen
+Current: whereLoopAddBtreeIndex Havoced: whereLoopResize
+Current: whereLoopAddBtreeIndex Havoced: sqlite3LogEst
+Current: whereLoopAddBtreeIndex Havoced: estLog
+Current: whereLoopAddBtreeIndex Havoced: whereRangeScanEst
+Current: whereLoopAddBtreeIndex Havoced: sqlite3LogEstAdd
+Current: whereLoopAddBtreeIndex Havoced: sqlite3LogEstAdd
+Current: whereLoopAddBtreeIndex Havoced: whereLoopOutputAdjust
+Current: whereLoopAddBtreeIndex Havoced: whereLoopInsert
+Current: whereLoopAddBtreeIndex Havoced: whereScanNext
+Current: whereLoopAddBtreeIndex Havoced: indexColumnNotNull
+Current: whereLoopAddBtreeIndex Havoced: whereLoopResize
+Current: whereLoopAddBtreeIndex Havoced: whereRangeVectorLen
+Current: whereLoopAddBtreeIndex Havoced: whereRangeVectorLen
+Current: whereLoopAddBtreeIndex Havoced: whereLoopResize
+Current: whereLoopAddBtreeIndex Havoced: sqlite3LogEst
+Current: whereLoopAddBtreeIndex Havoced: estLog
+Current: whereLoopAddBtreeIndex Havoced: whereRangeScanEst
+Current: whereLoopAddBtreeIndex Havoced: sqlite3LogEstAdd
+Current: whereLoopAddBtreeIndex Havoced: sqlite3LogEstAdd
+Current: whereLoopAddBtreeIndex Havoced: whereLoopOutputAdjust
+Current: whereLoopAddBtreeIndex Havoced: whereLoopInsert
+Current: whereLoopAddBtreeIndex Havoced: whereLoopResize
+Current: whereLoopAddBtreeIndex Havoced: whereScanNext
+                      0 sec [DONE]
+        Number of expressions:                        157918
+        after encoding
+
+      8 assertions before transformations (3 no_function_call, 3 no_back_edge, 2 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            4646
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72755
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               1
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                              12
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             142
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      8 assertions remain after transformations (3 no_function_call, 3 no_back_edge, 2 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...

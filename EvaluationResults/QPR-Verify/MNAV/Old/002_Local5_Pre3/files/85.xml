@@ -1,0 +1,22 @@
+<SourceFile>
+  <Line number="1">/* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */</Line>
+  <Line number="2">#ifndef _ASM_X86_POSIX_TYPES_64_H</Line>
+  <Line number="3">#define _ASM_X86_POSIX_TYPES_64_H</Line>
+  <Line number="4"></Line>
+  <Line number="5">/*</Line>
+  <Line number="6"> * This file is generally used by user-level software, so you need to</Line>
+  <Line number="7"> * be a little careful about namespace pollution etc.  Also, we cannot</Line>
+  <Line number="8"> * assume GCC is being used.</Line>
+  <Line number="9"> */</Line>
+  <Line number="10"></Line>
+  <Line number="11">typedef unsigned short __kernel_old_uid_t;</Line>
+  <Line number="12">typedef unsigned short __kernel_old_gid_t;</Line>
+  <Line number="13">#define __kernel_old_uid_t __kernel_old_uid_t</Line>
+  <Line number="14"></Line>
+  <Line number="15">typedef unsigned long	__kernel_old_dev_t;</Line>
+  <Line number="16">#define __kernel_old_dev_t __kernel_old_dev_t</Line>
+  <Line number="17"></Line>
+  <Line number="18">#include &lt;asm-generic/posix_types.h&gt;</Line>
+  <Line number="19"></Line>
+  <Line number="20">#endif /* _ASM_X86_POSIX_TYPES_64_H */</Line>
+</SourceFile>

@@ -1,0 +1,44 @@
+<VerificationJob>
+  <Configuration>
+    <AnalyzeChecksIndividually value="true" />
+    <BitcodeTraces value="false" />
+    <CheckCallers value="true" />
+    <DumpVerifierBitcodeFiles value="false" />
+    <EnableSlicing value="false" />
+    <EntryPoint value="explainAppendTerm" />
+    <FixPoint value="true" />
+    <ForkJobs value="true" />
+    <HavocLimit value="2" />
+    <Hosted value="true" />
+    <IgnoreMissingFunctions value="false" />
+    <InitializedGlobals value="false" />
+    <LoopUnrollBound value="1" />
+    <PreconditionLocation value="jobs/1727" />
+    <SourceDirectory value="/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld" />
+    <TimeOut value="600" />
+    <XMLTraces value="false" />
+  </Configuration>
+  <CheckList>
+    <Check id="5662" location="6107" category="arithmetic.overflow.warning" status="unsafe|loopboundreached" scope="sqlite3_str_append">
+      <Annotations>
+        <Annotation>An unsigned arithmetic operation can overflow (wraparound).</Annotation>
+        <Annotation>A loop bound was reached (/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld//home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld/sqlite3.c:130824:3)</Annotation>
+      </Annotations>
+      <EntryStatus>
+        <SingleEntryStatus>checkAppendMsg, unknown</SingleEntryStatus>
+        <SingleEntryStatus>explainAppendTerm, unsafe|loopboundreached</SingleEntryStatus>
+        <SingleEntryStatus>explainIndexRange, unknown</SingleEntryStatus>
+        <SingleEntryStatus>groupConcatStep, unknown</SingleEntryStatus>
+        <SingleEntryStatus>pragmaVtabConnect, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3UniqueConstraint, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3VdbeDisplayP4, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3VdbeExpandSql, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3WhereExplainOneScan, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3_str_appendall, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3_str_vappendf, unknown</SingleEntryStatus>
+      </EntryStatus>
+    </Check>
+  </CheckList>
+  <Annotation>allunsafe</Annotation>
+  <Status>allunsafe</Status>
+</VerificationJob>

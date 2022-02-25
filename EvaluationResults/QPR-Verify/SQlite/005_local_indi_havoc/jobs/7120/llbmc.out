@@ -1,0 +1,124 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 7120 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 1
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/7120
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [1] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : codeReturningTrigger
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "codeReturningTrigger" for 1 iterations succeeded.
+      Transformed "codeReturningTrigger" from 14 to 15 basic blocks and from 174 to 179 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...isMemset:   call void @llvm.memset.p0i8.i64(i8* %10, i8 0, i64 128, i32 8, i1 false), !dbg !5650
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %11, i8 0, i64 120, i32 8, i1 false), !dbg !5651
+Current: codeReturningTrigger Havoced: sqlite3ExprListDup
+Current: codeReturningTrigger Havoced: sqlite3SelectPrep
+Current: codeReturningTrigger Havoced: sqlite3GenerateColumnNames
+Current: codeReturningTrigger Havoced: sqlite3ExprListDelete
+Current: codeReturningTrigger Havoced: sqlite3ExpandReturning
+isMemset:   call void @llvm.memset.p0i8.i64(i8* %34, i8 0, i64 56, i32 8, i1 false), !dbg !5705
+Current: codeReturningTrigger Havoced: sqlite3ResolveExprListNames
+Current: codeReturningTrigger Havoced: sqlite3ExprCodeFactorable
+Current: codeReturningTrigger Havoced: sqlite3VdbeAddOp3
+Current: codeReturningTrigger Havoced: sqlite3VdbeAddOp2
+Current: codeReturningTrigger Havoced: sqlite3VdbeAddOp3
+Current: codeReturningTrigger Havoced: sqlite3ExprListDelete
+                      0 sec [DONE]
+        Number of expressions:                        155257
+        after encoding
+
+      2 assertions before transformations (1 no_back_edge, 1 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            3452
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72615
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               3
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                              16
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             449
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      2 assertions remain after transformations (1 no_back_edge, 1 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...            0 sec [DONE]
+        
+                                                           1 sec [DONE]
+      after performing Check
+evaluateCheckerResultsViaRefinementLoop
+checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+BranchInst - LoopBound
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setCheckToUnsafe
+setCheckToUnsafe
+Check for floating point traces / abstractions currently deactivated
+trying to exclude Assertions for Failing Instruction
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      getCheckerResultAfterUpdatingMarker
+Result is NoTrace
+
+                                                           1 sec [DONE]
+    allunsafe
+    
+                                                           1 sec [DONE]
+  

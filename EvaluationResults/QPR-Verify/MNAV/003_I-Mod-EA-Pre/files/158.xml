@@ -1,0 +1,1269 @@
+<SourceFile>
+  <Line number="1">#include &lt;stdio.h&gt;</Line>
+  <Line number="2">#include &quot;matrix.h&quot;</Line>
+  <Line number="3">#include &lt;math.h&gt;</Line>
+  <Line number="4">#include &lt;stdlib.h&gt;</Line>
+  <Line number="5">#include &lt;string.h&gt;</Line>
+  <Line number="6">#include &lt;stddef.h&gt;</Line>
+  <Line number="7">#include &lt;unistd.h&gt;</Line>
+  <Line number="8"></Line>
+  <Line number="9">/*</Line>
+  <Line number="10">*-----------------------------------------------------------------------------</Line>
+  <Line number="11">*	MATRIX FUNCTIONS</Line>
+  <Line number="12">*	For those functions which return MATRIX values, the correct</Line>
+  <Line number="13">* 	size has to be created before calling the function and the</Line>
+  <Line number="14">*	address of which has to be passed in as usually the last</Line>
+  <Line number="15">*	variable of the function. The result will be accessible through</Line>
+  <Line number="16">*	last variable and through the returned value. Always use the</Line>
+  <Line number="17">*	same variable as the last input variable to be assigned to this</Line>
+  <Line number="18">*	returned value. eg. C = mat_add( A, B, C ); This prevents confusion.</Line>
+  <Line number="19">*	</Line>
+  <Line number="20">*	These functions are written way so that:</Line>
+  <Line number="21">*	i. equations involving a few of these functions can be written in</Line>
+  <Line number="22">*		one line</Line>
+  <Line number="23">*	ii. malloc does not have to be called within functions and freed outside</Line>
+  <Line number="24">*		functions because the result has to be &quot;returned&quot;.</Line>
+  <Line number="25">*	</Line>
+  <Line number="26">*	Note: All matrix functions don&apos;t create memory without clearing it</Line>
+  <Line number="27">* 			EXCEPT mat_creat(). Every use of mat_creat MUST therefore </Line>
+  <Line number="28">*			be followed by mat_free()</Line>
+  <Line number="29">*</Line>
+  <Line number="30">*</Line>
+  <Line number="31">*-----------------------------------------------------------------------------</Line>
+  <Line number="32">*/</Line>
+  <Line number="33"></Line>
+  <Line number="34">/*</Line>
+  <Line number="35">*-----------------------------------------------------------------------------</Line>
+  <Line number="36">*	funct:	mat_add</Line>
+  <Line number="37">*	desct:	addition of two matrices</Line>
+  <Line number="38">*	given:	A, B = Compatible matrice to be added</Line>
+  <Line number="39">*   returns: C which has to be right dimensions</Line>
+  <Line number="40">*	comen:</Line>
+  <Line number="41">*-----------------------------------------------------------------------------</Line>
+  <Line number="42">*/</Line>
+  <Line number="43">MATRIX mat_add(MATRIX A, MATRIX B, MATRIX C)</Line>
+  <Line number="44">{</Line>
+  <Line number="45">	int		i, j;</Line>
+  <Line number="46"></Line>
+  <Line number="47">	// if dimensions of C is wrong</Line>
+  <Line number="48">	//if ( MatRow(C) != MatRow(A) || MatCol(C) != MatCol(B) ) {</Line>
+  <Line number="49">	//	printf(&quot;mat_add error: incompatible output matrix size\n&quot;);</Line>
+  <Line number="50">	//	_exit(-1);</Line>
+  <Line number="51">	// if dimensions of C is correct</Line>
+  <Line number="52">	//} else {</Line>
+  <Line number="53">		for (i=0; i&lt;MatRow(A); i<CheckRefs ids="1437">++</CheckRefs>) {</Line>
+  <Line number="54">			for (j=0; j&lt;MatCol(A); j<CheckRefs ids="1438">++</CheckRefs>) {</Line>
+  <Line number="55">				C[i][j] <CheckRefs ids="1439">=</CheckRefs> A[i][j] <CheckRefs ids="1440">+</CheckRefs> B[i][j];</Line>
+  <Line number="56">			}</Line>
+  <Line number="57">		}	</Line>
+  <Line number="58">	//}</Line>
+  <Line number="59">	return(C);</Line>
+  <Line number="60">}</Line>
+  <Line number="61"></Line>
+  <Line number="62"></Line>
+  <Line number="63">MATRIX _mat_creat(int row, int col)</Line>
+  <Line number="64">{</Line>
+  <Line number="65">	MATBODY	*mat;</Line>
+  <Line number="66">	int 	i;</Line>
+  <Line number="67"></Line>
+  <Line number="68">	if ((mat = (MATBODY *)malloc( sizeof(MATHEAD) <CheckRefs ids="1441">+</CheckRefs> sizeof(double *) <CheckRefs ids="1442">*</CheckRefs> <CheckRefs ids="1443">row</CheckRefs>)) == NULL)</Line>
+  <Line number="69">		return (mat_error( MAT_MALLOC ));</Line>
+  <Line number="70"></Line>
+  <Line number="71">	for (i=0; i&lt;row; i<CheckRefs ids="1444">++</CheckRefs>)</Line>
+  <Line number="72">	{</Line>
+  <Line number="73">	if ((*((double **)(&amp;mat-&gt;matrix) + i) = (double *)malloc(sizeof(double) <CheckRefs ids="1445">*</CheckRefs> <CheckRefs ids="1446">col</CheckRefs>)) == NULL)</Line>
+  <Line number="74">		return (mat_error( MAT_MALLOC ));</Line>
+  <Line number="75">	}</Line>
+  <Line number="76"></Line>
+  <Line number="77">	mat-&gt;head.row = row;</Line>
+  <Line number="78">	mat-&gt;head.col = col;</Line>
+  <Line number="79"></Line>
+  <Line number="80">	return (&amp;(mat-&gt;matrix));</Line>
+  <Line number="81">}</Line>
+  <Line number="82"></Line>
+  <Line number="83">/*</Line>
+  <Line number="84">*-----------------------------------------------------------------------------</Line>
+  <Line number="85">*	funct:	mat_creat</Line>
+  <Line number="86">*	desct:	create a matrix</Line>
+  <Line number="87">*	given:  row, col = dimension, type = which kind of matrix</Line>
+  <Line number="88">*	retrn:	allocated matrix (use mat_free() to free memory)</Line>
+  <Line number="89">*-----------------------------------------------------------------------------</Line>
+  <Line number="90">*/</Line>
+  <Line number="91">MATRIX	mat_creat(int row,int col,int type )</Line>
+  <Line number="92">{</Line>
+  <Line number="93">	MATRIX	A;</Line>
+  <Line number="94">	</Line>
+  <Line number="95">	if(row==0 || col==0)</Line>
+  <Line number="96">		return(NULL);</Line>
+  <Line number="97"></Line>
+  <Line number="98">	if ((A =_mat_creat( row, col )) != NULL)</Line>
+  <Line number="99">		{</Line>
+  <Line number="100">		return (mat_fill(A, type));</Line>
+  <Line number="101">		}</Line>
+  <Line number="102">	else</Line>
+  <Line number="103">		return (NULL);</Line>
+  <Line number="104">}</Line>
+  <Line number="105"></Line>
+  <Line number="106">/*</Line>
+  <Line number="107">*-----------------------------------------------------------------------------</Line>
+  <Line number="108">*	funct:	mat_fill</Line>
+  <Line number="109">*	desct:	form a special matrix</Line>
+  <Line number="110">*	given:  A = matrix, type = which kind of matrix</Line>
+  <Line number="111">*	retrn:	A</Line>
+  <Line number="112">*-----------------------------------------------------------------------------</Line>
+  <Line number="113">*/</Line>
+  <Line number="114">MATRIX mat_fill(MATRIX A,int type )</Line>
+  <Line number="115">{</Line>
+  <Line number="116">	int		i, j;</Line>
+  <Line number="117"></Line>
+  <Line number="118">	switch (type) {</Line>
+  <Line number="119">		case <CheckRefs ids="1447">UNDEFINED</CheckRefs>:</Line>
+  <Line number="120">			break;</Line>
+  <Line number="121">		case ONES_MATRIX:</Line>
+  <Line number="122">		case ZERO_MATRIX:</Line>
+  <Line number="123">		case UNIT_MATRIX:</Line>
+  <Line number="124">			for (i=0; i&lt;MatRow(A); i<CheckRefs ids="1448">++</CheckRefs>)</Line>
+  <Line number="125">			for (j=0; j&lt;MatCol(A); j<CheckRefs ids="1449">++</CheckRefs>)</Line>
+  <Line number="126">				{</Line>
+  <Line number="127">				if (type == ONES_MATRIX)</Line>
+  <Line number="128">					{</Line>
+  <Line number="129">					A[i][j] <CheckRefs ids="1450">=</CheckRefs> 1.0;</Line>
+  <Line number="130">					continue;</Line>
+  <Line number="131">					}</Line>
+  <Line number="132">				if (type == UNIT_MATRIX)</Line>
+  <Line number="133">					{</Line>
+  <Line number="134">					if (i==j)</Line>
+  <Line number="135">						{</Line>
+  <Line number="136">						A[i][j] <CheckRefs ids="1451">=</CheckRefs> 1.0;</Line>
+  <Line number="137">						continue;</Line>
+  <Line number="138">						}</Line>
+  <Line number="139">					}					</Line>
+  <Line number="140">				A[i][j] <CheckRefs ids="1452">=</CheckRefs> 0.0;</Line>
+  <Line number="141">				}</Line>
+  <Line number="142">			break;</Line>
+  <Line number="143">	}</Line>
+  <Line number="144">	return (A);				</Line>
+  <Line number="145">}</Line>
+  <Line number="146"></Line>
+  <Line number="147"></Line>
+  <Line number="148">/*</Line>
+  <Line number="149">*-----------------------------------------------------------------------------</Line>
+  <Line number="150">*	funct:	mat_free</Line>
+  <Line number="151">*	desct:	free an allocated matrix</Line>
+  <Line number="152">*	given:  A = matrix</Line>
+  <Line number="153">*	retrn:	nothing &lt;actually 0 = NULL A passed, 1 = normal exit&gt;</Line>
+  <Line number="154">*-----------------------------------------------------------------------------</Line>
+  <Line number="155">*/</Line>
+  <Line number="156">int mat_free(MATRIX A)</Line>
+  <Line number="157">{</Line>
+  <Line number="158">	int i;</Line>
+  <Line number="159"></Line>
+  <Line number="160">	if (A == NULL)</Line>
+  <Line number="161">		return (0);</Line>
+  <Line number="162">	for (i=0; i&lt;MatRow(A); i<CheckRefs ids="1453">++</CheckRefs>)</Line>
+  <Line number="163">		{</Line>
+  <Line number="164">		free( A[i] );</Line>
+  <Line number="165">		}</Line>
+  <Line number="166">	free( Mathead(A) );</Line>
+  <Line number="167">	return (1);</Line>
+  <Line number="168">}</Line>
+  <Line number="169"></Line>
+  <Line number="170">/*</Line>
+  <Line number="171">*-----------------------------------------------------------------------------</Line>
+  <Line number="172">*	funct:	mat_copy</Line>
+  <Line number="173">*	desct:	duplicate a matrix</Line>
+  <Line number="174">*	given:	A = matrice to duplicated</Line>
+  <Line number="175">*	retrn:	C = A</Line>
+  <Line number="176">*	comen:</Line>
+  <Line number="177">*-----------------------------------------------------------------------------</Line>
+  <Line number="178">*/</Line>
+  <Line number="179">MATRIX mat_copy(MATRIX A, MATRIX C)</Line>
+  <Line number="180">{</Line>
+  <Line number="181">	int		i, j;</Line>
+  <Line number="182"></Line>
+  <Line number="183">	// if dimensions of C is wrong</Line>
+  <Line number="184">	//if ( MatRow(A) != MatRow(C) || MatCol(A) != MatCol(C) ) {</Line>
+  <Line number="185">	//	printf(&quot;mat_copy error: incompatible output matrix size\n&quot;);</Line>
+  <Line number="186">	//	_exit(-1);</Line>
+  <Line number="187">	// if dimensions of C is correct</Line>
+  <Line number="188">	//} else {</Line>
+  <Line number="189">		for (i=0; i&lt;MatRow(A); i<CheckRefs ids="1454">++</CheckRefs>)</Line>
+  <Line number="190">		for (j=0; j&lt;MatCol(A); j<CheckRefs ids="1455">++</CheckRefs>) {</Line>
+  <Line number="191">			C[i][j] <CheckRefs ids="1456">=</CheckRefs> A[i][j];</Line>
+  <Line number="192">		}</Line>
+  <Line number="193">	//}</Line>
+  <Line number="194">	return(C);</Line>
+  <Line number="195">}</Line>
+  <Line number="196"></Line>
+  <Line number="197">MATRIX mat_copy1(MATRIX A, MATRIX C)</Line>
+  <Line number="198">{</Line>
+  <Line number="199">	int		i, j;</Line>
+  <Line number="200"></Line>
+  <Line number="201">	// if dimensions of C is wrong</Line>
+  <Line number="202">	//if ( MatRow(A) != MatRow(C) || MatCol(A) != MatCol(C) ) {</Line>
+  <Line number="203">	//	printf(&quot;mat_copy error: incompatible output matrix size\n&quot;);</Line>
+  <Line number="204">	//	_exit(-1);</Line>
+  <Line number="205">	// if dimensions of C is correct</Line>
+  <Line number="206">	//} else {</Line>
+  <Line number="207">		for (i=0; i&lt;MatRow(A); i<CheckRefs ids="1457">++</CheckRefs>)</Line>
+  <Line number="208">		for (j=0; j&lt;MatCol(A); j<CheckRefs ids="1458">++</CheckRefs>) {</Line>
+  <Line number="209">			C[i][j] <CheckRefs ids="1459">=</CheckRefs> <CheckRefs ids="1460">-</CheckRefs>A[i][j];</Line>
+  <Line number="210">		}</Line>
+  <Line number="211">	//}</Line>
+  <Line number="212">	return(C);</Line>
+  <Line number="213">}</Line>
+  <Line number="214"></Line>
+  <Line number="215"></Line>
+  <Line number="216">MATRIX mat_colcopy1(MATRIX A,MATRIX B,int cola,int colb)</Line>
+  <Line number="217">{</Line>
+  <Line number="218">	int	i, n;</Line>
+  <Line number="219"></Line>
+  <Line number="220">	n = MatRow(A);</Line>
+  <Line number="221">	for (i=0; i&lt;n; i<CheckRefs ids="1461">++</CheckRefs>)</Line>
+  <Line number="222">		{</Line>
+  <Line number="223">		A[i][cola] <CheckRefs ids="1462">=</CheckRefs> B[i][colb];</Line>
+  <Line number="224">		}</Line>
+  <Line number="225">	return (A);</Line>
+  <Line number="226">}</Line>
+  <Line number="227"></Line>
+  <Line number="228">int fgetmat(MATRIX A, FILE *fp )</Line>
+  <Line number="229">{</Line>
+  <Line number="230">	int 	i, j, k=0;</Line>
+  <Line number="231"></Line>
+  <Line number="232">	for (i=0; i&lt;MatRow(A); i<CheckRefs ids="1463">++</CheckRefs>)</Line>
+  <Line number="233">	for (j=0; j&lt;MatCol(A); j<CheckRefs ids="1464">++</CheckRefs>)</Line>
+  <Line number="234">		{</Line>
+  <Line number="235">/*</Line>
+  <Line number="236">*	to avoid a bug in TC</Line>
+  <Line number="237">*/</Line>
+  <Line number="238">#ifdef	__TURBOC__</Line>
+  <Line number="239">		{</Line>
+  <Line number="240">		double	temp;</Line>
+  <Line number="241">		k += fscanf( fp, &quot;%lf&quot;, &amp;temp );</Line>
+  <Line number="242">		A[i][j] = temp;</Line>
+  <Line number="243">		}</Line>
+  <Line number="244">#else</Line>
+  <Line number="245">		k <CheckRefs ids="1465">+=</CheckRefs> fscanf( fp, &quot;%lf&quot;, &amp;A[i][j] );</Line>
+  <Line number="246">#endif</Line>
+  <Line number="247"></Line>
+  <Line number="248">		}</Line>
+  <Line number="249"></Line>
+  <Line number="250">	return (k);</Line>
+  <Line number="251">}</Line>
+  <Line number="252">/*</Line>
+  <Line number="253">*-----------------------------------------------------------------------------</Line>
+  <Line number="254">*	file:	matdet.c</Line>
+  <Line number="255">*	desc:	determinant calculations</Line>
+  <Line number="256">*	by:	ko shu pui, patrick</Line>
+  <Line number="257">*	date:	21 may 92 v0.3</Line>
+  <Line number="258">*	revi:</Line>
+  <Line number="259">*	ref:</Line>
+  <Line number="260">*       [1] Mary L.Boas, &quot;Mathematical Methods in the Physical Sciene,&quot;</Line>
+  <Line number="261">*	John Wiley &amp; Sons, 2nd Ed., 1983. Chap 3.</Line>
+  <Line number="262">*</Line>
+  <Line number="263">*-----------------------------------------------------------------------------</Line>
+  <Line number="264">*/</Line>
+  <Line number="265"></Line>
+  <Line number="266">static double signa[2] = {1.0, -1.0};</Line>
+  <Line number="267"></Line>
+  <Line number="268">/*</Line>
+  <Line number="269">*-----------------------------------------------------------------------------</Line>
+  <Line number="270">*	funct:	mat_minor</Line>
+  <Line number="271">*	desct:	find minor</Line>
+  <Line number="272">*	given:	A = a square matrix,</Line>
+  <Line number="273">*		i=row, j=col</Line>
+  <Line number="274">*	retrn:	the minor of Aij</Line>
+  <Line number="275">*-----------------------------------------------------------------------------</Line>
+  <Line number="276">*/</Line>
+  <Line number="277">double mat_minor(MATRIX A,int i,int j)</Line>
+  <Line number="278">{</Line>
+  <Line number="279">	MATRIX	S;</Line>
+  <Line number="280">	double	result;</Line>
+  <Line number="281"></Line>
+  <Line number="282">	if ( ( S = mat_creat(MatRow(A)<CheckRefs ids="1466">-</CheckRefs>1, MatCol(A)<CheckRefs ids="1467">-</CheckRefs>1, <CheckRefs ids="1468">UNDEFINED</CheckRefs>) ) == NULL ) </Line>
+  <Line number="283">		return <CheckRefs ids="1469">-</CheckRefs>1.0;				</Line>
+  <Line number="284">	mat_submat(A, i, j, S);</Line>
+  <Line number="285">	result <CheckRefs ids="1470">=</CheckRefs> mat_det( S );</Line>
+  <Line number="286">	mat_free(S);</Line>
+  <Line number="287"></Line>
+  <Line number="288">	return (result);</Line>
+  <Line number="289"></Line>
+  <Line number="290">}</Line>
+  <Line number="291"></Line>
+  <Line number="292">/*</Line>
+  <Line number="293">*-----------------------------------------------------------------------------</Line>
+  <Line number="294">*	funct:	mat_cofact</Line>
+  <Line number="295">*	desct:	find cofactor</Line>
+  <Line number="296">*	given:	A = a square matrix,</Line>
+  <Line number="297">*		i=row, j=col</Line>
+  <Line number="298">*	retrn:	the cofactor of Aij</Line>
+  <Line number="299">*-----------------------------------------------------------------------------</Line>
+  <Line number="300">*/</Line>
+  <Line number="301">double mat_cofact(MATRIX A,int i,int j)</Line>
+  <Line number="302">{</Line>
+  <Line number="303">	double	result;</Line>
+  <Line number="304"></Line>
+  <Line number="305">	result <CheckRefs ids="1471">=</CheckRefs> signa[(i<CheckRefs ids="1476">+</CheckRefs>j)<CheckRefs ids="1475">%</CheckRefs>2<CheckRefs ids="1474">]</CheckRefs> <CheckRefs ids="1473">*</CheckRefs> A[i][j] <CheckRefs ids="1472">*</CheckRefs> mat_minor(A, i, j);</Line>
+  <Line number="306"></Line>
+  <Line number="307">	return (result);</Line>
+  <Line number="308">}</Line>
+  <Line number="309"></Line>
+  <Line number="310">/*</Line>
+  <Line number="311">*-----------------------------------------------------------------------------</Line>
+  <Line number="312">*	funct:	mat_det</Line>
+  <Line number="313">*	desct:	find determinant</Line>
+  <Line number="314">*	given:	A = matrix</Line>
+  <Line number="315">*	retrn:	the determinant of A</Line>
+  <Line number="316">*	comen:</Line>
+  <Line number="317">*-----------------------------------------------------------------------------</Line>
+  <Line number="318">*/</Line>
+  <Line number="319">double mat_det(MATRIX a)</Line>
+  <Line number="320">{</Line>
+  <Line number="321">	MATRIX	A, P;</Line>
+  <Line number="322">	int	i, j, n;</Line>
+  <Line number="323">	double	result;</Line>
+  <Line number="324"></Line>
+  <Line number="325">	n = MatRow(a);</Line>
+  <Line number="326">	if ( (	A = mat_creat(n, n, <CheckRefs ids="1477">UNDEFINED</CheckRefs>) ) == NULL ) </Line>
+  <Line number="327">		return <CheckRefs ids="1478">-</CheckRefs>1.0;</Line>
+  <Line number="328">	mat_copy(a, A);</Line>
+  <Line number="329">	if ( (	P = mat_creat(n, 1, <CheckRefs ids="1479">UNDEFINED</CheckRefs>) ) == NULL ) </Line>
+  <Line number="330">		return <CheckRefs ids="1480">-</CheckRefs>1.0;</Line>
+  <Line number="331">	</Line>
+  <Line number="332"></Line>
+  <Line number="333">	/*</Line>
+  <Line number="334">	* take a LUP-decomposition</Line>
+  <Line number="335">	*/</Line>
+  <Line number="336">	i = mat_lu(A, P);</Line>
+  <Line number="337">	switch (i)</Line>
+  <Line number="338">		{</Line>
+  <Line number="339">		/*</Line>
+  <Line number="340">		* case for singular matrix</Line>
+  <Line number="341">		*/</Line>
+  <Line number="342">		case <CheckRefs ids="1481">-</CheckRefs>1:</Line>
+  <Line number="343">		result <CheckRefs ids="1482">=</CheckRefs> 0.0;</Line>
+  <Line number="344">		break;</Line>
+  <Line number="345"></Line>
+  <Line number="346">		/*</Line>
+  <Line number="347">		* normal case: |A| = |L||U||P|</Line>
+  <Line number="348">		* |L| = 1,</Line>
+  <Line number="349">		* |U| = multiplication of the diagonal</Line>
+  <Line number="350">		* |P| = +-1</Line>
+  <Line number="351">		*/</Line>
+  <Line number="352">		default:</Line>
+  <Line number="353">		result <CheckRefs ids="1483">=</CheckRefs> 1.0;</Line>
+  <Line number="354">		for (j=0; j&lt;MatRow(A); j<CheckRefs ids="1484">++</CheckRefs>)</Line>
+  <Line number="355">			{</Line>
+  <Line number="356">            result <CheckRefs ids="1485">*=</CheckRefs> A[<CheckRefs ids="1486">(</CheckRefs>int)P[j][0]][j];</Line>
+  <Line number="357">			}</Line>
+  <Line number="358">		result <CheckRefs ids="1487">*=</CheckRefs> signa[i<CheckRefs ids="1489">%</CheckRefs>2<CheckRefs ids="1488">]</CheckRefs>;</Line>
+  <Line number="359">		break;</Line>
+  <Line number="360">		}</Line>
+  <Line number="361"></Line>
+  <Line number="362">	mat_free(A);</Line>
+  <Line number="363">	mat_free(P);</Line>
+  <Line number="364">	return (result);</Line>
+  <Line number="365">}</Line>
+  <Line number="366">/*</Line>
+  <Line number="367">*-----------------------------------------------------------------------------</Line>
+  <Line number="368">*	funct:	mat_dump</Line>
+  <Line number="369">*	desct:	dump a matrix</Line>
+  <Line number="370">*	given:	A = matrice to dumped</Line>
+  <Line number="371">*	retrn:	nothing</Line>
+  <Line number="372">*	comen:	matrix a dumped to standard output</Line>
+  <Line number="373">*-----------------------------------------------------------------------------</Line>
+  <Line number="374">*/</Line>
+  <Line number="375">MATRIX mat_dump( MATRIX A )</Line>
+  <Line number="376">//MATRIX A;</Line>
+  <Line number="377">{</Line>
+  <Line number="378">	if (A==NULL)</Line>
+  <Line number="379">		return(NULL);</Line>
+  <Line number="380">	else</Line>
+  <Line number="381">    	return(mat_fdumpf(A, &quot;%f &quot;, stdout));</Line>
+  <Line number="382">}</Line>
+  <Line number="383"></Line>
+  <Line number="384"></Line>
+  <Line number="385">/*</Line>
+  <Line number="386">*-----------------------------------------------------------------------------</Line>
+  <Line number="387">*	funct:	mat_dumpf</Line>
+  <Line number="388">*   desct:  dump a matrix with format string to standard output</Line>
+  <Line number="389">*	given:	A = matrice to dumped</Line>
+  <Line number="390">*	retrn:	nothing</Line>
+  <Line number="391">*	comen:	matrix a dumped to standard output</Line>
+  <Line number="392">*-----------------------------------------------------------------------------</Line>
+  <Line number="393">*/</Line>
+  <Line number="394">MATRIX mat_dumpf(MATRIX A,char *s)</Line>
+  <Line number="395">{</Line>
+  <Line number="396">    return (mat_fdumpf(A, s, stdout));</Line>
+  <Line number="397">}</Line>
+  <Line number="398"></Line>
+  <Line number="399">MATRIX mat_fdump(MATRIX A,FILE *fp)</Line>
+  <Line number="400">{</Line>
+  <Line number="401">    return (mat_fdumpf(A, &quot;%f &quot;, fp));</Line>
+  <Line number="402">}</Line>
+  <Line number="403"></Line>
+  <Line number="404">MATRIX mat_fdumpf(MATRIX A,char *s,FILE *fp)</Line>
+  <Line number="405">{</Line>
+  <Line number="406">	int	i, j;</Line>
+  <Line number="407"></Line>
+  <Line number="408">	for (i=0; i&lt;MatRow(A); i<CheckRefs ids="1490">++</CheckRefs>)</Line>
+  <Line number="409">		{</Line>
+  <Line number="410">		for (j=0; j&lt;MatCol(A); j<CheckRefs ids="1491">++</CheckRefs>)</Line>
+  <Line number="411">			{</Line>
+  <Line number="412">            fprintf( fp, s, A[i][j] );</Line>
+  <Line number="413">			}</Line>
+  <Line number="414">        fprintf( fp, &quot;\n&quot; );</Line>
+  <Line number="415">		}</Line>
+  <Line number="416"></Line>
+  <Line number="417">	return (A);</Line>
+  <Line number="418">}</Line>
+  <Line number="419"></Line>
+  <Line number="420"></Line>
+  <Line number="421">/*</Line>
+  <Line number="422">*-----------------------------------------------------------------------------</Line>
+  <Line number="423">*	funct:	mat_durbin</Line>
+  <Line number="424">*	desct:	Levinson-Durbin algorithm</Line>
+  <Line number="425">*</Line>
+  <Line number="426">*		This function solve the linear eqns Ax = B:</Line>
+  <Line number="427">*</Line>
+  <Line number="428">*		|  v0   v1   v2  .. vn-1 | |  a1   |    |  v1   |</Line>
+  <Line number="429">*		|  v1   v0   v1  .. vn-2 | |  a2   |    |  v2   |</Line>
+  <Line number="430">*		|  v2   v1   v0  .. vn-3 | |  a3   |  = |  ..   |</Line>
+  <Line number="431">*		|  ...                   | |  ..   |    |  ..   |</Line>
+  <Line number="432">*		|  vn-1 vn-2 ..  .. v0   | |  an   |    |  vn   |</Line>
+  <Line number="433">*</Line>
+  <Line number="434">*		where A is a symmetric Toeplitz matrix and B</Line>
+  <Line number="435">*		in the above format (related to A)</Line>
+  <Line number="436">*</Line>
+  <Line number="437">*	given:	R = autocorrelated matrix (v0, v1, ... vn) (dim (n+1) x 1)</Line>
+  <Line number="438">*	retrn:	x (of Ax = B)</Line>
+  <Line number="439">*-----------------------------------------------------------------------------</Line>
+  <Line number="440">*/</Line>
+  <Line number="441">MATRIX mat_durbin(MATRIX R, MATRIX X)</Line>
+  <Line number="442">{</Line>
+  <Line number="443">	int		i, i1, j, ji, p;</Line>
+  <Line number="444">	MATRIX	W, E, K, A;</Line>
+  <Line number="445"></Line>
+  <Line number="446">	// if dimensions of X is wrong</Line>
+  <Line number="447">	p = MatRow(R) <CheckRefs ids="1492">-</CheckRefs> 1;</Line>
+  <Line number="448">	if (  MatRow(X) != p || MatCol(X) != 1 ) {</Line>
+  <Line number="449">		printf(&quot;mat_durbin error: incompatible output matrix size\n&quot;);</Line>
+  <Line number="450">		_exit(<CheckRefs ids="1493">-</CheckRefs>1);</Line>
+  <Line number="451">	// if dimensions of X is correct</Line>
+  <Line number="452">	} else {	</Line>
+  <Line number="453">		if ( (	W = mat_creat( p<CheckRefs ids="1494">+</CheckRefs>2, 1, <CheckRefs ids="1495">UNDEFINED</CheckRefs> ) ) == NULL ) </Line>
+  <Line number="454">			return (NULL);</Line>
+  <Line number="455">		if ( (	E = mat_creat( p<CheckRefs ids="1496">+</CheckRefs>2, 1, <CheckRefs ids="1497">UNDEFINED</CheckRefs> ) ) == NULL ) </Line>
+  <Line number="456">			return (NULL);		</Line>
+  <Line number="457">		if ( (	K = mat_creat( p<CheckRefs ids="1498">+</CheckRefs>2, 1, <CheckRefs ids="1499">UNDEFINED</CheckRefs> ) ) == NULL ) </Line>
+  <Line number="458">			return (NULL);		</Line>
+  <Line number="459">		if ( (	A = mat_creat( p<CheckRefs ids="1500">+</CheckRefs>2, p<CheckRefs ids="1501">+</CheckRefs>2, <CheckRefs ids="1502">UNDEFINED</CheckRefs> ) ) == NULL ) </Line>
+  <Line number="460">			return (NULL);		</Line>
+  <Line number="461">		</Line>
+  <Line number="462">		W[0][0] <CheckRefs ids="1503">=</CheckRefs> R[1][0];</Line>
+  <Line number="463">		E[0][0] <CheckRefs ids="1504">=</CheckRefs> R[0][0];</Line>
+  <Line number="464"></Line>
+  <Line number="465">		for (i=1; i&lt;=p; i<CheckRefs ids="1505">++</CheckRefs>) {</Line>
+  <Line number="466">			K[i][0] <CheckRefs ids="1506">=</CheckRefs> W[i<CheckRefs ids="1509">-</CheckRefs>1][0] <CheckRefs ids="1508,1507">/</CheckRefs> E[i<CheckRefs ids="1510">-</CheckRefs>1][0];</Line>
+  <Line number="467">			E[i][0] <CheckRefs ids="1511">=</CheckRefs> E[i<CheckRefs ids="1513">-</CheckRefs>1][0] <CheckRefs ids="1512">*</CheckRefs> (1.0 <CheckRefs ids="1514">-</CheckRefs> K[i][0] <CheckRefs ids="1515">*</CheckRefs> K[i][0]);</Line>
+  <Line number="468"></Line>
+  <Line number="469">			A[i][i] <CheckRefs ids="1516">=</CheckRefs> <CheckRefs ids="1517">-</CheckRefs>K[i][0];</Line>
+  <Line number="470"></Line>
+  <Line number="471">			i1 = i<CheckRefs ids="1518">-</CheckRefs>1;</Line>
+  <Line number="472">			if (i1 &gt;= 1) {</Line>
+  <Line number="473">				for (j=1; j&lt;=i1; j<CheckRefs ids="1519">++</CheckRefs>) {</Line>
+  <Line number="474">					ji = i <CheckRefs ids="1520">-</CheckRefs> j;</Line>
+  <Line number="475">					A[j][i] <CheckRefs ids="1521">=</CheckRefs> A[j][i1] <CheckRefs ids="1522">-</CheckRefs> K[i][0] <CheckRefs ids="1523">*</CheckRefs> A[ji][i1];</Line>
+  <Line number="476">				}</Line>
+  <Line number="477">			}</Line>
+  <Line number="478"></Line>
+  <Line number="479">			if (i != p) {</Line>
+  <Line number="480">				W[i][0] <CheckRefs ids="1524">=</CheckRefs> R[i<CheckRefs ids="1525">+</CheckRefs>1][0];</Line>
+  <Line number="481">				for (j=1; j&lt;=i; j<CheckRefs ids="1526">++</CheckRefs>)</Line>
+  <Line number="482">					W[i][0] <CheckRefs ids="1527">+=</CheckRefs> A[j][i] <CheckRefs ids="1528">*</CheckRefs> R[i<CheckRefs ids="1530">-</CheckRefs>j<CheckRefs ids="1529">+</CheckRefs>1][0];</Line>
+  <Line number="483">			}</Line>
+  <Line number="484">		}</Line>
+  <Line number="485"></Line>
+  <Line number="486">		for (i=0; i&lt;p; i<CheckRefs ids="1531">++</CheckRefs>) {</Line>
+  <Line number="487">			X[i][0] <CheckRefs ids="1532">=</CheckRefs> <CheckRefs ids="1533">-</CheckRefs>A[i<CheckRefs ids="1534">+</CheckRefs>1][p];</Line>
+  <Line number="488">		}</Line>
+  <Line number="489">	}</Line>
+  <Line number="490"></Line>
+  <Line number="491">	mat_free( A );</Line>
+  <Line number="492">	mat_free( W );</Line>
+  <Line number="493">	mat_free( K );</Line>
+  <Line number="494">	mat_free( E );</Line>
+  <Line number="495">	</Line>
+  <Line number="496">	return(X);</Line>
+  <Line number="497">}</Line>
+  <Line number="498"></Line>
+  <Line number="499">/*</Line>
+  <Line number="500">*-----------------------------------------------------------------------------</Line>
+  <Line number="501">*	funct:	mat_lsolve_durbin</Line>
+  <Line number="502">*	desct:	Solve simultaneous linear eqns using</Line>
+  <Line number="503">*		Levinson-Durbin algorithm</Line>
+  <Line number="504">*</Line>
+  <Line number="505">*		This function solve the linear eqns Ax = B:</Line>
+  <Line number="506">*</Line>
+  <Line number="507">*		|  v0   v1   v2  .. vn-1 | |  a1   |    |  v1   |</Line>
+  <Line number="508">*		|  v1   v0   v1  .. vn-2 | |  a2   |    |  v2   |</Line>
+  <Line number="509">*		|  v2   v1   v0  .. vn-3 | |  a3   |  = |  ..   |</Line>
+  <Line number="510">*		|  ...                   | |  ..   |    |  ..   |</Line>
+  <Line number="511">*		|  vn-1 vn-2 ..  .. v0   | |  an   |    |  vn   |</Line>
+  <Line number="512">*</Line>
+  <Line number="513">*	domain:	where A is a symmetric Toeplitz matrix and B</Line>
+  <Line number="514">*		in the above format (related to A)</Line>
+  <Line number="515">*</Line>
+  <Line number="516">*	given:	A, B</Line>
+  <Line number="517">*	retrn:	x (of Ax = B)</Line>
+  <Line number="518">*</Line>
+  <Line number="519">*-----------------------------------------------------------------------------</Line>
+  <Line number="520">*/</Line>
+  <Line number="521">MATRIX mat_lsolve_durbin(MATRIX A,MATRIX B,MATRIX X)</Line>
+  <Line number="522">{</Line>
+  <Line number="523">	MATRIX	R;</Line>
+  <Line number="524">	int		i, n;</Line>
+  <Line number="525"></Line>
+  <Line number="526">	n = MatRow(A);</Line>
+  <Line number="527">	if ( (	R = mat_creat(n<CheckRefs ids="1535">+</CheckRefs>1, 1, <CheckRefs ids="1536">UNDEFINED</CheckRefs>) ) == NULL ) </Line>
+  <Line number="528">		return (NULL);			</Line>
+  <Line number="529">	for (i=0; i&lt;n; i<CheckRefs ids="1537">++</CheckRefs>)</Line>
+  <Line number="530">		{</Line>
+  <Line number="531">		R[i][0] <CheckRefs ids="1538">=</CheckRefs> A[i][0];</Line>
+  <Line number="532">		}</Line>
+  <Line number="533">	R[n][0] <CheckRefs ids="1539">=</CheckRefs> B[n<CheckRefs ids="1540">-</CheckRefs>1][0];</Line>
+  <Line number="534"></Line>
+  <Line number="535">	mat_durbin( R, X );</Line>
+  <Line number="536">	mat_free( R );</Line>
+  <Line number="537">	return(X);</Line>
+  <Line number="538">}</Line>
+  <Line number="539">/*</Line>
+  <Line number="540">*-----------------------------------------------------------------------------</Line>
+  <Line number="541">*	file:	materr.c</Line>
+  <Line number="542">*	desc:	matrix error handler</Line>
+  <Line number="543">*	by:	ko shu pui, patrick</Line>
+  <Line number="544">*	date:	24 nov 91 v0.1</Line>
+  <Line number="545">*	revi:</Line>
+  <Line number="546">*	ref:</Line>
+  <Line number="547">*       [1] Mary L.Boas, &quot;Mathematical Methods in the Physical Sciene,&quot;</Line>
+  <Line number="548">*	John Wiley &amp; Sons, 2nd Ed., 1983. Chap 3.</Line>
+  <Line number="549">*</Line>
+  <Line number="550">*	[2] Kendall E.Atkinson, &quot;An Introduction to Numberical Analysis,&quot;</Line>
+  <Line number="551">*	John Wiley &amp; Sons, 1978.</Line>
+  <Line number="552">*</Line>
+  <Line number="553">*-----------------------------------------------------------------------------</Line>
+  <Line number="554">*/</Line>
+  <Line number="555"></Line>
+  <Line number="556">MATRIX mat_error(int errno)</Line>
+  <Line number="557">{</Line>
+  <Line number="558">	switch( errno )</Line>
+  <Line number="559">		{</Line>
+  <Line number="560">		case MAT_MALLOC:</Line>
+  <Line number="561">			printf(&quot;mat: malloc error\n&quot; );</Line>
+  <Line number="562">			break;</Line>
+  <Line number="563">		case MAT_FNOTOPEN:</Line>
+  <Line number="564">			printf(&quot;mat: fileopen error\n&quot; );</Line>
+  <Line number="565">			break;</Line>
+  <Line number="566">		case MAT_FNOTGETMAT:</Line>
+  <Line number="567">			printf(&quot;fgetmat: matrix read error\n&quot;);</Line>
+  <Line number="568">			break;</Line>
+  <Line number="569">		}</Line>
+  <Line number="570"></Line>
+  <Line number="571">	return (NULL);</Line>
+  <Line number="572">}</Line>
+  <Line number="573">/*</Line>
+  <Line number="574">*-----------------------------------------------------------------------------</Line>
+  <Line number="575">*	funct:	mat_inv</Line>
+  <Line number="576">*	desct:	find inverse of a matrix</Line>
+  <Line number="577">*	given:	a = square matrix a</Line>
+  <Line number="578">*	retrn:	square matrix Inverse(A)</Line>
+  <Line number="579">*		NULL = fails, singular matrix, or malloc() fails</Line>
+  <Line number="580">*		1 = success</Line>
+  <Line number="581">*-----------------------------------------------------------------------------</Line>
+  <Line number="582">*/</Line>
+  <Line number="583">MATRIX mat_inv(MATRIX a, MATRIX C)</Line>
+  <Line number="584">{</Line>
+  <Line number="585">	MATRIX	A, B, P;</Line>
+  <Line number="586">	int		i, n;</Line>
+  <Line number="587"></Line>
+  <Line number="588">	n = MatCol(a);</Line>
+  <Line number="589">	if ( (	A = mat_creat( n, n, <CheckRefs ids="1541">UNDEFINED</CheckRefs> ) ) == NULL ) </Line>
+  <Line number="590">		return (NULL);				</Line>
+  <Line number="591">	mat_copy(a,A);</Line>
+  <Line number="592">	if ( ( B = mat_creat( n, 1, <CheckRefs ids="1542">UNDEFINED</CheckRefs> ) ) == NULL ) </Line>
+  <Line number="593">		return (NULL);			</Line>
+  <Line number="594">	if ( ( P = mat_creat( n, 1, <CheckRefs ids="1543">UNDEFINED</CheckRefs> ) ) == NULL ) </Line>
+  <Line number="595">		return (NULL);			</Line>
+  <Line number="596"></Line>
+  <Line number="597">	// if dimensions of C is wrong</Line>
+  <Line number="598">	if ( MatRow(a) != MatRow(C) || MatCol(a) != MatCol(C) ) {</Line>
+  <Line number="599">		printf(&quot;mat_inv error: incompatible output matrix size\n&quot;);</Line>
+  <Line number="600">		_exit(<CheckRefs ids="1544">-</CheckRefs>1);</Line>
+  <Line number="601">	// if dimensions of C is correct</Line>
+  <Line number="602">	} else {</Line>
+  <Line number="603">		/*</Line>
+  <Line number="604">		*	- LU-decomposition -</Line>
+  <Line number="605">		*	also check for singular matrix</Line>
+  <Line number="606">		*/</Line>
+  <Line number="607">		if (mat_lu(A, P) == <CheckRefs ids="1545">-</CheckRefs>1) {</Line>
+  <Line number="608">			mat_free(A);</Line>
+  <Line number="609">			mat_free(B);</Line>
+  <Line number="610">			mat_free(C);</Line>
+  <Line number="611">			mat_free(P);</Line>
+  <Line number="612">			printf(&quot;mat_inv error: failed to invert\n&quot;);</Line>
+  <Line number="613">			return (NULL);</Line>
+  <Line number="614">		}</Line>
+  <Line number="615"></Line>
+  <Line number="616">		for (i=0; i&lt;n; i<CheckRefs ids="1546">++</CheckRefs>) {</Line>
+  <Line number="617">			mat_fill(B, ZERO_MATRIX);</Line>
+  <Line number="618">			B[i][0] <CheckRefs ids="1547">=</CheckRefs> 1.0;</Line>
+  <Line number="619">			mat_backsubs1( A, B, C, P, i );</Line>
+  <Line number="620">		}</Line>
+  <Line number="621">	}</Line>
+  <Line number="622"></Line>
+  <Line number="623">	mat_free(A);</Line>
+  <Line number="624">	mat_free(B);</Line>
+  <Line number="625">	mat_free(P);</Line>
+  <Line number="626"></Line>
+  <Line number="627">	if (C==NULL) {</Line>
+  <Line number="628">			printf(&quot;mat_inv error: failed to invert\n&quot;);</Line>
+  <Line number="629">			return(NULL);</Line>
+  <Line number="630">	} else {</Line>
+  <Line number="631">		return (C);</Line>
+  <Line number="632">	}</Line>
+  <Line number="633">}</Line>
+  <Line number="634">/*</Line>
+  <Line number="635">*-----------------------------------------------------------------------------</Line>
+  <Line number="636">*	funct:	mat_mul</Line>
+  <Line number="637">*	desct:	multiplication of two matrice</Line>
+  <Line number="638">*	given:	A, B = compatible matrice to be multiplied</Line>
+  <Line number="639">*	retrn:	C</Line>
+  <Line number="640">*	comen:</Line>
+  <Line number="641">*-----------------------------------------------------------------------------</Line>
+  <Line number="642">*/</Line>
+  <Line number="643">MATRIX mat_mul(MATRIX A,MATRIX B, MATRIX C)</Line>
+  <Line number="644">{</Line>
+  <Line number="645">	int		i, j, k;</Line>
+  <Line number="646"></Line>
+  <Line number="647">	// if dimensions of C is wrong</Line>
+  <Line number="648">	//if ( MatRow(C) != MatRow(A) || MatCol(C) != MatCol(B) ) {</Line>
+  <Line number="649">	//	printf(&quot;mat_mul error: incompatible output matrix size\n&quot;);</Line>
+  <Line number="650">	//	_exit(-1);</Line>
+  <Line number="651">	// if dimensions of C is correct</Line>
+  <Line number="652">	//} else {</Line>
+  <Line number="653"></Line>
+  <Line number="654">		for (i=0; i&lt;MatRow(A); i<CheckRefs ids="1548">++</CheckRefs>)</Line>
+  <Line number="655">		for (j=0; j&lt;MatCol(B); j<CheckRefs ids="1549">++</CheckRefs>)</Line>
+  <Line number="656">		for (k=0<CheckRefs ids="1550">,</CheckRefs> C[i][j]<CheckRefs ids="1551">=</CheckRefs>0.0; k&lt;MatCol(A); k<CheckRefs ids="1552">++</CheckRefs>) {</Line>
+  <Line number="657">			C[i][j] <CheckRefs ids="1553">+=</CheckRefs> A[i][k] <CheckRefs ids="1554">*</CheckRefs> B[k][j];</Line>
+  <Line number="658">		}</Line>
+  <Line number="659">	//}</Line>
+  <Line number="660">	return(C);</Line>
+  <Line number="661">}</Line>
+  <Line number="662"></Line>
+  <Line number="663"></Line>
+  <Line number="664">MATRIX mat_mymul(MATRIX A,MATRIX B, MATRIX C, short m)</Line>
+  <Line number="665">{</Line>
+  <Line number="666">	int		i, j, k;</Line>
+  <Line number="667"></Line>
+  <Line number="668">	// if dimensions of C is wrong</Line>
+  <Line number="669">	//if ( MatRow(C) != MatRow(A) || MatCol(C) != MatCol(B) ) {</Line>
+  <Line number="670">	//	printf(&quot;mat_mul error: incompatible output matrix size\n&quot;);</Line>
+  <Line number="671">	//	_exit(-1);</Line>
+  <Line number="672">	// if dimensions of C is correct</Line>
+  <Line number="673">	//} else {</Line>
+  <Line number="674"></Line>
+  <Line number="675">		for (i=0; i&lt;MatRow(A); i<CheckRefs ids="1555">++</CheckRefs>)</Line>
+  <Line number="676">		for (j=0; j&lt;MatCol(B); j<CheckRefs ids="1556">++</CheckRefs>)</Line>
+  <Line number="677">		for (k=0<CheckRefs ids="1557">,</CheckRefs> C[i][j]<CheckRefs ids="1558">=</CheckRefs>0.0; k&lt;MatCol(A)<CheckRefs ids="1559">-</CheckRefs><CheckRefs ids="1560">m</CheckRefs>; k<CheckRefs ids="1561">++</CheckRefs>) {</Line>
+  <Line number="678">			C[i][j] <CheckRefs ids="1562">+=</CheckRefs> A[i][k] <CheckRefs ids="1563">*</CheckRefs> B[k][j];</Line>
+  <Line number="679">		}</Line>
+  <Line number="680">	//}</Line>
+  <Line number="681">	return(C);</Line>
+  <Line number="682">}</Line>
+  <Line number="683"></Line>
+  <Line number="684">MATRIX mat_mymul1(MATRIX A,MATRIX B, MATRIX C, short m)</Line>
+  <Line number="685">{</Line>
+  <Line number="686">	int		i, j, k;</Line>
+  <Line number="687"></Line>
+  <Line number="688">	// if dimensions of C is wrong</Line>
+  <Line number="689">	//if ( MatRow(C) != MatRow(A) || MatCol(C) != MatCol(B) ) {</Line>
+  <Line number="690">	//	printf(&quot;mat_mul error: incompatible output matrix size\n&quot;);</Line>
+  <Line number="691">	//	_exit(-1);</Line>
+  <Line number="692">	// if dimensions of C is correct</Line>
+  <Line number="693">	//} else {</Line>
+  <Line number="694"></Line>
+  <Line number="695">		for (i=0; i&lt;MatRow(A); i<CheckRefs ids="1564">++</CheckRefs>)</Line>
+  <Line number="696">		for (j=0; j&lt;MatCol(B)<CheckRefs ids="1565">-</CheckRefs><CheckRefs ids="1566">m</CheckRefs>; j<CheckRefs ids="1567">++</CheckRefs>)</Line>
+  <Line number="697">		for (k=0<CheckRefs ids="1568">,</CheckRefs> C[i][j]<CheckRefs ids="1569">=</CheckRefs>0.0; k&lt;MatCol(A); k<CheckRefs ids="1570">++</CheckRefs>) {</Line>
+  <Line number="698">			C[i][j] <CheckRefs ids="1571">+=</CheckRefs> A[i][k] <CheckRefs ids="1572">*</CheckRefs> B[k][j];</Line>
+  <Line number="699">		}</Line>
+  <Line number="700">	//}</Line>
+  <Line number="701">	return(C);</Line>
+  <Line number="702">}</Line>
+  <Line number="703"></Line>
+  <Line number="704">MATRIX mat_mymul2(MATRIX A,MATRIX B, MATRIX C, short m)</Line>
+  <Line number="705">{</Line>
+  <Line number="706">	int		i, j, k;</Line>
+  <Line number="707"></Line>
+  <Line number="708">	// if dimensions of C is wrong</Line>
+  <Line number="709">	//if ( MatRow(C) != MatRow(A) || MatCol(C) != MatCol(B) ) {</Line>
+  <Line number="710">	//	printf(&quot;mat_mul error: incompatible output matrix size\n&quot;);</Line>
+  <Line number="711">	//	_exit(-1);</Line>
+  <Line number="712">	// if dimensions of C is correct</Line>
+  <Line number="713">	//} else {</Line>
+  <Line number="714"></Line>
+  <Line number="715">		for (i=0; i&lt;MatRow(A)<CheckRefs ids="1573">-</CheckRefs><CheckRefs ids="1574">m</CheckRefs>; i<CheckRefs ids="1575">++</CheckRefs>)</Line>
+  <Line number="716">		for (j=0; j&lt;MatCol(B); j<CheckRefs ids="1576">++</CheckRefs>)</Line>
+  <Line number="717">		for (k=0<CheckRefs ids="1577">,</CheckRefs> C[i][j]<CheckRefs ids="1578">=</CheckRefs>0.0; k&lt;MatCol(A); k<CheckRefs ids="1579">++</CheckRefs>) {</Line>
+  <Line number="718">			C[i][j] <CheckRefs ids="1580">+=</CheckRefs> A[i][k] <CheckRefs ids="1581">*</CheckRefs> B[k][j];</Line>
+  <Line number="719">		}</Line>
+  <Line number="720">	//}</Line>
+  <Line number="721">	</Line>
+  <Line number="722">	for(i=4;i&lt;7;i<CheckRefs ids="1582">++</CheckRefs>) </Line>
+  <Line number="723">	   for(j=0;j&lt;7;j<CheckRefs ids="1583">++</CheckRefs>) </Line>
+  <Line number="724">	      C[i][j] <CheckRefs ids="1584">=</CheckRefs> B[i][j];</Line>
+  <Line number="725">	</Line>
+  <Line number="726">	return(C);</Line>
+  <Line number="727">}</Line>
+  <Line number="728"></Line>
+  <Line number="729">MATRIX mat_mymul3(MATRIX A,MATRIX B, MATRIX C, short m)</Line>
+  <Line number="730">{</Line>
+  <Line number="731">	int		i, j, k;</Line>
+  <Line number="732"></Line>
+  <Line number="733">	// if dimensions of C is wrong</Line>
+  <Line number="734">	//if ( MatRow(C) != MatRow(A) || MatCol(C) != MatCol(B) ) {</Line>
+  <Line number="735">	//	printf(&quot;mat_mul error: incompatible output matrix size\n&quot;);</Line>
+  <Line number="736">	//	_exit(-1);</Line>
+  <Line number="737">	// if dimensions of C is correct</Line>
+  <Line number="738">	//} else {</Line>
+  <Line number="739">	for (i=0; i&lt;MatRow(A); i<CheckRefs ids="1585">++</CheckRefs>) </Line>
+  <Line number="740">	for (j=0; j&lt;MatCol(B)<CheckRefs ids="1586">-</CheckRefs><CheckRefs ids="1587">m</CheckRefs>; j<CheckRefs ids="1588">++</CheckRefs>) </Line>
+  <Line number="741">        for (k=0<CheckRefs ids="1589">,</CheckRefs> C[i][j]<CheckRefs ids="1590">=</CheckRefs>0.0; k&lt;MatCol(A); k<CheckRefs ids="1591">++</CheckRefs>) {</Line>
+  <Line number="742">		C[i][j] <CheckRefs ids="1592">+=</CheckRefs> A[i][k] <CheckRefs ids="1593">*</CheckRefs> B[j][k];</Line>
+  <Line number="743">	}		    </Line>
+  <Line number="744">	//}</Line>
+  <Line number="745">	for(i=0;i&lt;7;i<CheckRefs ids="1594">++</CheckRefs>) </Line>
+  <Line number="746">	   for(j=4;j&lt;7;j<CheckRefs ids="1595">++</CheckRefs>) </Line>
+  <Line number="747">	      C[i][j] <CheckRefs ids="1596">=</CheckRefs> A[i][j];</Line>
+  <Line number="748">	      </Line>
+  <Line number="749">	return(C);</Line>
+  <Line number="750">}</Line>
+  <Line number="751">MATRIX mat_mymul4(MATRIX A,MATRIX B, MATRIX C, short m)</Line>
+  <Line number="752">{</Line>
+  <Line number="753">	int		i, j, k;</Line>
+  <Line number="754"></Line>
+  <Line number="755">	// if dimensions of C is wrong</Line>
+  <Line number="756">	//if ( MatRow(C) != MatRow(A) || MatCol(C) != MatCol(B) ) {</Line>
+  <Line number="757">	//	printf(&quot;mat_mul error: incompatible output matrix size\n&quot;);</Line>
+  <Line number="758">	//	_exit(-1);</Line>
+  <Line number="759">	// if dimensions of C is correct</Line>
+  <Line number="760">	//} else {</Line>
+  <Line number="761"></Line>
+  <Line number="762">		for (i=0; i&lt;MatRow(A); i<CheckRefs ids="1597">++</CheckRefs>)</Line>
+  <Line number="763">		for (j=0; j&lt;MatRow(B); j<CheckRefs ids="1598">++</CheckRefs>)</Line>
+  <Line number="764">		for (k=0<CheckRefs ids="1599">,</CheckRefs> C[i][j]<CheckRefs ids="1600">=</CheckRefs>0.0; k&lt;MatCol(A)<CheckRefs ids="1601">-</CheckRefs><CheckRefs ids="1602">m</CheckRefs>; k<CheckRefs ids="1603">++</CheckRefs>) {</Line>
+  <Line number="765">			C[i][j] <CheckRefs ids="1604">+=</CheckRefs> A[i][k] <CheckRefs ids="1605">*</CheckRefs> B[j][k];</Line>
+  <Line number="766">		}</Line>
+  <Line number="767">	//}</Line>
+  <Line number="768">	return(C);</Line>
+  <Line number="769">}</Line>
+  <Line number="770"></Line>
+  <Line number="771">MATRIX mat_mymul5(MATRIX A,MATRIX B, MATRIX C, short m)</Line>
+  <Line number="772">{</Line>
+  <Line number="773">	int		i, j, k;</Line>
+  <Line number="774"></Line>
+  <Line number="775"></Line>
+  <Line number="776"></Line>
+  <Line number="777">	// if dimensions of C is wrong</Line>
+  <Line number="778">	//if ( MatRow(C) != MatRow(A) || MatCol(C) != MatCol(B) ) {</Line>
+  <Line number="779">	//	printf(&quot;mat_mul error: incompatible output matrix size\n&quot;);</Line>
+  <Line number="780">	//	_exit(-1);</Line>
+  <Line number="781">	// if dimensions of C is correct</Line>
+  <Line number="782">	//} else {</Line>
+  <Line number="783"></Line>
+  <Line number="784">		for (i=0; i&lt;MatRow(A); i<CheckRefs ids="1606">++</CheckRefs>)</Line>
+  <Line number="785">		for (j=0; j&lt;MatCol(B); j<CheckRefs ids="1607">++</CheckRefs>)</Line>
+  <Line number="786">		for (k=0<CheckRefs ids="1608">,</CheckRefs> C[i][j]<CheckRefs ids="1609">=</CheckRefs>0.0; k&lt;MatCol(A)<CheckRefs ids="1610">-</CheckRefs><CheckRefs ids="1611">m</CheckRefs>; k<CheckRefs ids="1612">++</CheckRefs>) {</Line>
+  <Line number="787">			C[i][j] <CheckRefs ids="1613">+=</CheckRefs> A[i][k] <CheckRefs ids="1614">*</CheckRefs> B[k][j];</Line>
+  <Line number="788">		}</Line>
+  <Line number="789">	//}</Line>
+  <Line number="790">	        for(i=<CheckRefs ids="1616">m</CheckRefs><CheckRefs ids="1615">+</CheckRefs>1;i&lt;MatRow(A);i<CheckRefs ids="1617">++</CheckRefs>)</Line>
+  <Line number="791">	        for(j=0;j&lt;MatCol(B);j<CheckRefs ids="1618">++</CheckRefs>)</Line>
+  <Line number="792">	           C[i][j] <CheckRefs ids="1619">+=</CheckRefs> B[i][j];</Line>
+  <Line number="793">	return(C);</Line>
+  <Line number="794">}</Line>
+  <Line number="795"></Line>
+  <Line number="796">double mat_diagmul(MATRIX A)</Line>
+  <Line number="797">{</Line>
+  <Line number="798">	int i;</Line>
+  <Line number="799">	double result = 1.0;</Line>
+  <Line number="800"></Line>
+  <Line number="801">	for (i=0; i&lt;MatRow(A); i<CheckRefs ids="1620">++</CheckRefs>)</Line>
+  <Line number="802">		{</Line>
+  <Line number="803">		result <CheckRefs ids="1621">*=</CheckRefs> A[i][i];</Line>
+  <Line number="804">		}</Line>
+  <Line number="805">	return (result);</Line>
+  <Line number="806">}</Line>
+  <Line number="807"></Line>
+  <Line number="808">/*</Line>
+  <Line number="809">*-----------------------------------------------------------------------------</Line>
+  <Line number="810">*	funct:	mat_lu</Line>
+  <Line number="811">*	desct:	in-place LU decomposition with partial pivoting</Line>
+  <Line number="812">*	given:	!! A = square matrix (n x n) !ATTENTION! see commen</Line>
+  <Line number="813">*		P = permutation vector (n x 1)</Line>
+  <Line number="814">*	retrn:	number of permutation performed</Line>
+  <Line number="815">*		-1 means suspected singular matrix</Line>
+  <Line number="816">*	comen:	A will be overwritten to be a LU-composite matrix</Line>
+  <Line number="817">*</Line>
+  <Line number="818">*	note:	the LU decomposed may NOT be equal to the LU of</Line>
+  <Line number="819">*		the orignal matrix a. But equal to the LU of the</Line>
+  <Line number="820">*		rows interchanged matrix.</Line>
+  <Line number="821">*-----------------------------------------------------------------------------</Line>
+  <Line number="822">*/</Line>
+  <Line number="823">int mat_lu(MATRIX A,MATRIX P)</Line>
+  <Line number="824">{</Line>
+  <Line number="825">	int		i, j, k, n;</Line>
+  <Line number="826">	int	maxi;</Line>
+  <Line number="827">	double tmp;</Line>
+  <Line number="828">	double	c, c1;</Line>
+  <Line number="829">	int		p;</Line>
+  <Line number="830"></Line>
+  <Line number="831">	n = MatCol(A);</Line>
+  <Line number="832"></Line>
+  <Line number="833">	for (p=0,i=0; i&lt;n; i<CheckRefs ids="1622">++</CheckRefs>)</Line>
+  <Line number="834">		{</Line>
+  <Line number="835">		P[i][0] <CheckRefs ids="1623">=</CheckRefs> <CheckRefs ids="1624">i</CheckRefs>;</Line>
+  <Line number="836">		}</Line>
+  <Line number="837"></Line>
+  <Line number="838">	for (k=0; k&lt;n; k<CheckRefs ids="1625">++</CheckRefs>)</Line>
+  <Line number="839">	{</Line>
+  <Line number="840">	/*</Line>
+  <Line number="841">	* --- partial pivoting ---</Line>
+  <Line number="842">	*/</Line>
+  <Line number="843">	for (i=k, maxi=k<CheckRefs ids="1626">,</CheckRefs> c<CheckRefs ids="1627">=</CheckRefs>0.0; i&lt;n; i<CheckRefs ids="1628">++</CheckRefs>)</Line>
+  <Line number="844">		{</Line>
+  <Line number="845">        c1 <CheckRefs ids="1629">=</CheckRefs> fabs( A[<CheckRefs ids="1630">(</CheckRefs>int)P[i][0]][k] );</Line>
+  <Line number="846">		if (c1 &gt; c)</Line>
+  <Line number="847">			{</Line>
+  <Line number="848">			c <CheckRefs ids="1631">=</CheckRefs> c1;</Line>
+  <Line number="849">			maxi = i;</Line>
+  <Line number="850">			}</Line>
+  <Line number="851">		}</Line>
+  <Line number="852"></Line>
+  <Line number="853">	/*</Line>
+  <Line number="854">	*	row exchange, update permutation vector</Line>
+  <Line number="855">	*/</Line>
+  <Line number="856">	if (k != maxi)</Line>
+  <Line number="857">		{</Line>
+  <Line number="858">		p<CheckRefs ids="1632">++</CheckRefs>;</Line>
+  <Line number="859">		tmp <CheckRefs ids="1633">=</CheckRefs> P[k][0];</Line>
+  <Line number="860">		P[k][0] <CheckRefs ids="1634">=</CheckRefs> P[maxi][0];</Line>
+  <Line number="861">		P[maxi][0] <CheckRefs ids="1635">=</CheckRefs> tmp;</Line>
+  <Line number="862">		}</Line>
+  <Line number="863"></Line>
+  <Line number="864">	/*</Line>
+  <Line number="865">	*	suspected singular matrix</Line>
+  <Line number="866">	*/</Line>
+  <Line number="867">    if ( A[<CheckRefs ids="1636">(</CheckRefs>int)P[k][0]][k] == 0.0 )</Line>
+  <Line number="868">		return (<CheckRefs ids="1637">-</CheckRefs>1);</Line>
+  <Line number="869"></Line>
+  <Line number="870">	for (i=k<CheckRefs ids="1638">+</CheckRefs>1; i&lt;n; i<CheckRefs ids="1639">++</CheckRefs>)</Line>
+  <Line number="871">		{</Line>
+  <Line number="872">		/*</Line>
+  <Line number="873">		* --- calculate m(i,j) ---</Line>
+  <Line number="874">		*/</Line>
+  <Line number="875">        A[<CheckRefs ids="1641">(</CheckRefs>int)P[i][0]][k] <CheckRefs ids="1640">=</CheckRefs> A[<CheckRefs ids="1644">(</CheckRefs>int)P[i][0]][k] <CheckRefs ids="1642,1643">/</CheckRefs> A[<CheckRefs ids="1645">(</CheckRefs>int)P[k][0]][k];</Line>
+  <Line number="876"></Line>
+  <Line number="877">		/*</Line>
+  <Line number="878">		* --- elimination ---</Line>
+  <Line number="879">		*/</Line>
+  <Line number="880">		for (j=k<CheckRefs ids="1646">+</CheckRefs>1; j&lt;n; j<CheckRefs ids="1647">++</CheckRefs>)</Line>
+  <Line number="881">			{</Line>
+  <Line number="882">            A[<CheckRefs ids="1649">(</CheckRefs>int)P[i][0]][j] <CheckRefs ids="1648">-=</CheckRefs> A[<CheckRefs ids="1651">(</CheckRefs>int)P[i][0]][k] <CheckRefs ids="1650">*</CheckRefs> A[<CheckRefs ids="1652">(</CheckRefs>int)P[k][0]][j];</Line>
+  <Line number="883">			}</Line>
+  <Line number="884">		}</Line>
+  <Line number="885">	}</Line>
+  <Line number="886"></Line>
+  <Line number="887">	return (p);</Line>
+  <Line number="888">}</Line>
+  <Line number="889"></Line>
+  <Line number="890">/*</Line>
+  <Line number="891">*-----------------------------------------------------------------------------</Line>
+  <Line number="892">*	funct:	mat_backsubs1</Line>
+  <Line number="893">*	desct:	back substitution</Line>
+  <Line number="894">*	given:	A = square matrix A (LU composite)</Line>
+  <Line number="895">*		!! B = column matrix B (attention!, see comen)</Line>
+  <Line number="896">*		!! X = place to put the result of X</Line>
+  <Line number="897">*		P = Permutation vector (after calling mat_lu)</Line>
+  <Line number="898">*		xcol = column of x to put the result</Line>
+  <Line number="899">*	retrn:	column matrix X (of AX = B)</Line>
+  <Line number="900">*	comen:	B will be overwritten</Line>
+  <Line number="901">*-----------------------------------------------------------------------------</Line>
+  <Line number="902">*/</Line>
+  <Line number="903">MATRIX mat_backsubs1(MATRIX A,MATRIX B,MATRIX X,MATRIX P,int xcol)</Line>
+  <Line number="904">{</Line>
+  <Line number="905">	int	i, j, k, n;</Line>
+  <Line number="906">	double	sum;</Line>
+  <Line number="907"></Line>
+  <Line number="908">	n = MatCol(A);</Line>
+  <Line number="909"></Line>
+  <Line number="910">	for (k=0; k&lt;n; k<CheckRefs ids="1653">++</CheckRefs>)</Line>
+  <Line number="911">		{</Line>
+  <Line number="912">		for (i=k<CheckRefs ids="1654">+</CheckRefs>1; i&lt;n; i<CheckRefs ids="1655">++</CheckRefs>)</Line>
+  <Line number="913">            B[<CheckRefs ids="1657">(</CheckRefs>int)P[i][0]][0] <CheckRefs ids="1656">-=</CheckRefs> A[<CheckRefs ids="1659">(</CheckRefs>int)P[i][0]][k] <CheckRefs ids="1658">*</CheckRefs> B[<CheckRefs ids="1660">(</CheckRefs>int)P[k][0]][0];</Line>
+  <Line number="914">		}</Line>
+  <Line number="915"></Line>
+  <Line number="916">    X[n<CheckRefs ids="1662">-</CheckRefs>1][xcol] <CheckRefs ids="1661">=</CheckRefs> B[<CheckRefs ids="1665">(</CheckRefs>int)P[n<CheckRefs ids="1666">-</CheckRefs>1][0]][0] <CheckRefs ids="1663,1664">/</CheckRefs> A[<CheckRefs ids="1667">(</CheckRefs>int)P[n<CheckRefs ids="1668">-</CheckRefs>1][0]][n<CheckRefs ids="1669">-</CheckRefs>1];</Line>
+  <Line number="917">	for (k=n<CheckRefs ids="1670">-</CheckRefs>2; k&gt;=0; k<CheckRefs ids="1671">--</CheckRefs>)</Line>
+  <Line number="918">		{</Line>
+  <Line number="919">		sum <CheckRefs ids="1672">=</CheckRefs> 0.0;</Line>
+  <Line number="920">		for (j=k<CheckRefs ids="1673">+</CheckRefs>1; j&lt;n; j<CheckRefs ids="1674">++</CheckRefs>)</Line>
+  <Line number="921">			{</Line>
+  <Line number="922">            sum <CheckRefs ids="1675">+=</CheckRefs> A[<CheckRefs ids="1677">(</CheckRefs>int)P[k][0]][j] <CheckRefs ids="1676">*</CheckRefs> X[j][xcol];</Line>
+  <Line number="923">			}</Line>
+  <Line number="924">        X[k][xcol] <CheckRefs ids="1678">=</CheckRefs> (B[<CheckRefs ids="1682">(</CheckRefs>int)P[k][0]][0] <CheckRefs ids="1681">-</CheckRefs> sum) <CheckRefs ids="1679,1680">/</CheckRefs> A[<CheckRefs ids="1683">(</CheckRefs>int)P[k][0]][k];</Line>
+  <Line number="925">		}</Line>
+  <Line number="926"></Line>
+  <Line number="927">	return (X);</Line>
+  <Line number="928">}</Line>
+  <Line number="929"></Line>
+  <Line number="930">/*</Line>
+  <Line number="931">*-----------------------------------------------------------------------------</Line>
+  <Line number="932">*	funct:	mat_lsolve</Line>
+  <Line number="933">*	desct:	solve linear equations</Line>
+  <Line number="934">*	given:	a = square matrix A</Line>
+  <Line number="935">*		b = column matrix B</Line>
+  <Line number="936">*	retrn:	column matrix X (of AX = B)</Line>
+  <Line number="937">*-----------------------------------------------------------------------------</Line>
+  <Line number="938">*/</Line>
+  <Line number="939">MATRIX mat_lsolve(MATRIX a,MATRIX b,MATRIX X)</Line>
+  <Line number="940">{</Line>
+  <Line number="941">	MATRIX	A, B, P;</Line>
+  <Line number="942">	int n;</Line>
+  <Line number="943"></Line>
+  <Line number="944">	n = MatCol(a);</Line>
+  <Line number="945">	if ( ( A = mat_creat(n, n, <CheckRefs ids="1684">UNDEFINED</CheckRefs>) ) == NULL ) </Line>
+  <Line number="946">		return (NULL);				</Line>
+  <Line number="947">	if ( ( B = mat_creat(n, 1, <CheckRefs ids="1685">UNDEFINED</CheckRefs>) ) == NULL ) </Line>
+  <Line number="948">		return (NULL);				</Line>
+  <Line number="949">	mat_copy(a,A);</Line>
+  <Line number="950">	mat_copy(b,B);</Line>
+  <Line number="951">	if ( ( P = mat_creat(n, 1, <CheckRefs ids="1686">UNDEFINED</CheckRefs>) ) == NULL ) </Line>
+  <Line number="952">		return (NULL);					</Line>
+  <Line number="953">	</Line>
+  <Line number="954">	// if dimensions of C is wrong</Line>
+  <Line number="955">	if ( MatRow(X) != n || MatCol(X) != 1 ) {</Line>
+  <Line number="956">		printf(&quot;mat_lsolve error: incompatible output matrix size\n&quot;);</Line>
+  <Line number="957">	    _exit(<CheckRefs ids="1687">-</CheckRefs>1);</Line>
+  <Line number="958">	// if dimensions of C is correct</Line>
+  <Line number="959">	} else {</Line>
+  <Line number="960"></Line>
+  <Line number="961">		mat_lu( A, P );</Line>
+  <Line number="962">		mat_backsubs1( A, B, X, P, 0 );</Line>
+  <Line number="963">	}</Line>
+  <Line number="964">	mat_free(A);</Line>
+  <Line number="965">	mat_free(B);</Line>
+  <Line number="966">	mat_free(P);</Line>
+  <Line number="967">	</Line>
+  <Line number="968">	return(X);</Line>
+  <Line number="969">}</Line>
+  <Line number="970">/*</Line>
+  <Line number="971">*-----------------------------------------------------------------------------</Line>
+  <Line number="972">*	funct:	mat_sub</Line>
+  <Line number="973">*	desct:	subtraction of two matrice</Line>
+  <Line number="974">*	given:	A, B = compatible matrice to be added</Line>
+  <Line number="975">*	retrn:	NULL if malloc() fails</Line>
+  <Line number="976">*		else allocated matrix of A - B</Line>
+  <Line number="977">*	comen:</Line>
+  <Line number="978">*-----------------------------------------------------------------------------</Line>
+  <Line number="979">*/</Line>
+  <Line number="980">MATRIX mat_sub(MATRIX A, MATRIX B, MATRIX C)</Line>
+  <Line number="981">{</Line>
+  <Line number="982">	int		i, j;</Line>
+  <Line number="983"></Line>
+  <Line number="984">	// if dimensions of C is wrong</Line>
+  <Line number="985">	//if ( MatRow(A) != MatRow(C) || MatCol(A) != MatCol(C)  ) {</Line>
+  <Line number="986">	//	printf(&quot;mat_sub error: incompatible output matrix size\n&quot;);</Line>
+  <Line number="987">	//	_exit(-1);</Line>
+  <Line number="988">	// if dimensions of C is correct</Line>
+  <Line number="989">	//} else {</Line>
+  <Line number="990"></Line>
+  <Line number="991">		for (i=0; i&lt;MatRow(A); i<CheckRefs ids="1688">++</CheckRefs>)</Line>
+  <Line number="992">		for (j=0; j&lt;MatCol(A); j<CheckRefs ids="1689">++</CheckRefs>) {</Line>
+  <Line number="993">			C[i][j] <CheckRefs ids="1690">=</CheckRefs> A[i][j] <CheckRefs ids="1691">-</CheckRefs> B[i][j];</Line>
+  <Line number="994">		}</Line>
+  <Line number="995">	//}</Line>
+  <Line number="996">	return(C);</Line>
+  <Line number="997">}</Line>
+  <Line number="998">/*</Line>
+  <Line number="999">*-----------------------------------------------------------------------------</Line>
+  <Line number="1000">*	funct:	mat_submat</Line>
+  <Line number="1001">*	desct:	return a submatrix S of A</Line>
+  <Line number="1002">*	given:	A = main matrix,</Line>
+  <Line number="1003">*		i,j = row and column of A to be deleted to obtained S</Line>
+  <Line number="1004">*	retrn:	S</Line>
+  <Line number="1005">*-----------------------------------------------------------------------------</Line>
+  <Line number="1006">*/</Line>
+  <Line number="1007">MATRIX mat_submat(MATRIX A,int i,int j, MATRIX S)</Line>
+  <Line number="1008">{</Line>
+  <Line number="1009">	int		m, m1, p, p1;</Line>
+  <Line number="1010"></Line>
+  <Line number="1011">	// if dimensions of S is wrong</Line>
+  <Line number="1012">	if ( MatRow(A)<CheckRefs ids="1692">-</CheckRefs>1 != MatRow(S) || MatCol(A)<CheckRefs ids="1693">-</CheckRefs>1 != MatCol(S)  ) {</Line>
+  <Line number="1013">		printf(&quot;mat_submat error: incompatible output matrix size\n&quot;);</Line>
+  <Line number="1014">		_exit(<CheckRefs ids="1694">-</CheckRefs>1);</Line>
+  <Line number="1015">	// if dimensions of S is correct</Line>
+  <Line number="1016">	} else {</Line>
+  <Line number="1017"></Line>
+  <Line number="1018">		for (m=m1=0; m&lt;MatRow(A); m<CheckRefs ids="1695">++</CheckRefs>) {</Line>
+  <Line number="1019">			if (m==i) continue;</Line>
+  <Line number="1020">			for (p=p1=0; p&lt;MatCol(A); p<CheckRefs ids="1696">++</CheckRefs>) {</Line>
+  <Line number="1021">				if (p==j) continue;</Line>
+  <Line number="1022">				S[m1][p1] <CheckRefs ids="1697">=</CheckRefs> A[m][p];</Line>
+  <Line number="1023">				p1<CheckRefs ids="1698">++</CheckRefs>;</Line>
+  <Line number="1024">			}</Line>
+  <Line number="1025">			m1<CheckRefs ids="1699">++</CheckRefs>;</Line>
+  <Line number="1026">		}</Line>
+  <Line number="1027">	}</Line>
+  <Line number="1028">	return(S);</Line>
+  <Line number="1029">}</Line>
+  <Line number="1030"></Line>
+  <Line number="1031">/*</Line>
+  <Line number="1032">*-----------------------------------------------------------------------------</Line>
+  <Line number="1033">*	funct:	mat_SymToeplz</Line>
+  <Line number="1034">*	desct:	create a n x n symmetric Toeplitz matrix from</Line>
+  <Line number="1035">*		a n x 1 correlation matrix</Line>
+  <Line number="1036">*	given:	R = correlation matrix (n x 1)</Line>
+  <Line number="1037">*	retrn:	the symmetric Toeplitz matrix</Line>
+  <Line number="1038">*-----------------------------------------------------------------------------</Line>
+  <Line number="1039">*/</Line>
+  <Line number="1040">MATRIX mat_SymToeplz(MATRIX R,MATRIX T)</Line>
+  <Line number="1041">{</Line>
+  <Line number="1042">	int		i, j, n;</Line>
+  <Line number="1043"></Line>
+  <Line number="1044">	n = MatRow(R);</Line>
+  <Line number="1045">	// if dimensions of T is wrong</Line>
+  <Line number="1046">	if ( n != MatRow(T) || n != MatCol(T)  ) {</Line>
+  <Line number="1047">		printf(&quot;mat_SymToeplz error: incompatible output matrix size\n&quot;);</Line>
+  <Line number="1048">		_exit(<CheckRefs ids="1700">-</CheckRefs>1);</Line>
+  <Line number="1049">	// if dimensions of T is correct</Line>
+  <Line number="1050">	} else {</Line>
+  <Line number="1051"></Line>
+  <Line number="1052">		for (i=0; i&lt;n; i<CheckRefs ids="1701">++</CheckRefs>)</Line>
+  <Line number="1053">		for (j=0; j&lt;n; j<CheckRefs ids="1702">++</CheckRefs>) {</Line>
+  <Line number="1054">			T[i][j] <CheckRefs ids="1703">=</CheckRefs> R[abs(i<CheckRefs ids="1704">-</CheckRefs>j)][0];</Line>
+  <Line number="1055">		}</Line>
+  <Line number="1056">	}</Line>
+  <Line number="1057">	return(T);</Line>
+  <Line number="1058">}</Line>
+  <Line number="1059"></Line>
+  <Line number="1060">/*</Line>
+  <Line number="1061">*-----------------------------------------------------------------------------</Line>
+  <Line number="1062">*	funct:	mat_tran</Line>
+  <Line number="1063">*	desct:	transpose of a matrix</Line>
+  <Line number="1064">*	given:	A = matrix A to be transposed</Line>
+  <Line number="1065">*	retrn:	allocated matrix for A^t</Line>
+  <Line number="1066">*	comen:</Line>
+  <Line number="1067">*-----------------------------------------------------------------------------</Line>
+  <Line number="1068">*/</Line>
+  <Line number="1069">MATRIX mat_tran(MATRIX A, MATRIX At)</Line>
+  <Line number="1070">{</Line>
+  <Line number="1071">	int		i, j;</Line>
+  <Line number="1072"></Line>
+  <Line number="1073">	// if dimensions of At is wrong</Line>
+  <Line number="1074">	//if (  MatCol(A) != MatRow(At) ||  MatRow(A) != MatCol(At)  ) {</Line>
+  <Line number="1075">	//	printf(&quot;mat_tran error: incompatible output matrix size\n&quot;);</Line>
+  <Line number="1076">	//	_exit(-1);</Line>
+  <Line number="1077">	// if dimensions of At is correct</Line>
+  <Line number="1078">	//} else {</Line>
+  <Line number="1079"></Line>
+  <Line number="1080">		/*</Line>
+  <Line number="1081">		*	Transposing ...</Line>
+  <Line number="1082">		*/</Line>
+  <Line number="1083">		for (i=0; i&lt;MatCol(A); i<CheckRefs ids="1705">++</CheckRefs>)</Line>
+  <Line number="1084">		for (j=0; j&lt;MatRow(A); j<CheckRefs ids="1706">++</CheckRefs>) {</Line>
+  <Line number="1085">			At[i][j] <CheckRefs ids="1707">=</CheckRefs> A[j][i];</Line>
+  <Line number="1086">		}</Line>
+  <Line number="1087">	//}</Line>
+  <Line number="1088">	return(At);</Line>
+  <Line number="1089">}</Line>
+  <Line number="1090"></Line>
+  <Line number="1091"></Line>
+  <Line number="1092">//  takes the norm of a single column</Line>
+  <Line number="1093">double mat_norm (MATRIX X, int column)</Line>
+  <Line number="1094">{</Line>
+  <Line number="1095">	int i;</Line>
+  <Line number="1096">	double tot, norm;</Line>
+  <Line number="1097"></Line>
+  <Line number="1098">	tot<CheckRefs ids="1708">=</CheckRefs><CheckRefs ids="1709">0</CheckRefs>;</Line>
+  <Line number="1099">	for (i=0; i&lt;MatRow(X); i<CheckRefs ids="1710">++</CheckRefs>)  {</Line>
+  <Line number="1100">		tot <CheckRefs ids="1711">=</CheckRefs> tot <CheckRefs ids="1712">+</CheckRefs> (X[i][column<CheckRefs ids="1714">-</CheckRefs>1])<CheckRefs ids="1713">*</CheckRefs>(X[i][column<CheckRefs ids="1715">-</CheckRefs>1]);</Line>
+  <Line number="1101">	}</Line>
+  <Line number="1102">	norm<CheckRefs ids="1716">=</CheckRefs>sqrt(tot);	</Line>
+  <Line number="1103">	return (norm);</Line>
+  <Line number="1104">}</Line>
+  <Line number="1105"></Line>
+  <Line number="1106">// make sure C is 3 x 3</Line>
+  <Line number="1107">MATRIX mat_T321 (double pitch, double roll, double yaw, MATRIX C)</Line>
+  <Line number="1108">{</Line>
+  <Line number="1109">	MATRIX TI2,T23,T3B,t1;</Line>
+  <Line number="1110">	double cphi,sphi,ctheta,stheta,cpsi,spsi;</Line>
+  <Line number="1111"></Line>
+  <Line number="1112">	// if dimensions of C is wrong</Line>
+  <Line number="1113">	if (  MatCol(C) != 3 ||  MatRow(C) != 3  ) {</Line>
+  <Line number="1114">		printf(&quot;mat_T321 error: incompatible output matrix size\n&quot;);</Line>
+  <Line number="1115">		_exit(<CheckRefs ids="1717">-</CheckRefs>1);</Line>
+  <Line number="1116">	// if dimensions of C is correct</Line>
+  <Line number="1117">	} else {</Line>
+  <Line number="1118"></Line>
+  <Line number="1119">		if ((TI2 = mat_creat( 3, 3, <CheckRefs ids="1718">UNDEFINED</CheckRefs> )) == NULL)</Line>
+  <Line number="1120">			return (NULL);</Line>
+  <Line number="1121">		if ((T23 = mat_creat( 3, 3, <CheckRefs ids="1719">UNDEFINED</CheckRefs> )) == NULL)</Line>
+  <Line number="1122">			return (NULL);</Line>
+  <Line number="1123">		if ((T3B = mat_creat( 3, 3, <CheckRefs ids="1720">UNDEFINED</CheckRefs> )) == NULL)</Line>
+  <Line number="1124">			return (NULL);</Line>
+  <Line number="1125"></Line>
+  <Line number="1126">		cphi <CheckRefs ids="1721">=</CheckRefs> cos(roll);</Line>
+  <Line number="1127">		sphi <CheckRefs ids="1722">=</CheckRefs> sin(roll);</Line>
+  <Line number="1128"></Line>
+  <Line number="1129">		ctheta <CheckRefs ids="1723">=</CheckRefs> cos(pitch);</Line>
+  <Line number="1130">		stheta <CheckRefs ids="1724">=</CheckRefs> sin(pitch);</Line>
+  <Line number="1131"></Line>
+  <Line number="1132">		cpsi <CheckRefs ids="1725">=</CheckRefs> cos(yaw);</Line>
+  <Line number="1133">		spsi <CheckRefs ids="1726">=</CheckRefs> sin(yaw);</Line>
+  <Line number="1134">	</Line>
+  <Line number="1135">		TI2[0][0] <CheckRefs ids="1727">=</CheckRefs> spsi;</Line>
+  <Line number="1136">		TI2[0][1] <CheckRefs ids="1728">=</CheckRefs> cpsi;</Line>
+  <Line number="1137">		TI2[0][2] <CheckRefs ids="1729">=</CheckRefs> <CheckRefs ids="1730">0</CheckRefs>;</Line>
+  <Line number="1138">		TI2[1][0] <CheckRefs ids="1731">=</CheckRefs> cpsi;</Line>
+  <Line number="1139">		TI2[1][1] <CheckRefs ids="1732">=</CheckRefs> <CheckRefs ids="1733">-</CheckRefs>spsi;</Line>
+  <Line number="1140">		TI2[1][2] <CheckRefs ids="1734">=</CheckRefs> <CheckRefs ids="1735">0</CheckRefs>;</Line>
+  <Line number="1141">		TI2[2][0] <CheckRefs ids="1736">=</CheckRefs> <CheckRefs ids="1737">0</CheckRefs>;</Line>
+  <Line number="1142">		TI2[2][1] <CheckRefs ids="1738">=</CheckRefs> <CheckRefs ids="1739">0</CheckRefs>;</Line>
+  <Line number="1143">		TI2[2][2] <CheckRefs ids="1740">=</CheckRefs> <CheckRefs ids="1742,1741">-</CheckRefs>1;</Line>
+  <Line number="1144">	</Line>
+  <Line number="1145">		T23[0][0] <CheckRefs ids="1743">=</CheckRefs> ctheta;</Line>
+  <Line number="1146">		T23[0][1] <CheckRefs ids="1744">=</CheckRefs> <CheckRefs ids="1745">0</CheckRefs>;</Line>
+  <Line number="1147">		T23[0][2] <CheckRefs ids="1746">=</CheckRefs> <CheckRefs ids="1747">-</CheckRefs>stheta;</Line>
+  <Line number="1148">		T23[1][0] <CheckRefs ids="1748">=</CheckRefs> <CheckRefs ids="1749">0</CheckRefs>;</Line>
+  <Line number="1149">		T23[1][1] <CheckRefs ids="1750">=</CheckRefs> <CheckRefs ids="1751">1</CheckRefs>;</Line>
+  <Line number="1150">		T23[1][2] <CheckRefs ids="1752">=</CheckRefs> <CheckRefs ids="1753">0</CheckRefs>;</Line>
+  <Line number="1151">		T23[2][0] <CheckRefs ids="1754">=</CheckRefs> stheta;</Line>
+  <Line number="1152">		T23[2][1] <CheckRefs ids="1755">=</CheckRefs> <CheckRefs ids="1756">0</CheckRefs>;</Line>
+  <Line number="1153">		T23[2][2] <CheckRefs ids="1757">=</CheckRefs> ctheta;</Line>
+  <Line number="1154"></Line>
+  <Line number="1155">		T3B[0][0] <CheckRefs ids="1758">=</CheckRefs> <CheckRefs ids="1759">1</CheckRefs>;</Line>
+  <Line number="1156">		T3B[0][1] <CheckRefs ids="1760">=</CheckRefs> <CheckRefs ids="1761">0</CheckRefs>;</Line>
+  <Line number="1157">		T3B[0][2] <CheckRefs ids="1762">=</CheckRefs> <CheckRefs ids="1763">0</CheckRefs>;</Line>
+  <Line number="1158">		T3B[1][0] <CheckRefs ids="1764">=</CheckRefs> <CheckRefs ids="1765">0</CheckRefs>;</Line>
+  <Line number="1159">		T3B[1][1] <CheckRefs ids="1766">=</CheckRefs> cphi;</Line>
+  <Line number="1160">		T3B[1][2] <CheckRefs ids="1767">=</CheckRefs> sphi;</Line>
+  <Line number="1161">		T3B[2][0] <CheckRefs ids="1768">=</CheckRefs> <CheckRefs ids="1769">0</CheckRefs>;</Line>
+  <Line number="1162">		T3B[2][1] <CheckRefs ids="1770">=</CheckRefs> <CheckRefs ids="1771">-</CheckRefs>sphi;</Line>
+  <Line number="1163">		T3B[2][2] <CheckRefs ids="1772">=</CheckRefs> cphi;</Line>
+  <Line number="1164">	</Line>
+  <Line number="1165">	//	C = T3B*T23*TI2;</Line>
+  <Line number="1166">		if ( ( t1 = mat_creat(3,3,<CheckRefs ids="1773">UNDEFINED</CheckRefs>) ) == NULL ) </Line>
+  <Line number="1167">			return (NULL);				</Line>
+  <Line number="1168">		</Line>
+  <Line number="1169">		mat_mul(T23,TI2,t1);</Line>
+  <Line number="1170">		mat_mul(T3B,t1, C);</Line>
+  <Line number="1171">	}</Line>
+  <Line number="1172">	</Line>
+  <Line number="1173">	mat_free(T3B);</Line>
+  <Line number="1174">	mat_free(T23);</Line>
+  <Line number="1175">	mat_free(TI2);</Line>
+  <Line number="1176">	mat_free(t1);</Line>
+  <Line number="1177">	</Line>
+  <Line number="1178">	return(C);</Line>
+  <Line number="1179">}</Line>
+  <Line number="1180"></Line>
+  <Line number="1181">MATRIX mat_round (MATRIX X, MATRIX C)</Line>
+  <Line number="1182">{</Line>
+  <Line number="1183">	int i, j;</Line>
+  <Line number="1184">	</Line>
+  <Line number="1185">	// if dimensions of C is wrong</Line>
+  <Line number="1186">	if (  MatRow(C) != MatRow(X) ||  MatCol(C) != MatCol(X)  ) {</Line>
+  <Line number="1187">		printf(&quot;mat_round error: incompatible output matrix size\n&quot;);</Line>
+  <Line number="1188">		_exit(<CheckRefs ids="1774">-</CheckRefs>1);</Line>
+  <Line number="1189">	// if dimensions of C is correct</Line>
+  <Line number="1190">	} else {</Line>
+  <Line number="1191"></Line>
+  <Line number="1192">		for (i=0; i&lt;MatRow(X); i<CheckRefs ids="1775">++</CheckRefs>)  {</Line>
+  <Line number="1193">			for (j=0; j&lt;MatCol(X); j<CheckRefs ids="1776">++</CheckRefs>)  {</Line>
+  <Line number="1194">				//temp = (int) (X[i][j]+.5*);</Line>
+  <Line number="1195">				C[i][j] <CheckRefs ids="1777">=</CheckRefs>floor(X[i][j]<CheckRefs ids="1778">+</CheckRefs>.5);</Line>
+  <Line number="1196">			}</Line>
+  <Line number="1197">		}	</Line>
+  <Line number="1198">	}</Line>
+  <Line number="1199">	return(C);</Line>
+  <Line number="1200">}</Line>
+  <Line number="1201"></Line>
+  <Line number="1202">//		Calculates the dot product of X and Y</Line>
+  <Line number="1203">double mat_dot (MATRIX X, MATRIX Y)</Line>
+  <Line number="1204">{</Line>
+  <Line number="1205">	int		 i,j;</Line>
+  <Line number="1206">	double 		dotProduct;</Line>
+  <Line number="1207">	</Line>
+  <Line number="1208">	dotProduct<CheckRefs ids="1779">=</CheckRefs><CheckRefs ids="1780">0</CheckRefs>;</Line>
+  <Line number="1209">	for(i=0;i&lt;MatRow(X);i<CheckRefs ids="1781">++</CheckRefs>) {</Line>
+  <Line number="1210">		for(j=0;j&lt;MatCol(X);j<CheckRefs ids="1782">++</CheckRefs>) {</Line>
+  <Line number="1211">		dotProduct<CheckRefs ids="1783">+=</CheckRefs>(X[i][j]<CheckRefs ids="1784">*</CheckRefs>Y[i][j]);</Line>
+  <Line number="1212">		}</Line>
+  <Line number="1213">	}	</Line>
+  <Line number="1214">	return(fabs(dotProduct));</Line>
+  <Line number="1215">}</Line>
+  <Line number="1216"></Line>
+  <Line number="1217">MATRIX mat_scalMult (MATRIX X,double A, MATRIX C)</Line>
+  <Line number="1218">{</Line>
+  <Line number="1219">	int		i, j;</Line>
+  <Line number="1220"></Line>
+  <Line number="1221">	// if dimensions of C is wrong</Line>
+  <Line number="1222">	//if (  MatRow(C) != MatRow(X) ||  MatCol(C) != MatCol(X)  ) {</Line>
+  <Line number="1223">	//	printf(&quot;mat_scalMult error: incompatible output matrix size\n&quot;);</Line>
+  <Line number="1224">	//	_exit(-1);</Line>
+  <Line number="1225">	// if dimensions of C is correct</Line>
+  <Line number="1226">	//} else {</Line>
+  <Line number="1227"></Line>
+  <Line number="1228">		for (i=0; i&lt;MatRow(X); i<CheckRefs ids="1785">++</CheckRefs>)  {</Line>
+  <Line number="1229">			for (j=0; j&lt;MatCol(X); j<CheckRefs ids="1786">++</CheckRefs>)  {</Line>
+  <Line number="1230">				C[i][j] <CheckRefs ids="1787">=</CheckRefs> X[i][j]<CheckRefs ids="1788">*</CheckRefs>A;</Line>
+  <Line number="1231">			}</Line>
+  <Line number="1232">		}	</Line>
+  <Line number="1233">	//}</Line>
+  <Line number="1234">	return(C);</Line>
+  <Line number="1235">}</Line>
+  <Line number="1236"></Line>
+  <Line number="1237">MATRIX mat_scalMul(MATRIX X,double A, MATRIX C)</Line>
+  <Line number="1238">{</Line>
+  <Line number="1239">	int		i, j;</Line>
+  <Line number="1240"></Line>
+  <Line number="1241">	// if dimensions of C is wrong</Line>
+  <Line number="1242">	//if (  MatRow(C) != MatRow(X) ||  MatCol(C) != MatCol(X)  ) {</Line>
+  <Line number="1243">	//	printf(&quot;mat_scalMult error: incompatible output matrix size\n&quot;);</Line>
+  <Line number="1244">	//	_exit(-1);</Line>
+  <Line number="1245">	// if dimensions of C is correct</Line>
+  <Line number="1246">	//} else {</Line>
+  <Line number="1247"></Line>
+  <Line number="1248">		for (i=0; i&lt;MatRow(X); i<CheckRefs ids="1789">++</CheckRefs>)  {</Line>
+  <Line number="1249">			for (j=0; j&lt;MatCol(X); j<CheckRefs ids="1790">++</CheckRefs>)  {</Line>
+  <Line number="1250">				C[i][j] <CheckRefs ids="1791">=</CheckRefs> X[i][j]<CheckRefs ids="1792">*</CheckRefs>A;</Line>
+  <Line number="1251">			}</Line>
+  <Line number="1252">		}	</Line>
+  <Line number="1253">	//}</Line>
+  <Line number="1254">	return(C);</Line>
+  <Line number="1255">}</Line>
+  <Line number="1256"></Line>
+  <Line number="1257">MATRIX mat_subcopy(MATRIX A, int row, int col, MATRIX B)</Line>
+  <Line number="1258">{</Line>
+  <Line number="1259">	int i,j;</Line>
+  <Line number="1260">	</Line>
+  <Line number="1261">	for(i=0;i&lt;row;i<CheckRefs ids="1793">++</CheckRefs>) {</Line>
+  <Line number="1262">	   for(j=0;j&lt;col;j<CheckRefs ids="1794">++</CheckRefs>) {</Line>
+  <Line number="1263">	      B[i][j] <CheckRefs ids="1795">=</CheckRefs> A[i][j];</Line>
+  <Line number="1264">	   }   </Line>
+  <Line number="1265">	}   </Line>
+  <Line number="1266">	return(B);</Line>
+  <Line number="1267">}	 </Line>
+</SourceFile>

@@ -1,0 +1,832 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 2223 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 1
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/2223
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [1] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : unixTempFileDir
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "unixTempFileDir" for 1 iterations succeeded.getMatchingFunctions
+res.push_back: fileStat
+res.push_back: stat64
+res.push_back: fileLinkStat
+res.push_back: lstat64
+getMatchingFunctions
+res.push_back: deduceDatabaseType
+res.push_back: access
+res.push_back: mkdir
+res.push_back: chmod
+res.push_back: idxHashString
+res.push_back: line_is_complete
+res.push_back: line_contains_semicolon
+res.push_back: compare2pow63
+res.push_back: sqlite3Utf8CharLen
+res.push_back: isAllZero
+res.push_back: sqlite3_keyword_check
+res.push_back: sqlite3KeywordCode
+res.push_back: sqlite3Utf16ByteLen
+res.push_back: pagerUndoCallback
+res.push_back: analyzeOverKeyword
+res.push_back: analyzeFilterKeyword
+res.push_back: sqliteDefaultBusyCallback
+getMatchingFunctions
+res.push_back: fileStat
+res.push_back: stat64
+res.push_back: fileLinkStat
+res.push_back: lstat64
+getMatchingFunctions
+res.push_back: deduceDatabaseType
+res.push_back: access
+res.push_back: mkdir
+res.push_back: chmod
+res.push_back: idxHashString
+res.push_back: line_is_complete
+res.push_back: line_contains_semicolon
+res.push_back: compare2pow63
+res.push_back: sqlite3Utf8CharLen
+res.push_back: isAllZero
+res.push_back: sqlite3_keyword_check
+res.push_back: sqlite3KeywordCode
+res.push_back: sqlite3Utf16ByteLen
+res.push_back: pagerUndoCallback
+res.push_back: analyzeOverKeyword
+res.push_back: analyzeFilterKeyword
+res.push_back: sqliteDefaultBusyCallback
+
+      Transformed "unixTempFileDir" from 15 to 1485 basic blocks and from 69 to 4817 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...Current: unixTempFileDir Havoced: renameColumnExprCb
+Current: unixTempFileDir Havoced: renameTableSelectCb
+Current: unixTempFileDir Havoced: renameTableExprCb
+Current: unixTempFileDir Havoced: renameColumnSelectCb
+Current: unixTempFileDir Havoced: renameQuotefixExprCb
+Current: unixTempFileDir Havoced: parseYyyyMmDd
+Current: unixTempFileDir Havoced: osLocaltime
+Current: unixTempFileDir Havoced: parseTimezone
+Current: unixTempFileDir Havoced: parseHhMmSs
+Current: unixTempFileDir Havoced: setDateTimeToCurrent
+Current: unixTempFileDir Havoced: sqlite3OsCurrentTimeInt64
+Current: unixTempFileDir Havoced: sqlite3TransferBindings
+Current: unixTempFileDir Havoced: checkReadTransaction
+Current: unixTempFileDir Havoced: btreeOverwriteCell
+Current: unixTempFileDir Havoced: balance_deeper
+Current: unixTempFileDir Havoced: sqlite3BtreeCursorRestore
+Current: unixTempFileDir Havoced: vdbeSorterMergeTreeBuild
+Current: unixTempFileDir Havoced: vdbePmaReadVarint
+Current: unixTempFileDir Havoced: vdbeMergeEngineStep
+Current: unixTempFileDir Havoced: vdbePmaWriterFinish
+Current: unixTempFileDir Havoced: vdbeSorterSort
+Current: unixTempFileDir Havoced: vdbeSorterListToPMA
+Current: unixTempFileDir Havoced: btreeHeapPull
+Current: unixTempFileDir Havoced: sqlite3BtreeCopyFile
+Current: unixTempFileDir Havoced: sqlite3VtabBegin
+Current: unixTempFileDir Havoced: sqlite3PagerCloseWal
+Current: unixTempFileDir Havoced: sqlite3RowSetNext
+Current: unixTempFileDir Havoced: sqlite3VdbeSorterWrite
+Current: unixTempFileDir Havoced: sqlite3VdbeSorterNext
+Current: unixTempFileDir Havoced: sqlite3VdbeSorterRewind
+Current: unixTempFileDir Havoced: sqlite3BtreeFirst
+Current: unixTempFileDir Havoced: sqlite3VdbeSorterRowkey
+Current: unixTempFileDir Havoced: sqlite3BtreeLast
+Current: unixTempFileDir Havoced: sqlite3VdbeCursorMoveto
+Current: unixTempFileDir Havoced: findNextHostParameter
+Current: unixTempFileDir Havoced: tableMayNotBeDropped
+Current: unixTempFileDir Havoced: sqlite3FixSelect
+Current: unixTempFileDir Havoced: selectWindowRewriteSelectCb
+Current: unixTempFileDir Havoced: selectWindowRewriteExprCb
+Current: unixTempFileDir Havoced: sqlite3WindowExtraAggFuncDepth
+Current: unixTempFileDir Havoced: disallowAggregatesInOrderByCb
+Current: unixTempFileDir Havoced: renumberCursorsCb
+Current: unixTempFileDir Havoced: recomputeColumnsUsedExpr
+Current: unixTempFileDir Havoced: agginfoPersistExprCb
+Current: unixTempFileDir Havoced: propagateConstantExprRewrite
+Current: unixTempFileDir Havoced: windowInitAccum
+Current: unixTempFileDir Havoced: windowExprGtZero
+Current: unixTempFileDir Havoced: exprNodeIsConstantOrGroupBy
+Current: unixTempFileDir Havoced: havingToWhereExprCb
+Current: unixTempFileDir Havoced: addAggInfoFunc
+Current: unixTempFileDir Havoced: addAggInfoColumn
+Current: unixTempFileDir Havoced: sqlite3WalkerDepthIncrease
+Current: unixTempFileDir Havoced: analyzeAggregate
+Current: unixTempFileDir Havoced: propagateConstants
+Current: unixTempFileDir Havoced: sqlite3WindowRewrite
+Current: unixTempFileDir Havoced: sqlite3WhereOkOnePass
+Current: unixTempFileDir Havoced: tabIsReadOnly
+Current: unixTempFileDir Havoced: xferCompatibleIndex
+Current: unixTempFileDir Havoced: exprColumnFlagUnion
+Current: unixTempFileDir Havoced: isAsteriskTerm
+Current: unixTempFileDir Havoced: checkConstraintExprNode
+Current: unixTempFileDir Havoced: checkColumnOverlap
+Current: unixTempFileDir Havoced: sqlite3FkOldmask
+Current: unixTempFileDir Havoced: termIsEquivalence
+Current: unixTempFileDir Havoced: exprNodeIsDeterministic
+Current: unixTempFileDir Havoced: whereLoopCheaperProperSubset
+Current: unixTempFileDir Havoced: whereLoopInsert
+Current: unixTempFileDir Havoced: whereIndexExprTransColumn
+Current: unixTempFileDir Havoced: whereIndexExprTransNode
+Current: unixTempFileDir Havoced: exprIdxCover
+Current: unixTempFileDir Havoced: isSetNullAction
+Current: unixTempFileDir Havoced: changeTempStorage
+Current: unixTempFileDir Havoced: sqlite3FixExpr
+Current: unixTempFileDir Havoced: sqlite3FixTriggerStep
+Current: unixTempFileDir Havoced: fixSelectCb
+Current: unixTempFileDir Havoced: fixExprCb
+Current: unixTempFileDir Havoced: sqlite3FixSrcList
+Current: unixTempFileDir Havoced: sqlite3HasExplicitNulls
+Current: unixTempFileDir Havoced: resolveAttachExpr
+Current: unixTempFileDir Havoced: collationMatch
+Current: unixTempFileDir Havoced: sqlite3FindDb
+Current: unixTempFileDir Havoced: sqlite3ShadowTableName
+Current: unixTempFileDir Havoced: sqlite3DecOrHexToI64
+Current: unixTempFileDir Havoced: exprCodeSubselect
+Current: unixTempFileDir Havoced: sqlite3SelectWalkFail
+Current: unixTempFileDir Havoced: exprNodeIsConstant
+Current: unixTempFileDir Havoced: impliesNotNullRow
+Current: unixTempFileDir Havoced: pagerStress
+Current: unixTempFileDir Havoced: sqlite3ExprCheckIN
+Current: unixTempFileDir Havoced: sqlite3CodeSubselect
+Current: unixTempFileDir Havoced: isAlterableTable
+Current: unixTempFileDir Havoced: sqlite3GetUInt32
+Current: unixTempFileDir Havoced: sqlite3Init
+Current: unixTempFileDir Havoced: pragmaVtabRowid
+Current: unixTempFileDir Havoced: pragmaVtabOpen
+Current: unixTempFileDir Havoced: pragmaVtabBestIndex
+Current: unixTempFileDir Havoced: sqlite3VtabEponymousTableInit
+Current: unixTempFileDir Havoced: sqlite3VtabCallConnect
+Current: unixTempFileDir Havoced: sqlite3ColumnIndex
+Current: unixTempFileDir Havoced: sqlite3IdListIndex
+Current: unixTempFileDir Havoced: sqliteProcessJoin
+Current: unixTempFileDir Havoced: sqlite3IndexedByLookup
+Current: unixTempFileDir Havoced: sqlite3ViewGetColumnNames
+Current: unixTempFileDir Havoced: cannotBeFunction
+Current: unixTempFileDir Havoced: sqlite3ExpandSubquery
+Current: unixTempFileDir Havoced: selectExpander
+Current: unixTempFileDir Havoced: convertCompoundSelectToSubquery
+Current: unixTempFileDir Havoced: sqlite3SchemaToIndex
+Current: unixTempFileDir Havoced: areDoubleQuotedStringsEnabled
+Current: unixTempFileDir Havoced: nameInUsingClause
+Current: unixTempFileDir Havoced: selectSrcCount
+Current: unixTempFileDir Havoced: exprSrcCount
+Current: unixTempFileDir Havoced: sqlite3FunctionUsesThisSrc
+Current: unixTempFileDir Havoced: resolveRemoveWindowsCb
+Current: unixTempFileDir Havoced: incrAggDepth
+Current: unixTempFileDir Havoced: gatherSelectWindowsSelectCallback
+Current: unixTempFileDir Havoced: gatherSelectWindowsCallback
+Current: unixTempFileDir Havoced: sqlite3ExprIsInteger
+Current: unixTempFileDir Havoced: resolveCompoundOrderBy
+Current: unixTempFileDir Havoced: sqlite3ResolveExprListNames
+Current: unixTempFileDir Havoced: sqlite3ResolveExprNames
+Current: unixTempFileDir Havoced: resolveSelectStep
+Current: unixTempFileDir Havoced: resolveExprStep
+Current: unixTempFileDir Havoced: sqlite3ExprWalkNoop
+Current: unixTempFileDir Havoced: sqlite3SelectWalkNoop
+Current: unixTempFileDir Havoced: sqlite3WalkSelectFrom
+Current: unixTempFileDir Havoced: sqlite3WalkSelectExpr
+Current: unixTempFileDir Havoced: sqlite3WalkExprList
+Current: unixTempFileDir Havoced: sqlite3WalkSelect
+Current: unixTempFileDir Havoced: walkExpr
+Current: unixTempFileDir Havoced: sqlite3WalkExpr
+Current: unixTempFileDir Havoced: renameUnmapSelectCb
+Current: unixTempFileDir Havoced: renameUnmapExprCb
+Current: unixTempFileDir Havoced: sqlite3GetToken
+Current: unixTempFileDir Havoced: sqlite3OsCheckReservedLock
+Current: unixTempFileDir Havoced: sqlite3WalBeginReadTransaction
+Current: unixTempFileDir Havoced: pagerPagecount
+Current: unixTempFileDir Havoced: hasHotJournal
+Current: unixTempFileDir Havoced: sqlite3PagerOpenWal
+Current: unixTempFileDir Havoced: sqlite3ThreadJoin
+Current: unixTempFileDir Havoced: sqlite3PagerClose
+Current: unixTempFileDir Havoced: walIndexTryHdr
+Current: unixTempFileDir Havoced: walBeginShmUnreliable
+Current: unixTempFileDir Havoced: walIndexReadHdr
+Current: unixTempFileDir Havoced: pager_write_pagelist
+Current: unixTempFileDir Havoced: writeSuperJournal
+Current: unixTempFileDir Havoced: sqlite3BtreeCommitPhaseOne
+Current: unixTempFileDir Havoced: sqlite3VtabSync
+Current: unixTempFileDir Havoced: pager_delsuper
+Current: unixTempFileDir Havoced: sqlite3PagerSync
+Current: unixTempFileDir Havoced: sqlite3OsFileSize
+Current: unixTempFileDir Havoced: sqlite3WalSavepointUndo
+Current: unixTempFileDir Havoced: pagerPlaybackSavepoint
+Current: unixTempFileDir Havoced: memjrnlFileSize
+Current: unixTempFileDir Havoced: pager_cksum
+Current: unixTempFileDir Havoced: vdbeCommit
+Current: unixTempFileDir Havoced: synthCollSeq
+Current: unixTempFileDir Havoced: sqlite3CheckCollSeq
+Current: unixTempFileDir Havoced: sqlite3FindDbName
+Current: unixTempFileDir Havoced: sqlite3_txn_state
+Current: unixTempFileDir Havoced: sqlite3_drop_modules
+Current: unixTempFileDir Havoced: sqlite3_strglob
+Current: unixTempFileDir Havoced: sqlite3_stricmp
+Current: unixTempFileDir Havoced: sqlite3_db_readonly
+Current: unixTempFileDir Havoced: sqlite3_wal_checkpoint
+Current: unixTempFileDir Havoced: sqlite3_transfer_bindings
+Current: unixTempFileDir Havoced: sqlite3_open16
+Current: unixTempFileDir Havoced: sqlite3_open
+Current: unixTempFileDir Havoced: sqlite3_declare_vtab
+Current: unixTempFileDir Havoced: sqlite3_bind_parameter_index
+Current: unixTempFileDir Havoced: sqlite3BlobCompare
+Current: unixTempFileDir Havoced: sqlite3VdbeMemCopy
+Current: unixTempFileDir Havoced: sqlite3GetInt32
+Current: unixTempFileDir Havoced: unixFileLock
+Current: unixTempFileDir Havoced: unixLockSharedMemory
+Current: unixTempFileDir Havoced: unixCheckReservedLock
+Current: unixTempFileDir Havoced: findInodeInfo
+Current: unixTempFileDir Havoced: unixBackupDir
+Current: unixTempFileDir Havoced: nolockCheckReservedLock
+Current: unixTempFileDir Havoced: unixFcntlExternalReader
+Current: unixTempFileDir Havoced: openDirectory
+Current: unixTempFileDir Havoced: dotlockCheckReservedLock
+Current: unixTempFileDir Havoced: unixFileSize
+Current: unixTempFileDir Havoced: unixCurrentTimeInt64
+Current: unixTempFileDir Havoced: unixCurrentTime
+Current: unixTempFileDir Havoced: memdbFileSize
+Current: unixTempFileDir Havoced: memdbCurrentTimeInt64
+Current: unixTempFileDir Havoced: sqlite3StrICmp
+Current: unixTempFileDir Havoced: sqlite3LookasideUsed
+Current: unixTempFileDir Havoced: sqlite3VdbeMemFinalize
+Current: unixTempFileDir Havoced: lookasideMallocSize
+Current: unixTempFileDir Havoced: isLookaside
+Current: unixTempFileDir Havoced: sqlite3DbMallocSize
+Current: unixTempFileDir Havoced: str_in_array
+Current: unixTempFileDir Havoced: isNumber
+Current: unixTempFileDir Havoced: db_int
+Current: unixTempFileDir Havoced: showHelp
+Current: unixTempFileDir Havoced: optionMatch
+Current: unixTempFileDir Havoced: run_table_dump_query
+Current: unixTempFileDir Havoced: run_schema_dump_query
+Current: unixTempFileDir Havoced: testcase_glob
+Current: unixTempFileDir Havoced: idxBuildSampleTable
+Current: unixTempFileDir Havoced: idxFindConstraint
+Current: unixTempFileDir Havoced: expertRowid
+Current: unixTempFileDir Havoced: expertOpen
+Current: unixTempFileDir Havoced: expertBestIndex
+Current: unixTempFileDir Havoced: seriesRowid
+Current: unixTempFileDir Havoced: seriesOpen
+Current: unixTempFileDir Havoced: seriesBestIndex
+Current: unixTempFileDir Havoced: decimal_cmp
+Current: unixTempFileDir Havoced: apndCheckReservedLock
+Current: unixTempFileDir Havoced: apndFileSize
+Current: unixTempFileDir Havoced: apndCurrentTimeInt64
+Current: unixTempFileDir Havoced: apndCurrentTime
+Current: unixTempFileDir Havoced: completionRowid
+Current: unixTempFileDir Havoced: completionOpen
+Current: unixTempFileDir Havoced: completionBestIndex
+Current: unixTempFileDir Havoced: fileLinkStat
+Current: unixTempFileDir Havoced: fsdirRowid
+Current: unixTempFileDir Havoced: fsdirOpen
+Current: unixTempFileDir Havoced: fsdirBestIndex
+Current: unixTempFileDir Havoced: fileStat
+Current: unixTempFileDir Havoced: do_meta_command
+
+        Unrolling loop in function "llbmc.strcmp" for 0 iterations succeeded.
+        Transformed "llbmc.strcmp" from 4 to 3 basic blocks and from 14 to 16 instructionsCurrent: unixTempFileDir Havoced: idxPopulateStat1
+Current: unixTempFileDir Havoced: idxProcessTriggers
+Current: unixTempFileDir Havoced: sqlite3_expert_analyze
+Current: unixTempFileDir Havoced: idxCreateVtabSchema
+Current: unixTempFileDir Havoced: idxFindIndexes
+Current: unixTempFileDir Havoced: sqlite3_enable_load_extension
+Current: unixTempFileDir Havoced: sqliteDefaultBusyCallback
+Current: unixTempFileDir Havoced: defragmentPage
+Current: unixTempFileDir Havoced: vdbePmaReaderIncrMergeInit
+Current: unixTempFileDir Havoced: vdbePmaReaderIncrInit
+Current: unixTempFileDir Havoced: btreeSetHasContent
+Current: unixTempFileDir Havoced: checkRef
+Current: unixTempFileDir Havoced: getPageReferenced
+Current: unixTempFileDir Havoced: sqlite3PagerMaxPageCount
+Current: unixTempFileDir Havoced: sqlite3BtreeMaxPageCount
+Current: unixTempFileDir Havoced: sqlite3BtreeSetVersion
+Current: unixTempFileDir Havoced: sqlite3PagerSetJournalMode
+Current: unixTempFileDir Havoced: sqlite3BtreeCursorHasHint
+Current: unixTempFileDir Havoced: sqlite3BtreeBeginStmt
+Current: unixTempFileDir Havoced: sqlite3VdbeBooleanValue
+Current: unixTempFileDir Havoced: sqlite3Close
+Current: unixTempFileDir Havoced: moveToChild
+Current: unixTempFileDir Havoced: sqlite3BtreePrevious
+Current: unixTempFileDir Havoced: sqlite3BtreeNext
+Current: unixTempFileDir Havoced: indexColumnNotNull
+Current: unixTempFileDir Havoced: sqlite3ExprIsTableConstant
+Current: unixTempFileDir Havoced: sqlite3PcacheSetSpillsize
+Current: unixTempFileDir Havoced: sqlite3PagerSetSpillsize
+Current: unixTempFileDir Havoced: sqlite3BtreeSetSpillSize
+Current: unixTempFileDir Havoced: sqlite3BtreeSetAutoVacuum
+Current: unixTempFileDir Havoced: sqlite3BtreeSetPagerFlags
+Current: unixTempFileDir Havoced: sqlite3BtreeSecureDelete
+Current: unixTempFileDir Havoced: sqlite3PagerLockingMode
+Current: unixTempFileDir Havoced: sqlite3ExprImpliesNonNullRow
+Current: unixTempFileDir Havoced: sqlite3VdbeChangeToNoop
+Current: unixTempFileDir Havoced: sqlite3VdbeGoto
+Current: unixTempFileDir Havoced: sqlite3GetTempRange
+Current: unixTempFileDir Havoced: growOpArray
+Current: unixTempFileDir Havoced: sqlite3VdbeAddOp0
+Current: unixTempFileDir Havoced: sqlite3AnalysisLoad
+Current: unixTempFileDir Havoced: sqlite3BtreeSetCacheSize
+Current: unixTempFileDir Havoced: sqlite3ExprCheckHeight
+Current: unixTempFileDir Havoced: dupedExprNodeSize
+Current: unixTempFileDir Havoced: dupedExprStructSize
+Current: unixTempFileDir Havoced: dupedExprSize
+Current: unixTempFileDir Havoced: analyzeFilterKeyword
+Current: unixTempFileDir Havoced: analyzeOverKeyword
+Current: unixTempFileDir Havoced: pagerOpenSavepoint
+Current: unixTempFileDir Havoced: sqlite3PagerOpenSavepoint
+Current: unixTempFileDir Havoced: vdbeSorterJoinAll
+Current: unixTempFileDir Havoced: sqlite3OsLock
+Current: unixTempFileDir Havoced: pagerLockDb
+Current: unixTempFileDir Havoced: pager_wait_on_lock
+Current: unixTempFileDir Havoced: btreeGetHasContent
+Current: unixTempFileDir Havoced: sqlite3OsShmUnmap
+Current: unixTempFileDir Havoced: sqlite3OsSleep
+Current: unixTempFileDir Havoced: walRewriteChecksums
+Current: unixTempFileDir Havoced: syncJournal
+Current: unixTempFileDir Havoced: pager_incr_changecounter
+Current: unixTempFileDir Havoced: sqlite3BtreeCommitPhaseTwo
+Current: unixTempFileDir Havoced: ptrmapPageno
+Current: unixTempFileDir Havoced: walFramePgno
+Current: unixTempFileDir Havoced: pagerUndoCallback
+Current: unixTempFileDir Havoced: pager_error
+Current: unixTempFileDir Havoced: pager_playback
+Current: unixTempFileDir Havoced: walLockShared
+Current: unixTempFileDir Havoced: sqlite3WalExclusiveMode
+Current: unixTempFileDir Havoced: pager_truncate
+Current: unixTempFileDir Havoced: pagerFlushOnCommit
+Current: unixTempFileDir Havoced: zeroJournalHdr
+Current: unixTempFileDir Havoced: sqlite3OsSync
+Current: unixTempFileDir Havoced: sqlite3OsUnlock
+Current: unixTempFileDir Havoced: pagerUnlockDb
+Current: unixTempFileDir Havoced: sqlite3PcacheSetPageSize
+Current: unixTempFileDir Havoced: sqlite3BitvecTest
+Current: unixTempFileDir Havoced: memjrnlSync
+Current: unixTempFileDir Havoced: addToSavepointBitvecs
+Current: unixTempFileDir Havoced: sqlite3BitvecSet
+Current: unixTempFileDir Havoced: sqlite3BitvecTestNotNull
+Current: unixTempFileDir Havoced: decodeFlags
+Current: unixTempFileDir Havoced: vdbeCloseStatement
+Current: unixTempFileDir Havoced: sqlite3VdbeCloseStatement
+Current: unixTempFileDir Havoced: sqlite3VdbeCheckFk
+Current: unixTempFileDir Havoced: sqlite3Utf16ByteLen
+Current: unixTempFileDir Havoced: vdbeUnbind
+Current: unixTempFileDir Havoced: sqlite3KeywordCode
+Current: unixTempFileDir Havoced: sqlite3_keyword_check
+Current: unixTempFileDir Havoced: sqlite3_wal_autocheckpoint
+Current: unixTempFileDir Havoced: sqlite3_backup_step
+Current: unixTempFileDir Havoced: sqlite3_extended_result_codes
+Current: unixTempFileDir Havoced: sqlite3_column_type
+Current: unixTempFileDir Havoced: sqlite3_column_int
+Current: unixTempFileDir Havoced: sqlite3_column_bytes16
+Current: unixTempFileDir Havoced: sqlite3_column_bytes
+Current: unixTempFileDir Havoced: sqlite3_busy_timeout
+Current: unixTempFileDir Havoced: sqlite3_bind_null
+Current: unixTempFileDir Havoced: apiHandleError
+Current: unixTempFileDir Havoced: sqlite3ApiExit
+Current: unixTempFileDir Havoced: isAllZero
+Current: unixTempFileDir Havoced: sqlite3Utf8CharLen
+Current: unixTempFileDir Havoced: unixUnlock
+Current: unixTempFileDir Havoced: unixLock
+Current: unixTempFileDir Havoced: nolockUnlock
+Current: unixTempFileDir Havoced: nolockLock
+Current: unixTempFileDir Havoced: unixShmUnmap
+Current: unixTempFileDir Havoced: dotlockUnlock
+Current: unixTempFileDir Havoced: dotlockLock
+Current: unixTempFileDir Havoced: unixSync
+Current: unixTempFileDir Havoced: unixSleep
+Current: unixTempFileDir Havoced: memdbLock
+Current: unixTempFileDir Havoced: memdbSync
+Current: unixTempFileDir Havoced: memdbSleep
+Current: unixTempFileDir Havoced: sqlite3_vfs_register
+Current: unixTempFileDir Havoced: rehash
+Current: unixTempFileDir Havoced: compare2pow63
+Current: unixTempFileDir Havoced: sqlite3VdbeMemClearAndResize
+Current: unixTempFileDir Havoced: sqlite3VdbeChangeEncoding
+Current: unixTempFileDir Havoced: sqlite3StrAccumEnlarge
+Current: unixTempFileDir Havoced: sqlite3ErrorToParser
+Current: unixTempFileDir Havoced: line_contains_semicolon
+Current: unixTempFileDir Havoced: line_is_complete
+Current: unixTempFileDir Havoced: idxHashString
+Current: unixTempFileDir Havoced: re_resize
+Current: unixTempFileDir Havoced: apndShmUnmap
+Current: unixTempFileDir Havoced: apndUnlock
+Current: unixTempFileDir Havoced: apndLock
+Current: unixTempFileDir Havoced: apndSync
+Current: unixTempFileDir Havoced: apndSleep
+Current: unixTempFileDir Havoced: deduceDatabaseType
+Current: unixTempFileDir Havoced: renameColumnExprCb
+Current: unixTempFileDir Havoced: renameTableSelectCb
+Current: unixTempFileDir Havoced: renameTableExprCb
+Current: unixTempFileDir Havoced: renameColumnSelectCb
+Current: unixTempFileDir Havoced: renameQuotefixExprCb
+Current: unixTempFileDir Havoced: parseYyyyMmDd
+Current: unixTempFileDir Havoced: osLocaltime
+Current: unixTempFileDir Havoced: parseTimezone
+Current: unixTempFileDir Havoced: parseHhMmSs
+Current: unixTempFileDir Havoced: setDateTimeToCurrent
+Current: unixTempFileDir Havoced: sqlite3OsCurrentTimeInt64
+Current: unixTempFileDir Havoced: sqlite3TransferBindings
+Current: unixTempFileDir Havoced: checkReadTransaction
+Current: unixTempFileDir Havoced: btreeOverwriteCell
+Current: unixTempFileDir Havoced: balance_deeper
+Current: unixTempFileDir Havoced: sqlite3BtreeCursorRestore
+Current: unixTempFileDir Havoced: vdbeSorterMergeTreeBuild
+Current: unixTempFileDir Havoced: vdbePmaReadVarint
+Current: unixTempFileDir Havoced: vdbeMergeEngineStep
+Current: unixTempFileDir Havoced: vdbePmaWriterFinish
+Current: unixTempFileDir Havoced: vdbeSorterSort
+Current: unixTempFileDir Havoced: vdbeSorterListToPMA
+Current: unixTempFileDir Havoced: btreeHeapPull
+Current: unixTempFileDir Havoced: sqlite3BtreeCopyFile
+Current: unixTempFileDir Havoced: sqlite3VtabBegin
+Current: unixTempFileDir Havoced: sqlite3PagerCloseWal
+Current: unixTempFileDir Havoced: sqlite3RowSetNext
+Current: unixTempFileDir Havoced: sqlite3VdbeSorterWrite
+Current: unixTempFileDir Havoced: sqlite3VdbeSorterNext
+Current: unixTempFileDir Havoced: sqlite3VdbeSorterRewind
+Current: unixTempFileDir Havoced: sqlite3BtreeFirst
+Current: unixTempFileDir Havoced: sqlite3VdbeSorterRowkey
+Current: unixTempFileDir Havoced: sqlite3BtreeLast
+Current: unixTempFileDir Havoced: sqlite3VdbeCursorMoveto
+Current: unixTempFileDir Havoced: findNextHostParameter
+Current: unixTempFileDir Havoced: tableMayNotBeDropped
+Current: unixTempFileDir Havoced: sqlite3FixSelect
+Current: unixTempFileDir Havoced: selectWindowRewriteSelectCb
+Current: unixTempFileDir Havoced: selectWindowRewriteExprCb
+Current: unixTempFileDir Havoced: sqlite3WindowExtraAggFuncDepth
+Current: unixTempFileDir Havoced: disallowAggregatesInOrderByCb
+Current: unixTempFileDir Havoced: renumberCursorsCb
+Current: unixTempFileDir Havoced: recomputeColumnsUsedExpr
+Current: unixTempFileDir Havoced: agginfoPersistExprCb
+Current: unixTempFileDir Havoced: propagateConstantExprRewrite
+Current: unixTempFileDir Havoced: windowInitAccum
+Current: unixTempFileDir Havoced: windowExprGtZero
+Current: unixTempFileDir Havoced: exprNodeIsConstantOrGroupBy
+Current: unixTempFileDir Havoced: havingToWhereExprCb
+Current: unixTempFileDir Havoced: addAggInfoFunc
+Current: unixTempFileDir Havoced: addAggInfoColumn
+Current: unixTempFileDir Havoced: sqlite3WalkerDepthIncrease
+Current: unixTempFileDir Havoced: analyzeAggregate
+Current: unixTempFileDir Havoced: propagateConstants
+Current: unixTempFileDir Havoced: sqlite3WindowRewrite
+Current: unixTempFileDir Havoced: sqlite3WhereOkOnePass
+Current: unixTempFileDir Havoced: tabIsReadOnly
+Current: unixTempFileDir Havoced: xferCompatibleIndex
+Current: unixTempFileDir Havoced: exprColumnFlagUnion
+Current: unixTempFileDir Havoced: isAsteriskTerm
+Current: unixTempFileDir Havoced: checkConstraintExprNode
+Current: unixTempFileDir Havoced: checkColumnOverlap
+Current: unixTempFileDir Havoced: sqlite3FkOldmask
+Current: unixTempFileDir Havoced: termIsEquivalence
+Current: unixTempFileDir Havoced: exprNodeIsDeterministic
+Current: unixTempFileDir Havoced: whereLoopCheaperProperSubset
+Current: unixTempFileDir Havoced: whereLoopInsert
+Current: unixTempFileDir Havoced: whereIndexExprTransColumn
+Current: unixTempFileDir Havoced: whereIndexExprTransNode
+Current: unixTempFileDir Havoced: exprIdxCover
+Current: unixTempFileDir Havoced: isSetNullAction
+Current: unixTempFileDir Havoced: changeTempStorage
+Current: unixTempFileDir Havoced: sqlite3FixExpr
+Current: unixTempFileDir Havoced: sqlite3FixTriggerStep
+Current: unixTempFileDir Havoced: fixSelectCb
+Current: unixTempFileDir Havoced: fixExprCb
+Current: unixTempFileDir Havoced: sqlite3FixSrcList
+Current: unixTempFileDir Havoced: sqlite3HasExplicitNulls
+Current: unixTempFileDir Havoced: resolveAttachExpr
+Current: unixTempFileDir Havoced: collationMatch
+Current: unixTempFileDir Havoced: sqlite3FindDb
+Current: unixTempFileDir Havoced: sqlite3ShadowTableName
+Current: unixTempFileDir Havoced: sqlite3DecOrHexToI64
+Current: unixTempFileDir Havoced: exprCodeSubselect
+Current: unixTempFileDir Havoced: sqlite3SelectWalkFail
+Current: unixTempFileDir Havoced: exprNodeIsConstant
+Current: unixTempFileDir Havoced: impliesNotNullRow
+Current: unixTempFileDir Havoced: pagerStress
+Current: unixTempFileDir Havoced: sqlite3ExprCheckIN
+Current: unixTempFileDir Havoced: sqlite3CodeSubselect
+Current: unixTempFileDir Havoced: isAlterableTable
+Current: unixTempFileDir Havoced: sqlite3GetUInt32
+Current: unixTempFileDir Havoced: sqlite3Init
+Current: unixTempFileDir Havoced: pragmaVtabRowid
+Current: unixTempFileDir Havoced: pragmaVtabOpen
+Current: unixTempFileDir Havoced: pragmaVtabBestIndex
+Current: unixTempFileDir Havoced: sqlite3VtabEponymousTableInit
+Current: unixTempFileDir Havoced: sqlite3VtabCallConnect
+Current: unixTempFileDir Havoced: sqlite3ColumnIndex
+Current: unixTempFileDir Havoced: sqlite3IdListIndex
+Current: unixTempFileDir Havoced: sqliteProcessJoin
+Current: unixTempFileDir Havoced: sqlite3IndexedByLookup
+Current: unixTempFileDir Havoced: sqlite3ViewGetColumnNames
+Current: unixTempFileDir Havoced: cannotBeFunction
+Current: unixTempFileDir Havoced: sqlite3ExpandSubquery
+Current: unixTempFileDir Havoced: selectExpander
+Current: unixTempFileDir Havoced: convertCompoundSelectToSubquery
+Current: unixTempFileDir Havoced: sqlite3SchemaToIndex
+Current: unixTempFileDir Havoced: areDoubleQuotedStringsEnabled
+Current: unixTempFileDir Havoced: nameInUsingClause
+Current: unixTempFileDir Havoced: selectSrcCount
+Current: unixTempFileDir Havoced: exprSrcCount
+Current: unixTempFileDir Havoced: sqlite3FunctionUsesThisSrc
+Current: unixTempFileDir Havoced: resolveRemoveWindowsCb
+Current: unixTempFileDir Havoced: incrAggDepth
+Current: unixTempFileDir Havoced: gatherSelectWindowsSelectCallback
+Current: unixTempFileDir Havoced: gatherSelectWindowsCallback
+Current: unixTempFileDir Havoced: sqlite3ExprIsInteger
+Current: unixTempFileDir Havoced: resolveCompoundOrderBy
+Current: unixTempFileDir Havoced: sqlite3ResolveExprListNames
+Current: unixTempFileDir Havoced: sqlite3ResolveExprNames
+Current: unixTempFileDir Havoced: resolveSelectStep
+Current: unixTempFileDir Havoced: resolveExprStep
+Current: unixTempFileDir Havoced: sqlite3ExprWalkNoop
+Current: unixTempFileDir Havoced: sqlite3SelectWalkNoop
+Current: unixTempFileDir Havoced: sqlite3WalkSelectFrom
+Current: unixTempFileDir Havoced: sqlite3WalkSelectExpr
+Current: unixTempFileDir Havoced: sqlite3WalkExprList
+Current: unixTempFileDir Havoced: sqlite3WalkSelect
+Current: unixTempFileDir Havoced: walkExpr
+Current: unixTempFileDir Havoced: sqlite3WalkExpr
+Current: unixTempFileDir Havoced: renameUnmapSelectCb
+Current: unixTempFileDir Havoced: renameUnmapExprCb
+Current: unixTempFileDir Havoced: sqlite3GetToken
+Current: unixTempFileDir Havoced: sqlite3OsCheckReservedLock
+Current: unixTempFileDir Havoced: sqlite3WalBeginReadTransaction
+Current: unixTempFileDir Havoced: pagerPagecount
+Current: unixTempFileDir Havoced: hasHotJournal
+Current: unixTempFileDir Havoced: sqlite3PagerOpenWal
+Current: unixTempFileDir Havoced: sqlite3ThreadJoin
+Current: unixTempFileDir Havoced: sqlite3PagerClose
+Current: unixTempFileDir Havoced: walIndexTryHdr
+Current: unixTempFileDir Havoced: walBeginShmUnreliable
+Current: unixTempFileDir Havoced: walIndexReadHdr
+Current: unixTempFileDir Havoced: pager_write_pagelist
+Current: unixTempFileDir Havoced: writeSuperJournal
+Current: unixTempFileDir Havoced: sqlite3BtreeCommitPhaseOne
+Current: unixTempFileDir Havoced: sqlite3VtabSync
+Current: unixTempFileDir Havoced: pager_delsuper
+Current: unixTempFileDir Havoced: sqlite3PagerSync
+Current: unixTempFileDir Havoced: sqlite3OsFileSize
+Current: unixTempFileDir Havoced: sqlite3WalSavepointUndo
+Current: unixTempFileDir Havoced: pagerPlaybackSavepoint
+Current: unixTempFileDir Havoced: memjrnlFileSize
+Current: unixTempFileDir Havoced: pager_cksum
+Current: unixTempFileDir Havoced: vdbeCommit
+Current: unixTempFileDir Havoced: synthCollSeq
+Current: unixTempFileDir Havoced: sqlite3CheckCollSeq
+Current: unixTempFileDir Havoced: sqlite3FindDbName
+Current: unixTempFileDir Havoced: sqlite3_txn_state
+Current: unixTempFileDir Havoced: sqlite3_drop_modules
+Current: unixTempFileDir Havoced: sqlite3_strglob
+Current: unixTempFileDir Havoced: sqlite3_stricmp
+Current: unixTempFileDir Havoced: sqlite3_db_readonly
+Current: unixTempFileDir Havoced: sqlite3_wal_checkpoint
+Current: unixTempFileDir Havoced: sqlite3_transfer_bindings
+Current: unixTempFileDir Havoced: sqlite3_open16
+Current: unixTempFileDir Havoced: sqlite3_open
+Current: unixTempFileDir Havoced: sqlite3_declare_vtab
+Current: unixTempFileDir Havoced: sqlite3_bind_parameter_index
+Current: unixTempFileDir Havoced: sqlite3BlobCompare
+Current: unixTempFileDir Havoced: sqlite3VdbeMemCopy
+Current: unixTempFileDir Havoced: sqlite3GetInt32
+Current: unixTempFileDir Havoced: unixFileLock
+Current: unixTempFileDir Havoced: unixLockSharedMemory
+Current: unixTempFileDir Havoced: unixCheckReservedLock
+Current: unixTempFileDir Havoced: findInodeInfo
+Current: unixTempFileDir Havoced: unixBackupDir
+Current: unixTempFileDir Havoced: nolockCheckReservedLock
+Current: unixTempFileDir Havoced: unixFcntlExternalReader
+Current: unixTempFileDir Havoced: openDirectory
+Current: unixTempFileDir Havoced: dotlockCheckReservedLock
+Current: unixTempFileDir Havoced: unixFileSize
+Current: unixTempFileDir Havoced: unixCurrentTimeInt64
+Current: unixTempFileDir Havoced: unixCurrentTime
+Current: unixTempFileDir Havoced: memdbFileSize
+Current: unixTempFileDir Havoced: memdbCurrentTimeInt64
+Current: unixTempFileDir Havoced: sqlite3StrICmp
+Current: unixTempFileDir Havoced: sqlite3LookasideUsed
+Current: unixTempFileDir Havoced: sqlite3VdbeMemFinalize
+Current: unixTempFileDir Havoced: lookasideMallocSize
+Current: unixTempFileDir Havoced: isLookaside
+Current: unixTempFileDir Havoced: sqlite3DbMallocSize
+Current: unixTempFileDir Havoced: str_in_array
+Current: unixTempFileDir Havoced: isNumber
+Current: unixTempFileDir Havoced: db_int
+Current: unixTempFileDir Havoced: showHelp
+Current: unixTempFileDir Havoced: optionMatch
+Current: unixTempFileDir Havoced: run_table_dump_query
+Current: unixTempFileDir Havoced: run_schema_dump_query
+Current: unixTempFileDir Havoced: testcase_glob
+Current: unixTempFileDir Havoced: idxBuildSampleTable
+Current: unixTempFileDir Havoced: idxFindConstraint
+Current: unixTempFileDir Havoced: expertRowid
+Current: unixTempFileDir Havoced: expertOpen
+Current: unixTempFileDir Havoced: expertBestIndex
+Current: unixTempFileDir Havoced: seriesRowid
+Current: unixTempFileDir Havoced: seriesOpen
+Current: unixTempFileDir Havoced: seriesBestIndex
+Current: unixTempFileDir Havoced: decimal_cmp
+Current: unixTempFileDir Havoced: apndCheckReservedLock
+Current: unixTempFileDir Havoced: apndFileSize
+Current: unixTempFileDir Havoced: apndCurrentTimeInt64
+Current: unixTempFileDir Havoced: apndCurrentTime
+Current: unixTempFileDir Havoced: completionRowid
+Current: unixTempFileDir Havoced: completionOpen
+Current: unixTempFileDir Havoced: completionBestIndex
+Current: unixTempFileDir Havoced: fileLinkStat
+Current: unixTempFileDir Havoced: fsdirRowid
+Current: unixTempFileDir Havoced: fsdirOpen
+Current: unixTempFileDir Havoced: fsdirBestIndex
+Current: unixTempFileDir Havoced: fileStat
+Current: unixTempFileDir Havoced: do_meta_command
+Current: unixTempFileDir Havoced: idxPopulateStat1
+Current: unixTempFileDir Havoced: idxProcessTriggers
+Current: unixTempFileDir Havoced: sqlite3_expert_analyze
+Current: unixTempFileDir Havoced: idxCreateVtabSchema
+Current: unixTempFileDir Havoced: idxFindIndexes
+Current: unixTempFileDir Havoced: sqlite3_enable_load_extension
+Current: unixTempFileDir Havoced: sqliteDefaultBusyCallback
+Current: unixTempFileDir Havoced: defragmentPage
+Current: unixTempFileDir Havoced: vdbePmaReaderIncrMergeInit
+Current: unixTempFileDir Havoced: vdbePmaReaderIncrInit
+Current: unixTempFileDir Havoced: btreeSetHasContent
+Current: unixTempFileDir Havoced: checkRef
+Current: unixTempFileDir Havoced: getPageReferenced
+Current: unixTempFileDir Havoced: sqlite3PagerMaxPageCount
+Current: unixTempFileDir Havoced: sqlite3BtreeMaxPageCount
+Current: unixTempFileDir Havoced: sqlite3BtreeSetVersion
+Current: unixTempFileDir Havoced: sqlite3PagerSetJournalMode
+Current: unixTempFileDir Havoced: sqlite3BtreeCursorHasHint
+Current: unixTempFileDir Havoced: sqlite3BtreeBeginStmt
+Current: unixTempFileDir Havoced: sqlite3VdbeBooleanValue
+Current: unixTempFileDir Havoced: sqlite3Close
+Current: unixTempFileDir Havoced: moveToChild
+Current: unixTempFileDir Havoced: sqlite3BtreePrevious
+Current: unixTempFileDir Havoced: sqlite3BtreeNext
+Current: unixTempFileDir Havoced: indexColumnNotNull
+Current: unixTempFileDir Havoced: sqlite3ExprIsTableConstant
+Current: unixTempFileDir Havoced: sqlite3PcacheSetSpillsize
+Current: unixTempFileDir Havoced: sqlite3PagerSetSpillsize
+Current: unixTempFileDir Havoced: sqlite3BtreeSetSpillSize
+Current: unixTempFileDir Havoced: sqlite3BtreeSetAutoVacuum
+Current: unixTempFileDir Havoced: sqlite3BtreeSetPagerFlags
+Current: unixTempFileDir Havoced: sqlite3BtreeSecureDelete
+Current: unixTempFileDir Havoced: sqlite3PagerLockingMode
+Current: unixTempFileDir Havoced: sqlite3ExprImpliesNonNullRow
+Current: unixTempFileDir Havoced: sqlite3VdbeChangeToNoop
+Current: unixTempFileDir Havoced: sqlite3VdbeGoto
+Current: unixTempFileDir Havoced: sqlite3GetTempRange
+Current: unixTempFileDir Havoced: growOpArray
+Current: unixTempFileDir Havoced: sqlite3VdbeAddOp0
+Current: unixTempFileDir Havoced: sqlite3AnalysisLoad
+Current: unixTempFileDir Havoced: sqlite3BtreeSetCacheSize
+Current: unixTempFileDir Havoced: sqlite3ExprCheckHeight
+Current: unixTempFileDir Havoced: dupedExprNodeSize
+Current: unixTempFileDir Havoced: dupedExprStructSize
+Current: unixTempFileDir Havoced: dupedExprSize
+Current: unixTempFileDir Havoced: analyzeFilterKeyword
+Current: unixTempFileDir Havoced: analyzeOverKeyword
+Current: unixTempFileDir Havoced: pagerOpenSavepoint
+Current: unixTempFileDir Havoced: sqlite3PagerOpenSavepoint
+Current: unixTempFileDir Havoced: vdbeSorterJoinAll
+Current: unixTempFileDir Havoced: sqlite3OsLock
+Current: unixTempFileDir Havoced: pagerLockDb
+Current: unixTempFileDir Havoced: pager_wait_on_lock
+Current: unixTempFileDir Havoced: btreeGetHasContent
+Current: unixTempFileDir Havoced: sqlite3OsShmUnmap
+Current: unixTempFileDir Havoced: sqlite3OsSleep
+Current: unixTempFileDir Havoced: walRewriteChecksums
+Current: unixTempFileDir Havoced: syncJournal
+Current: unixTempFileDir Havoced: pager_incr_changecounter
+Current: unixTempFileDir Havoced: sqlite3BtreeCommitPhaseTwo
+Current: unixTempFileDir Havoced: ptrmapPageno
+Current: unixTempFileDir Havoced: walFramePgno
+Current: unixTempFileDir Havoced: pagerUndoCallback
+Current: unixTempFileDir Havoced: pager_error
+Current: unixTempFileDir Havoced: pager_playback
+Current: unixTempFileDir Havoced: walLockShared
+Current: unixTempFileDir Havoced: sqlite3WalExclusiveMode
+Current: unixTempFileDir Havoced: pager_truncate
+Current: unixTempFileDir Havoced: pagerFlushOnCommit
+Current: unixTempFileDir Havoced: zeroJournalHdr
+Current: unixTempFileDir Havoced: sqlite3OsSync
+Current: unixTempFileDir Havoced: sqlite3OsUnlock
+Current: unixTempFileDir Havoced: pagerUnlockDb
+Current: unixTempFileDir Havoced: sqlite3PcacheSetPageSize
+Current: unixTempFileDir Havoced: sqlite3BitvecTest
+Current: unixTempFileDir Havoced: memjrnlSync
+Current: unixTempFileDir Havoced: addToSavepointBitvecs
+Current: unixTempFileDir Havoced: sqlite3BitvecSet
+Current: unixTempFileDir Havoced: sqlite3BitvecTestNotNull
+Current: unixTempFileDir Havoced: decodeFlags
+Current: unixTempFileDir Havoced: vdbeCloseStatement
+Current: unixTempFileDir Havoced: sqlite3VdbeCloseStatement
+Current: unixTempFileDir Havoced: sqlite3VdbeCheckFk
+Current: unixTempFileDir Havoced: sqlite3Utf16ByteLen
+Current: unixTempFileDir Havoced: vdbeUnbind
+Current: unixTempFileDir Havoced: sqlite3KeywordCode
+Current: unixTempFileDir Havoced: sqlite3_keyword_check
+Current: unixTempFileDir Havoced: sqlite3_wal_autocheckpoint
+Current: unixTempFileDir Havoced: sqlite3_backup_step
+Current: unixTempFileDir Havoced: sqlite3_extended_result_codes
+Current: unixTempFileDir Havoced: sqlite3_column_type
+Current: unixTempFileDir Havoced: sqlite3_column_int
+Current: unixTempFileDir Havoced: sqlite3_column_bytes16
+Current: unixTempFileDir Havoced: sqlite3_column_bytes
+Current: unixTempFileDir Havoced: sqlite3_busy_timeout
+Current: unixTempFileDir Havoced: sqlite3_bind_null
+Current: unixTempFileDir Havoced: apiHandleError
+Current: unixTempFileDir Havoced: sqlite3ApiExit
+Current: unixTempFileDir Havoced: isAllZero
+Current: unixTempFileDir Havoced: sqlite3Utf8CharLen
+Current: unixTempFileDir Havoced: unixUnlock
+Current: unixTempFileDir Havoced: unixLock
+Current: unixTempFileDir Havoced: nolockUnlock
+Current: unixTempFileDir Havoced: nolockLock
+Current: unixTempFileDir Havoced: unixShmUnmap
+Current: unixTempFileDir Havoced: dotlockUnlock
+Current: unixTempFileDir Havoced: dotlockLock
+Current: unixTempFileDir Havoced: unixSync
+Current: unixTempFileDir Havoced: unixSleep
+Current: unixTempFileDir Havoced: memdbLock
+Current: unixTempFileDir Havoced: memdbSync
+Current: unixTempFileDir Havoced: memdbSleep
+Current: unixTempFileDir Havoced: sqlite3_vfs_register
+Current: unixTempFileDir Havoced: rehash
+Current: unixTempFileDir Havoced: compare2pow63
+Current: unixTempFileDir Havoced: sqlite3VdbeMemClearAndResize
+Current: unixTempFileDir Havoced: sqlite3VdbeChangeEncoding
+Current: unixTempFileDir Havoced: sqlite3StrAccumEnlarge
+Current: unixTempFileDir Havoced: sqlite3ErrorToParser
+Current: unixTempFileDir Havoced: line_contains_semicolon
+Current: unixTempFileDir Havoced: line_is_complete
+Current: unixTempFileDir Havoced: idxHashString
+Current: unixTempFileDir Havoced: re_resize
+Current: unixTempFileDir Havoced: apndShmUnmap
+Current: unixTempFileDir Havoced: apndUnlock
+Current: unixTempFileDir Havoced: apndLock
+Current: unixTempFileDir Havoced: apndSync
+Current: unixTempFileDir Havoced: apndSleep
+Current: unixTempFileDir Havoced: deduceDatabaseType
+
+                                                           0 sec [DONE]
+        Number of expressions:                        169908
+        after encoding
+
+      33 assertions before transformations (28 no_function_call, 3 no_back_edge, 2 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                           12370
+        Fixed Memory Address Assigner
+          Number of moved ops                              6
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           75379
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               1
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           70618
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                          276646
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           3 sec [DONE]
+        
+      33 assertions remain after transformations (28 no_function_call, 3 no_back_edge, 2 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...

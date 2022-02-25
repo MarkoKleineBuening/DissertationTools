@@ -1,0 +1,38 @@
+<VerificationJob>
+  <Configuration>
+    <AnalyzeChecksIndividually value="false" />
+    <BitcodeTraces value="false" />
+    <EnableSlicing value="false" />
+    <EntryPoint value="map_hardware_interrupt" />
+    <FixPoint value="true" />
+    <HavocLimit value="1" />
+    <IgnoreMissingFunctions value="false" />
+    <InitializedGlobals value="false" />
+    <LoopUnrollBound value="12" />
+    <OverApproxVaArgs value="false" />
+    <PreconditionLocation value="jobs/131" />
+    <SourceDirectory value="/home/i12/mbuening/100_Dissertation/BMI160/BMI160_driver" />
+    <StopEncodingAfterCheck value="false" />
+    <StopEncodingAfterCheckLoop value="0" />
+    <TimeOut value="300" />
+  </Configuration>
+  <CheckList>
+    <Check id="1169" location="1263" category="implicit.conversion.overflow" status="safe" scope="map_hardware_interrupt" />
+    <Check id="1173" location="1267" category="implicit.conversion.overflow" status="safe" scope="map_hardware_interrupt" />
+    <Check id="1179" location="1271" category="shift.of.negative" status="safe" scope="map_hardware_interrupt" />
+    <Check id="1185" location="1277" category="implicit.conversion.overflow" status="safe" scope="map_hardware_interrupt" />
+    <Check id="1191" location="1280" category="shift.of.negative" status="safe" scope="map_hardware_interrupt" />
+    <Check id="1195" location="1284" category="implicit.conversion.overflow" status="safe" scope="map_hardware_interrupt" />
+    <Check id="1198" location="1287" category="arrayindex" status="safe" scope="map_hardware_interrupt" />
+    <Check id="1200" location="1289" category="implicit.conversion.overflow" status="safe" scope="map_hardware_interrupt" />
+    <Check id="1204" location="1293" category="implicit.conversion.overflow" status="safe" scope="map_hardware_interrupt" />
+    <Check id="1210" location="1296" category="shift.of.negative" status="safe" scope="map_hardware_interrupt" />
+    <Check id="1212" location="1298" category="arrayindex" status="unsafe" scope="map_hardware_interrupt">
+      <Annotations>
+        <Annotation>An array can be indexed out of bounds.</Annotation>
+      </Annotations>
+    </Check>
+  </CheckList>
+  <Annotation>someunsafe</Annotation>
+  <Status>someunsafe</Status>
+</VerificationJob>

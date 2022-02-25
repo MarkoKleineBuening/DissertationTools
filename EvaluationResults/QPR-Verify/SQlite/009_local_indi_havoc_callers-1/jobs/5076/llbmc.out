@@ -1,0 +1,171 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 5076 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...Check contains Safe and does not have to refined by preconditions
+try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 2
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/5076
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : vdbeSorterMergeTreeBuild
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "vdbeSorterMergeTreeBuild" for 1 iterations succeeded.
+      Unrolling loop in function "vdbeSorterMergeTreeBuild" for 1 iterations succeeded.
+      Transformed "vdbeSorterMergeTreeBuild" from 37 to 86 basic blocks and from 198 to 451 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...
+        Unrolling loop in function "vdbeMergeEngineNew" for 1 iterations succeeded.
+        Transformed "vdbeMergeEngineNew" from 9 to 10 basic blocks and from 55 to 60 instructionsCurrent: vdbeMergeEngineNew Havoced: sqlite3FaultSim
+Current: vdbeMergeEngineNew Havoced: sqlite3MallocZero
+
+        Unrolling loop in function "vdbeSorterTreeDepth" for 1 iterations succeeded.
+        Transformed "vdbeSorterTreeDepth" from 4 to 5 basic blocks and from 25 to 32 instructionsCurrent: vdbeMergeEngineNew Havoced: sqlite3FaultSim
+Current: vdbeMergeEngineNew Havoced: sqlite3MallocZero
+
+        Unrolling loop in function "vdbeMergeEngineLevel0" for 1 iterations succeeded.
+        Transformed "vdbeMergeEngineLevel0" from 11 to 16 basic blocks and from 66 to 99 instructionsCurrent: vdbeMergeEngineLevel0 Havoced: vdbeMergeEngineNew
+Current: vdbeMergeEngineLevel0 Havoced: vdbePmaReaderInit
+Current: vdbeMergeEngineLevel0 Havoced: vdbeMergeEngineFree
+Current: vdbeMergeEngineLevel0 Havoced: vdbePmaReaderInit
+
+        Unrolling loop in function "vdbeSorterAddToTree" for 1 iterations succeeded.
+        Unrolling loop in function "vdbeSorterAddToTree" for 1 iterations succeeded.
+        Transformed "vdbeSorterAddToTree" from 21 to 34 basic blocks and from 123 to 196 instructionsCurrent: vdbeSorterAddToTree Havoced: vdbeIncrMergerNew
+Current: vdbeSorterAddToTree Havoced: vdbeMergeEngineNew
+Current: vdbeSorterAddToTree Havoced: vdbeIncrMergerNew
+Current: vdbeSorterAddToTree Havoced: vdbeIncrFree
+Current: vdbeSorterAddToTree Havoced: vdbeMergeEngineNew
+Current: vdbeSorterAddToTree Havoced: vdbeIncrMergerNew
+Current: vdbeMergeEngineLevel0 Havoced: vdbeMergeEngineNew
+Current: vdbeMergeEngineLevel0 Havoced: vdbePmaReaderInit
+Current: vdbeMergeEngineLevel0 Havoced: vdbeMergeEngineFree
+Current: vdbeMergeEngineLevel0 Havoced: vdbePmaReaderInit
+Current: vdbeSorterAddToTree Havoced: vdbeIncrMergerNew
+Current: vdbeSorterAddToTree Havoced: vdbeMergeEngineNew
+Current: vdbeSorterAddToTree Havoced: vdbeIncrMergerNew
+Current: vdbeSorterAddToTree Havoced: vdbeIncrFree
+Current: vdbeSorterAddToTree Havoced: vdbeMergeEngineNew
+Current: vdbeSorterAddToTree Havoced: vdbeIncrMergerNew
+Current: vdbeMergeEngineLevel0 Havoced: vdbeMergeEngineNew
+Current: vdbeMergeEngineLevel0 Havoced: vdbePmaReaderInit
+Current: vdbeMergeEngineLevel0 Havoced: vdbeMergeEngineFree
+Current: vdbeMergeEngineLevel0 Havoced: vdbePmaReaderInit
+
+        Unrolling loop in function "vdbeMergeEngineFree" for 1 iterations succeeded.
+        Transformed "vdbeMergeEngineFree" from 7 to 8 basic blocks and from 27 to 31 instructionsCurrent: vdbeMergeEngineFree Havoced: vdbePmaReaderClear
+Current: vdbeMergeEngineFree Havoced: sqlite3_free
+Current: vdbeIncrMergerNew Havoced: sqlite3FaultSim
+Current: vdbeIncrMergerNew Havoced: sqlite3MallocZero
+Current: vdbeIncrMergerNew Havoced: vdbeMergeEngineFree
+Current: vdbeMergeEngineFree Havoced: vdbePmaReaderClear
+Current: vdbeMergeEngineFree Havoced: sqlite3_free
+Current: vdbeMergeEngineNew Havoced: sqlite3FaultSim
+Current: vdbeMergeEngineNew Havoced: sqlite3MallocZero
+Current: vdbeMergeEngineLevel0 Havoced: vdbeMergeEngineNew
+Current: vdbeMergeEngineLevel0 Havoced: vdbePmaReaderInit
+Current: vdbeMergeEngineLevel0 Havoced: vdbeMergeEngineFree
+Current: vdbeMergeEngineLevel0 Havoced: vdbePmaReaderInit
+Current: vdbeSorterAddToTree Havoced: vdbeIncrMergerNew
+Current: vdbeSorterAddToTree Havoced: vdbeMergeEngineNew
+Current: vdbeSorterAddToTree Havoced: vdbeIncrMergerNew
+Current: vdbeSorterAddToTree Havoced: vdbeIncrFree
+Current: vdbeSorterAddToTree Havoced: vdbeMergeEngineNew
+Current: vdbeSorterAddToTree Havoced: vdbeIncrMergerNew
+Current: vdbeMergeEngineLevel0 Havoced: vdbeMergeEngineNew
+Current: vdbeMergeEngineLevel0 Havoced: vdbePmaReaderInit
+Current: vdbeMergeEngineLevel0 Havoced: vdbeMergeEngineFree
+Current: vdbeMergeEngineLevel0 Havoced: vdbePmaReaderInit
+Current: vdbeSorterAddToTree Havoced: vdbeIncrMergerNew
+Current: vdbeSorterAddToTree Havoced: vdbeMergeEngineNew
+Current: vdbeSorterAddToTree Havoced: vdbeIncrMergerNew
+Current: vdbeSorterAddToTree Havoced: vdbeIncrFree
+Current: vdbeSorterAddToTree Havoced: vdbeMergeEngineNew
+Current: vdbeSorterAddToTree Havoced: vdbeIncrMergerNew
+Current: vdbeMergeEngineLevel0 Havoced: vdbeMergeEngineNew
+Current: vdbeMergeEngineLevel0 Havoced: vdbePmaReaderInit
+Current: vdbeMergeEngineLevel0 Havoced: vdbeMergeEngineFree
+Current: vdbeMergeEngineLevel0 Havoced: vdbePmaReaderInit
+Current: vdbeMergeEngineFree Havoced: vdbePmaReaderClear
+Current: vdbeMergeEngineFree Havoced: sqlite3_free
+Current: vdbeIncrMergerNew Havoced: sqlite3FaultSim
+Current: vdbeIncrMergerNew Havoced: sqlite3MallocZero
+Current: vdbeIncrMergerNew Havoced: vdbeMergeEngineFree
+
+                                                           0 sec [DONE]
+        Number of expressions:                        158892
+        after encoding
+
+      33 assertions before transformations (25 no_back_edge, 8 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            6306
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72682
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                              13
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                              53
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             142
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      33 assertions remain after transformations (25 no_back_edge, 8 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...

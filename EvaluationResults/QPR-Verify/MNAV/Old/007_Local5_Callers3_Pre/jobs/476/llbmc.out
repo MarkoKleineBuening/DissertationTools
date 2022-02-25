@@ -1,0 +1,126 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+handleJobInSeparateProcess0
+
+Checking job 476 ...about to run job:
+preconNumber: 3, 1
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 4
+    HavocLimit : 0
+    PreconditionNumber : 3
+    PreconditionLocation : jobs/476
+    TimeOut : 300
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : mat_lu
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "mat_lu" for 4 iterations succeeded.
+      Unrolling loop in function "mat_lu" for 4 iterations succeeded.
+      Unrolling loop in function "mat_lu" for 4 iterations succeeded.
+      Unrolling loop in function "mat_lu" for 4 iterations succeeded.
+      Unrolling loop in function "mat_lu" for 4 iterations succeeded.
+      Transformed "mat_lu" from 28 to 333 basic blocks and from 239 to 4803 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...size Alloca: 1
+size Alloca: 1
+                      0 sec [DONE]
+        Number of expressions:                         12559
+        after encoding
+
+      58 assertions before transformations (16 no_function_call, 26 no_back_edge, 16 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            3323
+        Fixed Memory Address Assigner
+          Number of moved ops                              2
+          Number of rewrites                             366
+        Simplifier
+          Number of moved ops                              2
+          Number of rewrites                            5332
+        Memory Model Encoder
+          Number of moved ops                              0
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                               0
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                             512
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of rewrites                              40
+                                                           0 sec [DONE]
+        
+      58 assertions remain after transformations (16 no_function_call, 26 no_back_edge, 16 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...            0 sec [DONE]
+        
+                                                           0 sec [DONE]
+      after performing Check
+evaluateCheckerResultsViaRefinementLoop
+checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+getCheckerResultAfterUpdatingMarker
+failingInst:   %56 = call double @fabs(double %55) #2, !dbg !1436
+Preconditions internal: 
+
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   %56 = call double @fabs(double %55) #2, !dbg !1436
+Preconditions internal: 
+
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   %56 = call double @fabs(double %55) #2, !dbg !1436
+Preconditions internal: 
+
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      name of function arguments: Writing precondition at: jobs/476/precondition_mat_lu.txt
+
+Generated Preconditions:
+[underoverapprox]name of function arguments: 
+
+
+
+
+                                                           0 sec [DONE]
+    allsafe
+    
+                                                           0 sec [DONE]
+  

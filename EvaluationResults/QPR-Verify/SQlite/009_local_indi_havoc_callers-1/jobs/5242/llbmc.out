@@ -1,0 +1,91 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 5242 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 2
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/5242
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : exprSetHeight
+m_checker->run()
+
+    Performing bounded model checking ...
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...
+        Unrolling loop in function "heightOfExprList" for 1 iterations succeeded.
+        Transformed "heightOfExprList" from 7 to 8 basic blocks and from 29 to 33 instructionsCurrent: heightOfExprList Havoced: heightOfExpr
+
+        Unrolling loop in function "sqlite3ExprListFlags" for 1 iterations succeeded.
+        Transformed "sqlite3ExprListFlags" from 5 to 6 basic blocks and from 34 to 41 instructions
+        Unrolling loop in function "heightOfSelect" for 1 iterations succeeded.
+        Transformed "heightOfSelect" from 5 to 6 basic blocks and from 35 to 38 instructionsCurrent: heightOfSelect Havoced: heightOfExpr
+Current: heightOfSelect Havoced: heightOfExpr
+Current: heightOfSelect Havoced: heightOfExpr
+Current: heightOfSelect Havoced: heightOfExprList
+Current: heightOfSelect Havoced: heightOfExprList
+Current: heightOfSelect Havoced: heightOfExprList
+
+                                                           0 sec [DONE]
+        Number of expressions:                        155365
+        after encoding
+
+      4 assertions before transformations (3 no_back_edge, 1 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            3548
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72616
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               1
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               4
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             142
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      4 assertions remain after transformations (3 no_back_edge, 1 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...

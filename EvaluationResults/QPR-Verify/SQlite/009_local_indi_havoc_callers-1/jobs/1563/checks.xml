@@ -1,0 +1,74 @@
+<VerificationJob>
+  <Configuration>
+    <AnalyzeChecksIndividually value="true" />
+    <BitcodeTraces value="false" />
+    <CheckCallers value="true" />
+    <DumpVerifierBitcodeFiles value="false" />
+    <EnableSlicing value="false" />
+    <EntryPoint value="vtabBestIndex" />
+    <FixPoint value="true" />
+    <ForkJobs value="true" />
+    <HavocLimit value="2" />
+    <Hosted value="true" />
+    <IgnoreMissingFunctions value="false" />
+    <InitializedGlobals value="false" />
+    <LoopUnrollBound value="1" />
+    <PreconditionLocation value="jobs/1563" />
+    <SourceDirectory value="/home/i12/mbuening/100_Dissertation/SQlite/sqlite/bld" />
+    <TimeOut value="600" />
+    <XMLTraces value="false" />
+  </Configuration>
+  <CheckList>
+    <Check id="5179" location="5616" category="arithmetic.overflow.warning" status="unsafe" scope="sqlite3OomFault">
+      <Annotations>
+        <Annotation>An unsigned arithmetic operation can overflow (wraparound).</Annotation>
+        <Annotation>A loop bound was reached</Annotation>
+        <Annotation>An unsigned arithmetic operation can overflow (wraparound).</Annotation>
+      </Annotations>
+      <EntryStatus>
+        <SingleEntryStatus>attachFunc, unknown</SingleEntryStatus>
+        <SingleEntryStatus>createFunctionApi, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>createTableStmt, unknown</SingleEntryStatus>
+        <SingleEntryStatus>dbMallocRawFinish, unknown</SingleEntryStatus>
+        <SingleEntryStatus>dbReallocFinish, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>findCollSeqEntry, unknown</SingleEntryStatus>
+        <SingleEntryStatus>growOpArray, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>lockTable, unknown</SingleEntryStatus>
+        <SingleEntryStatus>openDatabase, unknown</SingleEntryStatus>
+        <SingleEntryStatus>schemaIsValid, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3AddReturning, todo</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3AnalysisLoad, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3ColumnsFromExprList, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3CreateForeignKey, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3CreateIndex, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3EndTable, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3FindFunction, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3FinishTrigger, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3IndexAffinityStr, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3InitCallback, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3InitOne, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3KeyInfoAlloc, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3OpenTempDatabase, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3Pragma, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3RegisterPerConnectionBuiltinFunctions, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3Reprepare, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3SchemaGet, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3TableAffinity, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3VMPrintf, todo</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3VdbeDisplayP4, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3VdbeExec, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3VdbeList, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3VtabCreateModule, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3VtabFinishParse, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3VtabMakeWritable, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3_exec, unknown</SingleEntryStatus>
+        <SingleEntryStatus>sqlite3_result_error_nomem, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>valueFromExpr, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>vtabBestIndex, unsafe</SingleEntryStatus>
+        <SingleEntryStatus>vtabCallConstructor, unsafe</SingleEntryStatus>
+      </EntryStatus>
+    </Check>
+  </CheckList>
+  <Annotation>allunsafe</Annotation>
+  <Status>allunsafe</Status>
+</VerificationJob>

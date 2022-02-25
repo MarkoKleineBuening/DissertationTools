@@ -1,0 +1,158 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+handleJobInSeparateProcess0
+
+Checking job 172 ...about to run job:
+preconNumber: 5, 1
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 1
+    LoopUnrollBound : 1
+    HavocLimit : 0
+    PreconditionNumber : 5
+    PreconditionLocation : jobs/172
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : true
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : apndFetch
+m_checker->run()
+
+    Performing bounded model checking ...getMatchingFunctions
+res.push_back: apndFetch
+res.push_back: memdbFetch
+res.push_back: unixFetch
+res.push_back: sqlite3OsFetch
+
+      Transformed "apndFetch" from 5 to 15 basic blocks and from 41 to 60 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...size Alloca: 1
+size Alloca: 1
+-----found check = true
+                      0 sec [DONE]
+        Number of expressions:                        155057
+        after encoding
+
+      1 assertion before transformations (1 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            3362
+        Fixed Memory Address Assigner
+          Number of moved ops                              2
+          Number of rewrites                            5210
+        Simplifier
+          Number of moved ops                              2
+          Number of rewrites                          282385
+        Memory Model Encoder
+          Number of moved ops                              0
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                           69268
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      1 assertion remains after transformations (1 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...            0 sec [DONE]
+        
+                                                           1 sec [DONE]
+      after performing Check
+evaluateCheckerResultsViaRefinementLoop
+checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setCheckToUnsafe
+setCheckToUnsafe
+Check for floating point traces / abstractions currently deactivated
+getCheckerResultAfterUpdatingMarker
+failingInst:   call void @llbmc.assert(i1 %5, i32 %0)
+Preconditions internal: 
+i64 %arg1:9223372036041080832; (i64 %arg1:9223372036041080832)i32 %arg2:1879048192; (i32 %arg2:1879048192)
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: i64 %arg1 = nondef() : 9223372036041080832
+assumePair: i32 %arg2 = nondef() : 1879048192
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   call void @llbmc.assert(i1 %5, i32 %0)
+Preconditions internal: 
+i64 %arg1:9223372036166909952; (i64 %arg1:9223372036166909952)i32 %arg2:1610612736; (i32 %arg2:1610612736)
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: i64 %arg1 = nondef() : 9223372036166909952
+assumePair: i32 %arg2 = nondef() : 1610612736
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   call void @llbmc.assert(i1 %5, i32 %0)
+Preconditions internal: 
+i64 %arg1:9223372036645060608; (i64 %arg1:9223372036645060608)i32 %arg2:536870912; (i32 %arg2:536870912)
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: i64 %arg1 = nondef() : 9223372036645060608
+assumePair: i32 %arg2 = nondef() : 536870912
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   call void @llbmc.assert(i1 %5, i32 %0)
+Preconditions internal: 
+i64 %arg1:9223372036502454272; (i64 %arg1:9223372036502454272)i32 %arg2:1417674752; (i32 %arg2:1417674752)
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: i64 %arg1 = nondef() : 9223372036502454272
+assumePair: i32 %arg2 = nondef() : 1417674752
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   call void @llbmc.assert(i1 %5, i32 %0)
+Preconditions internal: 
+i64 %arg1:9223372036561174528; (i64 %arg1:9223372036561174528)i32 %arg2:1358954496; (i32 %arg2:1358954496)
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: i64 %arg1 = nondef() : 9223372036561174528
+assumePair: i32 %arg2 = nondef() : 1358954496
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      name of function arguments: Writing precondition at: jobs/172/precondition_apndFetch.txt
+
+Generated Preconditions:
+[underoverapprox]name of function arguments: 
+i64 %arg1:9223372036041080832; i32 %arg2:1879048192; 
+i64 %arg1:9223372036166909952; i32 %arg2:1610612736; 
+i64 %arg1:9223372036645060608; i32 %arg2:536870912; 
+i64 %arg1:9223372036502454272; i32 %arg2:1417674752; 
+i64 %arg1:9223372036561174528; i32 %arg2:1358954496; 
+
+                                                           2 sec [DONE]
+    allunsafe
+    
+                                                           2 sec [DONE]
+  

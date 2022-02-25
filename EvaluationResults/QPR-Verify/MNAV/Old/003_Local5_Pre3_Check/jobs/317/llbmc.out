@@ -1,0 +1,258 @@
+runJobCommand
+precondition analysis with entry:ahrs_main
+arguents: child
+arguents: job
+arguents: mode
+arguents: precondition
+handleJobInSeparateProcess0
+
+Checking job 317 ...about to run job:
+preconNumber: 3, 1
+
+  Running Model Checker with 1 checks ...entry: ahrs_main, functionName: AHRS_Algorithm
+  call void @qpr.precondition.AHRS_Algorithm(%struct.imu.131* @imupacket)
+entry: ahrs_main, functionName: AHRS_Algorithm
+entry: ahrs_main, functionName: ahrs_main
+try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 4
+    HavocLimit : 0
+    PreconditionNumber : 3
+    PreconditionLocation : jobs/317
+    TimeOut : 300
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : ahrs_main
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "ahrs_main" for 4 iterations succeeded.getMatchingFunctions
+
+      Transformed "ahrs_main" from 18 to 82 basic blocks and from 202 to 486 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...size Alloca: 1
+
+        Unrolling loop in function "_mat_creat" for 4 iterations succeeded.
+        Transformed "_mat_creat" from 10 to 20 basic blocks and from 54 to 117 instructions
+        Transformed "mat_error" from 5 to 10 basic blocks and from 10 to 19 instructions
+        Unrolling loop in function "mat_fill" for 4 iterations succeeded.
+        Unrolling loop in function "mat_fill" for 4 iterations succeeded.
+        Transformed "mat_fill" from 18 to 159 basic blocks and from 67 to 679 instructionsTODO MKB implement precondition handling: IE
+Reading in precondition at: jobs/317/precondition_AHRS_Algorithm.txt
+preconFile: jobs/317/precondition_AHRS_Algorithm.txt
+ref: [underoverapprox]name of function arguments, argValue:  
+ref: [underoverapprox]name of function arguments, argValue:  
+name of function arguments line
+ERROR boolCond is nullptr
+ERROR boolCond is nullptr
+ERROR boolCond is nullptr
+Writing precondition type at: jobs/317/precondition_type_ahrs_main.txt
+
+Type of Precondition:
+[underoverapprox]
+precondition found, end encoding
+
+                                                           0 sec [DONE]
+        Number of expressions:                         38229
+        after encoding
+
+      196 assertions before transformations (100 no_function_call, 96 no_back_edge).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                           27389
+        Fixed Memory Address Assigner
+          Number of moved ops                              1
+          Number of rewrites                             525
+        Simplifier
+          Number of moved ops                              1
+          Number of rewrites                           21347
+        Memory Model Encoder
+          Number of moved ops                              0
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                               0
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                             791
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      196 assertions remain after transformations (100 no_function_call, 96 no_back_edge).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...            0 sec [DONE]
+        
+                                                           0 sec [DONE]
+      after performing Check
+evaluateCheckerResultsViaRefinementLoop
+checker.getResult() is Trace
+checkOnlyPrecon: 1, size:1
+setCheckToUnsafe for precondition Instruction
+checkID: 220
+setCheckToUnsafe
+set check to unsafe
+getCheckerResultAfterUpdatingMarker
+failingInst:   %1 = call i32 (i8*, ...) @printf(i8* getelementptr inbounds ([38 x i8], [38 x i8]* @.str, i32 0, i32 0), i8* %arg0), !dbg !1378
+Preconditions internal: 
+
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   %1 = call i32 (i8*, ...) @printf(i8* getelementptr inbounds ([38 x i8], [38 x i8]* @.str, i32 0, i32 0), i8* %arg0), !dbg !1378
+Preconditions internal: 
+
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   %1 = call i32 (i8*, ...) @printf(i8* getelementptr inbounds ([38 x i8], [38 x i8]* @.str, i32 0, i32 0), i8* %arg0), !dbg !1378
+Preconditions internal: 
+
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      name of function arguments: Writing precondition at: jobs/317/precondition_ahrs_main.txt
+
+Generated Preconditions:
+[underoverapprox]name of function arguments: 
+
+
+
+
+                                                           0 sec [DONE]
+    allsafe
+    
+                                                           0 sec [DONE]
+  iterations succeeded.
+        Unrolling loop in function "mat_mymul1" for 4 iterations succeeded.
+        Unrolling loop in function "mat_mymul1" for 4 iterations succeeded.
+        Transformed "mat_mymul1" from 13 to 232 basic blocks and from 88 to 2482 instructions
+        Unrolling loop in function "mat_sub" for 4 iterations succeeded.
+        Unrolling loop in function "mat_sub" for 4 iterations succeeded.
+        Transformed "mat_sub" from 9 to 56 basic blocks and from 58 to 543 instructions
+        Unrolling loop in function "mat_mymul5" for 4 iterations succeeded.
+        Unrolling loop in function "mat_mymul5" for 4 iterations succeeded.
+        Unrolling loop in function "mat_mymul5" for 4 iterations succeeded.
+        Unrolling loop in function "mat_mymul5" for 4 iterations succeeded.
+        Unrolling loop in function "mat_mymul5" for 4 iterations succeeded.
+        Transformed "mat_mymul5" from 21 to 287 basic blocks and from 136 to 3132 instructions
+                                                           0 sec [DONE]
+        Number of expressions:                         78910
+        after encoding
+
+      441 assertions before transformations (57 no_function_call, 376 no_back_edge, 7 custom, 1 no_unreachable_executed).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                           48984
+        Fixed Memory Address Assigner
+          Number of moved ops                             10
+          Number of rewrites                             395
+        Simplifier
+          Number of moved ops                              1
+          Number of rewrites                            3214
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               5
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           12999
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           21252
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                            4232
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                              70
+                                                           0 sec [DONE]
+        
+      441 assertions remain after transformations (57 no_function_call, 376 no_back_edge, 7 custom, 1 no_unreachable_executed).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...            0 sec [DONE]
+        
+                                                           0 sec [DONE]
+      after performing Check
+evaluateCheckerResultsViaRefinementLoop
+checker.getResult() is Trace
+checkOnlyPrecon: 0, size:1
+getFailingCheckFor
+setStatusMarkerAccordingToFailingInstruction
+getCheckerResultAfterUpdatingMarker
+failingInst:   %3 = call i32 @clock_gettime(i32 0, %struct.timeval.141* @get_Time.tset) #9, !dbg !1380
+Preconditions internal: 
+
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   %3 = call i32 @clock_gettime(i32 0, %struct.timeval.141* @get_Time.tset) #9, !dbg !1380
+Preconditions internal: 
+
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   %3 = call i32 @clock_gettime(i32 0, %struct.timeval.141* @get_Time.tset) #9, !dbg !1380
+Preconditions internal: 
+
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      name of function arguments: Writing precondition at: jobs/317/precondition_AHRS_Algorithm.txt
+
+Generated Preconditions:
+[underoverapprox]name of function arguments: 
+
+
+
+
+                                                           0 sec [DONE]
+    allsafe
+    
+                                                           0 sec [DONE]
+  

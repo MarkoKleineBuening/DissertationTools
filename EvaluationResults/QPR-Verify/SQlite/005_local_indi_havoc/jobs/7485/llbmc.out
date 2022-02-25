@@ -1,0 +1,100 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 7485 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 1
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/7485
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : isLikeOrGlob
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "isLikeOrGlob" for 1 iterations succeeded.
+      Unrolling loop in function "isLikeOrGlob" for 1 iterations succeeded.
+      Transformed "isLikeOrGlob" from 58 to 68 basic blocks and from 399 to 472 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...Current: isLikeOrGlob Havoced: sqlite3IsLikeFunction
+Current: isLikeOrGlob Havoced: sqlite3ExprSkipCollate
+Current: isLikeOrGlob Havoced: sqlite3VdbeGetBoundValue
+Current: isLikeOrGlob Havoced: sqlite3_value_type
+Current: isLikeOrGlob Havoced: sqlite3_value_text
+Current: isLikeOrGlob Havoced: sqlite3VdbeSetVarmask
+Current: isLikeOrGlob Havoced: sqlite3Expr
+Current: isLikeOrGlob Havoced: sqlite3ExprAffinity
+Current: isLikeOrGlob Havoced: sqlite3AtoF
+Current: isLikeOrGlob Havoced: sqlite3AtoF
+Current: isLikeOrGlob Havoced: sqlite3VdbeSetVarmask
+Current: isLikeOrGlob Havoced: sqlite3GetTempReg
+Current: isLikeOrGlob Havoced: sqlite3ExprCodeTarget
+Current: isLikeOrGlob Havoced: sqlite3VdbeCurrentAddr
+Current: isLikeOrGlob Havoced: sqlite3VdbeChangeP3
+Current: isLikeOrGlob Havoced: sqlite3ReleaseTempReg
+Current: isLikeOrGlob Havoced: sqlite3ValueFree
+Current: isLikeOrGlob Havoced: sqlite3ExprDelete
+Current: isLikeOrGlob Havoced: sqlite3ValueFree
+                      0 sec [DONE]
+        Number of expressions:                        155811
+        after encoding
+
+      3 assertions before transformations (2 no_back_edge, 1 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            3821
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72680
+        Memory Model Encoder
+          Number of moved ops                              0rewriteAllocaOprewriteStackAddressOp
+rewriteAllocaOprewriteStackAddressOp
+
+          Number of rewrites                               2
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                              15
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             142
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      3 assertions remain after transformations (2 no_back_edge, 1 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...

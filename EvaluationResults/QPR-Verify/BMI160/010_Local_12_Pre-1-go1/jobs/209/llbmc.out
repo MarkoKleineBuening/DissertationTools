@@ -1,0 +1,172 @@
+runJobCommand
+precondition analysis with entry:bmi160_get_sensor_data
+arguents: child
+arguents: job
+arguents: mode
+arguents: precondition
+handleJobInSeparateProcess0
+
+Checking job 209 ...about to run job:
+preconNumber: 5, 1
+
+  Running Model Checker with 1 checks ...entry: bmi160_get_sensor_data, functionName: get_accel_gyro_data
+  <badref> = call i8 @qpr.precondition.get_accel_gyro_data(i8 %19, %struct.bmi160_sensor_data.8* %1, %struct.bmi160_sensor_data.8* %2, %struct.bmi160_dev.7* @configStub)
+entry: bmi160_get_sensor_data, functionName: bmi160_get_sensor_data
+entry: bmi160_get_sensor_data, functionName: get_accel_gyro_data
+try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 12
+    HavocLimit : 0
+    PreconditionNumber : 5
+    PreconditionLocation : jobs/209
+    TimeOut : 300
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : bmi160_get_sensor_data
+m_checker->run()
+
+    Performing bounded model checking ...
+      Transformed "bmi160_get_sensor_data" from 21 to 26 basic blocks and from 104 to 113 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...size Alloca: 1
+size Alloca: 1
+size Alloca: 1
+TODO MKB implement precondition handling: IE
+Reading in precondition at: jobs/209/precondition_get_accel_gyro_data.txt
+preconFile: jobs/209/precondition_get_accel_gyro_data.txt
+ref: [overapprox]name of function arguments, argValue:  
+ref: [overapprox]name of function arguments, argValue:  
+name of function arguments line
+param: i8 %arg0:0
+---name: i8 %arg0, value: 0.
+integer, char or other simple types
+name: i8 %arg0
+assuming that there are not more then 10 arguments
+nameIndex: 0
+nameID: 0
+argument name: 
+value: 0
+###new bool cond: bool % = compare(%, %i8__0)
+pruneOrAssert -- adding line boolCond: bool % = compare(%, %i8__0)
+Writing precondition type at: jobs/209/precondition_type_bmi160_get_sensor_data.txt
+
+Type of Precondition:
+[overapprox]
+precondition found, end encoding
+                      0 sec [DONE]
+        Number of expressions:                           223
+        after encoding
+
+      1 assertion before transformations (1 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                              74
+        Fixed Memory Address Assigner
+          Number of moved ops                              8
+          Number of rewrites                              11
+        Simplifier
+          Number of moved ops                              3
+          Number of rewrites                              49
+        Memory Model Encoder
+          Number of moved ops                              0
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                               0
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      1 assertion remains after transformations (1 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...            0 sec [DONE]
+        
+                                                           0 sec [DONE]
+      after performing Check
+evaluateCheckerResultsViaRefinementLoop
+checker.getResult() is Trace
+checkOnlyPrecon: 1, size:1
+setCheckToUnsafe for precondition Instruction
+checkID: 1014
+setCheckToUnsafe
+set check to unsafe
+getCheckerResultAfterUpdatingMarker
+failingInst:   %23 = call i8 @qpr.precondition.get_accel_gyro_data(i8 %12, %struct.bmi160_sensor_data.8* %arg1, %struct.bmi160_sensor_data.8* %arg2, %struct.bmi160_dev.7* @configStub), !dbg !253
+Preconditions internal: 
+i8 %arg0:3; (i8 %arg0:3)
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: i8 %arg0 = nondef() : 3
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   %23 = call i8 @qpr.precondition.get_accel_gyro_data(i8 %12, %struct.bmi160_sensor_data.8* %arg1, %struct.bmi160_sensor_data.8* %arg2, %struct.bmi160_dev.7* @configStub), !dbg !253
+Preconditions internal: 
+i8 %arg0:11; (i8 %arg0:11)
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: i8 %arg0 = nondef() : 11
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   %23 = call i8 @qpr.precondition.get_accel_gyro_data(i8 %12, %struct.bmi160_sensor_data.8* %arg1, %struct.bmi160_sensor_data.8* %arg2, %struct.bmi160_dev.7* @configStub), !dbg !253
+Preconditions internal: 
+i8 %arg0:19; (i8 %arg0:19)
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: i8 %arg0 = nondef() : 19
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   %23 = call i8 @qpr.precondition.get_accel_gyro_data(i8 %12, %struct.bmi160_sensor_data.8* %arg1, %struct.bmi160_sensor_data.8* %arg2, %struct.bmi160_dev.7* @configStub), !dbg !253
+Preconditions internal: 
+i8 %arg0:27; (i8 %arg0:27)
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: i8 %arg0 = nondef() : 27
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      failingInst:   %23 = call i8 @qpr.precondition.get_accel_gyro_data(i8 %12, %struct.bmi160_sensor_data.8* %arg1, %struct.bmi160_sensor_data.8* %arg2, %struct.bmi160_dev.7* @configStub), !dbg !253
+Preconditions internal: 
+i8 %arg0:35; (i8 %arg0:35)
+ function does not read memory: 0, checkValidLoad:0, checkMemory: 0
+function does not read memory 
+
+assumePair: i8 %arg0 = nondef() : 35
+
+    Rerunning SMT solver (STP with MiniSat) ...            0 sec [DONE]
+      name of function arguments: Writing precondition at: jobs/209/precondition_bmi160_get_sensor_data.txt
+
+Generated Preconditions:
+[underoverapprox]name of function arguments: 
+i8 %arg0:3; 
+i8 %arg0:11; 
+i8 %arg0:19; 
+i8 %arg0:27; 
+i8 %arg0:35; 
+
+                                                           0 sec [DONE]
+    allunsafe
+    
+                                                           0 sec [DONE]
+  

@@ -1,0 +1,38 @@
+<VerificationJob>
+  <Configuration>
+    <AnalyzeChecksIndividually value="false" />
+    <BitcodeTraces value="false" />
+    <EnableSlicing value="false" />
+    <EntryPoint value="unpack_gyro_data" />
+    <FixPoint value="true" />
+    <IgnoreMissingFunctions value="false" />
+    <InitializedGlobals value="false" />
+    <LoopUnrollBound value="12" />
+    <OverApproxVaArgs value="false" />
+    <PreconditionLocation value="jobs/187" />
+    <SourceDirectory value="/home/i12/mbuening/100_Dissertation/BMI160/BMI160_driver" />
+    <StopEncodingAfterCheck value="false" />
+    <StopEncodingAfterCheckLoop value="0" />
+    <TimeOut value="300" />
+  </Configuration>
+  <CheckList>
+    <Check id="2338" location="2483" category="arithmetic.overflow.warning" status="unsafe" scope="unpack_gyro_data">
+      <Annotations>
+        <Annotation>An unsigned arithmetic operation can overflow (wraparound).</Annotation>
+      </Annotations>
+    </Check>
+    <Check id="2340" location="2485" category="arithmetic.overflow.warning" status="safe" scope="unpack_gyro_data" />
+    <Check id="2341" location="2486" category="explicit.conversion.overflow" status="unsafe" scope="unpack_gyro_data">
+      <Annotations>
+        <Annotation>An explicit conversion operation can overflow.</Annotation>
+      </Annotations>
+    </Check>
+    <Check id="2344" location="2487" category="shift.of.negative" status="safe" scope="unpack_gyro_data" />
+    <Check id="2348" location="2491" category="arithmetic.overflow.warning" status="safe" scope="unpack_gyro_data" />
+    <Check id="2354" location="2495" category="shift.of.negative" status="safe" scope="unpack_gyro_data" />
+    <Check id="2358" location="2499" category="arithmetic.overflow.warning" status="safe" scope="unpack_gyro_data" />
+    <Check id="2364" location="2503" category="shift.of.negative" status="safe" scope="unpack_gyro_data" />
+  </CheckList>
+  <Annotation>someunsafe</Annotation>
+  <Status>someunsafe</Status>
+</VerificationJob>

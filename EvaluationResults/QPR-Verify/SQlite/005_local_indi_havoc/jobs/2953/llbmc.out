@@ -1,0 +1,97 @@
+runJobCommand
+arguents: child
+arguents: job
+arguents: mode
+Careful, HavocLimit is not zero. Call Abstraction is activated
+handleJobInSeparateProcess0
+
+Checking job 2953 ...about to run job:
+preconNumber: 0, 0
+
+  Running Model Checker with 1 checks ...try
+try ready
+
+    SMTSolver : stp
+    CallStackBound : 0
+    StopEncodingAfterCheckLoop : 0
+    LoopUnrollBound : 1
+    HavocLimit : 1
+    PreconditionNumber : 0
+    PreconditionLocation : jobs/2953
+    TimeOut : 600
+    InitializedGlobals : false
+    IgnoreMissingFunctions : false
+    StopEncodingAfterCheck : false
+    OverApproxVaArgs : false
+    PreconditionCheckMemory : false
+    PreconditionOnlyArguments : trueI [0] lib/ModelChecker/Verifier.cpp:247 | EntryPoint : walTryBeginRead
+m_checker->run()
+
+    Performing bounded model checking ...
+      Unrolling loop in function "walTryBeginRead" for 1 iterations succeeded.
+      Unrolling loop in function "walTryBeginRead" for 4 iterations succeeded.
+      Transformed "walTryBeginRead" from 68 to 82 basic blocks and from 299 to 400 instructions
+      Performing pre-transformations on LLVM IR ...        0 sec [DONE]
+        
+      Performing logical encoding ...Current: walTryBeginRead Havoced: sqlite3OsSleep
+Current: walTryBeginRead Havoced: walIndexReadHdr
+Current: walTryBeginRead Havoced: walLockShared
+Current: walTryBeginRead Havoced: walUnlockShared
+Current: walTryBeginRead Havoced: walBeginShmUnreliable
+Current: walTryBeginRead Havoced: walCkptInfo
+Current: walTryBeginRead Havoced: walLockShared
+Current: walTryBeginRead Havoced: walShmBarrier
+Current: walTryBeginRead Havoced: walIndexHdr
+
+        Unrolling loop in function "llbmc.memcmp" for 0 iterations succeeded.
+        Transformed "llbmc.memcmp" from 17 to 20 instructionsCurrent: walTryBeginRead Havoced: walUnlockShared
+Current: walTryBeginRead Havoced: walLockExclusive
+Current: walTryBeginRead Havoced: walUnlockExclusive
+Current: walTryBeginRead Havoced: walLockShared
+Current: walTryBeginRead Havoced: walShmBarrier
+Current: walTryBeginRead Havoced: walIndexHdr
+Current: walTryBeginRead Havoced: walUnlockShared
+
+                                                           0 sec [DONE]
+        Number of expressions:                        155893
+        after encoding
+
+      5 assertions before transformations (4 no_back_edge, 1 custom).
+
+      Performing formula transformations ...
+        Simplifier
+          Number of rewrites                            3953
+        Fixed Memory Address Assigner
+          Number of moved ops                              0
+          Number of rewrites                            5208
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                           72647
+        Memory Model Encoder
+          Number of moved ops                              0
+          Number of rewrites                               0
+        Simplifier
+          Number of rewrites                              10
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                             142
+        ToASC Analyser
+          Memcpy/memset found                             no
+        Byte-Based Memory Creator
+        Instantiation-Based ToASC Simplifier
+        Simplifier
+        FP Abstraction
+          Number of rewrites                              44
+
+Abstracted floating point operations.  The result might be a false positive.
+
+        Simplifier
+          Number of moved ops                              0
+          Number of rewrites                               0
+                                                           0 sec [DONE]
+        
+      5 assertions remain after transformations (4 no_back_edge, 1 custom).
+after rewriteFormula
+after sanityCheckFormula
+
+      Running SMT solver (STP with MiniSat) ...
